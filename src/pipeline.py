@@ -55,7 +55,13 @@ class TransportAssistant:
             confidence=confidence
         )
 
+        # The bundled records are fixtures, not an independently verified feed.
+        if intent in {"route_query", "service_availability", "accessibility", "station_information"}:
+            response_hi = "डेमो: परिवहन डेटा सत्यापित नहीं है। " + response_hi
+
         return {
+            "data_status": "unverified_demo",
+            "model_backend": "heuristic" if self.classifier.model is None else type(self.classifier).__name__,
             "raw_query": query,
             "normalized_query": norm_query,
             "intent": intent,

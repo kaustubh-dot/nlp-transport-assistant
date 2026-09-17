@@ -223,7 +223,7 @@ class EntityExtractor:
         """Identifies transport mode keyword."""
         # Longest keys first
         for keyword in sorted(TRANSPORT_MODES.keys(), key=len, reverse=True):
-            pattern = r"(?:\b|^)" + re.escape(keyword) + r"(?:\b|$)"
+            pattern = r"(?<!\S)" + re.escape(keyword) + r"(?!\S)"
             if re.search(pattern, text):
                 return TRANSPORT_MODES[keyword]
         return None
@@ -231,7 +231,7 @@ class EntityExtractor:
     def _extract_info_type(self, text: str) -> Optional[str]:
         """Identifies facility or info query keyword."""
         for keyword in sorted(FACILITY_TYPES.keys(), key=len, reverse=True):
-            pattern = r"(?:\b|^)" + re.escape(keyword) + r"(?:\b|$)"
+            pattern = r"(?<!\S)" + re.escape(keyword) + r"(?!\S)"
             if re.search(pattern, text):
                 return FACILITY_TYPES[keyword]
         return None
@@ -245,7 +245,7 @@ class EntityExtractor:
 
         # Find exact alias matches
         for alias, station_id in self.sorted_aliases:
-            pattern = r"(?:\b|^)" + re.escape(alias) + r"(?:\b|$)"
+            pattern = r"(?<!\S)" + re.escape(alias) + r"(?!\S)"
             for match in re.finditer(pattern, text):
                 start, end = match.span()
                 # Check for overlapping span with already matched longer alias
@@ -278,9 +278,9 @@ class EntityExtractor:
             subsequent_text = text[matched_spans[0]["end"]:]
             prior_text = text[:matched_spans[0]["start"]]
 
-            if re.search(r"^\s*(?:से|from)\b", subsequent_text):
+            if re.search(r"^\s*(?:से|se|from)(?!\S)", subsequent_text):
                 return station_id, None, station_id
-            elif re.search(r"^\s*(?:तक|को|के लिए|to)\b", subsequent_text) or re.search(r"\b(?:to)\s*$", prior_text):
+            elif re.search(r"^\s*(?:तक|को|के लिए|ke liye|to)(?!\S)", subsequent_text) or re.search(r"\b(?:to)\s*$", prior_text):
                 return None, station_id, station_id
             else:
                 return None, None, station_id
@@ -296,15 +296,15 @@ class EntityExtractor:
         between = text[first["end"]:second["start"]]
         after_second = text[second["end"]:]
 
-        if re.search(r"\b(?:से|from)\b", between):
+        if re.search(r"(?<!\S)(?:से|se|from)(?!\S)", between):
             origin = first["station_id"]
             destination = second["station_id"]
-        elif re.search(r"\b(?:से|from)\b", after_second):
+        elif re.search(r"(?<!\S)(?:से|se|from)(?!\S)", after_second):
             origin = second["station_id"]
             destination = first["station_id"]
-        elif re.search(r"\b(?:तक|को|के लिए|to)\b", between):
-            destination = first["station_id"]
-            origin = second["station_id"]
+        elif re.search(r"(?<!\S)to(?!\S)", between):
+            origin = first["station_id"]
+            destination = second["station_id"]
         else:
             # By standard convention: First mentioned is origin, second is destination
             origin = first["station_id"]

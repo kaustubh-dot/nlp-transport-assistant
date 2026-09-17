@@ -67,7 +67,6 @@ def get_assistant(model_type: str = "baseline") -> TransportAssistant:
 
 # Sidebar Configuration
 with st.sidebar:
-    st.image("https://img.icons8.com/color/96/subway.png", width=72)
     st.title("⚙️ नियंत्रण पैनल")
     st.markdown("**Hindi Multimodal Transport Assistant**")
     st.markdown("चेन्नई सार्वजनिक परिवहन के लिए प्राकृतिक भाषा समझ (NLU)")
@@ -80,17 +79,17 @@ with st.sidebar:
     selected_model = "muril" if "muril" in model_option else "baseline"
 
     st.markdown("---")
-    st.subheader("📚 समर्थित सेवाएं (Scope)")
+    st.subheader("📚 डेमो उदाहरण (पूर्ण नेटवर्क नहीं)")
     st.markdown("""
     - 🚇 **चेन्नई मेट्रो (CMRL)**: ब्लू एवं ग्रीन लाइन
     - 🚆 **उपनगरीय रेलवे (SR)**: बीच - तांबरम - चेंगलपट्टू
     - 🚌 **एमटीसी बसें (MTC)**: प्रमुख शहर मार्ग
-    - ♿ **सुलभता (Accessibility)**: लिफ्ट, व्हीलचेयर, रैंप
+    - ♿ **सुलभता (Accessibility)**: दर्ज व्यक्तिगत सुविधाएं
     """)
 
     st.markdown("---")
-    show_dev_info = st.checkbox("🔍 डेवलपर इंस्पेक्टर (Debug Mode)", value=True)
-    st.caption("लागत: ₹0 | 100% खुला स्रोत एवं स्थानीय निष्पादन")
+    show_dev_info = st.checkbox("🔍 डेवलपर इंस्पेक्टर (Debug Mode)", value=False)
+    st.caption("लागत: ₹0 | स्थानीय प्रोटोटाइप")
 
 
 # Initialize assistant
@@ -99,6 +98,9 @@ assistant = get_assistant(model_type=selected_model)
 # Header
 st.markdown('<div class="main-title">🚇 चेन्नई बहुभाषी परिवहन सहायक</div>', unsafe_allow_html=True)
 st.markdown('<div class="sub-title">Hindi Multimodal Transport Assistant for Chennai Using NLP</div>', unsafe_allow_html=True)
+
+st.warning("डेमो डेटा सत्यापित नहीं है। यात्रा से पहले संचालक से पुष्टि करें। समय-सारणी और किराया उपलब्ध नहीं हैं।")
+st.caption("हर प्रश्न में पूरी जानकारी दें; पिछले प्रश्न की जानकारी याद नहीं रखी जाती।")
 
 # Quick Query Suggestions
 st.markdown("**त्वरित प्रश्न (Quick Sample Queries):**")
@@ -136,18 +138,12 @@ if user_query:
     with st.spinner("प्रश्न का विश्लेषण और डेटाबेस खोज जारी है..."):
         result = assistant.process_query(user_query)
 
+    if result["model_backend"] == "heuristic":
+        st.caption("नियम-आधारित डेमो: प्रशिक्षित मॉडल उपलब्ध नहीं है; स्कोर अनुमान है।")
+
     # 1. Main Response Card
     st.markdown("### 💬 उत्तर (Response):")
     st.markdown(f'<div class="response-card">{result["response_hi"]}</div>', unsafe_allow_html=True)
-
-    # Multimodal Extension Buttons (Tamil Translation & Speech)
-    btn_col1, btn_col2, btn_col3 = st.columns([1.5, 1.5, 3])
-    with btn_col1:
-        if st.button("தமிழ் தமிழில் மொழிபெயர் (Tamil)"):
-            st.info("🔄 [IndicTrans2 Stub]: சென்னை சென்ட்ரலில் இருந்து விமான நிலையத்திற்கு செல்ல நீல வழித்தட மெட்ரோவை பயன்படுத்தலாம்.")
-    with btn_col2:
-        if st.button("🔊 आवाज़ सुनें (TTS)"):
-            st.success("📢 [Indic-TTS Stub]: ऑडियो तैयार किया गया है।")
 
     st.markdown("---")
 

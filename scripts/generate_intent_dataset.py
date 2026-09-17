@@ -2,10 +2,10 @@
 """Generates the domain-adapted NLU dataset for Hindi Transport Assistant.
 
 Uses templates from data/templates/hindi_templates.json, canonical stations,
-transport modes, and seeds to produce a balanced, stratified dataset:
-  - Train: 70%
-  - Validation: 15%
-  - Test: 15%
+and transport modes to produce an intent development dataset. Entire authored
+template families are assigned to train/validation/test; counts are approximate
+and may be imbalanced after deduplication. No external seed corpus is loaded.
+Slot columns are unreviewed hints, not evaluation gold.
 
 Outputs: data/processed/intents.csv
 """
@@ -86,6 +86,7 @@ def generate_dataset(samples_per_intent: int = 150) -> pd.DataFrame:
             template_list = hinglish_templates if is_hinglish else hi_templates
             tpl = random.choice(template_list)
 
+            station_id = None
             origin_id = None
             dest_id = None
             mode_id = None
@@ -96,14 +97,15 @@ def generate_dataset(samples_per_intent: int = 150) -> pd.DataFrame:
             # Handle Station Slots
             if "{origin}" in tpl and "{destination}" in tpl:
                 station_pool = STATIONS_HINGLISH if is_hinglish else STATIONS_HI
-                s1, s2 = random.sample(station_pool, 2)
+                s1 = random.choice(station_pool)
+                s2 = random.choice([s for s in station_pool if s[0] != s1[0]])
                 origin_id, origin_name = s1
                 dest_id, dest_name = s2
                 filled = filled.replace("{origin}", origin_name).replace("{destination}", dest_name)
             elif "{station}" in tpl:
                 station_pool = STATIONS_HINGLISH if is_hinglish else STATIONS_HI
                 s = random.choice(station_pool)
-                origin_id, station_name = s
+                station_id, station_name = s
                 filled = filled.replace("{station}", station_name)
             elif "{origin}" in tpl:
                 station_pool = STATIONS_HINGLISH if is_hinglish else STATIONS_HI
@@ -128,11 +130,14 @@ def generate_dataset(samples_per_intent: int = 150) -> pd.DataFrame:
 
             rows.append({
                 "query": filled.strip(),
+                "template_family": intent + ":" + config["families_hinglish" if is_hinglish else "families_hi"][template_list.index(tpl)],
+                "station": station_id or origin_id or dest_id,
                 "intent": intent,
                 "origin": origin_id,
                 "destination": dest_id,
                 "transport_mode": mode_id,
                 "information_type": info_type,
+                "slots_reviewed": False,
                 "language": "hinglish" if is_hinglish else "hi"
             })
             intent_samples += 1
@@ -140,20 +145,17 @@ def generate_dataset(samples_per_intent: int = 150) -> pd.DataFrame:
     df = pd.DataFrame(rows)
     df = df.drop_duplicates(subset=["query"]).reset_index(drop=True)
 
-    # Stratified Train (70%), Val (15%), Test (15%)
+    # Split entire authored template families; substitutions never cross splits.
+    # With small template inventories, proportions are approximate, not 70/15/15.
     df["split"] = "train"
     for intent in df["intent"].unique():
-        idx = df[df["intent"] == intent].index.tolist()
-        random.shuffle(idx)
-        n = len(idx)
-        val_end = int(0.15 * n)
-        test_end = int(0.30 * n)
-
-        val_idx = idx[:val_end]
-        test_idx = idx[val_end:test_end]
-
-        df.loc[val_idx, "split"] = "val"
-        df.loc[test_idx, "split"] = "test"
+        families = sorted(df.loc[df.intent == intent, "template_family"].unique())
+        if len(families) < 3:
+            raise ValueError(f"{intent} needs at least three template families")
+        random.shuffle(families)
+        n_holdout = max(1, int(len(families) * 0.15))
+        df.loc[df.template_family.isin(families[:n_holdout]), "split"] = "val"
+        df.loc[df.template_family.isin(families[n_holdout:2*n_holdout]), "split"] = "test"
 
     return df
 

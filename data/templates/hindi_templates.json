@@ -21,6 +21,26 @@
         "mujhe {origin} se {destination} jaana hai",
         "{origin} se {destination} ke liye kaun sa route best hai?",
         "{origin} to {destination} travel route"
+      ],
+      "families_hi": [
+        "how",
+        "route",
+        "best",
+        "how",
+        "means",
+        "route",
+        "route",
+        "best",
+        "means",
+        "boarding"
+      ],
+      "families_hinglish": [
+        "how",
+        "route",
+        "how",
+        "route",
+        "best",
+        "route"
       ]
     },
     "service_availability": {
@@ -39,6 +59,21 @@
         "kya {origin} se {destination} {mode} milegi?",
         "{origin} se {destination} direct {mode} hai kya?",
         "{origin} to {destination} {mode} connectivity available?"
+      ],
+      "families_hi": [
+        "available",
+        "available",
+        "running",
+        "direct",
+        "travel",
+        "running",
+        "connectivity"
+      ],
+      "families_hinglish": [
+        "available",
+        "available",
+        "direct",
+        "connectivity"
       ]
     },
     "service_timing": {
@@ -59,6 +94,23 @@
         "{mode} operating hours kya hai?",
         "aakhiri {mode} kab chhutti hai?",
         "{origin} par {mode} frequency kitni hai?"
+      ],
+      "families_hi": [
+        "last",
+        "first",
+        "hours",
+        "last",
+        "first",
+        "hours",
+        "frequency",
+        "calendar"
+      ],
+      "families_hinglish": [
+        "last",
+        "first",
+        "hours",
+        "last",
+        "frequency"
       ]
     },
     "station_information": {
@@ -77,6 +129,21 @@
         "{station} par parking available hai kya?",
         "{station} interchange options kya hai?",
         "{station} station amenities details?"
+      ],
+      "families_hi": [
+        "general",
+        "parking",
+        "nearby",
+        "interchange",
+        "amenities",
+        "storage",
+        "interchange"
+      ],
+      "families_hinglish": [
+        "general",
+        "parking",
+        "interchange",
+        "general"
       ]
     },
     "accessibility": {
@@ -95,6 +162,21 @@
         "{station} par lift aur ramp facility hai kya?",
         "kya {station} accessible hai wheelchair ke liye?",
         "{station} lift and escalator working status?"
+      ],
+      "families_hi": [
+        "wheelchair",
+        "lift_ramp",
+        "lift",
+        "wheelchair",
+        "tactile",
+        "working",
+        "assistance"
+      ],
+      "families_hinglish": [
+        "wheelchair",
+        "lift_ramp",
+        "wheelchair",
+        "working"
       ]
     },
     "ticketing": {
@@ -113,6 +195,21 @@
         "{origin} to {destination} ticket price kya hai?",
         "{mode} smart card recharge kaise kare?",
         "{origin} se {destination} metro token charges?"
+      ],
+      "families_hi": [
+        "fare",
+        "fare_range",
+        "recharge",
+        "purchase",
+        "passes",
+        "discount",
+        "counter"
+      ],
+      "families_hinglish": [
+        "fare",
+        "fare",
+        "recharge",
+        "fare"
       ]
     },
     "out_of_scope": {
@@ -133,6 +230,23 @@
         "pnr status kaise check kare?",
         "tell me a joke",
         "cricket match score kya chal raha hai?"
+      ],
+      "families_hi": [
+        "weather",
+        "tourism",
+        "food",
+        "sports",
+        "knowledge",
+        "joke",
+        "taxi",
+        "pnr"
+      ],
+      "families_hinglish": [
+        "weather",
+        "tourism",
+        "pnr",
+        "joke",
+        "sports"
       ]
     }
   },
@@ -152,25 +266,43 @@
     "rail": "railway"
   },
   "facility_keywords": {
-    "wheelchair": ["व्हीलचेयर", "wheelchair", "दिव्यांग", "विकलांग", "व्हील चेयर"],
-    "lift": ["लिफ्ट", "lift", "एलिवेटर", "elevator"],
-    "parking": ["पार्किंग", "parking", "गाड़ी खड़ी"],
-    "toilet": ["शौचालय", "टॉयलेट", "toilet", "वॉशरूम", "washroom"],
-    "tactile_paths": ["टैक्टाइल", "tactile", "दृष्टिहीन", "स्पर्श पथ"]
+    "wheelchair": [
+      "व्हीलचेयर",
+      "wheelchair",
+      "दिव्यांग",
+      "विकलांग",
+      "व्हील चेयर"
+    ],
+    "lift": [
+      "लिफ्ट",
+      "lift",
+      "एलिवेटर",
+      "elevator"
+    ],
+    "parking": [
+      "पार्किंग",
+      "parking",
+      "गाड़ी खड़ी"
+    ],
+    "toilet": [
+      "शौचालय",
+      "टॉयलेट",
+      "toilet",
+      "वॉशरूम",
+      "washroom"
+    ],
+    "tactile_paths": [
+      "टैक्टाइल",
+      "tactile",
+      "दृष्टिहीन",
+      "स्पर्श पथ"
+    ]
   },
   "response_templates_hi": {
-    "route_direct": "{origin_hi} से {destination_hi} जाने के लिए आप {line_name} ({mode_hi}) ले सकते हैं। यात्रा में लगभग {time} मिनट लगते हैं और सामान्य किराया ₹{fare} है।",
-    "route_interchange": "{origin_hi} से {destination_hi} के लिए आप {mode_hi} ले सकते हैं। आपको {interchange_station_hi} पर लाइन बदलनी होगी। कुल यात्रा समय लगभग {time} मिनट है।",
-    "service_available_yes": "हाँ, {origin_hi} से {destination_hi} के बीच {mode_hi} सेवा उपलब्ध है।",
-    "service_available_no": "क्षमा करें, {origin_hi} से {destination_hi} के लिए सीधी {mode_hi} सेवा उपलब्ध नहीं है। आप वैकल्पिक मार्ग या अन्य परिवहन साधन चुन सकते हैं।",
-    "timing_first_last": "{station_hi} स्टेशन पर {line_name} ({mode_hi}) की पहली सेवा सुबह {first_service} बजे और आखिरी सेवा रात {last_service} बजे उपलब्ध होती है।",
-    "accessibility_yes": "हाँ, {station_hi} स्टेशन पर {facility_hi} की सुविधा उपलब्ध है। अतिरिक्त सहायता के लिए स्टेशन कस्टमर केयर से संपर्क किया जा सकता है।",
-    "accessibility_no": "क्षमा करें, {station_hi} स्टेशन पर {facility_hi} की सीधी सुविधा उपलब्ध नहीं है।",
-    "ticketing_info": "{origin_hi} से {destination_hi} के लिए {mode_hi} का सामान्य किराया ₹{fare} है। टिकट काउंटर, वेंडिंग मशीन या क्यूआर ऐप से टिकट लिया जा सकता है।",
     "missing_destination": "आप {origin_hi} से कहाँ जाना चाहते हैं? कृपया अपने गंतव्य (destination) स्टेशन का नाम बताएं।",
     "missing_origin": "आप कहाँ से यात्रा शुरू करना चाहते हैं? कृपया अपने आरंभिक (origin) स्टेशन का नाम बताएं।",
     "unknown_station": "मुझे यह स्टेशन या स्थान नहीं मिला। कृपया किसी समर्थित स्टेशन (जैसे चेन्नई सेंट्रल, एग्मोर, गिंडी, एयरपोर्ट, ताम्बरम) का नाम दें।",
     "out_of_scope": "क्षमा करें, मैं केवल चेन्नई सार्वजनिक परिवहन (मेट्रो, उपनगरीय रेलवे, बस रूट एवं स्टेशन सुविधाओं) से संबंधित प्रश्नों में सहायता कर सकता हूँ।",
-    "live_status_unsupported": "यह प्रणाली आधिकारिक समय-सारणी (schedule) के आधार पर उत्तर देती है। वास्तविक समय की लाइव ट्रेन या बस स्थिति उपलब्ध नहीं है।"
+    "live_status_unsupported": "वास्तविक समय की लाइव ट्रेन या बस स्थिति इस प्रोटोटाइप में उपलब्ध नहीं है।"
   }
 }

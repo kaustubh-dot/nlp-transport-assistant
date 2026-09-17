@@ -12,8 +12,13 @@ def setup_db():
 
 
 @pytest.fixture
-def assistant():
-    return TransportAssistant(model_type="baseline")
+def assistant(tmp_path):
+    # Integration fixtures use deterministic heuristics; trained-model quality is
+    # measured separately on the held-out benchmark, not these four examples.
+    from src.intent_classifier import TfidfBaselineClassifier
+    assistant = TransportAssistant(model_type="baseline")
+    assistant.classifier = TfidfBaselineClassifier(str(tmp_path / "absent.pkl"))
+    return assistant
 
 
 def test_e2e_route_query(assistant):

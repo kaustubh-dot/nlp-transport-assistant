@@ -44,3 +44,10 @@ def test_fuzzy_matching_station(extractor):
     slots = extractor.extract(query)
     assert slots["origin"] == "CHENNAI_CENTRAL"
     assert slots["destination"] == "CHENNAI_AIRPORT"
+
+
+@pytest.mark.parametrize('query', ['central to airport', 'एयरपोर्ट सेंट्रल से कैसे जाऊँ?', 'airport central se kaise jau'])
+def test_directional_markers(extractor, query):
+    slots = extractor.extract(query)
+    assert slots['origin'] == 'CHENNAI_CENTRAL'
+    assert slots['destination'] == 'CHENNAI_AIRPORT'

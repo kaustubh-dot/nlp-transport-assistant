@@ -1,7 +1,7 @@
 """Deterministic Hindi response generator based on structured transport facts.
 
-Avoids generative hallucination by formatting retrieved database records
-into validated Hindi templates.
+Formats database records without inferring missing facts. The pipeline marks
+bundled records as unverified demo data.
 """
 
 import json
@@ -18,8 +18,8 @@ MODE_HI_MAP = {
 
 # Facility names in Hindi
 FACILITY_HI_MAP = {
-    "wheelchair": "व्हीलचेयर सहायता एवं रैंप",
-    "lift": "लिफ्ट एवं एस्केलेटर",
+    "wheelchair": "व्हीलचेयर सहायता",
+    "lift": "लिफ्ट",
     "parking": "पार्किंग",
     "toilet": "शौचालय सुविधा",
     "tactile_paths": "दृष्टिबाधित यात्रियों के लिए स्पर्श पथ (tactile path)"
@@ -59,7 +59,7 @@ class ResponseGenerator:
         if any(w in raw_query for w in ["लेट", "देरी", "delay", "late", "live"]):
             return self.templates.get(
                 "live_status_unsupported",
-                "यह प्रणाली केवल आधिकारिक समय-सारणी के आधार पर उत्तर देती है। वास्तविक समय की लाइव ट्रेन स्थिति उपलब्ध नहीं है।"
+                "वास्तविक समय की लाइव ट्रेन या बस स्थिति इस प्रोटोटाइप में उपलब्ध नहीं है।"
             )
 
         # Handle Route Query
@@ -108,12 +108,9 @@ class ResponseGenerator:
             r = routes[0]
             mode_hi = MODE_HI_MAP.get(r.get("mode", "metro"), "मेट्रो")
             line = r.get("line_name", "मेट्रो लाइन")
-            time = r.get("travel_time_mins", 35)
-            fare = min(60, max(10, int(r.get("distance_km", 12.0) * 2.5)))
             origin_hi = r.get("origin_name_hi", origin)
             dest_hi = r.get("dest_name_hi", destination)
-
-            return f"{origin_hi} से {dest_hi} जाने के लिए आप {line} ({mode_hi}) ले सकते हैं। यात्रा में लगभग {time} मिनट लगते हैं और सामान्य किराया ₹{fare} है।"
+            return f"डेटाबेस में {origin_hi} से {dest_hi} के लिए {line} ({mode_hi}) मार्ग दर्ज है।"
 
         return f"क्षमा करें, {origin} और {destination} के बीच सीधा मार्ग डेटाबेस में नहीं मिला। कृपया नजदीकी प्रमुख स्टेशन से प्रयास करें।"
 
@@ -134,27 +131,17 @@ class ResponseGenerator:
         dest_hi = routes[0].get("dest_name_hi", dest) if routes else dest
 
         if available:
-            return f"हाँ, {origin_hi} से {dest_hi} के बीच {mode_hi} सेवा उपलब्ध है।"
+            direct = any(r.get("direct") == 1 for r in routes)
+            detail = "सीधी सेवा" if direct else "बदलाव वाला मार्ग"
+            return f"हाँ, डेटाबेस में {origin_hi} से {dest_hi} के बीच {mode_hi} का {detail} दर्ज है।"
         else:
-            return f"क्षमा करें, {origin} से {dest} के बीच सीधी {mode_hi} सेवा उपलब्ध नहीं है। आप अन्य परिवहन साधन चुन सकते हैं।"
+            return f"क्षमा करें, {origin} से {dest} के बीच {mode_hi} सेवा की जानकारी डेटाबेस में नहीं मिली। इससे सेवा बंद होने की पुष्टि नहीं होती।"
 
     def _handle_timing(
         self, slots: Dict[str, Any], data: Optional[Dict[str, Any]]
     ) -> str:
-        timings = data.get("timings", []) if data else []
-        mode = slots.get("transport_mode", "metro")
-        mode_hi = MODE_HI_MAP.get(mode, "मेट्रो")
-
-        if timings:
-            t = timings[0]
-            first = t.get("first_service", "05:00")
-            last = t.get("last_service", "23:00")
-            freq = t.get("peak_frequency_mins", 6)
-            line = t.get("line_name", "")
-            line_str = f" ({line})" if line else ""
-            return f"चेन्नई {mode_hi}{line_str} की पहली सेवा सुबह {first} बजे और आखिरी सेवा रात {last} बजे रवाना होती है। पीक समय में ट्रेनें हर {freq} मिनट में उपलब्ध हैं।"
-
-        return f"चेन्नई {mode_hi} की सामान्य सेवा सुबह 05:00 बजे से रात 23:00 बजे तक संचालित होती है।"
+        # The MVP has no station/direction/calendar-aware timetable.
+        return "इस प्रोटोटाइप में सत्यापित समय-सारणी उपलब्ध नहीं है। पहली या आखिरी सेवा का समय संबंधित परिवहन संचालक से जांचें।"
 
     def _handle_accessibility(
         self, slots: Dict[str, Any], data: Optional[Dict[str, Any]]
@@ -166,30 +153,24 @@ class ResponseGenerator:
         if not station:
             return "कृपया स्टेशन का नाम बताएं ताकि मैं पहुंच (accessibility) संबंधी जानकारी दे सकूँ (उदाहरण: कोयम्बेडु पर व्हीलचेयर उपलब्ध है?)"
 
-        fac_info = data.get("facilities", {}) if data else {}
+        fac_info = (data or {}).get("facilities") or {}
         station_hi = fac_info.get("name_hi", station)
-
-        wheelchair_ok = bool(fac_info.get("wheelchair_available", 1))
-        lift_ok = bool(fac_info.get("lift_available", 1))
-
-        if wheelchair_ok or lift_ok:
-            return f"हाँ, {station_hi} मेट्रो स्टेशन पर {facility_hi} की सुविधा उपलब्ध है। सभी चेन्नई मेट्रो स्टेशन व्हीलचेयर और लिफ्ट से सुलभ हैं। विशेष सहायता के लिए स्टेशन कस्टमर केयर से संपर्क करें।"
-        else:
-            return f"क्षमा करें, {station_hi} स्टेशन पर {facility_hi} की सीधी सुविधा की पुष्टि नहीं हुई है।"
+        columns = {
+            "wheelchair": "wheelchair_available", "lift": "lift_available",
+            "parking": "parking_available", "toilet": "accessible_toilet",
+            "tactile_paths": "tactile_paths",
+        }
+        value = fac_info.get(columns.get(facility))
+        if value == 1:
+            return f"डेटाबेस के अनुसार {station_hi} स्टेशन पर {facility_hi} उपलब्ध है। यह वर्तमान कार्यशील स्थिति की पुष्टि नहीं है।"
+        if value == 0:
+            return f"डेटाबेस के अनुसार {station_hi} स्टेशन पर {facility_hi} उपलब्ध नहीं है।"
+        return f"{station_hi} स्टेशन पर इस सुविधा की जानकारी उपलब्ध नहीं है।"
 
     def _handle_ticketing(
         self, slots: Dict[str, Any], data: Optional[Dict[str, Any]]
     ) -> str:
-        fare = data.get("estimated_fare") if data else None
-        mode = slots.get("transport_mode", "metro")
-        mode_hi = MODE_HI_MAP.get(mode, "मेट्रो")
-
-        if fare:
-            return f"{mode_hi} का अनुमानित किराया ₹{fare} है। आप स्टेशन काउंटर, ऑटोमैटिक वेंडिंग मशीन, या व्हाट्सएप/क्यूआर कोड से टिकट ले सकते हैं।"
-
-        min_f = data.get("min_fare", 10) if data else 10
-        max_f = data.get("max_fare", 60) if data else 60
-        return f"चेन्नई {mode_hi} का किराया दूरी के अनुसार ₹{min_f} से ₹{max_f} के बीच होता है। मेट्रो स्मार्ट कार्ड या नेशनल कॉमन मोबिलिटी कार्ड (NCMC) से यात्रा करने पर 20% तक की छूट मिलती है।"
+        return "इस प्रोटोटाइप में सत्यापित किराया और टिकट नियम उपलब्ध नहीं हैं। कृपया संबंधित परिवहन संचालक से जांचें।"
 
     def _handle_station_info(
         self, slots: Dict[str, Any], data: Optional[Dict[str, Any]]
@@ -198,8 +179,8 @@ class ResponseGenerator:
         if not station:
             return "कृपया उस स्टेशन का नाम बताएं जिसकी जानकारी आप चाहते हैं।"
 
-        info = data.get("station_info", {}) if data else {}
+        info = (data or {}).get("station_info") or {}
+        if not info:
+            return "इस स्टेशन की जानकारी डेटाबेस में उपलब्ध नहीं है।"
         name_hi = info.get("name_hi", station)
-        st_type = info.get("type", "मेट्रो एवं रेलवे")
-
-        return f"{name_hi} एक प्रमुख {st_type} स्टेशन है। यहाँ लिफ्ट, एस्केलेटर, टिकट वेंडिंग मशीन, पेयजल और सुरक्षा सहायता जैसी आवश्यक यात्री सुविधाएं उपलब्ध हैं।"
+        return f"{name_hi} स्टेशन डेटाबेस में दर्ज है। सुविधाओं के लिए किसी विशेष सुविधा का नाम देकर पूछें।"

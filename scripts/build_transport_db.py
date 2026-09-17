@@ -3,7 +3,7 @@
 
 and exports the multilingual alias lookup gazetteer (data/processed/aliases.csv).
 
-Encodes official static data for:
+Contains unverified demonstration fixtures for:
   - Chennai Metro Rail (Blue Line & Green Line)
   - Chennai Suburban Rail (South Line & Beach-Velachery MRTS)
   - Major Multimodal Interchange Hubs (Chennai Central, Egmore, Guindy, Airport, Koyambedu)
@@ -493,11 +493,11 @@ def init_db():
     cursor.execute("""
         CREATE TABLE facilities (
             station_id TEXT PRIMARY KEY,
-            wheelchair_available INTEGER DEFAULT 1,
-            lift_available INTEGER DEFAULT 1,
-            tactile_paths INTEGER DEFAULT 1,
-            accessible_toilet INTEGER DEFAULT 1,
-            parking_available INTEGER DEFAULT 1,
+            wheelchair_available INTEGER DEFAULT NULL CHECK (wheelchair_available IN (0, 1)),
+            lift_available INTEGER DEFAULT NULL CHECK (lift_available IN (0, 1)),
+            tactile_paths INTEGER DEFAULT NULL CHECK (tactile_paths IN (0, 1)),
+            accessible_toilet INTEGER DEFAULT NULL CHECK (accessible_toilet IN (0, 1)),
+            parking_available INTEGER DEFAULT NULL CHECK (parking_available IN (0, 1)),
             notes_hi TEXT,
             FOREIGN KEY (station_id) REFERENCES stations(station_id)
         )

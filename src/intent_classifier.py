@@ -197,3 +197,30 @@ def get_classifier(model_type: str = "baseline") -> BaseIntentClassifier:
     if model_type == "muril":
         return MurilIntentClassifier()
     return TfidfBaselineClassifier()
+
+
+def train_baseline():
+    """Train only on the explicit training partition; leave holdouts untouched."""
+    import pandas as pd
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    from sklearn.pipeline import FeatureUnion
+    from sklearn.linear_model import LogisticRegression
+    from scripts.evaluate import validate_splits
+
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    df = pd.read_csv(os.path.join(root, "data", "processed", "intents.csv"))
+    validate_splits(df)
+    train = df[df["split"] == "train"]
+    if set(train.intent) != set(INTENT_CLASSES):
+        raise ValueError("Training split must contain all intent classes")
+    classifier = TfidfBaselineClassifier()
+    classifier.vectorizer = FeatureUnion([
+        ("word", TfidfVectorizer(ngram_range=(1, 3))),
+        ("char", TfidfVectorizer(analyzer="char", ngram_range=(2, 5))),
+    ])
+    features = classifier.vectorizer.fit_transform(train["query"].map(normalize_text))
+    classifier.model = LogisticRegression(max_iter=1000, class_weight="balanced", random_state=42)
+    classifier.model.fit(features, train.intent)
+    classifier.classes_ = list(classifier.model.classes_)
+    classifier.save(classifier.model_path)
+    print(f"Saved baseline trained on {len(train)} rows to {classifier.model_path}")

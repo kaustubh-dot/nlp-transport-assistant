@@ -42,7 +42,7 @@ class TransitRetriever:
     def get_route(
         self, origin_id: str, destination_id: str, mode: Optional[str] = None
     ) -> List[Dict[str, Any]]:
-        """Finds direct or connected routes between origin and destination."""
+        """Returns explicitly stored journeys; does not compute connecting paths."""
         if not os.path.exists(self.db_path):
             return []
 
@@ -122,29 +122,5 @@ class TransitRetriever:
         self, origin_id: Optional[str] = None, destination_id: Optional[str] = None, mode: Optional[str] = "metro"
     ) -> Dict[str, Any]:
         """Returns fare and ticketing information for route or general mode."""
-        if origin_id and destination_id:
-            routes = self.get_route(origin_id, destination_id, mode)
-            if routes:
-                route = routes[0]
-                # Standard fare approximation based on distance/mode if not in DB
-                dist = route.get("distance_km", 10.0)
-                fare = min(60, max(10, int(dist * 2.5)))
-                return {
-                    "mode": mode or route.get("mode"),
-                    "estimated_fare": fare,
-                    "origin_id": origin_id,
-                    "destination_id": destination_id,
-                    "ticketing_methods": ["QR Code (WhatsApp/App)", "Smart Card", "Token Counter", "NCMC Card"]
-                }
-
-        # Fallback to general mode fare range
-        timings = self.get_service_timing(mode)
-        min_fare = timings[0].get("min_fare", 10) if timings else 10
-        max_fare = timings[0].get("max_fare", 60) if timings else 60
-
-        return {
-            "mode": mode,
-            "min_fare": min_fare,
-            "max_fare": max_fare,
-            "ticketing_methods": ["QR Code Ticket", "Metro Smart Card (20% Discount)", "Token at Station Kiosks"]
-        }
+        # No fare table exists. Do not infer fares or ticket rules from distance.
+        return {}
