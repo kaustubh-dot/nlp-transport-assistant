@@ -170,7 +170,11 @@ def evaluate_acceptance(suite_path: Optional[Path] = None, model_type: str = "ba
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--model", choices=["baseline", "muril"], default="baseline")
+    parser.add_argument(
+        "--model",
+        choices=["baseline", "muril", "indicbert_v2", "hingbert", "xlm_roberta", "minilm"],
+        default="indicbert_v2"
+    )
     parser.add_argument("--acceptance", action="store_true", help="Run independent acceptance evaluation")
     parser.add_argument("--suite", type=Path, default=None, help="Path to acceptance suite JSON")
     args = parser.parse_args()
