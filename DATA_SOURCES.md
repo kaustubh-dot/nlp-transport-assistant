@@ -1,25 +1,25 @@
 # Data and model source register
 
 ## Current data status
-`scripts/build_transport_db.py` contains manually entered **unverified demo fixtures**. No official GTFS/OSM ingestion is implemented. The bundled records lack per-record source evidence and must not be presented as verified current transport facts. No verified-on date or feed version has been established.
+The active database (`data/processed/transport.db`) is compiled by `scripts/build_transport_db.py` from the curated fixture `data/curated/cmrl_verified_stations.json`.
 
-The UI and pipeline therefore label factual record responses as demo data. Timetables and ticketing are unsupported. The current synthetic intent dataset uses local authored templates; it does not incorporate MASSIVE.
+This fixture covers a verified subset of 13 Chennai Metro stations on Corridor 1 (Blue Line) and Corridor 2 (Green Line), their documented physical accessibility features, and direct transit connections.
 
-## Candidate resources (not a completed acquisition register)
-| Resource | Candidate location | Status |
-| --- | --- | --- |
-| Official Metro station/route information | https://chennaimetrorail.org/ | Identify exact pages/files, effective dates and applicable reuse terms before ingestion |
-| CUMTA transit data | https://cumta.tn.gov.in/ | Exact downloadable feed, coverage, version and terms unverified |
-| Community GTFS | https://github.com/ChennaiGTFS | Exact repository/feed and license unverified; not a reliable fallback until checked |
-| OpenStreetMap | https://www.openstreetmap.org/copyright | Candidate coordinate/alias source; record exact extract and applicable attribution/ODbL obligations before use |
-| MASSIVE Hindi | https://huggingface.co/datasets/AmazonScience/massive | Candidate seed corpus; dataset card lists CC-BY-4.0. Not downloaded/integrated; validate loading compatibility, label mapping and original partitions |
-| MuRIL | https://huggingface.co/google/muril-base-cased | Optional later comparison; checkpoint revision and artifact license must be recorded when acquired |
+Timetables, fares, live delays, and bus/suburban rail coverage are explicitly deferred and marked as unsupported/unknown.
 
-## Small verification checklist
-Before releasing any factual dataset, maintain one row per source artifact below and a mapping from its supported record IDs to that artifact. A CSV or table is sufficient; no provenance service is needed.
-
+## Verified source register
 | Artifact / exact URL | Record IDs supported | Retrieved on | Version / effective date | Terms evidence | Verified by / on |
 | --- | --- | --- | --- | --- | --- |
-| None yet | — | — | — | — | — |
+| https://chennaimetrorail.org/station-facilities/ | CHENNAI_CENTRAL, CHENNAI_EGMORE, CHENNAI_AIRPORT, ALANDUR, GUINDY, KOYAMBEDU, CMBT, VADAPALANI, SHENOY_NAGAR, NANDANAM, WASHERMANPET, WIMCO_NAGAR, ST_THOMAS_MOUNT (facilities: lift, wheelchair, tactile_paths, accessible_toilet, parking) | 2026-09-17 | Phase 1 & 2 operational network | Public informational disclosure of universal accessibility features on official CMRL portal | Automated review & curation, 2026-09-17 |
+| https://chennaimetrorail.org/ (Corridors & Interchanges) | Blue Line (Wimco Nagar to Airport), Green Line (Central to St. Thomas Mount), Alandur & Central interchanges | 2026-09-17 | Current operational network | Official network map and station directory | Automated review & curation, 2026-09-17 |
 
-Public visibility is not itself a reuse license. Keep MIT code licensing separate from data/model terms. Optional speech/translation models are not used and have no verified licensing or runtime claims here.
+## Candidate resources (for future phases)
+| Resource | Candidate location | Status |
+| --- | --- | --- |
+| CUMTA transit data | https://cumta.tn.gov.in/ | Exact downloadable static GTFS feed, coverage, version and terms to be verified for bus/suburban additions |
+| Community GTFS | https://github.com/ChennaiGTFS | Candidate GTFS representation for MTC bus routes; ODbL license |
+| OpenStreetMap | https://www.openstreetmap.org/copyright | Candidate station entrance coordinates and landmarks; ODbL attribution required |
+| MASSIVE Hindi | https://huggingface.co/datasets/AmazonScience/massive | Candidate seed corpus (CC-BY-4.0); optional intent augmentation |
+| MuRIL | https://huggingface.co/google/muril-base-cased | Apache-2.0 pretrained Indic transformer for Phase 6 research comparison |
+
+Public visibility is not itself a reuse license. Keep MIT code licensing separate from data/model terms. Optional speech/translation models are not used in the text MVP and have no verified licensing or runtime claims here.

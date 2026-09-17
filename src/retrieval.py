@@ -59,8 +59,11 @@ class TransitRetriever:
             """
             params: List[Any] = [origin_id, destination_id]
             if mode:
-                query += " AND c.mode = ?"
-                params.append(mode)
+                query_with_mode = query + " AND c.mode = ?"
+                cursor.execute(query_with_mode, tuple(params + [mode]))
+                rows = cursor.fetchall()
+                if rows:
+                    return [dict(r) for r in rows]
 
             cursor.execute(query, tuple(params))
             rows = cursor.fetchall()

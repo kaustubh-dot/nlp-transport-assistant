@@ -16,9 +16,9 @@ source .venv/bin/activate
 pip install -r requirements.txt
 python -m scripts.build_transport_db
 python -m scripts.generate_intent_dataset
-python -c "from src.intent_classifier import train_baseline; train_baseline()"
-python -m scripts.evaluate --model baseline
-python -m pytest -q
+python scripts/train_baseline.py
+python scripts/evaluate.py --acceptance
+python -m pytest -v
 streamlit run app/streamlit_app.py
 ```
 

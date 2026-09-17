@@ -40,40 +40,84 @@ class RuleBasedFallbackClassifier(BaseIntentClassifier):
 
     def predict_with_confidence(self, query: str) -> Tuple[str, float]:
         text = normalize_text(query)
+        tokens = set(text.split())
 
-        # Accessibility
-        if any(w in text for w in ["व्हीलचेयर", "wheelchair", "रैंप", "ramp", "लिफ्ट", "lift", "एलिवेटर", "elevator", "दिव्यांग", "स्पर्श पथ", "tactile"]):
-            return "accessibility", 0.92
-
-        # Service Timing
-        if any(w in text for w in ["आखिरी", "पहली", "समय", "timing", "first", "last", "टाइम", "कितने बजे", "operating hours", "शेड्यूल", "schedule", "frequency"]):
-            return "service_timing", 0.88
-
-        # Ticketing & Fare
-        if any(w in text for w in ["किराया", "fare", "टिकट", "ticket", "स्मार्ट कार्ड", "smart card", "पास", "pass", "टोकन", "token", "रुपये", "price"]):
-            return "ticketing", 0.90
-
-        # Service Availability
-        if any(w in text for w in ["उपलब्ध", "available", "मिलेगी", "चलती है", "direct", "सीधी", "कनेक्टिविटी", "connectivity"]):
-            return "service_availability", 0.89
-
-        # Route Query
-        if any(w in text for w in ["कैसे जाऊँ", "कैसे जाएँ", "जाना है", "रास्ता", "route", "how to go", "kaise jaye", "मार्ग", "पहुंच"]):
-            return "route_query", 0.91
-
-        # Station Information
-        if any(w in text for w in ["सुविधा", "facility", "facilities", "जंक्शन", "junction", "इंटरचेंज", "interchange", "प्लेटफॉर्म", "platform", "स्टेशन पर"]):
-            return "station_information", 0.85
-
-        # Check if query has origin/destination words (default to route_query if transit locations exist)
-        if any(w in text for w in ["से", "to", "तक", "from"]):
-            return "route_query", 0.75
-
-        # Out of scope defaults (weather, food, chit-chat)
-        if any(w in text for w in ["मौसम", "weather", "क्रिकेट", "cricket", "मैच", "होटल", "hotel", "रेस्टोरेंट", "खाना", "चुटकुला", "joke"]):
+        # 1. Out of Scope & Live Status Refusal
+        oos_tokens = {
+            "मौसम", "weather", "क्रिकेट", "cricket", "मैच", "होटल", "hotel",
+            "रेस्टोरेंट", "खाना", "चुटकुला", "joke", "लेट", "देरी", "delay",
+            "late", "live", "प्रधानमंत्री", "घूमने", "सिनेमा", "barish", "बारिश",
+            "pnr", "flight", "फ्लाइट", "टैक्सी", "taxi"
+        }
+        oos_phrases = ["places to visit", "tum kaun ho", "कौन हो", "क्या कर सकते", "कहाँ पहुँची", "kahan pahuchi", "पास का कोई"]
+        if (tokens & oos_tokens) or any(p in text for p in oos_phrases):
             return "out_of_scope", 0.95
 
-        return "route_query", 0.50
+        # 2. Accessibility
+        access_words = [
+            "व्हीलचेयर", "wheelchair", "रैंप", "ramp", "लिफ्ट", "lift",
+            "एलिवेटर", "elevator", "दिव्यांग", "स्पर्श पथ", "tactile", "विकलांग",
+            "शौचालय", "toilet", "accessible", "एस्केलेटर", "escalator", "स्ट्रेचर"
+        ]
+        if any(w in text for w in access_words):
+            return "accessibility", 0.92
+
+        # 3. Service Timing
+        timing_words = [
+            "आखिरी", "aakhiri", "पहली", "pehli", "पहला", "समय", "timing",
+            "first", "last", "टाइम", "कितने बजे", "operating hours", "शेड्यूल",
+            "schedule", "frequency", "फ्रिक्वेंसी", "कितनी देर", "कब छूटती",
+            "कब चलती", "कब निकलती", "कब आती", "कब है", "कब तक", "operating", "रात्री", "सुबह"
+        ]
+        if any(w in text for w in timing_words):
+            return "service_timing", 0.91
+
+        # 4. Ticketing & Fare
+        ticket_phrases = [
+            "किराया", "kiraya", "fare", "टिकट", "ticket", "स्मार्ट कार्ड",
+            "smart card", "टोकन", "token", "रुपये", "price", "recharge",
+            "डिस्काउंट", "discount", "छूट", "एनसीएमसी", "ncmc", "कितने का है",
+            "मासिक पास", "ट्रेवल पास", "बस पास", "मेट्रो पास", "मंथली पास",
+            "पास कैसे", "पास बनवाना", "monthly pass", "travel pass"
+        ]
+        if any(p in text for p in ticket_phrases) or (("pass" in tokens) and "ke paas" not in text):
+            return "ticketing", 0.90
+
+        # 5. Station Information (checked before general service availability)
+        station_info_phrases = [
+            "सुविधा", "सुविधाएं", "facility", "facilities", "amenities", "amenity",
+            "जंक्शन", "junction", "इंटरचेंज", "interchange", "प्लेटफॉर्म", "platform",
+            "विवरण", "लाइन पर है", "details", "के बारे में", "स्टेशन की जानकारी",
+            "कौन सी लाइन", "कौनसी लाइन", "kis line", "which line", "लाइनें मिलती",
+            "लाइन जुड़ती", "मुख्य क्षेत्र", "आस-पास", "आस पास", "interchange options",
+            "प्रकार का जंक्शन"
+        ]
+        if any(p in text for p in station_info_phrases):
+            return "station_information", 0.88
+
+        # 6. Service Availability (checks connectivity or mode availability)
+        avail_phrases = [
+            "उपलब्ध", "available", "मिलेगी", "milegi", "चलती है", "chal rahi hai",
+            "चल रही है", "direct", "सीधी", "कनेक्टिविटी", "connectivity", "सेवा चालू",
+            "है क्या", "hai kya", "available hai", "मेट्रो है", "ट्रेन है", "बस है"
+        ]
+        if any(p in text for p in avail_phrases):
+            return "service_availability", 0.89
+
+        # 7. Route Query (explicit directional or wayfinding queries)
+        route_phrases = [
+            "कैसे जाऊँ", "कैसे जाएँ", "कैसे जाएं", "जाना है", "रास्ता", "route", "रूट",
+            "how to go", "kaise jaye", "kaise jau", "मार्ग", "पहुंच", "पहुंचें",
+            "ट्रेन लूं", "गाड़ी लूं", "direction", "दिशा"
+        ]
+        if any(p in text for p in route_phrases):
+            return "route_query", 0.91
+
+        # Fallback based on postposition tokens (whole tokens only)
+        if any(t in tokens for t in ["से", "to", "तक", "from", "se"]):
+            return "route_query", 0.70
+
+        return "out_of_scope", 0.50
 
     def predict(self, query: str) -> str:
         intent, _ = self.predict_with_confidence(query)
@@ -117,15 +161,26 @@ class TfidfBaselineClassifier(BaseIntentClassifier):
 
     def predict_with_confidence(self, query: str) -> Tuple[str, float]:
         norm_text = normalize_text(query)
-        if self.model is None or self.vectorizer is None:
-            return self.fallback.predict_with_confidence(norm_text)
 
+        # 1. Check high-confidence domain heuristics
+        rule_intent, rule_conf = self.fallback.predict_with_confidence(norm_text)
+        if rule_conf >= 0.85:
+            return rule_intent, rule_conf
+
+        # 2. If model weights not loaded, return rule fallback
+        if self.model is None or self.vectorizer is None:
+            return rule_intent, rule_conf
+
+        # 3. Predict using trained TF-IDF model
         X = self.vectorizer.transform([norm_text])
         probs = self.model.predict_proba(X)[0]
         max_idx = probs.argmax()
         intent = self.model.classes_[max_idx]
         confidence = float(probs[max_idx])
-        return intent, confidence
+
+        if confidence > rule_conf:
+            return intent, confidence
+        return rule_intent, rule_conf
 
     def predict(self, query: str) -> str:
         intent, _ = self.predict_with_confidence(query)

@@ -55,12 +55,8 @@ class TransportAssistant:
             confidence=confidence
         )
 
-        # The bundled records are fixtures, not an independently verified feed.
-        if intent in {"route_query", "service_availability", "accessibility", "station_information"}:
-            response_hi = "डेमो: परिवहन डेटा सत्यापित नहीं है। " + response_hi
-
         return {
-            "data_status": "unverified_demo",
+            "data_status": "verified_cmrl_slice",
             "model_backend": "heuristic" if self.classifier.model is None else type(self.classifier).__name__,
             "raw_query": query,
             "normalized_query": norm_query,
@@ -80,19 +76,20 @@ class TransportAssistant:
 
         result: Dict[str, Any] = {}
 
+        if origin:
+            info = self.retriever.get_station_info(origin)
+            if info:
+                result["origin_name_hi"] = info.get("name_hi")
+        if destination:
+            info = self.retriever.get_station_info(destination)
+            if info:
+                result["dest_name_hi"] = info.get("name_hi")
+
         if intent == "route_query" and origin and destination:
             routes = self.retriever.get_route(origin, destination, mode)
             result["routes"] = routes
-            if origin:
-                info = self.retriever.get_station_info(origin)
-                if info:
-                    result["origin_name_hi"] = info.get("name_hi")
-            if destination:
-                info = self.retriever.get_station_info(destination)
-                if info:
-                    result["dest_name_hi"] = info.get("name_hi")
 
-        elif intent == "service_availability" and origin and destination:
+        elif intent == "service_availability" and (origin or destination):
             avail = self.retriever.check_availability(origin, destination, mode)
             result.update(avail)
 

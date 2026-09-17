@@ -6,13 +6,14 @@ CHENNAI_CENTRAL,मद्रास सेंट्रल,hi,Deva
 CHENNAI_CENTRAL,chennai central,en,Latn
 CHENNAI_CENTRAL,central,en,Latn
 CHENNAI_CENTRAL,mgr central,en,Latn
+CHENNAI_CENTRAL,central metro,en,Latn
 CHENNAI_CENTRAL,chennai sentral,hinglish,Latn
 CHENNAI_EGMORE,चेन्नई एग्मोर,hi,Deva
 CHENNAI_EGMORE,एग्मोर,hi,Deva
 CHENNAI_EGMORE,एगमोर,hi,Deva
 CHENNAI_EGMORE,chennai egmore,en,Latn
 CHENNAI_EGMORE,egmore,en,Latn
-CHENNAI_EGMORE,egmore station,en,Latn
+CHENNAI_EGMORE,egmore metro,en,Latn
 CHENNAI_AIRPORT,चेन्नई एयरपोर्ट,hi,Deva
 CHENNAI_AIRPORT,एयरपोर्ट,hi,Deva
 CHENNAI_AIRPORT,हवाई अड्डा,hi,Deva
@@ -20,39 +21,51 @@ CHENNAI_AIRPORT,मीनम्बाक्कम,hi,Deva
 CHENNAI_AIRPORT,chennai airport,en,Latn
 CHENNAI_AIRPORT,airport,en,Latn
 CHENNAI_AIRPORT,meenambakkam airport,en,Latn
-KOYAMBEDU,कोयम्बेडु,hi,Deva
-KOYAMBEDU,कोयम्बेडू,hi,Deva
-KOYAMBEDU,सीएमबीटी,hi,Deva
-KOYAMBEDU,कोयम्बेडु बस स्टैंड,hi,Deva
-KOYAMBEDU,koyambedu,en,Latn
-KOYAMBEDU,cmbt,en,Latn
-GUINDY,गिंडी,hi,Deva
-GUINDY,गुइंडी,hi,Deva
-GUINDY,गिंडी स्टेशन,hi,Deva
-GUINDY,guindy,en,Latn
-GUINDY,guindy station,en,Latn
-TAMBARAM,ताम्बरम,hi,Deva
-TAMBARAM,तांबरम,hi,Deva
-TAMBARAM,ताम्बरम स्टेशन,hi,Deva
-TAMBARAM,tambaram,en,Latn
-TAMBARAM,tambaram station,en,Latn
+CHENNAI_AIRPORT,airport metro,en,Latn
 ALANDUR,आलंदूर,hi,Deva
 ALANDUR,अलनदूर,hi,Deva
+ALANDUR,आलंदूर मेट्रो,hi,Deva
 ALANDUR,alandur,en,Latn
 ALANDUR,alandur metro,en,Latn
-CHENNAI_BEACH,चेन्नई बीच,hi,Deva
-CHENNAI_BEACH,बीच स्टेशन,hi,Deva
-CHENNAI_BEACH,chennai beach,en,Latn
-CHENNAI_BEACH,beach,en,Latn
-T_NAGAR,टी नगर,hi,Deva
-T_NAGAR,टी. नगर,hi,Deva
-T_NAGAR,त्यागराया नगर,hi,Deva
-T_NAGAR,t nagar,en,Latn
-T_NAGAR,t. nagar,en,Latn
-VELACHERY,वेलाचेरी,hi,Deva
-VELACHERY,velachery,en,Latn
+GUINDY,गिंडी,hi,Deva
+GUINDY,गुइंडी,hi,Deva
+GUINDY,गिंडी मेट्रो,hi,Deva
+GUINDY,guindy,en,Latn
+GUINDY,guindy metro,en,Latn
+KOYAMBEDU,कोयम्बेडु,hi,Deva
+KOYAMBEDU,कोयम्बेडू,hi,Deva
+KOYAMBEDU,कोयम्बेडु मेट्रो,hi,Deva
+KOYAMBEDU,koyambedu,en,Latn
+KOYAMBEDU,koyambedu metro,en,Latn
+CMBT,सीएमबीटी,hi,Deva
+CMBT,सीएमबीटी मेट्रो,hi,Deva
+CMBT,cmbt,en,Latn
+CMBT,cmbt metro,en,Latn
+VADAPALANI,वडापलानी,hi,Deva
+VADAPALANI,वडापलानी मेट्रो,hi,Deva
+VADAPALANI,vadapalani,en,Latn
+VADAPALANI,vadapalani metro,en,Latn
+SHENOY_NAGAR,शेनॉय नगर,hi,Deva
+SHENOY_NAGAR,शेनॉय नगर मेट्रो,hi,Deva
+SHENOY_NAGAR,shenoy nagar,en,Latn
+SHENOY_NAGAR,shenoy nagar metro,en,Latn
+NANDANAM,नंदनम,hi,Deva
+NANDANAM,नंदनम मेट्रो,hi,Deva
+NANDANAM,टी नगर मेट्रो,hi,Deva
+NANDANAM,nandanam,en,Latn
+NANDANAM,nandanam metro,en,Latn
+NANDANAM,t nagar metro,en,Latn
+WASHERMANPET,वाशरमैनपेट,hi,Deva
+WASHERMANPET,वाशरमैनपेट मेट्रो,hi,Deva
+WASHERMANPET,washermanpet,en,Latn
+WASHERMANPET,washermanpet metro,en,Latn
 WIMCO_NAGAR,विमको नगर,hi,Deva
+WIMCO_NAGAR,विमको नगर मेट्रो,hi,Deva
 WIMCO_NAGAR,wimco nagar,en,Latn
+WIMCO_NAGAR,wimco nagar metro,en,Latn
 ST_THOMAS_MOUNT,सेंट थॉमस माउंट,hi,Deva
 ST_THOMAS_MOUNT,थॉमस माउंट,hi,Deva
+ST_THOMAS_MOUNT,सेंट थॉमस माउंट मेट्रो,hi,Deva
 ST_THOMAS_MOUNT,st thomas mount,en,Latn
+ST_THOMAS_MOUNT,st. thomas mount,en,Latn
+ST_THOMAS_MOUNT,st thomas mount metro,en,Latn

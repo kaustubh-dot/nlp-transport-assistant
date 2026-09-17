@@ -46,72 +46,80 @@ DEFAULT_GAZETTEER: Dict[str, Dict[str, Any]] = {
         "canonical_name_en": "Koyambedu",
         "canonical_name_hi": "कोयम्बेडु",
         "aliases": [
-            "कोयम्बेडु", "कोयम्बेडू", "सीएमबीटी", "कोयम्बेडु बस स्टैंड",
-            "koyambedu", "cmbt", "koyambedu market"
+            "कोयम्बेडु", "कोयम्बेडू", "कोयम्बेडु मेट्रो",
+            "koyambedu", "koyambedu metro", "koyambedu market"
+        ]
+    },
+    "CMBT": {
+        "canonical_name_en": "CMBT",
+        "canonical_name_hi": "सीएमबीटी",
+        "aliases": [
+            "सीएमबीटी", "सीएमबीटी मेट्रो",
+            "cmbt", "cmbt metro", "puratchi thalaivi dr j jayalalithaa cmbt"
         ]
     },
     "GUINDY": {
         "canonical_name_en": "Guindy",
         "canonical_name_hi": "गिंडी",
         "aliases": [
-            "गिंडी", "गुइंडी", "गिंडी स्टेशन",
-            "guindy", "guindy station"
-        ]
-    },
-    "TAMBARAM": {
-        "canonical_name_en": "Tambaram",
-        "canonical_name_hi": "ताम्बरम",
-        "aliases": [
-            "ताम्बरम", "तांबरम", "ताम्बरम स्टेशन",
-            "tambaram", "tambaram station"
-        ]
-    },
-    "CHENNAI_BEACH": {
-        "canonical_name_en": "Chennai Beach",
-        "canonical_name_hi": "चेन्नई बीच",
-        "aliases": [
-            "चेन्नई बीच", "बीच स्टेशन",
-            "chennai beach", "beach station"
+            "गिंडी", "गुइंडी", "गिंडी स्टेशन", "गिंडी मेट्रो",
+            "guindy", "guindy station", "guindy metro"
         ]
     },
     "ALANDUR": {
         "canonical_name_en": "Alandur",
         "canonical_name_hi": "आलंदूर",
         "aliases": [
-            "आलंदूर", "अलनदूर", "आलंदुर",
+            "आलंदूर", "अलनदूर", "आलंदुर", "आलंदूर मेट्रो",
             "alandur", "alandur metro"
         ]
     },
-    "T_NAGAR": {
-        "canonical_name_en": "T. Nagar",
-        "canonical_name_hi": "टी नगर",
+    "VADAPALANI": {
+        "canonical_name_en": "Vadapalani",
+        "canonical_name_hi": "वडापलानी",
         "aliases": [
-            "टी नगर", "टी. नगर", "त्यागराया नगर",
-            "t nagar", "t. nagar", "thyagaraya nagar"
+            "वडापलानी", "वडापलानी मेट्रो",
+            "vadapalani", "vadapalani metro"
         ]
     },
-    "VELACHERY": {
-        "canonical_name_en": "Velachery",
-        "canonical_name_hi": "वेलाचेरी",
+    "SHENOY_NAGAR": {
+        "canonical_name_en": "Shenoy Nagar",
+        "canonical_name_hi": "शेनॉय नगर",
         "aliases": [
-            "वेलाचेरी", "वेलाचेरी स्टेशन",
-            "velachery", "velachery station"
+            "शेनॉय नगर", "शेनॉय नगर मेट्रो",
+            "shenoy nagar", "shenoy nagar metro"
+        ]
+    },
+    "NANDANAM": {
+        "canonical_name_en": "Nandanam",
+        "canonical_name_hi": "नंदनम",
+        "aliases": [
+            "नंदनम", "नंदनम मेट्रो", "टी नगर मेट्रो",
+            "nandanam", "nandanam metro", "t nagar metro"
+        ]
+    },
+    "WASHERMANPET": {
+        "canonical_name_en": "Washermanpet",
+        "canonical_name_hi": "वाशरमैनपेट",
+        "aliases": [
+            "वाशरमैनपेट", "वाशरमैनपेट मेट्रो",
+            "washermanpet", "washermanpet metro"
         ]
     },
     "WIMCO_NAGAR": {
         "canonical_name_en": "Wimco Nagar",
         "canonical_name_hi": "विमको नगर",
         "aliases": [
-            "विमको नगर", "विमको नगर डिपो",
-            "wimco nagar", "wimco nagar depot"
+            "विमको नगर", "विमको नगर डिपो", "विमको नगर मेट्रो",
+            "wimco nagar", "wimco nagar depot", "wimco nagar metro"
         ]
     },
     "ST_THOMAS_MOUNT": {
         "canonical_name_en": "St. Thomas Mount",
         "canonical_name_hi": "सेंट थॉमस माउंट",
         "aliases": [
-            "सेंट थॉमस माउंट", "थॉमस माउंट",
-            "st thomas mount", "st. thomas mount", "thomas mount"
+            "सेंट थॉमस माउंट", "थॉमस माउंट", "सेंट थॉमस माउंट मेट्रो",
+            "st thomas mount", "st. thomas mount", "thomas mount", "st thomas mount metro"
         ]
     }
 }
@@ -142,29 +150,71 @@ FACILITY_TYPES: Dict[str, str] = {
     "व्हीलचेयर": "wheelchair",
     "व्हील चेयर": "wheelchair",
     "दिव्यांग": "wheelchair",
+    "दिव्यांगों": "wheelchair",
     "विकलांग": "wheelchair",
+    "विकलांगों": "wheelchair",
     "lift": "lift",
     "लिफ्ट": "lift",
     "एलिवेटर": "lift",
     "elevator": "lift",
-    "escalator": "escalator",
-    "एस्केलेटर": "escalator",
+    "escalator": "lift",
+    "एस्केलेटर": "lift",
     "parking": "parking",
     "पार्किंग": "parking",
-    "toilet": "toilet",
-    "टॉयलेट": "toilet",
-    "शौचालय": "toilet",
-    "washroom": "toilet",
+    "दिव्यांग शौचालय": "accessible_toilet",
+    "accessible toilet": "accessible_toilet",
+    "toilet": "accessible_toilet",
+    "टॉयलेट": "accessible_toilet",
+    "शौचालय": "accessible_toilet",
+    "washroom": "accessible_toilet",
     "tactile": "tactile_paths",
+    "tactile path": "tactile_paths",
     "स्पर्श पथ": "tactile_paths",
     "दृष्टिहीन": "tactile_paths",
+    "दृष्टिबाधित": "tactile_paths",
     "fare": "fare",
     "किराया": "fare",
     "टिकट": "fare",
     "ticket": "fare",
+    "price": "fare",
+    "card": "fare",
+    "कार्ड": "fare",
+    "smart card": "fare",
+    "स्मार्ट कार्ड": "fare",
+    "पास": "fare",
+    "pass": "fare",
+    "टोकन": "fare",
+    "token": "fare",
+    "एनसीएमसी": "fare",
+    "ncmc": "fare",
+    "डिस्काउंट": "fare",
+    "discount": "fare",
     "timing": "timing",
     "समय": "timing",
-    "टाइम": "timing"
+    "टाइम": "timing",
+    "time": "timing",
+    "first": "timing",
+    "last": "timing",
+    "pehli": "timing",
+    "पहली": "timing",
+    "aakhiri": "timing",
+    "आखिरी": "timing",
+    "लास्ट": "timing",
+    "frequency": "timing",
+    "फ्रिक्वेंसी": "timing",
+    "hours": "timing",
+    "operating": "timing",
+    "कितने बजे": "timing",
+    "baje": "timing",
+    "बजे": "timing",
+    "subah": "timing",
+    "सुबह": "timing",
+    "देर": "timing",
+    "der": "timing",
+    "कब": "timing",
+    "kab": "timing",
+    "ramp": "ramp",
+    "रैंप": "ramp"
 }
 
 
@@ -207,13 +257,14 @@ class EntityExtractor:
         info_type = self._extract_info_type(norm_query)
 
         # 3. Extract Stations with directional cues
-        origin, destination, single_station = self._extract_stations(norm_query)
+        origin, destination, single_station = self._extract_stations(norm_query, has_facility=bool(info_type))
 
         return {
             "origin": origin,
             "destination": destination,
-            "station": single_station or origin or destination,
+            "station": single_station,
             "transport_mode": mode,
+            "facility": info_type,
             "information_type": info_type,
             "raw_query": query,
             "normalized_query": norm_query
@@ -236,7 +287,9 @@ class EntityExtractor:
                 return FACILITY_TYPES[keyword]
         return None
 
-    def _extract_stations(self, text: str) -> Tuple[Optional[str], Optional[str], Optional[str]]:
+    def _extract_stations(
+        self, text: str, has_facility: bool = False
+    ) -> Tuple[Optional[str], Optional[str], Optional[str]]:
         """Identifies stations in the text and assigns origin/destination
 
         based on postpositions ('से' = from, 'तक' / 'को' / 'के लिए' / 'to' = to).
@@ -274,14 +327,21 @@ class EntityExtractor:
 
         if len(matched_spans) == 1:
             station_id = matched_spans[0]["station_id"]
-            # Check if there is an origin postposition following it
             subsequent_text = text[matched_spans[0]["end"]:]
             prior_text = text[:matched_spans[0]["start"]]
+            is_timing = any(w in text for w in [
+                "timing", "पहली", "pehli", "पहला", "first", "आखिरी", "aakhiri",
+                "last", "सुबह", "subah", "छूटती", "nikalti", "kitne baje", "baje"
+            ])
 
-            if re.search(r"^\s*(?:से|se|from)(?!\S)", subsequent_text):
+            if is_timing:
                 return station_id, None, station_id
-            elif re.search(r"^\s*(?:तक|को|के लिए|ke liye|to)(?!\S)", subsequent_text) or re.search(r"\b(?:to)\s*$", prior_text):
-                return None, station_id, station_id
+            elif re.search(r"^\s*(?:से|se|from)(?!\S)", subsequent_text) or re.search(r"(?<!\S)(?:from)\s*$", prior_text):
+                return station_id, None, None
+            elif re.search(r"^\s*(?:पर|में|par|mein)(?!\S)", subsequent_text) or has_facility:
+                return None, None, station_id
+            elif re.search(r"^\s*(?:तक|को|के लिए|ke liye|to)(?!\S)", subsequent_text) or re.search(r"(?<!\S)(?:to)\s*$", prior_text) or re.search(r"(?:जाना|जाऊँ|जाएं|पहुंच|kaise jau|kaise jaye|route|available|उपलब्ध)", text):
+                return None, station_id, None
             else:
                 return None, None, station_id
 

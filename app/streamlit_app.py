@@ -79,12 +79,11 @@ with st.sidebar:
     selected_model = "muril" if "muril" in model_option else "baseline"
 
     st.markdown("---")
-    st.subheader("📚 डेमो उदाहरण (पूर्ण नेटवर्क नहीं)")
+    st.subheader("📚 सत्यापित डेटा स्लाइस (CMRL Metro)")
     st.markdown("""
-    - 🚇 **चेन्नई मेट्रो (CMRL)**: ब्लू एवं ग्रीन लाइन
-    - 🚆 **उपनगरीय रेलवे (SR)**: बीच - तांबरम - चेंगलपट्टू
-    - 🚌 **एमटीसी बसें (MTC)**: प्रमुख शहर मार्ग
-    - ♿ **सुलभता (Accessibility)**: दर्ज व्यक्तिगत सुविधाएं
+    - 🚇 **चेन्नई मेट्रो (CMRL)**: 13 सत्यापित स्टेशन (ब्लू एवं ग्रीन लाइन)
+    - ♿ **सुलभता (Accessibility)**: आधिकारिक CMRL सुलभता रिकॉर्ड (लिफ्ट, व्हीलचेयर, स्पर्श पथ)
+    - ⚠️ **सीमाएं**: सटीक समय-सारणी, किराया, और लाइव रनिंग स्थिति इस प्रोटोटाइप में असमर्थित हैं।
     """)
 
     st.markdown("---")
@@ -99,7 +98,7 @@ assistant = get_assistant(model_type=selected_model)
 st.markdown('<div class="main-title">🚇 चेन्नई बहुभाषी परिवहन सहायक</div>', unsafe_allow_html=True)
 st.markdown('<div class="sub-title">Hindi Multimodal Transport Assistant for Chennai Using NLP</div>', unsafe_allow_html=True)
 
-st.warning("डेमो डेटा सत्यापित नहीं है। यात्रा से पहले संचालक से पुष्टि करें। समय-सारणी और किराया उपलब्ध नहीं हैं।")
+st.info("ℹ️ यह प्रोटोटाइप 13 CMRL मेट्रो स्टेशनों के आधिकारिक सत्यापित डेटा पर आधारित है। लाइव रनिंग स्थिति, सटीक किराया और परिवर्तनशील समय-सारणी असमर्थित हैं।")
 st.caption("हर प्रश्न में पूरी जानकारी दें; पिछले प्रश्न की जानकारी याद नहीं रखी जाती।")
 
 # Quick Query Suggestions

@@ -22,6 +22,8 @@ FACILITY_HI_MAP = {
     "lift": "लिफ्ट",
     "parking": "पार्किंग",
     "toilet": "शौचालय सुविधा",
+    "accessible_toilet": "दिव्यांग शौचालय सुविधा",
+    "ramp": "रैंप एवं लिफ्ट",
     "tactile_paths": "दृष्टिबाधित यात्रियों के लिए स्पर्श पथ (tactile path)"
 }
 
@@ -48,18 +50,21 @@ class ResponseGenerator:
         confidence: float = 1.0
     ) -> str:
         """Generates a clear Hindi response string."""
+        # Check for live status request first with token and phrase checks
+        raw_query = (slots.get("raw_query") or "").lower()
+        raw_tokens = set(raw_query.split())
+        live_tokens = {"लेट", "देरी", "delay", "late", "live", "track"}
+        live_phrases = ["कहाँ पहुँची", "kahan pahuchi", "लाइव स्थिति", "live status", "कहाँ पहुंची"]
+        if (raw_tokens & live_tokens) or any(p in raw_query for p in live_phrases):
+            return self.templates.get(
+                "live_status_unsupported",
+                "वास्तविक समय की लाइव ट्रेन या बस स्थिति इस प्रोटोटाइप में उपलब्ध नहीं है।"
+            )
+
         if intent == "out_of_scope":
             return self.templates.get(
                 "out_of_scope",
                 "क्षमा करें, मैं केवल चेन्नई सार्वजनिक परिवहन (मेट्रो, उपनगरीय रेलवे, बस रूट एवं स्टेशन सुविधाओं) से संबंधित प्रश्नों में सहायता कर सकता हूँ।"
-            )
-
-        # Check for live status request
-        raw_query = slots.get("raw_query", "")
-        if any(w in raw_query for w in ["लेट", "देरी", "delay", "late", "live"]):
-            return self.templates.get(
-                "live_status_unsupported",
-                "वास्तविक समय की लाइव ट्रेन या बस स्थिति इस प्रोटोटाइप में उपलब्ध नहीं है।"
             )
 
         # Handle Route Query
@@ -94,25 +99,28 @@ class ResponseGenerator:
     ) -> str:
         origin = slots.get("origin")
         destination = slots.get("destination")
+        origin_hi = (data or {}).get("origin_name_hi") or origin
+        dest_hi = (data or {}).get("dest_name_hi") or destination
 
         if not origin and not destination:
             return "कृपया बताएं कि आप कहाँ से कहाँ जाना चाहते हैं? (उदाहरण: चेन्नई सेंट्रल से एयरपोर्ट कैसे जाऊँ?)"
         if not origin:
-            return self.templates.get("missing_origin", "आप कहाँ से यात्रा शुरू करना चाहते हैं? कृपया आरंभिक स्टेशन का नाम बताएं।")
+            return f"आप कहाँ से {dest_hi} जाना चाहते हैं? कृपया अपने आरंभिक स्टेशन का नाम बताएं।"
         if not destination:
-            origin_name = data.get("origin_name_hi", origin) if data else origin
-            return f"आप {origin_name} से कहाँ जाना चाहते हैं? कृपया गंतव्य स्टेशन का नाम बताएं।"
+            return f"आप {origin_hi} से कहाँ जाना चाहते हैं? कृपया अपने गंतव्य स्टेशन का नाम बताएं।"
 
         routes = data.get("routes", []) if data else []
         if routes:
             r = routes[0]
             mode_hi = MODE_HI_MAP.get(r.get("mode", "metro"), "मेट्रो")
             line = r.get("line_name", "मेट्रो लाइन")
-            origin_hi = r.get("origin_name_hi", origin)
-            dest_hi = r.get("dest_name_hi", destination)
-            return f"डेटाबेस में {origin_hi} से {dest_hi} के लिए {line} ({mode_hi}) मार्ग दर्ज है।"
+            is_direct = r.get("direct", 1) == 1
+            origin_hi = r.get("origin_name_hi") or origin_hi
+            dest_hi = r.get("dest_name_hi") or dest_hi
+            transfer_note = " (यात्रा में लाइन बदलना / इंटरचेंज आवश्यक है)" if not is_direct else ""
+            return f"डेटाबेस में {origin_hi} से {dest_hi} के लिए {line} ({mode_hi}) मार्ग दर्ज है।{transfer_note}"
 
-        return f"क्षमा करें, {origin} और {destination} के बीच सीधा मार्ग डेटाबेस में नहीं मिला। कृपया नजदीकी प्रमुख स्टेशन से प्रयास करें।"
+        return f"क्षमा करें, {origin_hi} और {dest_hi} के बीच सीधा मार्ग डेटाबेस में नहीं मिला। कृपया नजदीकी प्रमुख स्टेशन से प्रयास करें।"
 
     def _handle_availability(
         self, slots: Dict[str, Any], data: Optional[Dict[str, Any]]
@@ -121,21 +129,28 @@ class ResponseGenerator:
         dest = slots.get("destination")
         mode = slots.get("transport_mode", "metro")
         mode_hi = MODE_HI_MAP.get(mode, "परिवहन सेवा")
+        origin_hi = (data or {}).get("origin_name_hi") or origin
+        dest_hi = (data or {}).get("dest_name_hi") or dest
 
         if not origin or not dest:
+            if dest and not origin:
+                return f"आप कहाँ से {dest_hi} जाना चाहते हैं? कनेक्टिविटी जांचने के लिए कृपया आरंभिक स्टेशन का नाम बताएं।"
+            if origin and not dest:
+                return f"आप {origin_hi} से कहाँ जाना चाहते हैं? कनेक्टिविटी जांचने के लिए कृपया गंतव्य स्टेशन का नाम बताएं।"
             return "कनेक्टिविटी जांचने के लिए कृपया दोनों स्टेशनों के नाम बताएं (उदाहरण: सेंट्रल से गिंडी के लिए मेट्रो है क्या?)"
 
         available = data.get("available", False) if data else False
         routes = data.get("routes", []) if data else []
-        origin_hi = routes[0].get("origin_name_hi", origin) if routes else origin
-        dest_hi = routes[0].get("dest_name_hi", dest) if routes else dest
+        if routes:
+            origin_hi = routes[0].get("origin_name_hi") or origin_hi
+            dest_hi = routes[0].get("dest_name_hi") or dest_hi
 
         if available:
             direct = any(r.get("direct") == 1 for r in routes)
-            detail = "सीधी सेवा" if direct else "बदलाव वाला मार्ग"
+            detail = "सीधी सेवा" if direct else "बदलाव (इंटरचेंज) वाला मार्ग"
             return f"हाँ, डेटाबेस में {origin_hi} से {dest_hi} के बीच {mode_hi} का {detail} दर्ज है।"
         else:
-            return f"क्षमा करें, {origin} से {dest} के बीच {mode_hi} सेवा की जानकारी डेटाबेस में नहीं मिली। इससे सेवा बंद होने की पुष्टि नहीं होती।"
+            return f"क्षमा करें, {origin_hi} से {dest_hi} के बीच {mode_hi} सेवा की जानकारी डेटाबेस में नहीं मिली। इससे सेवा बंद होने की पुष्टि नहीं होती।"
 
     def _handle_timing(
         self, slots: Dict[str, Any], data: Optional[Dict[str, Any]]
@@ -158,11 +173,12 @@ class ResponseGenerator:
         columns = {
             "wheelchair": "wheelchair_available", "lift": "lift_available",
             "parking": "parking_available", "toilet": "accessible_toilet",
+            "accessible_toilet": "accessible_toilet", "ramp": "lift_available",
             "tactile_paths": "tactile_paths",
         }
-        value = fac_info.get(columns.get(facility))
+        value = fac_info.get(columns.get(facility, "wheelchair_available"))
         if value == 1:
-            return f"डेटाबेस के अनुसार {station_hi} स्टेशन पर {facility_hi} उपलब्ध है। यह वर्तमान कार्यशील स्थिति की पुष्टि नहीं है।"
+            return f"हाँ, डेटाबेस के अनुसार {station_hi} स्टेशन पर {facility_hi} उपलब्ध है। यह वर्तमान कार्यशील स्थिति की पुष्टि नहीं है।"
         if value == 0:
             return f"डेटाबेस के अनुसार {station_hi} स्टेशन पर {facility_hi} उपलब्ध नहीं है।"
         return f"{station_hi} स्टेशन पर इस सुविधा की जानकारी उपलब्ध नहीं है।"
