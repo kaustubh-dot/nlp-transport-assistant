@@ -187,18 +187,19 @@ class TfidfBaselineClassifier(BaseIntentClassifier):
         return intent
 
 
-class MurilIntentClassifier(BaseIntentClassifier):
-    """Transformer classifier using fine-tuned MuRIL (google/muril-base-cased)."""
+class TransformerIntentClassifier(BaseIntentClassifier):
+    """Transformer classifier supporting any fine-tuned Hugging Face sequence classification model."""
 
-    def __init__(self, model_dir: Optional[str] = None):
+    def __init__(self, model_key: str = "muril", model_dir: Optional[str] = None):
         self.fallback = RuleBasedFallbackClassifier()
         self.model = None
         self.tokenizer = None
         self.device = "cpu"
+        self.model_key = model_key
 
         if model_dir is None:
             base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            model_dir = os.path.join(base_dir, "models", "muril")
+            model_dir = os.path.join(base_dir, "models", model_key)
         self.model_dir = model_dir
 
         if os.path.exists(os.path.join(self.model_dir, "config.json")):
@@ -220,8 +221,14 @@ class MurilIntentClassifier(BaseIntentClassifier):
 
     def predict_with_confidence(self, query: str) -> Tuple[str, float]:
         norm_text = normalize_text(query)
+
+        # 1. Check high-confidence domain heuristics
+        rule_intent, rule_conf = self.fallback.predict_with_confidence(norm_text)
+        if rule_conf >= 0.85:
+            return rule_intent, rule_conf
+
         if self.model is None or self.tokenizer is None:
-            return self.fallback.predict_with_confidence(norm_text)
+            return rule_intent, rule_conf
 
         import torch
         inputs = self.tokenizer(
@@ -240,17 +247,27 @@ class MurilIntentClassifier(BaseIntentClassifier):
             confidence = float(probs[max_idx].item())
             intent = self.model.config.id2label.get(max_idx, INTENT_CLASSES[max_idx % len(INTENT_CLASSES)])
 
-        return intent, confidence
+        if confidence > rule_conf:
+            return intent, confidence
+        return rule_intent, rule_conf
 
     def predict(self, query: str) -> str:
         intent, _ = self.predict_with_confidence(query)
         return intent
 
 
+class MurilIntentClassifier(TransformerIntentClassifier):
+    """Backwards-compatible wrapper for fine-tuned MuRIL."""
+    def __init__(self, model_dir: Optional[str] = None):
+        super().__init__(model_key="muril", model_dir=model_dir)
+
+
 def get_classifier(model_type: str = "baseline") -> BaseIntentClassifier:
     """Factory function returning the desired classifier."""
-    if model_type == "muril":
-        return MurilIntentClassifier()
+    if model_type == "baseline":
+        return TfidfBaselineClassifier()
+    elif model_type in ["muril", "indicbert_v2", "indicbert", "hingbert", "xlm_roberta", "mdeberta", "minilm"]:
+        return TransformerIntentClassifier(model_key=model_type)
     return TfidfBaselineClassifier()
 
 
