@@ -36,12 +36,15 @@ env.bak/
 venv.bak/
 
 # PyTorch and Hugging Face checkpoints
-models/muril/checkpoint-*
-models/muril/*.bin
-models/muril/*.safetensors
+models/*/
+!models/training_summary.json
+*.safetensors
 *.pt
 *.pth
 *.bin
+
+# Hallmark scratch
+.hallmark/
 
 # SQLite database (can be regenerated using scripts/build_transport_db.py)
 # data/processed/transport.db

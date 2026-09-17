@@ -1,0 +1,14 @@
+[
+  {
+    "model_key": "mdeberta",
+    "name": "Microsoft mDeBERTa-v3",
+    "train_time_sec": 44.78,
+    "val_acc": 0.1397,
+    "val_f1": 0.035,
+    "test_acc": 0.2483,
+    "test_f1": 0.0568,
+    "latency_ms": 0.21,
+    "size_mb": 547.12,
+    "vram_mb": 4063.13
+  }
+]

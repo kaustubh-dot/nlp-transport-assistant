@@ -237,11 +237,16 @@ def train_transformer(model_key: str, train_df: pd.DataFrame, val_df: pd.DataFra
     val_loader = DataLoader(val_ds, batch_size=batch_size, shuffle=False)
     test_loader = DataLoader(test_ds, batch_size=batch_size, shuffle=False)
 
+    if "deberta" in model_key:
+        lr = 1e-5
+
     optimizer = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=0.01)
     total_steps = len(train_loader) * epochs
     scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=int(total_steps * 0.1), num_training_steps=total_steps)
 
-    scaler = torch.amp.GradScaler('cuda') if torch.cuda.is_available() else None
+    use_bf16 = torch.cuda.is_available() and torch.cuda.is_bf16_supported()
+    amp_dtype = torch.bfloat16 if use_bf16 else torch.float16
+    scaler = torch.amp.GradScaler('cuda') if (torch.cuda.is_available() and not use_bf16) else None
 
     best_val_f1 = 0.0
     best_val_acc = 0.0
@@ -256,16 +261,24 @@ def train_transformer(model_key: str, train_df: pd.DataFrame, val_df: pd.DataFra
             labels = batch["labels"].to(device)
 
             if torch.cuda.is_available():
-                with torch.amp.autocast('cuda'):
+                with torch.amp.autocast('cuda', dtype=amp_dtype):
                     outputs = model(input_ids=input_ids, attention_mask=attention_mask, labels=labels)
                     loss = outputs.loss
-                scaler.scale(loss).backward()
-                scaler.step(optimizer)
-                scaler.update()
+                if scaler is not None:
+                    scaler.scale(loss).backward()
+                    scaler.unscale_(optimizer)
+                    torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+                    scaler.step(optimizer)
+                    scaler.update()
+                else:
+                    loss.backward()
+                    torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+                    optimizer.step()
             else:
                 outputs = model(input_ids=input_ids, attention_mask=attention_mask, labels=labels)
                 loss = outputs.loss
                 loss.backward()
+                torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
                 optimizer.step()
 
             scheduler.step()
@@ -279,7 +292,7 @@ def train_transformer(model_key: str, train_df: pd.DataFrame, val_df: pd.DataFra
                 input_ids = batch["input_ids"].to(device)
                 attention_mask = batch["attention_mask"].to(device)
                 if torch.cuda.is_available():
-                    with torch.amp.autocast('cuda'):
+                    with torch.amp.autocast('cuda', dtype=amp_dtype):
                         outputs = model(input_ids=input_ids, attention_mask=attention_mask)
                 else:
                     outputs = model(input_ids=input_ids, attention_mask=attention_mask)
@@ -315,7 +328,7 @@ def train_transformer(model_key: str, train_df: pd.DataFrame, val_df: pd.DataFra
             
             t0 = time.perf_counter()
             if torch.cuda.is_available():
-                with torch.amp.autocast('cuda'):
+                with torch.amp.autocast('cuda', dtype=amp_dtype):
                     outputs = best_model(input_ids=input_ids, attention_mask=attention_mask)
             else:
                 outputs = best_model(input_ids=input_ids, attention_mask=attention_mask)
