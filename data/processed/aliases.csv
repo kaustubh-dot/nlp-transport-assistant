@@ -1,0 +1,58 @@
+station_id,alias,language,script
+CHENNAI_CENTRAL,चेन्नई सेंट्रल,hi,Deva
+CHENNAI_CENTRAL,सेंट्रल,hi,Deva
+CHENNAI_CENTRAL,एमजीआर सेंट्रल,hi,Deva
+CHENNAI_CENTRAL,मद्रास सेंट्रल,hi,Deva
+CHENNAI_CENTRAL,chennai central,en,Latn
+CHENNAI_CENTRAL,central,en,Latn
+CHENNAI_CENTRAL,mgr central,en,Latn
+CHENNAI_CENTRAL,chennai sentral,hinglish,Latn
+CHENNAI_EGMORE,चेन्नई एग्मोर,hi,Deva
+CHENNAI_EGMORE,एग्मोर,hi,Deva
+CHENNAI_EGMORE,एगमोर,hi,Deva
+CHENNAI_EGMORE,chennai egmore,en,Latn
+CHENNAI_EGMORE,egmore,en,Latn
+CHENNAI_EGMORE,egmore station,en,Latn
+CHENNAI_AIRPORT,चेन्नई एयरपोर्ट,hi,Deva
+CHENNAI_AIRPORT,एयरपोर्ट,hi,Deva
+CHENNAI_AIRPORT,हवाई अड्डा,hi,Deva
+CHENNAI_AIRPORT,मीनम्बाक्कम,hi,Deva
+CHENNAI_AIRPORT,chennai airport,en,Latn
+CHENNAI_AIRPORT,airport,en,Latn
+CHENNAI_AIRPORT,meenambakkam airport,en,Latn
+KOYAMBEDU,कोयम्बेडु,hi,Deva
+KOYAMBEDU,कोयम्बेडू,hi,Deva
+KOYAMBEDU,सीएमबीटी,hi,Deva
+KOYAMBEDU,कोयम्बेडु बस स्टैंड,hi,Deva
+KOYAMBEDU,koyambedu,en,Latn
+KOYAMBEDU,cmbt,en,Latn
+GUINDY,गिंडी,hi,Deva
+GUINDY,गुइंडी,hi,Deva
+GUINDY,गिंडी स्टेशन,hi,Deva
+GUINDY,guindy,en,Latn
+GUINDY,guindy station,en,Latn
+TAMBARAM,ताम्बरम,hi,Deva
+TAMBARAM,तांबरम,hi,Deva
+TAMBARAM,ताम्बरम स्टेशन,hi,Deva
+TAMBARAM,tambaram,en,Latn
+TAMBARAM,tambaram station,en,Latn
+ALANDUR,आलंदूर,hi,Deva
+ALANDUR,अलनदूर,hi,Deva
+ALANDUR,alandur,en,Latn
+ALANDUR,alandur metro,en,Latn
+CHENNAI_BEACH,चेन्नई बीच,hi,Deva
+CHENNAI_BEACH,बीच स्टेशन,hi,Deva
+CHENNAI_BEACH,chennai beach,en,Latn
+CHENNAI_BEACH,beach,en,Latn
+T_NAGAR,टी नगर,hi,Deva
+T_NAGAR,टी. नगर,hi,Deva
+T_NAGAR,त्यागराया नगर,hi,Deva
+T_NAGAR,t nagar,en,Latn
+T_NAGAR,t. nagar,en,Latn
+VELACHERY,वेलाचेरी,hi,Deva
+VELACHERY,velachery,en,Latn
+WIMCO_NAGAR,विमको नगर,hi,Deva
+WIMCO_NAGAR,wimco nagar,en,Latn
+ST_THOMAS_MOUNT,सेंट थॉमस माउंट,hi,Deva
+ST_THOMAS_MOUNT,थॉमस माउंट,hi,Deva
+ST_THOMAS_MOUNT,st thomas mount,en,Latn

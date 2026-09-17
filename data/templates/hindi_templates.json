@@ -1,0 +1,176 @@
+{
+  "intents": {
+    "route_query": {
+      "description": "How to travel from origin to destination",
+      "templates_hi": [
+        "{origin} से {destination} कैसे जाऊँ?",
+        "{origin} से {destination} जाने का रास्ता बताइए",
+        "{origin} से {destination} के लिए कौन सा मार्ग अच्छा है?",
+        "{origin} से {destination} कैसे पहुंच सकते हैं?",
+        "{origin} से {destination} जाने के लिए क्या साधन है?",
+        "{origin} से {destination} का रूट क्या है?",
+        "मुझे {origin} से {destination} जाना है, रास्ता क्या है?",
+        "{origin} से {destination} जाने के लिए सबसे तेज़ रास्ता कौन सा है?",
+        "{origin} से {destination} के लिए सीधी मेट्रो या ट्रेन है क्या?",
+        "{origin} से {destination} जाने के लिए कहाँ से गाड़ी पकड़ें?"
+      ],
+      "templates_hinglish": [
+        "{origin} se {destination} kaise jau?",
+        "{origin} se {destination} jaane ka route kya hai?",
+        "{origin} to {destination} kaise pahuche?",
+        "mujhe {origin} se {destination} jaana hai",
+        "{origin} se {destination} ke liye kaun sa route best hai?",
+        "{origin} to {destination} travel route"
+      ]
+    },
+    "service_availability": {
+      "description": "Check if a specific transport mode connects origin and destination",
+      "templates_hi": [
+        "{origin} से {destination} के लिए {mode} उपलब्ध है क्या?",
+        "क्या {origin} से {destination} जाने के लिए {mode} मिलेगी?",
+        "{origin} से {destination} के बीच {mode} चलती है क्या?",
+        "{origin} से {destination} के लिए सीधी {mode} है?",
+        "क्या मैं {origin} से {destination} {mode} से जा सकता हूँ?",
+        "{origin} से {destination} जाने के लिए {mode} सेवा चालू है কি?",
+        "{origin} से {destination} {mode} कनेक्टिविटी है क्या?"
+      ],
+      "templates_hinglish": [
+        "{origin} se {destination} ke liye {mode} available hai kya?",
+        "kya {origin} se {destination} {mode} milegi?",
+        "{origin} se {destination} direct {mode} hai kya?",
+        "{origin} to {destination} {mode} connectivity available?"
+      ]
+    },
+    "service_timing": {
+      "description": "First, last, or general operating timings of services",
+      "templates_hi": [
+        "{origin} से आखिरी {mode} कब छूटती है?",
+        "{origin} से पहली {mode} कितने बजे है?",
+        "{mode} कितने बजे तक चलती है?",
+        "रात को आखिरी {mode} का समय क्या है?",
+        "{origin} स्टेशन से सुबह पहली ट्रेन कब है?",
+        "चेन्नई मेट्रो का संचालन समय क्या है?",
+        "{origin} पर {mode} कितने-कितने समय में आती है?",
+        "रविवार को {mode} किस समय शुरू होती है?"
+      ],
+      "templates_hinglish": [
+        "{origin} se last {mode} kab nikalti hai?",
+        "{origin} se first {mode} kitne baje hai?",
+        "{mode} operating hours kya hai?",
+        "aakhiri {mode} kab chhutti hai?",
+        "{origin} par {mode} frequency kitni hai?"
+      ]
+    },
+    "station_information": {
+      "description": "General station facilities, parking, interchange, and platform queries",
+      "templates_hi": [
+        "{station} पर क्या सुविधाएं उपलब्ध हैं?",
+        "{station} पर पार्किंग की जगह है क्या?",
+        "{station} के पास कौन सा बस स्टॉप या मेट्रो स्टेशन है?",
+        "{station} पर इंटरचेंज की सुविधा है क्या?",
+        "{station} स्टेशन पर एटीएम और टॉयलेट है क्या?",
+        "{station} पर क्लॉक रूम या लॉकर सुविधा है?",
+        "{station} पर कौन-कौन सी लाइनों का जंक्शन है?"
+      ],
+      "templates_hinglish": [
+        "{station} par kya facilities hai?",
+        "{station} par parking available hai kya?",
+        "{station} interchange options kya hai?",
+        "{station} station amenities details?"
+      ]
+    },
+    "accessibility": {
+      "description": "Wheelchair, lift, escalator, and tactile path information",
+      "templates_hi": [
+        "{station} पर व्हीलचेयर उपलब्ध है क्या?",
+        "क्या {station} पर दिव्यांगों के लिए रैंप और लिफ्ट है?",
+        "{station} स्टेशन पर लिफ्ट की सुविधा है क्या?",
+        "क्या {station} व्हीलचेयर सुलभ स्टेशन है?",
+        "{station} पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?",
+        "{station} पर एस्केलेटर काम कर रहा है क्या?",
+        "दिव्यांग यात्रियों के लिए {station} पर विशेष सहायता काउंटर है?"
+      ],
+      "templates_hinglish": [
+        "{station} par wheelchair available hai kya?",
+        "{station} par lift aur ramp facility hai kya?",
+        "kya {station} accessible hai wheelchair ke liye?",
+        "{station} lift and escalator working status?"
+      ]
+    },
+    "ticketing": {
+      "description": "Fares, smart cards, token rules, and pass queries",
+      "templates_hi": [
+        "{origin} से {destination} का किराया कितना है?",
+        "{mode} का न्यूनतम और अधिकतम किराया क्या है?",
+        "मेट्रो स्मार्ट कार्ड कैसे रिचार्ज करें?",
+        "क्या {origin} से {destination} जाने के लिए क्यूआर टिकट मिलता है?",
+        "मासिक पास या ट्रेवल कार्ड का क्या नियम है?",
+        "बच्चों और वरिष्ठ नागरिकों के लिए किराये में छूट है क्या?",
+        "{mode} का टिकट काउंटर कहाँ है?"
+      ],
+      "templates_hinglish": [
+        "{origin} se {destination} ka fare kitna hai?",
+        "{origin} to {destination} ticket price kya hai?",
+        "{mode} smart card recharge kaise kare?",
+        "{origin} se {destination} metro token charges?"
+      ]
+    },
+    "out_of_scope": {
+      "description": "Queries outside Chennai public transit domain",
+      "templates_hi": [
+        "आज चेन्नई में मौसम कैसा रहेगा?",
+        "चेन्नई में घूमने के लिए अच्छी जगहें कौन सी हैं?",
+        "मुझे पास का अच्छा रेस्टोरेंट बताइए",
+        "चेन्नई सुपर किंग्स का अगला मैच कब है?",
+        "भारत की राजधानी क्या है?",
+        "कृपया मुझे एक चुटकुला सुनाइए",
+        "टैक्सी बुक करने का कोई नंबर बताइए",
+        "कल की ट्रेन का पीएनआर स्टेटस चेक कर दो"
+      ],
+      "templates_hinglish": [
+        "aaj chennai ka mausam kaisa hai?",
+        "chennai me best places to visit?",
+        "pnr status kaise check kare?",
+        "tell me a joke",
+        "cricket match score kya chal raha hai?"
+      ]
+    }
+  },
+  "mode_mapping": {
+    "मेट्रो": "metro",
+    "metro": "metro",
+    "बस": "bus",
+    "bus": "bus",
+    "एमटीसी": "bus",
+    "mtc": "bus",
+    "लोकल": "suburban_rail",
+    "लोकल ट्रेन": "suburban_rail",
+    "suburban": "suburban_rail",
+    "ट्रेन": "railway",
+    "रेल": "railway",
+    "train": "railway",
+    "rail": "railway"
+  },
+  "facility_keywords": {
+    "wheelchair": ["व्हीलचेयर", "wheelchair", "दिव्यांग", "विकलांग", "व्हील चेयर"],
+    "lift": ["लिफ्ट", "lift", "एलिवेटर", "elevator"],
+    "parking": ["पार्किंग", "parking", "गाड़ी खड़ी"],
+    "toilet": ["शौचालय", "टॉयलेट", "toilet", "वॉशरूम", "washroom"],
+    "tactile_paths": ["टैक्टाइल", "tactile", "दृष्टिहीन", "स्पर्श पथ"]
+  },
+  "response_templates_hi": {
+    "route_direct": "{origin_hi} से {destination_hi} जाने के लिए आप {line_name} ({mode_hi}) ले सकते हैं। यात्रा में लगभग {time} मिनट लगते हैं और सामान्य किराया ₹{fare} है।",
+    "route_interchange": "{origin_hi} से {destination_hi} के लिए आप {mode_hi} ले सकते हैं। आपको {interchange_station_hi} पर लाइन बदलनी होगी। कुल यात्रा समय लगभग {time} मिनट है।",
+    "service_available_yes": "हाँ, {origin_hi} से {destination_hi} के बीच {mode_hi} सेवा उपलब्ध है।",
+    "service_available_no": "क्षमा करें, {origin_hi} से {destination_hi} के लिए सीधी {mode_hi} सेवा उपलब्ध नहीं है। आप वैकल्पिक मार्ग या अन्य परिवहन साधन चुन सकते हैं।",
+    "timing_first_last": "{station_hi} स्टेशन पर {line_name} ({mode_hi}) की पहली सेवा सुबह {first_service} बजे और आखिरी सेवा रात {last_service} बजे उपलब्ध होती है।",
+    "accessibility_yes": "हाँ, {station_hi} स्टेशन पर {facility_hi} की सुविधा उपलब्ध है। अतिरिक्त सहायता के लिए स्टेशन कस्टमर केयर से संपर्क किया जा सकता है।",
+    "accessibility_no": "क्षमा करें, {station_hi} स्टेशन पर {facility_hi} की सीधी सुविधा उपलब्ध नहीं है।",
+    "ticketing_info": "{origin_hi} से {destination_hi} के लिए {mode_hi} का सामान्य किराया ₹{fare} है। टिकट काउंटर, वेंडिंग मशीन या क्यूआर ऐप से टिकट लिया जा सकता है।",
+    "missing_destination": "आप {origin_hi} से कहाँ जाना चाहते हैं? कृपया अपने गंतव्य (destination) स्टेशन का नाम बताएं।",
+    "missing_origin": "आप कहाँ से यात्रा शुरू करना चाहते हैं? कृपया अपने आरंभिक (origin) स्टेशन का नाम बताएं।",
+    "unknown_station": "मुझे यह स्टेशन या स्थान नहीं मिला। कृपया किसी समर्थित स्टेशन (जैसे चेन्नई सेंट्रल, एग्मोर, गिंडी, एयरपोर्ट, ताम्बरम) का नाम दें।",
+    "out_of_scope": "क्षमा करें, मैं केवल चेन्नई सार्वजनिक परिवहन (मेट्रो, उपनगरीय रेलवे, बस रूट एवं स्टेशन सुविधाओं) से संबंधित प्रश्नों में सहायता कर सकता हूँ।",
+    "live_status_unsupported": "यह प्रणाली आधिकारिक समय-सारणी (schedule) के आधार पर उत्तर देती है। वास्तविक समय की लाइव ट्रेन या बस स्थिति उपलब्ध नहीं है।"
+  }
+}
