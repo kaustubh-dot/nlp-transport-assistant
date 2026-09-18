@@ -40,6 +40,8 @@
       "places_outside_cma": 339,
       "official_mtc_stages": 1562,
       "official_mtc_stages_matched": 579,
+      "unique_stage_match_count": 94,
+      "same_name_cluster_match_count": 485,
       "official_mtc_stages_unmatched": 983,
       "official_mtc_stages_ambiguous": 0,
       "official_mtc_fares": 305,

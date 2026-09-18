@@ -1,7 +1,7 @@
-# Canonicalization & Entity Resolution Audit (v1.2)
+# Canonicalization & Entity Resolution Audit (v1.2.1)
 
 **Date:** 2026-09-19  
-**Knowledge Base Version:** `chennai_multimodal_v1.2` (Provisional Multisource Knowledge Base with Route Topology & Services)  
+**Knowledge Base Version:** `chennai_multimodal_v1.2.1` (Provisional Multisource Knowledge Base with Route Topology & Services - Consistency Patch v1.2.1)  
 **Database:** `data/canonical/transit/canonical_transport.db`  
 
 ---
@@ -52,6 +52,14 @@
 | `service_exceptions` | 0 | Service exceptions table (schema ready for calendar_dates updates) |
 | `fare_stages` | 1,562 | Official MTC fare stages with cross-references to canonical physical stops |
 | `fares` | 305 | Official MTC stage fare matrix (11 service categories, stages 1–30) |
+
+### Official MTC Fare Stage Linkage (Audit Breakdown)
+- **Total Official MTC Fare Stages:** 1,562
+- **Total Matched Stages:** 579 (37.07%)
+  - **Unique Single-Stop Matches (`unique_stage_match_count`):** 94
+  - **Same-Name Directional Cluster Matches (`same_name_cluster_match_count`):** 485
+- **Unmatched Stages:** 983 (62.93%)
+- **Ambiguous Collisions:** 0 (0.00%)
 
 ---
 

@@ -872,6 +872,8 @@ def build_canonical_database():
 
     stage_rows = []
     matched_count = 0
+    unique_stage_match_count = 0
+    same_name_cluster_match_count = 0
     unmatched_count = 0
     ambiguous_count = 0
 
@@ -893,11 +895,13 @@ def build_canonical_database():
                     if len(filtered) == 1:
                         matched_cid = filtered[0]
                         matched_count += 1
+                        unique_stage_match_count += 1
                     else:
                         keys = set(alphanum_key(stops_by_id[sid]["canonical_name"]) for sid in filtered if sid in stops_by_id)
                         if len(keys) == 1:
                             matched_cid = filtered[0]
                             matched_count += 1
+                            same_name_cluster_match_count += 1
                         else:
                             ambiguous_count += 1
                 else:
@@ -908,7 +912,8 @@ def build_canonical_database():
         cur.executemany("INSERT INTO fare_stages VALUES (?, ?, ?, ?, ?)", stage_rows)
         print(f"  - Ingested {len(stage_rows):,} official MTC fare stages.")
         print(f"    [Fare Stage Linkage Coverage] Total: {len(stage_rows):,} | "
-              f"Matched: {matched_count:,} ({matched_count/len(stage_rows)*100:.2f}%) | "
+              f"Matched: {matched_count:,} ({matched_count/len(stage_rows)*100:.2f}%) "
+              f"[Unique: {unique_stage_match_count:,}, Same-Name Cluster: {same_name_cluster_match_count:,}] | "
               f"Unmatched: {unmatched_count:,} ({unmatched_count/len(stage_rows)*100:.2f}%) | "
               f"Ambiguous: {ambiguous_count:,} ({ambiguous_count/len(stage_rows)*100:.2f}%)")
 
@@ -947,10 +952,10 @@ def build_canonical_database():
     cma_outside = sum(1 for cs in canonical_stops if cs["inside_cma"] == 0)
     canonical_with_ta = len({cs["stop_id"] for cs in canonical_stops if any(m.get("name_ta") for m in cs["member_records"])})
 
-    audit_content = f"""# Canonicalization & Entity Resolution Audit (v1.2)
+    audit_content = f"""# Canonicalization & Entity Resolution Audit (v1.2.1)
 
 **Date:** {datetime.now().strftime("%Y-%m-%d")}  
-**Knowledge Base Version:** `chennai_multimodal_v1.2` (Provisional Multisource Knowledge Base with Route Topology & Services)  
+**Knowledge Base Version:** `chennai_multimodal_v1.2.1` (Provisional Multisource Knowledge Base with Route Topology & Services - Consistency Patch v1.2.1)  
 **Database:** `data/canonical/transit/canonical_transport.db`  
 
 ---
@@ -1002,6 +1007,14 @@ def build_canonical_database():
 | `fare_stages` | {len(stage_rows):,} | Official MTC fare stages with cross-references to canonical physical stops |
 | `fares` | {len(fare_rows):,} | Official MTC stage fare matrix (11 service categories, stages 1–30) |
 
+### Official MTC Fare Stage Linkage (Audit Breakdown)
+- **Total Official MTC Fare Stages:** {len(stage_rows):,}
+- **Total Matched Stages:** {matched_count:,} ({matched_count/len(stage_rows)*100:.2f}%)
+  - **Unique Single-Stop Matches (`unique_stage_match_count`):** {unique_stage_match_count:,}
+  - **Same-Name Directional Cluster Matches (`same_name_cluster_match_count`):** {same_name_cluster_match_count:,}
+- **Unmatched Stages:** {unmatched_count:,} ({unmatched_count/len(stage_rows)*100:.2f}%)
+- **Ambiguous Collisions:** {ambiguous_count:,} ({ambiguous_count/len(stage_rows)*100:.2f}%)
+
 ---
 
 ## 5. Canonical Resolution Policy
@@ -1021,6 +1034,24 @@ def build_canonical_database():
 """
     with open(AUDIT_MD, "w", encoding="utf-8") as f:
         f.write(audit_content)
+
+    manifest_path = os.path.join(BASE_DIR, "metadata", "data_snapshot_manifest.json")
+    if os.path.exists(manifest_path):
+        try:
+            with open(manifest_path, "r", encoding="utf-8") as f:
+                mf = json.load(f)
+            crm = mf.get("current_snapshot", {}).get("canonical_resolution_metrics", {})
+            crm["official_mtc_stages"] = len(stage_rows)
+            crm["official_mtc_stages_matched"] = matched_count
+            crm["unique_stage_match_count"] = unique_stage_match_count
+            crm["same_name_cluster_match_count"] = same_name_cluster_match_count
+            crm["official_mtc_stages_unmatched"] = unmatched_count
+            crm["official_mtc_stages_ambiguous"] = ambiguous_count
+            with open(manifest_path, "w", encoding="utf-8") as f:
+                json.dump(mf, f, indent=2)
+                f.write("\n")
+        except Exception as e:
+            print(f"Warning: could not update manifest metrics: {e}")
 
     db_size_mb = os.path.getsize(DB_PATH) / (1024 * 1024)
     print(f"✅ Successfully built canonical database at: {DB_PATH} ({db_size_mb:.2f} MB)")
