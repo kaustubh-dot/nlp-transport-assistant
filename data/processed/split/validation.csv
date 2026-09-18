@@ -1,0 +1,717 @@
+query,template_family,station,intent,origin,destination,transport_mode,information_type,slots_reviewed,language,script,source,split
+चेन्नई एयरपोर्ट से सैदापेट जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,CHENNAI_AIRPORT,route_query,CHENNAI_AIRPORT,SAIDAPET,,,False,hi,devanagari,template_combinatorial,val
+mujhe government estate se airport jaana hai,route_query:travel_need,GOVERNMENT_ESTATE,route_query,GOVERNMENT_ESTATE,CHENNAI_AIRPORT,,,False,hinglish,latin_hinglish,template_combinatorial,val
+mujhe ashok nagar se chennai airport jaana hai,route_query:travel_need,ASHOK_NAGAR,route_query,ASHOK_NAGAR,CHENNAI_AIRPORT,,,False,hinglish,latin_hinglish,template_combinatorial,val
+mujhe thirumangalam se saidapet jaana hai,route_query:travel_need,THIRUMANGALAM,route_query,THIRUMANGALAM,SAIDAPET,,,False,hinglish,latin_hinglish,template_combinatorial,val
+mujhe chennai airport se central railway station jaana hai,route_query:travel_need,CHENNAI_AIRPORT,route_query,CHENNAI_AIRPORT,CHENNAI_CENTRAL,,,False,hinglish,latin_hinglish,template_combinatorial,val
+"मुझे एयरपोर्ट से कोयम्बेडु मार्केट जाना है, रास्ता क्या है?",route_query:travel_need,CHENNAI_AIRPORT,route_query,CHENNAI_AIRPORT,KOYAMBEDU,,,False,hi,devanagari,template_combinatorial,val
+"मुझे थाउजेंड लाइट्स से चेन्नई एग्मोर जाना है, रास्ता क्या है?",route_query:travel_need,THOUSAND_LIGHTS,route_query,THOUSAND_LIGHTS,CHENNAI_EGMORE,,,False,hi,devanagari,template_combinatorial,val
+लिटिल माउंट से कोयम्बेडु मार्केट जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,LITTLE_MOUNT,route_query,LITTLE_MOUNT,KOYAMBEDU,,,False,hi,devanagari,template_combinatorial,val
+mujhe chennai egmore se shenoy nagar jaana hai,route_query:travel_need,CHENNAI_EGMORE,route_query,CHENNAI_EGMORE,SHENOY_NAGAR,,,False,hinglish,latin_hinglish,template_combinatorial,val
+वडापलानी से एयरपोर्ट जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,VADAPALANI,route_query,VADAPALANI,CHENNAI_AIRPORT,,,False,hi,devanagari,template_combinatorial,val
+कोयम्बेडु मार्केट से वडापलानी जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,KOYAMBEDU,route_query,KOYAMBEDU,VADAPALANI,,,False,hi,devanagari,template_combinatorial,val
+mujhe government estate se velachery jaana hai,route_query:travel_need,GOVERNMENT_ESTATE,route_query,GOVERNMENT_ESTATE,VELACHERY,,,False,hinglish,latin_hinglish,template_combinatorial,val
+तेनामपेट से चेन्नई सेंट्रल जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,TEYNAMPET,route_query,TEYNAMPET,CHENNAI_CENTRAL,,,False,hi,devanagari,template_combinatorial,val
+कोयम्बेडु मार्केट से टी नगर जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,KOYAMBEDU,route_query,KOYAMBEDU,NANDANAM,,,False,hi,devanagari,template_combinatorial,val
+"मुझे वेलाचेरी से एयरपोर्ट जाना है, रास्ता क्या है?",route_query:travel_need,VELACHERY,route_query,VELACHERY,CHENNAI_AIRPORT,,,False,hi,devanagari,template_combinatorial,val
+ताम्बरम से एलआईसी जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,TAMBARAM,route_query,TAMBARAM,LIC,,,False,hi,devanagari,template_combinatorial,val
+कोयम्बेडु से चेन्नई बीच जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,KOYAMBEDU,route_query,KOYAMBEDU,CHENNAI_BEACH,,,False,hi,devanagari,template_combinatorial,val
+mujhe st thomas mount se egmore jaana hai,route_query:travel_need,ST_THOMAS_MOUNT,route_query,ST_THOMAS_MOUNT,CHENNAI_EGMORE,,,False,hinglish,latin_hinglish,template_combinatorial,val
+"मुझे एलआईसी से सेंट थॉमस माउंट जाना है, रास्ता क्या है?",route_query:travel_need,LIC,route_query,LIC,ST_THOMAS_MOUNT,,,False,hi,devanagari,template_combinatorial,val
+mujhe nandanam se chennai beach jaana hai,route_query:travel_need,NANDANAM,route_query,NANDANAM,CHENNAI_BEACH,,,False,hinglish,latin_hinglish,template_combinatorial,val
+"मुझे तिरुमंगलम से चेन्नई बीच जाना है, रास्ता क्या है?",route_query:travel_need,THIRUMANGALAM,route_query,THIRUMANGALAM,CHENNAI_BEACH,,,False,hi,devanagari,template_combinatorial,val
+सैदापेट से लिटिल माउंट जाने के लिए कहाँ से गाड़ी पकड़ें?,route_query:boarding_point,SAIDAPET,route_query,SAIDAPET,LITTLE_MOUNT,,,False,hi,devanagari,template_combinatorial,val
+mujhe thirumangalam se chennai beach jaana hai,route_query:travel_need,THIRUMANGALAM,route_query,THIRUMANGALAM,CHENNAI_BEACH,,,False,hinglish,latin_hinglish,template_combinatorial,val
+थाउजेंड लाइट्स से सेंट्रल रेलवे स्टेशन जाने के लिए कहाँ से गाड़ी पकड़ें?,route_query:boarding_point,THOUSAND_LIGHTS,route_query,THOUSAND_LIGHTS,CHENNAI_CENTRAL,,,False,hi,devanagari,template_combinatorial,val
+टी नगर से एजी-डीएमएस जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,NANDANAM,route_query,NANDANAM,AG_DMS,,,False,hi,devanagari,template_combinatorial,val
+नंदनम से मीनांबक्कम जाने के लिए कहाँ से गाड़ी पकड़ें?,route_query:boarding_point,NANDANAM,route_query,NANDANAM,MEENAMBAKKAM,,,False,hi,devanagari,template_combinatorial,val
+एलआईसी से सैदापेट जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,LIC,route_query,LIC,SAIDAPET,,,False,hi,devanagari,template_combinatorial,val
+"मुझे वेलाचेरी से थाउजेंड लाइट्स जाना है, रास्ता क्या है?",route_query:travel_need,VELACHERY,route_query,VELACHERY,THOUSAND_LIGHTS,,,False,hi,devanagari,template_combinatorial,val
+गवर्नमेंट एस्टेट से चेन्नई एयरपोर्ट जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,GOVERNMENT_ESTATE,route_query,GOVERNMENT_ESTATE,CHENNAI_AIRPORT,,,False,hi,devanagari,template_combinatorial,val
+mujhe st thomas mount se central jaana hai,route_query:travel_need,ST_THOMAS_MOUNT,route_query,ST_THOMAS_MOUNT,CHENNAI_CENTRAL,,,False,hinglish,latin_hinglish,template_combinatorial,val
+अशोक नगर से चेन्नई बीच जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,ASHOK_NAGAR,route_query,ASHOK_NAGAR,CHENNAI_BEACH,,,False,hi,devanagari,template_combinatorial,val
+"मुझे नंदनम से सैदापेट जाना है, रास्ता क्या है?",route_query:travel_need,NANDANAM,route_query,NANDANAM,SAIDAPET,,,False,hi,devanagari,template_combinatorial,val
+आलंदूर से चेन्नई बीच जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,ALANDUR,route_query,ALANDUR,CHENNAI_BEACH,,,False,hi,devanagari,template_combinatorial,val
+किल्पॉक से गिंडी जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,KILPAUK,route_query,KILPAUK,GUINDY,,,False,hi,devanagari,template_combinatorial,val
+mujhe shenoy nagar se central jaana hai,route_query:travel_need,SHENOY_NAGAR,route_query,SHENOY_NAGAR,CHENNAI_CENTRAL,,,False,hinglish,latin_hinglish,template_combinatorial,val
+आलंदूर से नंदनम जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,ALANDUR,route_query,ALANDUR,NANDANAM,,,False,hi,devanagari,template_combinatorial,val
+अन्ना नगर से हवाई अड्डा जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,ANNA_NAGAR,route_query,ANNA_NAGAR,CHENNAI_AIRPORT,,,False,hi,devanagari,template_combinatorial,val
+"मुझे एलआईसी से तेनामपेट जाना है, रास्ता क्या है?",route_query:travel_need,LIC,route_query,LIC,TEYNAMPET,,,False,hi,devanagari,template_combinatorial,val
+mujhe cmbt se vadapalani jaana hai,route_query:travel_need,CMBT,route_query,CMBT,VADAPALANI,,,False,hinglish,latin_hinglish,template_combinatorial,val
+सेंट्रल रेलवे स्टेशन से लिटिल माउंट जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,CHENNAI_CENTRAL,route_query,CHENNAI_CENTRAL,LITTLE_MOUNT,,,False,hi,devanagari,template_combinatorial,val
+"मुझे अशोक नगर से लिटिल माउंट जाना है, रास्ता क्या है?",route_query:travel_need,ASHOK_NAGAR,route_query,ASHOK_NAGAR,LITTLE_MOUNT,,,False,hi,devanagari,template_combinatorial,val
+"मुझे कोयम्बेडु से तिरुमंगलम जाना है, रास्ता क्या है?",route_query:travel_need,KOYAMBEDU,route_query,KOYAMBEDU,THIRUMANGALAM,,,False,hi,devanagari,template_combinatorial,val
+सैदापेट से किल्पॉक जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,SAIDAPET,route_query,SAIDAPET,KILPAUK,,,False,hi,devanagari,template_combinatorial,val
+mujhe thousand lights se ag dms jaana hai,route_query:travel_need,THOUSAND_LIGHTS,route_query,THOUSAND_LIGHTS,AG_DMS,,,False,hinglish,latin_hinglish,template_combinatorial,val
+हवाई अड्डा से वडापलानी जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,CHENNAI_AIRPORT,route_query,CHENNAI_AIRPORT,VADAPALANI,,,False,hi,devanagari,template_combinatorial,val
+चेन्नई एयरपोर्ट से आलंदूर जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,CHENNAI_AIRPORT,route_query,CHENNAI_AIRPORT,ALANDUR,,,False,hi,devanagari,template_combinatorial,val
+तिरुमंगलम से अशोक नगर जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,THIRUMANGALAM,route_query,THIRUMANGALAM,ASHOK_NAGAR,,,False,hi,devanagari,template_combinatorial,val
+लिटिल माउंट से सेंट्रल जाने के लिए कहाँ से गाड़ी पकड़ें?,route_query:boarding_point,LITTLE_MOUNT,route_query,LITTLE_MOUNT,CHENNAI_CENTRAL,,,False,hi,devanagari,template_combinatorial,val
+"मुझे शेनॉय नगर से चेन्नई एग्मोर जाना है, रास्ता क्या है?",route_query:travel_need,SHENOY_NAGAR,route_query,SHENOY_NAGAR,CHENNAI_EGMORE,,,False,hi,devanagari,template_combinatorial,val
+नेहरू पार्क से हवाई अड्डा जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,NEHRU_PARK,route_query,NEHRU_PARK,CHENNAI_AIRPORT,,,False,hi,devanagari,template_combinatorial,val
+सैदापेट से सेंट्रल जाने के लिए कहाँ से गाड़ी पकड़ें?,route_query:boarding_point,SAIDAPET,route_query,SAIDAPET,CHENNAI_CENTRAL,,,False,hi,devanagari,template_combinatorial,val
+अशोक नगर से लिटिल माउंट जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,ASHOK_NAGAR,route_query,ASHOK_NAGAR,LITTLE_MOUNT,,,False,hi,devanagari,template_combinatorial,val
+तिरुमंगलम से आलंदूर जाने के लिए कहाँ से गाड़ी पकड़ें?,route_query:boarding_point,THIRUMANGALAM,route_query,THIRUMANGALAM,ALANDUR,,,False,hi,devanagari,template_combinatorial,val
+"मुझे तिरुमंगलम से अन्ना नगर जाना है, रास्ता क्या है?",route_query:travel_need,THIRUMANGALAM,route_query,THIRUMANGALAM,ANNA_NAGAR,,,False,hi,devanagari,template_combinatorial,val
+सेंट्रल रेलवे स्टेशन से चेन्नई बीच जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,CHENNAI_CENTRAL,route_query,CHENNAI_CENTRAL,CHENNAI_BEACH,,,False,hi,devanagari,template_combinatorial,val
+मीनांबक्कम से लिटिल माउंट जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,MEENAMBAKKAM,route_query,MEENAMBAKKAM,LITTLE_MOUNT,,,False,hi,devanagari,template_combinatorial,val
+ताम्बरम से गिंडी जाने के लिए कहाँ से गाड़ी पकड़ें?,route_query:boarding_point,TAMBARAM,route_query,TAMBARAM,GUINDY,,,False,hi,devanagari,template_combinatorial,val
+गवर्नमेंट एस्टेट से चेन्नई बीच जाने के लिए कहाँ से गाड़ी पकड़ें?,route_query:boarding_point,GOVERNMENT_ESTATE,route_query,GOVERNMENT_ESTATE,CHENNAI_BEACH,,,False,hi,devanagari,template_combinatorial,val
+"मुझे वेलाचेरी से चेन्नई एयरपोर्ट जाना है, रास्ता क्या है?",route_query:travel_need,VELACHERY,route_query,VELACHERY,CHENNAI_AIRPORT,,,False,hi,devanagari,template_combinatorial,val
+सेंट्रल से नंदनम जाने के लिए कहाँ से गाड़ी पकड़ें?,route_query:boarding_point,CHENNAI_CENTRAL,route_query,CHENNAI_CENTRAL,NANDANAM,,,False,hi,devanagari,template_combinatorial,val
+mujhe velachery se chennai egmore jaana hai,route_query:travel_need,VELACHERY,route_query,VELACHERY,CHENNAI_EGMORE,,,False,hinglish,latin_hinglish,template_combinatorial,val
+mujhe anna nagar se guindy jaana hai,route_query:travel_need,ANNA_NAGAR,route_query,ANNA_NAGAR,GUINDY,,,False,hinglish,latin_hinglish,template_combinatorial,val
+"मुझे चेन्नई एग्मोर से वडापलानी जाना है, रास्ता क्या है?",route_query:travel_need,CHENNAI_EGMORE,route_query,CHENNAI_EGMORE,VADAPALANI,,,False,hi,devanagari,template_combinatorial,val
+mujhe koyambedu se meenambakkam jaana hai,route_query:travel_need,KOYAMBEDU,route_query,KOYAMBEDU,MEENAMBAKKAM,,,False,hinglish,latin_hinglish,template_combinatorial,val
+"मुझे थाउजेंड लाइट्स से वेलाचेरी जाना है, रास्ता क्या है?",route_query:travel_need,THOUSAND_LIGHTS,route_query,THOUSAND_LIGHTS,VELACHERY,,,False,hi,devanagari,template_combinatorial,val
+एलआईसी से सैदापेट जाने के लिए कहाँ से गाड़ी पकड़ें?,route_query:boarding_point,LIC,route_query,LIC,SAIDAPET,,,False,hi,devanagari,template_combinatorial,val
+mujhe ag dms se nehru park jaana hai,route_query:travel_need,AG_DMS,route_query,AG_DMS,NEHRU_PARK,,,False,hinglish,latin_hinglish,template_combinatorial,val
+mujhe ag dms se government estate jaana hai,route_query:travel_need,AG_DMS,route_query,AG_DMS,GOVERNMENT_ESTATE,,,False,hinglish,latin_hinglish,template_combinatorial,val
+"मुझे हाई कोर्ट से गिंडी जाना है, रास्ता क्या है?",route_query:travel_need,HIGH_COURT,route_query,HIGH_COURT,GUINDY,,,False,hi,devanagari,template_combinatorial,val
+सेंट्रल से सेंट थॉमस माउंट जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,CHENNAI_CENTRAL,route_query,CHENNAI_CENTRAL,ST_THOMAS_MOUNT,,,False,hi,devanagari,template_combinatorial,val
+"मुझे नंदनम से तिरुमंगलम जाना है, रास्ता क्या है?",route_query:travel_need,NANDANAM,route_query,NANDANAM,THIRUMANGALAM,,,False,hi,devanagari,template_combinatorial,val
+mujhe lic se tambaram jaana hai,route_query:travel_need,LIC,route_query,LIC,TAMBARAM,,,False,hinglish,latin_hinglish,template_combinatorial,val
+mujhe high court se kilpauk jaana hai,route_query:travel_need,HIGH_COURT,route_query,HIGH_COURT,KILPAUK,,,False,hinglish,latin_hinglish,template_combinatorial,val
+सीएमबीटी से शेनॉय नगर जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,CMBT,route_query,CMBT,SHENOY_NAGAR,,,False,hi,devanagari,template_combinatorial,val
+"मुझे एलआईसी से मीनांबक्कम जाना है, रास्ता क्या है?",route_query:travel_need,LIC,route_query,LIC,MEENAMBAKKAM,,,False,hi,devanagari,template_combinatorial,val
+mujhe ashok nagar se tambaram jaana hai,route_query:travel_need,ASHOK_NAGAR,route_query,ASHOK_NAGAR,TAMBARAM,,,False,hinglish,latin_hinglish,template_combinatorial,val
+"मुझे चेन्नई एग्मोर से एलआईसी जाना है, रास्ता क्या है?",route_query:travel_need,CHENNAI_EGMORE,route_query,CHENNAI_EGMORE,LIC,,,False,hi,devanagari,template_combinatorial,val
+सीएमबीटी से अन्ना नगर जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,CMBT,route_query,CMBT,ANNA_NAGAR,,,False,hi,devanagari,template_combinatorial,val
+तिरुमंगलम से नेहरू पार्क जाने के लिए कहाँ से गाड़ी पकड़ें?,route_query:boarding_point,THIRUMANGALAM,route_query,THIRUMANGALAM,NEHRU_PARK,,,False,hi,devanagari,template_combinatorial,val
+सीएमबीटी से तिरुमंगलम जाने के लिए कहाँ से गाड़ी पकड़ें?,route_query:boarding_point,CMBT,route_query,CMBT,THIRUMANGALAM,,,False,hi,devanagari,template_combinatorial,val
+आलंदूर से हाई कोर्ट जाने के लिए कहाँ से गाड़ी पकड़ें?,route_query:boarding_point,ALANDUR,route_query,ALANDUR,HIGH_COURT,,,False,hi,devanagari,template_combinatorial,val
+"मुझे थाउजेंड लाइट्स से तिरुमंगलम जाना है, रास्ता क्या है?",route_query:travel_need,THOUSAND_LIGHTS,route_query,THOUSAND_LIGHTS,THIRUMANGALAM,,,False,hi,devanagari,template_combinatorial,val
+mujhe nandanam se meenambakkam jaana hai,route_query:travel_need,NANDANAM,route_query,NANDANAM,MEENAMBAKKAM,,,False,hinglish,latin_hinglish,template_combinatorial,val
+mujhe nandanam se nehru park jaana hai,route_query:travel_need,NANDANAM,route_query,NANDANAM,NEHRU_PARK,,,False,hinglish,latin_hinglish,template_combinatorial,val
+mujhe nandanam se lic jaana hai,route_query:travel_need,NANDANAM,route_query,NANDANAM,LIC,,,False,hinglish,latin_hinglish,template_combinatorial,val
+mujhe cmbt se velachery jaana hai,route_query:travel_need,CMBT,route_query,CMBT,VELACHERY,,,False,hinglish,latin_hinglish,template_combinatorial,val
+mujhe vadapalani se chennai egmore jaana hai,route_query:travel_need,VADAPALANI,route_query,VADAPALANI,CHENNAI_EGMORE,,,False,hinglish,latin_hinglish,template_combinatorial,val
+mujhe kilpauk se central jaana hai,route_query:travel_need,KILPAUK,route_query,KILPAUK,CHENNAI_CENTRAL,,,False,hinglish,latin_hinglish,template_combinatorial,val
+शेनॉय नगर से चेन्नई बीच जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,SHENOY_NAGAR,route_query,SHENOY_NAGAR,CHENNAI_BEACH,,,False,hi,devanagari,template_combinatorial,val
+कोयम्बेडु से आलंदूर जाने के लिए कहाँ से गाड़ी पकड़ें?,route_query:boarding_point,KOYAMBEDU,route_query,KOYAMBEDU,ALANDUR,,,False,hi,devanagari,template_combinatorial,val
+mujhe egmore se velachery jaana hai,route_query:travel_need,CHENNAI_EGMORE,route_query,CHENNAI_EGMORE,VELACHERY,,,False,hinglish,latin_hinglish,template_combinatorial,val
+वेलाचेरी से एयरपोर्ट जाने के लिए कहाँ से गाड़ी पकड़ें?,route_query:boarding_point,VELACHERY,route_query,VELACHERY,CHENNAI_AIRPORT,,,False,hi,devanagari,template_combinatorial,val
+mujhe tambaram se anna nagar jaana hai,route_query:travel_need,TAMBARAM,route_query,TAMBARAM,ANNA_NAGAR,,,False,hinglish,latin_hinglish,template_combinatorial,val
+"मुझे कोयम्बेडु से सेंट्रल रेलवे स्टेशन जाना है, रास्ता क्या है?",route_query:travel_need,KOYAMBEDU,route_query,KOYAMBEDU,CHENNAI_CENTRAL,,,False,hi,devanagari,template_combinatorial,val
+अशोक नगर से नेहरू पार्क जाने हेतु मेट्रो लाइन बताइए,route_query:line_guide,ASHOK_NAGAR,route_query,ASHOK_NAGAR,NEHRU_PARK,,,False,hi,devanagari,template_combinatorial,val
+mujhe chennai egmore se guindy jaana hai,route_query:travel_need,CHENNAI_EGMORE,route_query,CHENNAI_EGMORE,GUINDY,,,False,hinglish,latin_hinglish,template_combinatorial,val
+वडापलानी से एयरपोर्ट जाने के लिए कहाँ से गाड़ी पकड़ें?,route_query:boarding_point,VADAPALANI,route_query,VADAPALANI,CHENNAI_AIRPORT,,,False,hi,devanagari,template_combinatorial,val
+mujhe chennai egmore se t nagar jaana hai,route_query:travel_need,CHENNAI_EGMORE,route_query,CHENNAI_EGMORE,NANDANAM,,,False,hinglish,latin_hinglish,template_combinatorial,val
+"मुझे अन्ना नगर से चेन्नई बीच जाना है, रास्ता क्या है?",route_query:travel_need,ANNA_NAGAR,route_query,ANNA_NAGAR,CHENNAI_BEACH,,,False,hi,devanagari,template_combinatorial,val
+mujhe government estate se t nagar jaana hai,route_query:travel_need,GOVERNMENT_ESTATE,route_query,GOVERNMENT_ESTATE,NANDANAM,,,False,hinglish,latin_hinglish,template_combinatorial,val
+मीनांबक्कम और अन्ना नगर के बीच कोई ट्रेन सेवा है क्या?,service_availability:between_service,MEENAMBAKKAM,service_availability,MEENAMBAKKAM,ANNA_NAGAR,railway,,False,hi,devanagari,template_combinatorial,val
+is local train running between shenoy nagar and nehru park?,service_availability:running_english,SHENOY_NAGAR,service_availability,SHENOY_NAGAR,NEHRU_PARK,suburban_rail,,False,hinglish,latin_hinglish,template_combinatorial,val
+वडापलानी और मीनांबक्कम के बीच कोई बस सेवा है क्या?,service_availability:between_service,VADAPALANI,service_availability,VADAPALANI,MEENAMBAKKAM,bus,,False,hi,devanagari,template_combinatorial,val
+सैदापेट और गवर्नमेंट एस्टेट के बीच कोई ट्रेन सेवा है क्या?,service_availability:between_service,SAIDAPET,service_availability,SAIDAPET,GOVERNMENT_ESTATE,railway,,False,hi,devanagari,template_combinatorial,val
+अशोक नगर और मीनांबक्कम के बीच कोई ट्रेन सेवा है क्या?,service_availability:between_service,ASHOK_NAGAR,service_availability,ASHOK_NAGAR,MEENAMBAKKAM,railway,,False,hi,devanagari,template_combinatorial,val
+is bus running between kilpauk and ag dms?,service_availability:running_english,KILPAUK,service_availability,KILPAUK,AG_DMS,bus,,False,hinglish,latin_hinglish,template_combinatorial,val
+is local train running between chennai central and airport?,service_availability:running_english,CHENNAI_CENTRAL,service_availability,CHENNAI_CENTRAL,CHENNAI_AIRPORT,suburban_rail,,False,hinglish,latin_hinglish,template_combinatorial,val
+एग्मोर और सेंट्रल रेलवे स्टेशन के बीच कोई मेट्रो सेवा है क्या?,service_availability:between_service,CHENNAI_EGMORE,service_availability,CHENNAI_EGMORE,CHENNAI_CENTRAL,metro,,False,hi,devanagari,template_combinatorial,val
+is metro running between ag dms and nandanam?,service_availability:running_english,AG_DMS,service_availability,AG_DMS,NANDANAM,metro,,False,hinglish,latin_hinglish,template_combinatorial,val
+वडापलानी और कोयम्बेडु मार्केट के बीच कोई लोकल ट्रेन सेवा है क्या?,service_availability:between_service,VADAPALANI,service_availability,VADAPALANI,KOYAMBEDU,suburban_rail,,False,hi,devanagari,template_combinatorial,val
+is local train running between kilpauk and egmore?,service_availability:running_english,KILPAUK,service_availability,KILPAUK,CHENNAI_EGMORE,suburban_rail,,False,hinglish,latin_hinglish,template_combinatorial,val
+गिंडी और थाउजेंड लाइट्स के बीच कोई ट्रेन सेवा है क्या?,service_availability:between_service,GUINDY,service_availability,GUINDY,THOUSAND_LIGHTS,railway,,False,hi,devanagari,template_combinatorial,val
+सीएमबीटी और तेनामपेट के बीच कोई मेट्रो सेवा है क्या?,service_availability:between_service,CMBT,service_availability,CMBT,TEYNAMPET,metro,,False,hi,devanagari,template_combinatorial,val
+is local train running between kilpauk and chennai airport?,service_availability:running_english,KILPAUK,service_availability,KILPAUK,CHENNAI_AIRPORT,suburban_rail,,False,hinglish,latin_hinglish,template_combinatorial,val
+तेनामपेट और चेन्नई एयरपोर्ट के बीच कोई मेट्रो सेवा है क्या?,service_availability:between_service,TEYNAMPET,service_availability,TEYNAMPET,CHENNAI_AIRPORT,metro,,False,hi,devanagari,template_combinatorial,val
+is bus running between government estate and ag dms?,service_availability:running_english,GOVERNMENT_ESTATE,service_availability,GOVERNMENT_ESTATE,AG_DMS,bus,,False,hinglish,latin_hinglish,template_combinatorial,val
+is train running between saidapet and chennai airport?,service_availability:running_english,SAIDAPET,service_availability,SAIDAPET,CHENNAI_AIRPORT,railway,,False,hinglish,latin_hinglish,template_combinatorial,val
+is train running between thousand lights and little mount?,service_availability:running_english,THOUSAND_LIGHTS,service_availability,THOUSAND_LIGHTS,LITTLE_MOUNT,railway,,False,hinglish,latin_hinglish,template_combinatorial,val
+is train running between saidapet and vadapalani?,service_availability:running_english,SAIDAPET,service_availability,SAIDAPET,VADAPALANI,railway,,False,hinglish,latin_hinglish,template_combinatorial,val
+is metro running between thousand lights and st thomas mount?,service_availability:running_english,THOUSAND_LIGHTS,service_availability,THOUSAND_LIGHTS,ST_THOMAS_MOUNT,metro,,False,hinglish,latin_hinglish,template_combinatorial,val
+is local train running between alandur and velachery?,service_availability:running_english,ALANDUR,service_availability,ALANDUR,VELACHERY,suburban_rail,,False,hinglish,latin_hinglish,template_combinatorial,val
+is bus running between nehru park and central railway station?,service_availability:running_english,NEHRU_PARK,service_availability,NEHRU_PARK,CHENNAI_CENTRAL,bus,,False,hinglish,latin_hinglish,template_combinatorial,val
+नंदनम और शेनॉय नगर के बीच कोई लोकल ट्रेन सेवा है क्या?,service_availability:between_service,NANDANAM,service_availability,NANDANAM,SHENOY_NAGAR,suburban_rail,,False,hi,devanagari,template_combinatorial,val
+is bus running between lic and guindy?,service_availability:running_english,LIC,service_availability,LIC,GUINDY,bus,,False,hinglish,latin_hinglish,template_combinatorial,val
+चेन्नई एयरपोर्ट और सीएमबीटी के बीच कोई ट्रेन सेवा है क्या?,service_availability:between_service,CHENNAI_AIRPORT,service_availability,CHENNAI_AIRPORT,CMBT,railway,,False,hi,devanagari,template_combinatorial,val
+कोयम्बेडु मार्केट और सेंट्रल के बीच कोई ट्रेन सेवा है क्या?,service_availability:between_service,KOYAMBEDU,service_availability,KOYAMBEDU,CHENNAI_CENTRAL,railway,,False,hi,devanagari,template_combinatorial,val
+is bus running between central and egmore?,service_availability:running_english,CHENNAI_CENTRAL,service_availability,CHENNAI_CENTRAL,CHENNAI_EGMORE,bus,,False,hinglish,latin_hinglish,template_combinatorial,val
+सीएमबीटी और अन्ना नगर के बीच कोई मेट्रो सेवा है क्या?,service_availability:between_service,CMBT,service_availability,CMBT,ANNA_NAGAR,metro,,False,hi,devanagari,template_combinatorial,val
+चेन्नई बीच और वेलाचेरी के बीच कोई बस सेवा है क्या?,service_availability:between_service,CHENNAI_BEACH,service_availability,CHENNAI_BEACH,VELACHERY,bus,,False,hi,devanagari,template_combinatorial,val
+सैदापेट और गवर्नमेंट एस्टेट के बीच कोई बस सेवा है क्या?,service_availability:between_service,SAIDAPET,service_availability,SAIDAPET,GOVERNMENT_ESTATE,bus,,False,hi,devanagari,template_combinatorial,val
+is train running between meenambakkam and shenoy nagar?,service_availability:running_english,MEENAMBAKKAM,service_availability,MEENAMBAKKAM,SHENOY_NAGAR,railway,,False,hinglish,latin_hinglish,template_combinatorial,val
+is train running between thousand lights and chennai airport?,service_availability:running_english,THOUSAND_LIGHTS,service_availability,THOUSAND_LIGHTS,CHENNAI_AIRPORT,railway,,False,hinglish,latin_hinglish,template_combinatorial,val
+is metro running between ashok nagar and alandur?,service_availability:running_english,ASHOK_NAGAR,service_availability,ASHOK_NAGAR,ALANDUR,metro,,False,hinglish,latin_hinglish,template_combinatorial,val
+is train running between little mount and nandanam?,service_availability:running_english,LITTLE_MOUNT,service_availability,LITTLE_MOUNT,NANDANAM,railway,,False,hinglish,latin_hinglish,template_combinatorial,val
+लिटिल माउंट और हाई कोर्ट के बीच कोई ट्रेन सेवा है क्या?,service_availability:between_service,LITTLE_MOUNT,service_availability,LITTLE_MOUNT,HIGH_COURT,railway,,False,hi,devanagari,template_combinatorial,val
+is bus running between st thomas mount and kilpauk?,service_availability:running_english,ST_THOMAS_MOUNT,service_availability,ST_THOMAS_MOUNT,KILPAUK,bus,,False,hinglish,latin_hinglish,template_combinatorial,val
+is train running between koyambedu and thousand lights?,service_availability:running_english,KOYAMBEDU,service_availability,KOYAMBEDU,THOUSAND_LIGHTS,railway,,False,hinglish,latin_hinglish,template_combinatorial,val
+चेन्नई सेंट्रल और ताम्बरम के बीच कोई बस सेवा है क्या?,service_availability:between_service,CHENNAI_CENTRAL,service_availability,CHENNAI_CENTRAL,TAMBARAM,bus,,False,hi,devanagari,template_combinatorial,val
+गवर्नमेंट एस्टेट और सेंट्रल रेलवे स्टेशन के बीच कोई मेट्रो सेवा है क्या?,service_availability:between_service,GOVERNMENT_ESTATE,service_availability,GOVERNMENT_ESTATE,CHENNAI_CENTRAL,metro,,False,hi,devanagari,template_combinatorial,val
+चेन्नई एयरपोर्ट और तिरुमंगलम के बीच कोई ट्रेन सेवा है क्या?,service_availability:between_service,CHENNAI_AIRPORT,service_availability,CHENNAI_AIRPORT,THIRUMANGALAM,railway,,False,hi,devanagari,template_combinatorial,val
+सीएमबीटी और चेन्नई एग्मोर के बीच कोई लोकल ट्रेन सेवा है क्या?,service_availability:between_service,CMBT,service_availability,CMBT,CHENNAI_EGMORE,suburban_rail,,False,hi,devanagari,template_combinatorial,val
+सेंट्रल और अन्ना नगर के बीच कोई ट्रेन सेवा है क्या?,service_availability:between_service,CHENNAI_CENTRAL,service_availability,CHENNAI_CENTRAL,ANNA_NAGAR,railway,,False,hi,devanagari,template_combinatorial,val
+कोयम्बेडु मार्केट और सैदापेट के बीच कोई लोकल ट्रेन सेवा है क्या?,service_availability:between_service,KOYAMBEDU,service_availability,KOYAMBEDU,SAIDAPET,suburban_rail,,False,hi,devanagari,template_combinatorial,val
+कोयम्बेडु मार्केट और मीनांबक्कम के बीच कोई ट्रेन सेवा है क्या?,service_availability:between_service,KOYAMBEDU,service_availability,KOYAMBEDU,MEENAMBAKKAM,railway,,False,hi,devanagari,template_combinatorial,val
+is bus running between chennai beach and nandanam?,service_availability:running_english,CHENNAI_BEACH,service_availability,CHENNAI_BEACH,NANDANAM,bus,,False,hinglish,latin_hinglish,template_combinatorial,val
+is local train running between koyambedu and thousand lights?,service_availability:running_english,KOYAMBEDU,service_availability,KOYAMBEDU,THOUSAND_LIGHTS,suburban_rail,,False,hinglish,latin_hinglish,template_combinatorial,val
+चेन्नई बीच और एग्मोर के बीच कोई बस सेवा है क्या?,service_availability:between_service,CHENNAI_BEACH,service_availability,CHENNAI_BEACH,CHENNAI_EGMORE,bus,,False,hi,devanagari,template_combinatorial,val
+चेन्नई एयरपोर्ट और शेनॉय नगर के बीच कोई लोकल ट्रेन सेवा है क्या?,service_availability:between_service,CHENNAI_AIRPORT,service_availability,CHENNAI_AIRPORT,SHENOY_NAGAR,suburban_rail,,False,hi,devanagari,template_combinatorial,val
+is train running between chennai egmore and st thomas mount?,service_availability:running_english,CHENNAI_EGMORE,service_availability,CHENNAI_EGMORE,ST_THOMAS_MOUNT,railway,,False,hinglish,latin_hinglish,template_combinatorial,val
+is local train running between alandur and teynampet?,service_availability:running_english,ALANDUR,service_availability,ALANDUR,TEYNAMPET,suburban_rail,,False,hinglish,latin_hinglish,template_combinatorial,val
+is bus running between little mount and nandanam?,service_availability:running_english,LITTLE_MOUNT,service_availability,LITTLE_MOUNT,NANDANAM,bus,,False,hinglish,latin_hinglish,template_combinatorial,val
+कोयम्बेडु और अन्ना नगर के बीच कोई बस सेवा है क्या?,service_availability:between_service,KOYAMBEDU,service_availability,KOYAMBEDU,ANNA_NAGAR,bus,,False,hi,devanagari,template_combinatorial,val
+is train running between chennai airport and ashok nagar?,service_availability:running_english,CHENNAI_AIRPORT,service_availability,CHENNAI_AIRPORT,ASHOK_NAGAR,railway,,False,hinglish,latin_hinglish,template_combinatorial,val
+एलआईसी और चेन्नई एयरपोर्ट के बीच कोई मेट्रो सेवा है क्या?,service_availability:between_service,LIC,service_availability,LIC,CHENNAI_AIRPORT,metro,,False,hi,devanagari,template_combinatorial,val
+is metro running between nehru park and central?,service_availability:running_english,NEHRU_PARK,service_availability,NEHRU_PARK,CHENNAI_CENTRAL,metro,,False,hinglish,latin_hinglish,template_combinatorial,val
+तेनामपेट और किल्पॉक के बीच कोई ट्रेन सेवा है क्या?,service_availability:between_service,TEYNAMPET,service_availability,TEYNAMPET,KILPAUK,railway,,False,hi,devanagari,template_combinatorial,val
+सीएमबीटी और अन्ना नगर के बीच कोई लोकल ट्रेन सेवा है क्या?,service_availability:between_service,CMBT,service_availability,CMBT,ANNA_NAGAR,suburban_rail,,False,hi,devanagari,template_combinatorial,val
+मीनांबक्कम और अन्ना नगर के बीच कोई बस सेवा है क्या?,service_availability:between_service,MEENAMBAKKAM,service_availability,MEENAMBAKKAM,ANNA_NAGAR,bus,,False,hi,devanagari,template_combinatorial,val
+is bus running between t nagar and central?,service_availability:running_english,NANDANAM,service_availability,NANDANAM,CHENNAI_CENTRAL,bus,,False,hinglish,latin_hinglish,template_combinatorial,val
+आलंदूर और ताम्बरम के बीच कोई बस सेवा है क्या?,service_availability:between_service,ALANDUR,service_availability,ALANDUR,TAMBARAM,bus,,False,hi,devanagari,template_combinatorial,val
+is local train running between airport and chennai egmore?,service_availability:running_english,CHENNAI_AIRPORT,service_availability,CHENNAI_AIRPORT,CHENNAI_EGMORE,suburban_rail,,False,hinglish,latin_hinglish,template_combinatorial,val
+is local train running between meenambakkam and thirumangalam?,service_availability:running_english,MEENAMBAKKAM,service_availability,MEENAMBAKKAM,THIRUMANGALAM,suburban_rail,,False,hinglish,latin_hinglish,template_combinatorial,val
+लिटिल माउंट और सैदापेट के बीच कोई ट्रेन सेवा है क्या?,service_availability:between_service,LITTLE_MOUNT,service_availability,LITTLE_MOUNT,SAIDAPET,railway,,False,hi,devanagari,template_combinatorial,val
+सेंट्रल और एलआईसी के बीच कोई ट्रेन सेवा है क्या?,service_availability:between_service,CHENNAI_CENTRAL,service_availability,CHENNAI_CENTRAL,LIC,railway,,False,hi,devanagari,template_combinatorial,val
+is train running between central and velachery?,service_availability:running_english,CHENNAI_CENTRAL,service_availability,CHENNAI_CENTRAL,VELACHERY,railway,,False,hinglish,latin_hinglish,template_combinatorial,val
+is bus running between alandur and central?,service_availability:running_english,ALANDUR,service_availability,ALANDUR,CHENNAI_CENTRAL,bus,,False,hinglish,latin_hinglish,template_combinatorial,val
+चेन्नई बीच और सेंट्रल के बीच कोई मेट्रो सेवा है क्या?,service_availability:between_service,CHENNAI_BEACH,service_availability,CHENNAI_BEACH,CHENNAI_CENTRAL,metro,,False,hi,devanagari,template_combinatorial,val
+is train running between t nagar and chennai egmore?,service_availability:running_english,NANDANAM,service_availability,NANDANAM,CHENNAI_EGMORE,railway,,False,hinglish,latin_hinglish,template_combinatorial,val
+गिंडी और तेनामपेट के बीच कोई मेट्रो सेवा है क्या?,service_availability:between_service,GUINDY,service_availability,GUINDY,TEYNAMPET,metro,,False,hi,devanagari,template_combinatorial,val
+is local train running between airport and st thomas mount?,service_availability:running_english,CHENNAI_AIRPORT,service_availability,CHENNAI_AIRPORT,ST_THOMAS_MOUNT,suburban_rail,,False,hinglish,latin_hinglish,template_combinatorial,val
+is local train running between saidapet and thirumangalam?,service_availability:running_english,SAIDAPET,service_availability,SAIDAPET,THIRUMANGALAM,suburban_rail,,False,hinglish,latin_hinglish,template_combinatorial,val
+is train running between little mount and teynampet?,service_availability:running_english,LITTLE_MOUNT,service_availability,LITTLE_MOUNT,TEYNAMPET,railway,,False,hinglish,latin_hinglish,template_combinatorial,val
+is train running between guindy and meenambakkam?,service_availability:running_english,GUINDY,service_availability,GUINDY,MEENAMBAKKAM,railway,,False,hinglish,latin_hinglish,template_combinatorial,val
+तिरुमंगलम और सेंट्रल रेलवे स्टेशन के बीच कोई ट्रेन सेवा है क्या?,service_availability:between_service,THIRUMANGALAM,service_availability,THIRUMANGALAM,CHENNAI_CENTRAL,railway,,False,hi,devanagari,template_combinatorial,val
+is metro running between kilpauk and chennai egmore?,service_availability:running_english,KILPAUK,service_availability,KILPAUK,CHENNAI_EGMORE,metro,,False,hinglish,latin_hinglish,template_combinatorial,val
+हाई कोर्ट और चेन्नई बीच के बीच कोई लोकल ट्रेन सेवा है क्या?,service_availability:between_service,HIGH_COURT,service_availability,HIGH_COURT,CHENNAI_BEACH,suburban_rail,,False,hi,devanagari,template_combinatorial,val
+is local train running between chennai airport and t nagar?,service_availability:running_english,CHENNAI_AIRPORT,service_availability,CHENNAI_AIRPORT,NANDANAM,suburban_rail,,False,hinglish,latin_hinglish,template_combinatorial,val
+वेलाचेरी और सेंट थॉमस माउंट के बीच कोई ट्रेन सेवा है क्या?,service_availability:between_service,VELACHERY,service_availability,VELACHERY,ST_THOMAS_MOUNT,railway,,False,hi,devanagari,template_combinatorial,val
+is metro running between ashok nagar and tambaram?,service_availability:running_english,ASHOK_NAGAR,service_availability,ASHOK_NAGAR,TAMBARAM,metro,,False,hinglish,latin_hinglish,template_combinatorial,val
+is train running between vadapalani and thirumangalam?,service_availability:running_english,VADAPALANI,service_availability,VADAPALANI,THIRUMANGALAM,railway,,False,hinglish,latin_hinglish,template_combinatorial,val
+is bus running between saidapet and alandur?,service_availability:running_english,SAIDAPET,service_availability,SAIDAPET,ALANDUR,bus,,False,hinglish,latin_hinglish,template_combinatorial,val
+government estate par local train frequency kitni hai?,service_timing:frequency_headway,GOVERNMENT_ESTATE,service_timing,GOVERNMENT_ESTATE,,suburban_rail,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+train timetable details at chennai egmore?,service_timing:timetable_query,CHENNAI_EGMORE,service_timing,CHENNAI_EGMORE,,railway,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+अन्ना नगर पर बस कितने-कितने समय में आती है?,service_timing:frequency_headway,ANNA_NAGAR,service_timing,ANNA_NAGAR,,bus,timing,False,hi,devanagari,template_combinatorial,val
+तेनामपेट स्टेशन पर ट्रेनों के आने-जाने का टाइम टेबल क्या है?,service_timing:timetable_query,TEYNAMPET,service_timing,TEYNAMPET,,,timing,False,hi,devanagari,template_combinatorial,val
+ताम्बरम स्टेशन पर ट्रेनों के आने-जाने का टाइम टेबल क्या है?,service_timing:timetable_query,TAMBARAM,service_timing,TAMBARAM,,,timing,False,hi,devanagari,template_combinatorial,val
+bus timetable details at little mount?,service_timing:timetable_query,LITTLE_MOUNT,service_timing,LITTLE_MOUNT,,bus,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+सेंट्रल रेलवे स्टेशन स्टेशन पर ट्रेनों के आने-जाने का टाइम टेबल क्या है?,service_timing:timetable_query,CHENNAI_CENTRAL,service_timing,CHENNAI_CENTRAL,,,timing,False,hi,devanagari,template_combinatorial,val
+आलंदूर पर लोकल ट्रेन कितने-कितने समय में आती है?,service_timing:frequency_headway,ALANDUR,service_timing,ALANDUR,,suburban_rail,timing,False,hi,devanagari,template_combinatorial,val
+bus timetable details at lic?,service_timing:timetable_query,LIC,service_timing,LIC,,bus,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+metro timetable details at high court?,service_timing:timetable_query,HIGH_COURT,service_timing,HIGH_COURT,,metro,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+नेहरू पार्क स्टेशन पर ट्रेनों के आने-जाने का टाइम टेबल क्या है?,service_timing:timetable_query,NEHRU_PARK,service_timing,NEHRU_PARK,,,timing,False,hi,devanagari,template_combinatorial,val
+हाई कोर्ट स्टेशन पर ट्रेनों के आने-जाने का टाइम टेबल क्या है?,service_timing:timetable_query,HIGH_COURT,service_timing,HIGH_COURT,,,timing,False,hi,devanagari,template_combinatorial,val
+थाउजेंड लाइट्स स्टेशन पर ट्रेनों के आने-जाने का टाइम टेबल क्या है?,service_timing:timetable_query,THOUSAND_LIGHTS,service_timing,THOUSAND_LIGHTS,,,timing,False,hi,devanagari,template_combinatorial,val
+एजी-डीएमएस पर बस कितने-कितने समय में आती है?,service_timing:frequency_headway,AG_DMS,service_timing,AG_DMS,,bus,timing,False,hi,devanagari,template_combinatorial,val
+local train timetable details at central?,service_timing:timetable_query,CHENNAI_CENTRAL,service_timing,CHENNAI_CENTRAL,,suburban_rail,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+metro timetable details at alandur?,service_timing:timetable_query,ALANDUR,service_timing,ALANDUR,,metro,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+तिरुमंगलम पर बस कितने-कितने समय में आती है?,service_timing:frequency_headway,THIRUMANGALAM,service_timing,THIRUMANGALAM,,bus,timing,False,hi,devanagari,template_combinatorial,val
+train timetable details at egmore?,service_timing:timetable_query,CHENNAI_EGMORE,service_timing,CHENNAI_EGMORE,,railway,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+bus timetable details at chennai central?,service_timing:timetable_query,CHENNAI_CENTRAL,service_timing,CHENNAI_CENTRAL,,bus,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+teynampet par bus frequency kitni hai?,service_timing:frequency_headway,TEYNAMPET,service_timing,TEYNAMPET,,bus,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+हवाई अड्डा पर लोकल ट्रेन कितने-कितने समय में आती है?,service_timing:frequency_headway,CHENNAI_AIRPORT,service_timing,CHENNAI_AIRPORT,,suburban_rail,timing,False,hi,devanagari,template_combinatorial,val
+सेंट्रल रेलवे स्टेशन पर मेट्रो कितने-कितने समय में आती है?,service_timing:frequency_headway,CHENNAI_CENTRAL,service_timing,CHENNAI_CENTRAL,,metro,timing,False,hi,devanagari,template_combinatorial,val
+tambaram par bus frequency kitni hai?,service_timing:frequency_headway,TAMBARAM,service_timing,TAMBARAM,,bus,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+local train timetable details at airport?,service_timing:timetable_query,CHENNAI_AIRPORT,service_timing,CHENNAI_AIRPORT,,suburban_rail,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+तेनामपेट पर मेट्रो कितने-कितने समय में आती है?,service_timing:frequency_headway,TEYNAMPET,service_timing,TEYNAMPET,,metro,timing,False,hi,devanagari,template_combinatorial,val
+कोयम्बेडु स्टेशन पर ट्रेनों के आने-जाने का टाइम टेबल क्या है?,service_timing:timetable_query,KOYAMBEDU,service_timing,KOYAMBEDU,,,timing,False,hi,devanagari,template_combinatorial,val
+मीनांबक्कम पर लोकल ट्रेन कितने-कितने समय में आती है?,service_timing:frequency_headway,MEENAMBAKKAM,service_timing,MEENAMBAKKAM,,suburban_rail,timing,False,hi,devanagari,template_combinatorial,val
+bus timetable details at t nagar?,service_timing:timetable_query,NANDANAM,service_timing,NANDANAM,,bus,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+सैदापेट स्टेशन पर ट्रेनों के आने-जाने का टाइम टेबल क्या है?,service_timing:timetable_query,SAIDAPET,service_timing,SAIDAPET,,,timing,False,hi,devanagari,template_combinatorial,val
+little mount par local train frequency kitni hai?,service_timing:frequency_headway,LITTLE_MOUNT,service_timing,LITTLE_MOUNT,,suburban_rail,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+train timetable details at thousand lights?,service_timing:timetable_query,THOUSAND_LIGHTS,service_timing,THOUSAND_LIGHTS,,railway,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+egmore par train frequency kitni hai?,service_timing:frequency_headway,CHENNAI_EGMORE,service_timing,CHENNAI_EGMORE,,railway,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+शेनॉय नगर स्टेशन पर ट्रेनों के आने-जाने का टाइम टेबल क्या है?,service_timing:timetable_query,SHENOY_NAGAR,service_timing,SHENOY_NAGAR,,,timing,False,hi,devanagari,template_combinatorial,val
+high court par train frequency kitni hai?,service_timing:frequency_headway,HIGH_COURT,service_timing,HIGH_COURT,,railway,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+वडापलानी पर मेट्रो कितने-कितने समय में आती है?,service_timing:frequency_headway,VADAPALANI,service_timing,VADAPALANI,,metro,timing,False,hi,devanagari,template_combinatorial,val
+अशोक नगर स्टेशन पर ट्रेनों के आने-जाने का टाइम टेबल क्या है?,service_timing:timetable_query,ASHOK_NAGAR,service_timing,ASHOK_NAGAR,,,timing,False,hi,devanagari,template_combinatorial,val
+st thomas mount par metro frequency kitni hai?,service_timing:frequency_headway,ST_THOMAS_MOUNT,service_timing,ST_THOMAS_MOUNT,,metro,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+एलआईसी पर ट्रेन कितने-कितने समय में आती है?,service_timing:frequency_headway,LIC,service_timing,LIC,,railway,timing,False,hi,devanagari,template_combinatorial,val
+चेन्नई सेंट्रल पर लोकल ट्रेन कितने-कितने समय में आती है?,service_timing:frequency_headway,CHENNAI_CENTRAL,service_timing,CHENNAI_CENTRAL,,suburban_rail,timing,False,hi,devanagari,template_combinatorial,val
+train timetable details at chennai beach?,service_timing:timetable_query,CHENNAI_BEACH,service_timing,CHENNAI_BEACH,,railway,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+kilpauk par train frequency kitni hai?,service_timing:frequency_headway,KILPAUK,service_timing,KILPAUK,,railway,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+एग्मोर पर लोकल ट्रेन कितने-कितने समय में आती है?,service_timing:frequency_headway,CHENNAI_EGMORE,service_timing,CHENNAI_EGMORE,,suburban_rail,timing,False,hi,devanagari,template_combinatorial,val
+चेन्नई एयरपोर्ट पर ट्रेन कितने-कितने समय में आती है?,service_timing:frequency_headway,CHENNAI_AIRPORT,service_timing,CHENNAI_AIRPORT,,railway,timing,False,hi,devanagari,template_combinatorial,val
+train timetable details at alandur?,service_timing:timetable_query,ALANDUR,service_timing,ALANDUR,,railway,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+train timetable details at tambaram?,service_timing:timetable_query,TAMBARAM,service_timing,TAMBARAM,,railway,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+thirumangalam par train frequency kitni hai?,service_timing:frequency_headway,THIRUMANGALAM,service_timing,THIRUMANGALAM,,railway,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+chennai beach par local train frequency kitni hai?,service_timing:frequency_headway,CHENNAI_BEACH,service_timing,CHENNAI_BEACH,,suburban_rail,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+कोयम्बेडु मार्केट पर लोकल ट्रेन कितने-कितने समय में आती है?,service_timing:frequency_headway,KOYAMBEDU,service_timing,KOYAMBEDU,,suburban_rail,timing,False,hi,devanagari,template_combinatorial,val
+एलआईसी पर मेट्रो कितने-कितने समय में आती है?,service_timing:frequency_headway,LIC,service_timing,LIC,,metro,timing,False,hi,devanagari,template_combinatorial,val
+train timetable details at koyambedu?,service_timing:timetable_query,KOYAMBEDU,service_timing,KOYAMBEDU,,railway,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+लिटिल माउंट स्टेशन पर ट्रेनों के आने-जाने का टाइम टेबल क्या है?,service_timing:timetable_query,LITTLE_MOUNT,service_timing,LITTLE_MOUNT,,,timing,False,hi,devanagari,template_combinatorial,val
+train timetable details at teynampet?,service_timing:timetable_query,TEYNAMPET,service_timing,TEYNAMPET,,railway,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+टी नगर स्टेशन पर ट्रेनों के आने-जाने का टाइम टेबल क्या है?,service_timing:timetable_query,NANDANAM,service_timing,NANDANAM,,,timing,False,hi,devanagari,template_combinatorial,val
+सेंट थॉमस माउंट पर बस कितने-कितने समय में आती है?,service_timing:frequency_headway,ST_THOMAS_MOUNT,service_timing,ST_THOMAS_MOUNT,,bus,timing,False,hi,devanagari,template_combinatorial,val
+लिटिल माउंट पर ट्रेन कितने-कितने समय में आती है?,service_timing:frequency_headway,LITTLE_MOUNT,service_timing,LITTLE_MOUNT,,railway,timing,False,hi,devanagari,template_combinatorial,val
+bus timetable details at high court?,service_timing:timetable_query,HIGH_COURT,service_timing,HIGH_COURT,,bus,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+thousand lights par train frequency kitni hai?,service_timing:frequency_headway,THOUSAND_LIGHTS,service_timing,THOUSAND_LIGHTS,,railway,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+ashok nagar par train frequency kitni hai?,service_timing:frequency_headway,ASHOK_NAGAR,service_timing,ASHOK_NAGAR,,railway,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+ताम्बरम पर ट्रेन कितने-कितने समय में आती है?,service_timing:frequency_headway,TAMBARAM,service_timing,TAMBARAM,,railway,timing,False,hi,devanagari,template_combinatorial,val
+एयरपोर्ट स्टेशन पर ट्रेनों के आने-जाने का टाइम टेबल क्या है?,service_timing:timetable_query,CHENNAI_AIRPORT,service_timing,CHENNAI_AIRPORT,,,timing,False,hi,devanagari,template_combinatorial,val
+meenambakkam par local train frequency kitni hai?,service_timing:frequency_headway,MEENAMBAKKAM,service_timing,MEENAMBAKKAM,,suburban_rail,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+local train timetable details at government estate?,service_timing:timetable_query,GOVERNMENT_ESTATE,service_timing,GOVERNMENT_ESTATE,,suburban_rail,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+लिटिल माउंट पर मेट्रो कितने-कितने समय में आती है?,service_timing:frequency_headway,LITTLE_MOUNT,service_timing,LITTLE_MOUNT,,metro,timing,False,hi,devanagari,template_combinatorial,val
+train timetable details at ag dms?,service_timing:timetable_query,AG_DMS,service_timing,AG_DMS,,railway,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+velachery par bus frequency kitni hai?,service_timing:frequency_headway,VELACHERY,service_timing,VELACHERY,,bus,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+bus timetable details at thirumangalam?,service_timing:timetable_query,THIRUMANGALAM,service_timing,THIRUMANGALAM,,bus,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+alandur par local train frequency kitni hai?,service_timing:frequency_headway,ALANDUR,service_timing,ALANDUR,,suburban_rail,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+metro timetable details at cmbt?,service_timing:timetable_query,CMBT,service_timing,CMBT,,metro,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+bus timetable details at government estate?,service_timing:timetable_query,GOVERNMENT_ESTATE,service_timing,GOVERNMENT_ESTATE,,bus,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+train timetable details at meenambakkam?,service_timing:timetable_query,MEENAMBAKKAM,service_timing,MEENAMBAKKAM,,railway,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+चेन्नई बीच स्टेशन पर ट्रेनों के आने-जाने का टाइम टेबल क्या है?,service_timing:timetable_query,CHENNAI_BEACH,service_timing,CHENNAI_BEACH,,,timing,False,hi,devanagari,template_combinatorial,val
+metro timetable details at airport?,service_timing:timetable_query,CHENNAI_AIRPORT,service_timing,CHENNAI_AIRPORT,,metro,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+bus timetable details at airport?,service_timing:timetable_query,CHENNAI_AIRPORT,service_timing,CHENNAI_AIRPORT,,bus,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+चेन्नई एयरपोर्ट स्टेशन पर ट्रेनों के आने-जाने का टाइम टेबल क्या है?,service_timing:timetable_query,CHENNAI_AIRPORT,service_timing,CHENNAI_AIRPORT,,,timing,False,hi,devanagari,template_combinatorial,val
+tambaram par metro frequency kitni hai?,service_timing:frequency_headway,TAMBARAM,service_timing,TAMBARAM,,metro,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+teynampet par train frequency kitni hai?,service_timing:frequency_headway,TEYNAMPET,service_timing,TEYNAMPET,,railway,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+local train timetable details at shenoy nagar?,service_timing:timetable_query,SHENOY_NAGAR,service_timing,SHENOY_NAGAR,,suburban_rail,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+teynampet par metro frequency kitni hai?,service_timing:frequency_headway,TEYNAMPET,service_timing,TEYNAMPET,,metro,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+सीएमबीटी स्टेशन पर ट्रेनों के आने-जाने का टाइम टेबल क्या है?,service_timing:timetable_query,CMBT,service_timing,CMBT,,,timing,False,hi,devanagari,template_combinatorial,val
+अन्ना नगर स्टेशन पर ट्रेनों के आने-जाने का टाइम टेबल क्या है?,service_timing:timetable_query,ANNA_NAGAR,service_timing,ANNA_NAGAR,,,timing,False,hi,devanagari,template_combinatorial,val
+तिरुमंगलम पर ट्रेन कितने-कितने समय में आती है?,service_timing:frequency_headway,THIRUMANGALAM,service_timing,THIRUMANGALAM,,railway,timing,False,hi,devanagari,template_combinatorial,val
+anna nagar par train frequency kitni hai?,service_timing:frequency_headway,ANNA_NAGAR,service_timing,ANNA_NAGAR,,railway,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+वेलाचेरी पर ट्रेन कितने-कितने समय में आती है?,service_timing:frequency_headway,VELACHERY,service_timing,VELACHERY,,railway,timing,False,hi,devanagari,template_combinatorial,val
+train timetable details at chennai airport?,service_timing:timetable_query,CHENNAI_AIRPORT,service_timing,CHENNAI_AIRPORT,,railway,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+thirumangalam par bus frequency kitni hai?,service_timing:frequency_headway,THIRUMANGALAM,service_timing,THIRUMANGALAM,,bus,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+koyambedu par bus frequency kitni hai?,service_timing:frequency_headway,KOYAMBEDU,service_timing,KOYAMBEDU,,bus,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+train timetable details at ashok nagar?,service_timing:timetable_query,ASHOK_NAGAR,service_timing,ASHOK_NAGAR,,railway,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+ताम्बरम पर लोकल ट्रेन कितने-कितने समय में आती है?,service_timing:frequency_headway,TAMBARAM,service_timing,TAMBARAM,,suburban_rail,timing,False,hi,devanagari,template_combinatorial,val
+वडापलानी स्टेशन पर ट्रेनों के आने-जाने का टाइम टेबल क्या है?,service_timing:timetable_query,VADAPALANI,service_timing,VADAPALANI,,,timing,False,hi,devanagari,template_combinatorial,val
+अशोक नगर पर लोकल ट्रेन कितने-कितने समय में आती है?,service_timing:frequency_headway,ASHOK_NAGAR,service_timing,ASHOK_NAGAR,,suburban_rail,timing,False,hi,devanagari,template_combinatorial,val
+nandanam par metro frequency kitni hai?,service_timing:frequency_headway,NANDANAM,service_timing,NANDANAM,,metro,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+चेन्नई एयरपोर्ट पर लोकल ट्रेन कितने-कितने समय में आती है?,service_timing:frequency_headway,CHENNAI_AIRPORT,service_timing,CHENNAI_AIRPORT,,suburban_rail,timing,False,hi,devanagari,template_combinatorial,val
+एलआईसी स्टेशन पर ट्रेनों के आने-जाने का टाइम टेबल क्या है?,service_timing:timetable_query,LIC,service_timing,LIC,,,timing,False,hi,devanagari,template_combinatorial,val
+एजी-डीएमएस स्टेशन पर ट्रेनों के आने-जाने का टाइम टेबल क्या है?,service_timing:timetable_query,AG_DMS,service_timing,AG_DMS,,,timing,False,hi,devanagari,template_combinatorial,val
+chennai airport par local train frequency kitni hai?,service_timing:frequency_headway,CHENNAI_AIRPORT,service_timing,CHENNAI_AIRPORT,,suburban_rail,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+t nagar par bus frequency kitni hai?,service_timing:frequency_headway,NANDANAM,service_timing,NANDANAM,,bus,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+ashok nagar par metro frequency kitni hai?,service_timing:frequency_headway,ASHOK_NAGAR,service_timing,ASHOK_NAGAR,,metro,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+local train timetable details at st thomas mount?,service_timing:timetable_query,ST_THOMAS_MOUNT,service_timing,ST_THOMAS_MOUNT,,suburban_rail,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+bus timetable details at central?,service_timing:timetable_query,CHENNAI_CENTRAL,service_timing,CHENNAI_CENTRAL,,bus,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+egmore par local train frequency kitni hai?,service_timing:frequency_headway,CHENNAI_EGMORE,service_timing,CHENNAI_EGMORE,,suburban_rail,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+high court par bus frequency kitni hai?,service_timing:frequency_headway,HIGH_COURT,service_timing,HIGH_COURT,,bus,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+टी नगर पर ट्रेन कितने-कितने समय में आती है?,service_timing:frequency_headway,NANDANAM,service_timing,NANDANAM,,railway,timing,False,hi,devanagari,template_combinatorial,val
+metro timetable details at ashok nagar?,service_timing:timetable_query,ASHOK_NAGAR,service_timing,ASHOK_NAGAR,,metro,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+कोयम्बेडु पर ट्रेन कितने-कितने समय में आती है?,service_timing:frequency_headway,KOYAMBEDU,service_timing,KOYAMBEDU,,railway,timing,False,hi,devanagari,template_combinatorial,val
+little mount par metro frequency kitni hai?,service_timing:frequency_headway,LITTLE_MOUNT,service_timing,LITTLE_MOUNT,,metro,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+metro timetable details at ag dms?,service_timing:timetable_query,AG_DMS,service_timing,AG_DMS,,metro,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+एग्मोर पर मेट्रो कितने-कितने समय में आती है?,service_timing:frequency_headway,CHENNAI_EGMORE,service_timing,CHENNAI_EGMORE,,metro,timing,False,hi,devanagari,template_combinatorial,val
+मीनांबक्कम पर बस कितने-कितने समय में आती है?,service_timing:frequency_headway,MEENAMBAKKAM,service_timing,MEENAMBAKKAM,,bus,timing,False,hi,devanagari,template_combinatorial,val
+bus timetable details at meenambakkam?,service_timing:timetable_query,MEENAMBAKKAM,service_timing,MEENAMBAKKAM,,bus,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+metro timetable details at anna nagar?,service_timing:timetable_query,ANNA_NAGAR,service_timing,ANNA_NAGAR,,metro,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+kilpauk par metro frequency kitni hai?,service_timing:frequency_headway,KILPAUK,service_timing,KILPAUK,,metro,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+तेनामपेट पर बस कितने-कितने समय में आती है?,service_timing:frequency_headway,TEYNAMPET,service_timing,TEYNAMPET,,bus,timing,False,hi,devanagari,template_combinatorial,val
+train timetable details at velachery?,service_timing:timetable_query,VELACHERY,service_timing,VELACHERY,,railway,timing,False,hinglish,latin_hinglish,template_combinatorial,val
+meenambakkam station parking charges kya hai?,station_information:parking_fee,MEENAMBAKKAM,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+anna nagar station parking charges kya hai?,station_information:parking_fee,ANNA_NAGAR,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+क्या अन्ना नगर एक इंटरचेंज स्टेशन है?,station_information:interchange_type,ANNA_NAGAR,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+आलंदूर पर गाड़ी पार्क करने का शुल्क कितना है?,station_information:parking_fee,ALANDUR,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+क्या चेन्नई एग्मोर एक इंटरचेंज स्टेशन है?,station_information:interchange_type,CHENNAI_EGMORE,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+little mount station parking charges kya hai?,station_information:parking_fee,LITTLE_MOUNT,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+क्या हाई कोर्ट एक इंटरचेंज स्टेशन है?,station_information:interchange_type,HIGH_COURT,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+is koyambedu an interchange junction?,station_information:interchange_type,KOYAMBEDU,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+ashok nagar station parking charges kya hai?,station_information:parking_fee,ASHOK_NAGAR,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+thousand lights station parking charges kya hai?,station_information:parking_fee,THOUSAND_LIGHTS,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+क्या सेंट थॉमस माउंट एक इंटरचेंज स्टेशन है?,station_information:interchange_type,ST_THOMAS_MOUNT,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+एजी-डीएमएस पर गाड़ी पार्क करने का शुल्क कितना है?,station_information:parking_fee,AG_DMS,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+सैदापेट पर गाड़ी पार्क करने का शुल्क कितना है?,station_information:parking_fee,SAIDAPET,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+क्या तिरुमंगलम एक इंटरचेंज स्टेशन है?,station_information:interchange_type,THIRUMANGALAM,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+एयरपोर्ट पर गाड़ी पार्क करने का शुल्क कितना है?,station_information:parking_fee,CHENNAI_AIRPORT,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+is government estate an interchange junction?,station_information:interchange_type,GOVERNMENT_ESTATE,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+is shenoy nagar an interchange junction?,station_information:interchange_type,SHENOY_NAGAR,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+koyambedu station parking charges kya hai?,station_information:parking_fee,KOYAMBEDU,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+cmbt station parking charges kya hai?,station_information:parking_fee,CMBT,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+chennai egmore station parking charges kya hai?,station_information:parking_fee,CHENNAI_EGMORE,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+क्या हवाई अड्डा एक इंटरचेंज स्टेशन है?,station_information:interchange_type,CHENNAI_AIRPORT,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+अन्ना नगर पर गाड़ी पार्क करने का शुल्क कितना है?,station_information:parking_fee,ANNA_NAGAR,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+क्या लिटिल माउंट एक इंटरचेंज स्टेशन है?,station_information:interchange_type,LITTLE_MOUNT,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+chennai airport station parking charges kya hai?,station_information:parking_fee,CHENNAI_AIRPORT,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+vadapalani station parking charges kya hai?,station_information:parking_fee,VADAPALANI,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+is kilpauk an interchange junction?,station_information:interchange_type,KILPAUK,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+is thirumangalam an interchange junction?,station_information:interchange_type,THIRUMANGALAM,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+is high court an interchange junction?,station_information:interchange_type,HIGH_COURT,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+गवर्नमेंट एस्टेट पर गाड़ी पार्क करने का शुल्क कितना है?,station_information:parking_fee,GOVERNMENT_ESTATE,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+is chennai central an interchange junction?,station_information:interchange_type,CHENNAI_CENTRAL,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+is tambaram an interchange junction?,station_information:interchange_type,TAMBARAM,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+thirumangalam station parking charges kya hai?,station_information:parking_fee,THIRUMANGALAM,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+एलआईसी पर गाड़ी पार्क करने का शुल्क कितना है?,station_information:parking_fee,LIC,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+सेंट्रल पर गाड़ी पार्क करने का शुल्क कितना है?,station_information:parking_fee,CHENNAI_CENTRAL,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+is chennai airport an interchange junction?,station_information:interchange_type,CHENNAI_AIRPORT,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+central railway station station parking charges kya hai?,station_information:parking_fee,CHENNAI_CENTRAL,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+क्या एयरपोर्ट एक इंटरचेंज स्टेशन है?,station_information:interchange_type,CHENNAI_AIRPORT,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+alandur station parking charges kya hai?,station_information:parking_fee,ALANDUR,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+क्या सैदापेट एक इंटरचेंज स्टेशन है?,station_information:interchange_type,SAIDAPET,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+is ashok nagar an interchange junction?,station_information:interchange_type,ASHOK_NAGAR,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+is little mount an interchange junction?,station_information:interchange_type,LITTLE_MOUNT,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+किल्पॉक पर गाड़ी पार्क करने का शुल्क कितना है?,station_information:parking_fee,KILPAUK,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+सेंट थॉमस माउंट पर गाड़ी पार्क करने का शुल्क कितना है?,station_information:parking_fee,ST_THOMAS_MOUNT,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+क्या वेलाचेरी एक इंटरचेंज स्टेशन है?,station_information:interchange_type,VELACHERY,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+velachery station parking charges kya hai?,station_information:parking_fee,VELACHERY,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+तिरुमंगलम पर गाड़ी पार्क करने का शुल्क कितना है?,station_information:parking_fee,THIRUMANGALAM,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+क्या गिंडी एक इंटरचेंज स्टेशन है?,station_information:interchange_type,GUINDY,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+हाई कोर्ट पर गाड़ी पार्क करने का शुल्क कितना है?,station_information:parking_fee,HIGH_COURT,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+नेहरू पार्क पर गाड़ी पार्क करने का शुल्क कितना है?,station_information:parking_fee,NEHRU_PARK,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+क्या कोयम्बेडु एक इंटरचेंज स्टेशन है?,station_information:interchange_type,KOYAMBEDU,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+वडापलानी पर गाड़ी पार्क करने का शुल्क कितना है?,station_information:parking_fee,VADAPALANI,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+is alandur an interchange junction?,station_information:interchange_type,ALANDUR,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+लिटिल माउंट पर गाड़ी पार्क करने का शुल्क कितना है?,station_information:parking_fee,LITTLE_MOUNT,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+tambaram station parking charges kya hai?,station_information:parking_fee,TAMBARAM,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+सीएमबीटी पर गाड़ी पार्क करने का शुल्क कितना है?,station_information:parking_fee,CMBT,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+क्या एजी-डीएमएस एक इंटरचेंज स्टेशन है?,station_information:interchange_type,AG_DMS,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+teynampet station parking charges kya hai?,station_information:parking_fee,TEYNAMPET,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+lic station parking charges kya hai?,station_information:parking_fee,LIC,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+shenoy nagar station parking charges kya hai?,station_information:parking_fee,SHENOY_NAGAR,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+ताम्बरम पर गाड़ी पार्क करने का शुल्क कितना है?,station_information:parking_fee,TAMBARAM,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+t nagar station parking charges kya hai?,station_information:parking_fee,NANDANAM,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+is chennai egmore an interchange junction?,station_information:interchange_type,CHENNAI_EGMORE,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+चेन्नई एयरपोर्ट पर गाड़ी पार्क करने का शुल्क कितना है?,station_information:parking_fee,CHENNAI_AIRPORT,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+central station parking charges kya hai?,station_information:parking_fee,CHENNAI_CENTRAL,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+शेनॉय नगर पर गाड़ी पार्क करने का शुल्क कितना है?,station_information:parking_fee,SHENOY_NAGAR,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+is teynampet an interchange junction?,station_information:interchange_type,TEYNAMPET,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+is central an interchange junction?,station_information:interchange_type,CHENNAI_CENTRAL,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+is central railway station an interchange junction?,station_information:interchange_type,CHENNAI_CENTRAL,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+क्या एलआईसी एक इंटरचेंज स्टेशन है?,station_information:interchange_type,LIC,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+क्या ताम्बरम एक इंटरचेंज स्टेशन है?,station_information:interchange_type,TAMBARAM,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+क्या कोयम्बेडु मार्केट एक इंटरचेंज स्टेशन है?,station_information:interchange_type,KOYAMBEDU,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+तेनामपेट पर गाड़ी पार्क करने का शुल्क कितना है?,station_information:parking_fee,TEYNAMPET,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+is anna nagar an interchange junction?,station_information:interchange_type,ANNA_NAGAR,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+is t nagar an interchange junction?,station_information:interchange_type,NANDANAM,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+is ag dms an interchange junction?,station_information:interchange_type,AG_DMS,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+क्या शेनॉय नगर एक इंटरचेंज स्टेशन है?,station_information:interchange_type,SHENOY_NAGAR,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+is thousand lights an interchange junction?,station_information:interchange_type,THOUSAND_LIGHTS,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+चेन्नई एग्मोर पर गाड़ी पार्क करने का शुल्क कितना है?,station_information:parking_fee,CHENNAI_EGMORE,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+अशोक नगर पर गाड़ी पार्क करने का शुल्क कितना है?,station_information:parking_fee,ASHOK_NAGAR,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+ag dms station parking charges kya hai?,station_information:parking_fee,AG_DMS,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+गिंडी पर गाड़ी पार्क करने का शुल्क कितना है?,station_information:parking_fee,GUINDY,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+is chennai beach an interchange junction?,station_information:interchange_type,CHENNAI_BEACH,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+is airport an interchange junction?,station_information:interchange_type,CHENNAI_AIRPORT,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+चेन्नई सेंट्रल पर गाड़ी पार्क करने का शुल्क कितना है?,station_information:parking_fee,CHENNAI_CENTRAL,station_information,,,,,False,hi,devanagari,template_combinatorial,val
+is cmbt an interchange junction?,station_information:interchange_type,CMBT,station_information,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+एयरपोर्ट पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,CHENNAI_AIRPORT,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+alandur par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,ALANDUR,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+क्या अशोक नगर में दिव्यांगजनों के लिए अलग टिकट काउंटर है?,accessibility:special_counter,ASHOK_NAGAR,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+nandanam par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,NANDANAM,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+little mount par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,LITTLE_MOUNT,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+क्या गवर्नमेंट एस्टेट में दिव्यांगजनों के लिए अलग टिकट काउंटर है?,accessibility:special_counter,GOVERNMENT_ESTATE,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+क्या गिंडी में दिव्यांगजनों के लिए अलग टिकट काउंटर है?,accessibility:special_counter,GUINDY,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+वेलाचेरी पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,VELACHERY,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+st thomas mount par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,ST_THOMAS_MOUNT,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+क्या वडापलानी में दिव्यांगजनों के लिए अलग टिकट काउंटर है?,accessibility:special_counter,VADAPALANI,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+government estate par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,GOVERNMENT_ESTATE,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+क्या किल्पॉक में दिव्यांगजनों के लिए अलग टिकट काउंटर है?,accessibility:special_counter,KILPAUK,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+क्या एग्मोर में दिव्यांगजनों के लिए अलग टिकट काउंटर है?,accessibility:special_counter,CHENNAI_EGMORE,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+क्या सैदापेट में दिव्यांगजनों के लिए अलग टिकट काउंटर है?,accessibility:special_counter,SAIDAPET,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+tambaram par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,TAMBARAM,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+क्या नेहरू पार्क में दिव्यांगजनों के लिए अलग टिकट काउंटर है?,accessibility:special_counter,NEHRU_PARK,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+chennai beach par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,CHENNAI_BEACH,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+कोयम्बेडु मार्केट पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,KOYAMBEDU,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+t nagar par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,NANDANAM,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+egmore par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,CHENNAI_EGMORE,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+क्या तिरुमंगलम में दिव्यांगजनों के लिए अलग टिकट काउंटर है?,accessibility:special_counter,THIRUMANGALAM,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+airport par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,CHENNAI_AIRPORT,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+shenoy nagar par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,SHENOY_NAGAR,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+चेन्नई सेंट्रल पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,CHENNAI_CENTRAL,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+central par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,CHENNAI_CENTRAL,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+क्या लिटिल माउंट में दिव्यांगजनों के लिए अलग टिकट काउंटर है?,accessibility:special_counter,LITTLE_MOUNT,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+क्या चेन्नई एग्मोर में दिव्यांगजनों के लिए अलग टिकट काउंटर है?,accessibility:special_counter,CHENNAI_EGMORE,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+thousand lights par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,THOUSAND_LIGHTS,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+chennai airport par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,CHENNAI_AIRPORT,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+सीएमबीटी पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,CMBT,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+क्या एजी-डीएमएस में दिव्यांगजनों के लिए अलग टिकट काउंटर है?,accessibility:special_counter,AG_DMS,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+anna nagar par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,ANNA_NAGAR,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+क्या मीनांबक्कम में दिव्यांगजनों के लिए अलग टिकट काउंटर है?,accessibility:special_counter,MEENAMBAKKAM,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+तेनामपेट पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,TEYNAMPET,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+central railway station par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,CHENNAI_CENTRAL,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+क्या कोयम्बेडु मार्केट में दिव्यांगजनों के लिए अलग टिकट काउंटर है?,accessibility:special_counter,KOYAMBEDU,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+तिरुमंगलम पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,THIRUMANGALAM,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+हवाई अड्डा पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,CHENNAI_AIRPORT,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+meenambakkam par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,MEENAMBAKKAM,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+kilpauk par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,KILPAUK,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+ag dms par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,AG_DMS,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+velachery par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,VELACHERY,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+saidapet par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,SAIDAPET,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+गिंडी पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,GUINDY,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+टी नगर पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,NANDANAM,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+cmbt par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,CMBT,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+थाउजेंड लाइट्स पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,THOUSAND_LIGHTS,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+लिटिल माउंट पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,LITTLE_MOUNT,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+आलंदूर पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,ALANDUR,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+सैदापेट पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,SAIDAPET,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+अन्ना नगर पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,ANNA_NAGAR,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+chennai egmore par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,CHENNAI_EGMORE,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+किल्पॉक पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,KILPAUK,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+चेन्नई एयरपोर्ट पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,CHENNAI_AIRPORT,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+guindy par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,GUINDY,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+कोयम्बेडु पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,KOYAMBEDU,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+वडापलानी पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,VADAPALANI,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+सेंट्रल पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,CHENNAI_CENTRAL,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+क्या चेन्नई बीच में दिव्यांगजनों के लिए अलग टिकट काउंटर है?,accessibility:special_counter,CHENNAI_BEACH,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+चेन्नई एग्मोर पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,CHENNAI_EGMORE,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+chennai central par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,CHENNAI_CENTRAL,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+ताम्बरम पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,TAMBARAM,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+नेहरू पार्क पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,NEHRU_PARK,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+क्या हवाई अड्डा में दिव्यांगजनों के लिए अलग टिकट काउंटर है?,accessibility:special_counter,CHENNAI_AIRPORT,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+मीनांबक्कम पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,MEENAMBAKKAM,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+क्या थाउजेंड लाइट्स में दिव्यांगजनों के लिए अलग टिकट काउंटर है?,accessibility:special_counter,THOUSAND_LIGHTS,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+क्या चेन्नई सेंट्रल में दिव्यांगजनों के लिए अलग टिकट काउंटर है?,accessibility:special_counter,CHENNAI_CENTRAL,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+क्या आलंदूर में दिव्यांगजनों के लिए अलग टिकट काउंटर है?,accessibility:special_counter,ALANDUR,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+क्या सेंट्रल में दिव्यांगजनों के लिए अलग टिकट काउंटर है?,accessibility:special_counter,CHENNAI_CENTRAL,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+koyambedu par tactile flooring hai kya visually impaired ke liye?,accessibility:tactile_path,KOYAMBEDU,accessibility,,,,wheelchair,False,hinglish,latin_hinglish,template_combinatorial,val
+एजी-डीएमएस पर दृष्टिहीनों के लिए स्पर्श पथ (tactile path) है क्या?,accessibility:tactile_path,AG_DMS,accessibility,,,,wheelchair,False,hi,devanagari,template_combinatorial,val
+chennai egmore to little mount monthly pass fare query,ticketing:fare_inquiry,CHENNAI_EGMORE,ticketing,CHENNAI_EGMORE,LITTLE_MOUNT,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+velachery se thousand lights whatsapp ticket charges?,ticketing:fare_inquiry,VELACHERY,ticketing,VELACHERY,THOUSAND_LIGHTS,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+guindy se airport token charges?,ticketing:fare_inquiry,GUINDY,ticketing,GUINDY,CHENNAI_AIRPORT,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+shenoy nagar to kilpauk smart card fare query,ticketing:fare_inquiry,SHENOY_NAGAR,ticketing,SHENOY_NAGAR,KILPAUK,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+st thomas mount par tourist pass price details please,ticketing:tourist_pass,ST_THOMAS_MOUNT,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+nandanam par smart card price details please,ticketing:tourist_pass,NANDANAM,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+अन्ना नगर से वेलाचेरी का किराया कितना है?,ticketing:fare_inquiry,ANNA_NAGAR,ticketing,ANNA_NAGAR,VELACHERY,,fare,False,hi,devanagari,template_combinatorial,val
+तेनामपेट पर एनसीएमसी रूपे कार्ड कितने का है?,ticketing:tourist_pass,TEYNAMPET,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+little mount to egmore tourist pass fare query,ticketing:fare_inquiry,LITTLE_MOUNT,ticketing,LITTLE_MOUNT,CHENNAI_EGMORE,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+guindy par ticket price details please,ticketing:tourist_pass,GUINDY,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+thirumangalam par monthly pass price details please,ticketing:tourist_pass,THIRUMANGALAM,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+chennai central par metro pass price details please,ticketing:tourist_pass,CHENNAI_CENTRAL,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+cmbt to t nagar smart card fare query,ticketing:fare_inquiry,CMBT,ticketing,CMBT,NANDANAM,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+thousand lights to koyambedu smart card fare query,ticketing:fare_inquiry,THOUSAND_LIGHTS,ticketing,THOUSAND_LIGHTS,KOYAMBEDU,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+नंदनम से किल्पॉक का किराया कितना है?,ticketing:fare_inquiry,NANDANAM,ticketing,NANDANAM,KILPAUK,,fare,False,hi,devanagari,template_combinatorial,val
+anna nagar par ticket price details please,ticketing:tourist_pass,ANNA_NAGAR,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+ashok nagar se guindy ncmc card charges?,ticketing:fare_inquiry,ASHOK_NAGAR,ticketing,ASHOK_NAGAR,GUINDY,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+chennai egmore par ncmc card price details please,ticketing:tourist_pass,CHENNAI_EGMORE,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+सैदापेट से कोयम्बेडु मार्केट का किराया कितना है?,ticketing:fare_inquiry,SAIDAPET,ticketing,SAIDAPET,KOYAMBEDU,,fare,False,hi,devanagari,template_combinatorial,val
+kilpauk par metro pass price details please,ticketing:tourist_pass,KILPAUK,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+कोयम्बेडु मार्केट से टी नगर लोकल ट्रेन का किराया कितना लगेगा?,ticketing:fare_inquiry,KOYAMBEDU,ticketing,KOYAMBEDU,NANDANAM,suburban_rail,fare,False,hi,devanagari,template_combinatorial,val
+ag dms par ticket price details please,ticketing:tourist_pass,AG_DMS,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+चेन्नई सेंट्रल से सैदापेट का किराया कितना है?,ticketing:fare_inquiry,CHENNAI_CENTRAL,ticketing,CHENNAI_CENTRAL,SAIDAPET,,fare,False,hi,devanagari,template_combinatorial,val
+एग्मोर पर स्मार्ट कार्ड कितने का है?,ticketing:tourist_pass,CHENNAI_EGMORE,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+chennai beach to lic smart card fare query,ticketing:fare_inquiry,CHENNAI_BEACH,ticketing,CHENNAI_BEACH,LIC,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+सीएमबीटी पर स्मार्ट कार्ड कितने का है?,ticketing:tourist_pass,CMBT,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+thirumangalam par token price details please,ticketing:tourist_pass,THIRUMANGALAM,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+एलआईसी से हवाई अड्डा का किराया कितना है?,ticketing:fare_inquiry,LIC,ticketing,LIC,CHENNAI_AIRPORT,,fare,False,hi,devanagari,template_combinatorial,val
+गिंडी से एयरपोर्ट बस का किराया कितना लगेगा?,ticketing:fare_inquiry,GUINDY,ticketing,GUINDY,CHENNAI_AIRPORT,bus,fare,False,hi,devanagari,template_combinatorial,val
+नंदनम से चेन्नई बीच के लिए एनसीएमसी रूपे कार्ड का चार्ज बताइए,ticketing:fare_inquiry,NANDANAM,ticketing,NANDANAM,CHENNAI_BEACH,,fare,False,hi,devanagari,template_combinatorial,val
+तेनामपेट से थाउजेंड लाइट्स मेट्रो का किराया कितना लगेगा?,ticketing:fare_inquiry,TEYNAMPET,ticketing,TEYNAMPET,THOUSAND_LIGHTS,metro,fare,False,hi,devanagari,template_combinatorial,val
+वेलाचेरी से एजी-डीएमएस के लिए मेट्रो पास का चार्ज बताइए,ticketing:fare_inquiry,VELACHERY,ticketing,VELACHERY,AG_DMS,,fare,False,hi,devanagari,template_combinatorial,val
+हाई कोर्ट पर क्यूआर टिकट कितने का है?,ticketing:tourist_pass,HIGH_COURT,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+तिरुमंगलम से सेंट्रल बस का किराया कितना लगेगा?,ticketing:fare_inquiry,THIRUMANGALAM,ticketing,THIRUMANGALAM,CHENNAI_CENTRAL,bus,fare,False,hi,devanagari,template_combinatorial,val
+government estate se central railway station ka fare kitna hai?,ticketing:fare_inquiry,GOVERNMENT_ESTATE,ticketing,GOVERNMENT_ESTATE,CHENNAI_CENTRAL,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+सेंट थॉमस माउंट से टी नगर मेट्रो का किराया कितना लगेगा?,ticketing:fare_inquiry,ST_THOMAS_MOUNT,ticketing,ST_THOMAS_MOUNT,NANDANAM,metro,fare,False,hi,devanagari,template_combinatorial,val
+teynampet par season pass price details please,ticketing:tourist_pass,TEYNAMPET,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+alandur se central ticket charges?,ticketing:fare_inquiry,ALANDUR,ticketing,ALANDUR,CHENNAI_CENTRAL,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+एग्मोर पर टिकट कितने का है?,ticketing:tourist_pass,CHENNAI_EGMORE,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+little mount to high court ticket fare query,ticketing:fare_inquiry,LITTLE_MOUNT,ticketing,LITTLE_MOUNT,HIGH_COURT,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+अशोक नगर से हाई कोर्ट मेट्रो का किराया कितना लगेगा?,ticketing:fare_inquiry,ASHOK_NAGAR,ticketing,ASHOK_NAGAR,HIGH_COURT,metro,fare,False,hi,devanagari,template_combinatorial,val
+एलआईसी पर टिकट कितने का है?,ticketing:tourist_pass,LIC,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+गिंडी से शेनॉय नगर के लिए एनसीएमसी रूपे कार्ड का चार्ज बताइए,ticketing:fare_inquiry,GUINDY,ticketing,GUINDY,SHENOY_NAGAR,,fare,False,hi,devanagari,template_combinatorial,val
+मीनांबक्कम से किल्पॉक के लिए एनसीएमसी रूपे कार्ड का चार्ज बताइए,ticketing:fare_inquiry,MEENAMBAKKAM,ticketing,MEENAMBAKKAM,KILPAUK,,fare,False,hi,devanagari,template_combinatorial,val
+अशोक नगर से सेंट्रल लोकल ट्रेन का किराया कितना लगेगा?,ticketing:fare_inquiry,ASHOK_NAGAR,ticketing,ASHOK_NAGAR,CHENNAI_CENTRAL,suburban_rail,fare,False,hi,devanagari,template_combinatorial,val
+koyambedu to egmore token fare query,ticketing:fare_inquiry,KOYAMBEDU,ticketing,KOYAMBEDU,CHENNAI_EGMORE,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+सीएमबीटी से चेन्नई एग्मोर के लिए व्हाट्सएप टिकट का चार्ज बताइए,ticketing:fare_inquiry,CMBT,ticketing,CMBT,CHENNAI_EGMORE,,fare,False,hi,devanagari,template_combinatorial,val
+चेन्नई एग्मोर से सीएमबीटी ट्रेन का किराया कितना लगेगा?,ticketing:fare_inquiry,CHENNAI_EGMORE,ticketing,CHENNAI_EGMORE,CMBT,railway,fare,False,hi,devanagari,template_combinatorial,val
+कोयम्बेडु से चेन्नई सेंट्रल का किराया कितना है?,ticketing:fare_inquiry,KOYAMBEDU,ticketing,KOYAMBEDU,CHENNAI_CENTRAL,,fare,False,hi,devanagari,template_combinatorial,val
+t nagar se vadapalani qr ticket charges?,ticketing:fare_inquiry,NANDANAM,ticketing,NANDANAM,VADAPALANI,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+कोयम्बेडु मार्केट से मीनांबक्कम के लिए व्हाट्सएप टिकट का चार्ज बताइए,ticketing:fare_inquiry,KOYAMBEDU,ticketing,KOYAMBEDU,MEENAMBAKKAM,,fare,False,hi,devanagari,template_combinatorial,val
+saidapet to ashok nagar ncmc card fare query,ticketing:fare_inquiry,SAIDAPET,ticketing,SAIDAPET,ASHOK_NAGAR,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+cmbt se ag dms ka fare kitna hai?,ticketing:fare_inquiry,CMBT,ticketing,CMBT,AG_DMS,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+वेलाचेरी से एयरपोर्ट ट्रेन का किराया कितना लगेगा?,ticketing:fare_inquiry,VELACHERY,ticketing,VELACHERY,CHENNAI_AIRPORT,railway,fare,False,hi,devanagari,template_combinatorial,val
+हवाई अड्डा से चेन्नई बीच के लिए सीजन पास का चार्ज बताइए,ticketing:fare_inquiry,CHENNAI_AIRPORT,ticketing,CHENNAI_AIRPORT,CHENNAI_BEACH,,fare,False,hi,devanagari,template_combinatorial,val
+मीनांबक्कम से वेलाचेरी बस का किराया कितना लगेगा?,ticketing:fare_inquiry,MEENAMBAKKAM,ticketing,MEENAMBAKKAM,VELACHERY,bus,fare,False,hi,devanagari,template_combinatorial,val
+airport to egmore tourist pass fare query,ticketing:fare_inquiry,CHENNAI_AIRPORT,ticketing,CHENNAI_AIRPORT,CHENNAI_EGMORE,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+central railway station se alandur ka fare kitna hai?,ticketing:fare_inquiry,CHENNAI_CENTRAL,ticketing,CHENNAI_CENTRAL,ALANDUR,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+टी नगर से हाई कोर्ट के लिए मेट्रो पास का चार्ज बताइए,ticketing:fare_inquiry,NANDANAM,ticketing,NANDANAM,HIGH_COURT,,fare,False,hi,devanagari,template_combinatorial,val
+चेन्नई एग्मोर पर स्मार्ट कार्ड कितने का है?,ticketing:tourist_pass,CHENNAI_EGMORE,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+चेन्नई एयरपोर्ट से सीएमबीटी के लिए क्यूआर टिकट का चार्ज बताइए,ticketing:fare_inquiry,CHENNAI_AIRPORT,ticketing,CHENNAI_AIRPORT,CMBT,,fare,False,hi,devanagari,template_combinatorial,val
+guindy to tambaram token fare query,ticketing:fare_inquiry,GUINDY,ticketing,GUINDY,TAMBARAM,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+alandur se st thomas mount ka fare kitna hai?,ticketing:fare_inquiry,ALANDUR,ticketing,ALANDUR,ST_THOMAS_MOUNT,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+teynampet par metro pass price details please,ticketing:tourist_pass,TEYNAMPET,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+एयरपोर्ट से नेहरू पार्क का किराया कितना है?,ticketing:fare_inquiry,CHENNAI_AIRPORT,ticketing,CHENNAI_AIRPORT,NEHRU_PARK,,fare,False,hi,devanagari,template_combinatorial,val
+एजी-डीएमएस से चेन्नई बीच का किराया कितना है?,ticketing:fare_inquiry,AG_DMS,ticketing,AG_DMS,CHENNAI_BEACH,,fare,False,hi,devanagari,template_combinatorial,val
+chennai central se anna nagar ka fare kitna hai?,ticketing:fare_inquiry,CHENNAI_CENTRAL,ticketing,CHENNAI_CENTRAL,ANNA_NAGAR,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+central railway station par ncmc card price details please,ticketing:tourist_pass,CHENNAI_CENTRAL,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+central se chennai egmore ticket charges?,ticketing:fare_inquiry,CHENNAI_CENTRAL,ticketing,CHENNAI_CENTRAL,CHENNAI_EGMORE,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+सेंट्रल से चेन्नई एयरपोर्ट के लिए स्मार्ट कार्ड का चार्ज बताइए,ticketing:fare_inquiry,CHENNAI_CENTRAL,ticketing,CHENNAI_CENTRAL,CHENNAI_AIRPORT,,fare,False,hi,devanagari,template_combinatorial,val
+एजी-डीएमएस पर एनसीएमसी रूपे कार्ड कितने का है?,ticketing:tourist_pass,AG_DMS,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+thirumangalam to nehru park metro pass fare query,ticketing:fare_inquiry,THIRUMANGALAM,ticketing,THIRUMANGALAM,NEHRU_PARK,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+एग्मोर से वडापलानी मेट्रो का किराया कितना लगेगा?,ticketing:fare_inquiry,CHENNAI_EGMORE,ticketing,CHENNAI_EGMORE,VADAPALANI,metro,fare,False,hi,devanagari,template_combinatorial,val
+egmore to chennai beach qr ticket fare query,ticketing:fare_inquiry,CHENNAI_EGMORE,ticketing,CHENNAI_EGMORE,CHENNAI_BEACH,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+चेन्नई बीच से एग्मोर के लिए व्हाट्सएप टिकट का चार्ज बताइए,ticketing:fare_inquiry,CHENNAI_BEACH,ticketing,CHENNAI_BEACH,CHENNAI_EGMORE,,fare,False,hi,devanagari,template_combinatorial,val
+meenambakkam se st thomas mount ka fare kitna hai?,ticketing:fare_inquiry,MEENAMBAKKAM,ticketing,MEENAMBAKKAM,ST_THOMAS_MOUNT,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+किल्पॉक से एयरपोर्ट का किराया कितना है?,ticketing:fare_inquiry,KILPAUK,ticketing,KILPAUK,CHENNAI_AIRPORT,,fare,False,hi,devanagari,template_combinatorial,val
+चेन्नई एयरपोर्ट से तिरुमंगलम लोकल ट्रेन का किराया कितना लगेगा?,ticketing:fare_inquiry,CHENNAI_AIRPORT,ticketing,CHENNAI_AIRPORT,THIRUMANGALAM,suburban_rail,fare,False,hi,devanagari,template_combinatorial,val
+हाई कोर्ट से सेंट थॉमस माउंट का किराया कितना है?,ticketing:fare_inquiry,HIGH_COURT,ticketing,HIGH_COURT,ST_THOMAS_MOUNT,,fare,False,hi,devanagari,template_combinatorial,val
+किल्पॉक पर मासिक पास कितने का है?,ticketing:tourist_pass,KILPAUK,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+alandur se chennai egmore ka fare kitna hai?,ticketing:fare_inquiry,ALANDUR,ticketing,ALANDUR,CHENNAI_EGMORE,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+सेंट थॉमस माउंट से कोयम्बेडु मार्केट ट्रेन का किराया कितना लगेगा?,ticketing:fare_inquiry,ST_THOMAS_MOUNT,ticketing,ST_THOMAS_MOUNT,KOYAMBEDU,railway,fare,False,hi,devanagari,template_combinatorial,val
+सैदापेट पर स्मार्ट कार्ड कितने का है?,ticketing:tourist_pass,SAIDAPET,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+चेन्नई बीच से शेनॉय नगर ट्रेन का किराया कितना लगेगा?,ticketing:fare_inquiry,CHENNAI_BEACH,ticketing,CHENNAI_BEACH,SHENOY_NAGAR,railway,fare,False,hi,devanagari,template_combinatorial,val
+nandanam se lic ka fare kitna hai?,ticketing:fare_inquiry,NANDANAM,ticketing,NANDANAM,LIC,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+एलआईसी पर मेट्रो पास कितने का है?,ticketing:tourist_pass,LIC,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+anna nagar par qr ticket price details please,ticketing:tourist_pass,ANNA_NAGAR,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+guindy se lic ka fare kitna hai?,ticketing:fare_inquiry,GUINDY,ticketing,GUINDY,LIC,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+अन्ना नगर से गिंडी का किराया कितना है?,ticketing:fare_inquiry,ANNA_NAGAR,ticketing,ANNA_NAGAR,GUINDY,,fare,False,hi,devanagari,template_combinatorial,val
+airport par ncmc card price details please,ticketing:tourist_pass,CHENNAI_AIRPORT,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+एग्मोर से सीएमबीटी के लिए मासिक पास का चार्ज बताइए,ticketing:fare_inquiry,CHENNAI_EGMORE,ticketing,CHENNAI_EGMORE,CMBT,,fare,False,hi,devanagari,template_combinatorial,val
+सेंट्रल रेलवे स्टेशन से चेन्नई एग्मोर ट्रेन का किराया कितना लगेगा?,ticketing:fare_inquiry,CHENNAI_CENTRAL,ticketing,CHENNAI_CENTRAL,CHENNAI_EGMORE,railway,fare,False,hi,devanagari,template_combinatorial,val
+कोयम्बेडु मार्केट से एयरपोर्ट लोकल ट्रेन का किराया कितना लगेगा?,ticketing:fare_inquiry,KOYAMBEDU,ticketing,KOYAMBEDU,CHENNAI_AIRPORT,suburban_rail,fare,False,hi,devanagari,template_combinatorial,val
+वेलाचेरी से एजी-डीएमएस ट्रेन का किराया कितना लगेगा?,ticketing:fare_inquiry,VELACHERY,ticketing,VELACHERY,AG_DMS,railway,fare,False,hi,devanagari,template_combinatorial,val
+गवर्नमेंट एस्टेट से वेलाचेरी के लिए एनसीएमसी रूपे कार्ड का चार्ज बताइए,ticketing:fare_inquiry,GOVERNMENT_ESTATE,ticketing,GOVERNMENT_ESTATE,VELACHERY,,fare,False,hi,devanagari,template_combinatorial,val
+थाउजेंड लाइट्स से आलंदूर ट्रेन का किराया कितना लगेगा?,ticketing:fare_inquiry,THOUSAND_LIGHTS,ticketing,THOUSAND_LIGHTS,ALANDUR,railway,fare,False,hi,devanagari,template_combinatorial,val
+लिटिल माउंट पर स्मार्ट कार्ड कितने का है?,ticketing:tourist_pass,LITTLE_MOUNT,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+तेनामपेट से नंदनम ट्रेन का किराया कितना लगेगा?,ticketing:fare_inquiry,TEYNAMPET,ticketing,TEYNAMPET,NANDANAM,railway,fare,False,hi,devanagari,template_combinatorial,val
+नंदनम से अन्ना नगर के लिए मेट्रो पास का चार्ज बताइए,ticketing:fare_inquiry,NANDANAM,ticketing,NANDANAM,ANNA_NAGAR,,fare,False,hi,devanagari,template_combinatorial,val
+central par ncmc card price details please,ticketing:tourist_pass,CHENNAI_CENTRAL,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+तेनामपेट से सीएमबीटी का किराया कितना है?,ticketing:fare_inquiry,TEYNAMPET,ticketing,TEYNAMPET,CMBT,,fare,False,hi,devanagari,template_combinatorial,val
+वडापलानी से एजी-डीएमएस के लिए क्यूआर टिकट का चार्ज बताइए,ticketing:fare_inquiry,VADAPALANI,ticketing,VADAPALANI,AG_DMS,,fare,False,hi,devanagari,template_combinatorial,val
+thirumangalam par metro pass price details please,ticketing:tourist_pass,THIRUMANGALAM,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+चेन्नई सेंट्रल से कोयम्बेडु मार्केट ट्रेन का किराया कितना लगेगा?,ticketing:fare_inquiry,CHENNAI_CENTRAL,ticketing,CHENNAI_CENTRAL,KOYAMBEDU,railway,fare,False,hi,devanagari,template_combinatorial,val
+सैदापेट पर सीजन पास कितने का है?,ticketing:tourist_pass,SAIDAPET,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+चेन्नई एग्मोर से लिटिल माउंट लोकल ट्रेन का किराया कितना लगेगा?,ticketing:fare_inquiry,CHENNAI_EGMORE,ticketing,CHENNAI_EGMORE,LITTLE_MOUNT,suburban_rail,fare,False,hi,devanagari,template_combinatorial,val
+kilpauk to government estate monthly pass fare query,ticketing:fare_inquiry,KILPAUK,ticketing,KILPAUK,GOVERNMENT_ESTATE,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+चेन्नई एयरपोर्ट से लिटिल माउंट के लिए सीजन पास का चार्ज बताइए,ticketing:fare_inquiry,CHENNAI_AIRPORT,ticketing,CHENNAI_AIRPORT,LITTLE_MOUNT,,fare,False,hi,devanagari,template_combinatorial,val
+आलंदूर पर व्हाट्सएप टिकट कितने का है?,ticketing:tourist_pass,ALANDUR,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+ag dms se tambaram token charges?,ticketing:fare_inquiry,AG_DMS,ticketing,AG_DMS,TAMBARAM,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+shenoy nagar se guindy monthly pass charges?,ticketing:fare_inquiry,SHENOY_NAGAR,ticketing,SHENOY_NAGAR,GUINDY,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+सेंट्रल रेलवे स्टेशन से कोयम्बेडु मार्केट का किराया कितना है?,ticketing:fare_inquiry,CHENNAI_CENTRAL,ticketing,CHENNAI_CENTRAL,KOYAMBEDU,,fare,False,hi,devanagari,template_combinatorial,val
+नंदनम पर सीजन पास कितने का है?,ticketing:tourist_pass,NANDANAM,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+thousand lights to thirumangalam monthly pass fare query,ticketing:fare_inquiry,THOUSAND_LIGHTS,ticketing,THOUSAND_LIGHTS,THIRUMANGALAM,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+velachery par metro pass price details please,ticketing:tourist_pass,VELACHERY,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+तेनामपेट पर टिकट कितने का है?,ticketing:tourist_pass,TEYNAMPET,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+एयरपोर्ट से अशोक नगर के लिए सीजन पास का चार्ज बताइए,ticketing:fare_inquiry,CHENNAI_AIRPORT,ticketing,CHENNAI_AIRPORT,ASHOK_NAGAR,,fare,False,hi,devanagari,template_combinatorial,val
+kilpauk se little mount qr ticket charges?,ticketing:fare_inquiry,KILPAUK,ticketing,KILPAUK,LITTLE_MOUNT,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+लिटिल माउंट से सेंट्रल ट्रेन का किराया कितना लगेगा?,ticketing:fare_inquiry,LITTLE_MOUNT,ticketing,LITTLE_MOUNT,CHENNAI_CENTRAL,railway,fare,False,hi,devanagari,template_combinatorial,val
+आलंदूर से सीएमबीटी बस का किराया कितना लगेगा?,ticketing:fare_inquiry,ALANDUR,ticketing,ALANDUR,CMBT,bus,fare,False,hi,devanagari,template_combinatorial,val
+central se chennai airport ka fare kitna hai?,ticketing:fare_inquiry,CHENNAI_CENTRAL,ticketing,CHENNAI_CENTRAL,CHENNAI_AIRPORT,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+टी नगर पर एनसीएमसी रूपे कार्ड कितने का है?,ticketing:tourist_pass,NANDANAM,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+central se anna nagar ka fare kitna hai?,ticketing:fare_inquiry,CHENNAI_CENTRAL,ticketing,CHENNAI_CENTRAL,ANNA_NAGAR,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+सैदापेट से एलआईसी मेट्रो का किराया कितना लगेगा?,ticketing:fare_inquiry,SAIDAPET,ticketing,SAIDAPET,LIC,metro,fare,False,hi,devanagari,template_combinatorial,val
+cmbt par whatsapp ticket price details please,ticketing:tourist_pass,CMBT,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+central se vadapalani ncmc card charges?,ticketing:fare_inquiry,CHENNAI_CENTRAL,ticketing,CHENNAI_CENTRAL,VADAPALANI,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+गवर्नमेंट एस्टेट से नेहरू पार्क का किराया कितना है?,ticketing:fare_inquiry,GOVERNMENT_ESTATE,ticketing,GOVERNMENT_ESTATE,NEHRU_PARK,,fare,False,hi,devanagari,template_combinatorial,val
+नंदनम पर टोकन कितने का है?,ticketing:tourist_pass,NANDANAM,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+ag dms to saidapet monthly pass fare query,ticketing:fare_inquiry,AG_DMS,ticketing,AG_DMS,SAIDAPET,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+teynampet se thousand lights ka fare kitna hai?,ticketing:fare_inquiry,TEYNAMPET,ticketing,TEYNAMPET,THOUSAND_LIGHTS,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+नंदनम से अशोक नगर का किराया कितना है?,ticketing:fare_inquiry,NANDANAM,ticketing,NANDANAM,ASHOK_NAGAR,,fare,False,hi,devanagari,template_combinatorial,val
+गवर्नमेंट एस्टेट से ताम्बरम का किराया कितना है?,ticketing:fare_inquiry,GOVERNMENT_ESTATE,ticketing,GOVERNMENT_ESTATE,TAMBARAM,,fare,False,hi,devanagari,template_combinatorial,val
+chennai beach par monthly pass price details please,ticketing:tourist_pass,CHENNAI_BEACH,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+हाई कोर्ट पर टिकट कितने का है?,ticketing:tourist_pass,HIGH_COURT,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+सीएमबीटी पर एनसीएमसी रूपे कार्ड कितने का है?,ticketing:tourist_pass,CMBT,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+मीनांबक्कम से चेन्नई बीच का किराया कितना है?,ticketing:fare_inquiry,MEENAMBAKKAM,ticketing,MEENAMBAKKAM,CHENNAI_BEACH,,fare,False,hi,devanagari,template_combinatorial,val
+मीनांबक्कम से हवाई अड्डा ट्रेन का किराया कितना लगेगा?,ticketing:fare_inquiry,MEENAMBAKKAM,ticketing,MEENAMBAKKAM,CHENNAI_AIRPORT,railway,fare,False,hi,devanagari,template_combinatorial,val
+एग्मोर से थाउजेंड लाइट्स के लिए स्मार्ट कार्ड का चार्ज बताइए,ticketing:fare_inquiry,CHENNAI_EGMORE,ticketing,CHENNAI_EGMORE,THOUSAND_LIGHTS,,fare,False,hi,devanagari,template_combinatorial,val
+shenoy nagar par token price details please,ticketing:tourist_pass,SHENOY_NAGAR,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+गिंडी पर टोकन कितने का है?,ticketing:tourist_pass,GUINDY,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+guindy to ashok nagar token fare query,ticketing:fare_inquiry,GUINDY,ticketing,GUINDY,ASHOK_NAGAR,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+कोयम्बेडु पर एनसीएमसी रूपे कार्ड कितने का है?,ticketing:tourist_pass,KOYAMBEDU,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+thirumangalam se ag dms ka fare kitna hai?,ticketing:fare_inquiry,THIRUMANGALAM,ticketing,THIRUMANGALAM,AG_DMS,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+cmbt par smart card price details please,ticketing:tourist_pass,CMBT,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+सेंट्रल से एयरपोर्ट का किराया कितना है?,ticketing:fare_inquiry,CHENNAI_CENTRAL,ticketing,CHENNAI_CENTRAL,CHENNAI_AIRPORT,,fare,False,hi,devanagari,template_combinatorial,val
+little mount se tambaram ka fare kitna hai?,ticketing:fare_inquiry,LITTLE_MOUNT,ticketing,LITTLE_MOUNT,TAMBARAM,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+alandur par qr ticket price details please,ticketing:tourist_pass,ALANDUR,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+सैदापेट से किल्पॉक का किराया कितना है?,ticketing:fare_inquiry,SAIDAPET,ticketing,SAIDAPET,KILPAUK,,fare,False,hi,devanagari,template_combinatorial,val
+अशोक नगर से तिरुमंगलम बस का किराया कितना लगेगा?,ticketing:fare_inquiry,ASHOK_NAGAR,ticketing,ASHOK_NAGAR,THIRUMANGALAM,bus,fare,False,hi,devanagari,template_combinatorial,val
+velachery par ncmc card price details please,ticketing:tourist_pass,VELACHERY,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+चेन्नई बीच पर क्यूआर टिकट कितने का है?,ticketing:tourist_pass,CHENNAI_BEACH,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+nehru park par tourist pass price details please,ticketing:tourist_pass,NEHRU_PARK,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+सेंट थॉमस माउंट से ताम्बरम लोकल ट्रेन का किराया कितना लगेगा?,ticketing:fare_inquiry,ST_THOMAS_MOUNT,ticketing,ST_THOMAS_MOUNT,TAMBARAM,suburban_rail,fare,False,hi,devanagari,template_combinatorial,val
+सेंट्रल रेलवे स्टेशन से एलआईसी का किराया कितना है?,ticketing:fare_inquiry,CHENNAI_CENTRAL,ticketing,CHENNAI_CENTRAL,LIC,,fare,False,hi,devanagari,template_combinatorial,val
+चेन्नई एयरपोर्ट से गिंडी का किराया कितना है?,ticketing:fare_inquiry,CHENNAI_AIRPORT,ticketing,CHENNAI_AIRPORT,GUINDY,,fare,False,hi,devanagari,template_combinatorial,val
+velachery se saidapet ka fare kitna hai?,ticketing:fare_inquiry,VELACHERY,ticketing,VELACHERY,SAIDAPET,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+thousand lights se government estate qr ticket charges?,ticketing:fare_inquiry,THOUSAND_LIGHTS,ticketing,THOUSAND_LIGHTS,GOVERNMENT_ESTATE,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+cmbt to kilpauk whatsapp ticket fare query,ticketing:fare_inquiry,CMBT,ticketing,CMBT,KILPAUK,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+ag dms se shenoy nagar monthly pass charges?,ticketing:fare_inquiry,AG_DMS,ticketing,AG_DMS,SHENOY_NAGAR,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+thirumangalam par qr ticket price details please,ticketing:tourist_pass,THIRUMANGALAM,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+nandanam to thirumangalam monthly pass fare query,ticketing:fare_inquiry,NANDANAM,ticketing,NANDANAM,THIRUMANGALAM,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+तिरुमंगलम से शेनॉय नगर का किराया कितना है?,ticketing:fare_inquiry,THIRUMANGALAM,ticketing,THIRUMANGALAM,SHENOY_NAGAR,,fare,False,hi,devanagari,template_combinatorial,val
+kilpauk se thirumangalam ka fare kitna hai?,ticketing:fare_inquiry,KILPAUK,ticketing,KILPAUK,THIRUMANGALAM,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+चेन्नई सेंट्रल से चेन्नई बीच बस का किराया कितना लगेगा?,ticketing:fare_inquiry,CHENNAI_CENTRAL,ticketing,CHENNAI_CENTRAL,CHENNAI_BEACH,bus,fare,False,hi,devanagari,template_combinatorial,val
+koyambedu par metro pass price details please,ticketing:tourist_pass,KOYAMBEDU,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+चेन्नई सेंट्रल से एजी-डीएमएस के लिए टिकट का चार्ज बताइए,ticketing:fare_inquiry,CHENNAI_CENTRAL,ticketing,CHENNAI_CENTRAL,AG_DMS,,fare,False,hi,devanagari,template_combinatorial,val
+central railway station par smart card price details please,ticketing:tourist_pass,CHENNAI_CENTRAL,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+alandur se kilpauk ka fare kitna hai?,ticketing:fare_inquiry,ALANDUR,ticketing,ALANDUR,KILPAUK,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+कोयम्बेडु से किल्पॉक बस का किराया कितना लगेगा?,ticketing:fare_inquiry,KOYAMBEDU,ticketing,KOYAMBEDU,KILPAUK,bus,fare,False,hi,devanagari,template_combinatorial,val
+कोयम्बेडु से सेंट्रल रेलवे स्टेशन का किराया कितना है?,ticketing:fare_inquiry,KOYAMBEDU,ticketing,KOYAMBEDU,CHENNAI_CENTRAL,,fare,False,hi,devanagari,template_combinatorial,val
+central railway station se meenambakkam qr ticket charges?,ticketing:fare_inquiry,CHENNAI_CENTRAL,ticketing,CHENNAI_CENTRAL,MEENAMBAKKAM,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+एयरपोर्ट पर टिकट कितने का है?,ticketing:tourist_pass,CHENNAI_AIRPORT,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+सेंट्रल रेलवे स्टेशन पर क्यूआर टिकट कितने का है?,ticketing:tourist_pass,CHENNAI_CENTRAL,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+किल्पॉक से वेलाचेरी का किराया कितना है?,ticketing:fare_inquiry,KILPAUK,ticketing,KILPAUK,VELACHERY,,fare,False,hi,devanagari,template_combinatorial,val
+नेहरू पार्क से एग्मोर ट्रेन का किराया कितना लगेगा?,ticketing:fare_inquiry,NEHRU_PARK,ticketing,NEHRU_PARK,CHENNAI_EGMORE,railway,fare,False,hi,devanagari,template_combinatorial,val
+गवर्नमेंट एस्टेट पर टूरिस्ट पास कितने का है?,ticketing:tourist_pass,GOVERNMENT_ESTATE,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+अशोक नगर से नेहरू पार्क बस का किराया कितना लगेगा?,ticketing:fare_inquiry,ASHOK_NAGAR,ticketing,ASHOK_NAGAR,NEHRU_PARK,bus,fare,False,hi,devanagari,template_combinatorial,val
+high court par smart card price details please,ticketing:tourist_pass,HIGH_COURT,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+एयरपोर्ट से टी नगर के लिए क्यूआर टिकट का चार्ज बताइए,ticketing:fare_inquiry,CHENNAI_AIRPORT,ticketing,CHENNAI_AIRPORT,NANDANAM,,fare,False,hi,devanagari,template_combinatorial,val
+government estate par whatsapp ticket price details please,ticketing:tourist_pass,GOVERNMENT_ESTATE,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+नेहरू पार्क पर सीजन पास कितने का है?,ticketing:tourist_pass,NEHRU_PARK,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+t nagar se alandur ticket charges?,ticketing:fare_inquiry,NANDANAM,ticketing,NANDANAM,ALANDUR,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+अन्ना नगर से वडापलानी का किराया कितना है?,ticketing:fare_inquiry,ANNA_NAGAR,ticketing,ANNA_NAGAR,VADAPALANI,,fare,False,hi,devanagari,template_combinatorial,val
+chennai central se vadapalani monthly pass charges?,ticketing:fare_inquiry,CHENNAI_CENTRAL,ticketing,CHENNAI_CENTRAL,VADAPALANI,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+saidapet se nandanam ka fare kitna hai?,ticketing:fare_inquiry,SAIDAPET,ticketing,SAIDAPET,NANDANAM,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+सेंट्रल से सीएमबीटी का किराया कितना है?,ticketing:fare_inquiry,CHENNAI_CENTRAL,ticketing,CHENNAI_CENTRAL,CMBT,,fare,False,hi,devanagari,template_combinatorial,val
+vadapalani par tourist pass price details please,ticketing:tourist_pass,VADAPALANI,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+little mount par monthly pass price details please,ticketing:tourist_pass,LITTLE_MOUNT,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+meenambakkam to chennai egmore token fare query,ticketing:fare_inquiry,MEENAMBAKKAM,ticketing,MEENAMBAKKAM,CHENNAI_EGMORE,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+मीनांबक्कम से एजी-डीएमएस का किराया कितना है?,ticketing:fare_inquiry,MEENAMBAKKAM,ticketing,MEENAMBAKKAM,AG_DMS,,fare,False,hi,devanagari,template_combinatorial,val
+chennai beach to koyambedu ncmc card fare query,ticketing:fare_inquiry,CHENNAI_BEACH,ticketing,CHENNAI_BEACH,KOYAMBEDU,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+गिंडी पर स्मार्ट कार्ड कितने का है?,ticketing:tourist_pass,GUINDY,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+वेलाचेरी से गवर्नमेंट एस्टेट के लिए क्यूआर टिकट का चार्ज बताइए,ticketing:fare_inquiry,VELACHERY,ticketing,VELACHERY,GOVERNMENT_ESTATE,,fare,False,hi,devanagari,template_combinatorial,val
+guindy se tambaram qr ticket charges?,ticketing:fare_inquiry,GUINDY,ticketing,GUINDY,TAMBARAM,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+वेलाचेरी पर सीजन पास कितने का है?,ticketing:tourist_pass,VELACHERY,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+chennai central se ashok nagar tourist pass charges?,ticketing:fare_inquiry,CHENNAI_CENTRAL,ticketing,CHENNAI_CENTRAL,ASHOK_NAGAR,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+anna nagar par token price details please,ticketing:tourist_pass,ANNA_NAGAR,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+chennai egmore to ashok nagar monthly pass fare query,ticketing:fare_inquiry,CHENNAI_EGMORE,ticketing,CHENNAI_EGMORE,ASHOK_NAGAR,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+government estate to lic ncmc card fare query,ticketing:fare_inquiry,GOVERNMENT_ESTATE,ticketing,GOVERNMENT_ESTATE,LIC,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+कोयम्बेडु से सेंट्रल का किराया कितना है?,ticketing:fare_inquiry,KOYAMBEDU,ticketing,KOYAMBEDU,CHENNAI_CENTRAL,,fare,False,hi,devanagari,template_combinatorial,val
+meenambakkam to airport qr ticket fare query,ticketing:fare_inquiry,MEENAMBAKKAM,ticketing,MEENAMBAKKAM,CHENNAI_AIRPORT,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+nehru park se saidapet ticket charges?,ticketing:fare_inquiry,NEHRU_PARK,ticketing,NEHRU_PARK,SAIDAPET,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+little mount par ncmc card price details please,ticketing:tourist_pass,LITTLE_MOUNT,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+st thomas mount par whatsapp ticket price details please,ticketing:tourist_pass,ST_THOMAS_MOUNT,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+टी नगर से अन्ना नगर का किराया कितना है?,ticketing:fare_inquiry,NANDANAM,ticketing,NANDANAM,ANNA_NAGAR,,fare,False,hi,devanagari,template_combinatorial,val
+एजी-डीएमएस से शेनॉय नगर बस का किराया कितना लगेगा?,ticketing:fare_inquiry,AG_DMS,ticketing,AG_DMS,SHENOY_NAGAR,bus,fare,False,hi,devanagari,template_combinatorial,val
+government estate par qr ticket price details please,ticketing:tourist_pass,GOVERNMENT_ESTATE,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+नेहरू पार्क पर मासिक पास कितने का है?,ticketing:tourist_pass,NEHRU_PARK,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+कोयम्बेडु से नंदनम का किराया कितना है?,ticketing:fare_inquiry,KOYAMBEDU,ticketing,KOYAMBEDU,NANDANAM,,fare,False,hi,devanagari,template_combinatorial,val
+अन्ना नगर से एजी-डीएमएस लोकल ट्रेन का किराया कितना लगेगा?,ticketing:fare_inquiry,ANNA_NAGAR,ticketing,ANNA_NAGAR,AG_DMS,suburban_rail,fare,False,hi,devanagari,template_combinatorial,val
+वेलाचेरी पर टिकट कितने का है?,ticketing:tourist_pass,VELACHERY,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+tambaram par qr ticket price details please,ticketing:tourist_pass,TAMBARAM,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+आलंदूर से हाई कोर्ट के लिए टिकट का चार्ज बताइए,ticketing:fare_inquiry,ALANDUR,ticketing,ALANDUR,HIGH_COURT,,fare,False,hi,devanagari,template_combinatorial,val
+saidapet se cmbt ka fare kitna hai?,ticketing:fare_inquiry,SAIDAPET,ticketing,SAIDAPET,CMBT,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+अशोक नगर से वडापलानी के लिए मेट्रो पास का चार्ज बताइए,ticketing:fare_inquiry,ASHOK_NAGAR,ticketing,ASHOK_NAGAR,VADAPALANI,,fare,False,hi,devanagari,template_combinatorial,val
+anna nagar se vadapalani ka fare kitna hai?,ticketing:fare_inquiry,ANNA_NAGAR,ticketing,ANNA_NAGAR,VADAPALANI,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+तेनामपेट से चेन्नई एयरपोर्ट बस का किराया कितना लगेगा?,ticketing:fare_inquiry,TEYNAMPET,ticketing,TEYNAMPET,CHENNAI_AIRPORT,bus,fare,False,hi,devanagari,template_combinatorial,val
+cmbt to central railway station whatsapp ticket fare query,ticketing:fare_inquiry,CMBT,ticketing,CMBT,CHENNAI_CENTRAL,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+airport se chennai central monthly pass charges?,ticketing:fare_inquiry,CHENNAI_AIRPORT,ticketing,CHENNAI_AIRPORT,CHENNAI_CENTRAL,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+हाई कोर्ट पर स्मार्ट कार्ड कितने का है?,ticketing:tourist_pass,HIGH_COURT,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+shenoy nagar to guindy ticket fare query,ticketing:fare_inquiry,SHENOY_NAGAR,ticketing,SHENOY_NAGAR,GUINDY,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+चेन्नई एग्मोर पर क्यूआर टिकट कितने का है?,ticketing:tourist_pass,CHENNAI_EGMORE,ticketing,,,,fare,False,hi,devanagari,template_combinatorial,val
+anna nagar se velachery ka fare kitna hai?,ticketing:fare_inquiry,ANNA_NAGAR,ticketing,ANNA_NAGAR,VELACHERY,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+vadapalani par ncmc card price details please,ticketing:tourist_pass,VADAPALANI,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+kilpauk se central ka fare kitna hai?,ticketing:fare_inquiry,KILPAUK,ticketing,KILPAUK,CHENNAI_CENTRAL,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+thousand lights to velachery smart card fare query,ticketing:fare_inquiry,THOUSAND_LIGHTS,ticketing,THOUSAND_LIGHTS,VELACHERY,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+vadapalani se cmbt smart card charges?,ticketing:fare_inquiry,VADAPALANI,ticketing,VADAPALANI,CMBT,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+चेन्नई एयरपोर्ट से सेंट थॉमस माउंट का किराया कितना है?,ticketing:fare_inquiry,CHENNAI_AIRPORT,ticketing,CHENNAI_AIRPORT,ST_THOMAS_MOUNT,,fare,False,hi,devanagari,template_combinatorial,val
+टी नगर से एयरपोर्ट ट्रेन का किराया कितना लगेगा?,ticketing:fare_inquiry,NANDANAM,ticketing,NANDANAM,CHENNAI_AIRPORT,railway,fare,False,hi,devanagari,template_combinatorial,val
+अशोक नगर से किल्पॉक के लिए एनसीएमसी रूपे कार्ड का चार्ज बताइए,ticketing:fare_inquiry,ASHOK_NAGAR,ticketing,ASHOK_NAGAR,KILPAUK,,fare,False,hi,devanagari,template_combinatorial,val
+kilpauk to little mount qr ticket fare query,ticketing:fare_inquiry,KILPAUK,ticketing,KILPAUK,LITTLE_MOUNT,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+कोयम्बेडु मार्केट से गवर्नमेंट एस्टेट के लिए मेट्रो पास का चार्ज बताइए,ticketing:fare_inquiry,KOYAMBEDU,ticketing,KOYAMBEDU,GOVERNMENT_ESTATE,,fare,False,hi,devanagari,template_combinatorial,val
+government estate se teynampet ka fare kitna hai?,ticketing:fare_inquiry,GOVERNMENT_ESTATE,ticketing,GOVERNMENT_ESTATE,TEYNAMPET,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+ashok nagar par monthly pass price details please,ticketing:tourist_pass,ASHOK_NAGAR,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+saidapet se egmore qr ticket charges?,ticketing:fare_inquiry,SAIDAPET,ticketing,SAIDAPET,CHENNAI_EGMORE,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+एजी-डीएमएस से चेन्नई एग्मोर मेट्रो का किराया कितना लगेगा?,ticketing:fare_inquiry,AG_DMS,ticketing,AG_DMS,CHENNAI_EGMORE,metro,fare,False,hi,devanagari,template_combinatorial,val
+kilpauk se guindy ka fare kitna hai?,ticketing:fare_inquiry,KILPAUK,ticketing,KILPAUK,GUINDY,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+little mount par qr ticket price details please,ticketing:tourist_pass,LITTLE_MOUNT,ticketing,,,,fare,False,hinglish,latin_hinglish,template_combinatorial,val
+हाई कोर्ट से ताम्बरम का किराया कितना है?,ticketing:fare_inquiry,HIGH_COURT,ticketing,HIGH_COURT,TAMBARAM,,fare,False,hi,devanagari,template_combinatorial,val
+aaj chennai ka mausam kaisa hai? batao jaldi,out_of_scope:weather_query,,out_of_scope,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+aaj chennai ka mausam kaisa hai? please,out_of_scope:weather_query,,out_of_scope,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+pnr status kaise check kare? please,out_of_scope:pnr_indian_rail,,out_of_scope,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+weather forecast for chennai tomorrow?,out_of_scope:weather_query,,out_of_scope,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+कल की ट्रेन का पीएनआर स्टेटस चेक कर दो क्या आप जानते हैं?,out_of_scope:pnr_indian_rail,,out_of_scope,,,,,False,hi,devanagari,template_combinatorial,val
+pnr status kaise check kare?,out_of_scope:pnr_indian_rail,,out_of_scope,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+pnr status kaise check kare? can you tell?,out_of_scope:pnr_indian_rail,,out_of_scope,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+aaj chennai ka mausam kaisa hai?,out_of_scope:weather_query,,out_of_scope,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+आज चेन्नई में मौसम कैसा रहेगा?,out_of_scope:weather_query,,out_of_scope,,,,,False,hi,devanagari,template_combinatorial,val
+pnr status kaise check kare? details please,out_of_scope:pnr_indian_rail,,out_of_scope,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+weather forecast for chennai tomorrow? please,out_of_scope:weather_query,,out_of_scope,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+कल की ट्रेन का पीएनआर स्टेटस चेक कर दो जानकारी चाहिए,out_of_scope:pnr_indian_rail,,out_of_scope,,,,,False,hi,devanagari,template_combinatorial,val
+कल की ट्रेन का पीएनआर स्टेटस चेक कर दो कृपया बताइए,out_of_scope:pnr_indian_rail,,out_of_scope,,,,,False,hi,devanagari,template_combinatorial,val
+आज चेन्नई में मौसम कैसा रहेगा? जल्दी बताओ,out_of_scope:weather_query,,out_of_scope,,,,,False,hi,devanagari,template_combinatorial,val
+आज चेन्नई में मौसम कैसा रहेगा? क्या आप जानते हैं?,out_of_scope:weather_query,,out_of_scope,,,,,False,hi,devanagari,template_combinatorial,val
+aaj chennai ka mausam kaisa hai? details please,out_of_scope:weather_query,,out_of_scope,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+कल की ट्रेन का पीएनआर स्टेटस चेक कर दो,out_of_scope:pnr_indian_rail,,out_of_scope,,,,,False,hi,devanagari,template_combinatorial,val
+aaj chennai ka mausam kaisa hai? can you tell?,out_of_scope:weather_query,,out_of_scope,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+weather forecast for chennai tomorrow? details please,out_of_scope:weather_query,,out_of_scope,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+pnr status kaise check kare? batao jaldi,out_of_scope:pnr_indian_rail,,out_of_scope,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+कल की ट्रेन का पीएनआर स्टेटस चेक कर दो जी,out_of_scope:pnr_indian_rail,,out_of_scope,,,,,False,hi,devanagari,template_combinatorial,val
+weather forecast for chennai tomorrow? can you tell?,out_of_scope:weather_query,,out_of_scope,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+आज चेन्नई में मौसम कैसा रहेगा? जी,out_of_scope:weather_query,,out_of_scope,,,,,False,hi,devanagari,template_combinatorial,val
+आज चेन्नई में मौसम कैसा रहेगा? जानकारी चाहिए,out_of_scope:weather_query,,out_of_scope,,,,,False,hi,devanagari,template_combinatorial,val
+आज चेन्नई में मौसम कैसा रहेगा? कृपया बताइए,out_of_scope:weather_query,,out_of_scope,,,,,False,hi,devanagari,template_combinatorial,val
+weather forecast for chennai tomorrow? batao jaldi,out_of_scope:weather_query,,out_of_scope,,,,,False,hinglish,latin_hinglish,template_combinatorial,val
+कल की ट्रेन का पीएनआर स्टेटस चेक कर दो जल्दी बताओ,out_of_scope:pnr_indian_rail,,out_of_scope,,,,,False,hi,devanagari,template_combinatorial,val

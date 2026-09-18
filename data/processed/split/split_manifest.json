@@ -1,0 +1,49 @@
+{
+  "strategy": "family_disjoint_stratified",
+  "train_ratio": 0.7,
+  "validation_ratio": 0.15,
+  "test_ratio": 0.15,
+  "split_seed": 42,
+  "num_train": 3916,
+  "num_validation": 716,
+  "num_test": 572,
+  "total_samples": 5204,
+  "intents": [
+    "accessibility",
+    "out_of_scope",
+    "route_query",
+    "service_availability",
+    "service_timing",
+    "station_information",
+    "ticketing"
+  ],
+  "classes_distribution": {
+    "train": {
+      "service_availability": 818,
+      "route_query": 791,
+      "out_of_scope": 560,
+      "ticketing": 490,
+      "service_timing": 472,
+      "accessibility": 397,
+      "station_information": 388
+    },
+    "validation": {
+      "ticketing": 239,
+      "service_timing": 113,
+      "route_query": 100,
+      "station_information": 85,
+      "service_availability": 81,
+      "accessibility": 71,
+      "out_of_scope": 27
+    },
+    "test": {
+      "route_query": 142,
+      "service_availability": 130,
+      "ticketing": 94,
+      "accessibility": 90,
+      "station_information": 85,
+      "out_of_scope": 22,
+      "service_timing": 9
+    }
+  }
+}

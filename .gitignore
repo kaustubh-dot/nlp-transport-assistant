@@ -66,5 +66,4 @@ Thumbs.db
 
 # Reproducible generated training artifacts
 data/processed/intents.csv
-data/processed/splits/*.csv
 models/baseline/*.pkl

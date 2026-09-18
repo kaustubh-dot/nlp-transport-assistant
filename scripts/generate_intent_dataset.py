@@ -29,6 +29,7 @@ CURATED_PATH = os.path.join(BASE_DIR, "data", "curated", "cmrl_verified_stations
 SCRAPED_PATH = os.path.join(BASE_DIR, "data", "curated", "cmrl_scraped_stations.json")
 EXTERNAL_PATH = os.path.join(BASE_DIR, "data", "curated", "external_harvested_queries.json")
 OUTPUT_CSV_PATH = os.path.join(BASE_DIR, "data", "processed", "intents.csv")
+SPLIT_DIR = os.path.join(BASE_DIR, "data", "processed", "split")
 
 # Core Station Pools
 STATIONS_HI = [
@@ -372,35 +373,71 @@ def generate_dataset(samples_per_intent: int = 700, seed: int = 42) -> pd.DataFr
     return df.reset_index(drop=True)
 
 
+def export_frozen_split(df: pd.DataFrame, split_dir: str = SPLIT_DIR, split_seed: int = 42) -> Dict[str, Any]:
+    """Exports frozen 70/15/15 train, validation, and test splits along with manifest metadata."""
+    os.makedirs(split_dir, exist_ok=True)
+    train_df = df[df["split"] == "train"].reset_index(drop=True)
+    val_df = df[df["split"] == "val"].reset_index(drop=True)
+    test_df = df[df["split"] == "test"].reset_index(drop=True)
+
+    train_path = os.path.join(split_dir, "train.csv")
+    val_path = os.path.join(split_dir, "validation.csv")
+    test_path = os.path.join(split_dir, "test.csv")
+    manifest_path = os.path.join(split_dir, "split_manifest.json")
+
+    train_df.to_csv(train_path, index=False, encoding="utf-8")
+    val_df.to_csv(val_path, index=False, encoding="utf-8")
+    test_df.to_csv(test_path, index=False, encoding="utf-8")
+
+    manifest = {
+        "strategy": "family_disjoint_stratified",
+        "train_ratio": 0.70,
+        "validation_ratio": 0.15,
+        "test_ratio": 0.15,
+        "split_seed": split_seed,
+        "num_train": len(train_df),
+        "num_validation": len(val_df),
+        "num_test": len(test_df),
+        "total_samples": len(df),
+        "intents": sorted(list(df["intent"].unique())),
+        "classes_distribution": {
+            "train": train_df["intent"].value_counts().to_dict(),
+            "validation": val_df["intent"].value_counts().to_dict(),
+            "test": test_df["intent"].value_counts().to_dict()
+        }
+    }
+    with open(manifest_path, "w", encoding="utf-8") as f:
+        json.dump(manifest, f, indent=2, ensure_ascii=False)
+
+    print(f"Exported frozen split to {split_dir}:")
+    print(f"  - train.csv: {len(train_df)} samples")
+    print(f"  - validation.csv: {len(val_df)} samples")
+    print(f"  - test.csv: {len(test_df)} samples")
+    print(f"  - split_manifest.json: {manifest_path}")
+    return manifest
+
+
 if __name__ == "__main__":
     import argparse
 
-    parser = argparse.ArgumentParser(description="Generate intent dataset with disjoint splits")
-    parser.add_argument("--seed", type=int, default=42, help="Random seed for generation and splitting")
+    parser = argparse.ArgumentParser(description="Generate intent dataset with frozen family-disjoint split")
+    parser.add_argument("--seed", type=int, default=42, help="Random seed for generation and splitting (default: 42)")
     parser.add_argument("--samples-per-intent", type=int, default=900, help="Number of samples to generate per intent")
-    parser.add_argument("--output", type=str, default=OUTPUT_CSV_PATH, help="Output CSV path")
-    parser.add_argument("--all-splits", action="store_true", help="Generate 3 standard splits (seeds 42, 1337, 2026)")
+    parser.add_argument("--output", type=str, default=OUTPUT_CSV_PATH, help="Output CSV path (default: data/processed/intents.csv)")
+    parser.add_argument("--split-dir", type=str, default=SPLIT_DIR, help="Directory to export train/validation/test splits")
+    parser.add_argument("--no-split-export", action="store_true", help="Skip exporting split files to split-dir")
     args = parser.parse_args()
 
-    if args.all_splits:
-        splits_dir = os.path.join(BASE_DIR, "data", "processed", "splits")
-        os.makedirs(splits_dir, exist_ok=True)
-        seeds = [42, 1337, 2026]
-        for s in seeds:
-            out_p = os.path.join(splits_dir, f"intents_seed_{s}.csv")
-            print(f"\n--- Generating Split for Seed {s} ---")
-            df_s = generate_dataset(samples_per_intent=args.samples_per_intent, seed=s)
-            df_s.to_csv(out_p, index=False, encoding="utf-8")
-            print(f"Saved {len(df_s)} samples to {out_p}")
-            if s == 42:
-                # Also save default intents.csv for backward compatibility
-                df_s.to_csv(OUTPUT_CSV_PATH, index=False, encoding="utf-8")
-    else:
-        os.makedirs(os.path.dirname(args.output), exist_ok=True)
-        df = generate_dataset(samples_per_intent=args.samples_per_intent, seed=args.seed)
-        df.to_csv(args.output, index=False, encoding="utf-8")
-        print(f"Generated dataset with {len(df)} samples at: {args.output}")
-        print("\nClass distribution by split:")
-        print(pd.crosstab(df["intent"], df["split"]))
-        print("\nScript distribution:")
-        print(df["script"].value_counts())
+    os.makedirs(os.path.dirname(args.output), exist_ok=True)
+    df = generate_dataset(samples_per_intent=args.samples_per_intent, seed=args.seed)
+    df.to_csv(args.output, index=False, encoding="utf-8")
+    print(f"Generated dataset with {len(df)} samples at: {args.output}")
+
+    if not args.no_split_export:
+        export_frozen_split(df, split_dir=args.split_dir, split_seed=args.seed)
+
+    print("\nClass distribution by split:")
+    print(pd.crosstab(df["intent"], df["split"]))
+    print("\nScript distribution:")
+    print(df["script"].value_counts())
+
