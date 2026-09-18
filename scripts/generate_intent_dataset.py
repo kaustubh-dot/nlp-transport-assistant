@@ -180,9 +180,9 @@ def detect_script(text: str) -> str:
     return "devanagari" if has_deva else "latin_hinglish"
 
 
-def generate_dataset(samples_per_intent: int = 700) -> pd.DataFrame:
+def generate_dataset(samples_per_intent: int = 700, seed: int = 42) -> pd.DataFrame:
     """Generates synthetic dataset from templates and merges external harvested queries."""
-    random.seed(42)
+    random.seed(seed)
     templates = load_templates()
     rows: List[Dict[str, Any]] = []
 
@@ -373,11 +373,34 @@ def generate_dataset(samples_per_intent: int = 700) -> pd.DataFrame:
 
 
 if __name__ == "__main__":
-    os.makedirs(os.path.dirname(OUTPUT_CSV_PATH), exist_ok=True)
-    df = generate_dataset(samples_per_intent=900)
-    df.to_csv(OUTPUT_CSV_PATH, index=False, encoding="utf-8")
-    print(f"Generated dataset with {len(df)} samples at: {OUTPUT_CSV_PATH}")
-    print("\nClass distribution by split:")
-    print(pd.crosstab(df["intent"], df["split"]))
-    print("\nScript distribution:")
-    print(df["script"].value_counts())
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Generate intent dataset with disjoint splits")
+    parser.add_argument("--seed", type=int, default=42, help="Random seed for generation and splitting")
+    parser.add_argument("--samples-per-intent", type=int, default=900, help="Number of samples to generate per intent")
+    parser.add_argument("--output", type=str, default=OUTPUT_CSV_PATH, help="Output CSV path")
+    parser.add_argument("--all-splits", action="store_true", help="Generate 3 standard splits (seeds 42, 1337, 2026)")
+    args = parser.parse_args()
+
+    if args.all_splits:
+        splits_dir = os.path.join(BASE_DIR, "data", "processed", "splits")
+        os.makedirs(splits_dir, exist_ok=True)
+        seeds = [42, 1337, 2026]
+        for s in seeds:
+            out_p = os.path.join(splits_dir, f"intents_seed_{s}.csv")
+            print(f"\n--- Generating Split for Seed {s} ---")
+            df_s = generate_dataset(samples_per_intent=args.samples_per_intent, seed=s)
+            df_s.to_csv(out_p, index=False, encoding="utf-8")
+            print(f"Saved {len(df_s)} samples to {out_p}")
+            if s == 42:
+                # Also save default intents.csv for backward compatibility
+                df_s.to_csv(OUTPUT_CSV_PATH, index=False, encoding="utf-8")
+    else:
+        os.makedirs(os.path.dirname(args.output), exist_ok=True)
+        df = generate_dataset(samples_per_intent=args.samples_per_intent, seed=args.seed)
+        df.to_csv(args.output, index=False, encoding="utf-8")
+        print(f"Generated dataset with {len(df)} samples at: {args.output}")
+        print("\nClass distribution by split:")
+        print(pd.crosstab(df["intent"], df["split"]))
+        print("\nScript distribution:")
+        print(df["script"].value_counts())
