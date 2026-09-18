@@ -452,7 +452,9 @@ div[data-baseweb="tab"][aria-selected="true"] {
 .transit-response-header, .status-notice-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
     margin-bottom: var(--space-xs);
     border-bottom: 1px solid var(--mp-rule);
     padding-bottom: var(--space-3xs);
@@ -465,6 +467,8 @@ div[data-baseweb="tab"][aria-selected="true"] {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--mp-muted);
+    flex: 1 1 auto;
+    min-width: 140px;
 }
 
 .transit-response-body, .status-notice-body {
@@ -487,6 +491,7 @@ div[data-baseweb="tab"][aria-selected="true"] {
     padding: var(--space-3xs) var(--space-xs);
     border-radius: var(--radius-panel);
     white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .badge-blue {
@@ -532,7 +537,9 @@ div[data-baseweb="tab"][aria-selected="true"] {
 .transit-tamil-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
     margin-bottom: var(--space-xs);
     border-bottom: 1px solid var(--mp-rule);
     padding-bottom: var(--space-3xs);
@@ -543,6 +550,8 @@ div[data-baseweb="tab"][aria-selected="true"] {
     font-size: 0.8rem;
     font-weight: 700;
     color: var(--mp-accent);
+    flex: 1 1 auto;
+    min-width: 140px;
 }
 
 .transit-tamil-body {
@@ -617,6 +626,8 @@ div[data-baseweb="tab"][aria-selected="true"] {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
     margin-bottom: var(--space-md);
     border-bottom: 1px solid var(--mp-rule);
     padding-bottom: var(--space-xs);
@@ -980,19 +991,19 @@ div[data-baseweb="tab-highlight"] {
         flex: 1 1 100% !important;
     }
 
-    .route-steps {
+    .route-steps, .route-steps-container {
         flex-direction: column !important;
         align-items: flex-start !important;
         gap: var(--space-sm) !important;
     }
 
-    .route-connector {
+    .route-connector, .route-track-hairline {
         width: 100% !important;
         margin: var(--space-3xs) 0 !important;
         padding-left: 18px !important;
     }
 
-    .route-track-line {
+    .route-track-line, .route-track {
         width: 2px !important;
         height: 20px !important;
         margin: 0 !important;
@@ -1928,14 +1939,14 @@ with tab_stations:
 
         st.markdown(f"""
         <div class="mp-panel station-card">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-3xs);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: var(--space-xs); margin-bottom: var(--space-3xs);">
                 <div>
                     <h4 style="margin: 0; font-size: 1.15rem; font-family: var(--font-display); color: var(--mp-ink);">{stn['name_hi']}</h4>
                     <p style="margin: 2px 0 0 0; font-size: 0.875rem; color: var(--mp-ink-2);">{stn['name_en']} · {stn.get('name_ta', '')}</p>
                 </div>
                 <span class="badge-pill {line_badge}">{badge_text}</span>
             </div>
-            <div style="display: flex; gap: var(--space-md); font-size: 0.8rem; color: var(--mp-muted); margin-top: var(--space-xs);" class="numeric">
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-md); font-size: 0.8rem; color: var(--mp-muted); margin-top: var(--space-xs);" class="numeric">
                 <span><strong>ID:</strong> {stn['station_id']}</span>
                 <span><strong>Lat:</strong> {stn.get('latitude', '—')}</span>
                 <span><strong>Lon:</strong> {stn.get('longitude', '—')}</span>
@@ -1967,7 +1978,7 @@ with tab_accessibility:
     for f in displayed_fac:
         st.markdown(f"""
         <div class="mp-panel station-card">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-2xs);">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-xs); margin-bottom: var(--space-2xs);">
                 <h4 style="margin: 0; font-size: 1.1rem; font-family: var(--font-display);">{f['name_hi']} ({f['name_en']})</h4>
                 <span class="badge-pill badge-verified numeric">ID: {f['station_id']}</span>
             </div>

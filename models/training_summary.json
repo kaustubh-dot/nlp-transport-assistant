@@ -1,14 +1,28 @@
 [
   {
-    "model_key": "mdeberta",
-    "name": "Microsoft mDeBERTa-v3",
-    "train_time_sec": 44.78,
-    "val_acc": 0.1397,
-    "val_f1": 0.035,
-    "test_acc": 0.2483,
-    "test_f1": 0.0568,
-    "latency_ms": 0.21,
-    "size_mb": 547.12,
-    "vram_mb": 4063.13
+    "model_key": "baseline",
+    "name": "TF-IDF + Logistic Regression",
+    "seed": 42,
+    "train_time_sec": 5.1,
+    "total_epochs_trained": 1,
+    "best_epoch": 1,
+    "val_acc": 0.5894,
+    "val_f1": 0.5836,
+    "test_acc": 0.8357,
+    "test_f1": 0.7523,
+    "per_class_f1": {
+      "route_query": 0.8733,
+      "service_availability": 0.8754,
+      "service_timing": 0.4444,
+      "station_information": 0.6508,
+      "accessibility": 0.8535,
+      "ticketing": 0.8846,
+      "out_of_scope": 0.6842
+    },
+    "latency_ms": 0.55,
+    "median_latency_ms": 0.55,
+    "p95_latency_ms": 0.58,
+    "size_mb": 2.27,
+    "vram_mb": 0.0
   }
 ]
