@@ -1,0 +1,49 @@
+{
+  "model_type": "muril",
+  "total_cases": 149,
+  "intent_accuracy": 1.0,
+  "intent_macro_f1": 1.0,
+  "slot_exact_match_pct": 96.64,
+  "factual_task_success_pct": 100.0,
+  "mean_latency_ms": 1.28,
+  "p95_latency_ms": 0.64,
+  "by_form": {
+    "formal_hi": {
+      "count": 54,
+      "intent_ok": 54,
+      "task_ok": 54
+    },
+    "hinglish": {
+      "count": 42,
+      "intent_ok": 42,
+      "task_ok": 42
+    },
+    "reversed_wording": {
+      "count": 3,
+      "intent_ok": 3,
+      "task_ok": 3
+    },
+    "colloquial_hi": {
+      "count": 38,
+      "intent_ok": 38,
+      "task_ok": 38
+    },
+    "missing_slot": {
+      "count": 6,
+      "intent_ok": 6,
+      "task_ok": 6
+    },
+    "unknown_endpoint": {
+      "count": 3,
+      "intent_ok": 3,
+      "task_ok": 3
+    },
+    "typo": {
+      "count": 3,
+      "intent_ok": 3,
+      "task_ok": 3
+    }
+  },
+  "num_failures": 0,
+  "failures": []
+}

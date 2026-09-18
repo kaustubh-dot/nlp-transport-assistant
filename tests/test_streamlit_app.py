@@ -168,9 +168,9 @@ def test_hallmark_css_tokens_and_stamp():
     # Stamp verification
     assert "Hallmark · macrostructure: Workbench" in content
     assert "theme: custom" in content
-    assert "vibe: \"chennai transit precision, sapphire rail, bilingual clarity\"" in content
+    assert "Quiet Exchange" in content or "MandiPulse" in content
     assert "oklch(" in content
-    assert "display: Plus Jakarta Sans" in content
+    assert "display: Cormorant Garamond" in content or "display: Plus Jakarta Sans" in content
     assert "contrast: pass (40–41)" in content
     assert "mobile: pass (34, 49, 50–57)" in content
 
@@ -244,3 +244,46 @@ def test_sidebar_full_model_roster():
     assert any("MiniLM" in opt for opt in options)
     assert any("HingBERT" in opt for opt in options)
     assert any("Baseline" in opt for opt in options)
+
+
+def test_ui_language_selector_present():
+    """Verifies that the sidebar contains the UI language mode selector."""
+    at = AppTest.from_file(APP_PATH, default_timeout=15)
+    at.run()
+
+    assert not at.exception, f"Exceptions on load: {at.exception}"
+    radios = [r for r in at.sidebar.radio]
+    assert len(radios) >= 1, "Expected UI language radio selector in sidebar"
+    lang_radio = radios[0]
+    assert "हिन्दी (Pure Hindi)" in lang_radio.options
+    assert "English" in lang_radio.options
+    assert "हिंग्लिश (Hinglish)" in lang_radio.options
+
+
+def test_ui_language_mode_english():
+    """Verifies switching UI language mode to English."""
+    at = AppTest.from_file(APP_PATH, default_timeout=15)
+    at.run()
+
+    # Select English
+    at.sidebar.radio[0].set_value("English").run()
+    assert not at.exception, f"Exceptions after selecting English: {at.exception}"
+
+    all_markdown = " ".join([m.value for m in at.markdown])
+    assert "Chennai Multimodal Transit Assistant" in all_markdown
+    assert "Verified CMRL Stations" in all_markdown
+    assert "Quick Discovery Queries" in all_markdown
+
+
+def test_ui_language_mode_hinglish():
+    """Verifies switching UI language mode to Hinglish."""
+    at = AppTest.from_file(APP_PATH, default_timeout=15)
+    at.run()
+
+    # Select Hinglish
+    at.sidebar.radio[0].set_value("हिंग्लिश (Hinglish)").run()
+    assert not at.exception, f"Exceptions after selecting Hinglish: {at.exception}"
+
+    all_markdown = " ".join([m.value for m in at.markdown])
+    assert "Chennai Multimodal Transit Assistant" in all_markdown
+    assert "Verified Stations" in all_markdown or "Verified CMRL" in all_markdown
