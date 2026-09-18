@@ -1,0 +1,6167 @@
+[
+  {
+    "route_code": "101",
+    "route_label": "101",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "101CT",
+    "route_label": "101CT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "101E",
+    "route_label": "101E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "101X",
+    "route_label": "101X",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "102",
+    "route_label": "102",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "102A",
+    "route_label": "102A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "102C",
+    "route_label": "102C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "102CT",
+    "route_label": "102CT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "102E",
+    "route_label": "102E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "102K",
+    "route_label": "102K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "102K#",
+    "route_label": "102K#",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "102M",
+    "route_label": "102M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "102P",
+    "route_label": "102P",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "102S",
+    "route_label": "102S",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "102X",
+    "route_label": "102X",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "104",
+    "route_label": "104",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "104A",
+    "route_label": "104A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "104C",
+    "route_label": "104C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "104CX",
+    "route_label": "104CX",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "104F",
+    "route_label": "104F",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "104G",
+    "route_label": "104G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "104K",
+    "route_label": "104K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "104M",
+    "route_label": "104M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "104P",
+    "route_label": "104P",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "104T",
+    "route_label": "104T",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "105",
+    "route_label": "105",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "105A",
+    "route_label": "105A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "109",
+    "route_label": "109",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "109A",
+    "route_label": "109A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "109C",
+    "route_label": "109C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "109CT",
+    "route_label": "109CT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "109T",
+    "route_label": "109T",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "109X",
+    "route_label": "109X",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "10A",
+    "route_label": "10A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "10E",
+    "route_label": "10E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "11",
+    "route_label": "11",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "111",
+    "route_label": "111",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "111ET",
+    "route_label": "111ET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "113",
+    "route_label": "113",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "113A",
+    "route_label": "113A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "114",
+    "route_label": "114",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "114A",
+    "route_label": "114A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "114C",
+    "route_label": "114C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "114CCT",
+    "route_label": "114CCT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "114D",
+    "route_label": "114D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "114E",
+    "route_label": "114E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "114ET",
+    "route_label": "114ET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "114G",
+    "route_label": "114G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "114P",
+    "route_label": "114P",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "114S",
+    "route_label": "114S",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "118",
+    "route_label": "118",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "118ET",
+    "route_label": "118ET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "118G",
+    "route_label": "118G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "118N",
+    "route_label": "118N",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "118P",
+    "route_label": "118P",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "118T",
+    "route_label": "118T",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "119",
+    "route_label": "119",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "119G",
+    "route_label": "119G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "11G",
+    "route_label": "11G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "11M",
+    "route_label": "11M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "120",
+    "route_label": "120",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "120A",
+    "route_label": "120A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "120CT",
+    "route_label": "120CT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "120E",
+    "route_label": "120E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "120F",
+    "route_label": "120F",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "120G",
+    "route_label": "120G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "120K",
+    "route_label": "120K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "120KET",
+    "route_label": "120KET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "121",
+    "route_label": "121",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "121A",
+    "route_label": "121A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "121C",
+    "route_label": "121C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "121CT",
+    "route_label": "121CT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "121D",
+    "route_label": "121D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "121G",
+    "route_label": "121G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "121M",
+    "route_label": "121M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "121MET",
+    "route_label": "121MET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "129C",
+    "route_label": "129C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "12B",
+    "route_label": "12B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "12G",
+    "route_label": "12G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "12M",
+    "route_label": "12M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "12X",
+    "route_label": "12X",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "13",
+    "route_label": "13",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "142",
+    "route_label": "142",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "142B",
+    "route_label": "142B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "142P",
+    "route_label": "142P",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "147A",
+    "route_label": "147A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "147B",
+    "route_label": "147B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "147C",
+    "route_label": "147C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "147V",
+    "route_label": "147V",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "14A",
+    "route_label": "14A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "14M",
+    "route_label": "14M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "15",
+    "route_label": "15",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "150",
+    "route_label": "150",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "153",
+    "route_label": "153",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "153A",
+    "route_label": "153A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "153C",
+    "route_label": "153C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "153P",
+    "route_label": "153P",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "153T",
+    "route_label": "153T",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "154",
+    "route_label": "154",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "154B",
+    "route_label": "154B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "154E",
+    "route_label": "154E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "154P",
+    "route_label": "154P",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "155A",
+    "route_label": "155A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "157",
+    "route_label": "157",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "157E",
+    "route_label": "157E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "159",
+    "route_label": "159",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "159B",
+    "route_label": "159B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "159E",
+    "route_label": "159E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "159K",
+    "route_label": "159K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "15BET",
+    "route_label": "15BET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "15F",
+    "route_label": "15F",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "15G",
+    "route_label": "15G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "164",
+    "route_label": "164",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "166",
+    "route_label": "166",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "166K",
+    "route_label": "166K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "16J",
+    "route_label": "16J",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "16K",
+    "route_label": "16K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "170A",
+    "route_label": "170A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "170C",
+    "route_label": "170C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "170CE",
+    "route_label": "170CE",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "170K",
+    "route_label": "170K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "170T",
+    "route_label": "170T",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "170TX",
+    "route_label": "170TX",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "17D",
+    "route_label": "17D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "17E",
+    "route_label": "17E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "17K",
+    "route_label": "17K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "188A",
+    "route_label": "188A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "188C",
+    "route_label": "188C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "188E",
+    "route_label": "188E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "188ET",
+    "route_label": "188ET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "188K",
+    "route_label": "188K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "188T",
+    "route_label": "188T",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "18A",
+    "route_label": "18A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "18ACT",
+    "route_label": "18ACT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "18B",
+    "route_label": "18B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "18D",
+    "route_label": "18D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "18E",
+    "route_label": "18E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "18H",
+    "route_label": "18H",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "18K",
+    "route_label": "18K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "18M",
+    "route_label": "18M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "18N",
+    "route_label": "18N",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "18P",
+    "route_label": "18P",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "18R",
+    "route_label": "18R",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "18RX",
+    "route_label": "18RX",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "18S",
+    "route_label": "18S",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "18X",
+    "route_label": "18X",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "19",
+    "route_label": "19",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "19A",
+    "route_label": "19A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "19B",
+    "route_label": "19B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "19BET",
+    "route_label": "19BET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "19C",
+    "route_label": "19C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "19D",
+    "route_label": "19D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "19T",
+    "route_label": "19T",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "1C",
+    "route_label": "1C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "1D",
+    "route_label": "1D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "20",
+    "route_label": "20",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "202",
+    "route_label": "202",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "202A",
+    "route_label": "202A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "202X",
+    "route_label": "202X",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "206",
+    "route_label": "206",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "20A",
+    "route_label": "20A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "20D",
+    "route_label": "20D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "20P",
+    "route_label": "20P",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "21",
+    "route_label": "21",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "21C",
+    "route_label": "21C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "21EET",
+    "route_label": "21EET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "21G",
+    "route_label": "21G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "21L",
+    "route_label": "21L",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "21P",
+    "route_label": "21P",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "22",
+    "route_label": "22",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "221",
+    "route_label": "221",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "23C",
+    "route_label": "23C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "23V",
+    "route_label": "23V",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "242",
+    "route_label": "242",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "24A",
+    "route_label": "24A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "24AX",
+    "route_label": "24AX",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "25",
+    "route_label": "25",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "26",
+    "route_label": "26",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "266",
+    "route_label": "266",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "26B",
+    "route_label": "26B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "26G",
+    "route_label": "26G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "26K",
+    "route_label": "26K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "26M",
+    "route_label": "26M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "26R",
+    "route_label": "26R",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "27B",
+    "route_label": "27B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "27D",
+    "route_label": "27D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "28A",
+    "route_label": "28A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "28B",
+    "route_label": "28B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "297",
+    "route_label": "297",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "29A",
+    "route_label": "29A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "29AET",
+    "route_label": "29AET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "29AEX",
+    "route_label": "29AEX",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "29B",
+    "route_label": "29B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "29C",
+    "route_label": "29C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "29CET",
+    "route_label": "29CET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "29CEX",
+    "route_label": "29CEX",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "29D",
+    "route_label": "29D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "29E",
+    "route_label": "29E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "29ET",
+    "route_label": "29ET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "29NET",
+    "route_label": "29NET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "2A",
+    "route_label": "2A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "2B",
+    "route_label": "2B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "3",
+    "route_label": "3",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "31A",
+    "route_label": "31A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "31B",
+    "route_label": "31B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "31G",
+    "route_label": "31G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "31M",
+    "route_label": "31M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "31P",
+    "route_label": "31P",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "32A",
+    "route_label": "32A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "32AX",
+    "route_label": "32AX",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "32B",
+    "route_label": "32B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "33B",
+    "route_label": "33B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "33C",
+    "route_label": "33C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "33L",
+    "route_label": "33L",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "34",
+    "route_label": "34",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "35",
+    "route_label": "35",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "35C",
+    "route_label": "35C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "36K",
+    "route_label": "36K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "36M",
+    "route_label": "36M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "36V",
+    "route_label": "36V",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "37",
+    "route_label": "37",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "37B",
+    "route_label": "37B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "37CT",
+    "route_label": "37CT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "37D",
+    "route_label": "37D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "37E",
+    "route_label": "37E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "37ECT",
+    "route_label": "37ECT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "37G",
+    "route_label": "37G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "38A",
+    "route_label": "38A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "38C",
+    "route_label": "38C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "38D",
+    "route_label": "38D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "38G",
+    "route_label": "38G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "38H",
+    "route_label": "38H",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "4",
+    "route_label": "4",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "40A",
+    "route_label": "40A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "40H",
+    "route_label": "40H",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "40L",
+    "route_label": "40L",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "40N",
+    "route_label": "40N",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "41D",
+    "route_label": "41D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "42",
+    "route_label": "42",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "42B",
+    "route_label": "42B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "42C",
+    "route_label": "42C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "42D",
+    "route_label": "42D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "42M",
+    "route_label": "42M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "44",
+    "route_label": "44",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "44C",
+    "route_label": "44C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "44CT",
+    "route_label": "44CT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "45A",
+    "route_label": "45A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "45ACT",
+    "route_label": "45ACT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "45B",
+    "route_label": "45B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "45BET",
+    "route_label": "45BET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "46",
+    "route_label": "46",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "46ET",
+    "route_label": "46ET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "46G",
+    "route_label": "46G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "47",
+    "route_label": "47",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "47A",
+    "route_label": "47A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "47C",
+    "route_label": "47C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "47CX",
+    "route_label": "47CX",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "47DCT",
+    "route_label": "47DCT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "47T",
+    "route_label": "47T",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "48A",
+    "route_label": "48A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "48AET",
+    "route_label": "48AET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "48B",
+    "route_label": "48B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "48BX",
+    "route_label": "48BX",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "48C",
+    "route_label": "48C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "48K",
+    "route_label": "48K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "48P",
+    "route_label": "48P",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "49",
+    "route_label": "49",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "49A",
+    "route_label": "49A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "49F",
+    "route_label": "49F",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "49K",
+    "route_label": "49K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "49X",
+    "route_label": "49X",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "4M",
+    "route_label": "4M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "50",
+    "route_label": "50",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "500",
+    "route_label": "500",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "500A",
+    "route_label": "500A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "500D",
+    "route_label": "500D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "500E",
+    "route_label": "500E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "500ET",
+    "route_label": "500ET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "500P",
+    "route_label": "500P",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "500R",
+    "route_label": "500R",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "500W",
+    "route_label": "500W",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "505",
+    "route_label": "505",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "505K",
+    "route_label": "505K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "50ET",
+    "route_label": "50ET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "50M",
+    "route_label": "50M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "51",
+    "route_label": "51",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "512",
+    "route_label": "512",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "512S",
+    "route_label": "512S",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "514",
+    "route_label": "514",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "514ET",
+    "route_label": "514ET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "515",
+    "route_label": "515",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "515A",
+    "route_label": "515A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "515B",
+    "route_label": "515B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "515CT",
+    "route_label": "515CT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "515K",
+    "route_label": "515K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "515M",
+    "route_label": "515M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "515T",
+    "route_label": "515T",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "517K",
+    "route_label": "517K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "519T",
+    "route_label": "519T",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "51A",
+    "route_label": "51A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "51AX",
+    "route_label": "51AX",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "51B",
+    "route_label": "51B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "51C",
+    "route_label": "51C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "51D",
+    "route_label": "51D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "51J",
+    "route_label": "51J",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "51M",
+    "route_label": "51M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "51T",
+    "route_label": "51T",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "51X",
+    "route_label": "51X",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "52",
+    "route_label": "52",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "523",
+    "route_label": "523",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "523A",
+    "route_label": "523A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "525",
+    "route_label": "525",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "52B",
+    "route_label": "52B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "52C",
+    "route_label": "52C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "52G",
+    "route_label": "52G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "52H",
+    "route_label": "52H",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "52K",
+    "route_label": "52K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "53",
+    "route_label": "53",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "53C",
+    "route_label": "53C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "53E",
+    "route_label": "53E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "53G",
+    "route_label": "53G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "53P",
+    "route_label": "53P",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "54",
+    "route_label": "54",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "547",
+    "route_label": "547",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "547A",
+    "route_label": "547A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "549",
+    "route_label": "549",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "54B",
+    "route_label": "54B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "54C",
+    "route_label": "54C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "54E",
+    "route_label": "54E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "54G",
+    "route_label": "54G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "54K",
+    "route_label": "54K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "54L",
+    "route_label": "54L",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "54P",
+    "route_label": "54P",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "54S",
+    "route_label": "54S",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "54T",
+    "route_label": "54T",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "54V",
+    "route_label": "54V",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "54VCT",
+    "route_label": "54VCT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "552K",
+    "route_label": "552K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "553K",
+    "route_label": "553K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "553W",
+    "route_label": "553W",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "554B",
+    "route_label": "554B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "555G",
+    "route_label": "555G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "555M",
+    "route_label": "555M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "555N",
+    "route_label": "555N",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "555P",
+    "route_label": "555P",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "555S",
+    "route_label": "555S",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "556",
+    "route_label": "556",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "557",
+    "route_label": "557",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "557AE",
+    "route_label": "557AE",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "557C",
+    "route_label": "557C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "557M",
+    "route_label": "557M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "558A",
+    "route_label": "558A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "558B",
+    "route_label": "558B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "558C",
+    "route_label": "558C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "558L",
+    "route_label": "558L",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "558P",
+    "route_label": "558P",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "55A",
+    "route_label": "55A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "55B",
+    "route_label": "55B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "55C",
+    "route_label": "55C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "55D",
+    "route_label": "55D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "55DET",
+    "route_label": "55DET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "55ET",
+    "route_label": "55ET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "55G",
+    "route_label": "55G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "55H",
+    "route_label": "55H",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "55K",
+    "route_label": "55K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "55M",
+    "route_label": "55M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "55N",
+    "route_label": "55N",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "55P",
+    "route_label": "55P",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "55V",
+    "route_label": "55V",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "55X",
+    "route_label": "55X",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "565",
+    "route_label": "565",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "566",
+    "route_label": "566",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "566B",
+    "route_label": "566B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "568B",
+    "route_label": "568B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "56A",
+    "route_label": "56A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "56ACT",
+    "route_label": "56ACT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "56C",
+    "route_label": "56C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "56D",
+    "route_label": "56D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "56DET",
+    "route_label": "56DET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "56F",
+    "route_label": "56F",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "56J",
+    "route_label": "56J",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "56K",
+    "route_label": "56K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "56P",
+    "route_label": "56P",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "56PA",
+    "route_label": "56PA",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "57",
+    "route_label": "57",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "570",
+    "route_label": "570",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "570ET",
+    "route_label": "570ET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "570P",
+    "route_label": "570P",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "572",
+    "route_label": "572",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "572A",
+    "route_label": "572A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "572K",
+    "route_label": "572K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "578",
+    "route_label": "578",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "578A",
+    "route_label": "578A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "578ET",
+    "route_label": "578ET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "578M",
+    "route_label": "578M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "578P",
+    "route_label": "578P",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "579A",
+    "route_label": "579A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "579C",
+    "route_label": "579C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "579K",
+    "route_label": "579K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "57A",
+    "route_label": "57A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "57B",
+    "route_label": "57B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "57CCT",
+    "route_label": "57CCT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "57D",
+    "route_label": "57D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "57E",
+    "route_label": "57E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "57F",
+    "route_label": "57F",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "57G",
+    "route_label": "57G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "57H",
+    "route_label": "57H",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "57J",
+    "route_label": "57J",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "57M",
+    "route_label": "57M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "57P",
+    "route_label": "57P",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "57X",
+    "route_label": "57X",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "580",
+    "route_label": "580",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "580A",
+    "route_label": "580A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "580M",
+    "route_label": "580M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "583",
+    "route_label": "583",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "583A",
+    "route_label": "583A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "583C",
+    "route_label": "583C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "583D",
+    "route_label": "583D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "583K",
+    "route_label": "583K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "588",
+    "route_label": "588",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "58V",
+    "route_label": "58V",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "59",
+    "route_label": "59",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "591",
+    "route_label": "591",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "591C",
+    "route_label": "591C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "592",
+    "route_label": "592",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "592V",
+    "route_label": "592V",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "593CT",
+    "route_label": "593CT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "595",
+    "route_label": "595",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "597",
+    "route_label": "597",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "597A",
+    "route_label": "597A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "597C",
+    "route_label": "597C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "597CET",
+    "route_label": "597CET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "597T",
+    "route_label": "597T",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "5B",
+    "route_label": "5B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "5C",
+    "route_label": "5C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "5E",
+    "route_label": "5E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "5G",
+    "route_label": "5G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "5S",
+    "route_label": "5S",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "6",
+    "route_label": "6",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "60",
+    "route_label": "60",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "60A",
+    "route_label": "60A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "60D",
+    "route_label": "60D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "60E",
+    "route_label": "60E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "60G",
+    "route_label": "60G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "60H",
+    "route_label": "60H",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "61A",
+    "route_label": "61A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "61C",
+    "route_label": "61C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "61E",
+    "route_label": "61E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "61K",
+    "route_label": "61K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "61R",
+    "route_label": "61R",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "62",
+    "route_label": "62",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "62A",
+    "route_label": "62A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "62B",
+    "route_label": "62B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "62CT",
+    "route_label": "62CT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "62M",
+    "route_label": "62M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "63",
+    "route_label": "63",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "64C",
+    "route_label": "64C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "64D",
+    "route_label": "64D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "64K",
+    "route_label": "64K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "64KET",
+    "route_label": "64KET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "64M",
+    "route_label": "64M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "65A",
+    "route_label": "65A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "65B",
+    "route_label": "65B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "65CCT",
+    "route_label": "65CCT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "65D",
+    "route_label": "65D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "65E",
+    "route_label": "65E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "65G",
+    "route_label": "65G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "65H",
+    "route_label": "65H",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "65K",
+    "route_label": "65K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "66",
+    "route_label": "66",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "66A",
+    "route_label": "66A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "66K",
+    "route_label": "66K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "66M",
+    "route_label": "66M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "66P",
+    "route_label": "66P",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "66PX",
+    "route_label": "66PX",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "6D",
+    "route_label": "6D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "6DET",
+    "route_label": "6DET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "70",
+    "route_label": "70",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "70A",
+    "route_label": "70A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "70ACT",
+    "route_label": "70ACT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "70C",
+    "route_label": "70C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "70CCT",
+    "route_label": "70CCT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "70E",
+    "route_label": "70E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "70F",
+    "route_label": "70F",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "70G",
+    "route_label": "70G",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "70H",
+    "route_label": "70H",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "70J",
+    "route_label": "70J",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "70K",
+    "route_label": "70K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "70LCT",
+    "route_label": "70LCT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "70M",
+    "route_label": "70M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "70N",
+    "route_label": "70N",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "70T",
+    "route_label": "70T",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "70V",
+    "route_label": "70V",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "71D",
+    "route_label": "71D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "71E",
+    "route_label": "71E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "71H",
+    "route_label": "71H",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "71V",
+    "route_label": "71V",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "72",
+    "route_label": "72",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "72M",
+    "route_label": "72M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "73",
+    "route_label": "73",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "73A",
+    "route_label": "73A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "73C",
+    "route_label": "73C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "73CT",
+    "route_label": "73CT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "76",
+    "route_label": "76",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "76B",
+    "route_label": "76B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "77",
+    "route_label": "77",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "77A",
+    "route_label": "77A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "77B",
+    "route_label": "77B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "77CT",
+    "route_label": "77CT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "77E",
+    "route_label": "77E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "77FCT",
+    "route_label": "77FCT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "77K",
+    "route_label": "77K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "77M",
+    "route_label": "77M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "77P",
+    "route_label": "77P",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "77T",
+    "route_label": "77T",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "77V",
+    "route_label": "77V",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "77VET",
+    "route_label": "77VET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "78",
+    "route_label": "78",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "79A",
+    "route_label": "79A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "79V",
+    "route_label": "79V",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "7E",
+    "route_label": "7E",
+    "service_category": "express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "7H",
+    "route_label": "7H",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "7K",
+    "route_label": "7K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "7M",
+    "route_label": "7M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "7MET",
+    "route_label": "7MET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "88C",
+    "route_label": "88C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "88CET",
+    "route_label": "88CET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "88D",
+    "route_label": "88D",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "88K",
+    "route_label": "88K",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "88KET",
+    "route_label": "88KET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "88L",
+    "route_label": "88L",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "88M",
+    "route_label": "88M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "88R",
+    "route_label": "88R",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "89",
+    "route_label": "89",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "89A",
+    "route_label": "89A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "89T",
+    "route_label": "89T",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "89TCT",
+    "route_label": "89TCT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "8ACT",
+    "route_label": "8ACT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "8B",
+    "route_label": "8B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "91",
+    "route_label": "91",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "91A",
+    "route_label": "91A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "91R",
+    "route_label": "91R",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "91V",
+    "route_label": "91V",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "95",
+    "route_label": "95",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "95X",
+    "route_label": "95X",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "95XCT",
+    "route_label": "95XCT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "96",
+    "route_label": "96",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "99",
+    "route_label": "99",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "99A",
+    "route_label": "99A",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "99C",
+    "route_label": "99C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "99X",
+    "route_label": "99X",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "9M",
+    "route_label": "9M",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "9MET",
+    "route_label": "9MET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "A1",
+    "route_label": "A1",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "A1ET",
+    "route_label": "A1ET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "A45B",
+    "route_label": "A45B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "A47",
+    "route_label": "A47",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "A51",
+    "route_label": "A51",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "A54C",
+    "route_label": "A54C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "B18",
+    "route_label": "B18",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "B70CT",
+    "route_label": "B70CT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "C33",
+    "route_label": "C33",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "C56C",
+    "route_label": "C56C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "C56CET",
+    "route_label": "C56CET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "C64",
+    "route_label": "C64",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "CU1",
+    "route_label": "CU1",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "CU2",
+    "route_label": "CU2",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "D51ET",
+    "route_label": "D51ET",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "D70",
+    "route_label": "D70",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "D70CT",
+    "route_label": "D70CT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "D70X",
+    "route_label": "D70X",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "E18",
+    "route_label": "E18",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "E51",
+    "route_label": "E51",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "F70",
+    "route_label": "F70",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "G18",
+    "route_label": "G18",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "J51",
+    "route_label": "J51",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "J66",
+    "route_label": "J66",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "M1",
+    "route_label": "M1",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "M18C",
+    "route_label": "M18C",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "M18G",
+    "route_label": "M18G",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "M19B",
+    "route_label": "M19B",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "M1A",
+    "route_label": "M1A",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "M27",
+    "route_label": "M27",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "M51",
+    "route_label": "M51",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "M51D",
+    "route_label": "M51D",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "M51DCT",
+    "route_label": "M51DCT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "M51R",
+    "route_label": "M51R",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "M51V",
+    "route_label": "M51V",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "M51VC",
+    "route_label": "M51VC",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "M52ET",
+    "route_label": "M52ET",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "M60",
+    "route_label": "M60",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "M70",
+    "route_label": "M70",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "M88",
+    "route_label": "M88",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "M88ET",
+    "route_label": "M88ET",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "M88T",
+    "route_label": "M88T",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "MAA1",
+    "route_label": "MAA1",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "MAA2",
+    "route_label": "MAA2",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "N45B",
+    "route_label": "N45B",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "P570S",
+    "route_label": "P570S",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "P91",
+    "route_label": "P91",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S1",
+    "route_label": "S1",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S100",
+    "route_label": "S100",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S11",
+    "route_label": "S11",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S12",
+    "route_label": "S12",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S13",
+    "route_label": "S13",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S15",
+    "route_label": "S15",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S165",
+    "route_label": "S165",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S166",
+    "route_label": "S166",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S167",
+    "route_label": "S167",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S17",
+    "route_label": "S17",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S18D",
+    "route_label": "S18D",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S18K",
+    "route_label": "S18K",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S19",
+    "route_label": "S19",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S2",
+    "route_label": "S2",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S20",
+    "route_label": "S20",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S21C",
+    "route_label": "S21C",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S22",
+    "route_label": "S22",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S23",
+    "route_label": "S23",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S24",
+    "route_label": "S24",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S25",
+    "route_label": "S25",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S25A",
+    "route_label": "S25A",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S26",
+    "route_label": "S26",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S27",
+    "route_label": "S27",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S28",
+    "route_label": "S28",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S30",
+    "route_label": "S30",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S30CT",
+    "route_label": "S30CT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S30K",
+    "route_label": "S30K",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S31",
+    "route_label": "S31",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S35",
+    "route_label": "S35",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S36",
+    "route_label": "S36",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S3X",
+    "route_label": "S3X",
+    "service_category": "deluxe_express",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S4",
+    "route_label": "S4",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S40",
+    "route_label": "S40",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S41",
+    "route_label": "S41",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S42",
+    "route_label": "S42",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S43",
+    "route_label": "S43",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S44",
+    "route_label": "S44",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S45",
+    "route_label": "S45",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S46",
+    "route_label": "S46",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S47",
+    "route_label": "S47",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S47M",
+    "route_label": "S47M",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S48",
+    "route_label": "S48",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S49",
+    "route_label": "S49",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S5",
+    "route_label": "S5",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S50",
+    "route_label": "S50",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S51",
+    "route_label": "S51",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S52",
+    "route_label": "S52",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S53",
+    "route_label": "S53",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S55",
+    "route_label": "S55",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S55W",
+    "route_label": "S55W",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S56",
+    "route_label": "S56",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S58",
+    "route_label": "S58",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S59",
+    "route_label": "S59",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S6",
+    "route_label": "S6",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S60",
+    "route_label": "S60",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S62",
+    "route_label": "S62",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S63",
+    "route_label": "S63",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S64",
+    "route_label": "S64",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S66",
+    "route_label": "S66",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S67",
+    "route_label": "S67",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S69",
+    "route_label": "S69",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S70K",
+    "route_label": "S70K",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S73",
+    "route_label": "S73",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S73T",
+    "route_label": "S73T",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S74",
+    "route_label": "S74",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S75",
+    "route_label": "S75",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S79",
+    "route_label": "S79",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S80",
+    "route_label": "S80",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S81",
+    "route_label": "S81",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S82",
+    "route_label": "S82",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S83",
+    "route_label": "S83",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S84",
+    "route_label": "S84",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S86",
+    "route_label": "S86",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S88A",
+    "route_label": "S88A",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S90",
+    "route_label": "S90",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S94",
+    "route_label": "S94",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S95",
+    "route_label": "S95",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S97",
+    "route_label": "S97",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "S98",
+    "route_label": "S98",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "SC1",
+    "route_label": "SC1",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "T23C",
+    "route_label": "T23C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "T29",
+    "route_label": "T29",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "T29C",
+    "route_label": "T29C",
+    "service_category": "regular",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "V51",
+    "route_label": "V51",
+    "service_category": "feeder_or_small",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  },
+  {
+    "route_code": "V51CT",
+    "route_label": "V51CT",
+    "service_category": "cut_trip",
+    "agency_id": "MTC",
+    "source_id": "MTC_OFFICIAL",
+    "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
+    "disclosure_date": "2026-08-07"
+  }
+]

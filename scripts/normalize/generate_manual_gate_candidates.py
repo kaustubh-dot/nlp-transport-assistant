@@ -21,6 +21,7 @@ import os
 import sys
 import csv
 import re
+import hashlib
 from datetime import datetime
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -144,8 +145,11 @@ def generate_candidates():
                         "direct_facility_interchange" if dist_m <= 30.0
                         else ("short_corridor_transfer" if dist_m <= 100.0 else "street_transfer")
                     )
+                    sorted_pair = sorted([id_a, id_b])
+                    pair_hash = hashlib.sha256(f"{sorted_pair[0]}__{sorted_pair[1]}".encode("utf-8")).hexdigest()[:12]
+                    interchange_id = f"INT_{pair_hash.upper()}"
                     interchange_candidates.append({
-                        "interchange_id": f"INT_{id_a[:12]}_{id_b[:12]}",
+                        "interchange_id": interchange_id,
                         "from_entity": id_a,
                         "from_name": name_a,
                         "to_entity": id_b,

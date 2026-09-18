@@ -1,15 +1,15 @@
-# Phase 24: Unresolved Data Gaps Report (v1.1)
+# Unresolved Data Gaps Report (v1.2)
 
 **Date:** 2026-09-18  
 **Project:** Chennai Multimodal Public Transport & Places Knowledge Base  
-**Knowledge Base Version:** `chennai_multimodal_v1.1` (Provisional Multisource Knowledge Base)  
-**Status:** Audit Complete  
+**Knowledge Base Version:** `chennai_multimodal_v1.2` (Provisional Multisource Knowledge Base with Route Topology & Services)  
+**Status:** Canonical Topology Complete  
 
 ---
 
 ## 1. Overview
 
-This report documents all unresolved factual gaps, deferred items, and pending human decisions across the multimodal transport and geographic datasets following the Corrective Data Audit. Each item is classified by importance, reason for absence, and whether it can be manually fetched, manually created, or safely postponed.
+This report documents all unresolved factual gaps, deferred items, and pending human decisions across the multimodal transport and geographic datasets following the ingestion of official MTC administrative datasets and the integration of canonical route topology, trip schedules, and stage fare tables. Each item is classified by importance, reason for absence, and whether it can be manually fetched, manually created, or safely postponed.
 
 ---
 
@@ -20,10 +20,10 @@ This report documents all unresolved factual gaps, deferred items, and pending h
 - **Affected Entities:** Unified network routing (MTC, CMRL, Southern Railway)
 - **Importance:** Medium (Overlapping community GTFS + official CMRL API + OSM provides complete structural coverage)
 - **Sources Checked:** `opendata.cumta.org`, `cumta.org`, `cumta.tn.gov.in`, `data.gov.in`, `tn.data.gov.in`
-- **Reason Missing:** `opendata.cumta.org` returns `NXDOMAIN` on public DNS; `cumta.org` is an internal WebGIS dashboard requiring government login credentials and captcha. Unauthenticated static GTFS is not exposed.
+- **Reason Missing:** `opendata.cumta.org` returns `NXDOMAIN` on public DNS; `cumta.org` is an internal WebGIS dashboard requiring government login credentials and captcha. Unauthenticated static GTFS is not exposed. Official CMA boundary polygon was acquired via OpenCity-hosted Government of Tamil Nadu dataset; source: CUMTA.
 - **Can User Manually Fetch?** Yes, if the user has an institutional login or official contact at CUMTA (`MANUAL_ACTION_REQUIRED.md`, Item 1).
 - **Manual Creation Required?** No.
-- **Safe to Postpone?** **Yes.** The knowledge base operates reliably on the community GTFS feed and direct operator disclosures.
+- **Safe to Postpone?** **Yes.** The knowledge base operates reliably on the community GTFS feed, official MTC disclosures, and direct operator feeds.
 
 ---
 
@@ -59,19 +59,19 @@ This report documents all unresolved factual gaps, deferred items, and pending h
 - **Reason Missing:** Real-time stream requires active mobile app session tokens and live telemetry APIs.
 - **Can User Manually Fetch?** No. Requires official enterprise MTC/Chalo API integration.
 - **Manual Creation Required?** No.
-- **Safe to Postpone?** **Yes.** Live status is explicitly out of scope for the text NLU MVP.
+- **Safe to Postpone?** **Yes.** Live status is explicitly out of scope for the static text NLU MVP. Static routes (685), stages (1,562), fares (305), and GTFS schedules (47,143 trips) are fully ingested.
 
 ---
 
 ### Gap 5: Human-Approved Multimodal Hub Grouping & Landmark Whitelist
 - **Data Category:** Domain Curation & Whitelist
-- **Affected Entities:** 62 candidate hubs, 37 candidate interchanges, 1,621 candidate landmarks
+- **Affected Entities:** 62 candidate hubs, 45 candidate interchanges (assigned collision-free SHA-256 pair-hashed IDs), 151 candidate walking transfers, 1,621 candidate landmarks
 - **Importance:** High for production canonical sign-off
 - **Sources Checked:** Synthesized candidates in `data/manual/`
 - **Reason Missing:** In accordance with Hard Stop Protocol Type C, automated code must not fabricate human subjective approval.
 - **Can User Manually Fetch?** No.
 - **Manual Creation Required?** Yes, review of candidate files in `data/manual/` with priority given to Tier 1 Core Hubs (Central, Egmore, Guindy, Airport, Tambaram, CMBT, Beach, Alandur, St. Thomas Mount, Velachery).
-- **Safe to Postpone?** **Yes.** Canonical database has populated unverified candidates with `verified = 0`, preserving safety.
+- **Safe to Postpone?** **Yes.** Canonical database has populated unverified candidates with `verified = 0` or `confirmed = 0`, preserving safety.
 
 ---
 

@@ -8,4 +8,4 @@ OSM_OVERPASS,ODbL,https://www.openstreetmap.org/copyright,true,Open Database Lic
 CHENNAI_COMMUNITY_GTFS,ODbL,https://github.com/ChennaiGTFS,true,Community open transit repository under ODbL.,Derivative works must maintain attribution and ODbL compatibility.,false
 CMRL_LEGACY_VERIFIED,REVIEW_REQUIRED,https://chennaimetrorail.org/station-facilities/,true,Curated from official CMRL portal for NLP benchmark ground truth.,Factual ground truth fixture.,true
 CURATED_MULTIMODAL_UNVERIFIED,REVIEW_REQUIRED,local_scratch,false,Internal working draft synthesized from multiple unverified inputs.,Not approved for redistribution until individual entity provenance is established.,true
-CUMTA_TNGIS,REVIEW_REQUIRED,https://data.opencity.in/dataset/cumta-expanded-jurisdiction-boundary,true,OpenCity / TNGIS administrative boundary geospatial disclosure.,Geographic point-in-polygon boundary reference.,true
+CUMTA_TNGIS,REVIEW_REQUIRED,https://data.opencity.in/dataset/cumta-expanded-jurisdiction-boundary,true,OpenCity-hosted Government of Tamil Nadu dataset; source: CUMTA.,Geographic point-in-polygon boundary reference.,true

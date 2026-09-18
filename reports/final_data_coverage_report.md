@@ -1,17 +1,17 @@
-# Phase 23: Final Data Coverage Report (Corrective Audit v1.1)
+# Final Data Coverage Report (Snapshot v1.2: Provisional Multisource Knowledge Base with Route Topology & Services)
 
 **Date:** 2026-09-18  
 **Project:** Chennai Multimodal Public Transport & Places Knowledge Base  
-**Knowledge Base Version:** `chennai_multimodal_v1.1`  
-**Status:** Provisional Multisource Knowledge Base  
+**Knowledge Base Version:** `chennai_multimodal_v1.2`  
+**Status:** Provisional Multisource Knowledge Base with Route Topology & Services  
 
 ---
 
 ## 1. Executive Summary
 
-This report delivers the audited coverage metrics for the expanded Chennai Multimodal Public Transport & Places Knowledge Base following the comprehensive Corrective Data Audit. All numerical claims in this document are derived directly from live SQLite database queries against `data/canonical/transit/canonical_transport.db` and registered metadata manifests.
+This report delivers the audited coverage metrics for the expanded Chennai Multimodal Public Transport & Places Knowledge Base following the ingestion of official MTC administrative datasets and the integration of canonical route topology, trip schedules, and stage fare tables into `canonical_transport.db`.
 
-Data across all modes (CMRL Metro Phase I & II, Southern Railway Suburban Rail, Chennai MRTS, and MTC Bus Network) and geographic intelligence (CMA boundary polygon, localities, and POIs) is maintained with field-level provenance, byte-for-byte immutable Bronze raw archives, Silver normalization, and Gold multi-source canonicalization.
+All metrics cited in this report derive directly from live SQLite queries against `data/canonical/transit/canonical_transport.db` and registered metadata manifests. All four urban transit modes (CMRL Metro Phase I & II, Southern Railway Suburban Rail, Chennai MRTS, and MTC Bus Network) and geographic intelligence (CMA administrative boundary polygon, localities, and POIs) are represented with full field-level provenance, byte-for-byte immutable Bronze raw archives, Silver normalization, and Gold multi-source canonicalization.
 
 ---
 
@@ -21,14 +21,10 @@ Data across all modes (CMRL Metro Phase I & II, Southern Railway Suburban Rail, 
 - **Operational Physical Stations:** 41 unique physical stations (represented by 43 operational station disclosures from the official CMRL WordPress API, where Central and Alandur serve dual corridors).
 - **Canonical Metro Entity Records:** 157 physical stop and platform nodes (after cross-source canonicalization of CMRL API, OSM Overpass, and Community GTFS representations).
 - **Coordinate Coverage:** 100.0% WGS84 high-precision decimal coordinates verified.
-- **Accessibility Disclosures:** 41 / 41 (100.0%) core physical stations with official CMRL lift, escalator, ramp, wheelchair assistance, and accessible toilet disclosures recorded in `accessibility` table.
-- **Corridors Covered (Operational):** 
+- **Accessibility Disclosures:** 41 / 41 (100.0%) core physical stations with official CMRL lift, escalator, ramp, wheelchair assistance, and accessible toilet disclosures recorded in the `accessibility` table.
+- **Corridors Covered (Operational):**
   - Blue Line (Corridor 1: Wimco Nagar Depot to Chennai International Airport)
   - Green Line (Corridor 2: Puratchi Thalaivar Dr. M.G. Ramachandran Central to St. Thomas Mount)
-- **Multilingual Name Coverage:**
-  - English: 100.0% of canonical metro stations.
-  - Tamil (`name:ta`): Preserved wherever published in raw sources (CMRL/OSM).
-  - Devanagari Hindi: **0.0%** (Corrected: No raw transit sources currently publish Hindi strings for Chennai stations. Synthetic translations are strictly omitted during this data expansion phase).
 
 ### 2.2. Future / Phase II Metro (Official CMRL Disclosures)
 - **Corridors Ingested:** 3 regional corridor packages derived dynamically from official CMRL disclosure HTML (`cmrl_phase2_corridor_status.html`):
@@ -50,24 +46,33 @@ Data across all modes (CMRL Metro Phase I & II, Southern Railway Suburban Rail, 
 
 ### 2.4. Chennai MRTS (Mass Rapid Transit System)
 - **Corridor:** Elevated viaduct corridor from Chennai Beach to Velachery (and link to St. Thomas Mount).
-- **Stations:** Viaduct stations with verified platform coordinates and physical interchange connections at Chennai Beach, Chennai Fort, Chennai Park, and St. Thomas Mount.
+- **Stations:** 19 viaduct stations with verified platform coordinates and physical interchange connections at Chennai Beach, Chennai Fort, Chennai Park, and St. Thomas Mount.
 
 ### 2.5. MTC City Bus Network
-- **Commercial Route Variants:** 4,614 commercial route variants (mainline routes, cut-trips, express, deluxe) in canonical `transport_routes`.
-- **Official Route Codes:** 685 active route numbers cataloged from official MTC directory (`mtc_official_routes.html`).
-- **Official Bus Stages:** 1,562 official fare stages cataloged from official MTC stage directory (`mtc_official_stages.html`).
-- **Physical Bus Stops:** 6,870 canonical physical bus stops in `transport_stops`.
-- **Scheduled Operations:** 47,149 trips and 1,360,635 stop-time observations in GTFS.
-- **Official Fare Matrix:** Stage fare lists and night service tariffs ingested from `mtc_official_fares.html`.
+- **Official Route Numbers:** 685 active route codes cataloged from official MTC directory disclosures (`mtc_official_routes.html` -> `normalized_official_routes.csv`).
+- **Official Fare Stages:** 1,562 official fare stages cataloged from official MTC stage directory disclosures (`mtc_official_stages.html` -> `normalized_mtc_stages.csv`).
+- **Official Stage Fares:** 305 stage fare matrix records across 11 service types (Ordinary, Express, Deluxe, Night Services, etc. for stages 1 to 30) from `mtc_official_fares.html` -> `normalized_mtc_fares.csv`.
+- **Commercial Route Variants:** 4,614 commercial bus route variants in `transport_routes` (4,619 total routes across all transport modes).
+- **Canonical Physical Bus Stops:** 6,870 canonical physical bus stops in `transport_stops`.
+
+### 2.6. Route Topology, Schedule & Tariff Tables (Gold Schema v1.2)
+- **`route_stops` (96,025 rows):** Ordered stop sequence observations across 3,940 route-directions, mapped to canonical stop IDs with sequence indices.
+- **`trips` (47,143 rows):** Scheduled operational trips linking `route_id`, `service_id`, and `trip_headsign`. Community GTFS column shifts on CMRL trips have been corrected, and trailing calendar/test rows filtered out.
+- **`stop_times` (1,360,635 rows):** Exact scheduled arrival and departure timestamps mapped to canonical stop IDs. Preserves service hours spanning past midnight ($\ge 24:00:00$) as valid operational offsets. Clustered via `WITHOUT ROWID` on `(trip_id, stop_sequence)` to keep database storage under the GitHub 100 MB limit.
+- **`service_calendars` (9 rows):** Weekly operational service profiles (days of week, validity spans).
+- **`service_exceptions` (0 rows):** Schema prepared for specific calendar exception dates.
+- **`fare_stages` (1,562 rows):** Official MTC fare stages cross-referenced to canonical physical stops where identifiable.
+- **`fares` (305 rows):** Official statutory stage fare tariffs (G.O. Ms No. 48) covering 11 service classifications and 30 fare stages.
 
 ---
 
 ## 3. Geographic Intelligence & POIs
 
-- **CMA Administrative Boundary:** Official CUMTA / TNGIS boundary MultiPolygon (7,157 vertices, bounding box 12.468°N to 13.563°N, 79.549°E to 80.349°E).
+- **CMA Administrative Boundary:** Official OpenCity-hosted Government of Tamil Nadu dataset; source: CUMTA MultiPolygon (7,157 vertices, bounding box 12.468°N to 13.563°N, 79.549°E to 80.349°E).
 - **Point-in-Polygon Classification:** All stops and places classified via exact ray casting against the official boundary polygon.
   - Stops Inside CMA: 7,041 (98.67%)
-  - Stops Outside CMA (Chennai-serving): 95 (1.33%)
+  - Stops Outside CMA (Chennai-serving railway/commuter stops): 95 (1.33%)
+  - Total Physical Stops: 7,136
 - **Total Places & POIs:** 1,621 normalized places in `places` catalog.
   - Places Inside CMA: 1,282 (79.09%)
   - Places Outside CMA: 339 (20.91%)
@@ -90,16 +95,24 @@ Data across all modes (CMRL Metro Phase I & II, Southern Railway Suburban Rail, 
 
 - **Multimodal Hub Candidates:** 62 candidate hub groupings (grouping 211 member entities).
   - **Tier 1 Core Hubs (98 pairs):** Central, Egmore, Guindy, St. Thomas Mount, Airport/Tirusulam, Tambaram, CMBT/Koyambedu, Chennai Beach, Velachery, Alandur.
-  - Status: Evaluated with `verified = 0` (provisional).
-- **Interchange Candidates:** 37 decoupled transfer connections (transfer distance <= 250m) with `confirmed = 0`.
+  - Status: Evaluated with `verified = 0` (provisional review queue).
+- **Interchange Candidates:** 45 collision-free interchange connections (transfer distance $\le 250\text{m}$) assigned unique SHA-256 pair-hashed IDs (`INT_<hash>`), evaluated with `confirmed = 0`.
 - **Walking Transfer Candidates:** 151 pedestrian transfer candidates evaluated with straight-line distance, walking times, obstacle hazard notes, and strictly flagged `walkable = unverified_walking_transfer`.
 
 ---
 
-## 5. Provenance, Licensing & Benchmark Protection
+## 5. Multilingual Name Coverage Breakdown
+
+- **English (`en`):** 100.0% coverage across canonical stops, routes, and places.
+- **Tamil (`ta`):** 421 distinct canonical stops have source-provided Tamil script names recorded in `stop_names` (422 total Tamil name rows). 120+ places carry source-provided Tamil names.
+- **Devanagari Hindi (`hi`):** **0.0%** across all raw transit sources. Local transport authorities in Chennai do not publish Hindi strings in their open disclosures. Synthetic translations and transliterations are omitted during the data expansion phase to preserve source truth.
+
+---
+
+## 6. Provenance, Storage Footprint & Benchmark Protection
 
 - **Raw Provenance (Bronze):** 11 raw files preserved byte-for-byte in dated directories with SHA-256 checksums verified in `metadata/raw_file_manifest.csv`.
 - **Canonical Resolution:** 7,246 normalized stop records resolved to 7,136 canonical physical stops via 163 automatic high-confidence same-mode merges.
 - **Entity Source Links:** 7,246 explicit provenance links in `entity_source_links` connecting every source record to its canonical entity. Multi-source entities (e.g. Thirumangalam, Central, Alandur, Guindy) hold up to 5 source links each.
-- **Licensing Status:** Government disclosures marked `REVIEW_REQUIRED`; open data marked `ODbL` in `metadata/licenses.csv`.
-- **Frozen Benchmark Protection:** **100% UNTOUCHED.** Frozen split (3,916 train / 716 val / 572 test) and the 149-query gold acceptance test suite remain completely unmodified and isolated. All 74 existing regression tests pass cleanly.
+- **Database Storage Footprint:** `canonical_transport.db` is 81.04 MB, safely below the 100 MB GitHub file size limit.
+- **Frozen Benchmark Protection:** **100% UNTOUCHED.** The frozen NLP split (3,916 train / 716 val / 572 test) and the 149-query gold acceptance test suite remain completely unmodified. All 74 existing regression tests pass cleanly.

@@ -91,6 +91,73 @@ def run_validations() -> Dict[str, Any]:
     stops_count = cur.fetchone()[0]
     log_check("Source-Link Provenance Complete", links_count >= stops_count, f"Total source links: {links_count} for {stops_count} canonical stops.")
 
+    # Check 8: Route-Stops Foreign Key Integrity (Routes and Stops)
+    cur.execute("""
+        SELECT count(*) FROM route_stops rs
+        LEFT JOIN transport_routes tr ON rs.route_id = tr.route_id
+        WHERE tr.route_id IS NULL
+    """)
+    orphan_rs_routes = cur.fetchone()[0]
+    cur.execute("""
+        SELECT count(*) FROM route_stops rs
+        LEFT JOIN transport_stops ts ON rs.canonical_stop_id = ts.stop_id
+        WHERE ts.stop_id IS NULL
+    """)
+    orphan_rs_stops = cur.fetchone()[0]
+    log_check(
+        "Route-Stops Foreign Key Integrity",
+        orphan_rs_routes == 0 and orphan_rs_stops == 0,
+        f"Orphan route references: {orphan_rs_routes}, Orphan stop references: {orphan_rs_stops}."
+    )
+
+    # Check 9: Interchange ID Uniqueness & Non-Collision
+    cur.execute("SELECT count(*), count(DISTINCT interchange_id) FROM interchanges")
+    int_total, int_distinct = cur.fetchone()
+    log_check(
+        "Interchange ID Uniqueness",
+        int_total == int_distinct and int_total == 45,
+        f"Found {int_total} total interchange rows with {int_distinct} unique IDs (expected 45)."
+    )
+
+    # Check 10: Structural Query Validation Suite
+    # Query 1: stops on a route
+    cur.execute("SELECT count(*) FROM route_stops WHERE route_id = 'GTFS_ROUTE_18751'")
+    q1_count = cur.fetchone()[0]
+
+    # Query 2: whether route X serves stop Y
+    cur.execute("SELECT count(*) > 0 FROM route_stops WHERE route_id = 'GTFS_ROUTE_18751' AND canonical_stop_id = 'BUS_495'")
+    q2_result = bool(cur.fetchone()[0])
+
+    # Query 3: ordered stops between A and B
+    cur.execute("""
+        SELECT count(*) FROM route_stops
+        WHERE route_id = 'GTFS_ROUTE_18751' AND direction_id = 1
+          AND stop_sequence BETWEEN
+            (SELECT stop_sequence FROM route_stops WHERE route_id = 'GTFS_ROUTE_18751' AND direction_id = 1 AND canonical_stop_id = 'BUS_495')
+            AND
+            (SELECT stop_sequence FROM route_stops WHERE route_id = 'GTFS_ROUTE_18751' AND direction_id = 1 AND canonical_stop_id = 'BUS_4848')
+    """)
+    q3_count = cur.fetchone()[0]
+
+    # Query 4: direction-specific route sequence
+    cur.execute("SELECT count(DISTINCT direction_id) FROM route_stops WHERE route_id = 'GTFS_ROUTE_18751'")
+    q4_dirs = cur.fetchone()[0]
+
+    # Query 5: service calendar for a trip
+    cur.execute("""
+        SELECT count(*) FROM trips t
+        JOIN service_calendars sc ON t.service_id = sc.service_id
+        WHERE t.trip_id = '111662'
+    """)
+    q5_count = cur.fetchone()[0]
+
+    structural_queries_ok = (q1_count > 0 and q2_result is True and q3_count == 4 and q4_dirs >= 1 and q5_count > 0)
+    log_check(
+        "Structural Transit Query Answering",
+        structural_queries_ok,
+        f"Verified: stops on route ({q1_count}), serves stop check ({q2_result}), ordered A-B ({q3_count}), direction sequence ({q4_dirs}), trip calendar ({q5_count})."
+    )
+
     conn.close()
     return results
 
@@ -102,3 +169,4 @@ if __name__ == "__main__":
     else:
         print("\nData quality issues detected. Please review logs.")
         sys.exit(1)
+

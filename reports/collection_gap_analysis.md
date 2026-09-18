@@ -1,15 +1,15 @@
-# Collection Completeness Audit & Gap Analysis Report (v1.1)
+# Collection Completeness Audit & Gap Analysis Report (v1.2)
 
 **Date:** 2026-09-18  
 **Project:** Chennai Multimodal Public Transport & Places Knowledge Base  
-**Knowledge Base Version:** `chennai_multimodal_v1.1` (Provisional Multisource Knowledge Base)  
-**Status:** Corrective Audit Complete  
+**Knowledge Base Version:** `chennai_multimodal_v1.2` (Provisional Multisource Knowledge Base with Route Topology & Services)  
+**Status:** Ingestion & Canonical Topology Complete  
 
 ---
 
 ## 1. Executive Summary
 
-This report delivers the comprehensive collection audit and gap analysis across all public transport modes and geographic intelligence for the Chennai Metropolitan Area. In accordance with the Corrective Data Audit requirements, every source and data category is evaluated for actual raw ingestion into Bronze, official provenance, and verified downstream coverage.
+This report delivers the comprehensive collection audit and gap analysis across all public transport modes and geographic intelligence for the Chennai Metropolitan Area. In accordance with the data expansion specifications, every source and data category is evaluated for actual raw ingestion into Bronze, official provenance, and verified downstream coverage across Silver normalized records and Gold canonical tables.
 
 ---
 
@@ -44,16 +44,19 @@ This report delivers the comprehensive collection audit and gap analysis across 
 ### 2.4. MTC City Bus Network
 - **Official Ingestion:**
   - Acquired official MTC fare table (`mtc_official_fares.html`), 685 official route codes (`mtc_official_routes.html`), and 1,562 official bus stages (`mtc_official_stages.html`).
+  - Parsed into Silver layers (`normalized_official_routes.csv`, `normalized_mtc_stages.csv`, `normalized_mtc_fares.csv`) and loaded into Gold tables `fare_stages` (1,562 rows) and `fares` (305 rows).
 - **Commercial Routes & Sequences:**
   - 4,614 commercial route variants in canonical `transport_routes`.
   - 6,870 canonical physical bus stops in `transport_stops`.
-  - 47,149 scheduled trips and 1,360,635 stop-time observations in GTFS.
+  - 96,025 ordered route-stop sequence observations across 3,940 route-directions in `route_stops`.
+  - 47,143 scheduled operational trips in `trips`.
+  - 1,360,635 scheduled stop-time observations in `stop_times`.
 - **Major Bus Terminals:**
   - Dedicated terminals cataloged: CMBT Koyambedu, KCBT Kilambakkam, MMBT Madhavaram, Broadway, T. Nagar, Adyar, Poonamallee, Red Hills, Thiruvanmiyur, Tambaram, Avadi, Velachery.
 
 ### 2.5. Geographic Intelligence & POIs
 - **Official CMA Boundary:**
-  - Acquired official CUMTA / TNGIS boundary MultiPolygon (`cumta_cma_boundary_official.geojson`, 7,157 vertices, bounding box ~12.468°N to 13.563°N).
+  - Acquired official OpenCity-hosted Government of Tamil Nadu dataset; source: CUMTA boundary MultiPolygon (`cumta_cma_boundary_official.geojson`, 7,157 vertices, bounding box ~12.468°N to 13.563°N).
   - Replaced hardcoded bounding box with exact ray-casting point-in-polygon classification.
 - **Places & POIs:**
   - 1,621 normalized places in `places` catalog (1,282 inside CMA, 339 outside CMA).
@@ -65,7 +68,7 @@ This report delivers the comprehensive collection audit and gap analysis across 
 
 | Gap Item | Agency | Root Cause | Handling Strategy |
 | :--- | :--- | :--- | :--- |
-| **CUMTA Open Data GTFS** | CUMTA | `opendata.cumta.org` returns `NXDOMAIN`; `cumta.org` is an internal WebGIS dashboard requiring government login/captcha. | Logged technical blocker in `MANUAL_ACTION_REQUIRED.md`. Retained 8.7MB community GTFS as Tier-3 overlapping evidence. |
+| **CUMTA Open Data GTFS** | CUMTA | `opendata.cumta.org` returns `NXDOMAIN`; `cumta.org` is an internal WebGIS dashboard requiring government login/captcha. | Logged technical blocker in `MANUAL_ACTION_REQUIRED.md`. Official CMA boundary acquired via OpenCity-hosted Government of Tamil Nadu dataset; source: CUMTA. Retained 8.7MB community GTFS as Tier-3 overlapping evidence. |
 | **Southern Railway Static GTFS** | Southern Railway | Indian Railways does not publish static machine-readable bulk GTFS timetables. | Retained complete station network, lines, codes, and commuter sequences via OSM and GTFS. Logged in `MANUAL_ACTION_REQUIRED.md`. |
-| **MTC Real-Time Telemetry** | MTC | Live GPS feeds are hosted behind dynamic mobile app session tokens. | Static route directory, fare stages, and schedules are fully sufficient for static knowledge base. Deferred real-time telemetry to downstream phase. |
-| **Devanagari Hindi Station Names** | All Agencies | Raw government sources publish English and Tamil strings, but do not provide Hindi strings for Chennai transit stations. | Corrected coverage claim from 100% to 0%. Deferred synthetic translation to the NLP phase. |
+| **MTC Real-Time Telemetry** | MTC | Live GPS feeds are hosted behind dynamic mobile app session tokens. | Static route directory (685 routes), fare stages (1,562), stage fares (305), and static GTFS schedule sequences (1,360,635 stop times) fully ingested into Gold tables. Deferred real-time telemetry to downstream phase. |
+| **Devanagari Hindi Station Names** | All Agencies | Raw government sources publish English and Tamil strings, but do not provide Hindi strings for Chennai transit stations. | Corrected coverage claim from 100% to 0%. Deferred synthetic translation and transliteration to the multilingual NLP phase. |
