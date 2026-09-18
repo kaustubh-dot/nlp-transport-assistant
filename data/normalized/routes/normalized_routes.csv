@@ -1,9 +1,9 @@
 normalized_route_id,source_id,source_route_id,agency,route_short_name,route_long_name,mode,route_type,status
 CMRL_BLUE_CORRIDOR_1,CMRL_API,CORRIDOR_1,CMRL,Blue Line,Wimco Nagar Depot to Chennai International Airport,metro,1,operational
 CMRL_GREEN_CORRIDOR_2,CMRL_API,CORRIDOR_2,CMRL,Green Line,Puratchi Thalaivar Dr. M.G. Ramachandran Central to St. Thomas Mount,metro,1,operational
-CMRL_CORRIDOR_3_PHASE2,CMRL_API,CORRIDOR_3,CMRL,Purple Line (Phase II),Madhavaram Milk Colony to SIPCOT 2,metro,1,under_construction
-CMRL_CORRIDOR_4_PHASE2,CMRL_API,CORRIDOR_4,CMRL,Orange Line (Phase II),Light House to Poonamallee Bypass,metro,1,under_construction
-CMRL_CORRIDOR_5_PHASE2,CMRL_API,CORRIDOR_5,CMRL,Red Line (Phase II),Madhavaram Milk Colony to Sholinganallur,metro,1,under_construction
+CMRL_CORRIDOR_3_PHASE2,CMRL_OFFICIAL,CORRIDOR_3,CMRL,Purple Line (Phase II),Madhavaram to SIPCOT (45.8 km),metro,1,under_construction
+CMRL_CORRIDOR_4_PHASE2,CMRL_OFFICIAL,CORRIDOR_4,CMRL,Orange Line (Phase II),Lighthouse to Poonamalle Bypass (26.1 km),metro,1,under_construction
+CMRL_CORRIDOR_5_PHASE2,CMRL_OFFICIAL,CORRIDOR_5,CMRL,Red Line (Phase II),Madhavaram to Sholinganallur (47.0 km),metro,1,under_construction
 GTFS_ROUTE_18751,CHENNAI_COMMUNITY_GTFS,18751,MTC,29A,Anna Square TO Perambur B.T,bus,3,operational
 GTFS_ROUTE_18750,CHENNAI_COMMUNITY_GTFS,18750,MTC,12G,Sathya Nagar TO Lady Willingdon College Of Education,bus,3,operational
 GTFS_ROUTE_23728,CHENNAI_COMMUNITY_GTFS,23728,MTC,11 R,Royapuram TO Thiyagarayanagar,bus,3,operational

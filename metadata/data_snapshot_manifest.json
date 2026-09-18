@@ -1,237 +1,486 @@
 {
-  "snapshot_version": "chennai_multimodal_v1.0_20260918",
-  "creation_date": "2026-09-18T18:42:00Z",
-  "source_registry_version": "1.0",
-  "normalization_version": "1.0",
-  "canonicalization_version": "1.0",
-  "benchmark_status": {
-    "frozen_split_train_rows": 3916,
-    "frozen_split_val_rows": 716,
-    "frozen_split_test_rows": 572,
-    "frozen_acceptance_suite_queries": 149,
-    "integrity_verified": true
+  "active_snapshot_version": "chennai_multimodal_v1.1",
+  "current_snapshot": {
+    "snapshot_version": "chennai_multimodal_v1.1",
+    "status": "Provisional Multisource Knowledge Base",
+    "creation_date": "2026-09-18T22:35:00Z",
+    "source_registry_version": "1.1",
+    "normalization_version": "1.1",
+    "canonicalization_version": "1.1",
+    "benchmark_status": {
+      "frozen_split_train_rows": 3916,
+      "frozen_split_val_rows": 716,
+      "frozen_split_test_rows": 572,
+      "frozen_acceptance_suite_queries": 149,
+      "integrity_verified": true
+    },
+    "canonical_resolution_metrics": {
+      "raw_stops": 7246,
+      "normalized_stops": 7246,
+      "canonical_physical_stops": 7136,
+      "auto_merges": 163,
+      "unresolved_matches": 464,
+      "deliberately_kept_separate": 282,
+      "total_entity_source_links": 7246
+    },
+    "raw_sources": [
+      {
+        "file_id": "LEGACY_CMRL_VERIFIED_20260917",
+        "relative_path": "data/raw/legacy_cmrl/cmrl_verified_stations.json",
+        "source_id": "CMRL_LEGACY_VERIFIED",
+        "download_url": "https://chennaimetrorail.org/station-facilities/",
+        "retrieved_at": "2026-09-17T00:00:00Z",
+        "file_format": "JSON",
+        "file_size": "17423",
+        "checksum_sha256": "0f4878833fe1a3bb87342b7c4468c9b6b340ad7686fbac55cbb120dca123c9c7",
+        "dataset_version": "1.0",
+        "published_date": "2026-09-17",
+        "license": "REVIEW_REQUIRED",
+        "notes": "Legacy verified 13-station ground truth baseline."
+      },
+      {
+        "file_id": "LEGACY_CMRL_SCRAPED_20260917",
+        "relative_path": "data/raw/legacy_cmrl/cmrl_scraped_stations.json",
+        "source_id": "CMRL_API",
+        "download_url": "https://chennaimetrorail.org/wp-json/wp/v2/station-information",
+        "retrieved_at": "2026-09-17T00:00:00Z",
+        "file_format": "JSON",
+        "file_size": "32859",
+        "checksum_sha256": "19f0153a2b06cf9f0c5d87f3be51ec60fb661890e13253251342fdf1f3e93092",
+        "dataset_version": "1.0",
+        "published_date": "2026-09-17",
+        "license": "REVIEW_REQUIRED",
+        "notes": "Scraped 43 stations from official CMRL WordPress API."
+      },
+      {
+        "file_id": "CHENNAI_UNIFIED_GTFS_20260918",
+        "relative_path": "data/raw/community_gtfs/2026-09-18/chennai-unified-gtfs.zip",
+        "source_id": "CHENNAI_COMMUNITY_GTFS",
+        "download_url": "https://raw.githubusercontent.com/ungalsoththu/ChennaiGTFS/main/data/chennai-unified-gtfs.zip",
+        "retrieved_at": "2026-09-18T13:02:51.851504+00:00",
+        "file_format": "ZIP",
+        "file_size": "9091816",
+        "checksum_sha256": "db1da880f9ad93e352f6658df0e94a8b2d71cd1dc8bdfbb60fa3968a9b0ad3e6",
+        "dataset_version": "2.0",
+        "published_date": "",
+        "license": "ODbL",
+        "notes": "Chennai Unified GTFS (MTC bus + CMRL metro) community feed from ungalsoththu/ChennaiGTFS."
+      },
+      {
+        "file_id": "CMRL_WP_API_20260918",
+        "relative_path": "data/raw/cmrl/2026-09-18/cmrl_station_information_api.json",
+        "source_id": "CMRL_API",
+        "download_url": "https://chennaimetrorail.org/wp-json/wp/v2/station-information?per_page=100",
+        "retrieved_at": "2026-09-18T13:03:26.677090+00:00",
+        "file_format": "JSON",
+        "file_size": "301868",
+        "checksum_sha256": "dcbc36f7477d770bc4cadfe19c18eadef508b4b9073d50265da4ec48c1d9ba58",
+        "dataset_version": "2026.09",
+        "published_date": "",
+        "license": "REVIEW_REQUIRED",
+        "notes": "Official CMRL WordPress REST API containing 43 operational station disclosures and facilities."
+      },
+      {
+        "file_id": "OSM_CHENNAI_BOUNDARY_20260918",
+        "relative_path": "data/raw/government/2026-09-18/chennai_administrative_boundary_osm.json",
+        "source_id": "OSM_OVERPASS",
+        "download_url": "https://overpass-api.de/api/interpreter",
+        "retrieved_at": "2026-09-18T18:35:05.684794",
+        "file_format": "JSON",
+        "file_size": "99413",
+        "checksum_sha256": "e5b2f8b74edadd9aa32e67fd05a7b9e29c448e4692e9402db65e3959a2c0934b",
+        "dataset_version": "2026.09",
+        "published_date": "",
+        "license": "ODbL",
+        "notes": "Official administrative boundaries for Chennai District (7910817) and Corporation (1766358) with geometry."
+      },
+      {
+        "file_id": "OSM_RAIL_METRO_STATIONS_20260918",
+        "relative_path": "data/raw/osm/2026-09-18/osm_rail_and_metro_stations.json",
+        "source_id": "OSM_OVERPASS",
+        "download_url": "https://overpass-api.de/api/interpreter",
+        "retrieved_at": "2026-09-18T18:35:20.403739",
+        "file_format": "JSON",
+        "file_size": "162041",
+        "checksum_sha256": "b114790e5d0bd221b7feea4455a9a510181468b79f540310d040cbf37499cc5b",
+        "dataset_version": "2026.09",
+        "published_date": "",
+        "license": "ODbL",
+        "notes": "All railway, metro, and MRTS stations and halts in Chennai region with tags and geometry."
+      },
+      {
+        "file_id": "OSM_BUS_TERMINALS_STOPS_20260918",
+        "relative_path": "data/raw/osm/2026-09-18/osm_bus_stations_and_terminals.json",
+        "source_id": "OSM_OVERPASS",
+        "download_url": "https://overpass-api.de/api/interpreter",
+        "retrieved_at": "2026-09-18T18:36:40.921410",
+        "file_format": "JSON",
+        "file_size": "420643",
+        "checksum_sha256": "5178bd61f268477ce55a365b30203ab3512c515a7649d15fbafd205f9f8fb3d9",
+        "dataset_version": "2026.09",
+        "published_date": "",
+        "license": "ODbL",
+        "notes": "Bus stations, terminals, and named bus stops in Chennai region."
+      },
+      {
+        "file_id": "OSM_TRANSPORT_POIS_20260918",
+        "relative_path": "data/raw/osm/2026-09-18/osm_transport_pois.json",
+        "source_id": "OSM_OVERPASS",
+        "download_url": "https://overpass-api.de/api/interpreter",
+        "retrieved_at": "2026-09-18T18:38:06.944355",
+        "file_format": "JSON",
+        "file_size": "650688",
+        "checksum_sha256": "7a3cdf4a7feafaa5531072e38b88ca92fa35775b2a90aa7fae7c5396c395d2cb",
+        "dataset_version": "2026.09",
+        "published_date": "",
+        "license": "ODbL",
+        "notes": "Transport-relevant POIs: hospitals, universities, colleges, malls, beaches, stadiums, aerodromes."
+      },
+      {
+        "file_id": "CUMTA_CMA_BOUNDARY_20260918",
+        "relative_path": "data/raw/government/2026-09-18/cumta_cma_boundary_official.geojson",
+        "source_id": "CUMTA_TNGIS",
+        "download_url": "https://data.opencity.in/dataset/4a0c6562-858a-4a08-9a42-3ccc05d87127/resource/783648b1-7180-41b5-b4a8-04ba4781943a/download/cumta_boundary.geojson",
+        "retrieved_at": "2026-09-18T22:29:17Z",
+        "file_format": "GeoJSON",
+        "file_size": "156235",
+        "checksum_sha256": "0e5416833cebddd9f22810e7c3cac97e8693d0b388fd17ce067153b716fc7d8c",
+        "dataset_version": "2026.05",
+        "published_date": "2026-05-13",
+        "license": "REVIEW_REQUIRED",
+        "notes": "Official CUMTA / TNGIS jurisdictional boundary MultiPolygon for expanded Chennai Metropolitan Area."
+      },
+      {
+        "file_id": "CMRL_PHASE2_STATUS_20260918",
+        "relative_path": "data/raw/cmrl/2026-09-18/cmrl_phase2_corridor_status.html",
+        "source_id": "CMRL_OFFICIAL",
+        "download_url": "https://chennaimetrorail.org/project-status-2/",
+        "retrieved_at": "2026-09-18T22:30:48Z",
+        "file_format": "HTML",
+        "file_size": "88589",
+        "checksum_sha256": "aef283a4b3183636253835b118d883ff932e7cc8256d9cb3dd7aed41523f744a",
+        "dataset_version": "2026.09",
+        "published_date": "2026-09-18",
+        "license": "REVIEW_REQUIRED",
+        "notes": "Official CMRL Phase II project status disclosure: Corridors 3, 4, 5, 118.9 km, 128 stations."
+      },
+      {
+        "file_id": "CMRL_PHASE2_MAP_20260918",
+        "relative_path": "data/raw/cmrl/2026-09-18/cmrl_phase2_map_official.pdf",
+        "source_id": "CMRL_OFFICIAL",
+        "download_url": "https://chennaimetrorail.org/wp-content/uploads/2025/03/Phase-II-Map-Updated-Map-PHASE-2.pdf",
+        "retrieved_at": "2026-09-18T22:30:50Z",
+        "file_format": "PDF",
+        "file_size": "3342142",
+        "checksum_sha256": "d2f0bef6f35c848a87b42c918b4e7a2e24ae165c361f597d3707ad3d6fc2bbd3",
+        "dataset_version": "2025.03",
+        "published_date": "2025-03-04",
+        "license": "REVIEW_REQUIRED",
+        "notes": "Official CMRL Phase II Route Map PDF document."
+      },
+      {
+        "file_id": "MTC_FARES_20260918",
+        "relative_path": "data/raw/mtc/2026-09-18/mtc_official_fares.html",
+        "source_id": "MTC_OFFICIAL",
+        "download_url": "https://mtcbus.tn.gov.in/Home/fares",
+        "retrieved_at": "2026-09-18T22:30:51Z",
+        "file_format": "HTML",
+        "file_size": "110759",
+        "checksum_sha256": "3abb45898ee0c773d2e9f79d1ba35e3e0c015a834989eab3b6c87a110d450ea4",
+        "dataset_version": "2026.09",
+        "published_date": "2026-09-18",
+        "license": "REVIEW_REQUIRED",
+        "notes": "Official MTC bus fare tables and stage tariffs."
+      },
+      {
+        "file_id": "MTC_ROUTES_20260918",
+        "relative_path": "data/raw/mtc/2026-09-18/mtc_official_routes.html",
+        "source_id": "MTC_OFFICIAL",
+        "download_url": "https://mtcbus.tn.gov.in/Home/routewiseinfo",
+        "retrieved_at": "2026-09-18T22:30:51Z",
+        "file_format": "HTML",
+        "file_size": "88683",
+        "checksum_sha256": "15966686d915d274643c3c168eb1012a726264a8297cad507765d69536fc249f",
+        "dataset_version": "2026.09",
+        "published_date": "2026-09-18",
+        "license": "REVIEW_REQUIRED",
+        "notes": "Official MTC route directory containing 685 active bus routes."
+      },
+      {
+        "file_id": "MTC_STAGES_20260918",
+        "relative_path": "data/raw/mtc/2026-09-18/mtc_official_stages.html",
+        "source_id": "MTC_OFFICIAL",
+        "download_url": "https://mtcbus.tn.gov.in/Home/stagewiseinfo",
+        "retrieved_at": "2026-09-18T22:30:52Z",
+        "file_format": "HTML",
+        "file_size": "304439",
+        "checksum_sha256": "738b1c05c8a1908ea53d28469f0b434bac7282fb2de131e5e8a4ae2153ff9445",
+        "dataset_version": "2026.09",
+        "published_date": "2026-09-18",
+        "license": "REVIEW_REQUIRED",
+        "notes": "Official MTC stage directory containing 1,562 official fare stages."
+      }
+    ],
+    "canonical_database": {
+      "path": "data/canonical/transit/canonical_transport.db",
+      "table_counts": {
+        "transport_agencies": 4,
+        "transport_stops": 7136,
+        "transport_routes": 4619,
+        "places": 1621,
+        "transport_hubs": 62,
+        "hub_members": 211,
+        "interchanges": 37,
+        "walking_transfers": 151,
+        "accessibility": 41,
+        "entity_source_links": 7246
+      }
+    },
+    "manual_candidate_datasets": [
+      "data/manual/hubs/hub_candidates.csv",
+      "data/manual/interchanges/interchange_candidates.csv",
+      "data/manual/walking_transfers/walking_candidates.csv",
+      "data/manual/aliases/alias_candidates.csv",
+      "data/manual/landmark_priority/landmark_candidates.csv"
+    ]
   },
-  "raw_sources": [
+  "historical_snapshots": [
     {
-      "file_id": "LEGACY_CMRL_VERIFIED_20260917",
-      "relative_path": "data/raw/legacy_cmrl/cmrl_verified_stations.json",
-      "source_id": "CMRL_LEGACY_VERIFIED",
-      "download_url": "https://chennaimetrorail.org/station-facilities/",
-      "retrieved_at": "2026-09-17T00:00:00Z",
-      "file_format": "JSON",
-      "file_size": "17423",
-      "checksum_sha256": "0f4878833fe1a3bb87342b7c4468c9b6b340ad7686fbac55cbb120dca123c9c7",
-      "dataset_version": "1.0",
-      "published_date": "2026-09-17",
-      "license": "REVIEW_REQUIRED",
-      "notes": "Legacy verified 13-station ground truth baseline."
-    },
-    {
-      "file_id": "LEGACY_CMRL_SCRAPED_20260917",
-      "relative_path": "data/raw/legacy_cmrl/cmrl_scraped_stations.json",
-      "source_id": "CMRL_API",
-      "download_url": "https://chennaimetrorail.org/wp-json/wp/v2/station-information",
-      "retrieved_at": "2026-09-17T00:00:00Z",
-      "file_format": "JSON",
-      "file_size": "32859",
-      "checksum_sha256": "19f0153a2b06cf9f0c5d87f3be51ec60fb661890e13253251342fdf1f3e93092",
-      "dataset_version": "1.0",
-      "published_date": "2026-09-17",
-      "license": "REVIEW_REQUIRED",
-      "notes": "Scraped 43 stations from official CMRL WordPress API."
-    },
-    {
-      "file_id": "CHENNAI_UNIFIED_GTFS_20260918",
-      "relative_path": "data/raw/community_gtfs/2026-09-18/chennai-unified-gtfs.zip",
-      "source_id": "CHENNAI_COMMUNITY_GTFS",
-      "download_url": "https://raw.githubusercontent.com/ungalsoththu/ChennaiGTFS/main/data/chennai-unified-gtfs.zip",
-      "retrieved_at": "2026-09-18T13:02:51.851504+00:00",
-      "file_format": "ZIP",
-      "file_size": "9091816",
-      "checksum_sha256": "db1da880f9ad93e352f6658df0e94a8b2d71cd1dc8bdfbb60fa3968a9b0ad3e6",
-      "dataset_version": "2.0",
-      "published_date": "",
-      "license": "ODbL",
-      "notes": "Chennai Unified GTFS (MTC bus + CMRL metro) community feed from ungalsoththu/ChennaiGTFS."
-    },
-    {
-      "file_id": "CMRL_WP_API_20260918",
-      "relative_path": "data/raw/cmrl/2026-09-18/cmrl_station_information_api.json",
-      "source_id": "CMRL_API",
-      "download_url": "https://chennaimetrorail.org/wp-json/wp/v2/station-information?per_page=100",
-      "retrieved_at": "2026-09-18T13:03:26.677090+00:00",
-      "file_format": "JSON",
-      "file_size": "301868",
-      "checksum_sha256": "dcbc36f7477d770bc4cadfe19c18eadef508b4b9073d50265da4ec48c1d9ba58",
-      "dataset_version": "2026.09",
-      "published_date": "",
-      "license": "REVIEW_REQUIRED",
-      "notes": "Official CMRL WordPress REST API containing 43 operational station disclosures and facilities."
-    },
-    {
-      "file_id": "OSM_CHENNAI_BOUNDARY_20260918",
-      "relative_path": "data/raw/government/2026-09-18/chennai_administrative_boundary_osm.json",
-      "source_id": "OSM_OVERPASS",
-      "download_url": "https://overpass-api.de/api/interpreter",
-      "retrieved_at": "2026-09-18T18:35:05.684794",
-      "file_format": "JSON",
-      "file_size": "99413",
-      "checksum_sha256": "e5b2f8b74edadd9aa32e67fd05a7b9e29c448e4692e9402db65e3959a2c0934b",
-      "dataset_version": "2026.09",
-      "published_date": "",
-      "license": "ODbL",
-      "notes": "Official administrative boundaries for Chennai District (7910817) and Corporation (1766358) with geometry."
-    },
-    {
-      "file_id": "OSM_RAIL_METRO_STATIONS_20260918",
-      "relative_path": "data/raw/osm/2026-09-18/osm_rail_and_metro_stations.json",
-      "source_id": "OSM_OVERPASS",
-      "download_url": "https://overpass-api.de/api/interpreter",
-      "retrieved_at": "2026-09-18T18:35:20.403739",
-      "file_format": "JSON",
-      "file_size": "162041",
-      "checksum_sha256": "b114790e5d0bd221b7feea4455a9a510181468b79f540310d040cbf37499cc5b",
-      "dataset_version": "2026.09",
-      "published_date": "",
-      "license": "ODbL",
-      "notes": "All railway, metro, and MRTS stations and halts in Chennai region with tags and geometry."
-    },
-    {
-      "file_id": "OSM_BUS_TERMINALS_STOPS_20260918",
-      "relative_path": "data/raw/osm/2026-09-18/osm_bus_stations_and_terminals.json",
-      "source_id": "OSM_OVERPASS",
-      "download_url": "https://overpass-api.de/api/interpreter",
-      "retrieved_at": "2026-09-18T18:36:40.921410",
-      "file_format": "JSON",
-      "file_size": "420643",
-      "checksum_sha256": "5178bd61f268477ce55a365b30203ab3512c515a7649d15fbafd205f9f8fb3d9",
-      "dataset_version": "2026.09",
-      "published_date": "",
-      "license": "ODbL",
-      "notes": "Bus stations, terminals, and named bus stops in Chennai region."
-    },
-    {
-      "file_id": "OSM_TRANSPORT_POIS_20260918",
-      "relative_path": "data/raw/osm/2026-09-18/osm_transport_pois.json",
-      "source_id": "OSM_OVERPASS",
-      "download_url": "https://overpass-api.de/api/interpreter",
-      "retrieved_at": "2026-09-18T18:38:06.944355",
-      "file_format": "JSON",
-      "file_size": "650688",
-      "checksum_sha256": "7a3cdf4a7feafaa5531072e38b88ca92fa35775b2a90aa7fae7c5396c395d2cb",
-      "dataset_version": "2026.09",
-      "published_date": "",
-      "license": "ODbL",
-      "notes": "Transport-relevant POIs: hospitals, universities, colleges, malls, beaches, stadiums, aerodromes."
-    }
-  ],
-  "canonical_database": {
-    "path": "data/canonical/transit/canonical_transport.db",
-    "table_counts": {
-      "transport_agencies": 4,
-      "transport_stops": 7246,
-      "transport_routes": 4619,
-      "places": 1621,
-      "transport_hubs": 62,
-      "interchanges": 211,
-      "walking_transfers": 211,
-      "entity_source_links": 7246
-    }
-  },
-  "manual_candidate_datasets": [
-    "data/manual/hubs/hub_candidates.csv",
-    "data/manual/interchanges/interchange_candidates.csv",
-    "data/manual/walking_transfers/walking_candidates.csv",
-    "data/manual/aliases/alias_candidates.csv",
-    "data/manual/landmark_priority/landmark_candidates.csv"
-  ],
-  "unresolved_gaps": [
-    "Official CUMTA GTFS unpublished; community GTFS used as overlapping evidence",
-    "Station concourse micro-walking geometries pending human verification",
-    "Suburban pocket timetable PDF ingestion deferred",
-    "MTC live real-time GPS stream deferred"
-  ],
-  "licenses": [
-    {
-      "source_id": "CUMTA_OFFICIAL",
-      "license": "REVIEW_REQUIRED",
-      "license_url": "https://cumta.tn.gov.in/",
-      "attribution_required": "true",
-      "redistribution_notes": "Government portal disclosures. Terms must be formally reviewed prior to redistribution.",
-      "derived_data_notes": "Derived dataset permissible for research reference pending formal license verification.",
-      "review_required": "true"
-    },
-    {
-      "source_id": "CMRL_API",
-      "license": "REVIEW_REQUIRED",
-      "license_url": "https://chennaimetrorail.org/",
-      "attribution_required": "true",
-      "redistribution_notes": "Extracted from public WordPress API for factual transit reference. Terms must be reviewed.",
-      "derived_data_notes": "Factual station and facility lookup.",
-      "review_required": "true"
-    },
-    {
-      "source_id": "CMRL_WEB",
-      "license": "REVIEW_REQUIRED",
-      "license_url": "https://chennaimetrorail.org/",
-      "attribution_required": "true",
-      "redistribution_notes": "Public informational website disclosures. Commercial redistribution restricted.",
-      "derived_data_notes": "Public factual reference only.",
-      "review_required": "true"
-    },
-    {
-      "source_id": "MTC_OFFICIAL",
-      "license": "REVIEW_REQUIRED",
-      "license_url": "https://mtcbus.tn.gov.in/",
-      "attribution_required": "true",
-      "redistribution_notes": "State transport undertaking web disclosures. Licensing terms unstated.",
-      "derived_data_notes": "Factual route and fare stage mapping.",
-      "review_required": "true"
-    },
-    {
-      "source_id": "SOUTHERN_RAILWAY_DOCS",
-      "license": "REVIEW_REQUIRED",
-      "license_url": "https://sr.indianrailways.gov.in/",
-      "attribution_required": "true",
-      "redistribution_notes": "Public passenger timetable disclosures. Government of India copyright.",
-      "derived_data_notes": "Factual schedule and station reference.",
-      "review_required": "true"
-    },
-    {
-      "source_id": "OSM_OVERPASS",
-      "license": "ODbL",
-      "license_url": "https://www.openstreetmap.org/copyright",
-      "attribution_required": "true",
-      "redistribution_notes": "Open Database License. Attribution mandatory: \u00a9 OpenStreetMap contributors.",
-      "derived_data_notes": "Derived database must be offered under ODbL if distributed.",
-      "review_required": "false"
-    },
-    {
-      "source_id": "CHENNAI_COMMUNITY_GTFS",
-      "license": "ODbL",
-      "license_url": "https://github.com/ChennaiGTFS",
-      "attribution_required": "true",
-      "redistribution_notes": "Community open transit repository under ODbL.",
-      "derived_data_notes": "Derivative works must maintain attribution and ODbL compatibility.",
-      "review_required": "false"
-    },
-    {
-      "source_id": "CMRL_LEGACY_VERIFIED",
-      "license": "REVIEW_REQUIRED",
-      "license_url": "https://chennaimetrorail.org/station-facilities/",
-      "attribution_required": "true",
-      "redistribution_notes": "Curated from official CMRL portal for NLP benchmark ground truth.",
-      "derived_data_notes": "Factual ground truth fixture.",
-      "review_required": "true"
-    },
-    {
-      "source_id": "CURATED_MULTIMODAL_UNVERIFIED",
-      "license": "REVIEW_REQUIRED",
-      "license_url": "local_scratch",
-      "attribution_required": "false",
-      "redistribution_notes": "Internal working draft synthesized from multiple unverified inputs.",
-      "derived_data_notes": "Not approved for redistribution until individual entity provenance is established.",
-      "review_required": "true"
+      "snapshot_version": "chennai_multimodal_v1.0_20260918",
+      "creation_date": "2026-09-18T18:42:00Z",
+      "source_registry_version": "1.0",
+      "normalization_version": "1.0",
+      "canonicalization_version": "1.0",
+      "benchmark_status": {
+        "frozen_split_train_rows": 3916,
+        "frozen_split_val_rows": 716,
+        "frozen_split_test_rows": 572,
+        "frozen_acceptance_suite_queries": 149,
+        "integrity_verified": true
+      },
+      "raw_sources": [
+        {
+          "file_id": "LEGACY_CMRL_VERIFIED_20260917",
+          "relative_path": "data/raw/legacy_cmrl/cmrl_verified_stations.json",
+          "source_id": "CMRL_LEGACY_VERIFIED",
+          "download_url": "https://chennaimetrorail.org/station-facilities/",
+          "retrieved_at": "2026-09-17T00:00:00Z",
+          "file_format": "JSON",
+          "file_size": "17423",
+          "checksum_sha256": "0f4878833fe1a3bb87342b7c4468c9b6b340ad7686fbac55cbb120dca123c9c7",
+          "dataset_version": "1.0",
+          "published_date": "2026-09-17",
+          "license": "REVIEW_REQUIRED",
+          "notes": "Legacy verified 13-station ground truth baseline."
+        },
+        {
+          "file_id": "LEGACY_CMRL_SCRAPED_20260917",
+          "relative_path": "data/raw/legacy_cmrl/cmrl_scraped_stations.json",
+          "source_id": "CMRL_API",
+          "download_url": "https://chennaimetrorail.org/wp-json/wp/v2/station-information",
+          "retrieved_at": "2026-09-17T00:00:00Z",
+          "file_format": "JSON",
+          "file_size": "32859",
+          "checksum_sha256": "19f0153a2b06cf9f0c5d87f3be51ec60fb661890e13253251342fdf1f3e93092",
+          "dataset_version": "1.0",
+          "published_date": "2026-09-17",
+          "license": "REVIEW_REQUIRED",
+          "notes": "Scraped 43 stations from official CMRL WordPress API."
+        },
+        {
+          "file_id": "CHENNAI_UNIFIED_GTFS_20260918",
+          "relative_path": "data/raw/community_gtfs/2026-09-18/chennai-unified-gtfs.zip",
+          "source_id": "CHENNAI_COMMUNITY_GTFS",
+          "download_url": "https://raw.githubusercontent.com/ungalsoththu/ChennaiGTFS/main/data/chennai-unified-gtfs.zip",
+          "retrieved_at": "2026-09-18T13:02:51.851504+00:00",
+          "file_format": "ZIP",
+          "file_size": "9091816",
+          "checksum_sha256": "db1da880f9ad93e352f6658df0e94a8b2d71cd1dc8bdfbb60fa3968a9b0ad3e6",
+          "dataset_version": "2.0",
+          "published_date": "",
+          "license": "ODbL",
+          "notes": "Chennai Unified GTFS (MTC bus + CMRL metro) community feed from ungalsoththu/ChennaiGTFS."
+        },
+        {
+          "file_id": "CMRL_WP_API_20260918",
+          "relative_path": "data/raw/cmrl/2026-09-18/cmrl_station_information_api.json",
+          "source_id": "CMRL_API",
+          "download_url": "https://chennaimetrorail.org/wp-json/wp/v2/station-information?per_page=100",
+          "retrieved_at": "2026-09-18T13:03:26.677090+00:00",
+          "file_format": "JSON",
+          "file_size": "301868",
+          "checksum_sha256": "dcbc36f7477d770bc4cadfe19c18eadef508b4b9073d50265da4ec48c1d9ba58",
+          "dataset_version": "2026.09",
+          "published_date": "",
+          "license": "REVIEW_REQUIRED",
+          "notes": "Official CMRL WordPress REST API containing 43 operational station disclosures and facilities."
+        },
+        {
+          "file_id": "OSM_CHENNAI_BOUNDARY_20260918",
+          "relative_path": "data/raw/government/2026-09-18/chennai_administrative_boundary_osm.json",
+          "source_id": "OSM_OVERPASS",
+          "download_url": "https://overpass-api.de/api/interpreter",
+          "retrieved_at": "2026-09-18T18:35:05.684794",
+          "file_format": "JSON",
+          "file_size": "99413",
+          "checksum_sha256": "e5b2f8b74edadd9aa32e67fd05a7b9e29c448e4692e9402db65e3959a2c0934b",
+          "dataset_version": "2026.09",
+          "published_date": "",
+          "license": "ODbL",
+          "notes": "Official administrative boundaries for Chennai District (7910817) and Corporation (1766358) with geometry."
+        },
+        {
+          "file_id": "OSM_RAIL_METRO_STATIONS_20260918",
+          "relative_path": "data/raw/osm/2026-09-18/osm_rail_and_metro_stations.json",
+          "source_id": "OSM_OVERPASS",
+          "download_url": "https://overpass-api.de/api/interpreter",
+          "retrieved_at": "2026-09-18T18:35:20.403739",
+          "file_format": "JSON",
+          "file_size": "162041",
+          "checksum_sha256": "b114790e5d0bd221b7feea4455a9a510181468b79f540310d040cbf37499cc5b",
+          "dataset_version": "2026.09",
+          "published_date": "",
+          "license": "ODbL",
+          "notes": "All railway, metro, and MRTS stations and halts in Chennai region with tags and geometry."
+        },
+        {
+          "file_id": "OSM_BUS_TERMINALS_STOPS_20260918",
+          "relative_path": "data/raw/osm/2026-09-18/osm_bus_stations_and_terminals.json",
+          "source_id": "OSM_OVERPASS",
+          "download_url": "https://overpass-api.de/api/interpreter",
+          "retrieved_at": "2026-09-18T18:36:40.921410",
+          "file_format": "JSON",
+          "file_size": "420643",
+          "checksum_sha256": "5178bd61f268477ce55a365b30203ab3512c515a7649d15fbafd205f9f8fb3d9",
+          "dataset_version": "2026.09",
+          "published_date": "",
+          "license": "ODbL",
+          "notes": "Bus stations, terminals, and named bus stops in Chennai region."
+        },
+        {
+          "file_id": "OSM_TRANSPORT_POIS_20260918",
+          "relative_path": "data/raw/osm/2026-09-18/osm_transport_pois.json",
+          "source_id": "OSM_OVERPASS",
+          "download_url": "https://overpass-api.de/api/interpreter",
+          "retrieved_at": "2026-09-18T18:38:06.944355",
+          "file_format": "JSON",
+          "file_size": "650688",
+          "checksum_sha256": "7a3cdf4a7feafaa5531072e38b88ca92fa35775b2a90aa7fae7c5396c395d2cb",
+          "dataset_version": "2026.09",
+          "published_date": "",
+          "license": "ODbL",
+          "notes": "Transport-relevant POIs: hospitals, universities, colleges, malls, beaches, stadiums, aerodromes."
+        }
+      ],
+      "canonical_database": {
+        "path": "data/canonical/transit/canonical_transport.db",
+        "table_counts": {
+          "transport_agencies": 4,
+          "transport_stops": 7246,
+          "transport_routes": 4619,
+          "places": 1621,
+          "transport_hubs": 62,
+          "interchanges": 211,
+          "walking_transfers": 211,
+          "entity_source_links": 7246
+        }
+      },
+      "manual_candidate_datasets": [
+        "data/manual/hubs/hub_candidates.csv",
+        "data/manual/interchanges/interchange_candidates.csv",
+        "data/manual/walking_transfers/walking_candidates.csv",
+        "data/manual/aliases/alias_candidates.csv",
+        "data/manual/landmark_priority/landmark_candidates.csv"
+      ],
+      "unresolved_gaps": [
+        "Official CUMTA GTFS unpublished; community GTFS used as overlapping evidence",
+        "Station concourse micro-walking geometries pending human verification",
+        "Suburban pocket timetable PDF ingestion deferred",
+        "MTC live real-time GPS stream deferred"
+      ],
+      "licenses": [
+        {
+          "source_id": "CUMTA_OFFICIAL",
+          "license": "REVIEW_REQUIRED",
+          "license_url": "https://cumta.tn.gov.in/",
+          "attribution_required": "true",
+          "redistribution_notes": "Government portal disclosures. Terms must be formally reviewed prior to redistribution.",
+          "derived_data_notes": "Derived dataset permissible for research reference pending formal license verification.",
+          "review_required": "true"
+        },
+        {
+          "source_id": "CMRL_API",
+          "license": "REVIEW_REQUIRED",
+          "license_url": "https://chennaimetrorail.org/",
+          "attribution_required": "true",
+          "redistribution_notes": "Extracted from public WordPress API for factual transit reference. Terms must be reviewed.",
+          "derived_data_notes": "Factual station and facility lookup.",
+          "review_required": "true"
+        },
+        {
+          "source_id": "CMRL_WEB",
+          "license": "REVIEW_REQUIRED",
+          "license_url": "https://chennaimetrorail.org/",
+          "attribution_required": "true",
+          "redistribution_notes": "Public informational website disclosures. Commercial redistribution restricted.",
+          "derived_data_notes": "Public factual reference only.",
+          "review_required": "true"
+        },
+        {
+          "source_id": "MTC_OFFICIAL",
+          "license": "REVIEW_REQUIRED",
+          "license_url": "https://mtcbus.tn.gov.in/",
+          "attribution_required": "true",
+          "redistribution_notes": "State transport undertaking web disclosures. Licensing terms unstated.",
+          "derived_data_notes": "Factual route and fare stage mapping.",
+          "review_required": "true"
+        },
+        {
+          "source_id": "SOUTHERN_RAILWAY_DOCS",
+          "license": "REVIEW_REQUIRED",
+          "license_url": "https://sr.indianrailways.gov.in/",
+          "attribution_required": "true",
+          "redistribution_notes": "Public passenger timetable disclosures. Government of India copyright.",
+          "derived_data_notes": "Factual schedule and station reference.",
+          "review_required": "true"
+        },
+        {
+          "source_id": "OSM_OVERPASS",
+          "license": "ODbL",
+          "license_url": "https://www.openstreetmap.org/copyright",
+          "attribution_required": "true",
+          "redistribution_notes": "Open Database License. Attribution mandatory: \u00a9 OpenStreetMap contributors.",
+          "derived_data_notes": "Derived database must be offered under ODbL if distributed.",
+          "review_required": "false"
+        },
+        {
+          "source_id": "CHENNAI_COMMUNITY_GTFS",
+          "license": "ODbL",
+          "license_url": "https://github.com/ChennaiGTFS",
+          "attribution_required": "true",
+          "redistribution_notes": "Community open transit repository under ODbL.",
+          "derived_data_notes": "Derivative works must maintain attribution and ODbL compatibility.",
+          "review_required": "false"
+        },
+        {
+          "source_id": "CMRL_LEGACY_VERIFIED",
+          "license": "REVIEW_REQUIRED",
+          "license_url": "https://chennaimetrorail.org/station-facilities/",
+          "attribution_required": "true",
+          "redistribution_notes": "Curated from official CMRL portal for NLP benchmark ground truth.",
+          "derived_data_notes": "Factual ground truth fixture.",
+          "review_required": "true"
+        },
+        {
+          "source_id": "CURATED_MULTIMODAL_UNVERIFIED",
+          "license": "REVIEW_REQUIRED",
+          "license_url": "local_scratch",
+          "attribution_required": "false",
+          "redistribution_notes": "Internal working draft synthesized from multiple unverified inputs.",
+          "derived_data_notes": "Not approved for redistribution until individual entity provenance is established.",
+          "review_required": "true"
+        }
+      ]
     }
   ]
 }

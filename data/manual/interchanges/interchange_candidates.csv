@@ -1,212 +1,46 @@
-interchange_id,from_entity,from_name,to_entity,to_name,transfer_type,walking_distance_m,walking_time_min,confirmed,notes
-INT_CMRL_API_693_OSM_RAIL_248,CMRL_API_6932,Puratchi Thalaivar Dr. M.G.Ramachandran Central Metro,OSM_RAIL_2481969291,Puratchi Thalaivar Dr. M. G. Ramachandran Central,walking_interchange,414.7,5.5,False,Multimodal candidate between metro and suburban_rail.
-INT_CMRL_API_692_GTFS_STOP_10,CMRL_API_6920,Anna Nagar East,GTFS_STOP_10901,Anna Nagar East Depot,walking_interchange,417.0,5.6,False,Multimodal candidate between metro and bus.
-INT_CMRL_API_690_GTFS_STOP_53,CMRL_API_6908,Vadapalani,GTFS_STOP_5353,Vadapalani Depot,walking_interchange,170.3,2.3,False,Multimodal candidate between metro and bus.
-INT_CMRL_API_689_OSM_RAIL_422,CMRL_API_6897,St. Thomas Mount Metro,OSM_RAIL_4221752111,Saint Thomas Mount,walking_interchange,81.0,1.1,False,Multimodal candidate between metro and suburban_rail.
-INT_CMRL_API_674_OSM_RAIL_531,CMRL_API_6740,Wimco Nagar Depot Metro,OSM_RAIL_5311732501,Wimco Nagar,walking_interchange,451.1,6.0,False,Multimodal candidate between metro and suburban_rail.
-INT_CMRL_API_673_OSM_RAIL_531,CMRL_API_6738,Wimco Nagar Metro,OSM_RAIL_5311732501,Wimco Nagar,walking_interchange,87.7,1.2,False,Multimodal candidate between metro and suburban_rail.
-INT_CMRL_API_709_OSM_RAIL_248,CMRL_API_7090,Puratchi Thalaivar Dr. M.G.Ramachandran Central Metro,OSM_RAIL_2481969291,Puratchi Thalaivar Dr. M. G. Ramachandran Central,walking_interchange,414.7,5.5,False,Multimodal candidate between metro and suburban_rail.
-INT_CMRL_API_669_OSM_RAIL_248,CMRL_API_6698,Saidapet Metro,OSM_RAIL_2481259029,Saidapet,walking_interchange,36.6,0.5,False,Multimodal candidate between metro and suburban_rail.
-INT_CMRL_API_667_OSM_RAIL_488,CMRL_API_6677,Meenambakkam,OSM_RAIL_4885094689,Meenambakkam,walking_interchange,352.6,4.7,False,Multimodal candidate between metro and suburban_rail.
-INT_OSM_RAIL_304_GTFS_STOP_13,OSM_RAIL_304278622,Anna Nagar West,GTFS_STOP_13,Annanagar Depot,walking_interchange,462.8,6.2,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_120_GTFS_STOP_10,OSM_RAIL_1207424028,Anna Nagar East,GTFS_STOP_10901,Anna Nagar East Depot,walking_interchange,489.0,6.5,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_248_OSM_RAIL_140,OSM_RAIL_2481259002,Kodambakkam,OSM_RAIL_14018223516,Kodambakkam Metro,walking_interchange,69.4,0.9,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_248_GTFS_STOP_57,OSM_RAIL_2481259029,Saidapet,GTFS_STOP_5784,Saidapet Metro,walking_interchange,488.1,6.5,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_248_OSM_RAIL_532,OSM_RAIL_2481969291,Puratchi Thalaivar Dr. M. G. Ramachandran Central,OSM_RAIL_5329907502,Central Metro,walking_interchange,233.9,3.1,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_248_OSM_RAIL_628,OSM_RAIL_2481969291,Puratchi Thalaivar Dr. M. G. Ramachandran Central,OSM_RAIL_6285857250,Central Metro,walking_interchange,235.6,3.1,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_248_OSM_RAIL_628,OSM_RAIL_2481969291,Puratchi Thalaivar Dr. M. G. Ramachandran Central,OSM_RAIL_6285857251,Central Metro,walking_interchange,235.0,3.1,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_248_OSM_RAIL_628,OSM_RAIL_2481969291,Puratchi Thalaivar Dr. M. G. Ramachandran Central,OSM_RAIL_6285857252,Central Metro,walking_interchange,234.4,3.1,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_248_OSM_RAIL_628,OSM_RAIL_2481969291,Puratchi Thalaivar Dr. M. G. Ramachandran Central,OSM_RAIL_6285857253,Central Metro,walking_interchange,234.8,3.1,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_326_OSM_BUS_3264,OSM_RAIL_3264712327,Guindy,OSM_BUS_3264888779,Guindy Bus Stand,walking_interchange,201.2,2.7,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_326_GTFS_STOP_14,OSM_RAIL_3264712327,Guindy,GTFS_STOP_1461,Guindy Bus Terminus,walking_interchange,159.0,2.1,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_326_GTFS_STOP_90,OSM_RAIL_3264712327,Guindy,GTFS_STOP_9011,Guindy Metro Station,walking_interchange,84.8,1.1,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_367_GTFS_STOP_10,OSM_RAIL_3678939665,Avadi,GTFS_STOP_10428,Avadi Bus Terminus,walking_interchange,154.9,2.1,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_367_GTFS_STOP_16,OSM_RAIL_3678939665,Avadi,GTFS_STOP_16,Avadi Depot,walking_interchange,270.4,3.6,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_367_GTFS_STOP_10,OSM_RAIL_3678939665,Avadi,GTFS_STOP_10430,Avadi Bus Terminus,walking_interchange,240.5,3.2,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_422_OSM_RAIL_531,OSM_RAIL_4221752111,Saint Thomas Mount,OSM_RAIL_5319202812,Saint Thomas Mount,walking_interchange,89.4,1.2,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_488_OSM_RAIL_628,OSM_RAIL_4885094689,Meenambakkam,OSM_RAIL_6285857239,Meenambakkam,walking_interchange,363.3,4.8,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_488_GTFS_STOP_88,OSM_RAIL_4885094689,Meenambakkam,GTFS_STOP_8808,Meeanambakkam Metro,walking_interchange,321.2,4.3,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_527_OSM_BUS_3730,OSM_RAIL_5274094702,Ennore,OSM_BUS_373077167,Ennore MTC Terminus,walking_interchange,316.4,4.2,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_527_GTFS_STOP_53,OSM_RAIL_5274094702,Ennore,GTFS_STOP_5338,Ennore Depot,walking_interchange,211.8,2.8,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_527_GTFS_STOP_10,OSM_RAIL_5274094702,Ennore,GTFS_STOP_10585,Ennore Bus Terminus,walking_interchange,308.9,4.1,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_527_OSM_BUS_5274,OSM_RAIL_5274212914,Pattabiram E Depot,OSM_BUS_5274212914,Pattabiram E Depot,integrated_interchange,0.0,0.0,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_527_OSM_BUS_1145,OSM_RAIL_5274260962,Guduvancheri,OSM_BUS_1145642404,Guduvancheri MTC Terminus,walking_interchange,452.9,6.0,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_527_GTFS_STOP_62,OSM_RAIL_5274260962,Guduvancheri,GTFS_STOP_6296,Guduvancheri Bus Terminus,walking_interchange,438.5,5.8,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_527_GTFS_STOP_68,OSM_RAIL_5274761659,Korattur,GTFS_STOP_6879,Korattur Bus Terminus,walking_interchange,240.4,3.2,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_527_GTFS_STOP_68,OSM_RAIL_5274761659,Korattur,GTFS_STOP_6882,Korattur Bus Terminus,walking_interchange,170.3,2.3,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_527_OSM_RAIL_532,OSM_RAIL_5275790188,Chennai Egmore,OSM_RAIL_5329907499,Egmore,walking_interchange,342.2,4.6,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_527_OSM_BUS_3112,OSM_RAIL_5276205560,Perambur,OSM_BUS_311284385,Perambur MTC Terminus,walking_interchange,426.2,5.7,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_527_GTFS_STOP_68,OSM_RAIL_5276205560,Perambur,GTFS_STOP_6839,Perambur Bus Terminus,walking_interchange,425.7,5.7,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_527_GTFS_STOP_68,OSM_RAIL_5276205560,Perambur,GTFS_STOP_6835,Perambur Bus Terminus,walking_interchange,422.0,5.6,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_528_OSM_BUS_3400,OSM_RAIL_5286945822,Tambaram,OSM_BUS_340088810,Tambaram MTC Terminus,walking_interchange,136.9,1.8,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_528_OSM_BUS_3400,OSM_RAIL_5286945822,Tambaram,OSM_BUS_340088821,Tambaram East MTC Terminus,walking_interchange,260.0,3.5,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_528_OSM_BUS_4421,OSM_RAIL_5286945822,Tambaram,OSM_BUS_442132009,Tambaram Bus Stand,walking_interchange,232.1,3.1,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_528_OSM_BUS_6354,OSM_RAIL_5286998286,Tiruninravur,OSM_BUS_6354463623,Tiruninravur Bus Stand,walking_interchange,299.0,4.0,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_531_OSM_RAIL_843,OSM_RAIL_5311732501,Wimco Nagar,OSM_RAIL_8430636713,Wimco Nagar,walking_interchange,208.6,2.8,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_531_OSM_RAIL_847,OSM_RAIL_5311732501,Wimco Nagar,OSM_RAIL_8477103052,Wimco Nagar,walking_interchange,211.3,2.8,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_531_OSM_RAIL_847,OSM_RAIL_5311732501,Wimco Nagar,OSM_RAIL_8477103098,Wimco Nagar,walking_interchange,205.8,2.7,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_531_OSM_RAIL_140,OSM_RAIL_5311755234,Thirumayilai,OSM_RAIL_14018223531,Thirumayilai Metro,walking_interchange,160.2,2.1,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_531_GTFS_STOP_6,OSM_RAIL_5311755235,Mandaveli,GTFS_STOP_6,Mandaveli Bus Terminus,walking_interchange,127.3,1.7,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_531_GTFS_STOP_87,OSM_RAIL_5311755240,Taramani,GTFS_STOP_8705,Taramani Metro Station,walking_interchange,206.1,2.7,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_531_GTFS_STOP_87,OSM_RAIL_5311755240,Taramani,GTFS_STOP_8706,Taramani Metro Station,walking_interchange,224.9,3.0,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_533_OSM_RAIL_646,OSM_RAIL_5337658099,Washermanpet,OSM_RAIL_6460934200,Washermanpet,walking_interchange,169.2,2.3,False,Multimodal candidate between metro and suburban_rail.
-INT_OSM_RAIL_843_GTFS_STOP_53,OSM_RAIL_8430636714,Thiruvottriyur,GTFS_STOP_5350,Thiruvottriyur Depot,walking_interchange,92.4,1.2,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_843_GTFS_STOP_75,OSM_RAIL_8430636714,Thiruvottriyur,GTFS_STOP_7576,Thiruvottriyur Bus Terminus,walking_interchange,391.6,5.2,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_959_GTFS_STOP_10,OSM_RAIL_9592492231,Anna Nagar East,GTFS_STOP_10901,Anna Nagar East Depot,walking_interchange,440.1,5.9,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_985_OSM_BUS_9857,OSM_RAIL_9857416360,Wimco Nagar Depot,OSM_BUS_9857416360,Wimco Nagar Depot,integrated_interchange,0.0,0.0,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_985_GTFS_STOP_CM,OSM_RAIL_9857416360,Wimco Nagar Depot,GTFS_STOP_CMRL_01,Wimco Nagar Depot,integrated_interchange,0.0,0.0,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_118_GTFS_STOP_10,OSM_RAIL_11822901092,Kilambakkam,GTFS_STOP_10876,Kilambakkam Depot,walking_interchange,353.4,4.7,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_118_GTFS_STOP_99,OSM_RAIL_11822901092,Kilambakkam,GTFS_STOP_9991,Kilambakkam Bus Terminus,walking_interchange,242.4,3.2,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_118_GTFS_STOP_99,OSM_RAIL_11822901092,Kilambakkam,GTFS_STOP_9992,Kilambakkam Bus Terminus,walking_interchange,164.7,2.2,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_139_GTFS_STOP_58,OSM_RAIL_13972488427,Poonamallee Bus Stand Metro,GTFS_STOP_5821,Poonamallee Bus Terminus,walking_interchange,100.9,1.3,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_139_OSM_BUS_3709,OSM_RAIL_13972514096,Iyappanthangal Metro,OSM_BUS_370969659,Ayyapanthangal,walking_interchange,43.6,0.6,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_139_GTFS_STOP_59,OSM_RAIL_13972514096,Iyappanthangal Metro,GTFS_STOP_5925,Iyyappanthangal Bus Terminus,walking_interchange,76.4,1.0,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_140_OSM_BUS_1402,OSM_RAIL_14023022804,Madhavaram Depot,OSM_BUS_14023022804,Madhavaram Depot,integrated_interchange,0.0,0.0,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_141_OSM_BUS_1084,OSM_RAIL_14178350594,Madhavaram Bus Terminal Metro,OSM_BUS_10848041900,Madhavaram Mofussil Bus Terminus,walking_interchange,115.1,1.5,False,Multimodal candidate between metro and bus.
-INT_GTFS_STOP_10_GTFS_STOP_97,GTFS_STOP_10901,Anna Nagar East Depot,GTFS_STOP_9741,Anna Nagar East Metro Station,walking_interchange,436.0,5.8,False,Multimodal candidate between bus and metro.
-INT_CMRL_API_693_OSM_RAIL_248,CMRL_API_6932,Puratchi Thalaivar Dr. M.G.Ramachandran Central Metro,OSM_RAIL_2481258999,Chennai Park,walking_interchange,54.7,0.7,False,Multimodal candidate between metro and suburban_rail.
-INT_CMRL_API_693_OSM_RAIL_527,CMRL_API_6930,Egmore Metro,OSM_RAIL_5275790188,Chennai Egmore,walking_interchange,146.4,2.0,False,Multimodal candidate between metro and suburban_rail.
-INT_CMRL_API_672_GTFS_STOP_53,CMRL_API_6727,New Washermenpet Metro,GTFS_STOP_5352,Tondairpet-2 Depot,walking_interchange,77.9,1.0,False,Multimodal candidate between metro and bus.
-INT_CMRL_API_709_OSM_RAIL_248,CMRL_API_7090,Puratchi Thalaivar Dr. M.G.Ramachandran Central Metro,OSM_RAIL_2481258999,Chennai Park,walking_interchange,54.7,0.7,False,Multimodal candidate between metro and suburban_rail.
-INT_CMRL_API_667_OSM_RAIL_488,CMRL_API_6675,Chennai International Airport,OSM_RAIL_4885083053,Tirusulam,walking_interchange,176.3,2.4,False,Multimodal candidate between metro and suburban_rail.
-INT_OSM_RAIL_687_OSM_BUS_3061,OSM_RAIL_687175415,சென்னை புறநகர் பேருந்து நிலையம்,OSM_BUS_306104406,Puratchi Thalaivar Dr. M.G.R Bus Terminus,walking_interchange,129.1,1.7,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_687_OSM_BUS_1159,OSM_RAIL_687175415,சென்னை புறநகர் பேருந்து நிலையம்,OSM_BUS_11598619872,Bus to Mamallapuram,walking_interchange,108.5,1.4,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_687_GTFS_STOP_58,OSM_RAIL_687175415,சென்னை புறநகர் பேருந்து நிலையம்,GTFS_STOP_5822,M.G.R.Koyambedu Bus Terminus,walking_interchange,140.9,1.9,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_248_OSM_RAIL_532,OSM_RAIL_2481258999,Chennai Park,OSM_RAIL_5329907502,Central Metro,walking_interchange,143.6,1.9,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_248_OSM_RAIL_628,OSM_RAIL_2481258999,Chennai Park,OSM_RAIL_6285857250,Central Metro,walking_interchange,137.7,1.8,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_248_OSM_RAIL_628,OSM_RAIL_2481258999,Chennai Park,OSM_RAIL_6285857251,Central Metro,walking_interchange,139.5,1.9,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_248_OSM_RAIL_628,OSM_RAIL_2481258999,Chennai Park,OSM_RAIL_6285857252,Central Metro,walking_interchange,141.8,1.9,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_248_OSM_RAIL_628,OSM_RAIL_2481258999,Chennai Park,OSM_RAIL_6285857253,Central Metro,walking_interchange,140.4,1.9,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_326_OSM_RAIL_532,OSM_RAIL_3264712327,Guindy,OSM_RAIL_5321248425,கிண்டி,walking_interchange,82.0,1.1,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_326_OSM_RAIL_628,OSM_RAIL_3264712327,Guindy,OSM_RAIL_6285857247,கிண்டி,walking_interchange,86.0,1.1,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_326_OSM_RAIL_628,OSM_RAIL_3264712327,Guindy,OSM_RAIL_6285857248,கிண்டி,walking_interchange,85.0,1.1,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_422_OSM_RAIL_959,OSM_RAIL_4221752111,Saint Thomas Mount,OSM_RAIL_9592492217,பரங்கிமலை,walking_interchange,110.9,1.5,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_422_OSM_RAIL_959,OSM_RAIL_4221752111,Saint Thomas Mount,OSM_RAIL_9592492218,பரங்கிமலை,walking_interchange,114.1,1.5,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_488_OSM_RAIL_531,OSM_RAIL_4885083053,Tirusulam,OSM_RAIL_5319207344,சென்னை விமான நிலையம்,walking_interchange,177.9,2.4,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_488_OSM_RAIL_628,OSM_RAIL_4885083053,Tirusulam,OSM_RAIL_6285857240,சென்னை விமான நிலையம்,walking_interchange,181.5,2.4,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_488_OSM_RAIL_628,OSM_RAIL_4885083053,Tirusulam,OSM_RAIL_6285857241,Chennai International Airport,walking_interchange,176.7,2.4,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_488_GTFS_STOP_10,OSM_RAIL_4885083053,Tirusulam,GTFS_STOP_10971,Airport Metro,walking_interchange,224.6,3.0,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_531_OSM_BUS_2430,OSM_RAIL_5311755234,Thirumayilai,OSM_BUS_243060332,மைலாப்பூர்,walking_interchange,223.4,3.0,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_532_GTFS_STOP_53,OSM_RAIL_5321248424,சின்னமலை,GTFS_STOP_5346,Saidapet Depot,walking_interchange,111.9,1.5,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_532_GTFS_STOP_14,OSM_RAIL_5321248425,கிண்டி,GTFS_STOP_1461,Guindy Bus Terminus,walking_interchange,196.7,2.6,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_532_OSM_BUS_3061,OSM_RAIL_5321248890,CMBT,OSM_BUS_306104406,Puratchi Thalaivar Dr. M.G.R Bus Terminus,walking_interchange,123.9,1.7,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_532_OSM_BUS_1159,OSM_RAIL_5321248890,CMBT,OSM_BUS_11598619872,Bus to Mamallapuram,walking_interchange,103.2,1.4,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_532_GTFS_STOP_58,OSM_RAIL_5321248890,CMBT,GTFS_STOP_5822,M.G.R.Koyambedu Bus Terminus,walking_interchange,135.4,1.8,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_628_GTFS_STOP_53,OSM_RAIL_6285857245,சின்னமலை,GTFS_STOP_5346,Saidapet Depot,walking_interchange,118.6,1.6,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_628_GTFS_STOP_53,OSM_RAIL_6285857246,சின்னமலை,GTFS_STOP_5346,Saidapet Depot,walking_interchange,112.4,1.5,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_628_OSM_BUS_3264,OSM_RAIL_6285857247,கிண்டி,OSM_BUS_3264888779,Guindy Bus Stand,walking_interchange,248.3,3.3,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_628_GTFS_STOP_14,OSM_RAIL_6285857247,கிண்டி,GTFS_STOP_1461,Guindy Bus Terminus,walking_interchange,194.2,2.6,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_628_OSM_BUS_3264,OSM_RAIL_6285857248,கிண்டி,OSM_BUS_3264888779,Guindy Bus Stand,walking_interchange,249.4,3.3,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_628_GTFS_STOP_14,OSM_RAIL_6285857248,கிண்டி,GTFS_STOP_1461,Guindy Bus Terminus,walking_interchange,195.5,2.6,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_639_OSM_RAIL_646,OSM_RAIL_6397600715,வண்ணாரப்பேட்டை,OSM_RAIL_6460934200,Washermanpet,walking_interchange,154.5,2.1,False,Multimodal candidate between metro and suburban_rail.
-INT_OSM_RAIL_639_OSM_RAIL_646,OSM_RAIL_6397600716,வண்ணாரப்பேட்டை,OSM_RAIL_6460934200,Washermanpet,walking_interchange,159.8,2.1,False,Multimodal candidate between metro and suburban_rail.
-INT_OSM_RAIL_843_OSM_BUS_1391,OSM_RAIL_8430636714,Thiruvottriyur,OSM_BUS_1391573897,Thirovttriyur MTC Terminus,walking_interchange,44.5,0.6,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_843_GTFS_STOP_10,OSM_RAIL_8430636714,Thiruvottriyur,GTFS_STOP_10539,Thiruvottiyur Ajax Bus Depot,walking_interchange,44.4,0.6,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_843_GTFS_STOP_10,OSM_RAIL_8430636714,Thiruvottriyur,GTFS_STOP_10540,Thiruvottiyur Ajax Bus Depot,walking_interchange,47.3,0.6,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_843_GTFS_STOP_10,OSM_RAIL_8430636716,சுங்கச்சாவடி,GTFS_STOP_10931,Toll Gate Terminus,walking_interchange,68.4,0.9,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_847_OSM_BUS_1391,OSM_RAIL_8477103055,திருவொற்றியூர்,OSM_BUS_1391573897,Thirovttriyur MTC Terminus,walking_interchange,45.8,0.6,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_847_GTFS_STOP_53,OSM_RAIL_8477103055,திருவொற்றியூர்,GTFS_STOP_5350,Thiruvottriyur Depot,walking_interchange,93.9,1.3,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_847_GTFS_STOP_10,OSM_RAIL_8477103055,திருவொற்றியூர்,GTFS_STOP_10539,Thiruvottiyur Ajax Bus Depot,walking_interchange,45.8,0.6,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_847_GTFS_STOP_10,OSM_RAIL_8477103055,திருவொற்றியூர்,GTFS_STOP_10540,Thiruvottiyur Ajax Bus Depot,walking_interchange,46.9,0.6,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_847_GTFS_STOP_10,OSM_RAIL_8477103081,சுங்கச்சாவடி,GTFS_STOP_10931,Toll Gate Terminus,walking_interchange,67.8,0.9,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_847_GTFS_STOP_10,OSM_RAIL_8477103095,சுங்கச்சாவடி,GTFS_STOP_10931,Toll Gate Terminus,walking_interchange,69.1,0.9,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_847_OSM_BUS_1391,OSM_RAIL_8477103097,திருவொற்றியூர்,OSM_BUS_1391573897,Thirovttriyur MTC Terminus,walking_interchange,43.8,0.6,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_847_GTFS_STOP_53,OSM_RAIL_8477103097,திருவொற்றியூர்,GTFS_STOP_5350,Thiruvottriyur Depot,walking_interchange,91.3,1.2,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_847_GTFS_STOP_10,OSM_RAIL_8477103097,திருவொற்றியூர்,GTFS_STOP_10539,Thiruvottiyur Ajax Bus Depot,walking_interchange,43.4,0.6,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_847_GTFS_STOP_10,OSM_RAIL_8477103097,திருவொற்றியூர்,GTFS_STOP_10540,Thiruvottiyur Ajax Bus Depot,walking_interchange,48.1,0.6,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_959_OSM_BUS_3061,OSM_RAIL_9592492226,சென்னை புறநகர் பேருந்து நிலையம்,OSM_BUS_306104406,Puratchi Thalaivar Dr. M.G.R Bus Terminus,walking_interchange,128.8,1.7,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_959_OSM_BUS_1159,OSM_RAIL_9592492226,சென்னை புறநகர் பேருந்து நிலையம்,OSM_BUS_11598619872,Bus to Mamallapuram,walking_interchange,107.9,1.4,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_959_GTFS_STOP_58,OSM_RAIL_9592492226,சென்னை புறநகர் பேருந்து நிலையம்,GTFS_STOP_5822,M.G.R.Koyambedu Bus Terminus,walking_interchange,139.0,1.9,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_985_OSM_BUS_9857,OSM_RAIL_9853600043,விம்கோ நகர் டிப்போ,OSM_BUS_9857416360,Wimco Nagar Depot,integrated_interchange,5.4,0.1,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_985_GTFS_STOP_CM,OSM_RAIL_9853600043,விம்கோ நகர் டிப்போ,GTFS_STOP_CMRL_01,Wimco Nagar Depot,integrated_interchange,5.4,0.1,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_139_OSM_BUS_2484,OSM_RAIL_13972488427,Poonamallee Bus Stand Metro,OSM_BUS_248454339,Poonamallee MTC Terminus,integrated_interchange,26.7,0.4,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_139_GTFS_STOP_53,OSM_RAIL_13972514096,Iyappanthangal Metro,GTFS_STOP_5334,Iyyapanthangal Depot,walking_interchange,134.8,1.8,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_139_GTFS_STOP_59,OSM_RAIL_13972514096,Iyappanthangal Metro,GTFS_STOP_5926,Iyyappanthangal Bus Depot,integrated_interchange,14.6,0.2,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_139_GTFS_STOP_10,OSM_RAIL_13972514096,Iyappanthangal Metro,GTFS_STOP_10224,Iyyappanthangal Bus Depot,walking_interchange,45.8,0.6,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_141_OSM_BUS_1095,OSM_RAIL_14178350594,Madhavaram Bus Terminal Metro,OSM_BUS_10951379007,"Madhavarm APSRTC , TNSTC Bus Terminus",walking_interchange,63.8,0.9,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_141_GTFS_STOP_10,OSM_RAIL_14178350594,Madhavaram Bus Terminal Metro,GTFS_STOP_10925,M.M.B.T Madhavarm Bus Terminus,walking_interchange,75.0,1.0,False,Multimodal candidate between metro and bus.
-INT_OSM_BUS_3264_GTFS_STOP_90,OSM_BUS_3264888779,Guindy Bus Stand,GTFS_STOP_9011,Guindy Metro Station,walking_interchange,243.9,3.3,False,Multimodal candidate between bus and metro.
-INT_GTFS_STOP_90_GTFS_STOP_53,GTFS_STOP_9050,Little Mount Metro,GTFS_STOP_5346,Saidapet Depot,walking_interchange,225.0,3.0,False,Multimodal candidate between metro and bus.
-INT_GTFS_STOP_14_GTFS_STOP_90,GTFS_STOP_1461,Guindy Bus Terminus,GTFS_STOP_9011,Guindy Metro Station,walking_interchange,189.6,2.5,False,Multimodal candidate between bus and metro.
-INT_CMRL_API_693_OSM_RAIL_248,CMRL_API_6932,Puratchi Thalaivar Dr. M.G.Ramachandran Central Metro,OSM_RAIL_2481258995,Chennai Park Town,walking_interchange,418.0,5.6,False,Multimodal candidate between metro and suburban_rail.
-INT_CMRL_API_691_OSM_BUS_4546,CMRL_API_6912,Puratchi Thalaivi Dr.J.Jayalalithaa CMBT Metro,OSM_BUS_4546369389,Paulo bus stand,walking_interchange,310.7,4.1,False,Multimodal candidate between metro and bus.
-INT_CMRL_API_691_OSM_BUS_3061,CMRL_API_6912,Puratchi Thalaivi Dr.J.Jayalalithaa CMBT Metro,OSM_BUS_306104406,Puratchi Thalaivar Dr. M.G.R Bus Terminus,walking_interchange,356.7,4.8,False,Multimodal candidate between metro and bus.
-INT_CMRL_API_691_OSM_BUS_5318,CMRL_API_6912,Puratchi Thalaivi Dr.J.Jayalalithaa CMBT Metro,OSM_BUS_5318548733,SRM Travels,walking_interchange,289.3,3.9,False,Multimodal candidate between metro and bus.
-INT_CMRL_API_691_OSM_BUS_1098,CMRL_API_6912,Puratchi Thalaivi Dr.J.Jayalalithaa CMBT Metro,OSM_BUS_10980207100,Koyambedu Mofussil Bus Terminal,walking_interchange,427.6,5.7,False,Multimodal candidate between metro and bus.
-INT_CMRL_API_691_OSM_BUS_1159,CMRL_API_6912,Puratchi Thalaivi Dr.J.Jayalalithaa CMBT Metro,OSM_BUS_11598619872,Bus to Mamallapuram,walking_interchange,335.7,4.5,False,Multimodal candidate between metro and bus.
-INT_CMRL_API_691_GTFS_STOP_58,CMRL_API_6912,Puratchi Thalaivi Dr.J.Jayalalithaa CMBT Metro,GTFS_STOP_5822,M.G.R.Koyambedu Bus Terminus,walking_interchange,363.3,4.8,False,Multimodal candidate between metro and bus.
-INT_CMRL_API_691_GTFS_STOP_10,CMRL_API_6910,Arumbakkam,GTFS_STOP_10924,M.M.D.A.Colony Terminus,walking_interchange,418.0,5.6,False,Multimodal candidate between metro and bus.
-INT_CMRL_API_673_OSM_RAIL_531,CMRL_API_6733,Thiruvottriyur Theradi Metro,OSM_RAIL_5311732459,Tiruvottiyur,walking_interchange,415.2,5.5,False,Multimodal candidate between metro and suburban_rail.
-INT_CMRL_API_672_GTFS_STOP_10,CMRL_API_6729,Tollgate Metro,GTFS_STOP_10931,Toll Gate Terminus,walking_interchange,323.4,4.3,False,Multimodal candidate between metro and bus.
-INT_CMRL_API_672_GTFS_STOP_10,CMRL_API_6727,New Washermenpet Metro,GTFS_STOP_10465,Tondiarpet Bus Depot,walking_interchange,343.7,4.6,False,Multimodal candidate between metro and bus.
-INT_CMRL_API_672_GTFS_STOP_10,CMRL_API_6727,New Washermenpet Metro,GTFS_STOP_10461,Tondiarpet Bus Depot,walking_interchange,321.6,4.3,False,Multimodal candidate between metro and bus.
-INT_CMRL_API_672_GTFS_STOP_10,CMRL_API_6727,New Washermenpet Metro,GTFS_STOP_10487,Todiya Pet 2 Depot,walking_interchange,447.2,6.0,False,Multimodal candidate between metro and bus.
-INT_CMRL_API_672_OSM_RAIL_527,CMRL_API_6723,Sir Thiyagaraya College Metro,OSM_RAIL_5274761658,Korukkupet,walking_interchange,384.9,5.1,False,Multimodal candidate between metro and suburban_rail.
-INT_CMRL_API_709_OSM_RAIL_248,CMRL_API_7090,Puratchi Thalaivar Dr. M.G.Ramachandran Central Metro,OSM_RAIL_2481258995,Chennai Park Town,walking_interchange,418.0,5.6,False,Multimodal candidate between metro and suburban_rail.
-INT_CMRL_API_669_GTFS_STOP_53,CMRL_API_6696,Little Mount,GTFS_STOP_5346,Saidapet Depot,walking_interchange,415.2,5.5,False,Multimodal candidate between metro and bus.
-INT_CMRL_API_669_GTFS_STOP_11,CMRL_API_6690,OTA-Nanganallur Road,GTFS_STOP_11,Alandur Depot,walking_interchange,332.0,4.4,False,Multimodal candidate between metro and bus.
-INT_CMRL_API_669_GTFS_STOP_89,CMRL_API_6690,OTA-Nanganallur Road,GTFS_STOP_8929,Alandur Depot,walking_interchange,335.9,4.5,False,Multimodal candidate between metro and bus.
-INT_CMRL_API_669_GTFS_STOP_89,CMRL_API_6690,OTA-Nanganallur Road,GTFS_STOP_8928,Alandur Depot,walking_interchange,338.4,4.5,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_248_OSM_RAIL_120,OSM_RAIL_248467412,Chennai Chetpet,OSM_RAIL_1207424080,Kilpauk,walking_interchange,368.2,4.9,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_248_OSM_RAIL_532,OSM_RAIL_248467412,Chennai Chetpet,OSM_RAIL_5329907486,Kilpauk,walking_interchange,365.9,4.9,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_248_OSM_RAIL_532,OSM_RAIL_248467412,Chennai Chetpet,OSM_RAIL_5329907487,Kilpauk,walking_interchange,367.0,4.9,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_652_OSM_RAIL_527,OSM_RAIL_652426199,Egmore Metro,OSM_RAIL_5275790188,Chennai Egmore,walking_interchange,342.9,4.6,False,Multimodal candidate between metro and suburban_rail.
-INT_OSM_RAIL_687_OSM_BUS_5318,OSM_RAIL_687175415,சென்னை புறநகர் பேருந்து நிலையம்,OSM_BUS_5318548733,SRM Travels,walking_interchange,305.3,4.1,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_687_OSM_BUS_1098,OSM_RAIL_687175415,சென்னை புறநகர் பேருந்து நிலையம்,OSM_BUS_10980207098,Koyambedu Mofussil Bus Terminal,walking_interchange,347.8,4.6,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_687_OSM_BUS_1098,OSM_RAIL_687175415,சென்னை புறநகர் பேருந்து நிலையம்,OSM_BUS_10980207099,Koyambedu Mofussil Bus Terminal,walking_interchange,336.6,4.5,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_687_OSM_BUS_1098,OSM_RAIL_687175415,சென்னை புறநகர் பேருந்து நிலையம்,OSM_BUS_10980207100,Koyambedu Mofussil Bus Terminal,walking_interchange,259.9,3.5,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_248_OSM_RAIL_532,OSM_RAIL_2481258995,Chennai Park Town,OSM_RAIL_5329907502,Central Metro,walking_interchange,354.2,4.7,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_248_OSM_RAIL_628,OSM_RAIL_2481258995,Chennai Park Town,OSM_RAIL_6285857250,Central Metro,walking_interchange,347.3,4.6,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_248_OSM_RAIL_628,OSM_RAIL_2481258995,Chennai Park Town,OSM_RAIL_6285857251,Central Metro,walking_interchange,349.4,4.7,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_248_OSM_RAIL_628,OSM_RAIL_2481258995,Chennai Park Town,OSM_RAIL_6285857252,Central Metro,walking_interchange,352.2,4.7,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_248_OSM_RAIL_628,OSM_RAIL_2481258995,Chennai Park Town,OSM_RAIL_6285857253,Central Metro,walking_interchange,350.6,4.7,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_248_GTFS_STOP_15,OSM_RAIL_2481258995,Chennai Park Town,GTFS_STOP_158,Central Depot,walking_interchange,390.9,5.2,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_248_GTFS_STOP_11,OSM_RAIL_2481258999,Chennai Park,GTFS_STOP_11168,M.G.R.CENTRAL METRO R.S,walking_interchange,273.8,3.7,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_248_GTFS_STOP_58,OSM_RAIL_2481259006,Mambalam,GTFS_STOP_5823,Thiyagarayanagar Terminus,walking_interchange,448.6,6.0,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_488_GTFS_STOP_87,OSM_RAIL_4885083053,Tirusulam,GTFS_STOP_8722,Chennai Airport Metro,walking_interchange,311.2,4.1,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_488_OSM_RAIL_531,OSM_RAIL_4885094689,Meenambakkam,OSM_RAIL_5319207346,மீனம்பாக்கம்,walking_interchange,359.5,4.8,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_488_OSM_RAIL_628,OSM_RAIL_4885094689,Meenambakkam,OSM_RAIL_6285857238,மீனம்பாக்கம்,walking_interchange,361.3,4.8,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_527_OSM_RAIL_532,OSM_RAIL_5275790188,Chennai Egmore,OSM_RAIL_5328279403,Egmore Metro,walking_interchange,341.5,4.6,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_528_GTFS_STOP_10,OSM_RAIL_5287054301,V.O.C. Nagar,GTFS_STOP_10487,Todiya Pet 2 Depot,walking_interchange,390.6,5.2,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_531_GTFS_STOP_15,OSM_RAIL_5311755231,Chintadaripet,GTFS_STOP_158,Central Depot,walking_interchange,346.8,4.6,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_531_OSM_RAIL_140,OSM_RAIL_5311755232,Light House,OSM_RAIL_14018223537,Lighthouse Metro,walking_interchange,381.0,5.1,False,Multimodal candidate between suburban_rail and metro.
-INT_OSM_RAIL_531_OSM_BUS_3605,OSM_RAIL_5311755243,Puzhudivakkam,OSM_BUS_360562773,Puzhuthivakkam Bus Stand,walking_interchange,444.7,5.9,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_531_OSM_BUS_7205,OSM_RAIL_5311775880,Tambaram Sanatorium,OSM_BUS_7205568985,தாம்பரம் சானடோரியம் பேருந்து நிலையம்,walking_interchange,371.4,5.0,False,Multimodal candidate between suburban_rail and bus.
-INT_OSM_RAIL_531_GTFS_STOP_11,OSM_RAIL_5319207355,Nanganallur Road,GTFS_STOP_11,Alandur Depot,walking_interchange,420.4,5.6,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_531_GTFS_STOP_89,OSM_RAIL_5319207355,Nanganallur Road,GTFS_STOP_8928,Alandur Depot,walking_interchange,399.4,5.3,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_531_GTFS_STOP_10,OSM_RAIL_5319972799,Arumbakkam,GTFS_STOP_10924,M.M.D.A.Colony Terminus,walking_interchange,388.7,5.2,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_532_OSM_BUS_3264,OSM_RAIL_5321248425,கிண்டி,OSM_BUS_3264888779,Guindy Bus Stand,walking_interchange,250.1,3.3,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_532_OSM_BUS_5318,OSM_RAIL_5321248890,CMBT,OSM_BUS_5318548733,SRM Travels,walking_interchange,305.9,4.1,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_532_OSM_BUS_1098,OSM_RAIL_5321248890,CMBT,OSM_BUS_10980207098,Koyambedu Mofussil Bus Terminal,walking_interchange,346.1,4.6,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_532_OSM_BUS_1098,OSM_RAIL_5321248890,CMBT,OSM_BUS_10980207099,Koyambedu Mofussil Bus Terminal,walking_interchange,333.4,4.4,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_532_OSM_BUS_1098,OSM_RAIL_5321248890,CMBT,OSM_BUS_10980207100,Koyambedu Mofussil Bus Terminal,walking_interchange,258.7,3.4,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_628_GTFS_STOP_11,OSM_RAIL_6285857236,Nanganallur Road,GTFS_STOP_11,Alandur Depot,walking_interchange,420.5,5.6,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_628_GTFS_STOP_89,OSM_RAIL_6285857236,Nanganallur Road,GTFS_STOP_8928,Alandur Depot,walking_interchange,399.9,5.3,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_628_GTFS_STOP_11,OSM_RAIL_6285857237,Nanganallur Road,GTFS_STOP_11,Alandur Depot,walking_interchange,423.5,5.6,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_628_GTFS_STOP_89,OSM_RAIL_6285857237,Nanganallur Road,GTFS_STOP_8928,Alandur Depot,walking_interchange,402.7,5.4,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_843_GTFS_STOP_53,OSM_RAIL_8430636817,புது வண்ணாரப்பேட்டை,GTFS_STOP_5351,Tondairpet-1 Depot,walking_interchange,357.5,4.8,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_843_GTFS_STOP_53,OSM_RAIL_8430636817,புது வண்ணாரப்பேட்டை,GTFS_STOP_5352,Tondairpet-2 Depot,walking_interchange,311.4,4.2,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_843_GTFS_STOP_10,OSM_RAIL_8430636817,புது வண்ணாரப்பேட்டை,GTFS_STOP_10465,Tondiarpet Bus Depot,walking_interchange,303.4,4.0,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_843_GTFS_STOP_10,OSM_RAIL_8430636817,புது வண்ணாரப்பேட்டை,GTFS_STOP_10461,Tondiarpet Bus Depot,walking_interchange,312.6,4.2,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_847_GTFS_STOP_75,OSM_RAIL_8477103055,திருவொற்றியூர்,GTFS_STOP_7576,Thiruvottriyur Bus Terminus,walking_interchange,391.5,5.2,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_847_GTFS_STOP_53,OSM_RAIL_8477103083,புது வண்ணாரப்பேட்டை,GTFS_STOP_5351,Tondairpet-1 Depot,walking_interchange,356.6,4.8,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_847_GTFS_STOP_53,OSM_RAIL_8477103083,புது வண்ணாரப்பேட்டை,GTFS_STOP_5352,Tondairpet-2 Depot,walking_interchange,313.6,4.2,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_847_GTFS_STOP_10,OSM_RAIL_8477103083,புது வண்ணாரப்பேட்டை,GTFS_STOP_10465,Tondiarpet Bus Depot,walking_interchange,303.3,4.0,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_847_GTFS_STOP_10,OSM_RAIL_8477103083,புது வண்ணாரப்பேட்டை,GTFS_STOP_10461,Tondiarpet Bus Depot,walking_interchange,312.7,4.2,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_847_GTFS_STOP_53,OSM_RAIL_8477103094,புது வண்ணாரப்பேட்டை,GTFS_STOP_5351,Tondairpet-1 Depot,walking_interchange,358.1,4.8,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_847_GTFS_STOP_53,OSM_RAIL_8477103094,புது வண்ணாரப்பேட்டை,GTFS_STOP_5352,Tondairpet-2 Depot,walking_interchange,308.8,4.1,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_847_GTFS_STOP_10,OSM_RAIL_8477103094,புது வண்ணாரப்பேட்டை,GTFS_STOP_10465,Tondiarpet Bus Depot,walking_interchange,303.1,4.0,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_847_GTFS_STOP_10,OSM_RAIL_8477103094,புது வண்ணாரப்பேட்டை,GTFS_STOP_10461,Tondiarpet Bus Depot,walking_interchange,312.0,4.2,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_847_GTFS_STOP_75,OSM_RAIL_8477103097,திருவொற்றியூர்,GTFS_STOP_7576,Thiruvottriyur Bus Terminus,walking_interchange,392.0,5.2,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_959_GTFS_STOP_10,OSM_RAIL_9592492224,அரும்பாக்கம்,GTFS_STOP_10924,M.M.D.A.Colony Terminus,walking_interchange,386.8,5.2,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_959_GTFS_STOP_10,OSM_RAIL_9592492225,அரும்பாக்கம்,GTFS_STOP_10924,M.M.D.A.Colony Terminus,walking_interchange,391.6,5.2,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_959_OSM_BUS_5318,OSM_RAIL_9592492226,சென்னை புறநகர் பேருந்து நிலையம்,OSM_BUS_5318548733,SRM Travels,walking_interchange,300.4,4.0,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_959_OSM_BUS_1098,OSM_RAIL_9592492226,சென்னை புறநகர் பேருந்து நிலையம்,OSM_BUS_10980207098,Koyambedu Mofussil Bus Terminal,walking_interchange,352.1,4.7,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_959_OSM_BUS_1098,OSM_RAIL_9592492226,சென்னை புறநகர் பேருந்து நிலையம்,OSM_BUS_10980207099,Koyambedu Mofussil Bus Terminal,walking_interchange,339.7,4.5,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_959_OSM_BUS_1098,OSM_RAIL_9592492226,சென்னை புறநகர் பேருந்து நிலையம்,OSM_BUS_10980207100,Koyambedu Mofussil Bus Terminal,walking_interchange,264.5,3.5,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_140_OSM_BUS_2430,OSM_RAIL_14018223531,Thirumayilai Metro,OSM_BUS_243060332,மைலாப்பூர்,walking_interchange,379.2,5.1,False,Multimodal candidate between metro and bus.
-INT_OSM_RAIL_141_GTFS_STOP_53,OSM_RAIL_14127634035,Saligramam,GTFS_STOP_5353,Vadapalani Depot,walking_interchange,316.5,4.2,False,Multimodal candidate between metro and bus.
-INT_GTFS_STOP_11_GTFS_STOP_11,GTFS_STOP_11,Alandur Depot,GTFS_STOP_11124,Nanganallur Metro,walking_interchange,330.4,4.4,False,Multimodal candidate between bus and metro.
-INT_GTFS_STOP_89_GTFS_STOP_11,GTFS_STOP_8929,Alandur Depot,GTFS_STOP_11124,Nanganallur Metro,walking_interchange,383.0,5.1,False,Multimodal candidate between bus and metro.
-INT_GTFS_STOP_89_GTFS_STOP_11,GTFS_STOP_8928,Alandur Depot,GTFS_STOP_11124,Nanganallur Metro,walking_interchange,310.3,4.1,False,Multimodal candidate between bus and metro.
-INT_GTFS_STOP_53_GTFS_STOP_87,GTFS_STOP_5339,Kundrathur Depot,GTFS_STOP_8763,Metro Grand City2ndt Avenue,walking_interchange,401.2,5.3,False,Multimodal candidate between bus and metro.
+interchange_id,from_entity,from_name,to_entity,to_name,priority_tier,transfer_type,walking_distance_m,walking_time_min,confirmed,notes
+INT_OSM_RAIL_326_GTFS_STOP_90,OSM_RAIL_3264712327,Guindy,GTFS_STOP_9011,Guindy Metro Station,TIER_1_CORE,short_corridor_transfer,84.8,1.1,False,Multimodal transfer candidate (short_corridor_transfer) requiring validation.
+INT_OSM_RAIL_528_OSM_BUS_3400,OSM_RAIL_5286945822,Tambaram,OSM_BUS_340088810,Tambaram MTC Terminus,TIER_1_CORE,street_transfer,136.9,1.8,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_CMRL_API_693_OSM_RAIL_527,CMRL_API_6930,Egmore Metro,OSM_RAIL_5275790188,Chennai Egmore,TIER_1_CORE,street_transfer,146.4,2.0,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_326_GTFS_STOP_14,OSM_RAIL_3264712327,Guindy,GTFS_STOP_1461,Guindy Bus Terminus,TIER_1_CORE,street_transfer,159.0,2.1,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_326_OSM_BUS_3264,OSM_RAIL_3264712327,Guindy,OSM_BUS_3264888779,Guindy Bus Stand,TIER_1_CORE,street_transfer,201.2,2.7,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_528_OSM_BUS_4421,OSM_RAIL_5286945822,Tambaram,OSM_BUS_442132009,Tambaram Bus Stand,TIER_1_CORE,street_transfer,232.1,3.1,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_248_OSM_RAIL_532,OSM_RAIL_2481969291,Puratchi Thalaivar Dr. M. G. Ramachandran Central,OSM_RAIL_5329907502,Central Metro,TIER_1_CORE,street_transfer,233.9,3.1,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_248_OSM_RAIL_628,OSM_RAIL_2481969291,Puratchi Thalaivar Dr. M. G. Ramachandran Central,OSM_RAIL_6285857252,Central Metro,TIER_1_CORE,street_transfer,234.4,3.1,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_248_OSM_RAIL_628,OSM_RAIL_2481969291,Puratchi Thalaivar Dr. M. G. Ramachandran Central,OSM_RAIL_6285857253,Central Metro,TIER_1_CORE,street_transfer,234.8,3.1,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_248_OSM_RAIL_628,OSM_RAIL_2481969291,Puratchi Thalaivar Dr. M. G. Ramachandran Central,OSM_RAIL_6285857251,Central Metro,TIER_1_CORE,street_transfer,235.0,3.1,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_248_OSM_RAIL_628,OSM_RAIL_2481969291,Puratchi Thalaivar Dr. M. G. Ramachandran Central,OSM_RAIL_6285857250,Central Metro,TIER_1_CORE,street_transfer,235.6,3.1,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_BUS_3264_GTFS_STOP_90,OSM_BUS_3264888779,Guindy Bus Stand,GTFS_STOP_9011,Guindy Metro Station,TIER_1_CORE,street_transfer,243.9,3.3,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_140_OSM_BUS_1402,OSM_RAIL_14023022804,Madhavaram Depot,OSM_BUS_14023022804,Madhavaram Depot,TIER_2_SECONDARY,direct_facility_interchange,0.0,0.0,False,Multimodal transfer candidate (direct_facility_interchange) requiring validation.
+INT_OSM_RAIL_139_OSM_BUS_2484,OSM_RAIL_13972488427,Poonamallee Bus Stand Metro,OSM_BUS_248454339,Poonamallee MTC Terminus,TIER_2_SECONDARY,direct_facility_interchange,26.7,0.4,False,Multimodal transfer candidate (direct_facility_interchange) requiring validation.
+INT_OSM_RAIL_141_GTFS_STOP_10,OSM_RAIL_14178350594,Madhavaram Bus Terminal Metro,GTFS_STOP_10925,M.M.B.T Madhavarm Bus Terminus,TIER_2_SECONDARY,short_corridor_transfer,75.0,1.0,False,Multimodal transfer candidate (short_corridor_transfer) requiring validation.
+INT_OSM_RAIL_139_GTFS_STOP_58,OSM_RAIL_13972488427,Poonamallee Bus Stand Metro,GTFS_STOP_5821,Poonamallee Bus Terminus,TIER_2_SECONDARY,street_transfer,100.9,1.3,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_141_OSM_BUS_1084,OSM_RAIL_14178350594,Madhavaram Bus Terminal Metro,OSM_BUS_10848041900,Madhavaram Mofussil Bus Terminus,TIER_2_SECONDARY,street_transfer,115.1,1.5,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_367_GTFS_STOP_10,OSM_RAIL_3678939665,Avadi,GTFS_STOP_10428,Avadi Bus Terminus,TIER_2_SECONDARY,street_transfer,154.9,2.1,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_118_GTFS_STOP_99,OSM_RAIL_11822901092,Kilambakkam,GTFS_STOP_9992,Kilambakkam Bus Terminus,TIER_2_SECONDARY,street_transfer,164.7,2.2,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_367_GTFS_STOP_10,OSM_RAIL_3678939665,Avadi,GTFS_STOP_10430,Avadi Bus Terminus,TIER_2_SECONDARY,street_transfer,240.5,3.2,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_118_GTFS_STOP_99,OSM_RAIL_11822901092,Kilambakkam,GTFS_STOP_9991,Kilambakkam Bus Terminus,TIER_2_SECONDARY,street_transfer,242.4,3.2,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_527_OSM_BUS_5274,OSM_RAIL_5274212914,Pattabiram E Depot,OSM_BUS_5274212914,Pattabiram E Depot,TIER_3_LOCAL,direct_facility_interchange,0.0,0.0,False,Multimodal transfer candidate (direct_facility_interchange) requiring validation.
+INT_OSM_RAIL_985_OSM_BUS_9857,OSM_RAIL_9857416360,Wimco Nagar Depot,OSM_BUS_9857416360,Wimco Nagar Depot,TIER_3_LOCAL,direct_facility_interchange,0.0,0.0,False,Multimodal transfer candidate (direct_facility_interchange) requiring validation.
+INT_OSM_RAIL_985_GTFS_STOP_CM,OSM_RAIL_9857416360,Wimco Nagar Depot,GTFS_STOP_CMRL_01,Wimco Nagar Depot,TIER_3_LOCAL,direct_facility_interchange,0.0,0.0,False,Multimodal transfer candidate (direct_facility_interchange) requiring validation.
+INT_CMRL_API_669_OSM_RAIL_248,CMRL_API_6698,Saidapet Metro,OSM_RAIL_2481259029,Saidapet,TIER_3_LOCAL,short_corridor_transfer,36.6,0.5,False,Multimodal transfer candidate (short_corridor_transfer) requiring validation.
+INT_OSM_RAIL_139_OSM_BUS_3709,OSM_RAIL_13972514096,Iyappanthangal Metro,OSM_BUS_370969659,Ayyapanthangal,TIER_3_LOCAL,short_corridor_transfer,43.6,0.6,False,Multimodal transfer candidate (short_corridor_transfer) requiring validation.
+INT_OSM_RAIL_248_OSM_RAIL_140,OSM_RAIL_2481259002,Kodambakkam,OSM_RAIL_14018223516,Kodambakkam Metro,TIER_3_LOCAL,short_corridor_transfer,69.4,0.9,False,Multimodal transfer candidate (short_corridor_transfer) requiring validation.
+INT_OSM_RAIL_139_GTFS_STOP_59,OSM_RAIL_13972514096,Iyappanthangal Metro,GTFS_STOP_5925,Iyyappanthangal Bus Terminus,TIER_3_LOCAL,short_corridor_transfer,76.4,1.0,False,Multimodal transfer candidate (short_corridor_transfer) requiring validation.
+INT_CMRL_API_689_OSM_RAIL_422,CMRL_API_6897,St. Thomas Mount Metro,OSM_RAIL_4221752111,Saint Thomas Mount,TIER_3_LOCAL,short_corridor_transfer,81.0,1.1,False,Multimodal transfer candidate (short_corridor_transfer) requiring validation.
+INT_CMRL_API_673_OSM_RAIL_531,CMRL_API_6738,Wimco Nagar Metro,OSM_RAIL_5311732501,Wimco Nagar,TIER_3_LOCAL,short_corridor_transfer,87.7,1.2,False,Multimodal transfer candidate (short_corridor_transfer) requiring validation.
+INT_OSM_RAIL_422_OSM_RAIL_531,OSM_RAIL_4221752111,Saint Thomas Mount,OSM_RAIL_5319202812,Saint Thomas Mount,TIER_3_LOCAL,short_corridor_transfer,89.4,1.2,False,Multimodal transfer candidate (short_corridor_transfer) requiring validation.
+INT_OSM_RAIL_843_GTFS_STOP_53,OSM_RAIL_8430636714,Thiruvottriyur,GTFS_STOP_5350,Thiruvottriyur Depot,TIER_3_LOCAL,short_corridor_transfer,92.4,1.2,False,Multimodal transfer candidate (short_corridor_transfer) requiring validation.
+INT_OSM_RAIL_531_GTFS_STOP_6,OSM_RAIL_5311755235,Mandaveli,GTFS_STOP_6,Mandaveli Bus Terminus,TIER_3_LOCAL,street_transfer,127.3,1.7,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_139_GTFS_STOP_53,OSM_RAIL_13972514096,Iyappanthangal Metro,GTFS_STOP_5334,Iyyapanthangal Depot,TIER_3_LOCAL,street_transfer,134.8,1.8,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_531_OSM_RAIL_140,OSM_RAIL_5311755234,Thirumayilai,OSM_RAIL_14018223531,Thirumayilai Metro,TIER_3_LOCAL,street_transfer,160.2,2.1,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_533_OSM_RAIL_646,OSM_RAIL_5337658099,Washermanpet,OSM_RAIL_6460934200,Washermanpet,TIER_3_LOCAL,street_transfer,169.2,2.3,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_CMRL_API_690_GTFS_STOP_53,CMRL_API_6908,Vadapalani,GTFS_STOP_5353,Vadapalani Depot,TIER_3_LOCAL,street_transfer,170.3,2.3,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_527_GTFS_STOP_68,OSM_RAIL_5274761659,Korattur,GTFS_STOP_6882,Korattur Bus Terminus,TIER_3_LOCAL,street_transfer,170.3,2.3,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_531_OSM_RAIL_847,OSM_RAIL_5311732501,Wimco Nagar,OSM_RAIL_8477103098,Wimco Nagar,TIER_3_LOCAL,street_transfer,205.8,2.7,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_531_GTFS_STOP_87,OSM_RAIL_5311755240,Taramani,GTFS_STOP_8705,Taramani Metro Station,TIER_3_LOCAL,street_transfer,206.1,2.7,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_531_OSM_RAIL_843,OSM_RAIL_5311732501,Wimco Nagar,OSM_RAIL_8430636713,Wimco Nagar,TIER_3_LOCAL,street_transfer,208.6,2.8,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_531_OSM_RAIL_847,OSM_RAIL_5311732501,Wimco Nagar,OSM_RAIL_8477103052,Wimco Nagar,TIER_3_LOCAL,street_transfer,211.3,2.8,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_527_GTFS_STOP_53,OSM_RAIL_5274094702,Ennore,GTFS_STOP_5338,Ennore Depot,TIER_3_LOCAL,street_transfer,211.8,2.8,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_531_GTFS_STOP_87,OSM_RAIL_5311755240,Taramani,GTFS_STOP_8706,Taramani Metro Station,TIER_3_LOCAL,street_transfer,224.9,3.0,False,Multimodal transfer candidate (street_transfer) requiring validation.
+INT_OSM_RAIL_527_GTFS_STOP_68,OSM_RAIL_5274761659,Korattur,GTFS_STOP_6879,Korattur Bus Terminus,TIER_3_LOCAL,street_transfer,240.4,3.2,False,Multimodal transfer candidate (street_transfer) requiring validation.

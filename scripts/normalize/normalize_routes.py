@@ -26,7 +26,7 @@ OUTPUT_JSON = os.path.join(NORMALIZED_DIR, "normalized_routes.json")
 def normalize_all_routes():
     normalized_routes = []
 
-    # 1. Ingest CMRL Operational Corridors
+    # 1. Ingest CMRL Operational Corridors from CMRL Station API disclosure
     cmrl_corridors = [
         {
             "normalized_route_id": "CMRL_BLUE_CORRIDOR_1",
@@ -49,42 +49,46 @@ def normalize_all_routes():
             "mode": "metro",
             "route_type": "1",
             "status": "operational"
-        },
-        {
-            "normalized_route_id": "CMRL_CORRIDOR_3_PHASE2",
-            "source_id": "CMRL_API",
-            "source_route_id": "CORRIDOR_3",
-            "agency": "CMRL",
-            "route_short_name": "Purple Line (Phase II)",
-            "route_long_name": "Madhavaram Milk Colony to SIPCOT 2",
-            "mode": "metro",
-            "route_type": "1",
-            "status": "under_construction"
-        },
-        {
-            "normalized_route_id": "CMRL_CORRIDOR_4_PHASE2",
-            "source_id": "CMRL_API",
-            "source_route_id": "CORRIDOR_4",
-            "agency": "CMRL",
-            "route_short_name": "Orange Line (Phase II)",
-            "route_long_name": "Light House to Poonamallee Bypass",
-            "mode": "metro",
-            "route_type": "1",
-            "status": "under_construction"
-        },
-        {
-            "normalized_route_id": "CMRL_CORRIDOR_5_PHASE2",
-            "source_id": "CMRL_API",
-            "source_route_id": "CORRIDOR_5",
-            "agency": "CMRL",
-            "route_short_name": "Red Line (Phase II)",
-            "route_long_name": "Madhavaram Milk Colony to Sholinganallur",
-            "mode": "metro",
-            "route_type": "1",
-            "status": "under_construction"
         }
     ]
     normalized_routes.extend(cmrl_corridors)
+
+    # 1b. Dynamically parse Phase II Corridors from official CMRL disclosure HTML
+    phase2_html_path = os.path.join(BASE_DIR, "data", "raw", "cmrl", DATE_STR, "cmrl_phase2_corridor_status.html")
+    if os.path.exists(phase2_html_path):
+        import re
+        with open(phase2_html_path, "r", encoding="utf-8") as f:
+            p2_html = f.read()
+        p2_text = re.sub(r"<[^>]+>", " ", p2_html)
+        p2_text = " ".join(p2_text.split())
+
+        # Extract corridor specifications dynamically
+        corridors_spec = [
+            ("3", "Purple Line (Phase II)", "CORRIDOR_3"),
+            ("4", "Orange Line (Phase II)", "CORRIDOR_4"),
+            ("5", "Red Line (Phase II)", "CORRIDOR_5"),
+        ]
+        for num, short_name, route_code in corridors_spec:
+            m = re.search(rf"Corridor-{num}\s+From\s+(.*?)\s+to\s+(.*?)\s+\((\d+\.?\d*)\s*Km\)", p2_text, re.IGNORECASE)
+            if m:
+                origin, dest, length_km = m.groups()
+                long_name = f"{origin} to {dest} ({length_km} km)"
+            else:
+                long_name = f"Phase II Corridor {num}"
+
+            normalized_routes.append({
+                "normalized_route_id": f"CMRL_CORRIDOR_{num}_PHASE2",
+                "source_id": "CMRL_OFFICIAL",
+                "source_route_id": route_code,
+                "agency": "CMRL",
+                "route_short_name": short_name,
+                "route_long_name": long_name,
+                "mode": "metro",
+                "route_type": "1",
+                "status": "under_construction"
+            })
+    else:
+        print(f"Warning: Phase II disclosure file not found at {phase2_html_path}")
 
     # 2. Ingest GTFS routes.txt
     gtfs_routes_path = os.path.join(BASE_DIR, "data", "staging", "community_gtfs", DATE_STR, "routes.txt")

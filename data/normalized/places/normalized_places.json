@@ -167,7 +167,7 @@
       "category": "tourist_attraction",
       "latitude": 12.5020455,
       "longitude": 80.1492585,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -182,7 +182,7 @@
       "category": "hospital",
       "latitude": 12.50271,
       "longitude": 80.151551,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -197,7 +197,7 @@
       "category": "hospital",
       "latitude": 12.5037319,
       "longitude": 80.159635,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -212,7 +212,7 @@
       "category": "government_office",
       "latitude": 12.5020223,
       "longitude": 80.1580634,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -227,7 +227,7 @@
       "category": "hospital",
       "latitude": 12.5274531,
       "longitude": 80.1631378,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -242,7 +242,7 @@
       "category": "government_office",
       "latitude": 12.5377083,
       "longitude": 80.163928,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -257,7 +257,7 @@
       "category": "hospital",
       "latitude": 12.5643829,
       "longitude": 80.1191531,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -272,7 +272,7 @@
       "category": "college",
       "latitude": 12.5496672,
       "longitude": 80.1448235,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -287,7 +287,7 @@
       "category": "college",
       "latitude": 12.5709365,
       "longitude": 80.1394538,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -347,7 +347,7 @@
       "category": "government_office",
       "latitude": 12.808647,
       "longitude": 79.7162861,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -362,7 +362,7 @@
       "category": "government_office",
       "latitude": 12.8084535,
       "longitude": 79.7571138,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -392,7 +392,7 @@
       "category": "hospital",
       "latitude": 12.7947227,
       "longitude": 79.8162415,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -407,7 +407,7 @@
       "category": "hospital",
       "latitude": 12.7939715,
       "longitude": 79.8175725,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -422,7 +422,7 @@
       "category": "hospital",
       "latitude": 12.7956393,
       "longitude": 79.8183483,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -482,7 +482,7 @@
       "category": "hospital",
       "latitude": 12.675575,
       "longitude": 79.978293,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -497,7 +497,7 @@
       "category": "government_office",
       "latitude": 12.6760403,
       "longitude": 79.9772408,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -512,7 +512,7 @@
       "category": "hospital",
       "latitude": 12.6701352,
       "longitude": 79.9848253,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -527,7 +527,7 @@
       "category": "government_office",
       "latitude": 12.6787989,
       "longitude": 79.97821,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -542,7 +542,7 @@
       "category": "hospital",
       "latitude": 12.6882286,
       "longitude": 79.9789613,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -557,7 +557,7 @@
       "category": "hospital",
       "latitude": 12.6868496,
       "longitude": 79.9800503,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -572,7 +572,7 @@
       "category": "hospital",
       "latitude": 12.6879787,
       "longitude": 79.9786127,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -587,7 +587,7 @@
       "category": "hospital",
       "latitude": 12.68966,
       "longitude": 79.979543,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -602,7 +602,7 @@
       "category": "hospital",
       "latitude": 12.690083,
       "longitude": 79.980058,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -617,7 +617,7 @@
       "category": "hospital",
       "latitude": 12.6880247,
       "longitude": 79.9789026,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -632,7 +632,7 @@
       "category": "hospital",
       "latitude": 12.6888627,
       "longitude": 79.980109,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -647,7 +647,7 @@
       "category": "hospital",
       "latitude": 12.6974472,
       "longitude": 79.9724747,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -662,7 +662,7 @@
       "category": "hospital",
       "latitude": 12.6954884,
       "longitude": 79.9782314,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -677,7 +677,7 @@
       "category": "hospital",
       "latitude": 12.6976172,
       "longitude": 79.972524,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -692,7 +692,7 @@
       "category": "hospital",
       "latitude": 12.6823207,
       "longitude": 79.9820549,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -707,7 +707,7 @@
       "category": "hospital",
       "latitude": 12.6818078,
       "longitude": 79.9810921,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -722,7 +722,7 @@
       "category": "hospital",
       "latitude": 12.6885223,
       "longitude": 79.9820948,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -737,7 +737,7 @@
       "category": "hospital",
       "latitude": 12.688846,
       "longitude": 79.98029,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -752,7 +752,7 @@
       "category": "hospital",
       "latitude": 12.6874169,
       "longitude": 79.9804067,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -767,7 +767,7 @@
       "category": "government_office",
       "latitude": 12.693172,
       "longitude": 79.9802853,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -782,7 +782,7 @@
       "category": "hospital",
       "latitude": 12.6915156,
       "longitude": 79.9808587,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -797,7 +797,7 @@
       "category": "hospital",
       "latitude": 12.691572,
       "longitude": 79.980346,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -812,7 +812,7 @@
       "category": "hospital",
       "latitude": 12.60357,
       "longitude": 80.057493,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -827,7 +827,7 @@
       "category": "hospital",
       "latitude": 12.6067021,
       "longitude": 80.0587443,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -842,7 +842,7 @@
       "category": "hospital",
       "latitude": 12.6082821,
       "longitude": 80.0577702,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -857,7 +857,7 @@
       "category": "hospital",
       "latitude": 12.6239611,
       "longitude": 80.0555686,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -872,7 +872,7 @@
       "category": "government_office",
       "latitude": 12.737093,
       "longitude": 79.9872764,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -887,7 +887,7 @@
       "category": "hospital",
       "latitude": 12.7370085,
       "longitude": 79.9883446,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -902,7 +902,7 @@
       "category": "hospital",
       "latitude": 12.7595919,
       "longitude": 80.0053301,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -917,7 +917,7 @@
       "category": "hospital",
       "latitude": 12.7605506,
       "longitude": 80.0025071,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -932,7 +932,7 @@
       "category": "hospital",
       "latitude": 12.76057,
       "longitude": 80.002486,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -947,7 +947,7 @@
       "category": "hospital",
       "latitude": 12.7618855,
       "longitude": 80.002589,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -962,7 +962,7 @@
       "category": "hospital",
       "latitude": 12.7607913,
       "longitude": 80.0037308,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -977,7 +977,7 @@
       "category": "hospital",
       "latitude": 12.7638952,
       "longitude": 80.0039609,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -992,7 +992,7 @@
       "category": "hospital",
       "latitude": 12.7638244,
       "longitude": 80.0039198,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1007,7 +1007,7 @@
       "category": "hospital",
       "latitude": 12.7560995,
       "longitude": 80.0091891,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1022,7 +1022,7 @@
       "category": "hospital",
       "latitude": 12.786869,
       "longitude": 80.014689,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1037,7 +1037,7 @@
       "category": "hospital",
       "latitude": 12.7935765,
       "longitude": 80.0270741,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1052,7 +1052,7 @@
       "category": "hospital",
       "latitude": 12.7995425,
       "longitude": 80.0237341,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1067,7 +1067,7 @@
       "category": "hospital",
       "latitude": 12.7988384,
       "longitude": 80.0239066,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1082,7 +1082,7 @@
       "category": "hospital",
       "latitude": 12.7990975,
       "longitude": 80.0241996,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1097,7 +1097,7 @@
       "category": "hospital",
       "latitude": 12.7962013,
       "longitude": 80.022447,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1112,7 +1112,7 @@
       "category": "hospital",
       "latitude": 12.7998826,
       "longitude": 80.0241862,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1127,7 +1127,7 @@
       "category": "hospital",
       "latitude": 12.8283076,
       "longitude": 79.7038043,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1142,7 +1142,7 @@
       "category": "hospital",
       "latitude": 12.8240725,
       "longitude": 79.7027152,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1157,7 +1157,7 @@
       "category": "hospital",
       "latitude": 12.8242383,
       "longitude": 79.7018995,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1172,7 +1172,7 @@
       "category": "hospital",
       "latitude": 12.8302996,
       "longitude": 79.7031901,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1187,7 +1187,7 @@
       "category": "hospital",
       "latitude": 12.8307101,
       "longitude": 79.7035972,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1202,7 +1202,7 @@
       "category": "hospital",
       "latitude": 12.8339674,
       "longitude": 79.704051,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1217,7 +1217,7 @@
       "category": "hospital",
       "latitude": 12.8308723,
       "longitude": 79.7032356,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1232,7 +1232,7 @@
       "category": "hospital",
       "latitude": 12.8328233,
       "longitude": 79.7036849,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1247,7 +1247,7 @@
       "category": "hospital",
       "latitude": 12.8345687,
       "longitude": 79.7029989,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1262,7 +1262,7 @@
       "category": "hospital",
       "latitude": 12.8246378,
       "longitude": 79.707055,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1277,7 +1277,7 @@
       "category": "hospital",
       "latitude": 12.8253797,
       "longitude": 79.7076101,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1292,7 +1292,7 @@
       "category": "hospital",
       "latitude": 12.8239875,
       "longitude": 79.7066801,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1307,7 +1307,7 @@
       "category": "hospital",
       "latitude": 12.8251564,
       "longitude": 79.7073067,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1322,7 +1322,7 @@
       "category": "hospital",
       "latitude": 12.8339602,
       "longitude": 79.7112432,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1337,7 +1337,7 @@
       "category": "hospital",
       "latitude": 12.8352114,
       "longitude": 79.7106784,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1352,7 +1352,7 @@
       "category": "hospital",
       "latitude": 12.83311,
       "longitude": 79.710257,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1367,7 +1367,7 @@
       "category": "hospital",
       "latitude": 12.8345759,
       "longitude": 79.7130055,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1382,7 +1382,7 @@
       "category": "hospital",
       "latitude": 12.8396162,
       "longitude": 79.7035508,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1397,7 +1397,7 @@
       "category": "hospital",
       "latitude": 12.8379804,
       "longitude": 79.7024471,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1412,7 +1412,7 @@
       "category": "hospital",
       "latitude": 12.838737,
       "longitude": 79.7020262,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1427,7 +1427,7 @@
       "category": "hospital",
       "latitude": 12.8396788,
       "longitude": 79.7034733,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1442,7 +1442,7 @@
       "category": "hospital",
       "latitude": 12.8419147,
       "longitude": 79.7042481,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1457,7 +1457,7 @@
       "category": "hospital",
       "latitude": 12.8353173,
       "longitude": 79.7070212,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1472,7 +1472,7 @@
       "category": "hospital",
       "latitude": 12.8354377,
       "longitude": 79.7075758,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1487,7 +1487,7 @@
       "category": "hospital",
       "latitude": 12.837496,
       "longitude": 79.7069417,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1502,7 +1502,7 @@
       "category": "hospital",
       "latitude": 12.8375268,
       "longitude": 79.7077525,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1517,7 +1517,7 @@
       "category": "hospital",
       "latitude": 12.8365745,
       "longitude": 79.7052662,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1532,7 +1532,7 @@
       "category": "hospital",
       "latitude": 12.8358681,
       "longitude": 79.7077257,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1547,7 +1547,7 @@
       "category": "hospital",
       "latitude": 12.8358582,
       "longitude": 79.7118127,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1562,7 +1562,7 @@
       "category": "hospital",
       "latitude": 12.8725096,
       "longitude": 79.7230338,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1577,7 +1577,7 @@
       "category": "hospital",
       "latitude": 12.9322908,
       "longitude": 79.8742851,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1592,7 +1592,7 @@
       "category": "hospital",
       "latitude": 12.9256426,
       "longitude": 79.8814855,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1607,7 +1607,7 @@
       "category": "hospital",
       "latitude": 12.9252156,
       "longitude": 79.8769385,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1622,7 +1622,7 @@
       "category": "hospital",
       "latitude": 12.9257633,
       "longitude": 79.8797713,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1637,7 +1637,7 @@
       "category": "hospital",
       "latitude": 12.929514,
       "longitude": 79.875752,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1652,7 +1652,7 @@
       "category": "hospital",
       "latitude": 12.9279755,
       "longitude": 79.877669,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1667,7 +1667,7 @@
       "category": "general_poi",
       "latitude": 12.8332171,
       "longitude": 79.9137924,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1682,7 +1682,7 @@
       "category": "college",
       "latitude": 12.8641206,
       "longitude": 79.973316,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1697,7 +1697,7 @@
       "category": "college",
       "latitude": 12.8645028,
       "longitude": 79.991994,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -1817,7 +1817,7 @@
       "category": "hospital",
       "latitude": 12.8143321,
       "longitude": 80.0770019,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2192,7 +2192,7 @@
       "category": "hospital",
       "latitude": 12.9512057,
       "longitude": 79.9389294,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2207,7 +2207,7 @@
       "category": "hospital",
       "latitude": 12.9654914,
       "longitude": 79.9452452,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2222,7 +2222,7 @@
       "category": "hospital",
       "latitude": 12.9672419,
       "longitude": 79.9456429,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2237,7 +2237,7 @@
       "category": "hospital",
       "latitude": 12.9691309,
       "longitude": 79.9452782,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2252,7 +2252,7 @@
       "category": "hospital",
       "latitude": 12.9672732,
       "longitude": 79.9467967,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2267,7 +2267,7 @@
       "category": "hospital",
       "latitude": 12.9697594,
       "longitude": 79.9424188,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2282,7 +2282,7 @@
       "category": "hospital",
       "latitude": 12.9701785,
       "longitude": 79.9520655,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2297,7 +2297,7 @@
       "category": "hospital",
       "latitude": 12.9830693,
       "longitude": 79.9379463,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2312,7 +2312,7 @@
       "category": "hospital",
       "latitude": 12.97103,
       "longitude": 79.976397,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2327,7 +2327,7 @@
       "category": "general_poi",
       "latitude": 12.9749102,
       "longitude": 79.9783105,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2342,7 +2342,7 @@
       "category": "general_poi",
       "latitude": 12.9750787,
       "longitude": 79.9782242,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2357,7 +2357,7 @@
       "category": "college",
       "latitude": 12.9864437,
       "longitude": 79.9717629,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2372,7 +2372,7 @@
       "category": "college",
       "latitude": 12.9888607,
       "longitude": 79.9711278,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2387,7 +2387,7 @@
       "category": "college",
       "latitude": 12.9885262,
       "longitude": 79.9716513,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2402,7 +2402,7 @@
       "category": "college",
       "latitude": 12.9884426,
       "longitude": 79.972338,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2417,7 +2417,7 @@
       "category": "college",
       "latitude": 12.9874229,
       "longitude": 79.9730427,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2432,7 +2432,7 @@
       "category": "college",
       "latitude": 12.9877986,
       "longitude": 79.9727414,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2447,7 +2447,7 @@
       "category": "college",
       "latitude": 12.9871211,
       "longitude": 79.9726813,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2462,7 +2462,7 @@
       "category": "college",
       "latitude": 12.9874306,
       "longitude": 79.9723723,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2477,7 +2477,7 @@
       "category": "college",
       "latitude": 12.9878153,
       "longitude": 79.9722092,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2492,7 +2492,7 @@
       "category": "college",
       "latitude": 12.9872298,
       "longitude": 79.9725783,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2507,7 +2507,7 @@
       "category": "college",
       "latitude": 12.9869873,
       "longitude": 79.9720461,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2522,7 +2522,7 @@
       "category": "college",
       "latitude": 12.9877902,
       "longitude": 79.9714711,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2537,7 +2537,7 @@
       "category": "college",
       "latitude": 12.9878404,
       "longitude": 79.9711192,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2552,7 +2552,7 @@
       "category": "college",
       "latitude": 12.9878738,
       "longitude": 79.9718659,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2567,7 +2567,7 @@
       "category": "college",
       "latitude": 12.9873176,
       "longitude": 79.9714898,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2582,7 +2582,7 @@
       "category": "college",
       "latitude": 12.9870716,
       "longitude": 79.973147,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2597,7 +2597,7 @@
       "category": "college",
       "latitude": 12.9880407,
       "longitude": 79.9727033,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2612,7 +2612,7 @@
       "category": "college",
       "latitude": 12.986636,
       "longitude": 79.972398,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2627,7 +2627,7 @@
       "category": "college",
       "latitude": 12.9868033,
       "longitude": 79.9725869,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -2987,7 +2987,7 @@
       "category": "hospital",
       "latitude": 12.61773,
       "longitude": 80.180966,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3002,7 +3002,7 @@
       "category": "beach",
       "latitude": 12.6091532,
       "longitude": 80.1959796,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3017,7 +3017,7 @@
       "category": "tourist_attraction",
       "latitude": 12.6165678,
       "longitude": 80.1918429,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3032,7 +3032,7 @@
       "category": "tourist_attraction",
       "latitude": 12.6179087,
       "longitude": 80.1926969,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3047,7 +3047,7 @@
       "category": "tourist_attraction",
       "latitude": 12.6180857,
       "longitude": 80.1922234,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3062,7 +3062,7 @@
       "category": "tourist_attraction",
       "latitude": 12.6152265,
       "longitude": 80.1915388,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3077,7 +3077,7 @@
       "category": "hospital",
       "latitude": 12.6178199,
       "longitude": 80.1950156,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3092,7 +3092,7 @@
       "category": "tourist_attraction",
       "latitude": 12.6151119,
       "longitude": 80.1922604,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3107,7 +3107,7 @@
       "category": "tourist_attraction",
       "latitude": 12.6147635,
       "longitude": 80.1916985,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3122,7 +3122,7 @@
       "category": "tourist_attraction",
       "latitude": 12.6185549,
       "longitude": 80.1913387,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3137,7 +3137,7 @@
       "category": "tourist_attraction",
       "latitude": 12.6186059,
       "longitude": 80.1913696,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3152,7 +3152,7 @@
       "category": "tourist_attraction",
       "latitude": 12.6176455,
       "longitude": 80.1926301,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3167,7 +3167,7 @@
       "category": "tourist_attraction",
       "latitude": 12.614924,
       "longitude": 80.1916726,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3182,7 +3182,7 @@
       "category": "government_office",
       "latitude": 12.6152401,
       "longitude": 80.1933919,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3197,7 +3197,7 @@
       "category": "tourist_attraction",
       "latitude": 12.6141797,
       "longitude": 80.1912288,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3212,7 +3212,7 @@
       "category": "tourist_attraction",
       "latitude": 12.6197938,
       "longitude": 80.1926528,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3227,7 +3227,7 @@
       "category": "tourist_attraction",
       "latitude": 12.619747,
       "longitude": 80.1922279,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3242,7 +3242,7 @@
       "category": "hospital",
       "latitude": 12.6207093,
       "longitude": 80.1920299,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3257,7 +3257,7 @@
       "category": "tourist_attraction",
       "latitude": 12.6197166,
       "longitude": 80.1982112,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3272,7 +3272,7 @@
       "category": "tourist_attraction",
       "latitude": 12.6193203,
       "longitude": 80.1973814,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3287,7 +3287,7 @@
       "category": "hospital",
       "latitude": 12.6332544,
       "longitude": 80.1961711,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3302,7 +3302,7 @@
       "category": "tourist_attraction",
       "latitude": 12.6411767,
       "longitude": 80.2044083,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3317,7 +3317,7 @@
       "category": "university",
       "latitude": 12.6542739,
       "longitude": 80.1577238,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3332,7 +3332,7 @@
       "category": "general_poi",
       "latitude": 12.6816606,
       "longitude": 80.21214,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3347,7 +3347,7 @@
       "category": "tourist_attraction",
       "latitude": 12.6921725,
       "longitude": 80.1900136,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3362,7 +3362,7 @@
       "category": "hospital",
       "latitude": 12.7415557,
       "longitude": 80.1328466,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3377,7 +3377,7 @@
       "category": "government_office",
       "latitude": 12.7237091,
       "longitude": 80.188587,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3392,7 +3392,7 @@
       "category": "hospital",
       "latitude": 12.7197418,
       "longitude": 80.1874624,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3407,7 +3407,7 @@
       "category": "hospital",
       "latitude": 12.7284223,
       "longitude": 80.1881466,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3422,7 +3422,7 @@
       "category": "hospital",
       "latitude": 12.7304572,
       "longitude": 80.187812,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3437,7 +3437,7 @@
       "category": "college",
       "latitude": 12.7936971,
       "longitude": 80.1850698,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3452,7 +3452,7 @@
       "category": "hospital",
       "latitude": 12.7960843,
       "longitude": 80.2155228,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3467,7 +3467,7 @@
       "category": "beach",
       "latitude": 12.7721654,
       "longitude": 80.2519111,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3482,7 +3482,7 @@
       "category": "general_poi",
       "latitude": 12.7894427,
       "longitude": 80.2223636,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3497,7 +3497,7 @@
       "category": "tourist_attraction",
       "latitude": 12.7954958,
       "longitude": 80.2412218,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3512,7 +3512,7 @@
       "category": "hospital",
       "latitude": 12.7971558,
       "longitude": 80.2175961,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3527,7 +3527,7 @@
       "category": "hospital",
       "latitude": 12.8063158,
       "longitude": 80.2244216,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3542,7 +3542,7 @@
       "category": "beach",
       "latitude": 12.7958641,
       "longitude": 80.2493068,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3557,7 +3557,7 @@
       "category": "government_office",
       "latitude": 12.7895367,
       "longitude": 80.2527166,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -3572,7 +3572,7 @@
       "category": "beach",
       "latitude": 12.8023552,
       "longitude": 80.248694,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -4022,7 +4022,7 @@
       "category": "hospital",
       "latitude": 12.8124897,
       "longitude": 80.2257817,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -4037,7 +4037,7 @@
       "category": "hospital",
       "latitude": 12.817871,
       "longitude": 80.2221711,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -9422,7 +9422,7 @@
       "category": "hospital",
       "latitude": 13.031324,
       "longitude": 79.85549,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -9437,7 +9437,7 @@
       "category": "hospital",
       "latitude": 13.0312709,
       "longitude": 79.8535026,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -9452,7 +9452,7 @@
       "category": "hospital",
       "latitude": 13.1433504,
       "longitude": 79.8754025,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -9467,7 +9467,7 @@
       "category": "government_office",
       "latitude": 13.1432881,
       "longitude": 79.8942676,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -9482,7 +9482,7 @@
       "category": "hospital",
       "latitude": 13.144271,
       "longitude": 79.899066,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -9497,7 +9497,7 @@
       "category": "college",
       "latitude": 13.1507029,
       "longitude": 79.8684738,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -9512,7 +9512,7 @@
       "category": "college",
       "latitude": 13.1551824,
       "longitude": 79.86994,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -9527,7 +9527,7 @@
       "category": "general_poi",
       "latitude": 13.0975123,
       "longitude": 79.9038742,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -9542,7 +9542,7 @@
       "category": "hospital",
       "latitude": 13.11005,
       "longitude": 79.9113858,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -9557,7 +9557,7 @@
       "category": "hospital",
       "latitude": 13.1086082,
       "longitude": 79.9104426,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -9572,7 +9572,7 @@
       "category": "hospital",
       "latitude": 13.1167548,
       "longitude": 79.9112778,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -9587,7 +9587,7 @@
       "category": "hospital",
       "latitude": 13.1110614,
       "longitude": 79.9106022,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -9602,7 +9602,7 @@
       "category": "hospital",
       "latitude": 13.1197159,
       "longitude": 79.9132325,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -9617,7 +9617,7 @@
       "category": "college",
       "latitude": 13.1155935,
       "longitude": 79.9231614,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -9632,7 +9632,7 @@
       "category": "university",
       "latitude": 13.1176823,
       "longitude": 79.9916159,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -9647,7 +9647,7 @@
       "category": "hospital",
       "latitude": 13.1164973,
       "longitude": 79.9945299,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": "yes"
     },
     {
@@ -9662,7 +9662,7 @@
       "category": "government_office",
       "latitude": 13.1207702,
       "longitude": 79.9960581,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -9677,7 +9677,7 @@
       "category": "hospital",
       "latitude": 13.1207073,
       "longitude": 79.9960294,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -10127,7 +10127,7 @@
       "category": "hospital",
       "latitude": 13.1294292,
       "longitude": 79.9098006,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -10142,7 +10142,7 @@
       "category": "hospital",
       "latitude": 13.12374,
       "longitude": 79.9112396,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -10157,7 +10157,7 @@
       "category": "hospital",
       "latitude": 13.1311793,
       "longitude": 79.9093902,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -10172,7 +10172,7 @@
       "category": "hospital",
       "latitude": 13.1307363,
       "longitude": 79.9106285,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -10187,7 +10187,7 @@
       "category": "hospital",
       "latitude": 13.1363359,
       "longitude": 79.9086732,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -10202,7 +10202,7 @@
       "category": "hospital",
       "latitude": 13.131197,
       "longitude": 79.909378,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -10217,7 +10217,7 @@
       "category": "government_office",
       "latitude": 13.1401029,
       "longitude": 79.9053833,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -10232,7 +10232,7 @@
       "category": "hospital",
       "latitude": 13.139584,
       "longitude": 79.906791,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -10247,7 +10247,7 @@
       "category": "hospital",
       "latitude": 13.139915,
       "longitude": 79.9078323,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -10262,7 +10262,7 @@
       "category": "hospital",
       "latitude": 13.1439414,
       "longitude": 79.9052155,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -10277,7 +10277,7 @@
       "category": "hospital",
       "latitude": 13.1444936,
       "longitude": 79.903447,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -10292,7 +10292,7 @@
       "category": "hospital",
       "latitude": 13.1439516,
       "longitude": 79.908917,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -10307,7 +10307,7 @@
       "category": "hospital",
       "latitude": 13.143569,
       "longitude": 79.9088701,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -10322,7 +10322,7 @@
       "category": "hospital",
       "latitude": 13.14463,
       "longitude": 79.909159,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -10337,7 +10337,7 @@
       "category": "hospital",
       "latitude": 13.131715,
       "longitude": 79.928058,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -10352,7 +10352,7 @@
       "category": "hospital",
       "latitude": 13.1236572,
       "longitude": 79.964507,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -10427,7 +10427,7 @@
       "category": "hospital",
       "latitude": 13.3327639,
       "longitude": 79.8983401,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -10517,7 +10517,7 @@
       "category": "hospital",
       "latitude": 13.3357903,
       "longitude": 79.9084828,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -19217,7 +19217,7 @@
       "category": "hospital",
       "latitude": 13.3306875,
       "longitude": 80.1887374,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -19232,7 +19232,7 @@
       "category": "hospital",
       "latitude": 13.329233,
       "longitude": 80.187201,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -19247,7 +19247,7 @@
       "category": "hospital",
       "latitude": 13.332976,
       "longitude": 80.19451,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -19262,7 +19262,7 @@
       "category": "hospital",
       "latitude": 13.3329987,
       "longitude": 80.1972536,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -19337,7 +19337,7 @@
       "category": "college",
       "latitude": 13.35923,
       "longitude": 80.1411026,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -19352,7 +19352,7 @@
       "category": "university",
       "latitude": 13.3568164,
       "longitude": 80.1422648,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -19367,7 +19367,7 @@
       "category": "hospital",
       "latitude": 13.3637671,
       "longitude": 80.1405042,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -19382,7 +19382,7 @@
       "category": "hospital",
       "latitude": 13.361191,
       "longitude": 80.140533,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -19397,7 +19397,7 @@
       "category": "hospital",
       "latitude": 13.3348563,
       "longitude": 80.1941403,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -19412,7 +19412,7 @@
       "category": "hospital",
       "latitude": 13.3348758,
       "longitude": 80.190578,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -19427,7 +19427,7 @@
       "category": "hospital",
       "latitude": 13.337998,
       "longitude": 80.1928478,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -19442,7 +19442,7 @@
       "category": "hospital",
       "latitude": 13.3342331,
       "longitude": 80.1954472,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -19457,7 +19457,7 @@
       "category": "hospital",
       "latitude": 13.420618,
       "longitude": 80.114126,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -19472,7 +19472,7 @@
       "category": "hospital",
       "latitude": 13.4160912,
       "longitude": 80.1296667,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -19487,7 +19487,7 @@
       "category": "hospital",
       "latitude": 13.414053,
       "longitude": 80.12703,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -19517,7 +19517,7 @@
       "category": "beach",
       "latitude": 13.3634355,
       "longitude": 80.338449,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -19532,7 +19532,7 @@
       "category": "beach",
       "latitude": 13.3823151,
       "longitude": 80.3335171,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -19547,7 +19547,7 @@
       "category": "beach",
       "latitude": 13.4079683,
       "longitude": 80.3288334,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {
@@ -19562,7 +19562,7 @@
       "category": "beach",
       "latitude": 13.4209255,
       "longitude": 80.3283291,
-      "inside_cma": false,
+      "inside_cma": true,
       "wheelchair": ""
     },
     {

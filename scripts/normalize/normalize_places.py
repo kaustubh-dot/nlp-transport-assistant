@@ -23,15 +23,11 @@ os.makedirs(NORMALIZED_DIR, exist_ok=True)
 
 OUTPUT_CSV = os.path.join(NORMALIZED_DIR, "normalized_places.csv")
 OUTPUT_JSON = os.path.join(NORMALIZED_DIR, "normalized_places.json")
-
-CMA_LAT_MIN, CMA_LAT_MAX = 12.82, 13.28
-CMA_LON_MIN, CMA_LON_MAX = 80.00, 80.35
+from scripts.normalize.compute_cma_boundary import is_point_inside_cma
 
 
 def is_inside_cma(lat: float, lon: float) -> bool:
-    if lat is None or lon is None:
-        return False
-    return (CMA_LAT_MIN <= lat <= CMA_LAT_MAX) and (CMA_LON_MIN <= lon <= CMA_LON_MAX)
+    return is_point_inside_cma(lat, lon)
 
 
 def categorize_poi(tags: dict) -> str:

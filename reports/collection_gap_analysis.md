@@ -1,21 +1,15 @@
-# Phase 10: Collection Completeness Audit & Gap Analysis Report
+# Collection Completeness Audit & Gap Analysis Report (v1.1)
 
 **Date:** 2026-09-18  
 **Project:** Chennai Multimodal Public Transport & Places Knowledge Base  
-**Status:** Ingestion Audit Complete — Collection Stop Condition Evaluated  
+**Knowledge Base Version:** `chennai_multimodal_v1.1` (Provisional Multisource Knowledge Base)  
+**Status:** Corrective Audit Complete  
 
 ---
 
 ## 1. Executive Summary
 
-This report performs a comprehensive audit of all multimodal public transport and geographic data collected during Phases 5 through 9 across:
-- **CMRL Metro** (Phase I, Extension, Phase II)
-- **Southern Railway Suburban Rail** (South, West, North lines)
-- **Chennai MRTS** (Beach to Velachery)
-- **MTC City Bus Network** (routes, variants, stops, stages, terminals)
-- **Geographic Intelligence** (CMA administrative boundary, localities, transport-relevant POIs)
-
-In accordance with **Section 37 (Collection Stop Condition)**, every major data category has been cross-examined across multiple independent sources (CMRL API, OpenStreetMap, Community GTFS, and curated reference assets).
+This report delivers the comprehensive collection audit and gap analysis across all public transport modes and geographic intelligence for the Chennai Metropolitan Area. In accordance with the Corrective Data Audit requirements, every source and data category is evaluated for actual raw ingestion into Bronze, official provenance, and verified downstream coverage.
 
 ---
 
@@ -23,91 +17,55 @@ In accordance with **Section 37 (Collection Stop Condition)**, every major data 
 
 ### 2.1. Chennai Metro (CMRL)
 - **Operational Stations:**
-  - *Source 1 (CMRL API):* 43 listings (41 unique physical stations, with Central and Alandur listed twice due to dual-corridor operations). Complete coverage of Blue Line (Wimco Nagar to Airport) and Green Line (Central to St. Thomas Mount).
-  - *Source 2 (OSM):* 44 subway platform/station nodes and relations. Complete geometry, platform tags, and bilingual names (`name:en`, `name:ta`).
-  - *Source 3 (Community GTFS):* CMRL route and station entries in `stops.txt` and `routes.txt`.
-  - *Status:* **Complete across 3 independent sources.**
-- **Coordinates:**
-  - Verified coordinates present for 100% of operational stations in OSM, CMRL Google Maps embed snippets, and GTFS.
-- **Station Codes:**
-  - Sourced from official CMRL disclosures and curated gazetteer.
-- **Facilities & Universal Accessibility:**
-  - Lifts, escalators, wheelchair assistance, tactile paving, accessible toilets, and parking captured directly from official CMRL API disclosures.
-- **Station Entrances & Exits:**
-  - High-resolution entrance gate nodes captured via OpenStreetMap (`subway_entrance`).
+  - *Source 1 (CMRL WordPress REST API):* 43 station disclosures (representing 41 unique physical stations, with dual-corridor listings for Central and Alandur). Ingested into `data/raw/cmrl/2026-09-18/cmrl_station_information_api.json`.
+  - *Source 2 (OSM Overpass):* 178 subway platform, entrance, and station nodes.
+  - *Source 3 (Community GTFS):* 35 metro station stop entries.
+  - *Canonicalization Status:* All 3 sources canonicalized into 41 core physical stations in `transport_stops`, with multi-source links in `entity_source_links`.
+- **Accessibility & Facilities:**
+  - 100% of core CMRL stations have official lift, escalator, ramp, wheelchair assistance, and accessible toilet disclosures populated in `accessibility`.
 - **Phase II Corridors (Corridors 3, 4, 5):**
-  - Captured in CMRL API taxonomy (`phase_two_ids`) and OSM proposed/construction railway ways.
+  - Acquired official CMRL Phase II disclosure HTML (`cmrl_phase2_corridor_status.html`) and official map PDF (`cmrl_phase2_map_official.pdf`, 3.34 MB).
+  - Corridors 3, 4, and 5 (118.9 km, 128 planned stations, target 2028) dynamically parsed into `transport_routes` with `under_construction` status and explicit provenance to `CMRL_OFFICIAL`.
 
 ### 2.2. Chennai Suburban Railway (Southern Railway)
-- **Stations & Lines:**
-  - *South Line:* Chennai Beach – Egmore – Guindy – Tambaram – Chengalpattu (extends to Melmaruvathur).
-  - *West Line:* Chennai Central (MMC) – Perambur – Villivakkam – Avadi – Tiruvallur – Arakkonam.
-  - *North Line:* Chennai Central (MMC) – Washermanpet – Ennore – Gummidipoondi – Sullurpeta.
-  - *Source Count:* 288 railway station/halt nodes captured from OpenStreetMap across Chennai division; suburban stations verified against Southern Railway station code directory.
-  - *Chennai-Serving External Nodes:* Retained in accordance with revised strategy (e.g. Arakkonam, Tiruvallur, Chengalpattu, Gummidipoondi).
-- **Coordinates:**
-  - 100% of Suburban stations have precise WGS84 coordinates from OSM railway ways/nodes.
-- **Tamil Names:**
-  - OSM captures `name:ta` for >90% of suburban stations.
-- **Timetable Disclosures:**
-  - Line-level operating spans captured in `service_info`. Detailed seasonal train-by-train timings logged as Type B fetch (`MANUAL_ACTION_REQUIRED.md`).
+- **Stations & Network:**
+  - 107 physical stations and halts across Chennai Division canonicalized in `transport_stops`.
+  - Covers South Line (Beach to Chengalpattu), West Line (Central MMC to Arakkonam), and North Line (Central MMC to Gummidipoondi/Sullurpeta).
+  - Preserves authoritative station codes (MAS, MS, MSB, TBM, CGL, TRL, AJJ).
+  - 95 external railway stations outside the expanded CMA boundary are retained with `inside_cma = 0` to preserve complete commuter transit corridors.
+- **Timetable Gaps:**
+  - Official static bulk GTFS is not published by Southern Railway. Line-level operating spans are captured; dynamic trip enquiries rely on NTES/UTS. Documented as Type B in `MANUAL_ACTION_REQUIRED.md`.
 
 ### 2.3. Chennai MRTS (Mass Rapid Transit System)
-- **Stations:**
-  - Full corridor: Chennai Beach, Chennai Fort, Chennai Park Town, Chintadripet, Chepauk, Thiruvallikeni (Triplicane), Light House, Mundakakanni Amman Koil, Thirumayilai (Mylapore), Mandaveli, Greenways Road, Kotturpuram, Kasturba Nagar, Indira Nagar, Thiruvanmiyur, Taramani, Perungudi, Velachery, and the St. Thomas Mount link.
-  - *Source Count:* Present in both OSM railway relations and curated multimodal reference.
-- **Coordinates & Viaducts:**
-  - 100% spatial coordinate coverage from OSM viaduct geometries and platform nodes.
+- **Corridor & Stations:**
+  - Elevated viaduct corridor from Chennai Beach to Velachery (and link to St. Thomas Mount).
+  - 19 viaduct stations with verified platform coordinates and physical interchange connections at Chennai Beach, Chennai Fort, Chennai Park, and St. Thomas Mount.
 
-### 2.4. MTC Bus Network
-- **Routes & Variants:**
-  - 4,614 commercial route variants captured in staged Community GTFS (`routes.txt`).
-  - Covers mainline routes (e.g. 102, 21G, 29C, 570, 11G, 27B) and variants (A, B, C, X, cut-trips, express).
-- **Stops & Stages:**
-  - 5,624 physical bus stops captured in GTFS `stops.txt`, and 1,308 bus stations/stops in OSM.
-  - 100% of GTFS stops have valid coordinates (latitude 12.6148° to 13.4904°, longitude 79.8019° to 80.3358°).
-- **Route Stop Sequences:**
-  - 1,360,635 timed stop observations in `stop_times.txt` linking 47,149 scheduled trips.
+### 2.4. MTC City Bus Network
+- **Official Ingestion:**
+  - Acquired official MTC fare table (`mtc_official_fares.html`), 685 official route codes (`mtc_official_routes.html`), and 1,562 official bus stages (`mtc_official_stages.html`).
+- **Commercial Routes & Sequences:**
+  - 4,614 commercial route variants in canonical `transport_routes`.
+  - 6,870 canonical physical bus stops in `transport_stops`.
+  - 47,149 scheduled trips and 1,360,635 stop-time observations in GTFS.
 - **Major Bus Terminals:**
-  - Dedicated terminals captured in both OSM and GTFS: CMBT Koyambedu, KCBT Kilambakkam, MMBT Madhavaram, Broadway (Parrys), T. Nagar, Adyar Depot, Poonamallee, Red Hills, Thiruvanmiyur Depot, Tambaram, Avadi, Velachery.
+  - Dedicated terminals cataloged: CMBT Koyambedu, KCBT Kilambakkam, MMBT Madhavaram, Broadway, T. Nagar, Adyar, Poonamallee, Red Hills, Thiruvanmiyur, Tambaram, Avadi, Velachery.
 
 ### 2.5. Geographic Intelligence & POIs
-- **CMA Administrative Boundary:**
-  - Official boundary relations for Chennai District (7910817) and Corporation (1766358) acquired from OpenStreetMap with full geometry polygon.
-- **Transport-Relevant POIs:**
-  - 1,696 POIs acquired and preserved in raw OSM extract:
-    - Hospitals: Rajiv Gandhi Government General, Apollo, Stanley, Kilpauk Medical, MIOT, Fortis Malar, etc.
-    - Universities & Colleges: Anna University, IIT Madras, University of Madras, Loyola College, Stella Maris, Pachaiyappa's, etc.
-    - Malls & Markets: Phoenix MarketCity, Express Avenue, VR Chennai, Koyambedu Wholesale Market, Ranganathan Street.
-    - Beaches & Tourism: Marina Beach, Elliot's Beach, Santhome Basilica, Kapaleeshwarar Temple, Guindy National Park.
-    - Technology Parks: TIDEL Park, Ramanujan IT City, Ascendas International Tech Park, DLF Cybercity.
-    - Government & Civil: Ripon Building, Secretariat Fort St. George, High Court.
-    - Transport Hubs & Aeroways: Chennai International Airport (MAA), Central, Egmore, Tambaram, CMBT, KCBT.
+- **Official CMA Boundary:**
+  - Acquired official CUMTA / TNGIS boundary MultiPolygon (`cumta_cma_boundary_official.geojson`, 7,157 vertices, bounding box ~12.468°N to 13.563°N).
+  - Replaced hardcoded bounding box with exact ray-casting point-in-polygon classification.
+- **Places & POIs:**
+  - 1,621 normalized places in `places` catalog (1,282 inside CMA, 339 outside CMA).
+  - High-value categories: 412 hospitals, 345 colleges/schools, 128 universities, 96 tourist attractions, 84 malls, 65 government offices, 48 IT parks, 32 transport terminals, 22 stadiums, 18 beaches.
 
 ---
 
-## 3. Evaluation of Section 37 Collection Stop Conditions
+## 3. Upstream Gaps & Handling Strategy
 
-| Stop Condition Requirement | Status | Verification Evidence |
-| :--- | :--- | :--- |
-| 1. Every required major data category has >= 1 credible source | **PASSED** | Metro, Suburban, MRTS, Bus, Terminals, POIs, Boundaries all populated from credible sources. |
-| 2. Core transport network entities have multiple sources where feasible | **PASSED** | Metro (CMRL API + OSM + GTFS), Bus (GTFS + OSM), Rail (OSM + SR), Terminals (OSM + GTFS). |
-| 3. Primary official sources checked wherever available | **PASSED** | Official CMRL API, CUMTA portal, MTC portal checked. |
-| 4. Known disagreements recorded | **PASSED** | Logged in conflict tracking (e.g. multi-line station listings, straight-line MTC geometry). |
-| 5. No major unexplained network gap remains | **PASSED** | CMA boundary and all major passenger rail/bus corridors represented. |
-| 6. Missing information explicitly listed | **PASSED** | Documented in Section 4 below and in `MANUAL_ACTION_REQUIRED.md`. |
-| 7. Data requiring manual/user intervention separated | **PASSED** | Recorded in `MANUAL_ACTION_REQUIRED.md` (Type B) and `MANUAL_DATASET_REQUIRED.md` (Type C). |
-
----
-
-## 4. Summary of Unresolved Upstream Gaps & Handling Strategy
-
-1. **Official CUMTA Integrated GTFS:**
-   - *Status:* Unpublished publicly on `cumta.tn.gov.in`.
-   - *Handling:* Logged as Type B in `MANUAL_ACTION_REQUIRED.md`. Overlapping community GTFS + CMRL API + OSM utilized without blocking.
-2. **Pedestrian Walking Transfer Micro-Geometry:**
-   - *Status:* Station complex interior walking paths (e.g. underground tunnel between Central Metro and Suburban MMC) not fully represented in GTFS `transfers.txt`.
-   - *Handling:* Marked for candidate generation in Phase 17/18 and human gate review in Phase 18 (`MANUAL_DATASET_REQUIRED.md`).
-3. **MTC Bus Road Geometries:**
-   - *Status:* GTFS `shapes.txt` uses point-to-point stop connectivity rather than precise street centerline polylines.
-   - *Handling:* Stored as-is in Bronze/Silver; road snapping deferred to map-matching pipelines.
+| Gap Item | Agency | Root Cause | Handling Strategy |
+| :--- | :--- | :--- | :--- |
+| **CUMTA Open Data GTFS** | CUMTA | `opendata.cumta.org` returns `NXDOMAIN`; `cumta.org` is an internal WebGIS dashboard requiring government login/captcha. | Logged technical blocker in `MANUAL_ACTION_REQUIRED.md`. Retained 8.7MB community GTFS as Tier-3 overlapping evidence. |
+| **Southern Railway Static GTFS** | Southern Railway | Indian Railways does not publish static machine-readable bulk GTFS timetables. | Retained complete station network, lines, codes, and commuter sequences via OSM and GTFS. Logged in `MANUAL_ACTION_REQUIRED.md`. |
+| **MTC Real-Time Telemetry** | MTC | Live GPS feeds are hosted behind dynamic mobile app session tokens. | Static route directory, fare stages, and schedules are fully sufficient for static knowledge base. Deferred real-time telemetry to downstream phase. |
+| **Devanagari Hindi Station Names** | All Agencies | Raw government sources publish English and Tamil strings, but do not provide Hindi strings for Chennai transit stations. | Corrected coverage claim from 100% to 0%. Deferred synthetic translation to the NLP phase. |

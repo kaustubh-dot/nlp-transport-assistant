@@ -29,15 +29,7 @@ os.makedirs(NORMALIZED_DIR, exist_ok=True)
 OUTPUT_CSV = os.path.join(NORMALIZED_DIR, "normalized_stops.csv")
 OUTPUT_JSON = os.path.join(NORMALIZED_DIR, "normalized_stops.json")
 
-# Approximate Chennai Metropolitan Area bounds (for inside_cma polygon proxy)
-# Lat: 12.82 to 13.28, Lon: 80.00 to 80.35
-CMA_LAT_MIN, CMA_LAT_MAX = 12.82, 13.28
-CMA_LON_MIN, CMA_LON_MAX = 80.00, 80.35
-
-# Regional plausibility bounds (Chennai region + suburban rail corridors)
-# Lat: 12.00 to 14.00, Lon: 79.00 to 81.00
-REGIONAL_LAT_MIN, REGIONAL_LAT_MAX = 12.00, 14.00
-REGIONAL_LON_MIN, REGIONAL_LON_MAX = 79.00, 81.00
+from scripts.normalize.compute_cma_boundary import is_point_inside_cma, is_regionally_plausible
 
 
 def clean_name(s: str) -> str:
@@ -50,15 +42,11 @@ def clean_name(s: str) -> str:
 
 
 def is_inside_cma(lat: float, lon: float) -> bool:
-    if lat is None or lon is None:
-        return False
-    return (CMA_LAT_MIN <= lat <= CMA_LAT_MAX) and (CMA_LON_MIN <= lon <= CMA_LON_MAX)
+    return is_point_inside_cma(lat, lon)
 
 
 def is_coordinate_plausible(lat: float, lon: float) -> bool:
-    if lat is None or lon is None:
-        return False
-    return (REGIONAL_LAT_MIN <= lat <= REGIONAL_LAT_MAX) and (REGIONAL_LON_MIN <= lon <= REGIONAL_LON_MAX)
+    return is_regionally_plausible(lat, lon)
 
 
 def normalize_all_stops():

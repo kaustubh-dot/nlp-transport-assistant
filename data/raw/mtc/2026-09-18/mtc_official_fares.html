@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Metropolitan Transport Corporation (Chennai) Ltd</title>
+<!-- Stylesheets -->
+ 	<link href="https://mtcbus.tn.gov.in/asset/css/bootstrap.css" rel="stylesheet">
+	<link href="https://mtcbus.tn.gov.in/asset/css/style.css" rel="stylesheet">
+	<link href="https://mtcbus.tn.gov.in/asset/css/responsive.css" rel="stylesheet">
+	<link href="https://mtcbus.tn.gov.in/asset/css/aos.css" rel="stylesheet">
+    
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+	<link href="https://mtcbus.tn.gov.in/asset/css/unicodefonts.css" rel="stylesheet">
+ 
+
+	<link rel="shortcut icon" href="https://mtcbus.tn.gov.in/asset/images/favicon.png" type="image/x-icon">
+	<link rel="icon" href="https://mtcbus.tn.gov.in/asset/images/favicon.png" type="image/x-icon">
+	<!-- Responsive -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+	<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+    <script>
+function gotonews()
+{
+	location.href="https://mtcbus.tn.gov.in/Home/news";
+}
+</script> <style type="text/css">
+    .stage {float:left; padding:.6em 1.25em;  
+	background-color:#eee; 
+	line-height:1em; 
+	position:relative; 
+	margin:1em 0 0 0; 
+	text-align:center; 
+	font-weight:bold; 
+	border-right:1px solid #ddd;}
+.stage span {display:block; color:#08f; font-size:.9em; font-weight:normal;}
+.stage span.rate {margin-top:.5em;}
+.stage span.rate:before {content:'\20B9';}
+.stage span.rate.no-sym {color:red;}
+.stage span.rate.no-sym:before {content:'';}
+.stage.start, .stage.end {background-color:#f15353; color:#fff;}
+.stage.start {border-radius:.5em 0 0 .5em;}
+.stage.end {border-radius:0 .5em .5em 0;} 
+ </style>
+<style>
+.nav-tabs {
+	border-bottom: 0px solid #ddd;
+}
+.nav-tabs > li > a {
+	color:#FFF;
+}
+
+.nav-tabs > li > a:hover {
+	color:#555;;
+}
+.panel-heading {
+	//padding: 10px 15px;
+	padding: 0px 15px 0px 5px;
+	border-bottom: 1px solid transparent;
+	
+	border-bottom-color: transparent;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	//border-bottom-left-radius: 3px;
+	//border-bottom-right-radius: 3px;
+	padding-top:1%;
+	background-color:#f15353 !important;
+	border-color:#f15353 !important;
+}	
+.panel-primary {
+    border-color: #f15353 !important;
+}
+</style>	
+</head>
+
+<body onload="getservicefarenote(1);">
+
+<div class="page-wrapper">
+ 	
+    <!-- Preloader -->
+    <div class="preloader"></div>
+ 	
+    <!-- header -->
+    
+
+ 
+    <script src="https://mtcbus.tn.gov.in/asset/js/jquery.min.js"></script>
+<script>
+ 
+  $(function () {
+  count = 0;
+  wordsArray = ["வாய்மை எனப்படுவது யாதெனின் யாதொன்றும்<br/>தீமை இலாத சொலல்","பொய்மையும் வாய்மை யிடத்த புரைதீர்ந்த<br/>நன்மை பயக்கும் எனின்","தன்நெஞ் சறிவது பொய்யற்க பொய்த்தபின்<br/>தன்நெஞ்சே தன்னைச் சுடும்","உள்ளத்தாற் பொய்யா தொழுகின் உலகத்தார்<br/>உள்ளத்து ளெல்லாம் உளன்","மனத்தொடு வாய்மை மொழியின் தவத்தொடு<br/>தானஞ்செய் வாரின் தலை","பொய்யாமை அன்ன புகழில்லை எய்யாமை<br/>எல்லா அறமுந் தரும்","   பொய்யாமை பொய்யாமை ஆற்றின் அறம்பிற<br/>செய்யாமை செய்யாமை நன்று","புறள்தூய்மை நீரான் அமையும் அகந்தூய்மை<br/>வாய்மையால் காணப் படும்","எல்லா விளக்கும் விளக்கல்ல சான்றோர்க்குப்<br/>பொய்யா விளக்கே விளக்கு","யாமெய்யாக் கண்டவற்றுள் இல்லை எனைத்தொன்றும்<br/>வாய்மையின் நல்ல பிற"];
+  setInterval(function () {
+    count++;
+    $("#word").fadeOut(400, function () {
+      $(this).html(wordsArray[count % wordsArray.length]).fadeIn(400);
+    });
+  }, 10000);
+});
+	
+	/*$(function () {
+		$('#selroute').change( function(){
+			var selroute	=	$('#selroute').val();
+			$.post('https://mtcbus.tn.gov.in/Home/getoriginbyroute/'+selroute, function(data){
+				//alert(data);
+				$('#origincontainer').html(data);
+			});
+		});
+		
+		
+	});	
+	
+	function getdestinationrouteorigin(selroute,selfrom)
+	{
+		$.post('https://mtcbus.tn.gov.in/Home/getdestinationrouteorigin/'+selroute+'/'+selfrom, function(data){
+			$('#destinationcontainer').html(data);
+		});
+	}*/
+	
+	/**/
+	
+	// function gotoroutewisepage(routeno)
+	// {
+	// 	$('#selroute').val(routeno);	
+	// 	document.stagewisesearchform.action='https://mtcbus.tn.gov.in/Home/routewiseinfo';
+	// 	document.stagewisesearchform.submit();	
+	// }
+</script>
+
+<style>
+@media screen and (max-width: 676px) {
+  #topmessage {
+    visibility: hidden;
+    clear: both;
+    display: none;
+  }
+}
+.main-menu .navigation > li > ul > li > a {
+	font-size:14px;
+	padding: 10px 0px;
+	line-height:22px;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1140px) {
+	.main-menu .navigation > li > ul > li > a {
+		font-size:10px;
+		padding: 1px 0px 10px 0px;
+		line-height:22px;
+	}
+}
+@media screen and (min-width: 1141px) and (max-width: 1353px) {
+	.main-menu .navigation > li > ul > li > a {
+		font-size:11px;
+		padding: 1px 0px 10px 0px;
+		line-height:22px;
+	}
+}
+</style>
+     
+    <!-- Main Header / Header Style Two-->
+    <header class="main-header header-style-two">
+   <!--<div class="topbar" id="topmessage"> 
+	
+	<div class="auto-container">
+            	<div class="clearfix">
+	<ul class="social-bx list-inline pull-left">
+            <li><a href="#" style="color:#f15353 !important; font-size:15px !important; font-weight:700 !important;">
+              Live Bus Track             </a></li>
+			  </ul>
+	  
+		<div class="wt-topbar-right pull-right clearfix">
+          <ul class="social-bx list-inline pull-left">
+           <!-- <li><a href="#main-content">
+              Skip to Main Content              </a></li>
+            <ul class="skipcontent">
+              <li class="themeoption"> <a href="https://mtcbus.tn.gov.in/?theme=blue" class="theme bluetheme">&nbsp;</a> 
+			  <a href="https://mtcbus.tn.gov.in/?theme=orange" class="theme orangetheme">&nbsp;</a> 
+			  <a href="https://mtcbus.tn.gov.in/?theme=red" class="theme redtheme">&nbsp;</a> </li>
+              <li class="textsize"> <a href="javascript:void(0);" id="toggleSocial" title=""> <img class="top" src="https://mtcbus.tn.gov.in/asset/images/ico-accessibility.png" > </a>
+                 <ul style="visibility:hidden;">
+                  <li><a href="#" title="Text Size Increase/Decrease" onclick="fontIncrease();">T<sup>+</sup></a></li>
+                  <li><a href="#" title="Text Size Increase/Decrease" onclick="fontNormal();">T</a></li>
+                  <li><a href="#" title="Text Size Increase/Decrease" onclick="fontDecrease();">T<sup>-</sup></a></li>
+                </ul>
+              </li>
+               
+              
+            </ul>
+             
+            
+              <ul class="langlist list-unstyled e-p-bx top-link pull-right" >
+                  <div class="region region-social-media">
+    <div id="block-locale-language" class="block block-locale">
+
+    
+  <div class="content">
+    <ul class="language-switcher-locale-url">
+	<!--<li class="en first active"><a href="/" class="language-link active" xml:lang="en">English</a></li>
+	<li><img src="https://mtcbus.tn.gov.in/asset/images/mobile1.png" alt="phone" /> <a href="tel:+919445030516" target="_blank">+91 9445030516</a></li>
+	<li><img src="https://mtcbus.tn.gov.in/asset/images/phone1.png" alt="phone" /> <a href="tel:04423455888" target="_blank">044 23455888</a></li>
+ 
+</ul>  </div>
+</div>
+  </div>
+              </ul>
+            
+          </ul>
+        </div>
+        </div>
+        
+      </div>
+	
+	</div>-->
+    	<!-- Header Top -->
+    	<div class="header-top headertop" id="topmessage">
+        	<div class="auto-container">
+            	<div class="clearfix">
+                    
+                    <!--Top Left-->
+                    <div class="top-left">  
+					                    
+					<span >
+                       <a href="https://mtcbus.tn.gov.in/" ><img src="https://mtcbus.tn.gov.in/asset/images/newlogo.png"  alt="MTC" width="350" /></a>
+                    </span>
+                    	 
+                    </div>
+                    
+                    <!--Top Right-->
+                    <div class="top-right clearfix">
+                    	<ul class="clearfix">
+                               
+							<li style="font-size: 15px; line-height: 1.4;color: #000;text-align:Center;border-right: 0px;"><span class="unicode-style20"><span id="word">வாய்மை எனப்படுவது யாதெனின் யாதொன்றும்<br/>தீமை இலாத சொலல் </span></span></li>
+							<li><img src="https://mtcbus.tn.gov.in/asset/images/icons/thiruvalluvar.png" alt="Thirukural" style="width: 50px;"></li> 
+	
+						   <!--  <li><a href="#" style="color: #fff;"><span class="icon flaticon-user" style="color: #fff;"></span>Login</a> </li> -->
+	
+							 <!--    <li><a href="#"><span class="icon flaticon-user"></span>Login</a> <span>or</span> <a href="#"><span class="icon flaticon-upload"></span>Register</a></li> -->
+								<!--Search Box-->
+						
+                        </ul>
+                    </div>
+					
+                </div>
+                
+            </div>
+        </div>
+        <!-- Header Top End --> 
+        <!-- Main Box -->
+    	<div class="main-box">
+        	<div class="auto-container">
+            	<div class="outer-container clearfix">
+                    <!--Logo Box     sssssssssssss-->
+                   
+                    
+                    <!--Nav Outer-->
+                    <div class="nav-outer clearfix"> 
+                        <!-- Main Menu -->
+                        <nav class="main-menu">
+
+                            <div class="navbar-header">
+								<div class="top-left hidden-md hidden-lg hidden-sm" style="float:left;">   
+									<span >
+									<a href="https://mtcbus.tn.gov.in/" ><img src="https://mtcbus.tn.gov.in/asset/images/newlogo.png"  alt="MTC" width="200" /></a>
+									</span> 
+								</div>  
+                                <!-- Toggle Button -->    	
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+							
+                            <div class="navbar-collapse collapse clearfix">
+                                								<ul class="navigation clearfix">
+																											<li style="padding: 0px;" > <a href="https://mtcbus.tn.gov.in/Home">Home</a>
+																											</li>	
+																											<li style="padding: 0px;" class="dropdown"> <a href="#">About us</a>
+																												<ul>
+									                                            <li><a href="https://mtcbus.tn.gov.in/Home/about">About MTC</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/performance">Performance</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/depotunits">Depot Units</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/busservices">Bus Services</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/fleet_scheduled_services">Fleet & Scheduled Services</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/facilities">Facilities</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/rti">RTI - ACT</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/gallery">Photo Gallery / Press-Clips</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/vgallery">Video Gallery</a></li>
+                                            											
+																					</ul>
+																		</li>	
+																											<li style="padding: 0px;" > <a href="https://mtcbus.tn.gov.in/Home/fares">Fare List</a>
+																											</li>	
+																											<li style="padding: 0px;" class="dropdown"> <a href="#">Concession Fares</a>
+																												<ul>
+									                                            <li><a href="https://mtcbus.tn.gov.in/Home/travelasyou/11">Travel as you Please</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/commuters/12">Commuters (General Monthly Pass)</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/pressreporters/13">Press Reporters</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/students/14">Students
+</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/handicapped/15">Differently Abled/ Intellectually-Disabled</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/concblind/16">Visually Impaired</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/freedomfighters/17">Freedom Fighters & Others</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/senior_citizen/18">Senior Citizens</a></li>
+                                            											
+																					</ul>
+																		</li>	
+																											<li style="padding: 0px;" class="dropdown"> <a href="#">Bus Info</a>
+																												<ul>
+									                                            <li><a href="https://mtcbus.tn.gov.in/Home/bustimingsearch">Bus Timings</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/routewiseinfo">Route-wise info</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/stagewiseinfo">Stage-wise info</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/nightserviceinfo">NightServiceinfo</a></li>
+                                            											
+																					</ul>
+																		</li>	
+																											<li style="padding: 0px;" class="dropdown"> <a href="#">Corporate Info</a>
+																												<ul>
+									                                            <li><a href="https://mtcbus.tn.gov.in/Home/contact_persons#TransportMinister">Transport Minister</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/contact_persons#AuditCommitteeMembers">Audit Committee Members</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/contact_persons#FinanceCommitteeMembers">Finance Committee Members</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/contact_persons#BoardOfDirectors">Board of Directors</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/contact_persons#CorporateOffice">Corporate Officers</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/contact_persons#BranchManagers">Branch Managers</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/AnnualReport">Annual Report</a></li>
+                                            											
+																					</ul>
+																		</li>	
+																											<li style="padding: 0px;" class="dropdown"> <a href="#">Others</a>
+																												<ul>
+									                                            <li><a href="https://mtcbus.tn.gov.in/Home/news">News</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/noticeannouncement">Notice & Announcements</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/charteredtrips">Chartered Trips</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/hiringbuses">Hiring Buses</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/tender">Tender</a></li>
+                                            											
+											                                            <li><a href="https://mtcbus.tn.gov.in/Home/form">Downloads</a></li>
+                                            											
+																						<li><a href="http://www.tn.gov.in" target="_blank">www.tn.gov.in</a></li>
+																				<li><a href="http://www.asrtu.org" target="_blank">www.asrtu.org</a></li>
+																				<li><a href="http://www.tnstc.in" target="_blank">www.tnstc.in</a></li>
+																			</ul>
+																		</li>	
+																		
+								</ul>	
+																
+								
+							</div>
+							
+                        </nav>
+                        <!-- Main Menu End-->
+                        
+                        <!--Outer Box-->
+                       
+                        
+                    </div>
+                    <!--Nav Outer End-->
+                    
+            	</div>    
+            </div>
+        </div>
+    	
+        <!--Sticky Header-->
+        <div class="sticky-header">
+        	<div class="auto-container">
+            	
+                <div class="outer-container clearfix">
+                    <!--Logo Box-->
+                   
+                    <span >
+                       <a href="https://mtcbus.tn.gov.in/" ><img src="https://mtcbus.tn.gov.in/asset/images/mtclogo.png"  alt="MTC" width="350" /></a>
+                    </span>
+                   
+                    <!--Nav Outer-->
+                    <div class="nav-outer clearfix">
+                        <!-- Main Menu -->
+                        <nav class="main-menu">
+                            <div class="navbar-header">
+                                <!-- Toggle Button -->    	
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            
+                            <div class="navbar-collapse collapse clearfix">
+																<ul class="navigation clearfix">
+																		<li ><a href="https://mtcbus.tn.gov.in/Home">Home</a>
+																		</li>	
+																		<li class="dropdown"><a href="#">About us</a>
+																			<ul>
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/about">About MTC</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/performance">Performance</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/depotunits">Depot Units</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/busservices">Bus Services</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/fleet_scheduled_services">Fleet & Scheduled Services</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/facilities">Facilities</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/rti">RTI - ACT</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/gallery">Photo Gallery / Press-Clips</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/vgallery">Video Gallery</a></li>
+                                            									
+                                    
+                                    		
+																				</ul>	
+																		</li>	
+																		<li ><a href="https://mtcbus.tn.gov.in/Home/fares">Fare List</a>
+																		</li>	
+																		<li class="dropdown"><a href="#">Concession Fares</a>
+																			<ul>
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/travelasyou/11">Travel as you Please</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/commuters/12">Commuters (General Monthly Pass)</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/pressreporters/13">Press Reporters</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/students/14">Students
+</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/handicapped/15">Differently Abled/ Intellectually-Disabled</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/concblind/16">Visually Impaired</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/freedomfighters/17">Freedom Fighters & Others</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/senior_citizen/18">Senior Citizens</a></li>
+                                            									
+                                    
+                                    		
+																				</ul>	
+																		</li>	
+																		<li class="dropdown"><a href="#">Bus Info</a>
+																			<ul>
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/bustimingsearch">Bus Timings</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/routewiseinfo">Route-wise info</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/stagewiseinfo">Stage-wise info</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/nightserviceinfo">NightServiceinfo</a></li>
+                                            									
+                                    
+                                    		
+																				</ul>	
+																		</li>	
+																		<li class="dropdown"><a href="#">Corporate Info</a>
+																			<ul>
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/contact_persons#TransportMinister">Transport Minister</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/contact_persons#AuditCommitteeMembers">Audit Committee Members</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/contact_persons#FinanceCommitteeMembers">Finance Committee Members</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/contact_persons#BoardOfDirectors">Board of Directors</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/contact_persons#CorporateOffice">Corporate Officers</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/contact_persons#BranchManagers">Branch Managers</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/AnnualReport">Annual Report</a></li>
+                                            									
+                                    
+                                    		
+																				</ul>	
+																		</li>	
+																		<li class="dropdown"><a href="#">Others</a>
+																			<ul>
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/news">News</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/noticeannouncement">Notice & Announcements</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/charteredtrips">Chartered Trips</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/hiringbuses">Hiring Buses</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/tender">Tender</a></li>
+                                            									
+                                    
+                                    		
+										                                            <li><a href="https://mtcbus.tn.gov.in/Home/form">Downloads</a></li>
+                                            									
+                                    
+                                    		
+																					<li><a href="http://www.tn.gov.in" target="_blank">http://www.tn.gov.in</a></li>
+																				<li><a href="http://www.asrtu.org" target="_blank">http://www.asrtu.org</a></li>
+																				<li><a href="http://www.tnstc.in" target="_blank">http://www.tnstc.in</a></li>
+										
+																				</ul>	
+																		</li>	
+																	</ul>
+															
+                                
+                            </div>
+                        </nav>
+                        <!-- Main Menu End-->
+                        
+                    </div>
+                    <!--Nav Outer End-->
+                    
+            	</div>
+                
+            </div>
+        </div>
+        <!--End Sticky Header-->
+        
+    </header>
+	<!--End Main Header -->
+		
+	<!--Customer Care -->
+	<section class="section topphone" style="position: relative; padding: 0px; color:blue; box-sizing: border-box;height: 30px;"><div class="auto-container">
+		<div class="row clearfix"><div class="col-sm-12" style="height:50px !important;">
+		
+		
+			  <div class="pull-left">
+				 
+				<div class="col-sm-12">
+				
+					<div class="pull-left bluetop"><img src="https://mtcbus.tn.gov.in/asset/images/Web.png" alt="phone" style="color:blue" /> <a href="https://commuter.mtcbusits.in/commuter/dashboard" style="color:#0000ff !important; font-size:15px !important; font-weight:700 !important;" target="_blank">Live Tracking</a></div>				
+					&nbsp;&nbsp;
+					<div class="pull-right bluetop"><img src="https://mtcbus.tn.gov.in/asset/images/mobile1.png" alt="phone" style="color:blue" /> <a href="tel:+91-9445030516" style="color:#0000ff !important; font-size:15px !important; font-weight:700 !important;" target="_blank">Customer Care No.: +91-9445030516, Mail ID: customercare[dot]mtc[at]tn[dot]gov[dot]in</a></div> 
+					&nbsp;&nbsp;
+					<div class="pull-right bluetop"><img src="https://mtcbus.tn.gov.in/asset/images/phone1.png" alt="phone" style="color:blue" /> <a href="tel:044-23455888" style="color:#0000ff !important; font-size:15px !important; font-weight:700 !important;" target="_blank">Toll Free : 149</a></div>
+					
+	
+				
+				</div>
+			</div>
+			
+			</div></div>
+		</div>
+	</section>
+	<!--End Customer Care -->
+    <!-- End header -->
+    
+
+    
+
+    
+    <!--We Are Section-->
+    <section class="we-are-section" style="padding-bottom: 0px;">
+    	<div class="auto-container aos-item" data-aos="zoom-in">
+        	<div class="row clearfix">
+            	<!--Content Column-->
+
+                     <div class="content-column col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xs-12">
+                        <div class="inner-column">
+                        <center><h2>Bus Fares</h2></center>
+							
+						
+                    	<!--Our Single-->
+                    	<h3 class="content-title mt-0">Stage-wise fare (For 1 Adult)</h3>
+                                    
+						<div class="row">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-sm-6 color-gray">
+										[Effective from 29-01-2018]									</div>
+									
+									<div class="col-sm-6 text-right color-gray">
+										[G.O (Ms.) No.48 Dated 28.01.2018]									</div>
+								</div>
+
+
+																									
+									<div class="panel with-nav-tabs panel-primary">
+									<div class="panel-heading">
+											<ul class="nav nav-tabs">
+																								<li class=""><a href="#tab0" data-toggle="tab" onclick="getservicefarenote(1);"><strong>Ordinary Services</strong></a></li>
+												
+																								<li class="active"><a href="#tab1" data-toggle="tab" onclick="getservicefarenote(2);"><strong>Express Services</strong></a></li>
+												
+																								<li class=""><a href="#tab2" data-toggle="tab" onclick="getservicefarenote(3);"><strong>Deluxe Services</strong></a></li>
+												
+																								<li class=""><a href="#tab3" data-toggle="tab" onclick="getservicefarenote(5);"><strong>Small</strong></a></li>
+												
+																								<li class=""><a href="#tab4" data-toggle="tab" onclick="getservicefarenote(7);"><strong>Night services</strong></a></li>
+												
+																								<li class=""><a href="#tab5" data-toggle="tab" onclick="getservicefarenote(10);"><strong>E/V Deluxe Service</strong></a></li>
+												
+																								<li class=""><a href="#tab6" data-toggle="tab" onclick="getservicefarenote(11);"><strong>E/V A/C Service</strong></a></li>
+												
+																								<li class=""><a href="#tab7" data-toggle="tab" onclick="getservicefarenote(13);"><strong>Chennai Ula Vintage Services</strong></a></li>
+												
+																								<li class=""><a href="#tab8" data-toggle="tab" onclick="getservicefarenote(14);"><strong>Pink Services</strong></a></li>
+												
+																								<li class=""><a href="#tab9" data-toggle="tab" onclick="getservicefarenote(15);"><strong>Chennai Ula A/C Services </strong></a></li>
+												
+																								<li class=""><a href="#tab10" data-toggle="tab" onclick="getservicefarenote(16);"><strong>Premium Services</strong></a></li>
+												
+																								
+											</ul>
+									</div>
+									
+									
+									<div class="panel-body">
+										<div class="tab-content">
+																						<div class="tab-pane fade active in" id="tab0">
+												<div class="row">
+													<div class="col-md-12">
+																												<div class="stage start col-md-1">Start <span class="rate">&nbsp;</span></div>
+																												<div class="stage col-md-1">1 <span class="rate">5.00</span></div>
+																												<div class="stage col-md-1">2 <span class="rate">6.00</span></div>
+																												<div class="stage col-md-1">3 <span class="rate">7.00</span></div>
+																												<div class="stage col-md-1">4 <span class="rate">8.00</span></div>
+																												<div class="stage col-md-1">5 <span class="rate">9.00</span></div>
+																												<div class="stage col-md-1">6 <span class="rate">10.00</span></div>
+																												<div class="stage col-md-1">7 <span class="rate">11.00</span></div>
+																												<div class="stage col-md-1">8 <span class="rate">12.00</span></div>
+																												<div class="stage col-md-1">9 <span class="rate">13.00</span></div>
+																												<div class="stage col-md-1">10 <span class="rate">14.00</span></div>
+																												<div class="stage col-md-1">11 <span class="rate">15.00</span></div>
+																												<div class="stage col-md-1">12 <span class="rate">15.00</span></div>
+																												<div class="stage col-md-1">13 <span class="rate">16.00</span></div>
+																												<div class="stage col-md-1">14 <span class="rate">16.00</span></div>
+																												<div class="stage col-md-1">15 <span class="rate">17.00</span></div>
+																												<div class="stage col-md-1">16 <span class="rate">17.00</span></div>
+																												<div class="stage col-md-1">17 <span class="rate">18.00</span></div>
+																												<div class="stage col-md-1">18 <span class="rate">18.00</span></div>
+																												<div class="stage col-md-1">19 <span class="rate">19.00</span></div>
+																												<div class="stage col-md-1">20 <span class="rate">19.00</span></div>
+																												<div class="stage col-md-1">21 <span class="rate">20.00</span></div>
+																												<div class="stage col-md-1">22 <span class="rate">20.00</span></div>
+																												<div class="stage col-md-1">23 <span class="rate">21.00</span></div>
+																												<div class="stage col-md-1">24 <span class="rate">21.00</span></div>
+																												<div class="stage col-md-1">25 <span class="rate">22.00</span></div>
+																												<div class="stage col-md-1">26 <span class="rate">22.00</span></div>
+																												<div class="stage col-md-1">27 <span class="rate">23.00</span></div>
+																												<div class="stage col-md-1">28 <span class="rate">23.00</span></div>
+																												<div class="stage col-md-1">29 <span class="rate">24.00</span></div>
+																												<div class="stage col-md-1">30 <span class="rate">24.00</span></div>
+																																										<div class="stage col-md-1 end">End <span class="rate">&nbsp;</span></div>
+																											</div>
+												</div>
+											</div>
+																						<div class="tab-pane fade " id="tab1">
+												<div class="row">
+													<div class="col-md-12">
+																												<div class="stage start col-md-1">Start <span class="rate">&nbsp;</span></div>
+																												<div class="stage col-md-1">1 <span class="rate">7.00</span></div>
+																												<div class="stage col-md-1">2 <span class="rate">9.00</span></div>
+																												<div class="stage col-md-1">3 <span class="rate">10.00</span></div>
+																												<div class="stage col-md-1">4 <span class="rate">12.00</span></div>
+																												<div class="stage col-md-1">5 <span class="rate">13.00</span></div>
+																												<div class="stage col-md-1">6 <span class="rate">15.00</span></div>
+																												<div class="stage col-md-1">7 <span class="rate">16.00</span></div>
+																												<div class="stage col-md-1">8 <span class="rate">18.00</span></div>
+																												<div class="stage col-md-1">9 <span class="rate">19.00</span></div>
+																												<div class="stage col-md-1">10 <span class="rate">21.00</span></div>
+																												<div class="stage col-md-1">11 <span class="rate">22.00</span></div>
+																												<div class="stage col-md-1">12 <span class="rate">22.00</span></div>
+																												<div class="stage col-md-1">13 <span class="rate">24.00</span></div>
+																												<div class="stage col-md-1">14 <span class="rate">24.00</span></div>
+																												<div class="stage col-md-1">15 <span class="rate">25.00</span></div>
+																												<div class="stage col-md-1">16 <span class="rate">25.00</span></div>
+																												<div class="stage col-md-1">17 <span class="rate">27.00</span></div>
+																												<div class="stage col-md-1">18 <span class="rate">27.00</span></div>
+																												<div class="stage col-md-1">19 <span class="rate">28.00</span></div>
+																												<div class="stage col-md-1">20 <span class="rate">28.00</span></div>
+																												<div class="stage col-md-1">21 <span class="rate">30.00</span></div>
+																												<div class="stage col-md-1">22 <span class="rate">30.00</span></div>
+																												<div class="stage col-md-1">23 <span class="rate">31.00</span></div>
+																												<div class="stage col-md-1">24 <span class="rate">31.00</span></div>
+																												<div class="stage col-md-1">25 <span class="rate">33.00</span></div>
+																												<div class="stage col-md-1">26 <span class="rate">33.00</span></div>
+																												<div class="stage col-md-1">27 <span class="rate">34.00</span></div>
+																												<div class="stage col-md-1">28 <span class="rate">34.00</span></div>
+																												<div class="stage col-md-1">29 <span class="rate">35.00</span></div>
+																												<div class="stage col-md-1">30 <span class="rate">35.00</span></div>
+																																										<div class="stage col-md-1 end">End <span class="rate">&nbsp;</span></div>
+																											</div>
+												</div>
+											</div>
+																						<div class="tab-pane fade " id="tab2">
+												<div class="row">
+													<div class="col-md-12">
+																												<div class="stage start col-md-1">Start <span class="rate">&nbsp;</span></div>
+																												<div class="stage col-md-1">1 <span class="rate">11.00</span></div>
+																												<div class="stage col-md-1">2 <span class="rate">13.00</span></div>
+																												<div class="stage col-md-1">3 <span class="rate">15.00</span></div>
+																												<div class="stage col-md-1">4 <span class="rate">17.00</span></div>
+																												<div class="stage col-md-1">5 <span class="rate">19.00</span></div>
+																												<div class="stage col-md-1">6 <span class="rate">21.00</span></div>
+																												<div class="stage col-md-1">7 <span class="rate">23.00</span></div>
+																												<div class="stage col-md-1">8 <span class="rate">25.00</span></div>
+																												<div class="stage col-md-1">9 <span class="rate">27.00</span></div>
+																												<div class="stage col-md-1">10 <span class="rate">29.00</span></div>
+																												<div class="stage col-md-1">11 <span class="rate">31.00</span></div>
+																												<div class="stage col-md-1">12 <span class="rate">31.00</span></div>
+																												<div class="stage col-md-1">13 <span class="rate">33.00</span></div>
+																												<div class="stage col-md-1">14 <span class="rate">33.00</span></div>
+																												<div class="stage col-md-1">15 <span class="rate">35.00</span></div>
+																												<div class="stage col-md-1">16 <span class="rate">35.00</span></div>
+																												<div class="stage col-md-1">17 <span class="rate">37.00</span></div>
+																												<div class="stage col-md-1">18 <span class="rate">37.00</span></div>
+																												<div class="stage col-md-1">19 <span class="rate">39.00</span></div>
+																												<div class="stage col-md-1">20 <span class="rate">39.00</span></div>
+																												<div class="stage col-md-1">21 <span class="rate">41.00</span></div>
+																												<div class="stage col-md-1">22 <span class="rate">41.00</span></div>
+																												<div class="stage col-md-1">23 <span class="rate">43.00</span></div>
+																												<div class="stage col-md-1">24 <span class="rate">43.00</span></div>
+																												<div class="stage col-md-1">25 <span class="rate">45.00</span></div>
+																												<div class="stage col-md-1">26 <span class="rate">45.00</span></div>
+																												<div class="stage col-md-1">27 <span class="rate">47.00</span></div>
+																												<div class="stage col-md-1">28 <span class="rate">47.00</span></div>
+																												<div class="stage col-md-1">29 <span class="rate">49.00</span></div>
+																												<div class="stage col-md-1">30 <span class="rate">49.00</span></div>
+																																										<div class="stage col-md-1 end">End <span class="rate">&nbsp;</span></div>
+																											</div>
+												</div>
+											</div>
+																						<div class="tab-pane fade " id="tab3">
+												<div class="row">
+													<div class="col-md-12">
+																												<div class="stage start col-md-1">Start <span class="rate">&nbsp;</span></div>
+																												<div class="stage col-md-1">1 <span class="rate">7.00</span></div>
+																												<div class="stage col-md-1">2 <span class="rate">9.00</span></div>
+																												<div class="stage col-md-1">3 <span class="rate">10.00</span></div>
+																												<div class="stage col-md-1">4 <span class="rate">12.00</span></div>
+																												<div class="stage col-md-1">5 <span class="rate">13.00</span></div>
+																												<div class="stage col-md-1">6 <span class="rate">15.00</span></div>
+																												<div class="stage col-md-1">7 <span class="rate">16.00</span></div>
+																												<div class="stage col-md-1">8 <span class="rate">18.00</span></div>
+																												<div class="stage col-md-1">9 <span class="rate">19.00</span></div>
+																												<div class="stage col-md-1">10 <span class="rate">21.00</span></div>
+																												<div class="stage col-md-1">11 <span class="rate">22.00</span></div>
+																												<div class="stage col-md-1">12 <span class="rate">22.00</span></div>
+																												<div class="stage col-md-1">13 <span class="rate">24.00</span></div>
+																												<div class="stage col-md-1">14 <span class="rate">24.00</span></div>
+																												<div class="stage col-md-1">15 <span class="rate">25.00</span></div>
+																												<div class="stage col-md-1">16 <span class="rate">25.00</span></div>
+																												<div class="stage col-md-1">17 <span class="rate">27.00</span></div>
+																												<div class="stage col-md-1">18 <span class="rate">27.00</span></div>
+																												<div class="stage col-md-1">19 <span class="rate">28.00</span></div>
+																												<div class="stage col-md-1">20 <span class="rate">28.00</span></div>
+																												<div class="stage col-md-1">21 <span class="rate">30.00</span></div>
+																												<div class="stage col-md-1">22 <span class="rate">30.00</span></div>
+																												<div class="stage col-md-1">23 <span class="rate">31.00</span></div>
+																												<div class="stage col-md-1">24 <span class="rate">31.00</span></div>
+																												<div class="stage col-md-1">25 <span class="rate">33.00</span></div>
+																												<div class="stage col-md-1">26 <span class="rate">33.00</span></div>
+																												<div class="stage col-md-1">27 <span class="rate">34.00</span></div>
+																												<div class="stage col-md-1">28 <span class="rate">34.00</span></div>
+																												<div class="stage col-md-1">29 <span class="rate">35.00</span></div>
+																												<div class="stage col-md-1">30 <span class="rate">35.00</span></div>
+																																										<div class="stage col-md-1 end">End <span class="rate">&nbsp;</span></div>
+																											</div>
+												</div>
+											</div>
+																						<div class="tab-pane fade " id="tab4">
+												<div class="row">
+													<div class="col-md-12">
+																												<div class="stage start col-md-1">Start <span class="rate">&nbsp;</span></div>
+																												<div class="stage col-md-1">1 <span class="rate">11.00</span></div>
+																												<div class="stage col-md-1">2 <span class="rate">13.00</span></div>
+																												<div class="stage col-md-1">3 <span class="rate">15.00</span></div>
+																												<div class="stage col-md-1">4 <span class="rate">17.00</span></div>
+																												<div class="stage col-md-1">5 <span class="rate">19.00</span></div>
+																												<div class="stage col-md-1">6 <span class="rate">21.00</span></div>
+																												<div class="stage col-md-1">7 <span class="rate">23.00</span></div>
+																												<div class="stage col-md-1">8 <span class="rate">25.00</span></div>
+																												<div class="stage col-md-1">9 <span class="rate">27.00</span></div>
+																												<div class="stage col-md-1">10 <span class="rate">29.00</span></div>
+																												<div class="stage col-md-1">11 <span class="rate">31.00</span></div>
+																												<div class="stage col-md-1">12 <span class="rate">31.00</span></div>
+																												<div class="stage col-md-1">13 <span class="rate">33.00</span></div>
+																												<div class="stage col-md-1">14 <span class="rate">33.00</span></div>
+																												<div class="stage col-md-1">15 <span class="rate">35.00</span></div>
+																												<div class="stage col-md-1">16 <span class="rate">35.00</span></div>
+																												<div class="stage col-md-1">17 <span class="rate">37.00</span></div>
+																												<div class="stage col-md-1">18 <span class="rate">37.00</span></div>
+																												<div class="stage col-md-1">19 <span class="rate">39.00</span></div>
+																												<div class="stage col-md-1">20 <span class="rate">39.00</span></div>
+																												<div class="stage col-md-1">21 <span class="rate">41.00</span></div>
+																												<div class="stage col-md-1">22 <span class="rate">41.00</span></div>
+																												<div class="stage col-md-1">23 <span class="rate">43.00</span></div>
+																												<div class="stage col-md-1">24 <span class="rate">43.00</span></div>
+																												<div class="stage col-md-1">25 <span class="rate">45.00</span></div>
+																												<div class="stage col-md-1">26 <span class="rate">45.00</span></div>
+																												<div class="stage col-md-1">27 <span class="rate">47.00</span></div>
+																												<div class="stage col-md-1">28 <span class="rate">47.00</span></div>
+																												<div class="stage col-md-1">29 <span class="rate">49.00</span></div>
+																												<div class="stage col-md-1">30 <span class="rate">49.00</span></div>
+																																										<div class="stage col-md-1 end">End <span class="rate">&nbsp;</span></div>
+																											</div>
+												</div>
+											</div>
+																						<div class="tab-pane fade " id="tab5">
+												<div class="row">
+													<div class="col-md-12">
+																												<div class="stage start col-md-1">Start <span class="rate">&nbsp;</span></div>
+																												<div class="stage col-md-1">1 <span class="rate">11.00</span></div>
+																												<div class="stage col-md-1">2 <span class="rate">13.00</span></div>
+																												<div class="stage col-md-1">3 <span class="rate">15.00</span></div>
+																												<div class="stage col-md-1">4 <span class="rate">17.00</span></div>
+																												<div class="stage col-md-1">5 <span class="rate">19.00</span></div>
+																												<div class="stage col-md-1">6 <span class="rate">21.00</span></div>
+																												<div class="stage col-md-1">7 <span class="rate">23.00</span></div>
+																												<div class="stage col-md-1">8 <span class="rate">25.00</span></div>
+																												<div class="stage col-md-1">9 <span class="rate">27.00</span></div>
+																												<div class="stage col-md-1">10 <span class="rate">29.00</span></div>
+																												<div class="stage col-md-1">11 <span class="rate">31.00</span></div>
+																												<div class="stage col-md-1">12 <span class="rate">31.00</span></div>
+																												<div class="stage col-md-1">13 <span class="rate">33.00</span></div>
+																												<div class="stage col-md-1">14 <span class="rate">33.00</span></div>
+																												<div class="stage col-md-1">15 <span class="rate">35.00</span></div>
+																												<div class="stage col-md-1">16 <span class="rate">35.00</span></div>
+																												<div class="stage col-md-1">17 <span class="rate">37.00</span></div>
+																												<div class="stage col-md-1">18 <span class="rate">37.00</span></div>
+																												<div class="stage col-md-1">19 <span class="rate">39.00</span></div>
+																												<div class="stage col-md-1">20 <span class="rate">39.00</span></div>
+																												<div class="stage col-md-1">21 <span class="rate">41.00</span></div>
+																												<div class="stage col-md-1">22 <span class="rate">41.00</span></div>
+																												<div class="stage col-md-1">23 <span class="rate">43.00</span></div>
+																												<div class="stage col-md-1">24 <span class="rate">43.00</span></div>
+																												<div class="stage col-md-1">25 <span class="rate">45.00</span></div>
+																												<div class="stage col-md-1">26 <span class="rate">45.00</span></div>
+																												<div class="stage col-md-1">27 <span class="rate">47.00</span></div>
+																												<div class="stage col-md-1">28 <span class="rate">47.00</span></div>
+																												<div class="stage col-md-1">29 <span class="rate">49.00</span></div>
+																												<div class="stage col-md-1">30 <span class="rate">49.00</span></div>
+																																										<div class="stage col-md-1 end">End <span class="rate">&nbsp;</span></div>
+																											</div>
+												</div>
+											</div>
+																						<div class="tab-pane fade " id="tab6">
+												<div class="row">
+													<div class="col-md-12">
+																												<div class="stage start col-md-1">Start <span class="rate">&nbsp;</span></div>
+																												<div class="stage col-md-1">1 <span class="rate">15.00</span></div>
+																												<div class="stage col-md-1">2 <span class="rate">15.00</span></div>
+																												<div class="stage col-md-1">3 <span class="rate">20.00</span></div>
+																												<div class="stage col-md-1">4 <span class="rate">20.00</span></div>
+																												<div class="stage col-md-1">5 <span class="rate">20.00</span></div>
+																												<div class="stage col-md-1">6 <span class="rate">30.00</span></div>
+																												<div class="stage col-md-1">7 <span class="rate">30.00</span></div>
+																												<div class="stage col-md-1">8 <span class="rate">30.00</span></div>
+																												<div class="stage col-md-1">9 <span class="rate">40.00</span></div>
+																												<div class="stage col-md-1">10 <span class="rate">40.00</span></div>
+																												<div class="stage col-md-1">11 <span class="rate">40.00</span></div>
+																												<div class="stage col-md-1">12 <span class="rate">40.00</span></div>
+																												<div class="stage col-md-1">13 <span class="rate">40.00</span></div>
+																												<div class="stage col-md-1">14 <span class="rate">40.00</span></div>
+																												<div class="stage col-md-1">15 <span class="rate">50.00</span></div>
+																												<div class="stage col-md-1">16 <span class="rate">50.00</span></div>
+																												<div class="stage col-md-1">17 <span class="rate">50.00</span></div>
+																												<div class="stage col-md-1">18 <span class="rate">50.00</span></div>
+																												<div class="stage col-md-1">19 <span class="rate">60.00</span></div>
+																												<div class="stage col-md-1">20 <span class="rate">60.00</span></div>
+																												<div class="stage col-md-1">21 <span class="rate">60.00</span></div>
+																												<div class="stage col-md-1">22 <span class="rate">60.00</span></div>
+																												<div class="stage col-md-1">23 <span class="rate">60.00</span></div>
+																												<div class="stage col-md-1">24 <span class="rate">70.00</span></div>
+																												<div class="stage col-md-1">25 <span class="rate">70.00</span></div>
+																												<div class="stage col-md-1">26 <span class="rate">70.00</span></div>
+																												<div class="stage col-md-1">27 <span class="rate">70.00</span></div>
+																												<div class="stage col-md-1">28 <span class="rate">80.00</span></div>
+																												<div class="stage col-md-1">29 <span class="rate">80.00</span></div>
+																												<div class="stage col-md-1">30 <span class="rate">80.00</span></div>
+																																										<div class="stage col-md-1 end">End <span class="rate">&nbsp;</span></div>
+																											</div>
+												</div>
+											</div>
+																						<div class="tab-pane fade " id="tab7">
+												<div class="row">
+													<div class="col-md-12">
+																												<div class="stage start col-md-1">Start <span class="rate">&nbsp;</span></div>
+																												<div class="stage col-md-1">1 <span class="rate">11.00</span></div>
+																												<div class="stage col-md-1">2 <span class="rate">13.00</span></div>
+																												<div class="stage col-md-1">3 <span class="rate">15.00</span></div>
+																												<div class="stage col-md-1">4 <span class="rate">17.00</span></div>
+																												<div class="stage col-md-1">5 <span class="rate">19.00</span></div>
+																												<div class="stage col-md-1">6 <span class="rate">21.00</span></div>
+																												<div class="stage col-md-1">7 <span class="rate">23.00</span></div>
+																												<div class="stage col-md-1">8 <span class="rate">25.00</span></div>
+																												<div class="stage col-md-1">9 <span class="rate">27.00</span></div>
+																												<div class="stage col-md-1">10 <span class="rate">29.00</span></div>
+																												<div class="stage col-md-1">11 <span class="rate">31.00</span></div>
+																												<div class="stage col-md-1">12 <span class="rate">31.00</span></div>
+																												<div class="stage col-md-1">13 <span class="rate">33.00</span></div>
+																												<div class="stage col-md-1">14 <span class="rate">33.00</span></div>
+																												<div class="stage col-md-1">15 <span class="rate">35.00</span></div>
+																												<div class="stage col-md-1">16 <span class="rate">35.00</span></div>
+																												<div class="stage col-md-1">17 <span class="rate">37.00</span></div>
+																												<div class="stage col-md-1">18 <span class="rate">37.00</span></div>
+																												<div class="stage col-md-1">19 <span class="rate">39.00</span></div>
+																												<div class="stage col-md-1">20 <span class="rate">39.00</span></div>
+																												<div class="stage col-md-1">21 <span class="rate">41.00</span></div>
+																												<div class="stage col-md-1">22 <span class="rate">41.00</span></div>
+																												<div class="stage col-md-1">23 <span class="rate">43.00</span></div>
+																												<div class="stage col-md-1">24 <span class="rate">43.00</span></div>
+																												<div class="stage col-md-1">25 <span class="rate">45.00</span></div>
+																												<div class="stage col-md-1">26 <span class="rate">45.00</span></div>
+																												<div class="stage col-md-1">27 <span class="rate">47.00</span></div>
+																												<div class="stage col-md-1">28 <span class="rate">47.00</span></div>
+																												<div class="stage col-md-1">29 <span class="rate">49.00</span></div>
+																												<div class="stage col-md-1">30 <span class="rate">49.00</span></div>
+																																										<div class="stage col-md-1 end">End <span class="rate">&nbsp;</span></div>
+																											</div>
+												</div>
+											</div>
+																						<div class="tab-pane fade " id="tab8">
+												<div class="row">
+													<div class="col-md-12">
+																												<div class="stage start col-md-1">Start <span class="rate">&nbsp;</span></div>
+																												<div class="stage col-md-1">1 <span class="rate">5.00</span></div>
+																												<div class="stage col-md-1">2 <span class="rate">6.00</span></div>
+																												<div class="stage col-md-1">3 <span class="rate">7.00</span></div>
+																												<div class="stage col-md-1">4 <span class="rate">8.00</span></div>
+																												<div class="stage col-md-1">5 <span class="rate">9.00</span></div>
+																												<div class="stage col-md-1">6 <span class="rate">10.00</span></div>
+																												<div class="stage col-md-1">7 <span class="rate">11.00</span></div>
+																												<div class="stage col-md-1">8 <span class="rate">12.00</span></div>
+																												<div class="stage col-md-1">9 <span class="rate">13.00</span></div>
+																												<div class="stage col-md-1">10 <span class="rate">14.00</span></div>
+																												<div class="stage col-md-1">11 <span class="rate">15.00</span></div>
+																												<div class="stage col-md-1">12 <span class="rate">15.00</span></div>
+																												<div class="stage col-md-1">13 <span class="rate">16.00</span></div>
+																												<div class="stage col-md-1">14 <span class="rate">16.00</span></div>
+																												<div class="stage col-md-1">15 <span class="rate">17.00</span></div>
+																												<div class="stage col-md-1">16 <span class="rate">17.00</span></div>
+																												<div class="stage col-md-1">17 <span class="rate">18.00</span></div>
+																												<div class="stage col-md-1">18 <span class="rate">18.00</span></div>
+																												<div class="stage col-md-1">19 <span class="rate">19.00</span></div>
+																												<div class="stage col-md-1">20 <span class="rate">19.00</span></div>
+																												<div class="stage col-md-1">21 <span class="rate">20.00</span></div>
+																												<div class="stage col-md-1">22 <span class="rate">20.00</span></div>
+																												<div class="stage col-md-1">23 <span class="rate">21.00</span></div>
+																												<div class="stage col-md-1">24 <span class="rate">21.00</span></div>
+																												<div class="stage col-md-1">25 <span class="rate">22.00</span></div>
+																												<div class="stage col-md-1">26 <span class="rate">22.00</span></div>
+																												<div class="stage col-md-1">27 <span class="rate">23.00</span></div>
+																												<div class="stage col-md-1">28 <span class="rate">23.00</span></div>
+																												<div class="stage col-md-1">29 <span class="rate">24.00</span></div>
+																												<div class="stage col-md-1">30 <span class="rate">24.00</span></div>
+																																										<div class="stage col-md-1 end">End <span class="rate">&nbsp;</span></div>
+																											</div>
+												</div>
+											</div>
+																						<div class="tab-pane fade " id="tab9">
+												<div class="row">
+													<div class="col-md-12">
+																												<div class="stage start col-md-1">Start <span class="rate">&nbsp;</span></div>
+																												<div class="stage col-md-1">1 <span class="rate">15.00</span></div>
+																												<div class="stage col-md-1">2 <span class="rate">15.00</span></div>
+																												<div class="stage col-md-1">3 <span class="rate">20.00</span></div>
+																												<div class="stage col-md-1">4 <span class="rate">20.00</span></div>
+																												<div class="stage col-md-1">5 <span class="rate">20.00</span></div>
+																												<div class="stage col-md-1">6 <span class="rate">30.00</span></div>
+																												<div class="stage col-md-1">7 <span class="rate">30.00</span></div>
+																												<div class="stage col-md-1">8 <span class="rate">30.00</span></div>
+																												<div class="stage col-md-1">9 <span class="rate">40.00</span></div>
+																												<div class="stage col-md-1">10 <span class="rate">40.00</span></div>
+																												<div class="stage col-md-1">11 <span class="rate">40.00</span></div>
+																												<div class="stage col-md-1">12 <span class="rate">40.00</span></div>
+																												<div class="stage col-md-1">13 <span class="rate">40.00</span></div>
+																												<div class="stage col-md-1">14 <span class="rate">40.00</span></div>
+																												<div class="stage col-md-1">15 <span class="rate">50.00</span></div>
+																												<div class="stage col-md-1">16 <span class="rate">50.00</span></div>
+																												<div class="stage col-md-1">17 <span class="rate">50.00</span></div>
+																												<div class="stage col-md-1">18 <span class="rate">50.00</span></div>
+																												<div class="stage col-md-1">19 <span class="rate">60.00</span></div>
+																												<div class="stage col-md-1">20 <span class="rate">60.00</span></div>
+																												<div class="stage col-md-1">21 <span class="rate">60.00</span></div>
+																												<div class="stage col-md-1">22 <span class="rate">60.00</span></div>
+																												<div class="stage col-md-1">23 <span class="rate">60.00</span></div>
+																												<div class="stage col-md-1">24 <span class="rate">70.00</span></div>
+																												<div class="stage col-md-1">25 <span class="rate">70.00</span></div>
+																												<div class="stage col-md-1">26 <span class="rate">70.00</span></div>
+																												<div class="stage col-md-1">27 <span class="rate">70.00</span></div>
+																												<div class="stage col-md-1">28 <span class="rate">80.00</span></div>
+																												<div class="stage col-md-1">29 <span class="rate">80.00</span></div>
+																												<div class="stage col-md-1">30 <span class="rate">80.00</span></div>
+																																										<div class="stage col-md-1 end">End <span class="rate">&nbsp;</span></div>
+																											</div>
+												</div>
+											</div>
+																						<div class="tab-pane fade " id="tab10">
+												<div class="row">
+													<div class="col-md-12">
+																												<div class="stage start col-md-1">Start <span class="rate">&nbsp;</span></div>
+																												<div class="stage col-md-1">1 <span class="rate">50.00</span></div>
+																												<div class="stage col-md-1">2 <span class="rate">75.00</span></div>
+																												<div class="stage col-md-1">3 <span class="rate">100.00</span></div>
+																												<div class="stage col-md-1">4 <span class="rate">125.00</span></div>
+																												<div class="stage col-md-1">5 <span class="rate">150.00</span></div>
+																																										<div class="stage col-md-1 end">End <span class="rate">&nbsp;</span></div>
+																											</div>
+												</div>
+											</div>
+																						
+										</div>
+									</div>
+									
+									</div>
+								</div>
+																<p>
+								
+								</p>
+								
+								<div class="col-md-12">
+								<h5 style="color:#075264; font-size:110%; font-family:verdana;"><strong>
+										<p>Note: In Chennai Ula services, a special single-day pass priced at ₹50 for vintage services and ₹100 for A/C services permits unlimited boarding and alighting at all stops.</p>
+										</strong></h5>  
+								</div>
+								
+								<!-- /* <div class="row">
+									<div class="col-md-12">
+										<div class="alert alert-info" style="border: 2px solid Violet;" >
+										<!-- <strong>NOTE : &nbsp;&nbsp;</strong><span id="servicefarenote"></span> -->
+										<!--<h3 style="color:red;"><strong> Night Service Fare details : </strong></h3>
+										</br>
+										<h5 style="color:#075264; font-size:110%; font-family:verdana;"><strong>
+										<p>Night Service (Deluxe Bus) is operated with deluxe fare </p>
+										</strong></h5>
+										<table cellspacing="0" border="0">
+										<colgroup span="12" width="79"></colgroup>
+										<tr>
+											<td colspan=5 height="31" align="left" valign=bottom><b><font size=5 color="#002060">Night Services (Deluxe)</font></b></td>
+											<td align="left" valign=bottom><font color="#000000"><br></font></td>
+											<td align="left" valign=bottom><font color="#000000"><br></font></td>
+											<td align="left" valign=bottom><font color="#000000"><br></font></td>
+											<td align="left" valign=bottom><font color="#000000"><br></font></td>
+											<td align="left" valign=bottom><font color="#000000"><br></font></td>
+											<td align="left" valign=bottom><font color="#000000"><br></font></td>
+											<td align="left" valign=bottom><font color="#000000"><br></font></td>
+										</tr>
+										<tr>
+											<td colspan=6 height="25" align="left" valign=middle><b><font size=4 color="#000000">[Effective from 29/01/2018]</font></b></td>
+											<td align="left" valign=bottom><b><font color="#000000"><br></font></b></td>
+											<td align="left" valign=bottom><b><font color="#000000"><br></font></b></td>
+											<td colspan=4 align="left" valign=middle><b><font size=4 color="#000000">[G.O (Ms.) No.48 Dated 28/01/2018]</font></b></td>
+											</tr>
+										<tr>
+											<td height="20" align="left" valign=middle><font color="#000000"><br></font></td>
+											<td align="left" valign=bottom><font color="#000000"><br></font></td>
+											<td align="left" valign=bottom><font color="#000000"><br></font></td>
+											<td align="left" valign=bottom><font color="#000000"><br></font></td>
+											<td align="left" valign=bottom><font color="#000000"><br></font></td>
+											<td align="left" valign=bottom><font color="#000000"><br></font></td>
+											<td align="left" valign=bottom><font color="#000000"><br></font></td>
+											<td align="left" valign=bottom><font color="#000000"><br></font></td>
+											<td align="left" valign=middle><font color="#000000"><br></font></td>
+											<td align="left" valign=bottom><font color="#000000"><br></font></td>
+											<td align="left" valign=bottom><font color="#000000"><br></font></td>
+											<td align="left" valign=bottom><font color="#000000"><br></font></td>
+										</tr>
+										<tr>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" rowspan=2 height="67" align="center" valign=middle bgcolor="#FF0000"><b><font color="#FFFFFF">Start &nbsp;</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="1" sdnum="1033;"><b><font size=3 color="#0070C0">1</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="2" sdnum="1033;"><b><font size=3 color="#0070C0">2</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="3" sdnum="1033;"><b><font size=3 color="#0070C0">3</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="4" sdnum="1033;"><b><font size=3 color="#0070C0">4</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="5" sdnum="1033;"><b><font size=3 color="#0070C0">5</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="6" sdnum="1033;"><b><font size=3 color="#0070C0">6</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="7" sdnum="1033;"><b><font size=3 color="#0070C0">7</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="8" sdnum="1033;"><b><font size=3 color="#0070C0">8</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="9" sdnum="1033;"><b><font size=3 color="#0070C0">9</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="10" sdnum="1033;"><b><font size=3 color="#0070C0">10</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="11" sdnum="1033;"><b><font size=3 color="#0070C0">11</font></b></td>
+										</tr>
+										<tr>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="11" sdnum="1033;0;0.00"><b><font size=3 color="#002060">11.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="13" sdnum="1033;0;0.00"><b><font size=3 color="#002060">13.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="15" sdnum="1033;0;0.00"><b><font size=3 color="#002060">15.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="17" sdnum="1033;0;0.00"><b><font size=3 color="#002060">17.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="19" sdnum="1033;0;0.00"><b><font size=3 color="#002060">19.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="21" sdnum="1033;0;0.00"><b><font size=3 color="#002060">21.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="23" sdnum="1033;0;0.00"><b><font size=3 color="#002060">23.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="25" sdnum="1033;0;0.00"><b><font size=3 color="#002060">25.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="27" sdnum="1033;0;0.00"><b><font size=3 color="#002060">27.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="29" sdnum="1033;0;0.00"><b><font size=3 color="#002060">29.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="31" sdnum="1033;0;0.00"><b><font size=3 color="#002060">31.00</font></b></td>
+										</tr>
+										<tr>
+											<td height="20" align="center" valign=middle sdnum="1033;0;0.00"><b><font color="#002060"><br></font></b></td>
+											<td align="center" valign=middle sdnum="1033;0;0.00"><b><font color="#002060"><br></font></b></td>
+											<td align="center" valign=middle sdnum="1033;0;0.00"><b><font color="#002060"><br></font></b></td>
+											<td align="center" valign=middle sdnum="1033;0;0.00"><b><font color="#002060"><br></font></b></td>
+											<td align="center" valign=middle sdnum="1033;0;0.00"><b><font color="#002060"><br></font></b></td>
+											<td align="center" valign=middle sdnum="1033;0;0.00"><b><font color="#002060"><br></font></b></td>
+											<td align="center" valign=middle sdnum="1033;0;0.00"><b><font color="#002060"><br></font></b></td>
+											<td align="center" valign=middle sdnum="1033;0;0.00"><b><font color="#002060"><br></font></b></td>
+											<td align="center" valign=middle sdnum="1033;0;0.00"><b><font color="#002060"><br></font></b></td>
+											<td align="center" valign=middle sdnum="1033;0;0.00"><b><font color="#002060"><br></font></b></td>
+											<td align="center" valign=middle sdnum="1033;0;0.00"><b><font color="#002060"><br></font></b></td>
+											<td align="center" valign=middle sdnum="1033;0;0.00"><b><font color="#002060"><br></font></b></td>
+										</tr>
+										<tr>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="33" align="center" valign=middle sdval="12" sdnum="1033;"><b><font size=3 color="#0070C0">12</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="13" sdnum="1033;"><b><font size=3 color="#0070C0">13</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="14" sdnum="1033;"><b><font size=3 color="#0070C0">14</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="15" sdnum="1033;"><b><font size=3 color="#0070C0">15</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="16" sdnum="1033;"><b><font size=3 color="#0070C0">16</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="17" sdnum="1033;"><b><font size=3 color="#0070C0">17</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="18" sdnum="1033;"><b><font size=3 color="#0070C0">18</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="19" sdnum="1033;"><b><font size=3 color="#0070C0">19</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="20" sdnum="1033;"><b><font size=3 color="#0070C0">20</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="21" sdnum="1033;"><b><font size=3 color="#0070C0">21</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="22" sdnum="1033;"><b><font size=3 color="#0070C0">22</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="23" sdnum="1033;"><b><font size=3 color="#0070C0">23</font></b></td>
+										</tr>
+										<tr>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="33" align="center" valign=middle sdval="31" sdnum="1033;0;0.00"><b><font size=3 color="#002060">31.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="33" sdnum="1033;0;0.00"><b><font size=3 color="#002060">33.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="33" sdnum="1033;0;0.00"><b><font size=3 color="#002060">33.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="35" sdnum="1033;0;0.00"><b><font size=3 color="#002060">35.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="35" sdnum="1033;0;0.00"><b><font size=3 color="#002060">35.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="37" sdnum="1033;0;0.00"><b><font size=3 color="#002060">37.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="37" sdnum="1033;0;0.00"><b><font size=3 color="#002060">37.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="39" sdnum="1033;0;0.00"><b><font size=3 color="#002060">39.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="39" sdnum="1033;0;0.00"><b><font size=3 color="#002060">39.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="41" sdnum="1033;0;0.00"><b><font size=3 color="#002060">41.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="41" sdnum="1033;0;0.00"><b><font size=3 color="#002060">41.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="43" sdnum="1033;0;0.00"><b><font size=3 color="#002060">43.00</font></b></td>
+										</tr>
+										<tr>
+											<td height="20" align="center" valign=bottom sdnum="1033;0;0.00"><b><font color="#002060"><br></font></b></td>
+											<td align="center" valign=bottom sdnum="1033;0;0.00"><b><font color="#002060"><br></font></b></td>
+											<td align="center" valign=bottom sdnum="1033;0;0.00"><b><font color="#002060"><br></font></b></td>
+											<td align="center" valign=bottom sdnum="1033;0;0.00"><b><font color="#002060"><br></font></b></td>
+											<td align="center" valign=bottom sdnum="1033;0;0.00"><b><font color="#002060"><br></font></b></td>
+											<td align="center" valign=bottom sdnum="1033;0;0.00"><b><font color="#002060"><br></font></b></td>
+											<td align="center" valign=bottom sdnum="1033;0;0.00"><b><font color="#002060"><br></font></b></td>
+											<td align="center" valign=bottom sdnum="1033;0;0.00"><b><font color="#002060"><br></font></b></td>
+											<td align="center" valign=bottom sdnum="1033;0;0.00"><b><font color="#002060"><br></font></b></td>
+											<td align="center" valign=bottom sdnum="1033;0;0.00"><b><font color="#002060"><br></font></b></td>
+											<td align="center" valign=bottom sdnum="1033;0;0.00"><b><font color="#002060"><br></font></b></td>
+											<td align="center" valign=bottom sdnum="1033;0;0.00"><b><font color="#002060"><br></font></b></td>
+										</tr>
+										<tr>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="33" align="center" valign=middle sdval="24" sdnum="1033;"><b><font size=3 color="#0070C0">24</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="25" sdnum="1033;"><b><font size=3 color="#0070C0">25</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="26" sdnum="1033;"><b><font size=3 color="#0070C0">26</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="27" sdnum="1033;"><b><font size=3 color="#0070C0">27</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="28" sdnum="1033;"><b><font size=3 color="#0070C0">28</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="29" sdnum="1033;"><b><font size=3 color="#0070C0">29</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="30" sdnum="1033;"><b><font size=3 color="#0070C0">30</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#FF0000"><b><font color="#FFFFFF">End </font></b></td>
+											<td align="left" valign=bottom><b><font color="#0070C0"><br></font></b></td>
+											<td align="left" valign=bottom><b><font color="#0070C0"><br></font></b></td>
+											<td align="left" valign=bottom><b><font color="#0070C0"><br></font></b></td>
+											<td align="left" valign=bottom><b><font color="#0070C0"><br></font></b></td>
+										</tr>
+										<tr>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="33" align="center" valign=middle sdval="43" sdnum="1033;0;0.00"><b><font size=3 color="#002060">43.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="45" sdnum="1033;0;0.00"><b><font size=3 color="#002060">45.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="45" sdnum="1033;0;0.00"><b><font size=3 color="#002060">45.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="47" sdnum="1033;0;0.00"><b><font size=3 color="#002060">47.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="47" sdnum="1033;0;0.00"><b><font size=3 color="#002060">47.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="49" sdnum="1033;0;0.00"><b><font size=3 color="#002060">49.00</font></b></td>
+											<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="49" sdnum="1033;0;0.00"><b><font size=3 color="#002060">49.00</font></b></td>
+											<td align="left" valign=bottom><b><font color="#0070C0"><br></font></b></td>
+											<td align="left" valign=bottom><b><font color="#0070C0"><br></font></b></td>
+											<td align="left" valign=bottom><b><font color="#0070C0"><br></font></b></td>
+											<td align="left" valign=bottom><b><font color="#0070C0"><br></font></b></td>
+										</tr>
+										<tr>
+											<td colspan=12 height="27" align="left" valign=bottom><b><font size=3 color="#2E75B6">Note : For CESS Rs. 1.00 collected per passenger.</font></b></td>
+											</tr>
+									</table>
+
+										
+										</strong></h5>
+										</div>
+									</div>
+								</div> -->
+								
+								
+								
+								<!--<div class="row">
+									<div class="col-md-12">
+										<div class="alert alert-info" style="border: 2px solid Violet;" >
+										<!-- <strong>NOTE : &nbsp;&nbsp;</strong><span id="servicefarenote"></span> 
+										<h3 style="color:red;"><strong> Night Service Fare details : </strong></h3>
+										</br>
+										<h5 style="color:#075264; font-size:110%; font-family:verdana;"><strong>
+										<p>Night Service (Deluxe Bus) is operated with deluxe fare </p>
+										</strong></h5> 
+										
+										<h3 style="color:red;"><strong> Luggage Fare details : </strong></h3>
+										</br>
+										<h5 style="color:#075264; font-size:110%; font-family:verdana;"><strong>
+										<p>1.	Up to 5kg weighing luggage per passenger will be allowed on free of fare in MTC buses.  However, luggage weighing even less than 5Kg but carried for commercial purpose will be charged 1 passenger fare to the destination. </p>
+										<p>2.	For the luggages which are estimated of weight ranging from 5kg to 20kg, Rs.10/- or one passenger fare for the destination whichever is higher will collected as luggage fare.</p>
+										<p>3.	Similarly for the luggages which are estimated of weight more than 20kg, Rs.20/- or Two passenger fares for the destination whichever is higher will collected as luggage fare.</p>
+										<p>4.	Government banned commodities, smuggling goods, easily inflammable commodities etc will not be allowed to carry.</p>
+										<p>5.	Luggages which are larger in size, occupying more space in the bus and giving hindrance to the other passengers will not be permitted.</p>
+										<p>6.	Luggages will not be allowed during peak hours when more passengers are travelling in MTC buses.</p>
+										<p>7.	Wet luggages which are affecting the co-passengers will not be allowed.</p>
+										<p>8.	Luggages without passengers will not be allowed separately.</p>
+										<p>9.	For transporting News paper luggages and postal luggages, prior permission has to be obtained. Loading and unloading of those luggages will be allowed at designated bus stops only.  </p>
+										</strong></h5>
+										</div>
+									</div>
+								</div> -->
+							</div>
+						</div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+    <!--End We Are Section-->
+    
+
+
+    
+    <!-- footer -->
+         <!--Main Footer-->
+    <footer class="main-footer" >
+    	<div class="auto-container">
+        
+        	<!--Widgets Section-->
+            <div class="widgets-section">
+            	<div class="row clearfix">
+                	
+                    <!--Column-->
+                    <div class="column col-md-4 col-sm-6 col-xs-12" style="display: none;">
+						<div class="footer-widget links-widget">
+                        	<div class="footer-title">
+                            	<h2>Useful Links</h2>
+                            </div>
+                            <div class="widget-content">
+                            	<div class="row clearfix" >
+                                	<div class="widget-column col-md-5 col-sm-5 col-xs-12">
+                                    	<ul class="footer-list" >
+                                        	<li><a href="https://mtcbus.tn.gov.in/">Home</a></li>
+                                            <li><a href="https://mtcbus.tn.gov.in/Home/about">About us</a></li>
+                                            <li><a href="https://mtcbus.tn.gov.in/Home/busservices">Bus Services</a></li>
+                                            <li><a href="https://mtcbus.tn.gov.in/Home/facilities">Facilities</a></li>
+                                            <li><a href="https://mtcbus.tn.gov.in/Home/rti">RTI</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="widget-column col-md-7 col-sm-7 col-xs-12">
+                                    	<ul class="footer-list">
+                                        	<li><a href="https://mtcbus.tn.gov.in/Home/travelasyou/11">Travel as you please</a></li>
+                                            <li><a href="https://mtcbus.tn.gov.in/Home/bustimingsearch">Bus Timings</a></li>
+                                            <li><a href="https://mtcbus.tn.gov.in/Home/contact_persons#BoardOfDirectors">Contact us</a></li>                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!--Column-->
+                    
+                    
+                    <!--Column-->
+                    <div class="column col-md-6 col-sm-6 col-xs-12">
+						<div class="footer-widget office-widget">
+                        	<div class="address.png">
+                            	<h2>Corporate Office</h2>
+                            </div>
+                            <div class="widget-content"> 
+                                    <div class="office-info" style="background-color:#0000ff">
+                                    	<ul>
+                                        	 
+                                            <!--<li style="color: #fff">Metropolitan Transport Corporation (Chennai) Ltd, pallavan House, Anna Salai, Chennai - 600 002.</li>-->
+											<li style="color: #FFF;"> <img src="https://mtcbus.tn.gov.in/asset/images/address.png" alt="address" />
+											<span style="color:#FFFFFF">Metropolitan Transport Corporation (Chennai) Ltd,<br/>No.2, Pallavan Illam, <br/>Pallavan Salai, <br/>Chennai -600 002.<br>edp[dot]mtc[at]tn[dot]gov[dot]in<br>Phone: 044-23455801, 044-23455858, 044-23455859/ Fax: 044-23455830<br>CIN: U60220TN1971SGC006088</span></li>
+                                        </ul> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+					<div class="column col-md-6 col-sm-6 col-xs-12">
+						<div class="footer-widget subscribe-widget" style="margin-top:55px;">
+                        	<!-- <div class="footer-title">
+                            	<h2>Subscribe Us</h2>
+                            </div> --> 
+                            <div class="widget-content">
+                            	<div class="text" style="display:none;">"The bribery is against the Law. The complaints about corruption may be sent to the Directorate of Vigilance and Anti-Corruption, Chennai-600028".</div>
+                                <p style="color:#000000"><img src="https://mtcbus.tn.gov.in/asset/images/web.png" alt="web" />   www[dot]dvac[dot]tn[dot]gov[dot]in   </p>
+								 <p style="color:#000000"><img src="https://mtcbus.tn.gov.in/asset/images/phone2.png" alt="phone" /> 044-24615989 / 044-24615929 / 044-24615949</p>
+                                								<ul class="social-icon-one col-sm-12" style="color:#FFF;">
+									<li class="col-sm-2" style="text-align: center;  "><img src="https://mtcbus.tn.gov.in/asset/images/users.png" alt="web" /> </li>
+																		<li class="col-sm-1" style="text-align: center;   padding:2px 4px;  border:#FFFFFF solid 2px; border-top-left-radius: 15px; border-bottom-left-radius: 15px;">1</li>
+																		<li class="col-sm-1" style="text-align: center;   padding:2px 4px;  border:#FFFFFF solid 2px; ">1</li>
+																		<li class="col-sm-1" style="text-align: center;   padding:2px 4px;  border:#FFFFFF solid 2px; ">4</li>
+																		<li class="col-sm-1" style="text-align: center;   padding:2px 4px;  border:#FFFFFF solid 2px; ">2</li>
+																		<li class="col-sm-1" style="text-align: center;   padding:2px 4px;  border:#FFFFFF solid 2px; ">3</li>
+																		<li class="col-sm-1" style="text-align: center;   padding:2px 4px;  border:#FFFFFF solid 2px; ">7</li>
+																		<li class="col-sm-1" style="text-align: center;   padding:2px 4px;  border:#FFFFFF solid 2px; ">4</li>
+																		<li class="col-sm-1" style="text-align: center;   padding:2px 4px;  border:#FFFFFF solid 2px; border-top-right-radius: 15px; border-bottom-right-radius: 15px;">4</li>
+																	</ul>
+								                                                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+		
+		     <!--Accordian Boxed-->
+            <div class="accordian-boxed">
+                <div class="auto-container">
+                <!--Accordian Box-->
+                <ul class="accordion-box">
+                  
+                    <!--Block-->
+                    <li class="accordion block active-block" style="margin-bottom:0;">
+                        <div class="acc-btn active"><div class="icon-outer"><img src="https://mtcbus.tn.gov.in/asset/images/disclaimer.png" alt="acc-2" /></div>Disclaimer</div>
+                        <div class="acc-content current">
+                            <div class="content">
+                                <div class="text">Metropolitan Transport Corporation [Chennai] Ltd. seeks to ensure that the information published on its website is up to date and accurate. However, the information on the website does not constitute legal or professional advice and Metropolitan Transport Corporation [Chennai] Ltd. cannot accept any liability for actions arising from its use. Metropolitan Transport Corporation [Chennai] Ltd. cannot be held responsible for the contents of any pages referenced by an external link. </div>
+                            </div>
+                        </div>
+                    </li>
+                    
+                </ul></div>
+                
+            </div>
+     <!--End  Accordian Boxed-->
+	 
+        <!--Copyright-->
+<div style="text-align:center; color:white;"><h4>Website Information Manager: M. Suresh, B.Sc., MCA., MBA.,                           Email: edp.mtc[at]tn[dot]gov[dot]in</h4></div>
+		<!-- <div class="copyright">Copyright &copy; 2018 Metropolitan Transport Corporation (Chennai) Limited. All rights reserved. | Designed & Developed by  <a href="http://wiconserv.com/" target="_blank"> wiconserv</a></div> -->
+		<div class="copyright">Copyright &copy; 2018 Metropolitan Transport Corporation (Chennai) Limited. All rights reserved. </div>
+        
+    </footer>
+	<a href="#" class="live_bus_track" style="display:none;">Live bus tracking</a>
+	<style>
+	.live_bus_track{
+		position: fixed;
+bottom: 15px;
+left: 15px;
+color: #ffffff;
+font-size: 14px;
+text-transform: uppercase;
+line-height: 20px;
+text-align: center;
+z-index: 99999;
+cursor: pointer;
+border-radius: 50px;
+background: #ff4800;
+display: inline-block;
+padding: 10px 20px;
+border: 2px solid #ff4800;
+-webkit-transition: all 300ms ease;
+-ms-transition: all 300ms ease;
+-o-transition: all 300ms ease;
+-moz-transition: all 300ms ease;
+transition: all 300ms ease;
+	}
+.live_bus_track:hover{
+color: #ffffff;
+background: #ff4800;
+}	
+	</style>
+	
+	<script>
+	function fontIncrease() {
+	curSize = parseInt(jQuery('body').css('font-size')) + 1;	
+	if(curSize > 18) {
+	   return false;
+	}
+	jQuery('body').css('font-size', curSize);
+}        
+function fontNormal() {
+	jQuery('body').css('font-size', 14);
+}
+function fontDecrease() {
+	curSize = parseInt(jQuery('body').css('font-size')) - 1;	
+	if(curSize < 12) {
+	   return false;
+	   }
+	jQuery('body').css('font-size', curSize);
+}
+
+  </script>
+    <!--Main Footer-->    <!-- End footer -->
+    
+</div>
+<!--End pagewrapper-->
+
+<!--Scroll to top-->
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="icon fa fa-angle-double-up"></span></div>
+
+<script src="https://mtcbus.tn.gov.in/asset/js/bootstrap.min.js"></script>
+<script src="https://mtcbus.tn.gov.in/asset/js/jquery.fancybox.pack.js"></script>
+<script src="https://mtcbus.tn.gov.in/asset/js/jquery.fancybox-media.js"></script>
+<script src="https://mtcbus.tn.gov.in/asset/js/owl.js"></script>
+<script src="https://mtcbus.tn.gov.in/asset/js/wow.js"></script>
+<script src="https://mtcbus.tn.gov.in/asset/js/slick.js"></script>
+<script src="https://mtcbus.tn.gov.in/asset/js/appear.js"></script>
+
+<script src="https://mtcbus.tn.gov.in/asset/js/aos.js"></script>
+<script src="https://mtcbus.tn.gov.in/asset/js/knob.js"></script>
+
+<script src="https://mtcbus.tn.gov.in/asset/js/script.js"></script>
+
+<script>
+     AOS.init({           easing: 'ease-in-out-sine'         });
+</script>
+<script>
+$( document ).ready(function() {
+	$("#noofyears").change(function() {
+  		$( "#performanceform" ).submit();
+	});
+});
+</script>
+<script src="https://mtcbus.tn.gov.in/asset/js/chart.js"></script>
+<script src="https://mtcbus.tn.gov.in/asset/js/graph.js"></script>
+<script>
+	$( document ).ready(function() {
+		getservicefarenote(1);
+	});
+	
+    function getservicefarenote(sid)
+    {          if(sid==1)
+        {
+            $('#servicefarenote').html('A Stage is approximately equal to 2 kms. A Cess (Rs 1.00) shall be collected from each passenger in all type of services');
+        }
+                if(sid==2)
+        {
+            $('#servicefarenote').html('A Stage is approximately equal to 2 kms. A Cess (Rs 1.00) shall be collected from each passenger in all type of services');
+        }
+                if(sid==3)
+        {
+            $('#servicefarenote').html('A Stage is approximately equal to 2 kms. A Cess (Rs 1.00) shall be collected from each passenger in all type of services');
+        }
+                if(sid==5)
+        {
+            $('#servicefarenote').html('A Stage is approximately equal to 2 kms. A Cess (Rs 1.00) shall be collected from each passenger in all type of services');
+        }
+                if(sid==7)
+        {
+            $('#servicefarenote').html('A Stage is approximately equal to 2 kms. A Cess (Rs 1.00) shall be collected from each passenger in all type of services');
+        }
+                if(sid==10)
+        {
+            $('#servicefarenote').html('');
+        }
+                if(sid==11)
+        {
+            $('#servicefarenote').html('');
+        }
+                if(sid==13)
+        {
+            $('#servicefarenote').html('');
+        }
+                if(sid==14)
+        {
+            $('#servicefarenote').html('');
+        }
+                if(sid==15)
+        {
+            $('#servicefarenote').html('');
+        }
+                if(sid==16)
+        {
+            $('#servicefarenote').html('');
+        }
+            }
+</script>
+
+</body>
+
+</html>
