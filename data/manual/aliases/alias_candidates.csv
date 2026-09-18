@@ -1,0 +1,477 @@
+entity_id,canonical_name,candidate_alias,candidate_type,language,source_if_any,requires_human_confirmation
+OSM_RAIL_248467412,Chennai Chetpet,சேத்துப்பட்டு,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_248545108,Pattaravakkam,பட்டரவாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_256777901,Kanchipuram,காஞ்சிபுரம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_261713045,Villiyambakkam,வில்லியம்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_261716103,Kanchipuram East,காஞ்சிபுரம் கிழக்கு,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_304278622,Anna Nagar West,அண்ணா நகர் மேற்கு,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_304278630,Padi,பாடி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_603015278,அரசினர் தோட்டம்,அரசினர் தோட்டம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_652426042,Pachaiyappa's College,பச்சையப்பன் கல்லூரி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_652426192,Nehru Park,நேரு பூங்கா,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_652426199,Egmore Metro,எழும்பூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_687175415,சென்னை புறநகர் பேருந்து நிலையம்,சென்னை புறநகர் பேருந்து நிலையம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_998294040,அசோக் நகர்,அசோக் நகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_1207423990,கோயம்பேடு,கோயம்பேடு,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_1207424028,Anna Nagar East,அண்ணா நகர் கிழக்கு,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_1207424080,Kilpauk,கீழ்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_2481258995,Chennai Park Town,பூங்கா நகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_2481258999,Chennai Park,சென்னை பூங்கா,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_2481259002,Kodambakkam,கோடம்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_2481259006,Mambalam,மாம்பலம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_2481259029,Saidapet,சைதாப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_2481969291,Puratchi Thalaivar Dr. M. G. Ramachandran Central,சென்னை - புரட்சி தலைவர் டா. எம். ஜி. ராமச்சந்திரன் சென்ட்ரல்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_2486239287,Chepauk,சேப்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_2605993507,Minjur,மீஞ்சூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_3187977875,Palavanthangal,பழவந்தாங்கல்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_3264712327,Guindy,கிண்டி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_3678939665,Avadi,ஆவடி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_3725756379,Palur,பாலூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_4221752111,Saint Thomas Mount,பரங்கிமலை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_4435694788,Pallavaram,பல்லாவரம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_4767159308,Perungalattur,பெருங்களத்தூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_4885083053,Tirusulam,திருசூலம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_4885094689,Meenambakkam,மீனம்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5273662388,Chengalpatttu Junction,செங்கல்பட்டு சந்திப்பு,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5273733276,Chromepet,குரோம்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5274094702,Ennore,எண்ணூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5274201067,Hindu College,இந்துக் கல்லூரி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5274201086,Pattabiram,பட்டாபிராம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5274260962,Guduvancheri,கூடுவாஞ்சேரி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5274761658,Korukkupet,கொருக்குப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5274761659,Korattur,கொரட்டூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5274913769,Kotturpuram,கோட்டூர்புரம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5275790188,Chennai Egmore,சென்னை எழும்பூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5276205560,Perambur,பெரம்பூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5286945822,Tambaram,தாம்பரம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5287023932,Vyasarpadi Jeeva,வியாசர்பாடி ஜீவா,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5306412986,Madurantakam,மதுராந்தகம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5308690568,Alandur,ஆலந்தூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5310778033,Ambattur,அம்பத்தூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5310778034,Thirumullaivoyal,திருமுல்லைவாயில்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5310778035,Annanur,அண்ணனூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5310778041,Tiruvallur,திருவள்ளூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5311732458,Tondiarpet,தண்டையார்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5311732459,Tiruvottiyur,திருவொற்றியூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5311732516,Kathivakkam,கத்திவாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5311732620,Attippattu,அத்திப்பட்டு,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5311732622,Nandiyampakkam,நந்தியம்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5311732624,Ponneri,பொன்னேரி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5311732625,Kavaraippettai,கவரைப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5311755231,Chintadaripet,சிந்தாதிரிப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5311755232,Light House,கலங்கரை விளக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5311755235,Mandaveli,மந்தைவெளி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5311755238,Indira Nagar,இந்திரா நகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5311755239,Tiruvanmiyur,திருவான்மியூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5311755240,Taramani,தரமணி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5311755241,Perungudi,பெருங்குடி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5311755242,Velachery,வேளச்சேரி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5311775875,Paranur,பரனூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5311775876,Singaperumal Koil,சிங்கப்பெருமாள் கோயில்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5311775877,Maraimalai Nagar Kamarajar,மறைமலைநகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5311775879,Vandalur,வண்டலூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5311775880,Tambaram Sanatorium,தாம்பரம் தாம்பரம் சானடோரியம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5311775881,Nungambakkam,நுங்கம்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5319202812,Saint Thomas Mount,பரங்கிமலை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5319207344,சென்னை விமான நிலையம்,சென்னை விமான நிலையம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5319207346,மீனம்பாக்கம்,மீனம்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5319207378,Ekkattuthangal,ஈக்காட்டுத்தாங்கல்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5319972796,Ashok Nagar,அசோக் நகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5319972798,Vadapalani,வடபழநி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5319972799,Arumbakkam,அரும்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5321248424,சின்னமலை,சின்னமலை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5321248425,கிண்டி,கிண்டி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5321248890,CMBT,சென்னை புறநகர் பேருந்து நிலையம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5321248896,Koyambedu,கோயம்பேடு,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5321303011,கோயம்பேடு,கோயம்பேடு,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5328279392,Nehru Park,நேரு பூங்கா,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5328279403,Egmore Metro,எழும்பூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5329907482,Pachaiyappa's College,பச்சையப்பன் கல்லூரி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5329907483,Pachaiyappa's College,பச்சையப்பன் கல்லூரி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5329907486,Kilpauk,கீழ்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5329907487,Kilpauk,கீழ்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5329907490,Nehru Park,நேரு பூங்கா,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5329907499,Egmore,எழும்பூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5337407333,சைதாப்பேட்டை,சைதாப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5337407335,நந்தனம்,நந்தனம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5337407339,தேனாம்பேட்டை,தேனாம்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5337407346,ஆயிரம் விளக்கு,ஆயிரம் விளக்கு,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5337407347,ஏ ஜி டி.எம்.எஸ்,ஏ ஜி டி.எம்.எஸ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5337407350,எல் ஐ சி,எல் ஐ சி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5337407354,அரசினர் தோட்டம்,அரசினர் தோட்டம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5337658083,High Court,உயர்நீதிமன்றம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5337658088,Mannadi,மண்ணடி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5337658099,Washermanpet,வண்ணாரப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5423870707,ஆலந்தூர்,ஆலந்தூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5423870708,ஆலந்தூர்,ஆலந்தூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5423870709,ஆலந்தூர்,ஆலந்தூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5760196458,ஏ ஜி டி.எம்.எஸ்,ஏ ஜி டி.எம்.எஸ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5760196466,தேனாம்பேட்டை,தேனாம்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5760196474,நந்தனம்,நந்தனம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_5760196488,சைதாப்பேட்டை,சைதாப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_6285857237,Nanganallur Road,நங்கநல்லூர் சாலை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_6285857238,மீனம்பாக்கம்,மீனம்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_6285857239,Meenambakkam,மீனம்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_6285857240,சென்னை விமான நிலையம்,சென்னை விமான நிலையம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_6285857241,Chennai International Airport,சென்னை விமான நிலையம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_6285857242,தேனாம்பேட்டை,தேனாம்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_6285857243,நந்தனம்,நந்தனம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_6285857244,சைதாப்பேட்டை,சைதாப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_6285857245,சின்னமலை,சின்னமலை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_6285857246,சின்னமலை,சின்னமலை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_6285857247,கிண்டி,கிண்டி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_6285857248,கிண்டி,கிண்டி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_6285857249,ஏ ஜி டி.எம்.எஸ்,ஏ ஜி டி.எம்.எஸ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_6285857253,Central Metro,சென்னை மத்திய ரயில் நிலையம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_6286383211,ஆலந்தூர்,ஆலந்தூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_6397600715,வண்ணாரப்பேட்டை,வண்ணாரப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_6397600716,வண்ணாரப்பேட்டை,வண்ணாரப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_6397600719,அரசினர் தோட்டம்,அரசினர் தோட்டம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_6397600720,எல் ஐ சி,எல் ஐ சி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_6397600721,எல் ஐ சி,எல் ஐ சி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_6397600722,ஆயிரம் விளக்கு,ஆயிரம் விளக்கு,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_6397600723,ஆயிரம் விளக்கு,ஆயிரம் விளக்கு,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_6460934200,Washermanpet,வண்ணாரப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_8429442682,தொண்டையார்பேட்டை,தொண்டையார்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_8430632406,Sir Theagaraya College,தியாகராயா கல்லூரி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_8430632416,Tondiarpet,தொண்டையார்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_8430636713,Wimco Nagar,விம்கோ நகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_8430636714,Thiruvottriyur,திருவொற்றியூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_8430636715,Kaladipet,காலடிபேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_8430636716,சுங்கச்சாவடி,சுங்கச்சாவடி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_8430636817,புது வண்ணாரப்பேட்டை,புது வண்ணாரப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_8477103052,Wimco Nagar,விம்கோ நகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_8477103055,திருவொற்றியூர்,திருவொற்றியூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_8477103077,காலடிபேட்டை,காலடிபேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_8477103081,சுங்கச்சாவடி,சுங்கச்சாவடி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_8477103083,புது வண்ணாரப்பேட்டை,புது வண்ணாரப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_8477103089,தொண்டையார்பேட்டை,தொண்டையார்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_8477103091,Sir Theagaraya College,தியாகராயா கல்லூரி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_8477103093,Sir Theagaraya College,தியாகராயா கல்லூரி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_8477103094,புது வண்ணாரப்பேட்டை,புது வண்ணாரப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_8477103095,சுங்கச்சாவடி,சுங்கச்சாவடி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_8477103096,காலடிபேட்டை,காலடிபேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_8477103097,திருவொற்றியூர்,திருவொற்றியூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_8477103098,Wimco Nagar,விம்கோ நகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_9580013601,Thiruvottiyur Theradi,திருவொற்றியூர் தேரடி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_9580013602,திருவொற்றியூர் தேரடி,திருவொற்றியூர் தேரடி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_9580013603,திருவொற்றியூர் தேரடி,திருவொற்றியூர் தேரடி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_9592492217,பரங்கிமலை,பரங்கிமலை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_9592492218,பரங்கிமலை,பரங்கிமலை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_9592492219,ஈக்காட்டுத்தாங்கல்,ஈக்காட்டுத்தாங்கல்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_9592492220,ஈக்காட்டுத்தாங்கல்,ஈக்காட்டுத்தாங்கல்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_9592492221,அசோக் நகர்,அசோக் நகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_9592492222,வடபழநி,வடபழநி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_9592492223,வடபழநி,வடபழநி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_9592492224,அரும்பாக்கம்,அரும்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_9592492225,அரும்பாக்கம்,அரும்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_9592492226,சென்னை புறநகர் பேருந்து நிலையம்,சென்னை புறநகர் பேருந்து நிலையம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_9592492227,Thirumangalam,திருமங்கலம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_9592492228,Thirumangalam,திருமங்கலம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_9592492229,Anna Nagar Tower,அண்ணா நகர் டவர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_9592492230,Anna Nagar Tower,அண்ணா நகர் டவர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_9592492231,Anna Nagar East,அண்ணா நகர் கிழக்கு,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_9853600043,விம்கோ நகர் டிப்போ,விம்கோ நகர் டிப்போ,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_9857416360,Wimco Nagar Depot,விம்கோ நகர் டிப்போ,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_11822901092,Kilambakkam,கிளாம்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_13971965462,Porur Junction,போரூர் சந்திப்பு மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_13972050953,Poonamallee Bypass,பூவிருந்தவல்லி புறவழிச்சாலை மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_13972063969,Porur Bypass,போரூர் புறவழிச் சாலை மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_13972457964,Kumananchavadi Metro,குமணன்சாவடி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_13972487793,Poonamallee Government Hospital Metro,பூவிருந்தவல்லி அரசு மருத்துவமனை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_13972488427,Poonamallee Bus Stand Metro,பூவிருந்தவல்லி பேருந்து நிலையம் மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_13972497043,Kattupakkam,காட்டுப்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_13972502091,Karayanchavadi Metro,கரையன்சாவடி,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_13972514096,Iyappanthangal Metro,அய்யப்பன்தாங்கல்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_14018223531,Thirumayilai Metro,திருமயிலை மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_14023780633,Royapettah Metro,ராயப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_14125845268,Kodambakkam Powerhouse,கோடம்பாக்கம் பவர்ஹவுஸ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_14125845269,Alwarthirunagar Metro,ஆழ்வார்திருநகர் மெட்ரோ ரயில் நிலையம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_14125845270,Valasaravakkam Metro,வளசரவாக்கம் மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_14125845275,Karambakkam Metro,காரம்பாக்கம் மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_14125845276,Alapakkam Metro,ஆலப்பாக்கம் மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_14127634032,Virugambakkam South,விருகம்பாக்கம் தெற்கு மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_14127634035,Saligramam,சாலிகிராமம் மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_14127634037,Virugambakkam North,விருகம்பாக்கம் வடக்கு மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_14127634038,Natesan Nagar,நடேசன் நகர் மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_14127634039,Koyambedu Market,கோயம்பேடு சந்தை மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_26399018,Royapuram,ராயபுரம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_217653510,Chennai Beach,சென்னை கடற்கரை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_217653511,Chennai Fort,சென்னை கோட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_217845073,Chennai Central,சென்னை சென்ட்ரல,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_217954831,Basin Bridge Junction,பேசின் பிரிட்ஜ் சந்திப்பு,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_235931387,Villivakkam,வில்லிவாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_393560244,Shenoy Nagar Metro,செனாய் நகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_1115820281,Chennai Suburban Terminal (Moore Market Complex),சென்னை புறநகர் முனையம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_1314817095,Anna Nagar Tower,அண்ணா நகர் கோபுரம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_1314817096,Thirumangalam,திருமங்கலம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_RAIL_1314817097,Anna Nagar East,அண்ணா நகர் கிழக்கு,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5306412986,Madurantakam,மதுராந்தகம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5273662388,Chengalpatttu Junction,செங்கல்பட்டு சந்திப்பு,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3725756379,Palur,பாலூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5311775876,Singaperumal Koil,சிங்கப்பெருமாள் கோயில்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_261716103,Kanchipuram East,காஞ்சிபுரம் கிழக்கு,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_256777901,Kanchipuram,காஞ்சிபுரம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5274260962,Guduvancheri,கூடுவாஞ்சேரி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_11822901092,Kilambakkam,கிளாம்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5311775879,Vandalur,வண்டலூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_4767159308,Perungalattur,பெருங்களத்தூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5304399879,Tambaram Kulam Bus stop,தாம்பரம் குளம் பேருந்து நிறுத்தம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3261251830,Chemmanchery,செம்மஞ்சேரிகுப்பம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5286945822,Tambaram,தாம்பரம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5311775880,Tambaram Sanatorium,தாம்பரம் தாம்பரம் சானடோரியம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_560212201,Nehru nagar,நேரு நகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5273733276,Chromepet,குரோம்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_6166092572,Chrompet,குரோம்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_1711224934,கோவிலாம்பாக்கம்,கோவிலாம்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2077234674,Pallikaranai,பள்ளிக்கரணை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_310592291,Axis bank,ஆக்ஸிஸ் வங்கி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_1899720980,Narayana puram,நாராயண புரம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_1899720981,Narayana puram,நாராயண புரம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_305478863,Sadasiva Nagar,சதாசிவ நகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_442506948,Ram Nagar,ராம் நகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_4435694788,Pallavaram,பல்லாவரம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_278745849,மூவரசம்பட்டு கூட்ரோடு,மூவரசம்பட்டு கூட்ரோடு,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_310591980,மூவரசம்பேட்டை,மூவரசம்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_9417619443,மூவரசம்பட்டு கூட்ரோடு,மூவரசம்பட்டு கூட்ரோடு,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_4885083053,Tirusulam,திருசூலம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_6285857241,Chennai International Airport,சென்னை விமான நிலையம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_4885094689,Meenambakkam,மீனம்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_6285857239,Meenambakkam,மீனம்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_1920364154,Roja Medicals,ரோஜா மருந்தகம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3187977875,Palavanthangal,பழவந்தாங்கல்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_365957307,Nandambakkam,நந்தம்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3264882332,Nandambakkam,நந்தம்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_279150540,பரங்கிமலை ரயில் நிலையம்,பரங்கிமலை ரயில் நிலையம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_4221752111,Saint Thomas Mount,பரங்கிமலை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5319202812,Saint Thomas Mount,பரங்கிமலை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_6285857237,Nanganallur Road,நங்கநல்லூர் சாலை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5308690568,Alandur,ஆலந்தூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_391823865,Kathipara,கத்திப்பாரா,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3264719874,Kathipara,கத்திப்பாரா,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3264719879,Butt Road,பட் சாலை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3264883462,Butt Road,பட் சாலை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_256039818,Guindy,கிண்டி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5631301427,Guindy,கிண்டி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_1007625852,Guindy,கிண்டி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2241055785,Guindy,கிண்டி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3264712327,Guindy,கிண்டி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3264712469,Guindy,கிண்டி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5631301429,கிண்டி,கிண்டி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_6285857248,கிண்டி,கிண்டி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5319207378,Ekkattuthangal,ஈக்காட்டுத்தாங்கல்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3247422104,Injambakkam,ஈஞ்சம்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_1764308008,Velachery Railway Station,வேளச்சேரி ரயில் நிலையம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5311755242,Velachery,வேளச்சேரி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5311755241,Perungudi,பெருங்குடி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5311755240,Taramani,தரமணி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_9554116143,Rajalakshmi Nagar,ராஜலக்ஷ்மி நகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_14065915984,Prince Jewellery,பிரின்ஸ் ஜுவல்லரி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_1457114953,SRP Tools,எஸ்ஆர்பி டூல்ஸ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_1457114934,Kottivakkam,கொட்டிவாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_1457114942,Kottivakkam,கொட்டிவாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_1457114954,SRP Tools,எஸ்ஆர்பி டூல்ஸ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_1183430763,Tidel park,டைடல் பார்க்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_1183430887,Tidel Park,டைடல் பார்க்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5311755239,Tiruvanmiyur,திருவான்மியூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_317827746,Jayanti,ஜெயந்தி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_317827781,Jayanti,ஜெயந்தி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3247299914,Thiruvanmiyur,திருவான்மியூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5486341834,Jayanti,ஜெயந்தி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5631301116,Jayanti,ஜெயந்தி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5631301117,Jayanti,ஜெயந்தி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_365983874,Saidapet Court,சைதாப்பேட்டை நீதிமன்றம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3264883515,சின்ன மலை Little Mount Metro,சின்ன மலை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_6285857246,சின்னமலை,சின்னமலை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3263017226,Anna University,அண்ணா பல்கலைக்கழகம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3263003853,Gandhi Mandapam,காந்தி மண்டபம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5311755238,Indira Nagar,இந்திரா நகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3262998735,Madhya Kailash,மத்திய கைலாஷ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_312031432,Gandhinagar,காந்தி நகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3262996627,Gandhinagar,காந்திநகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5274913769,Kotturpuram,கோட்டூர்புரம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_13972050953,Poonamallee Bypass,பூவிருந்தவல்லி புறவழிச்சாலை மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_13972488427,Poonamallee Bus Stand Metro,பூவிருந்தவல்லி பேருந்து நிலையம் மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_13972487793,Poonamallee Government Hospital Metro,பூவிருந்தவல்லி அரசு மருத்துவமனை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_13972502091,Karayanchavadi Metro,கரையன்சாவடி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3678939665,Avadi,ஆவடி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_10237557280,Sri Chelliamman Temple,ஸ்ரீ செல்லியம்மன் டெம்பிள்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_10237557281,Sri Chelliamman Temple,ஸ்ரீ செல்லியம்மன் டெம்பிள்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_10237564020,Ayathur Chathiram,அயதுர் சத்திரம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_10237564021,Ayathur Chathiram,அயதுர் சத்திரம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_13972457964,Kumananchavadi Metro,குமணன்சாவடி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_13972514096,Iyappanthangal Metro,அய்யப்பன்தாங்கல்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_13972497043,Kattupakkam,காட்டுப்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_13972063969,Porur Bypass,போரூர் புறவழிச் சாலை மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3264825906,போரூர்,போரூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3264869197,சக்தி நகர்,சக்தி நகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_13971965462,Porur Junction,போரூர் சந்திப்பு மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3264825519,Sakthi Nagar,சக்தி நகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_14125845276,Alapakkam Metro,ஆலப்பாக்கம் மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3264878737,Ramapuram,ராமபுரம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2072482089,Lakshmi Nagar,லட்சுமி நகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3264871280,Sakthi Nagar,சக்தி நகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_14125845275,Karambakkam Metro,காரம்பாக்கம் மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_14125845270,Valasaravakkam Metro,வளசரவாக்கம் மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_4308329989,West Saidapet,மேற்கு சைதாப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_1024560151,Ashok Pillar,அசோக் பில்லர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5319972796,Ashok Nagar,அசோக் நகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_14125845269,Alwarthirunagar Metro,ஆழ்வார்திருநகர் மெட்ரோ ரயில் நிலையம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_411316688,Virugambakkam,விருகம்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_996517630,Virugambakkam,விருகம்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_14127634037,Virugambakkam North,விருகம்பாக்கம் வடக்கு மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_14127634032,Virugambakkam South,விருகம்பாக்கம் தெற்கு மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_595714972,Elango Nagar,இளங்கோ நகர் பேருந்து நிறுத்தம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_14127634035,Saligramam,சாலிகிராமம் மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_1007625832,Vadapalani Junction,வடபழனி சந்திப்பு,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5319972798,Vadapalani,வடபழநி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_14127634038,Natesan Nagar,நடேசன் நகர் மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_14127634039,Koyambedu Market,கோயம்பேடு சந்தை மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5319972799,Arumbakkam,அரும்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_306104406,Puratchi Thalaivar Dr. M.G.R Bus Terminus,புரட்சித் தலைவர் டாக்டர். எம்.ஜி.ஆர். பேருந்து நிலையம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5321248890,CMBT,சென்னை புறநகர் பேருந்து நிலையம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5310778035,Annanur,அண்ணனூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5310778034,Thirumullaivoyal,திருமுல்லைவாயில்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5310778033,Ambattur,அம்பத்தூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5230370403,Mogappair West Bus Terminus,முகப்பேர் மேற்கு பேருந்து முனையம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5321248896,Koyambedu,கோயம்பேடு,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5227401703,Thirumangalam Metro,திருமங்கலம் மெட்ரோ பேருந்து நிறுத்தம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_304278622,Anna Nagar West,அண்ணா நகர் மேற்கு,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2239237792,West Saidapet,மேற்கு சைதாப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_303512414,சைதாப்பேட்டை பாலம்,சைதாப்பேட்டை பாலம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_306551393,சைதாப்பேட்டை பாலம்,சைதாப்பேட்டை பாலம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2481259029,Saidapet,சைதாப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3263010049,சைதாப்பேட்டை காவல் நிலையம்,சைதாப்பேட்டை காவல் நிலையம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3263015885,சைதாப்பேட்டை,சைதாப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_6285857244,சைதாப்பேட்டை,சைதாப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_4153840390,Oxford School,ஆக்ஸ்போர்டு பள்ளி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_4153840489,Srinivasa Theatre,சீனிவாச திரையரங்கு,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_4153840589,Srinivasa Theatre,சீனிவாச திரையரங்கு,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_4153840689,Oxford School,ஆக்ஸ்போர்டு பள்ளி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_6285857243,நந்தனம்,நந்தனம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2481259006,Mambalam,மாம்பலம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3724408109,Thambiah Road,தம்பையா சாலை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_10308012376,Thyagaraya Nagar,தியாகராய நகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_1334303173,Narayanasamy Thottam,நாராயணசாமி தோட்டம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5311755235,Mandaveli,மந்தைவெளி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_6285857242,தேனாம்பேட்டை,தேனாம்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_301736152,ஆழ்வார் பேட்டை,ஆழ்வார் பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_7412932328,ஆழ்வார் பேட்டை,ஆழ்வார் பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_4407799419,Globus,குளோபஸ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_301736149,Alwarpet,ஆழ்வார் பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_301736913,ஆழ்வார் பேட்டை,ஆழ்வார் பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_418116045,ஆழ்வார் பேட்டை,ஆழ்வார் பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_243060332,மைலாப்பூர்,மைலாப்பூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_407981751,Luz Corner,லஸ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_410615353,Luz Corner,லஸ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_13839624069,மயிலாப்பூர் டேங்க்,மயிலாப்பூர் டேங்க்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_14018223531,Thirumayilai Metro,திருமயிலை மெட்ரோ,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_301736165,ஆழ்வார் பேட்டை,ஆழ்வார் பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_343721497,ஆழ்வார் பேட்டை,ஆழ்வார் பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_418116043,Narada Gana Sabha,நாரத கான சபா,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_418116044,Narada Gana Sabha,நாரத கான சபா,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5631301112,ஆழ்வார் பேட்டை,ஆழ்வார் பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5631301113,ஆழ்வார் பேட்டை,ஆழ்வார் பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3215471942,AVM Rajeshwari,ஏ.வி.எம் ராஜேஸ்வரி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3215474364,Valluvar Statue,வள்ளுவர் சிலை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3215478754,Woodlands,உட்லண்ட்ஸ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3216992157,Valluvar Statue,வள்ளுவர் சிலை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_14125845268,Kodambakkam Powerhouse,கோடம்பாக்கம் பவர்ஹவுஸ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2481259002,Kodambakkam,கோடம்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5311775881,Nungambakkam,நுங்கம்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3215500283,Chetpet,சேத்துப்பட்டு,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_6285857249,ஏ ஜி டி.எம்.எஸ்,ஏ ஜி டி.எம்.எஸ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_378688565,Woodlands,உட்லண்ட்ஸ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_378688568,Woodlands,உட்லண்ட்ஸ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3216991543,Income Tax Offrice,வருமான வரி அலுவலகம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3215497034,Gemini,ஜெமினி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3216995418,Gemini,ஜெமினி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_301736912,Music Academy,மியூசிக் அகாடமி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_1311558793,Music Academy,மியூசிக் அகாடமி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_14023780633,Royapettah Metro,ராயப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3215503639,Sterling Road,ஸ்டெர்லிங் ரோடு,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3216993078,Sterling,ஸ்டெர்லிங்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3216985475,Chetpet,சேத்துப்பட்டு,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3216990971,College Road,கல்லூரி சாலை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_1001424410,DPI,டிபிஐ,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_309185820,TVS,டி.வி.எஸ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_309185827,TVS,டி.வி.எஸ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_1001424417,Ethiraj College,எத்திராஜ் கல்லூரி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_1001424418,Ethiraj College,எத்திராஜ் கல்லூரி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2482014614,TVS,டி.வி.எஸ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2482014616,TVS,டி.வி.எஸ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2482014617,TVS,டி.வி.எஸ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2482014620,TVS,டி.வி.எஸ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2482014623,TVS,டி.வி.எஸ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5337407346,ஆயிரம் விளக்கு,ஆயிரம் விளக்கு,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2481989471,L.I.C,எல்.ஐ.சி.,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2481989472,L.I.C,எல்.ஐ.சி.,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2481989473,L.I.C,எல்.ஐ.சி.,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2482014618,TVS,டி.வி.எஸ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2482072875,LIC,எல்.ஐ.சி.,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2482072877,LIC,எல்.ஐ.சி.,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5337407350,எல் ஐ சி,எல் ஐ சி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2482072878,L.I.C,எல்.ஐ.சி.,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2482072879,LIC,எல்.ஐ.சி.,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5311755232,Light House,கலங்கரை விளக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_357233537,Kannagi Statue,கண்ணகி சிலை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_357233543,Kannagi Statue,கண்ணகி சிலை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2486239287,Chepauk,சேப்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5337407354,அரசினர் தோட்டம்,அரசினர் தோட்டம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5329907482,Pachaiyappa's College,பச்சையப்பன் கல்லூரி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_248467412,Chennai Chetpet,சேத்துப்பட்டு,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5329907487,Kilpauk,கீழ்பாக்கம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3216986967,Millers Road,மில்லர்ஸ் சாலை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5329907490,Nehru Park,நேரு பூங்கா,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5275790188,Chennai Egmore,சென்னை எழும்பூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5329907499,Egmore,எழும்பூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3215513362,Millers Road,மில்லர்ஸ் சாலை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3216986939,R.K. Road,ஆர்.கே சாலை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3215523791,Otteri,ஓட்டேரி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3216985354,Otteri,ஓட்டேரி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3216986182,Saravana Theatre,சரவணா திரையரங்கு,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3216970916,Binny Mills,பின்னி மில்ஸ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5631301103,Binny Mills,பின்னி மில்ஸ்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3215525982,Perambur Railway Station,பெரம்பூர் ரயில் நிலையம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5276205560,Perambur,பெரம்பூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3215524962,Mettupalayam,மேட்டுப்பாளையம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_3216970886,Mettupalayam,மேட்டுப்பாளையம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5287023932,Vyasarpadi Jeeva,வியாசர்பாடி ஜீவா,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_966556116,Chintadripet,சிந்தாதிரிப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2241832803,Chintadripet,சிந்தாதிரிப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5311755231,Chintadaripet,சிந்தாதிரிப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_303284248,Ripon Building,ரிப்பன் கட்டிடம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_966544114,Ripon Building,ரிப்பன் கட்டிடம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2481258999,Chennai Park,சென்னை பூங்கா,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_6285857253,Central Metro,சென்னை மத்திய ரயில் நிலையம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2481258995,Chennai Park Town,பூங்கா நகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2481969291,Puratchi Thalaivar Dr. M. G. Ramachandran Central,சென்னை - புரட்சி தலைவர் டா. எம். ஜி. ராமச்சந்திரன் சென்ட்ரல்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_10798124380,Payaigada,பயைகட,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5337658083,High Court,உயர்நீதிமன்றம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5337658088,Mannadi,மண்ணடி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_10893145245,Moolakkothanam,மோலக்கொதனம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5337658099,Washermanpet,வண்ணாரப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_6460934200,Washermanpet,வண்ணாரப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5274761658,Korukkupet,கொருக்குப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_8430632406,Sir Theagaraya College,தியாகராயா கல்லூரி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5311732458,Tondiarpet,தண்டையார்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_8430632416,Tondiarpet,தொண்டையார்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_8430636817,புது வண்ணாரப்பேட்டை,புது வண்ணாரப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_8430636716,சுங்கச்சாவடி,சுங்கச்சாவடி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_8430636715,Kaladipet,காலடிபேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5311732459,Tiruvottiyur,திருவொற்றியூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_9580013601,Thiruvottiyur Theradi,திருவொற்றியூர் தேரடி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_8430636714,Thiruvottriyur,திருவொற்றியூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_8430636713,Wimco Nagar,விம்கோ நகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_9857416360,Wimco Nagar Depot,விம்கோ நகர் டிப்போ,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5274094702,Ennore,எண்ணூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5311732624,Ponneri,பொன்னேரி,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5311732618,Attipattu Pudunagar,அத்திப்பட்டு புதுநகர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5311732620,Attippattu,அத்திப்பட்டு,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_2605993507,Minjur,மீஞ்சூர்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_5311732625,Kavaraippettai,கவரைப்பேட்டை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_251882888,MTC Bus Terminus,நந்திவரம்-கூடுவாஞ்சேரி மா.போ.க பேருந்து நிலையம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_1173910097,Tambaram,தாம்பரம்,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_1052950343,Keelkattalai Bus Stand,கீழ்க்கட்டளை,official_tamil,ta,OSM_OVERPASS,False
+OSM_BUS_31956728,Chennai Mofussil Bus Terminus,சென்னை புறநகர் பேருந்து நிலையம்,official_tamil,ta,OSM_OVERPASS,False
+GTFS_STOP_10919,Ayanavaram Bus Terminus,Ayanavaram  Bus Terminus,source_spelling,en,CHENNAI_COMMUNITY_GTFS,False

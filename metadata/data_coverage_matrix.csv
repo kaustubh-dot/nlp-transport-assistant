@@ -1,0 +1,23 @@
+data_category,CUMTA_OFFICIAL,CMRL_API,CMRL_WEB,MTC_OFFICIAL,SOUTHERN_RAILWAY_DOCS,OSM_OVERPASS,CHENNAI_COMMUNITY_GTFS,CURATED_MULTIMODAL_UNVERIFIED
+Metro stations,partial,complete,complete,not_applicable,not_applicable,complete,not_applicable,complete
+Metro station codes,unknown,not_available,partial,not_applicable,not_applicable,partial,not_applicable,complete
+Metro coordinates,unknown,partial,partial,not_applicable,not_applicable,complete,not_applicable,complete
+Metro entrances,unknown,not_available,complete,not_applicable,not_applicable,partial,not_applicable,not_available
+Metro facilities,unknown,partial,complete,not_applicable,not_applicable,partial,not_applicable,complete
+Phase II stations,partial,partial,complete,not_applicable,not_applicable,partial,not_applicable,not_available
+Bus routes,partial,not_applicable,not_applicable,complete,not_applicable,partial,complete,partial
+Bus stops,partial,not_applicable,not_applicable,complete,not_applicable,complete,complete,partial
+Bus stop coordinates,unknown,not_applicable,not_applicable,partial,not_applicable,complete,complete,partial
+Route stop order,unknown,not_applicable,not_applicable,complete,not_applicable,partial,complete,not_available
+Rail stations,partial,not_applicable,not_applicable,not_applicable,complete,complete,not_applicable,complete
+Rail codes,unknown,not_applicable,not_applicable,not_applicable,complete,complete,not_applicable,partial
+MRTS,unknown,not_applicable,not_applicable,not_applicable,complete,complete,not_applicable,complete
+Timetables,unknown,not_available,partial,partial,complete,not_available,partial,not_available
+Fares,unknown,not_available,partial,complete,complete,not_available,partial,not_available
+Accessibility,unknown,partial,complete,not_available,partial,partial,not_available,complete
+Localities,unknown,not_applicable,not_applicable,not_applicable,not_applicable,complete,not_applicable,partial
+POIs,unknown,not_applicable,not_applicable,not_applicable,not_applicable,complete,not_applicable,not_available
+Tamil names,unknown,not_available,partial,partial,partial,complete,partial,complete
+Historical names,unknown,not_available,partial,not_available,partial,complete,not_available,partial
+Route geometry,unknown,not_available,not_available,not_available,not_available,complete,complete,not_available
+Official CMA boundary,unknown,not_applicable,not_applicable,not_applicable,not_applicable,complete,not_applicable,not_available

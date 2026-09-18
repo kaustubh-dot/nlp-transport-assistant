@@ -69,3 +69,326 @@ ST_THOMAS_MOUNT,सेंट थॉमस माउंट मेट्रो,hi,
 ST_THOMAS_MOUNT,st thomas mount,en,Latn
 ST_THOMAS_MOUNT,st. thomas mount,en,Latn
 ST_THOMAS_MOUNT,st thomas mount metro,en,Latn
+NEHRU_PARK,नेहरू पार्क,hi,Deva
+NEHRU_PARK,नेहरू पार्क मेट्रो,hi,Deva
+NEHRU_PARK,nehru park,en,Latn
+NEHRU_PARK,nehru park metro,en,Latn
+KILPAUK,किल्पॉक,hi,Deva
+KILPAUK,किल्पॉक मेट्रो,hi,Deva
+KILPAUK,kilpauk,en,Latn
+KILPAUK,kilpauk metro,en,Latn
+PACHAIYAPPAS_COLLEGE,पचयप्पा कॉलेज,hi,Deva
+PACHAIYAPPAS_COLLEGE,पचयप्पा कॉलेज मेट्रो,hi,Deva
+PACHAIYAPPAS_COLLEGE,pachaiyappas college,en,Latn
+PACHAIYAPPAS_COLLEGE,pachaiyappa college metro,en,Latn
+ANNA_NAGAR_EAST,अन्ना नगर ईस्ट,hi,Deva
+ANNA_NAGAR_EAST,अन्ना नगर ईस्ट मेट्रो,hi,Deva
+ANNA_NAGAR_EAST,anna nagar east,en,Latn
+ANNA_NAGAR_EAST,anna nagar east metro,en,Latn
+ANNA_NAGAR_TOWER,अन्ना नगर टावर,hi,Deva
+ANNA_NAGAR_TOWER,अन्ना नगर टावर मेट्रो,hi,Deva
+ANNA_NAGAR_TOWER,anna nagar tower,en,Latn
+ANNA_NAGAR_TOWER,anna nagar tower metro,en,Latn
+THIRUMANGALAM,तिरुमंगलम,hi,Deva
+THIRUMANGALAM,तिरुमंगलम मेट्रो,hi,Deva
+THIRUMANGALAM,thirumangalam,en,Latn
+THIRUMANGALAM,thirumangalam metro,en,Latn
+ARUMBAKKAM,अरुम्बाक्कम,hi,Deva
+ARUMBAKKAM,अरुम्बाक्कम मेट्रो,hi,Deva
+ARUMBAKKAM,arumbakkam,en,Latn
+ARUMBAKKAM,arumbakkam metro,en,Latn
+ASHOK_NAGAR,अशोक नगर,hi,Deva
+ASHOK_NAGAR,अशोक नगर मेट्रो,hi,Deva
+ASHOK_NAGAR,ashok nagar,en,Latn
+ASHOK_NAGAR,ashok nagar metro,en,Latn
+EKKATTUTHANGAL,एकट्टुथांगल,hi,Deva
+EKKATTUTHANGAL,एकट्टुथांगल मेट्रो,hi,Deva
+EKKATTUTHANGAL,ekkattuthangal,en,Latn
+EKKATTUTHANGAL,ekkattuthangal metro,en,Latn
+WIMCO_NAGAR_DEPOT,विमको नगर डिपो,hi,Deva
+WIMCO_NAGAR_DEPOT,विमको नगर डिपो मेट्रो,hi,Deva
+WIMCO_NAGAR_DEPOT,wimco nagar depot,en,Latn
+WIMCO_NAGAR_DEPOT,wimco nagar depot metro,en,Latn
+THIRUVOTTIYUR,तिरुवोट्टियूर,hi,Deva
+THIRUVOTTIYUR,तिरुवोट्टियूर मेट्रो,hi,Deva
+THIRUVOTTIYUR,tiruvottriyur,en,Latn
+THIRUVOTTIYUR,thiruvottiyur metro,en,Latn
+THIRUVOTTIYUR_THERADI,थेराडी,hi,Deva
+THIRUVOTTIYUR_THERADI,तिरुवोट्टियूर थेराडी,hi,Deva
+THIRUVOTTIYUR_THERADI,thiruvottriyur theradi,en,Latn
+THIRUVOTTIYUR_THERADI,theradi metro,en,Latn
+KALADIPET,कालाडीपेट,hi,Deva
+KALADIPET,कालाडीपेट मेट्रो,hi,Deva
+KALADIPET,kaladipet,en,Latn
+KALADIPET,kaladipet metro,en,Latn
+TOLLGATE,टोलगेट,hi,Deva
+TOLLGATE,टोलगेट मेट्रो,hi,Deva
+TOLLGATE,tollgate,en,Latn
+TOLLGATE,tollgate metro,en,Latn
+NEW_WASHERMANPET,न्यू वाशरमैनपेट,hi,Deva
+NEW_WASHERMANPET,न्यू वाशरमैनपेट मेट्रो,hi,Deva
+NEW_WASHERMANPET,new washermanpet,en,Latn
+NEW_WASHERMANPET,new washermenpet,en,Latn
+TONDIARPET,तोंडियारपेट,hi,Deva
+TONDIARPET,तोंडियारपेट मेट्रो,hi,Deva
+TONDIARPET,tondiarpet,en,Latn
+TONDIARPET,tondiarpet metro,en,Latn
+SIR_THEAGARAYA_COLLEGE,त्यागराया कॉलेज,hi,Deva
+SIR_THEAGARAYA_COLLEGE,सर त्यागराया कॉलेज मेट्रो,hi,Deva
+SIR_THEAGARAYA_COLLEGE,sir theagaraya college,en,Latn
+SIR_THEAGARAYA_COLLEGE,theagaraya college metro,en,Latn
+MANNADI,मन्नाडी,hi,Deva
+MANNADI,मन्नाडी मेट्रो,hi,Deva
+MANNADI,mannadi,en,Latn
+MANNADI,mannadi metro,en,Latn
+HIGH_COURT,हाईकोर्ट,hi,Deva
+HIGH_COURT,हाईकोर्ट मेट्रो,hi,Deva
+HIGH_COURT,मद्रास हाईकोर्ट,hi,Deva
+HIGH_COURT,high court,en,Latn
+HIGH_COURT,highcourt metro,en,Latn
+HIGH_COURT,parrys metro,en,Latn
+GOVERNMENT_ESTATE,गवर्नमेंट एस्टेट,hi,Deva
+GOVERNMENT_ESTATE,गवर्नमेंट एस्टेट मेट्रो,hi,Deva
+GOVERNMENT_ESTATE,ओमंदूरार,hi,Deva
+GOVERNMENT_ESTATE,government estate,en,Latn
+GOVERNMENT_ESTATE,government estate metro,en,Latn
+GOVERNMENT_ESTATE,omandurar metro,en,Latn
+LIC,एलआईसी,hi,Deva
+LIC,एलआईसी मेट्रो,hi,Deva
+LIC,माउंट रोड,hi,Deva
+LIC,lic,en,Latn
+LIC,lic metro,en,Latn
+LIC,mount road lic,en,Latn
+THOUSAND_LIGHTS,थाउजेंड लाइट्स,hi,Deva
+THOUSAND_LIGHTS,थाउजेंड लाइट्स मेट्रो,hi,Deva
+THOUSAND_LIGHTS,अन्ना सलाई,hi,Deva
+THOUSAND_LIGHTS,thousand lights,en,Latn
+THOUSAND_LIGHTS,thousand lights metro,en,Latn
+AG_DMS,एजी डीएमएस,hi,Deva
+AG_DMS,एजी डीएमएस मेट्रो,hi,Deva
+AG_DMS,डीएमएस,hi,Deva
+AG_DMS,ag dms,en,Latn
+AG_DMS,ag dms metro,en,Latn
+AG_DMS,dms,en,Latn
+TEYNAMPET,तेनाम्पेट,hi,Deva
+TEYNAMPET,तेनाम्पेट मेट्रो,hi,Deva
+TEYNAMPET,teynampet,en,Latn
+TEYNAMPET,teynampet metro,en,Latn
+SAIDAPET,सैदापेट,hi,Deva
+SAIDAPET,सैदापेट मेट्रो,hi,Deva
+SAIDAPET,saidapet,en,Latn
+SAIDAPET,saidapet metro,en,Latn
+LITTLE_MOUNT,लिटिल माउंट,hi,Deva
+LITTLE_MOUNT,लिटिल माउंट मेट्रो,hi,Deva
+LITTLE_MOUNT,चिन्नामलई,hi,Deva
+LITTLE_MOUNT,little mount,en,Latn
+LITTLE_MOUNT,little mount metro,en,Latn
+LITTLE_MOUNT,chinnamalai,en,Latn
+NANGANALLUR_ROAD,नंगनल्लूर रोड,hi,Deva
+NANGANALLUR_ROAD,नंगनल्लूर मेट्रो,hi,Deva
+NANGANALLUR_ROAD,ओटीए,hi,Deva
+NANGANALLUR_ROAD,nanganallur road,en,Latn
+NANGANALLUR_ROAD,nanganallur metro,en,Latn
+NANGANALLUR_ROAD,ota nanganallur,en,Latn
+MEENAMBAKKAM,मीनम्बाक्कम,hi,Deva
+MEENAMBAKKAM,मीनम्बाक्कम मेट्रो,hi,Deva
+MEENAMBAKKAM,meenambakkam,en,Latn
+MEENAMBAKKAM,meenambakkam metro,en,Latn
+CHENNAI_PARK,पार्क,hi,Deva
+CHENNAI_PARK,पार्क स्टेशन,hi,Deva
+CHENNAI_PARK,चेन्नई पार्क,hi,Deva
+CHENNAI_PARK,park,en,Latn
+CHENNAI_PARK,park station,en,Latn
+CHENNAI_PARK,chennai park,en,Latn
+CHENNAI_PARK,park railway station,en,Latn
+CHENNAI_PARK,chennai park suburban,en,Latn
+CHENNAI_PARK,சென்னை பூங்கா,ta,Taml
+CHENNAI_PARK_TOWN,पार्क टाउन,hi,Deva
+CHENNAI_PARK_TOWN,पार्क टाउन स्टेशन,hi,Deva
+CHENNAI_PARK_TOWN,park town,en,Latn
+CHENNAI_PARK_TOWN,park town station,en,Latn
+CHENNAI_PARK_TOWN,chennai park town,en,Latn
+CHENNAI_BEACH,चेन्नई बीच,hi,Deva
+CHENNAI_BEACH,बीच स्टेशन,hi,Deva
+CHENNAI_BEACH,बीच,hi,Deva
+CHENNAI_BEACH,chennai beach,en,Latn
+CHENNAI_BEACH,beach station,en,Latn
+CHENNAI_BEACH,beach junction,en,Latn
+CHENNAI_BEACH,msb,en,Latn
+CHENNAI_FORT,चेन्नई फोर्ट,hi,Deva
+CHENNAI_FORT,फोर्ट स्टेशन,hi,Deva
+CHENNAI_FORT,फोर्ट,hi,Deva
+CHENNAI_FORT,chennai fort,en,Latn
+CHENNAI_FORT,fort station,en,Latn
+MAMBALAM,माम्बलम,hi,Deva
+MAMBALAM,माम्बलम स्टेशन,hi,Deva
+MAMBALAM,टी नगर स्टेशन,hi,Deva
+MAMBALAM,mambalam,en,Latn
+MAMBALAM,mambalam station,en,Latn
+MAMBALAM,t nagar station,en,Latn
+MAMBALAM,mbm,en,Latn
+TAMBARAM,ताम्बरम,hi,Deva
+TAMBARAM,ताम्बरम स्टेशन,hi,Deva
+TAMBARAM,तांबरम,hi,Deva
+TAMBARAM,tambaram,en,Latn
+TAMBARAM,tambaram station,en,Latn
+TAMBARAM,tambaram junction,en,Latn
+TAMBARAM,tbm,en,Latn
+TIRUSULAM,तिरुशूलम,hi,Deva
+TIRUSULAM,त्रिशूलम,hi,Deva
+TIRUSULAM,तिरुशूलम स्टेशन,hi,Deva
+TIRUSULAM,tirusulam,en,Latn
+TIRUSULAM,tirusulam station,en,Latn
+TIRUSULAM,trishulam,en,Latn
+PERAMBUR,पेराम्बूर,hi,Deva
+PERAMBUR,पेराम्बूर स्टेशन,hi,Deva
+PERAMBUR,पेरांबुर,hi,Deva
+PERAMBUR,perambur,en,Latn
+PERAMBUR,perambur station,en,Latn
+PERAMBUR,per,en,Latn
+AVADI,आवाडी,hi,Deva
+AVADI,अवादी,hi,Deva
+AVADI,आवाडी स्टेशन,hi,Deva
+AVADI,avadi,en,Latn
+AVADI,avadi station,en,Latn
+AVADI,avd,en,Latn
+AMBATTUR,अम्बात्तूर,hi,Deva
+AMBATTUR,अंबात्तुर,hi,Deva
+AMBATTUR,अम्बात्तूर स्टेशन,hi,Deva
+AMBATTUR,ambattur,en,Latn
+AMBATTUR,ambattur station,en,Latn
+AMBATTUR,abp,en,Latn
+VILLIVAKKAM,विल्लीवाक्कम,hi,Deva
+VILLIVAKKAM,विल्लीवाक्कम स्टेशन,hi,Deva
+VILLIVAKKAM,villivakkam,en,Latn
+VILLIVAKKAM,villivakkam station,en,Latn
+CHETPET,चेतपेट,hi,Deva
+CHETPET,चेतपेट स्टेशन,hi,Deva
+CHETPET,chetpet,en,Latn
+CHETPET,chetpet station,en,Latn
+NUNGAMBAKKAM,नुंगमबाक्कम,hi,Deva
+NUNGAMBAKKAM,नुंगमबाक्कम स्टेशन,hi,Deva
+NUNGAMBAKKAM,nungambakkam,en,Latn
+NUNGAMBAKKAM,nungambakkam station,en,Latn
+KODAMBAKKAM,कोदम्बक्कम,hi,Deva
+KODAMBAKKAM,कोदम्बक्कम स्टेशन,hi,Deva
+KODAMBAKKAM,kodambakkam,en,Latn
+KODAMBAKKAM,kodambakkam station,en,Latn
+PALLAVARAM,पल्लावरम,hi,Deva
+PALLAVARAM,पल्लावरम स्टेशन,hi,Deva
+PALLAVARAM,pallavaram,en,Latn
+PALLAVARAM,pallavaram station,en,Latn
+CHROMEPET,क्रोमपेट,hi,Deva
+CHROMEPET,क्रोमपेट स्टेशन,hi,Deva
+CHROMEPET,chromepet,en,Latn
+CHROMEPET,chromepet station,en,Latn
+VANDALUR,वंडलूर,hi,Deva
+VANDALUR,वंडलूर स्टेशन,hi,Deva
+VANDALUR,वंडालूर,hi,Deva
+VANDALUR,vandalur,en,Latn
+VANDALUR,vandalur station,en,Latn
+VANDALUR,vandalur zoo,en,Latn
+CHENGALPATTU,चेंगलपट्टू,hi,Deva
+CHENGALPATTU,चेंगलपेट,hi,Deva
+CHENGALPATTU,चेंगलपट्टू जंक्शन,hi,Deva
+CHENGALPATTU,chengalpattu,en,Latn
+CHENGALPATTU,chengalpet,en,Latn
+CHENGALPATTU,cgl,en,Latn
+TIRUVALLUR,तिरुवल्लूर,hi,Deva
+TIRUVALLUR,तिरुवल्लूर स्टेशन,hi,Deva
+TIRUVALLUR,tiruvallur,en,Latn
+TIRUVALLUR,thiruvallur,en,Latn
+TIRUVALLUR,trl,en,Latn
+CHEPAUK,चेपॉक,hi,Deva
+CHEPAUK,चेपॉक स्टेशन,hi,Deva
+CHEPAUK,चेपॉक स्टेडियम,hi,Deva
+CHEPAUK,chepauk,en,Latn
+CHEPAUK,chepauk station,en,Latn
+CHEPAUK,chepauk mrts,en,Latn
+LIGHT_HOUSE,लाइट हाउस,hi,Deva
+LIGHT_HOUSE,मरीना बीच,hi,Deva
+LIGHT_HOUSE,लाइट हाउस स्टेशन,hi,Deva
+LIGHT_HOUSE,light house,en,Latn
+LIGHT_HOUSE,marina beach,en,Latn
+LIGHT_HOUSE,light house station,en,Latn
+THIRUMAYILAI,तिरुमईलाई,hi,Deva
+THIRUMAYILAI,मायलापुर,hi,Deva
+THIRUMAYILAI,मायलापुर स्टेशन,hi,Deva
+THIRUMAYILAI,thirumayilai,en,Latn
+THIRUMAYILAI,mylapore,en,Latn
+THIRUMAYILAI,mylapore station,en,Latn
+VELACHERY,वेलाचेरी,hi,Deva
+VELACHERY,वेलाचेरी स्टेशन,hi,Deva
+VELACHERY,वेलाचेरी एमआरटीएस,hi,Deva
+VELACHERY,velachery,en,Latn
+VELACHERY,velachery station,en,Latn
+VELACHERY,velachery mrts,en,Latn
+THIRUVANMIYUR_MRTS,तिरुवान्मियूर एमआरटीएस,hi,Deva
+THIRUVANMIYUR_MRTS,तिरुवान्मियूर स्टेशन,hi,Deva
+THIRUVANMIYUR_MRTS,thiruvanmiyur mrts,en,Latn
+THIRUVANMIYUR_MRTS,thiruvanmiyur station,en,Latn
+THIRUVANMIYUR_MRTS,tidel park station,en,Latn
+KCBT_KILAMBAKKAM,किलाम्बक्कम,hi,Deva
+KCBT_KILAMBAKKAM,केसीबीटी,hi,Deva
+KCBT_KILAMBAKKAM,किलाम्बक्कम बस स्टैंड,hi,Deva
+KCBT_KILAMBAKKAM,किलाम्बक्कम बस टर्मिनस,hi,Deva
+KCBT_KILAMBAKKAM,kilambakkam,en,Latn
+KCBT_KILAMBAKKAM,kcbt,en,Latn
+KCBT_KILAMBAKKAM,kilambakkam bus terminus,en,Latn
+KCBT_KILAMBAKKAM,kilambakkam bus stand,en,Latn
+MMBT_MADHAVARAM,माधवरम बस स्टैंड,hi,Deva
+MMBT_MADHAVARAM,माधवरम बस टर्मिनस,hi,Deva
+MMBT_MADHAVARAM,एमएमबीटी,hi,Deva
+MMBT_MADHAVARAM,माधवरम,hi,Deva
+MMBT_MADHAVARAM,madhavaram,en,Latn
+MMBT_MADHAVARAM,mmbt,en,Latn
+MMBT_MADHAVARAM,madhavaram bus terminus,en,Latn
+MMBT_MADHAVARAM,madhavaram bus stand,en,Latn
+BROADWAY_BUS_TERMINUS,ब्रॉडवे,hi,Deva
+BROADWAY_BUS_TERMINUS,पैरिस कॉर्नर,hi,Deva
+BROADWAY_BUS_TERMINUS,ब्रॉडवे बस स्टैंड,hi,Deva
+BROADWAY_BUS_TERMINUS,पैरिस,hi,Deva
+BROADWAY_BUS_TERMINUS,broadway,en,Latn
+BROADWAY_BUS_TERMINUS,parrys,en,Latn
+BROADWAY_BUS_TERMINUS,broadway bus terminus,en,Latn
+BROADWAY_BUS_TERMINUS,parrys corner,en,Latn
+BROADWAY_BUS_TERMINUS,broadway bus stand,en,Latn
+T_NAGAR_BUS_TERMINUS,टी नगर,hi,Deva
+T_NAGAR_BUS_TERMINUS,टी नगर बस स्टैंड,hi,Deva
+T_NAGAR_BUS_TERMINUS,टी नगर बस टर्मिनस,hi,Deva
+T_NAGAR_BUS_TERMINUS,t nagar,en,Latn
+T_NAGAR_BUS_TERMINUS,t nagar bus terminus,en,Latn
+T_NAGAR_BUS_TERMINUS,t nagar bus stand,en,Latn
+T_NAGAR_BUS_TERMINUS,t. nagar,en,Latn
+ADYAR_BUS_DEPOT,अड्यार,hi,Deva
+ADYAR_BUS_DEPOT,अड्यार बस स्टैंड,hi,Deva
+ADYAR_BUS_DEPOT,अड्यार डिपो,hi,Deva
+ADYAR_BUS_DEPOT,adyar,en,Latn
+ADYAR_BUS_DEPOT,adyar bus depot,en,Latn
+ADYAR_BUS_DEPOT,adyar depot,en,Latn
+ADYAR_BUS_DEPOT,adyar bus stand,en,Latn
+POONAMALLEE_BUS_TERMINUS,पूनमल्ली,hi,Deva
+POONAMALLEE_BUS_TERMINUS,पूनमल्ली बस स्टैंड,hi,Deva
+POONAMALLEE_BUS_TERMINUS,पूनमल्ली डिपो,hi,Deva
+POONAMALLEE_BUS_TERMINUS,poonamallee,en,Latn
+POONAMALLEE_BUS_TERMINUS,poonamallee bus terminus,en,Latn
+POONAMALLEE_BUS_TERMINUS,poonamallee bus stand,en,Latn
+THIRUVANMIYUR_BUS_DEPOT,तिरुवान्मियूर बस डिपो,hi,Deva
+THIRUVANMIYUR_BUS_DEPOT,तिरुवान्मियूर बस स्टैंड,hi,Deva
+THIRUVANMIYUR_BUS_DEPOT,thiruvanmiyur bus depot,en,Latn
+THIRUVANMIYUR_BUS_DEPOT,thiruvanmiyur bus stand,en,Latn
+ANNA_NAGAR_WEST_BUS_DEPOT,अन्ना नगर वेस्ट बस डिपो,hi,Deva
+ANNA_NAGAR_WEST_BUS_DEPOT,अन्ना नगर वेस्ट बस स्टैंड,hi,Deva
+ANNA_NAGAR_WEST_BUS_DEPOT,anna nagar west depot,en,Latn
+ANNA_NAGAR_WEST_BUS_DEPOT,anna nagar west bus stand,en,Latn
+RED_HILLS_BUS_TERMINUS,रेड हिल्स,hi,Deva
+RED_HILLS_BUS_TERMINUS,रेड हिल्स बस स्टैंड,hi,Deva
+RED_HILLS_BUS_TERMINUS,red hills,en,Latn
+RED_HILLS_BUS_TERMINUS,red hills bus terminus,en,Latn
+RED_HILLS_BUS_TERMINUS,redhills,en,Latn
+VELACHERY_BUS_TERMINUS,वेलाचेरी बस स्टैंड,hi,Deva
+VELACHERY_BUS_TERMINUS,विजयनगर बस स्टैंड,hi,Deva
+VELACHERY_BUS_TERMINUS,वेलाचेरी बस टर्मिनस,hi,Deva
+VELACHERY_BUS_TERMINUS,velachery bus stand,en,Latn
+VELACHERY_BUS_TERMINUS,velachery bus terminus,en,Latn
+VELACHERY_BUS_TERMINUS,vijayanagar bus stand,en,Latn

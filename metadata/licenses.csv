@@ -1,0 +1,10 @@
+source_id,license,license_url,attribution_required,redistribution_notes,derived_data_notes,review_required
+CUMTA_OFFICIAL,REVIEW_REQUIRED,https://cumta.tn.gov.in/,true,Government portal disclosures. Terms must be formally reviewed prior to redistribution.,Derived dataset permissible for research reference pending formal license verification.,true
+CMRL_API,REVIEW_REQUIRED,https://chennaimetrorail.org/,true,Extracted from public WordPress API for factual transit reference. Terms must be reviewed.,Factual station and facility lookup.,true
+CMRL_WEB,REVIEW_REQUIRED,https://chennaimetrorail.org/,true,Public informational website disclosures. Commercial redistribution restricted.,Public factual reference only.,true
+MTC_OFFICIAL,REVIEW_REQUIRED,https://mtcbus.tn.gov.in/,true,State transport undertaking web disclosures. Licensing terms unstated.,Factual route and fare stage mapping.,true
+SOUTHERN_RAILWAY_DOCS,REVIEW_REQUIRED,https://sr.indianrailways.gov.in/,true,Public passenger timetable disclosures. Government of India copyright.,Factual schedule and station reference.,true
+OSM_OVERPASS,ODbL,https://www.openstreetmap.org/copyright,true,Open Database License. Attribution mandatory: © OpenStreetMap contributors.,Derived database must be offered under ODbL if distributed.,false
+CHENNAI_COMMUNITY_GTFS,ODbL,https://github.com/ChennaiGTFS,true,Community open transit repository under ODbL.,Derivative works must maintain attribution and ODbL compatibility.,false
+CMRL_LEGACY_VERIFIED,REVIEW_REQUIRED,https://chennaimetrorail.org/station-facilities/,true,Curated from official CMRL portal for NLP benchmark ground truth.,Factual ground truth fixture.,true
+CURATED_MULTIMODAL_UNVERIFIED,REVIEW_REQUIRED,local_scratch,false,Internal working draft synthesized from multiple unverified inputs.,Not approved for redistribution until individual entity provenance is established.,true

@@ -14,18 +14,20 @@ import sqlite3
 from typing import Dict, List, Any
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CURATED_JSON_PATH = os.path.join(BASE_DIR, "data", "curated", "cmrl_verified_stations.json")
+CURATED_JSON_PATH = os.path.join(BASE_DIR, "data", "curated", "chennai_multimodal_stations.json")
+LEGACY_JSON_PATH = os.path.join(BASE_DIR, "data", "curated", "cmrl_verified_stations.json")
 DATA_PROCESSED_DIR = os.path.join(BASE_DIR, "data", "processed")
 DB_PATH = os.path.join(DATA_PROCESSED_DIR, "transport.db")
 ALIASES_CSV_PATH = os.path.join(DATA_PROCESSED_DIR, "aliases.csv")
 
 
 def load_curated_data() -> Dict[str, Any]:
-    """Loads curated and verified CMRL station dataset."""
-    if not os.path.exists(CURATED_JSON_PATH):
-        raise FileNotFoundError(f"Verified dataset not found at {CURATED_JSON_PATH}")
+    """Loads curated multi-modal Chennai transit dataset, falling back to legacy verified slice."""
+    target_path = CURATED_JSON_PATH if os.path.exists(CURATED_JSON_PATH) else LEGACY_JSON_PATH
+    if not os.path.exists(target_path):
+        raise FileNotFoundError(f"Verified dataset not found at {target_path}")
 
-    with open(CURATED_JSON_PATH, "r", encoding="utf-8") as f:
+    with open(target_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 

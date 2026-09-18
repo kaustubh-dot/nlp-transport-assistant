@@ -1,0 +1,1622 @@
+place_id,canonical_name,category,inside_cma,proposed_priority,include_in_nlp,requires_review,notes
+OSM_POI_7820652140,Shri Maruthi Multi Speciality Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820652157,Private Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820652202,Dr. Chitra Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257518731,Mother & Child Care Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257518777,"Government Hospital, Madhuranthagam",hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820652187,Sri Ramakrishna Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_10591203117,Karunguzhi Town Panchayat,government_office,False,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_3082849503,Karpaga Vinayaga Institute Of Medical Sciences,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257518666,Karpaga Vinayaga Medical College Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257518724,Padalam Government Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4849608923,HONDA BIKE SHOW ROOM,tourist_attraction,False,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_7257518764,St.Mary'S Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_353073527,DAE Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4893391921,GSO Office,government_office,False,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_368307280,Govt Primary Health Centre,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4857382121,Indura gandhi center for atomic research,government_office,False,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_7820652160,Sri Venkateshwara Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_314081186,Hindustan Maritime Institute,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_577328882,Great Lakes Institute Of Management,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_7257518734,"Government Hospital, Uthiramerur",hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820652148,Anthonyammal Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820652195,Anandajyoti Hospitals,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6232666489,SUB REGISTRAR OFFICE KANCHIPURAM ALL,government_office,False,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_7266257993,Ayanpet rural office,government_office,False,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_7257289021,"Goverment Hospital, Avaloor",hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257289040,APJ Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5300479525,Government hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7266259287,Government siddha hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820652201,Mother Care Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_469108935,Shri Andal Alagar college of Engineering,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_469116624,Pepsi boteling plant,tourist_attraction,False,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_7820802388,Government Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_11002504765,Office Of Divisional Engineer,government_office,False,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_7820802389,Sri Siddhalaym Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_11002504766,Office Of Deputy Registrar Of CoOperative Societies,government_office,False,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_6929359063,Beent Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933038496,J. J. Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936339696,"Sundaram Hospital, Kanchipuram",hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257518706,Venkatramana Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820802404,Sai Fertility Centre and Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820802426,Sundaram Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_11002658418,Balaji Heart Care Center,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820802351,JSP Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820802373,Filariasis Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6930019969,JSP Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820802359,Raman Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820802414,Herbo Care Herbal Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6929592178,Balaji Hospital (Multi Speciality Hospital Chengalpattu),hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820802392,Mrk Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820802423,Ezhil Siddha Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_2334799037,Railway reservation office,government_office,False,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_7820802410,Bagavathy Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820802419,V.K.R Piles Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257518688,Kr Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257518739,Thirukalukundram Government hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820652178,Vijay Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820652150,Rotary Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7281710386,Regional transport office,government_office,False,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_11004625313,Paranur Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934407826,Muthu Ganapathy Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936695102,Sree Sakthi Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257289122,Sakthi Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820802374,Sri Venkateshwara Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820802376,Sri Balaji Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820802367,Sulaiman Memorial Dental and Child Care,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7994263185,Sulaiman Memorial,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820802350,Arokia Annai Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820802425,Sanjeevi Health Care,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820802398,Naveen Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933010476,J.S. Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257289035,Vanavil Medical Centre,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820802394,Nirahhs Health Centre,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820802408,Akshaya Sida Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820802427,SRM Urban Health Centre,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5302898127,Medi care hispital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257289078,Senthil Maternity Centre,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820443295,Karthigai Centre for Mental Health Care,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1238733084,Dr. Nathaji Nursing Home,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1470793341,Balasubramaniam Vengudi Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6914927101,Sri D.K.K. Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933291839,"Vasan Eye Care Hospital, Pachaiyappan",hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936696190,V.S.R Ortho Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820443291,AKG Maternity and Fertility Centre,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820443304,Sri Ne Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820443327,Bone Care Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820443344,Adara Kerala Ayurveda,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820443356,AKG Fertility Centre,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257289074,Life Care Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257289115,Emmess Women Care Centre,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257289118,"Government Hospital, Kancheepuram",hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820443351,"Herbocare Hospital, Kanchipuram",hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6916079972,Adi Bhagavatpada Cardiac and Dialysis Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934052357,"Dr Agarwals Eye Hospital Ltd, Indira Gandhi Road",hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257289137,Lakshmi Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820443353,Sri Sankara Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820443302,Sunflower Siddha Hospital for Skin and Fertility,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6929737161,Csi Multi Speciality Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820443343,Sivananda Siddha Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820443345,M.S.D Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820443352,Dr. Natarajan Speciality Hospital and Kidney Care Centre,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820443355,VKJ Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820443363,Dr. Kamakshi Memorial Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936318715,Manohar General Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6914927087,Meenakshi Medl College Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820652165,Bon Secours Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820652136,Pandiyan Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820652144,Sagundaladevi Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820652149,Shanmuga Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820652156,Shifa Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820652163,Sri Devi Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5427941223,Delfingen India Chennai,general_poi,False,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_3029387357,Sri Krishna Engineering College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_3029365065,HIET Polytechnic College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_6934737010,Srm Medical College Hospital And Research Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_12712993989,SRM University Building,university,True,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_7820874223,Thangam Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257289045,K.R. Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820874232,"Rishika Ortho, Spine and Joint Speciality Centre",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820874280,K.S. Child Care Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820874227,Suriya Ayurveda Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820874226,G.V. Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820874255,Arokya Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820874268,Deepam Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257289034,Christhudass Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820874248,Magna Open Health Service,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820874203,Arokya Annai Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_10128130411,Aran Empire Private Limited,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_7820652147,ESI Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820652164,Robust Health Care Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820652169,Saravana Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820652193,Saradha Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6926113511,Sayee Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820874263,Arokia Annai Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820874220,Nithya Gurru Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820874288,Thalir Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820874289,Hosanna Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820874285,Sri Multi Speciality Homeopathy Clinic,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6717776487,Landmark placements,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_13011503001,Gateway Office Parks,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_13011503802,Sutherland Global Services,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_13011515701,Accenture,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6172396485,Parveen travels,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_7820874240,Sri Kamatchi Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820874260,Saradha Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820874287,Sri Raghav Child Care Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936684362,Deepika Eye Care Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257421530,Pandian Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7210925002,Sri Devi Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820652138,MPS Paediatric Health Care Centre,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820652174,Sri Sharada Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820652196,Hitech Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933514302,"Jaya Hospital, Chennai",hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936709111,Kshetropasna Medical Trust Ayurveda Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257421570,Annaii Medical College & Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_12286415201,TMTE Metal Tech Private Limited (DONRACKS),general_poi,False,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_12286415301,TMTE Metal Tech Private Limited (DONRACKS),general_poi,False,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_247432808,Sri Venkateswara College of Engineering - SVCE,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_454193658,Research and Deevelopment,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_454194685,Workshop,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_454194870,Workshop,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_454195125,Computer Science,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_454195129,Mechanical,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_454195516,Applied Science,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_454195584,Electronics,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_454195601,Chemical,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_454195953,MCA,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_454196897,Administration,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_454201394,Marine,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_454201424,Workshop,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_454201428,Workshop,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_454201440,Biotechnology,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_454205428,Information Technology,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_454207145,CRB3,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_454207263,CRB1,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_454207328,CRB2,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_7953367185,கிராம நிர்வாக அலுவலர் தண்டலம்,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_7820652166,Rehoboth Healthcare Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820874249,Mahesh Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257289020,Samyuktaa Maternity Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_11508076589,Utimax Industrial Solutions Pvt Ltd,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6914768062,Mano Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906837,LPR Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257289126,Bethesda Medical Mission Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906842,Sarjana Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906862,Children Care Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906866,Arul Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906869,Apollo Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906871,Parvathy Ortho Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906906,Rajarajan Venkateshan Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_3032399574,Eureka Associates,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_7821906907,Dhanwanthralaya Ayurveda Speciality Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820652152,R.K. Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823212578,Gunam Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_3509696275,chokhi Dhani,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_7823212569,Sri Jaya Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823212577,Sivanthi Heart Care,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823212608,Dr. JRK Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257421533,Sri Muthukumaran Medical College Hospital & Research Institute,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257518761,"Government Hospital, Mahabalipuram",hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_12137680245,"Mahabalipuram Beach, Tamil nadu",beach,False,HIGH,True,True,OSM surveyed beach.
+OSM_POI_353978517,Ramanuja Mandapam,tourist_attraction,False,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_353978523,Arjuna's Penance,tourist_attraction,False,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_353978532,Varaha Mandapam / Cave,tourist_attraction,False,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_353978541,Mahishamadhini Cave,tourist_attraction,False,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_2334799039,Suradeep Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5511537906,Arunjas Penance Model,tourist_attraction,False,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_5517871828,Dharmaraja Mandapam,tourist_attraction,False,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_5517872769,Five Celled Rock Cave,tourist_attraction,False,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_5517874190,Keneri Mandapam,tourist_attraction,False,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_5679713257,Panchapandava Mandapam,tourist_attraction,False,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_5685948849,Olakkannesvara Temple,tourist_attraction,False,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_7065879294,Archaeological Survey of India,government_office,False,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_7246575985,South Entrance,tourist_attraction,False,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_5517872608,Tirmurthy Cave,tourist_attraction,False,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_5517872748,Kodikal Mandapam,tourist_attraction,False,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_7820652205,Moorthy Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4453036789,Mumu Surf Club,tourist_attraction,False,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_13078006569,Retro Surf Club,tourist_attraction,False,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_7820652158,Varam Health Care,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4433895791,Devaneri beach,tourist_attraction,False,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_13999733685,Sai University,university,False,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_5015735822,OM SAKTHI BRIKS,general_poi,False,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_4846840124,PAR ACTIVE TECHNOLOGIES,tourist_attraction,False,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_1840033463,Shri Sathya Sai Medical College & Research Institute,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5172356323,Sub register thiruporur,government_office,False,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_7820652130,Rakshith Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257518775,Thiruporur Government Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820652132,Raja Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_11013406019,"IIT Madras, Thaiyur Campus",college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_2125931950,Chettinadu Hospital & Research Institute,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_12137704802,"Covelong Beach,Tamil Nadu",beach,False,HIGH,True,True,OSM surveyed beach.
+OSM_POI_13671459694,Backend Office - Namma Family Group,general_poi,False,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_4275486291,Road to b,tourist_attraction,False,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_6930405963,Chettinad Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820874284,Supreme Speciality Hospitals,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4275498689,Beach,beach,False,HIGH,True,True,OSM surveyed beach.
+OSM_POI_11398464087,ICAR - Central Marine Fisheries Research Institute,government_office,False,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_10302265197,Blue Flag Beach,beach,False,HIGH,True,True,OSM surveyed beach.
+OSM_POI_10653634259,Indian Institute of Information Technology Design and Manufacturing Kancheepuram,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_7257289060,Tagore Medical College Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_11176612212,Tagore Engineering Clg,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_7820874217,Sri Meenachi Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820874273,Kathir Memorial Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820874234,Sugam Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4170643889,Reserved Forest,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_7257289090,Shri Isari Velan Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_13830315001,Agni College of Technology,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_5258976324,Government Health Center,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5259058323,"Village administration office, agaram then",government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_5259088422,Government Veterinary Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_3027045820,GKM College of Engineering,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_5259008321,Annai Therasa Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_13276785999,BIHER CSE Block,university,True,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_3664004950,Chellam Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822259987,Ganesh Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822260005,Bethel Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822260027,Sanjeevi's Ayurveda Therapy Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822260040,Government Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_2475523033,Sithalapakkam Panchayat Office,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_11865553974,H&M Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_2210056220,Rajan Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822260004,S.V. Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822260051,C-Dot Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822260016,Karthick Children's Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822260018,Radial Ortho Speciality Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257289123,Suraj Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822260056,Global Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_9952825959,Chennai Best Acupuncture Clinic in OMR Padur,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7820874276,Punarjeevan Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5304600401,Mohamed Sathak A.J. Academy of Architecture,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_5304170562,Aspire Systems,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_5304600788,Mohamed Sathak A.J. College of Engineering,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_3385582361,Intellect court,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_3385585585,Polaris software labs,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_5321368440,Marhura hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_9591525122,Valeo India Private Limited,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_9591995528,S B Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5304607220,ETA Techno Park,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_11804254199,Dental College & Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_13378366146,Center of Advanced studies,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_12470984409,Indian Maritime University Chennai Campus,university,True,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_5226266430,"Regional Transport Office, Sholinganallur",government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_7822259992,Centre For Vision and Eye Surgery,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822259986,HCL Health Care,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5804109153,BETA CAE Systems India Pvt. Ltd. (Chennai Office),general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_7822260044,Swaram Hospital and Speciality Clinic,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_11956292869,ராயல் என்ஃபீல்டு உலகளாவிய தலைமையகம்,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6928779096,Chettinad Super Speciality Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822259995,Shri Sai Children's Hospital and Dental Clinic,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_8197934476,Sanjeevani Ayurvedic Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5246587821,BSNL telephone office,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_5246584922,Sub Registrar office,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_5304399845,Income Tax Department Additional/ joint commesioner office,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_6926055921,Gajanan Hospitals Pvt Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6937630622,"Kasthuri Hospital, Chennai",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906814,AG Multi Speciality Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906868,A.G Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906876,Rainbow Women and Children's Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906889,Raindew Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906908,Dhanwantralaya,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_3157617785,Dr Mohan's Diabetes Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_3157620727,Sub-Registrar Office,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_4740298624,government child health center,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4740298625,Christdas hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4911075821,Lakshya fertility hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5087493136,Sugam homeopathic hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5087493232,Sneham seva center for tambaram municipality,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_5246576321,TN Electricity Board Office,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_6926055599,Christudas Orthopaedic Speciality Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906855,Jawahar Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906858,Arya Vaidya Shala,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906863,Madhu Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906864,Vithagan Health Care Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906892,M.J. Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906895,Sai Vijay Ayurvedic Herbal Health Care,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_9378879817,Nexus Interiors,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_4912560424,viveks home needs shop,mall,True,HIGH,True,True,OSM surveyed mall.
+OSM_POI_6915413133,S K Nursing Home Pvt Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6915563707,Deepam Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6928330765,Sri Kumaran Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257289121,Vn Allergy & Asthma Research Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906812,Sanjeevi's Ayush Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906817,N S Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906853,Sree Devi Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906879,Elmer Kidney Care,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906887,Sri Jayam Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906894,Sudar Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6138546488,"Dr.Agarwal's Eye Hospital Ltd, Tambaram",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6929625889,Babu's Maternity Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6932999583,NN Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906834,PK Multi Speciality Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906836,Jyothi Siddha Ayurveda Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906859,Dr. Mehta Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906860,Seshagiri Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906861,Udhayam Maternity and General Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933514313,"Jawahar Hospital, Kanchipuram",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906832,Saaol Heart Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906857,Ramana Child Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6929229178,National Institute Of Siddha Department Of Ayush,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906825,Peeram Hospital Private Limited,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5259141323,Bedhesda hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5302938624,Kottakkal Arya Vaidhyasala,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_13870488102,Bethesda Hospital & Child Care Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5087493227,Dr. KK eye care center,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5087493324,Be Well Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5259129922,Sindhu hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6928481484,Dr. K.K. Surgical and Paediatric Centre Pvt Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934155951,Sindu Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6929359074,Bethesda Hospital and Child Care Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_11699821669,Penthouse.in,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_7822260043,Prayoga Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5090926024,New Life Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822260011,Shanthi General Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5090924224,Chellam Super Speciality Center,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6929625900,B.S. Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906820,Dr. Sathish Kumar Institute Of Child Health and Hospital for Children,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7821906903,Manimegalai Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_9672054009,Namma Tambaram,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_7822543432,TB Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257421573,"Government Hospital, Tambaram",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543426,Sri Ram Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543448,Puthur Kattu,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543484,Apollo Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_11081786797,L Rapha Life Care Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543402,Dr. Gomathi Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543406,"Ray's Head, Neck Care Centre-ENT and Dental Clinic",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543423,Sri Venkateshwara Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543491,Dr. Ashok Kumar Children's Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_983957836,Meenakshi Krishan Polytechnic College,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_983957837,"Sankara Eye Hospital, Kanchipuram",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_591555028,skandan nursing home,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6914764645,Dr. A. L. Annamalais Ent Care Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6926082101,I Care Eye Care Eye Institute,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543416,Sri Santhanakrishna Padmavati Health Care and Research Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543490,Dhanwantari Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543498,Venus Accupoint,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543500,Saraswathy Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_432468191,DCOE Office,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_432468195,Lecture Hall Complex,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_432468196,Department of Aeronautical Engineering,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_432468200,Mechatronics,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_432468201,Department of Production Technology,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_432468205,Department of Automobile Engineering,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_432468246,RLHC (Rajam Lecture Hall Complex),college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_5964208543,Admin Block & Dean Office,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_6914767985,A G Chrompet Health And Maternity Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934271042,M.S.M. Skin and Hair Care Clinic,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543429,Kidney Hospital and Diagnostic Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543434,Sayee Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257421563,Shree Eye & Maternity Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543489,Shailaja Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543399,Kavitha Ortho and Multi Speciality Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543439,Thanushika Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933510862,Jip Diabetic and Heart Care Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543433,HCG Cancer Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543469,Thomas Health Care Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543477,Sun Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543502,Al Elaj Accupressure and Health Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543510,Daisy Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543459,Kokila Siddha Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_14004437608,Wells Fargo,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_14004437609,Optum Global Solutions,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6929359056,B.M. Silver Jubilee Multi Speciality Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_11782793599,Sugam Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822260007,Sai Babaji's Accupuncture Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_9444720904,4 Squares Dentistry,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_11699797370,Magnific Builders & Interiors,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_7822259984,Deepam Rehabilitation Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822260025,Maternity and Child Care Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822260038,Annai Teresa Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_11932106269,MPM Tech Solutions,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_7822543395,Avinash Ortho Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257421619,T.K.R. Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543430,AM Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543444,Hindusthan Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543452,RKP Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543471,Raj Joty Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543505,V.S. Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822259988,Subasree Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822260001,Sri Balaji Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822260017,Arun Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822260032,Shri Balaji Diabetes Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822260055,Mugavari Eye Hospital and Research Institute,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_11690043769,G.R. Construction Labour Union,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_11690043869,Medavakkam Panchayat Office,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_11690043969,Kappa Current Technology,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_13154785802,Kiran Packaging,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_5212376621,Chief Education Office,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_5212388522,"SAIDAPET, TAMILNADU",government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_7822543455,Muthu Multi Speciality Hospital and Pharmacy,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543501,V Cure Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543424,Dr. Velmurugan Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_13994416401,Deepam Medfirst Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822543438,Inbam Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257421555,Arun Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_9920595831,VAO Office,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_6926437476,Grace Multipeciality Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257421582,Vijayam Hospital & Fertility Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6916036803,Divya Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934270989,Anjakha Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_13068327311,LeBlanc Interior,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_3883296157,Adyog Software Solutions Pvt Ltd.,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_3883257762,Fayola Towers,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_2517035814,Vasan Eye care,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934031649,Sri G.M. Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7652449746,Malar Clinic,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_442508332,Sarswathi Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_983962618,EGP Office,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_983973076,EGP Biogas Plant,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_7823212561,Chennai Emergency Care Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823212587,Chennai Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1979247767,B.P. Jain Hospital (Sri Sankara Health Centre),hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5259538621,Pammal Municipality office,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_6934139598,Arvind Sai Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7682535985,EB office - Pammal,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_7823212603,Deenan Health Care,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6915231638,Devibala Maternity,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823212562,JIP Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6915219120,LK Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823212567,Dr. Habeb Child Care Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823212616,Shadithya Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823212633,Medforte Health Care,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823212640,Contonment Board General Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936695215,சுபிக்ஷா மருத்துவமனை,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6927359623,Kanaga Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6935159758,Thirimoorthys Heart Care Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_308811614,"Hindu Mission Health Services, Kanchipuram",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_311429396,K.F. Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_2145405955,Sri Chakra Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4329387869,Srinivasan Rajalakshmi Memorial Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6926049961,"Gowri Nursing Home, Kanchipuram",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934061609,Srichakara Multispeciality Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5851482986,Airports Authority of India (AAI) Operational Office,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_4550111390,Office asg chennai,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_2253361647,Dr. Janardhanan Multispeciality Dental Clinic,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6928936149,"Dr.Agarwal's Eye Hospital Ltd, Nanganallur",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934186203,Sri Venkateshwara`s C.M. Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934340789,Pankajam Memorial Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934163318,Sibi Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_8669165872,Jacob Scientifics - Head Office,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_2669702938,Sukrthi Nursing Home,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5792664046,"Qure Ortho Clinic, Physiotherapy, X Ray & Pharmacy",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936663153,Velachery K S Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_310909754,Hariharan Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_2126461371,Rotary Central Margaret Sidney Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6929372896,Bharath Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_12378706312,Dr Bala's Skin clinic,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_310910945,BM Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6926953024,K P Childrens Hospital And Neuro Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_8151821343,Tamil Nadu Public Distribution Scheme Service Office,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_1789987574,Prime Care Nursing Home,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936684328,Ponmalligai Hospital Pvt Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4280392327,BSNL Exchange,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_7823212581,Nalam Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5242847354,Tata Communications Ltd.,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_2120763195,SP Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6926173267,Cu Shah Sankara Netralaya,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257421613,Government Hospital Alandur,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5860420712,CodeMyCompany,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6926494055,G. R. Hospital & Fertility Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7090003132,St Brittos College,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_4992173836,Group10 Technologies Pvt Ltd,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_7823212576,S.S. Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823212579,Dhanraj Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823212623,Jaya Sri Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823212631,Kaanthi Makapperu Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_9567727980,Village Administrator's Office - Alandur,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_4411812195,jithu,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_4411853991,Typewritting class,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_7823212573,Rathna Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_8105683179,Military Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7176576232,EPF office,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_367795605,St. Thomas Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5771638253,e-con Systems India Pvt. Ltd.,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_9565908906,Saama Technologies pvt. Ltd,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_364997861,Central Institute of Petrochemicals Engineering and Technology,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_4406456514,Tamilnadu Teachers Education University,university,True,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_11004539791,Thangavelu Engineering Collage,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_9333222435,Kcg college of techology,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_2124734395,Fourtts India Laboratories,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6929266356,நந்தினி மருத்துவமனை,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7822260009,SV Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_3936307622,Cholamandal Artists' Village,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_11761566071,Chennai One phase two,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_7822260033,Dhanvantri Multi Speciality,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5802035255,Chennai Two Software Park,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_7822260021,Jayam Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_12721828629,Bahwan Cybertek Pvt. Ltd.,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_7213394742,London Harley Street Women And Fertility Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6932203729,Santhi Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933279103,"Vasan Eye Care Hospital, Neelankarai",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6950288001,Sahishnatha Indtitute Of Maternal And Child Health,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5662608324,Gold Coast It solutions,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_11679595256,Jananam fertility centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936271569,Sri Lakshmi Multi Speciality Hospital Pvt Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_9768615294,Trimble Information Technologies India Pvt Ltd,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_3687711447,Kaya Skin clinic,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4411849891,hridhayesh,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_6928094720,Athipathi Hospital and Research Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6937055902,Appasamy Krishna Hospital and Medical Research Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_8639896900,Prashanth Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_14063569601,Inceptez Technologies,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6914880539,Chennai Eye Care Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934340601,Nandhini Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4358646184,Metro Water,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_6915201226,Helios Hospital Pvt Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6928936148,Dr.Agarwals Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936695177,Xcellent Care Superspeciality Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1993266486,Ortho clinic,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5570522545,ARK Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5570584570,TSR Packers And Movers,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_13155026101,Good Shepard hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6535119492,McKinsey & Company Chennai Service Center,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_3372786283,Velachery SABA Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4584956489,Department of Electrical Engineering;Electrical Engineering Department,university,True,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_2245513273,IIT Madras Stadium (Manohar C Watsa Stadium),stadium,True,HIGH,True,True,OSM surveyed stadium.
+OSM_POI_9378509592,Helxyon Healthcare,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_1446415367,Bhadra Homeo,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_11226824437,TVH Agnitio Park,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_14049301101,Sysvine Technologies,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_12831616701,New Designer Web,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_12841106501,ZeQube Technologies,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_7823212559,Shakthi Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823212610,Happy Clinic Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_3686670072,WizDemy Software Private Limited,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_7823212570,Hale and Healthy Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823212607,Promed Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823415021,Relief Dental Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4626968263,Tamil Nadu Electricity Board,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_5250282011,ObjectFrontier Software,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6535108760,McKinsey & Company Chennai Knowledge Center,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_12758298442,Full Creative,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_13439114501,Sterling Software Pvt Ltd,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_13731731401,DLF DOWNTOWN,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_13253945580,Zilogic Systems Private Limited (Block III),general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_340890453,Ward 155 Corporation Office,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_4580960017,corporation office,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_6926808792,Starlight Hospitals Pvt Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823415020,Corporation Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823415049,SMK Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823415091,Ashwini Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823415056,Uma Sankaran Siddha Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_9920341491,Wildlife Warden,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_335983002,Snake Park,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_12773528701,தமிழ்நாடு செய்தித்தாள் காகித நிருவனம்,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_5851464592,தமிழ்நாடு ராஜ் பவன்,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_365983844,Wipro CDC3,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_365983846,iGATE,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_365983847,Wipro CDC1,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6934340781,Palani Balaji Fertility Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_12517626401,Inoesis,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_12517652001,Earthana,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_12517830801,Layotos Technologies Pvt LTD,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_12517830901,Yash Infosytems,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_12718033101,L.A.S Tower,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_13041279865,Central Warehousing Corporation Regional Office,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_13968616101,அரசாங்க போக்குவரத்து ஊழியர் சங்கம்,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_312011930,Kamaraj Memorial,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_5359126722,Ashok Leyland corporate office,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_5846492985,அண்ணா பல்கலைக்கழகம்,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_13348614701,Institute for Energy Studies (IES),college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_312000326,Cancer Institute,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_312011839,Rajaji Memorial,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_312011926,Bakthavachalam Memorial,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_4764302980,HEALTH,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_968597207,The Institute of Mathematical Sciences,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_3615415200,Asian College of Journalism,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_5849503688,MGR Film City,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_6936359940,Lakshmi Maternity Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1560720462,Vasan Eye Care Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6928920472,Dr.Kamakshi Memorial Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934340766,Padmapriya Hospital Pvt. Ltd.,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7213449202,Gas Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_335503095,Corporation Ward 152 Office,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_6933510877,Jayam Polyclinc,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934271111,M N Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257421559,"Government Hospital, Adyar",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823415065,Mint Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_410718772,Birla Planetarium,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_6914764653,Sri Kalyan Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_13096237915,Iswarya Fertility Center,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_2989205003,Eloka Enterprises Private Limited,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_410623178,Brodie Castle,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_7572041375,Roanuz Softwares,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_9998118762,Arupadaiveedu Temple Beach,beach,True,HIGH,True,True,OSM surveyed beach.
+OSM_POI_6927769046,Santosh Hospital Pvt Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936391765,Apollo Specialty Hospitals Private Limited,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840736,Saveetha Rural Health Centre,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840760,Sai Multispeciality Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840731,Annai Siddha Ayurvedha Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_12347790837,Thiruvallur Collector Office,government_office,False,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_7819840764,Thiruvallur Urban Maternity Centre,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5227522820,Thirumurugan College of Arts and Science,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_5227520899,Sri Venkateswara Institute of Science and Technlogy,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_5229543535,Caterpillar India Private Limited,general_poi,False,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6933833903,Logidasan's Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840795,G.K. Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840739,Arjuna Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840784,Dr. Nesam Multispeciality Dental Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6926049936,Grace Medical Centre,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5227805797,John Boscho College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_9581019680,Sri Ram Engineering College Veppampattu,university,False,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_12432339927,SKS Physiotherapy Clinic & Rehab Center - Perumalpattu (Veppampattu),hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7653029484,Panchayat Office,government_office,False,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_7653041585,Primary health Center,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6367916011,Savitha Medical College,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_7257421525,Saveetha Medical College Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6367914544,Queens Land,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_5892971290,Point B,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6367914546,Shree SASTHA Engineering College,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_7819840743,Cure Well Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840785,Sri Jayendra Saraswati Ayurveda Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823212575,Deen Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840803,Ramdas Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6927054448,"Mangalam Hospital, Tiruvallur",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933797537,"Vasan Eye Care Hospital, Tiruvallur",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840741,DPS Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840775,Be Well Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5231956170,S.A Engineering College,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_7252333317,"Government Hospital, Nemam",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_2561630692,SMS LABS SERVICES Pvt Ltd,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_7252333405,Thiruninravur Government Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5227829210,Jaya College of Arts and Science,university,True,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_5227831036,Jaya College of Pharmacy,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_7990935245,Jaya College of Physiotheraphy,university,True,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_5225824334,Sri Ramachandra Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5229996823,Gov Sub Urban Health Center,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5227833113,Grace Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5227836679,Abirami Nursing Home,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5229579151,Hindu College,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_4554279725,Vivekanandha,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6928030150,Dr. Agarwal's Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6950427127,Immanuel Hosptal,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1185699253,Avadi Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6932453594,Dr Agarwals Eye Hospital Ltd,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933332545,"Subam Hospital, Tiruvallur",hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6932623618,"Suriya Hospital, Tiruvallur",hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840740,MJ Orthocare Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840763,SM Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840788,Vasan Eyes Care Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5229529644,Thiruvallur District Employement Office,government_office,False,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_7819840729,Janani Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840782,Thendral Skin and Dental Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840734,Dr.Prabhu Shankar Child Care,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840804,Dr. Sarojini Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840744,Valarmathi Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840756,Vijayalakshmi Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840771,CSI Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840732,Herbocare Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840793,The Royal Mayush Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_13917491302,Jaya Engineering College,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_7252256197,"Government Hospital, Velliyur",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252256215,Government Hospital Kadhavoor,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6527322712,Vel Tech Engineering College,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_7252256181,"Government Hospital, Uthukottai",hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7113926690,"Government E.N.T Hospital,Nindra",hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_13436982219,"MRO Office, Nagalapuram",government_office,False,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_13436982223,"Grama Sachivalayamm,Nagalapuram",government_office,False,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_13436982224,"Nagalapuram,Secretariat",government_office,False,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_8764110005,"Government Hospital, Nagalapuram",hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7818702400,Julia Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7652446229,Taj Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823212630,Sai Nursing Home and Maternity Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823212624,Kedar Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_313027868,Sri Ramachandra Medical Centre and Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6914937617,Sri Ramachandra Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257421544,Sriramachandra Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6914937634,Sri Ramachandra Medical College And Research Institute,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_7257421589,Parvathy Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936386662,"Dr Agarwals Eye Hospital Ltd, Chennai",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6915520031,D.R.R. Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6930464973,Chinnammal Ent Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_13135440842,Saveetha school of management,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1833926660,ACS Medical College And Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333399,Dr.Rai Cbcc Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840767,Aravind Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_2966142809,Appolo Speciality Hospital Vanagram,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_10782259572,Food Ingredient Specialities Private Limited,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6914768069,Kedar Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_10266877855,"R Square Academy for Tnpsc, Tnusrb SI, Tet, Police, Ssc, Rrb, Bank Exam Coaching Centre",university,True,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_6936264375,Viganesh Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4411841790,Dr.MGR HOUSE ENTERENCE,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_4411853091,hayden drums class,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_4411855189,Auto stand(manapakkam),tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_13461588601,L&T Shipbuilding,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_364650995,MIOT International,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4358906001,sathyanagar arch,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_4368012389,s.sriram,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_4368248989,Muthu arravind,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_4411812194,boot bangla,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_13694295601,Palaniappa Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4411851895,Home Finders Estate,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_2072479943,JK Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257421549,Chinna Porur Government Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933831617,"Vasan Eye Care Hospital, Valasaravakkam",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1015571498,Srm Speciality Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1015571601,SRM Dental Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936434314,"Srushti Hospital, Ramapuram",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4486583996,Chennai Medical Centre Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6937398987,Roy's Heart Foundation,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_2794348661,A.N.N Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6914280093,Rakshith Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840748,Vasanthi Dental Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_310015097,Military Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257421615,Janani Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5227463357,NSIC,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_13718255501,iGold Technologies,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6185882385,Nivas Skin Clinic,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4851068122,SRI GROUP,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_8108591031,KS Bone and Joint Clinic - Ortho,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257421586,Arokiya hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6926055923,K.M. Speciality Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7181748147,Bharani Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_8099947735,K.M. Nursing Home,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823776197,Arun Vijaya Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333390,Guru Raghavendra Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_370142855,RTO Office KK Nagar,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_4332284589,BHARAT SCANS,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_6926055922,Ammayi Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257421540,Sunrays Laproscopic Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_8111861614,Shens Multi-Speciality Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_248420920,Kalaignar Karunanidhi Nagar,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6926118208,"S M Hospital, Chennai",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934340749,Orthopedic and Specialities Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5192973221,Stellar Business solution,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6930163091,Je Nesam Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934340782,Pallava Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257421583,Kumaran Specialities Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_10294576078,Vasantha Memorial Cancer Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840797,Meenakshi Mission Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936244762,Royal Hospital - Chennai,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6937497904,Aaditya Kamaraja Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333341,Subam Specialities Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840745,Kannimaram Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7819840806,Shanthi Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333388,Standard Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333346,Srisaihospital With Matrinity Facility,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333352,Hera Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6931658649,V H M Hospitals Pvt Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_597590621,JJ Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333402,Annai multispeciality hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823776227,Lily Shantha Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823776246,Standard Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823776250,MM Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6812204694,லேங்ஸ்கேப் லேங்குவேஜ் சல்யுசன்,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_7823776209,C.M. Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823776233,Swastik Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823776254,Krishna Geetham Vaidyasala,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_459648701,Vijaya Heart Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5500158687,Vijaya Group of Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936339711,R.R. Eye Instutute and Laser Foundation,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936708989,Sooriya Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936874933,Paterson Cancer Center / Vijaya Health Centre Premises,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823776253,Arun Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_8108467017,உழைப்பாளி மருத்துவமனை,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_595706154,"Vasan Eye Care Hospital, Vadapalani",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_459635161,Apollo Clinic & Pharmacy,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823776196,R.S. Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823776213,Shali Day & Night Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823776217,Diawin Multi Speciality Siddha Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1127285905,Aakash Fertility Centre & Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4488082604,SRM Institutes For Medical Science,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6914927162,Vadapalani Multispeciality Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6927647007,Vijaya Heart Foundation - Vijaya Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333375,Priyas Medical Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333416,Government Hospital For Ladies And Children,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1315895438,sree dhanalakshmi family clinic,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_941426010,Election Commission Office,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_1948616260,Apollo Free Emergency Clinic,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4830775366,National Institute of Epidemiology,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_540658116,B.M.Orthopaedic Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6929599461,Dr Rabindran's Health Care Center,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_10266829567,R Square Academy,university,True,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_6928800365,Dr.Bhats Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934340710,Om Shakthi Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7868260223,Ambattur Regional Trasnport Office,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_1621246558,Ashwini Eye Care,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6928330859,Dr. Arvind Vision Care,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936315219,Spandana Surgical Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_12162845607,Integrated Sub Registrar Office's Campus,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_5372430634,Trail cloud innovation services Pvt.Ltd,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_5492573024,VSR Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5492577281,New Life Family Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6914768085,Srinivas Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_11468740371,SMF,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333369,Tanker Dialysis Foundation Unit,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6930489015,Cholayil Sanjeevanam Ayurveda,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_11162390408,Dr. Vijay's Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_3702797921,Madras Medical Mission Hospital - Institute of Cardio Vascular Diseases,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6928444701,"SKS Hospital, Chennai",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5318579593,C.P.W.D Service Center,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_5318582177,Nirman Bhavan,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_6931772941,Robin and Robin Health Care,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933038567,Indian Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_941471945,Appasamy Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_941611681,Appasamy Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6914880584,Vasanthi Orthopaedic Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6927267098,Ayur Kshetra ( A Unit Of Institute Of Ayurvedic Research Pvt Ltd),hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7210895386,Tamil Nadu Urological Research Centre Best Kidney Stone Clinic,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_295552091,Sundaram Medical Foundation,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934340638,Neomed Hospital - Chennai,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936696240,Titan Eye,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_612556884,Anna Adharsh College for Women,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_6914768086,Soundarapandian Bone and Joint Hospital Research Institute Pvt. Ltd.,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_12841106305,ONGC Anna Nagar Office Complex,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_295552092,Sri Devi Speciality Hospial,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1957903721,Senthil Nursing Home,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1957904106,I K Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_12841106502,Laptop Spa,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6929250392,Dhanvantari Eye Care,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_9345560481,IPCS Automation,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_10271805421,Frame of Mind - SCARF Psychiatric Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5306605791,Kendriya Bhandar Regional Office,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_5306607745,Central PWD Service Center,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_295544111,K.H.M. Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6932068862,West Madras Medical Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6932740110,Sunder Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6926280322,Aashiana Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333403,Firm Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6141721985,Hcl amb 6,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6141721986,HCL amb 6,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_1917378397,Lucas TVS Limited,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_1977806954,Sundaram Fasteners,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_1664155551,Wheels India Limited,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_1664155552,Brakes India Limited,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_1664155553,Sundaram Clayton,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_1917378398,Sundaram Brake Lining,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_14100123201,Forsam India,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6914768063,Cauvery Trust Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936369001,D R J Hospital P. Ltd.,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936994823,B B Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_10261422409,Women And Children Foundation Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4308320005,MLA OFFICE ,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_6914896214,R.G. Stone Urological Research Institute,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4308319493,CHENNAI CORPORATION PARK,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_6929259906,Lakshmi Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5631872266,Annamalai Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6929592168,Balakrishna Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257421602,Kanamapet Government Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6915836812,Huma Specialists Hospital and Research Centre Pvt Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934340658,"New Balaji Hospital, Chennai",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6002033613,GeoConcept India,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_4308319795,CHICKEN 65 SHOP,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_5631872277,Ezhil Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6926045326,Sri Sai Krs Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6928920473,Dr.Duraiswami Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1955943159,Agarwal Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6011857185,Detroit Engineered Products,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6914911764,"Vasanthram Hospital (P) Ltd.,",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936684391,Pdr Othopaedic Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_3182651397,LMS India Engg. Solutions Pvt. Ltd,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_3221523274,Chennaicommercials,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6914280086,Raju Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6927292449,Krishna Eye And Ent Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934347093,Anuradha Maternity Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7088458506,Rmade Technologies,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6926107781,Radhatri Nethralaya,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6926437454,Dr Gurusekaran Hospital Pvt Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936708005,Sai Ortho Care Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257421569,Gunasekaran Hospitals Pvt.Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257421596,Radhatri Nethralaya,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6929969774,Kottakkal Arya Vaidya Sala,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936681265,Sathya Physiotherapy Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936359923,Laser and Laparascopic Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_8935514615,Geri care hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_375668400,Venkataeswara Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6057945754,Mangaldeep Puja Agarbathis,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_7210948177,Chamiers Day Care Center,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6928727073,Madras Ent Research Foundation,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257421557,Motherhood Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_2587530810,Chennai Skin Foundation,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6930188138,Chennai Skin Foundation and Yesudian Research Institute,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_310504179,Ambedkar Memorial,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_6933038566,Indira Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6914880546,Chennai Kaliappa Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6926953017,Kaliappa Renal Center,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934340623,Navasuja Sankara Nethralaya,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6929625895,B.S.S. Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933010451,Janamma Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936695172,Yogi Vedha Kumari Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7210911300,Sri Ranga Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6886285320,Apollo Cancer Centres,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257421593,Genesis Womens Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6045880760,Chennai Drinking Water and Drainage Clearance Board,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_6926437405,Frontline Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6928167787,Girishwari Hospital Pvt Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_14105458201,Helios Advanced Skin Hair & Laser Clinic Pvt Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4407798965,Challa Mall,mall,True,HIGH,True,True,OSM surveyed mall.
+OSM_POI_7252333321,Cloudnine Hospital - Chennai,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333349,Be Well Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333378,Dr. Rai Memorial Medical Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_13991336278,Ramee mall,mall,True,HIGH,True,True,OSM surveyed mall.
+OSM_POI_6937467152,Gastro Cre Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_303590777,Corporation Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_3118864398,Kauvery Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6929398895,Trinity Acute Care Hospital - Chennai,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6929731466,Harvey Healthcare Limited,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934325882,Nandalala Medical Foundation,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7257421601,Kavery Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_11107521906,Qube Cinema Technologies,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_11890991053,Residency Builders,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_415650790,Mylapore Telephone Exchange,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6760767420,Rail Vikas Nigam Limited,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_6930163175,Chennai Meenakshi Multispeciality Hospital Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_10161910232,Novac Technology Solutions,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_5393408521,TVF - Contagious online media network private limited,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6928384708,Dr. K Ravi Eye Care,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6932103990,"Kauvery Hospital, Chennai",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7181722911,"Dr.Agarwal's Eye Hospital Ltd., Gopala Puram",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823415048,Triveni Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5485650822,Ramakrishna Mission Vivekanandha College,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_6932938089,Laksha Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936339822,Avm Medical Ent Research Foundation Pvt Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823415033,Accu Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823415083,Saanvi Fertility Centre Urology and Stone Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933828333,Madras Poly Clinic and R.R. Scan,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936976871,Spot Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934018868,S.V. Bone And Joint Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_2794065478,BSNL Customer Service Center,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_7252333406,The Best Hospital Private Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333380,Medway Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6914896215,R. K. Eye Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936695178,Women and Children Foundation,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6937434309,"Srinivasa Hospital P P N, Chennai",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333398,Women And Children Foundation Hospitals T-Nagar,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_8967676339,Shastra Cards Private Limited,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_10594467605,VBC solitaire,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6936709086,Centre For Blood Disorders,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6935224404,"Thulasi Krishna Nursing Home, Kodambakkam",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_2394711912,IID Community College,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_6934897845,Tamil Nadu Urological Research Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1472969165,Amma Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5282745421,Loyola-Icam College of Engineering and Technology,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_6933522070,Kummaran Eye Speciality Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5367950021,Biocosmo Healthcare,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5372322923,Liba extension centre,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_5372361521,Loyola Institute of Business Administration,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_7824965216,Mythili Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1152858038,Rajan Eye Care Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5298110721,KUSHI TURST,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_6928936160,Dr. Udhaya Rajas Dental Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6929359057,Bharathirajaa Hospital and Research centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7213492568,Dr.Bala Subramanian,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823776215,Koncept Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_8666382807,Zupersoft Solution PVT Ltd,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_3118891215,Logic Soft Pvt. Ltd.,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6257601883,Bank Employees Federation of India,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_5518300718,US Biometrics Centre,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_6929625901,B.R.S. Hospital Pvt. Ltd.,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6929737121,Chitra's Ent Laser Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936953154,Fertility Research Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7255706468,SIMS Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7261455965,Edufic Digital,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_7264247854,Hindu Religious and Charitable Endowments Department,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_7267104203,Voltas Aerocool,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_7271385932,Shri Vinayaka Impex,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_7272177286,Handloom Export Promotion Council,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_7823776221,G G Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_11834587522,Max Hair Clinic,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7136003588,Tata consultancy services,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6927380447,"Santhigiri Ayurveda and Siddha Hospital, Chennai",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7181711080,"Vinayagam Laser Hospital, Chennai",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333394,Seethapathy clinic & Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823415061,Orthomed Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6928752799,Dr. Mohans Mv Diabetes Specialities Centre - Chennai,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933833923,Life Medhospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_9348174751,MEASI Academy of Architecture,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_11703392922,Stats Perform India Pvt Ltd - ஸ்டேட்ஸ் பெர்பார்ம் இந்தியா ப்வ்ட் லட,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6937067452,"Medindia Hospitals, Chennai",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333356,Meenakshi Hospital & Childrens Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823776223,K R S Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823776225,Sterling Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823776231,Dr. Maibbar Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_9891675975,NABARD,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_11834594625,Fits Air,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_4221573903,JKCN Complex (Sankara Nethralaya),hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934347087,Apollo Childrens Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_366857802,Regional Meteorological Centre - IMD Chennai,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_5849503687,"Foreigner's Regional Registration Office, Chennai",government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_6929359073,Bethany Health Care Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_9891659946,Food Corporation of India,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_9891685428,Central Stationary Office,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_6936134771,"Sankara Nethralaya, Chennai",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5849501686,British Council,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_9436487461,VFS Global Services Pvt. Ltd.,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_366848592,Alsa Mall Shopping Complex,mall,True,HIGH,True,True,OSM surveyed mall.
+OSM_POI_4332194892,TAMIL NADU CABIL,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_4332238490,DUGAR GROUP OF COMPANY,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_5744866581,Cisons Complex,mall,True,HIGH,True,True,OSM surveyed mall.
+OSM_POI_6936415699,Dr. A. Ramachandran's Diabetes Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_9348174750,Maaya Systems,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_7252333383,Government Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4258398875,Versutus Management Service Private ltd,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_5918435985,அக்பர் மருந்து மில்,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_6934146446,"Sinus And Nose Hospital - Mylapore, Chennai",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936695126,E V Kalyani Medical Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_10058064229,new,stadium,True,HIGH,True,True,OSM surveyed stadium.
+OSM_POI_7016742491,சென்னை மெரினா கலங்கரை விளக்கம்,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_6926437416,Fousiya Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333372,A.R.A Hospital For Women,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823415037,Kalyani Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823415059,Vasantha Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5336542921,The Cresent Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6050605286,தமிழ்நாடு அரசு இசேவை மையம்,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_7181721033,"Dr Agarwals Eye Hospital, Triplicane",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823415084,The Crescent Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333397,Sakthi Hospital &Reasearch Centre Helath Care Organization,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823415087,Syma Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7823415088,Sri Parthasarathy Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_12137617372,"Marina Beach,Chennai",beach,True,HIGH,True,True,OSM surveyed beach.
+OSM_POI_6931566251,Mysaan Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933910999,RR Multispeciality Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7181684162,Siva E N T Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333330,Shifa Hospital And Reasearch Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333409,Triplicane Government Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5547728024,ஹிபா சிறப்பு மருத்துவமனை,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333371,Hiba Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_10161853148,chepauk,stadium,True,HIGH,True,True,OSM surveyed stadium.
+OSM_POI_12836705750,Survey House,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_6739258988,Ashok LCD service,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_4713665593,Tata Communications Ltd,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_10914802359,Department Of Tribal Welfare,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_5936040585,Government Yoga And Naturopathy Medical College & Hospital,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_6926055920,"A.K. Hospital, Chennai",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934271069,"M.R. Hospital, Chennai",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7320948885,Unani sidha ayurvedha in patient block,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6914768046,Billroth Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6926437428,Hande Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6930467954,Dr.Mu.Va.Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7824965240,Dr. H. Yogish Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933757130,Premier Health Center,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936696229,U.K. Hospitals Pvt. Ltd.,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7824965259,Gremaltes Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6914880538,Chennai Cancer Care,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6914896269,Psymed Hospiyal,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6928899364,Dr. Seshiah Diabetes Research Institute and Dr. Balaji Diabetes Care Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7824965266,Ponmalligai Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933510851,Josephs Nursing Home,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933875088,Zubeda Hospitals Ltd.,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933998001,Dr.Manju Kulkarni Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934340664,New Hope Medical Centre Pvt. Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6935272552,Dr. Agarwal's Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936339695,Sundaram Cancer Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7261140337,Office of the Registrar of Cooperative Societies,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_6914880552,Mots Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6928878284,Lifeline Rigid Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934271075,M. N. Orthopaedic Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7824965227,Be Well Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7824965243,Murugan Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7824965260,Srl Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1474055555,Right Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933514287,Jayadev Polyclinic Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934340659,New Hope Indian Specilaity Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_262452334,City Tower Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_941621037,Appolo Clinic,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4036545343,Sri Gokulam Chit Funds,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6928042666,"Dr.Agarwal's Eye Hospital Ltd., Anna Nagar",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936469837,Veecare Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_8882544817,Rits and Associates Chartered Accountants,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6927308315,Vishnu Eye Clinic and Laser Foundation,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6935274089,Selvarangam Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_13419989475,Tamil Nadu Real Estate Regulatory Authority,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_6932138889,Rathi Med Speciality Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_2559180846,Jaws Dental Foundation,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933869777,"K.M. Hospitals, Chennai",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936696239,"Trust Hospital, Chennai",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7824965209,Dr. Sambandam Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7824965213,Ranjith Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6914880540,Chennai Heart Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933370913,Apollo First Medical Foundation,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7824965223,Pandalai Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933794368,Vasantha Subramanian Hospitals Pvt Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7824965221,Santosham Chest Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_310732936,Kilpauk Medical College,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6914896212,R.K. Gynaec And Maternity Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6926055600,Satish Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936316468,Tosh Hospitals Private Limited,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936356289,"Aditya Hospital, Chennai",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936684311,Kensington Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6937351599,K.K.R. ENT Hospital and Research Institute(P) Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333314,Govt Kilpauk Medical College Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7824965237,Herbzalive Ayurveda Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6915134068,Doctor Rexs Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933016136,"Noble Hospital, Chennai",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936359972,Kumaran Hospital Pvt.Ltd.,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936669886,K.J. Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936695226,"Sudha Hospital, Chennai",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936696196,V.K. Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7824965206,Agm Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7824965225,Centre For Gastro Esophageal Disorders,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7824965229,Puttur Kattu Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7824965244,Amrit Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_320275820,Govt Maternity Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_320275824,Institute of Child Health,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_320275839,Institute of Obstetrics and Gynaecology dd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4308319901,EMPEE GROUP OF COMPANY,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_7824965245,Mercury Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_2296731456,Dr Venugopals' Sundaram Clini,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_2296731781,Dr Kabir's Clinic,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_2296732187,Dr Sridhars'Clinic,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4324801889,MOTOR FINANCE CORPORATION,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6378558385,TNRERA,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_7824965222,Tune 32 Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7824965241,Neuro Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7824965264,Red Cross Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6914768088,Dr. U. Mohan Rau Memorial Hospital - Chennai,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7824965254,Kola Saraswathi Agarwal Samaj Health Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7824965262,Periyar Maniammai Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_12146055740,"Commissioner of Police office, Greater chennai Police",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936411410,Amalya Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7824965258,Demo Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_9345560480,SARF Communications,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_6926411928,"Ayesha Hospital, Kilpauk",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6932966221,Narayanaa Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934407803,Shri Balaji Hospital - Chennai,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6926494067,G K M Hospital Pvt Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333407,Chennai Corporation Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7824965232,An-Noor Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_2485567524,Vepery Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934325849,N.R. Medical Home Private Limited,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7825009819,Niranjana Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333320,Government Maternity And Child Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_13639953901,"Joint Office, Southern Railway",government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_13639954001,"Joint office, Southern Railway",government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_14059898301,Ayanavaram 24 hours hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934036697,Sri Eshodha Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_12619467462,Vadivelu Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7825009815,Government Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7825009792,Dr. A C Aruldas Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936275517,Dr Agarwal Eye Hospital Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333347,Govt Peripheral Hospital Periyar Nagar,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7825009798,Kolathur Multi Speciality and Research Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6916205172,"Vasan Eye Care Hospital, Perambur",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7825002779,V S Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7825009790,St. Joseph Cluny Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7825009799,Arul Childs Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7825009805,Sugar Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934098007,Abhijay Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934325848,N.R. Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6914768001,Sen Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7825002782,GK Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7825009817,Sankar Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7825009824,Bharani Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6929255218,Sri Bala Nursing Home,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934246102,Srinivas Priya Hospital (P) Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6915218991,Deepam Muthu Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5263563022,J.M Hoapital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7825002781,Iyyappa Multi Speciality Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7825009786,Dr. Kleela Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7825009820,Parvatham Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6261225290,Tamilnadu Slum Clearence Board,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_6934325876,Nalamm Hospital Pvt Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7953367285,Nalam marithuvamanai,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7824965249,S.K. Selvam Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_303283947,Lily Pond Shopping Complex,mall,True,HIGH,True,True,OSM surveyed mall.
+OSM_POI_7824965211,Sugumar Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7824965238,Meta Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7824965252,Apollo Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_13746287114,Station Master,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_7824965246,Naz Unani Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_258978416,Amrit Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_310504820,"Tamil Nadu Government Dental College & Hospital, Chennai",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_2381473122,NIIT,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_5851482985,Tamil Nadu Public Service Commission,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_10968476710,Former site of Binny Mills Building,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_4698134989,"Parcel office, Chennai central",government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_258978417,Vikram Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333381,Seven Wells Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_10687917005,வக்ஃப் இல்லம்,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_7252333337,Govt. Stanley Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933802716,"Vasan Eye Care Hospital, Tondiarpet",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936738654,Roselin Gandhi Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333389,Chennai Corporation Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_4813324323,GURU EYE HOSPITAL,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6926060954,Subha Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6928327073,Sri Kumaran Multi Speciality Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6929359084,Bhagwan Mahaveer Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934340665,Nichani Health Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_5255065021,SUB REGISTER RAYAPURAM,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_6915117046,"M N Eye Hospital Private Limited, Tondiarpet",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934301423,"A.V. Hospital, Chennai",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333318,Rasi Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934325866,Nagamani Hospitals Private Limited,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6937320470,Rudhra-Chella Clinicare`N`Cure Services,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933130958,Diabetes Research Centre and M.V.Hospital For Diabetes,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934271106,M V Hospital For Diabetes Pvt Ltd,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333354,Government Unani Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_248560797,Kasimedu,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7843239851,Sir Ivan Stedford Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_9980280804,Shreyas hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7825009803,KCK Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7825009807,Retteri Kumaran Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7825009816,K.H.M. Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7818702358,Uma Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934326572,Sri Kumaran Health Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_12581525295,Meridian Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6932938090,"Lake View Hospital, Tiruvallur",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7818702420,St. Anthony's Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7818702399,Md Hussain Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252256167,"Govt Hospital, Alamathi",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6914911759,Vanaja Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7210899888,Sree Sanjeevi Rayan Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_14104735701,R B Gothi Jain College For Women,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_9717766098,Chamdhi Netralayam Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7825009787,Bluemed Healthcare,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7825009797,Bharathiraja Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7825009823,U.S. Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933523232,Kvt Health Centre,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_12581554805,St Anne's Arts And Science College,college,True,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_12581658601,St Anthony's Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6937111102,K.M. Multi Speciality Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_3982078512,Pavithra Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252256177,Swasthik Health Care center,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252333396,Kvt Health Speciality Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252256184,NRV Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6916178396,Noor`S Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6929257550,"Anand Hospital, Chennai",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7818702393,Sankara Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_14059867401,Sri Raghavendra Hospital (sidha),hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_289486820,"Apollo Hospitals, Tondiarpet",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6915463333,Malligai Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933038486,"J.K. Hospital, Chennai",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6933737012,Ezhil Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6931010523,"Vandana Hospital, Tiruvallur",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7818702409,Annai Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_8430636718,Sri Lakshmi Agro,general_poi,True,LOW,False,True,OSM surveyed general_poi.
+OSM_POI_7181795816,Vasantha Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6930080547,"Rohit Hospital, Tiruvallur",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7818702367,Suman Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7818702395,G S Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7818702406,Esha Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7818702419,Sekar Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7818702357,Prasad Multispeciality Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6934903332,Sss Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6935224405,"Sugam Hospital, Tiruvallur",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6936294078,Karthik Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252256194,Sugam Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6937109075,"Aakash Hospital, Tiruvallur",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_13456132677,RMS Ropheka Multi Speciality Hospitals,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_12458790371,"சார் பதிவாளர் அலுவலகம், திருவெற்றியூர்",government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_7818702396,Welcare Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7818702424,Dr.Bala Lakshmi Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7818702372,Thangam Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252256166,Ponneri Government Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_6310120985,Village administration office,government_office,True,MEDIUM,True,True,OSM surveyed government_office.
+OSM_POI_2607437437,Venkata rathnam Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7818702361,M N Eye Hospital,hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7818702363,"ESI Hospital, Minjur",hospital,True,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1871134537,RMD college,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_13731446190,RMK Engineering College,university,False,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_7818702397,Sai Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7818702398,RMK Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7818702366,PMS Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7818702383,Sushrutha Surgical Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7818702392,Hasini Eye Care Clinic and General Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7818702394,Jeyam Multi Speciality Hospitals,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7818702373,Alpha Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7252256187,"Government Hospital, Gummudipoondi",hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_7818702378,Sugam Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_371722032,Thalankuppam Abandoned Pier,tourist_attraction,True,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_9787353870,Green Beach,beach,False,HIGH,True,True,OSM surveyed beach.
+OSM_POI_9787353869,Koraikuppam Beach,beach,False,HIGH,True,True,OSM surveyed beach.
+OSM_POI_9787353868,Calm Beach,beach,False,HIGH,True,True,OSM surveyed beach.
+OSM_POI_9787353867,Pulicat Beach,beach,False,HIGH,True,True,OSM surveyed beach.
+OSM_POI_370280420,Waterfalls,tourist_attraction,False,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_370284700,Dam,tourist_attraction,False,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_370280434,Dam,tourist_attraction,False,LOW,False,True,OSM surveyed tourist_attraction.
+OSM_POI_521775690,Sri Malolan College of Arts and Science,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1110877863,NESCO BasketBall Court,stadium,False,HIGH,True,True,OSM surveyed stadium.
+OSM_POI_1026902286,Chengalpattu Medical College Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1184576732,Rajeswari Vedachalam Government Arts College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1358386128,Government Primary Health Centre,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1185833562,Apollo Arts and Science College Chennai,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1288774428,Sri Chandrasekharendra Saraswathi Viswa Mahavidyalaya,university,False,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_532872033,"Umiversity College of Engineering,Kanchipuram",college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1391073986,Bon Secours College Of Nursing,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1391072850,Matha Shopping Complex,mall,False,HIGH,True,True,OSM surveyed mall.
+OSM_POI_1206543401,Jeppiaar Maamallan Engineering College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1017039658,Appollo Priyadharsini Institute of Technology,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_729237712,Dhaanish Ahmed College of Engineering,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_729229034,RRASE College of Engineering,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_718914045,SRM University Building,university,False,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_158851236,BS Abdur Rahman University,university,False,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_84087718,Sriperumpudur Government Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_29973860,Rajiv Gandhi National Institute of Youth Development,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_23649046,Sri Venkateswara College of Engineering,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_367932380,Kings Engineering College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_371688528,Rajalakshmi Engineering College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_34618436,Dhanalakshmi College of Engineering,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_428432216,Government Primary Health Center,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_102655671,Sairam Group of Private Penitary,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_740106806,ஸ்ரீ சைராம் பொறியியல் கல்லூரி,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_740106807,Sri Sairam Siddha Medical College & Research Centre,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_740146569,Sri Sairam Institute of Technology,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_469672997,Annai Arul Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_740619001,Sri Sairam Polytechnic College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1188088349,Chennai Institute Of Technology,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1200036869,Footwear Design and Development Institute,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_384143056,Madha Engineering College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_128920944,SSN College of Engineering,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1185635267,"Indian Institute Of Technology, Thaiyur",college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_523736872,Hindustan University,university,False,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_773797940,Tamil Nadu Physical Education And Sports University,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_772410450,Tagore Dental College And Hospital,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_336095563,Vellore Institute of Technology - Chennai,university,False,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_1409767940,Mohamed Sathak AJ College of Engineering,university,False,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_166562081,Prince Shri Venkateshwara Padmavathy Engineering College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_28260605,Madras Christian College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_297517645,Bharath Institute of Higher Education and Research,university,False,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_509668153,St Joseph's Institute of Technology,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_540117491,St. Joseph's College of Engineering,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1067160183,Sathyabama Institute of Science and Technology,university,False,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_1066918385,Government Industrial Training Institute Perumbakkam,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1066918384,Government Arts and Science College Perumbakkam,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_765605778,Gleneagles Global Heath City,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1444733268,Central Institute of Classical Tamil,university,False,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_44008445,Chennai Mathematical Institute,university,False,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_1040126396,Chennai Marina Mall,mall,False,HIGH,True,True,OSM surveyed mall.
+OSM_POI_634538011,VIVIRA Mall,mall,False,HIGH,True,True,OSM surveyed mall.
+OSM_POI_1486898102,Amet University,university,False,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_211121332,Balaji Seamen Training Institute,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1067904862,Jeppiaar Engineering College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_28120384,Indian Maritime University,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_355954822,HomeoCare International Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1019657146,Quadrangle,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_364483211,Nirmal Eye Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_31240956,Government Hospital of Thoracic Medicine,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_31240968,National Institute for Siddha,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_44034276,Parvathy Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_44034282,Chennai Krishna Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_540171893,MIT Chromepet - Annexure,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1080350743,Tagore College of Arts and Science,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_180145742,Sree Balaji Medical College And Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_30749075,Madras Insitute of Technology - MIT Chromepet,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_26562014,Hangar 1,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_26562015,Hangar 2,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_31276227,DCOE Office,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_31276228,Lecture Hall Complex,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_31276232,Rubber and Plastics Technology,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_31276233,Department of Information Technology,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_31276234,Department of Electonics Engineering - Old  Block,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_37133364,Instrumentation Engineering Block-1,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_37133365,Admin Block & Dean Office,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_37133367,Instrumentation Engineering Block-2,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_43442316,Central Workshop,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_43826808,Rajam Lecture Hall Complex,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_631591467,Instrumentation Engineering - New Block,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_631591470,Department of Electonics Engineering - New Block,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1080350745,SDNB Vaishnav College For Women,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_354562297,Sugam Hospitals,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_28261437,SIVET College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_172830294,New Prince Shri Bhavani Arts and Science College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_157121739,Quaid-e-milleth College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1546917949,Kauvery Hospitals,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_219390038,Jerusalem College of Engineering,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_219390066,Balaji Dental college,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1409359125,Jerusalem College of Engineering,university,False,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_28856428,National Institute of Ocean Technology,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_371970672,Dr.Kamakshi Memorial Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_503338455,Madha Medical College & Research Institute,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_220821765,Gowri Nursing Home,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_47798613,Agurchand Manmull Jain College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_354547008,Madras Heart Centre and Super Speciality Hospitals Pvt Ltd,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_364356223,Diha Clinic,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_28305516,Indian Airlines Stadium,stadium,False,HIGH,True,True,OSM surveyed stadium.
+OSM_POI_32896904,Cantonment General Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_34159543,Hindustan Institute of Engineering Technology,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_354540004,Balaji Hospital (P) Ltd,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_32686766,King's Institute of Preventive Medicine & Research,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_214366887,Annai Velankanni College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_35457616,MNM Jain Engineering College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1373636316,BSR Mall,mall,False,HIGH,True,True,OSM surveyed mall.
+OSM_POI_1373636356,Chennai Urology & Robotics Institute,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_132073184,Apollo Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_396824231,Grand Square,mall,False,HIGH,True,True,OSM surveyed mall.
+OSM_POI_364721502,Athipathy Hospitals,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_24730814,Indian Institute of Technology - Madras,university,False,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_355074781,Xcellent Care Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_28507322,Guru Nanak College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_35572405,Council of Scientific and Industrial Research - CSIR Taramani,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_35573178,Shri A. M. M. Murugappa Chettiar Research Centre,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_132191278,University Of Madras - Taramani Campus,university,False,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_131961841,Ayurveda Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_132510315,The Institute of Road Transport,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_35572308,National Institute of Fashion Technology - NIFT Chennai,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_29046387,Tt Ranganathan Clinical Research Foundation,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_35572368,National Institute of Technical Teachers' Training and Research,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_55570584,Sacred Heart College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_462740006,corporation hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_29046742,IMPCOPS Traditional Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_29046944,Kalakshetra School of Fine Arts,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1132414645,Palladium,mall,False,HIGH,True,True,OSM surveyed mall.
+OSM_POI_32544617,தமிழ்நாடு டாக்டர் எம்.ஜி.ஆர் மருத்துவப் பல்கலைக்கழகம்,university,False,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_32666151,Chellammal College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_185282947,"University of Madras, Guindy Campus",college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_185284099,Alagappa College of Technology,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_185284100,School of Architecture and Planning,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_24831558,"College of Engineering, Guindy",college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_211900030,Central Leather Research Institute,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_181579506,Health Centre,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_328706398,Chennai Clinical Centres,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_775868429,Central Polytechnic College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_374048313,Shivasundar Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_30347111,KRMM School and Kumararani Meena Mutthaiah College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_170104584,Global Hospitals,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_24262150,Anna Institute of Management,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_211900029,Cancer Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_30347103,Patrician College of Arts & Science,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_30348389,Rani Meyammai School,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_218163938,Fortis Malar Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_35008212,Tamil Nadu Government College of Classical Music,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_217726810,ஆந்திர மாநில சபா,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_35013506,Ambedkar Law University - School of Excellence,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1172617297,Kadambathur Government Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_830928050,Thiruvalangadu Government Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1232377050,Sri Venkateswara College of Engineering & Technology,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1058741742,Thiruvallur Medical College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_249316510,R.K.B. Hospitals,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_95639919,Saveetha Engineering College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1200055141,Apollo College of Education,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1236156930,SKR Engineering College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_33630851,Sacred Heart Seminary,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_95639900,Panimalar Engineering College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_33630155,"Government Hospital, Poonamallee",hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_249317000,District Government Hospital - Tiruvallur,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1119129563,Bhajarang Engineering College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_385497561,Ajeya Stadium,stadium,False,HIGH,True,True,OSM surveyed stadium.
+OSM_POI_1273388344,Veltech University,university,False,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_1256940335,Amrita Vishwa Vidyapeetham,university,False,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_1154910969,J.N.N Institute of Engineering,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_28493363,Sri Ramachandra Institute of Higher Education and Research,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_526445239,Saveetha University,university,False,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_1289802426,Dr. Mehta's Hospitals - Global Campus,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_355052484,Viganesh Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_354572408,Chennai Medical Centre,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_451681464,CMC Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_32616590,Police Training College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_125180726,Govt Peripheral Hospital KK Nagar,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1534199775,"SASTRA UNIVERSITY, Chennai Campus",university,False,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_354460032,Kauvery Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_217802907,SRM University - City Campus,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_355637768,Nexus Vijaya Mall,mall,False,HIGH,True,True,OSM surveyed mall.
+OSM_POI_355067576,Chennai Heritage Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1544754962,Casagrand Connect,mall,False,HIGH,True,True,OSM surveyed mall.
+OSM_POI_326514371,"St.Peter’s Institute of Higher Education and Research,Avadi,",college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_354290251,Essvee Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_354452683,Mahalakshmi Multi-Speciality Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1533501161,Dr. Agarwal's Eye Hospital - Ambattur,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1533546775,Mother's Speciality Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1533546776,Mother's Hospital - General & Laparoscopic center,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1533595574,Rakki Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_354278944,Frontier Lifeline Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_634144271,VR Mall Chennai,mall,False,HIGH,True,True,OSM surveyed mall.
+OSM_POI_355658593,Be Well Hospitals,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_30853376,DG Vaishnav College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_32551143,Anna Adarsh College for Women,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1534023217,Pothys Padi,mall,False,HIGH,True,True,OSM surveyed mall.
+OSM_POI_48741356,ICF Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_337929079,Bora Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_214188197,சைதாப்பேட்டை அரசு மருத்துவமனை,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_262012749,Chennai Corporation 24 Hours Maternity Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_337923794,Chitra Maternity andSurgival Centre,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_343141649,Vasan,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_51541566,Teacher Training College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_33744319,Government Arts College for Men,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_333383693,Amphitheatre,stadium,False,HIGH,True,True,OSM surveyed stadium.
+OSM_POI_332525434,Public Health Centre (In Patient Block),hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_332525519,Public Health Centre (Out Patient Block),hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_730963742,Shri Shankarlal Sundarbai Shasun Jain College for Women,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_350538223,SRM Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_477836333,Total mall,mall,False,HIGH,True,True,OSM surveyed mall.
+OSM_POI_218149507,Billroth Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_315499682,Apollo Speciality Hospital - Block A,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_315499747,Apollo Speciality Hospital - Block B,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_315499965,Apollo Speciality Hospital - Block C,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_23813849,Stella Maris College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_23839275,Justice Basheer Ahmed Sayeed College For Women,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_27484068,Reserve Bank Staff College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_188445646,Apollo Clinic & Pharmacy,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_23929908,Vivekananda College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_28318877,Sanskrit College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_35312695,புனித இஸ்பேல் மருத்துவமனை,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_156240637,Udhi Eye Hospitals,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_156250608,Aswene Soundarya Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_209413524,Trinity Acute Care,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_217750108,Meenakshi College for Women,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_217750109,Meenakshi Sunderarajan College of Engineering,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_354839873,J.V. Hospitals Llp,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_354840384,JV Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_24375417,Loyola College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_354840226,R.R Dental Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_23186312,Nungambakkam SDAT Stadium,stadium,False,HIGH,True,True,OSM surveyed stadium.
+OSM_POI_354814307,Chennai Fertility Center,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_28162037,Pachaiyappa's College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_133862451,Prashanth Hospitals,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_240501607,Kanchi Kamakoti Childs Trust Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1264854948,Vinitha Multi Speciality Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_24375531,MOP Vaishnav College for Women,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_28152559,Ispahani Centre,mall,False,HIGH,True,True,OSM surveyed mall.
+OSM_POI_28503859,Apex Plaza,mall,False,HIGH,True,True,OSM surveyed mall.
+OSM_POI_156250603,Agarwal Eye Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_23954873,The New College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_354293689,Hande Medical Centre,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_211260239,Apollo Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_28152150,Womens Christian College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_209546207,Sankara Nethralaya,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_240494399,Madras School of Social Work,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_24483959,Ethiraj College for Women,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_55058244,Ethiraj Annex,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_154030370,எக்ஸ்பிரஸ் அவென்யூ மால்,mall,False,HIGH,True,True,OSM surveyed mall.
+OSM_POI_24483965,Quaid-E-Millath College for Women,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_29116127,School of Optometry,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1128509238,Spencer Plaza,mall,False,HIGH,True,True,OSM surveyed mall.
+OSM_POI_29116157,Egmore Eye Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_24261542,Queen Marys College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_29267290,Chennai Citi Center Mall,mall,False,HIGH,True,True,OSM surveyed mall.
+OSM_POI_211274279,CSI Kalyani Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_211423255,EV Kalyani Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_211423281,Kasturibai Gandhi Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_23895842,University of Madras (Chepauk),university,False,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_217960574,Tamil Nadu Government Multi Super Speciality Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_355458015,Ampa Skywalk,mall,False,HIGH,True,True,OSM surveyed mall.
+OSM_POI_393560243,Ampa Skywalk,mall,False,HIGH,True,True,OSM surveyed mall.
+OSM_POI_1428318904,Gynmc PG Block,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1314584114,Government child birth Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_100857284,"அறிஞர் அண்ணா அரசு இந்திய,மருத்துவமனை,அரும்பாக்கம்,சென்னை-106",hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_217797428,Mehta Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_354243595,Guest Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1410036059,Govt. Kilpauk Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_23970133,C. Kandaswami Naidu College for Men,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_23970134,Valliammal College For Women,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_48753841,Anna Nagar Government Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_231052536,Vasan Dental Care,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_30973303,Institute of Mental Health - Kilpauk,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_30973308,ESI Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_240472123,Police Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_29116024,Mayor Radhakrishnan Stadium,stadium,False,HIGH,True,True,OSM surveyed stadium.
+OSM_POI_33622823,Government College of Arts and Crafts,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_48057029,"Government Polytechnic College, Purasawalkam",college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_30246473,Madras Veterinary College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1122563581,"R Square Academy for Tnpsc, Tnusrb SI, Tet, Police, Ssc, Rrb, Bank Exam Coaching Centre",university,False,MEDIUM,True,True,OSM surveyed university.
+OSM_POI_48048694,St Joseph Technical Institute,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_125234674,Dr. Ambedkar Government Arts College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_27618339,Rajiv Gandhi Government General Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_23892259,Nehru Indoor Stadium,stadium,False,HIGH,True,True,OSM surveyed stadium.
+OSM_POI_1241304916,Jawaharlal Nehru Stadium,stadium,False,HIGH,True,True,OSM surveyed stadium.
+OSM_POI_217846762,Corporation Baby Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1180926082,The Arya Vysya Meternity Home and Child Welfare Centre,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1122111817,Dr Ambedkar Law College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_34326337,Sri Kanyaka Parameswari Arts & Science College for Women,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_363930311,Chennai National Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1104433136,Chennai National Hospital Speciality Clinics,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1176875169,Shaarave Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_28345285,Stanley Medical College and Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1110191307,SA Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1241298308,Mint Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_28345323,Bharathi Womens College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_28345325,Arts College Hostel,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_47416302,Stanley Medical College and Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_178747899,Government Rsrm Lying Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_28345287,Stanley Medical College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_217860912,Sir Theagaraya College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_361224706,MN Eye Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_217864765,C.S.I. Rainy Multi Speciality Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1540232364,Murugappa Polytechnic College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1234813078,Cherish Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_138307630,Sir Ivan Stedford Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_354248394,Velammal Engineering College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1075657697,Saint Michaels Polytechnic College,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_336952245,Gojan School of Business and Technology,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1155182281,Prashanth Superspeciality Hospital Kolathur,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1540976874,MMC Government Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_217864797,Government Peripheral Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_34097016,Communicable Diseases Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_217868140,ESI,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_907941478,Tiruvottiyur Government Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1154910967,Vels Medical College and Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_254986491,Divya Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.
+OSM_POI_1395181326,Shree Chandraprabhu Jain College - Minjur,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_92071985,RMK Group Of Institutions,college,False,MEDIUM,True,True,OSM surveyed college.
+OSM_POI_1075113443,Pulicat Government Hospital,hospital,False,MEDIUM,True,True,OSM surveyed hospital.

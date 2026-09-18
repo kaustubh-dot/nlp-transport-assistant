@@ -68,3 +68,8 @@ Thumbs.db
 # Reproducible generated training artifacts
 data/processed/intents.csv
 models/baseline/*.pkl
+
+# Staging & Runtime Logs
+data/staging/
+logs/
+

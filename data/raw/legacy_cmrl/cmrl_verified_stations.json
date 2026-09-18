@@ -1,0 +1,390 @@
+{
+  "metadata": {
+    "source_agency": "Chennai Metro Rail Limited (CMRL)",
+    "source_url": "https://chennaimetrorail.org/station-facilities/",
+    "retrieval_date": "2026-09-17",
+    "verification_status": "verified_cmrl_subset",
+    "license_notes": "Public transit information extracted from official CMRL portal for factual reference."
+  },
+  "stations": [
+    {
+      "station_id": "CHENNAI_CENTRAL",
+      "name_en": "Puratchi Thalaivar Dr. M.G. Ramachandran Central Metro",
+      "name_hi": "चेन्नई सेंट्रल मेट्रो",
+      "name_ta": "சென்னை சென்ட்ரல் மெட்ரோ",
+      "type": "metro_interchange",
+      "corridor": "interchange",
+      "lat": 13.0827,
+      "lon": 80.2755
+    },
+    {
+      "station_id": "CHENNAI_EGMORE",
+      "name_en": "Egmore Metro",
+      "name_hi": "चेन्नई एग्मोर मेट्रो",
+      "name_ta": "எழும்பூர் மெட்ரோ",
+      "type": "metro_station",
+      "corridor": "green",
+      "lat": 13.0784,
+      "lon": 80.2612
+    },
+    {
+      "station_id": "CHENNAI_AIRPORT",
+      "name_en": "Chennai International Airport Metro",
+      "name_hi": "चेन्नई एयरपोर्ट मेट्रो",
+      "name_ta": "சென்னை விமான நிலையம் மெட்ரோ",
+      "type": "metro_station",
+      "corridor": "blue",
+      "lat": 12.9808,
+      "lon": 80.1639
+    },
+    {
+      "station_id": "ALANDUR",
+      "name_en": "Arignar Anna Alandur Metro",
+      "name_hi": "आलंदूर मेट्रो",
+      "name_ta": "ஆலந்தூர் மெட்ரோ",
+      "type": "metro_interchange",
+      "corridor": "interchange",
+      "lat": 13.0039,
+      "lon": 80.2014
+    },
+    {
+      "station_id": "GUINDY",
+      "name_en": "Guindy Metro",
+      "name_hi": "गिंडी मेट्रो",
+      "name_ta": "கிண்டி மெட்ரோ",
+      "type": "metro_station",
+      "corridor": "blue",
+      "lat": 13.0093,
+      "lon": 80.2131
+    },
+    {
+      "station_id": "KOYAMBEDU",
+      "name_en": "Koyambedu Metro",
+      "name_hi": "कोयम्बेडु मेट्रो",
+      "name_ta": "கோயம்பேடு மெட்ரோ",
+      "type": "metro_station",
+      "corridor": "green",
+      "lat": 13.0716,
+      "lon": 80.1944
+    },
+    {
+      "station_id": "CMBT",
+      "name_en": "Puratchi Thalaivi Dr. J. Jayalalithaa CMBT Metro",
+      "name_hi": "सीएमबीटी मेट्रो",
+      "name_ta": "சி.எம்.பி.டி மெட்ரோ",
+      "type": "metro_station",
+      "corridor": "green",
+      "lat": 13.0673,
+      "lon": 80.2052
+    },
+    {
+      "station_id": "VADAPALANI",
+      "name_en": "Vadapalani Metro",
+      "name_hi": "वडापलानी मेट्रो",
+      "name_ta": "வடபழனி மெட்ரோ",
+      "type": "metro_station",
+      "corridor": "green",
+      "lat": 13.0514,
+      "lon": 80.2117
+    },
+    {
+      "station_id": "SHENOY_NAGAR",
+      "name_en": "Shenoy Nagar Metro",
+      "name_hi": "शेनॉय नगर मेट्रो",
+      "name_ta": "செனாய் நகர் மெட்ரோ",
+      "type": "metro_station",
+      "corridor": "green",
+      "lat": 13.0789,
+      "lon": 80.2269
+    },
+    {
+      "station_id": "NANDANAM",
+      "name_en": "Nandanam Metro",
+      "name_hi": "नंदनम मेट्रो",
+      "name_ta": "நந்தனம் மெட்ரோ",
+      "type": "metro_station",
+      "corridor": "blue",
+      "lat": 13.0315,
+      "lon": 80.2405
+    },
+    {
+      "station_id": "WASHERMANPET",
+      "name_en": "Washermanpet Metro",
+      "name_hi": "वाशरमैनपेट मेट्रो",
+      "name_ta": "வண்ணாரப்பேட்டை மெட்ரோ",
+      "type": "metro_station",
+      "corridor": "blue",
+      "lat": 13.1098,
+      "lon": 80.2825
+    },
+    {
+      "station_id": "WIMCO_NAGAR",
+      "name_en": "Wimco Nagar Metro",
+      "name_hi": "विमको नगर मेट्रो",
+      "name_ta": "விம்கோ நகர் மெட்ரோ",
+      "type": "metro_station",
+      "corridor": "blue",
+      "lat": 13.1672,
+      "lon": 80.3015
+    },
+    {
+      "station_id": "ST_THOMAS_MOUNT",
+      "name_en": "St. Thomas Mount Metro",
+      "name_hi": "सेंट थॉमस माउंट मेट्रो",
+      "name_ta": "பரங்கிமலை மெட்ரோ",
+      "type": "metro_station",
+      "corridor": "green",
+      "lat": 12.9953,
+      "lon": 80.1989
+    }
+  ],
+  "aliases": [
+    ["CHENNAI_CENTRAL", "चेन्नई सेंट्रल", "hi", "Deva"],
+    ["CHENNAI_CENTRAL", "सेंट्रल", "hi", "Deva"],
+    ["CHENNAI_CENTRAL", "एमजीआर सेंट्रल", "hi", "Deva"],
+    ["CHENNAI_CENTRAL", "मद्रास सेंट्रल", "hi", "Deva"],
+    ["CHENNAI_CENTRAL", "chennai central", "en", "Latn"],
+    ["CHENNAI_CENTRAL", "central", "en", "Latn"],
+    ["CHENNAI_CENTRAL", "mgr central", "en", "Latn"],
+    ["CHENNAI_CENTRAL", "central metro", "en", "Latn"],
+    ["CHENNAI_CENTRAL", "chennai sentral", "hinglish", "Latn"],
+
+    ["CHENNAI_EGMORE", "चेन्नई एग्मोर", "hi", "Deva"],
+    ["CHENNAI_EGMORE", "एग्मोर", "hi", "Deva"],
+    ["CHENNAI_EGMORE", "एगमोर", "hi", "Deva"],
+    ["CHENNAI_EGMORE", "chennai egmore", "en", "Latn"],
+    ["CHENNAI_EGMORE", "egmore", "en", "Latn"],
+    ["CHENNAI_EGMORE", "egmore metro", "en", "Latn"],
+
+    ["CHENNAI_AIRPORT", "चेन्नई एयरपोर्ट", "hi", "Deva"],
+    ["CHENNAI_AIRPORT", "एयरपोर्ट", "hi", "Deva"],
+    ["CHENNAI_AIRPORT", "हवाई अड्डा", "hi", "Deva"],
+    ["CHENNAI_AIRPORT", "मीनम्बाक्कम", "hi", "Deva"],
+    ["CHENNAI_AIRPORT", "chennai airport", "en", "Latn"],
+    ["CHENNAI_AIRPORT", "airport", "en", "Latn"],
+    ["CHENNAI_AIRPORT", "meenambakkam airport", "en", "Latn"],
+    ["CHENNAI_AIRPORT", "airport metro", "en", "Latn"],
+
+    ["ALANDUR", "आलंदूर", "hi", "Deva"],
+    ["ALANDUR", "अलनदूर", "hi", "Deva"],
+    ["ALANDUR", "आलंदूर मेट्रो", "hi", "Deva"],
+    ["ALANDUR", "alandur", "en", "Latn"],
+    ["ALANDUR", "alandur metro", "en", "Latn"],
+
+    ["GUINDY", "गिंडी", "hi", "Deva"],
+    ["GUINDY", "गुइंडी", "hi", "Deva"],
+    ["GUINDY", "गिंडी मेट्रो", "hi", "Deva"],
+    ["GUINDY", "guindy", "en", "Latn"],
+    ["GUINDY", "guindy metro", "en", "Latn"],
+
+    ["KOYAMBEDU", "कोयम्बेडु", "hi", "Deva"],
+    ["KOYAMBEDU", "कोयम्बेडू", "hi", "Deva"],
+    ["KOYAMBEDU", "कोयम्बेडु मेट्रो", "hi", "Deva"],
+    ["KOYAMBEDU", "koyambedu", "en", "Latn"],
+    ["KOYAMBEDU", "koyambedu metro", "en", "Latn"],
+
+    ["CMBT", "सीएमबीटी", "hi", "Deva"],
+    ["CMBT", "सीएमबीटी मेट्रो", "hi", "Deva"],
+    ["CMBT", "cmbt", "en", "Latn"],
+    ["CMBT", "cmbt metro", "en", "Latn"],
+
+    ["VADAPALANI", "वडापलानी", "hi", "Deva"],
+    ["VADAPALANI", "वडापलानी मेट्रो", "hi", "Deva"],
+    ["VADAPALANI", "vadapalani", "en", "Latn"],
+    ["VADAPALANI", "vadapalani metro", "en", "Latn"],
+
+    ["SHENOY_NAGAR", "शेनॉय नगर", "hi", "Deva"],
+    ["SHENOY_NAGAR", "शेनॉय नगर मेट्रो", "hi", "Deva"],
+    ["SHENOY_NAGAR", "shenoy nagar", "en", "Latn"],
+    ["SHENOY_NAGAR", "shenoy nagar metro", "en", "Latn"],
+
+    ["NANDANAM", "नंदनम", "hi", "Deva"],
+    ["NANDANAM", "नंदनम मेट्रो", "hi", "Deva"],
+    ["NANDANAM", "टी नगर मेट्रो", "hi", "Deva"],
+    ["NANDANAM", "nandanam", "en", "Latn"],
+    ["NANDANAM", "nandanam metro", "en", "Latn"],
+    ["NANDANAM", "t nagar metro", "en", "Latn"],
+
+    ["WASHERMANPET", "वाशरमैनपेट", "hi", "Deva"],
+    ["WASHERMANPET", "वाशरमैनपेट मेट्रो", "hi", "Deva"],
+    ["WASHERMANPET", "washermanpet", "en", "Latn"],
+    ["WASHERMANPET", "washermanpet metro", "en", "Latn"],
+
+    ["WIMCO_NAGAR", "विमको नगर", "hi", "Deva"],
+    ["WIMCO_NAGAR", "विमको नगर मेट्रो", "hi", "Deva"],
+    ["WIMCO_NAGAR", "wimco nagar", "en", "Latn"],
+    ["WIMCO_NAGAR", "wimco nagar metro", "en", "Latn"],
+
+    ["ST_THOMAS_MOUNT", "सेंट थॉमस माउंट", "hi", "Deva"],
+    ["ST_THOMAS_MOUNT", "थॉमस माउंट", "hi", "Deva"],
+    ["ST_THOMAS_MOUNT", "सेंट थॉमस माउंट मेट्रो", "hi", "Deva"],
+    ["ST_THOMAS_MOUNT", "st thomas mount", "en", "Latn"],
+    ["ST_THOMAS_MOUNT", "st. thomas mount", "en", "Latn"],
+    ["ST_THOMAS_MOUNT", "st thomas mount metro", "en", "Latn"]
+  ],
+  "facilities": [
+    {
+      "station_id": "CHENNAI_CENTRAL",
+      "wheelchair_available": 1,
+      "lift_available": 1,
+      "tactile_paths": 1,
+      "accessible_toilet": 1,
+      "parking_available": 1,
+      "notes_hi": "आधिकारिक CMRL रिकॉर्ड के अनुसार लिफ्ट, स्पर्श पथ और व्हीलचेयर सहायता उपलब्ध है।"
+    },
+    {
+      "station_id": "CHENNAI_EGMORE",
+      "wheelchair_available": 1,
+      "lift_available": 1,
+      "tactile_paths": 1,
+      "accessible_toilet": 1,
+      "parking_available": 1,
+      "notes_hi": "आधिकारिक CMRL रिकॉर्ड के अनुसार लिफ्ट, स्पर्श पथ और व्हीलचेयर सहायता उपलब्ध है।"
+    },
+    {
+      "station_id": "CHENNAI_AIRPORT",
+      "wheelchair_available": 1,
+      "lift_available": 1,
+      "tactile_paths": 1,
+      "accessible_toilet": 1,
+      "parking_available": 1,
+      "notes_hi": "आधिकारिक CMRL रिकॉर्ड के अनुसार लिफ्ट, स्पर्श पथ और व्हीलचेयर सहायता उपलब्ध है।"
+    },
+    {
+      "station_id": "ALANDUR",
+      "wheelchair_available": 1,
+      "lift_available": 1,
+      "tactile_paths": 1,
+      "accessible_toilet": 1,
+      "parking_available": 1,
+      "notes_hi": "इंटरचेंज स्टेशन पर दोनों स्तरों पर लिफ्ट एवं स्पर्श पथ उपलब्ध हैं।"
+    },
+    {
+      "station_id": "GUINDY",
+      "wheelchair_available": 1,
+      "lift_available": 1,
+      "tactile_paths": 1,
+      "accessible_toilet": 1,
+      "parking_available": 1,
+      "notes_hi": "आधिकारिक CMRL रिकॉर्ड के अनुसार लिफ्ट और स्पर्श पथ उपलब्ध हैं।"
+    },
+    {
+      "station_id": "KOYAMBEDU",
+      "wheelchair_available": 1,
+      "lift_available": 1,
+      "tactile_paths": 1,
+      "accessible_toilet": 1,
+      "parking_available": 1,
+      "notes_hi": "आधिकारिक CMRL रिकॉर्ड के अनुसार लिफ्ट, स्पर्श पथ और व्हीलचेयर सहायता उपलब्ध है।"
+    },
+    {
+      "station_id": "CMBT",
+      "wheelchair_available": 1,
+      "lift_available": 1,
+      "tactile_paths": 1,
+      "accessible_toilet": 1,
+      "parking_available": 1,
+      "notes_hi": "बस स्टैंड से जुड़ाव के साथ लिफ्ट और व्हीलचेयर सहायता उपलब्ध है।"
+    },
+    {
+      "station_id": "VADAPALANI",
+      "wheelchair_available": 1,
+      "lift_available": 1,
+      "tactile_paths": 1,
+      "accessible_toilet": 1,
+      "parking_available": 1,
+      "notes_hi": "आधिकारिक CMRL रिकॉर्ड के अनुसार लिफ्ट और स्पर्श पथ उपलब्ध हैं।"
+    },
+    {
+      "station_id": "SHENOY_NAGAR",
+      "wheelchair_available": 1,
+      "lift_available": 1,
+      "tactile_paths": 1,
+      "accessible_toilet": 1,
+      "parking_available": 1,
+      "notes_hi": "आधिकारिक CMRL रिकॉर्ड के अनुसार लिफ्ट और स्पर्श पथ उपलब्ध हैं।"
+    },
+    {
+      "station_id": "NANDANAM",
+      "wheelchair_available": 1,
+      "lift_available": 1,
+      "tactile_paths": 1,
+      "accessible_toilet": 1,
+      "parking_available": 1,
+      "notes_hi": "आधिकारिक CMRL रिकॉर्ड के अनुसार लिफ्ट और स्पर्श पथ उपलब्ध हैं।"
+    },
+    {
+      "station_id": "WASHERMANPET",
+      "wheelchair_available": 1,
+      "lift_available": 1,
+      "tactile_paths": 1,
+      "accessible_toilet": 1,
+      "parking_available": 1,
+      "notes_hi": "आधिकारिक CMRL रिकॉर्ड के अनुसार लिफ्ट और स्पर्श पथ उपलब्ध हैं।"
+    },
+    {
+      "station_id": "WIMCO_NAGAR",
+      "wheelchair_available": 1,
+      "lift_available": 1,
+      "tactile_paths": 1,
+      "accessible_toilet": 1,
+      "parking_available": 1,
+      "notes_hi": "आधिकारिक CMRL रिकॉर्ड के अनुसार लिफ्ट और स्पर्श पथ उपलब्ध हैं।"
+    },
+    {
+      "station_id": "ST_THOMAS_MOUNT",
+      "wheelchair_available": 1,
+      "lift_available": 1,
+      "tactile_paths": 1,
+      "accessible_toilet": 1,
+      "parking_available": 1,
+      "notes_hi": "आधिकारिक CMRL रिकॉर्ड के अनुसार लिफ्ट और स्पर्श पथ उपलब्ध हैं।"
+    }
+  ],
+  "connections": [
+    ["CHENNAI_CENTRAL", "CHENNAI_AIRPORT", "metro", "Blue Line (विमको नगर - एयरपोर्ट)", 1],
+    ["CHENNAI_AIRPORT", "CHENNAI_CENTRAL", "metro", "Blue Line (विमको नगर - एयरपोर्ट)", 1],
+    ["CHENNAI_CENTRAL", "GUINDY", "metro", "Blue Line", 1],
+    ["GUINDY", "CHENNAI_CENTRAL", "metro", "Blue Line", 1],
+    ["CHENNAI_CENTRAL", "ALANDUR", "metro", "Blue Line", 1],
+    ["ALANDUR", "CHENNAI_CENTRAL", "metro", "Blue Line", 1],
+    ["GUINDY", "CHENNAI_AIRPORT", "metro", "Blue Line", 1],
+    ["CHENNAI_AIRPORT", "GUINDY", "metro", "Blue Line", 1],
+    ["ALANDUR", "CHENNAI_AIRPORT", "metro", "Blue Line", 1],
+    ["CHENNAI_AIRPORT", "ALANDUR", "metro", "Blue Line", 1],
+    ["CHENNAI_CENTRAL", "NANDANAM", "metro", "Blue Line", 1],
+    ["NANDANAM", "CHENNAI_CENTRAL", "metro", "Blue Line", 1],
+    ["NANDANAM", "CHENNAI_AIRPORT", "metro", "Blue Line", 1],
+    ["CHENNAI_AIRPORT", "NANDANAM", "metro", "Blue Line", 1],
+    ["WASHERMANPET", "CHENNAI_CENTRAL", "metro", "Blue Line", 1],
+    ["CHENNAI_CENTRAL", "WASHERMANPET", "metro", "Blue Line", 1],
+    ["WIMCO_NAGAR", "CHENNAI_CENTRAL", "metro", "Blue Line", 1],
+    ["CHENNAI_CENTRAL", "WIMCO_NAGAR", "metro", "Blue Line", 1],
+
+    ["CHENNAI_CENTRAL", "CHENNAI_EGMORE", "metro", "Green Line (सेंट्रल - सेंट थॉमस माउंट)", 1],
+    ["CHENNAI_EGMORE", "CHENNAI_CENTRAL", "metro", "Green Line", 1],
+    ["CHENNAI_CENTRAL", "KOYAMBEDU", "metro", "Green Line", 1],
+    ["KOYAMBEDU", "CHENNAI_CENTRAL", "metro", "Green Line", 1],
+    ["CHENNAI_CENTRAL", "CMBT", "metro", "Green Line", 1],
+    ["CMBT", "CHENNAI_CENTRAL", "metro", "Green Line", 1],
+    ["CHENNAI_EGMORE", "KOYAMBEDU", "metro", "Green Line", 1],
+    ["KOYAMBEDU", "CHENNAI_EGMORE", "metro", "Green Line", 1],
+    ["CHENNAI_EGMORE", "CMBT", "metro", "Green Line", 1],
+    ["CMBT", "CHENNAI_EGMORE", "metro", "Green Line", 1],
+    ["KOYAMBEDU", "VADAPALANI", "metro", "Green Line", 1],
+    ["VADAPALANI", "KOYAMBEDU", "metro", "Green Line", 1],
+    ["VADAPALANI", "ALANDUR", "metro", "Green Line", 1],
+    ["ALANDUR", "VADAPALANI", "metro", "Green Line", 1],
+    ["CHENNAI_CENTRAL", "ST_THOMAS_MOUNT", "metro", "Green Line", 1],
+    ["ST_THOMAS_MOUNT", "CHENNAI_CENTRAL", "metro", "Green Line", 1],
+    ["SHENOY_NAGAR", "CHENNAI_CENTRAL", "metro", "Green Line", 1],
+    ["CHENNAI_CENTRAL", "SHENOY_NAGAR", "metro", "Green Line", 1],
+
+    ["KOYAMBEDU", "CHENNAI_AIRPORT", "metro", "Green Line -> Blue Line (आलंदूर पर इंटरचेंज)", 0],
+    ["CHENNAI_AIRPORT", "KOYAMBEDU", "metro", "Blue Line -> Green Line (आलंदूर पर इंटरचेंज)", 0],
+    ["CMBT", "CHENNAI_AIRPORT", "metro", "Green Line -> Blue Line (आलंदूर पर इंटरचेंज)", 0],
+    ["CHENNAI_AIRPORT", "CMBT", "metro", "Blue Line -> Green Line (आलंदूर पर इंटरचेंज)", 0],
+    ["CHENNAI_EGMORE", "CHENNAI_AIRPORT", "metro", "Green Line -> Blue Line (सेंट्रल या आलंदूर पर इंटरचेंज)", 0],
+    ["CHENNAI_AIRPORT", "CHENNAI_EGMORE", "metro", "Blue Line -> Green Line (आलंदूर या सेंट्रल पर इंटरचेंज)", 0]
+  ]
+}

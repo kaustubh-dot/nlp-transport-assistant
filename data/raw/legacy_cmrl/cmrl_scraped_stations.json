@@ -1,0 +1,521 @@
+{
+  "total_stations": 43,
+  "stations": [
+    {
+      "id": 6932,
+      "name": "Puratchi Thalaivar Dr. M.G.Ramachandran Central Metro",
+      "slug": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro-2",
+      "url": "https://chennaimetrorail.org/station-information/puratchi-thalaivar-dr-m-g-ramachandran-central-metro-2/",
+      "phase_one_ids": [
+        249
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1943.146161164336!2d80.27259356057777!3d13.080650909851306!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52660090ca90ab%3A0x986e2f9d52763531!2sPuratchi%20Thalaivar%20Dr.M.G.Ramachandran%20Central!5e0!3m2!1sen!2sin!4v1713592619594!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6930,
+      "name": "Egmore Metro",
+      "slug": "egmore-metro",
+      "url": "https://chennaimetrorail.org/station-information/egmore-metro/",
+      "phase_one_ids": [
+        249
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15545.269744876605!2d80.2611065!3d13.0790573!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5266099d8db6e7%3A0x7746cc908b80bb53!2sEgmore%20Metro!5e0!3m2!1sen!2sin!4v1713597137439!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6928,
+      "name": "Nehru Park",
+      "slug": "nehru-park",
+      "url": "https://chennaimetrorail.org/station-information/nehru-park/",
+      "phase_one_ids": [
+        249
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15545.296835898358!2d80.2508538!3d13.0786275!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526675b2968ea5%3A0xafead8e03ede309f!2sNehru%20Park!5e0!3m2!1sen!2sin!4v1713601549210!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6926,
+      "name": "Kilpauk",
+      "slug": "kilpauk",
+      "url": "https://chennaimetrorail.org/station-information/kilpauk/",
+      "phase_one_ids": [
+        249
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15545.353388470097!2d80.22469384074951!3d13.077730246760455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267f3c531bed9%3A0x82c3237e1159e346!2sKilpauk%20metro!5e0!3m2!1sen!2sin!4v1713609671337!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6924,
+      "name": "Pachaiyappa's College",
+      "slug": "pachaiyappas-college",
+      "url": "https://chennaimetrorail.org/station-information/pachaiyappas-college/",
+      "phase_one_ids": [
+        249
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d485.79653993719586!2d80.232315!3d13.075574!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526680a98949f9%3A0x52d8d223614d4c6f!2sMetro%20Station%20Pachaiyappa%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1713877553653!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6922,
+      "name": "Shenoy Nagar",
+      "slug": "shenoy-nagar",
+      "url": "https://chennaimetrorail.org/station-information/shenoy-nagar/",
+      "phase_one_ids": [
+        249
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.322989130108!2d80.22255957321178!3d13.078704912524804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52668240a430c9%3A0x2ac61aa54835da4d!2sShenoy%20Nagar%20Metro!5e0!3m2!1sen!2sin!4v1713616183222!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6920,
+      "name": "Anna Nagar East",
+      "slug": "anna-nagar-east",
+      "url": "https://chennaimetrorail.org/station-information/anna-nagar-east/",
+      "phase_one_ids": [
+        249
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15544.907846495496!2d80.218657!3d13.0847975!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526426669da0a7%3A0x4d2304ef992fd998!2sAnna%20Nagar%20East%20metro%20station!5e0!3m2!1sen!2sin!4v1713618105089!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6918,
+      "name": "Anna Nagar Tower",
+      "slug": "anna-nagar-tower",
+      "url": "https://chennaimetrorail.org/station-information/anna-nagar-tower/",
+      "phase_one_ids": [
+        249
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15544.896640677842!2d80.2087247!3d13.0849752!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52641f492644e3%3A0xace392a6f810a64c!2sAnna%20Nagar%20Tower%20Metro%20Station!5e0!3m2!1sen!2sin!4v1713621210689!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6916,
+      "name": "Thirumangalam",
+      "slug": "thirumangalam",
+      "url": "https://chennaimetrorail.org/station-information/thirumangalam/",
+      "phase_one_ids": [
+        249
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15544.878516827353!2d80.201574!3d13.0852626!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52641b8071cb57%3A0x96be2fce408725be!2sThirumangalam%20Metro%20Station!5e0!3m2!1sen!2sin!4v1713615045730!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6914,
+      "name": "Koyambedu",
+      "slug": "koyambedu",
+      "url": "https://chennaimetrorail.org/station-information/koyambedu/",
+      "phase_one_ids": [
+        249
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1943.20440241138!2d80.1929990571153!3d13.073257865971941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5266aecc24ede5%3A0xc04bc8a87bf8d082!2sKoyambedu%20Metro!5e0!3m2!1sen!2sin!4v1713615804563!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6912,
+      "name": "Puratchi Thalaivi Dr.J.Jayalalithaa CMBT Metro",
+      "slug": "puratchi-thalaivi-dr-j-jayalalithaa-cmbt-metro",
+      "url": "https://chennaimetrorail.org/station-information/puratchi-thalaivi-dr-j-jayalalithaa-cmbt-metro/",
+      "phase_one_ids": [
+        249
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2299.0060317974003!2d80.2018460624593!3d13.068749368997844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5266a355934b35%3A0x5a99c19dba6f3482!2sPuratchi%20Thalaivi%20Dr.%20J.%20Jayalalithaa%20CMBT!5e0!3m2!1sen!2sin!4v1713773523732!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6910,
+      "name": "Arumbakkam",
+      "slug": "arumbakkam",
+      "url": "https://chennaimetrorail.org/station-information/arumbakkam/",
+      "phase_one_ids": [
+        249
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d577.7444760169946!2d80.21131235746036!3d13.061999074679951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526695c6b81fb3%3A0x2e1c0e2c3e16f7f1!2sArumbakkam!5e0!3m2!1sen!2sin!4v1713766546743!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6908,
+      "name": "Vadapalani",
+      "slug": "vadapalani",
+      "url": "https://chennaimetrorail.org/station-information/vadapalani/",
+      "phase_one_ids": [
+        249
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4622.178063262615!2d80.2054053769342!3d13.050118448188027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5266e98f3dd0ab%3A0xf687129a1d891cf2!2sVadapalani%20Metro%20Rail%20Station!5e0!3m2!1sen!2sin!4v1713614616602!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6906,
+      "name": "Ashok Nagar",
+      "slug": "ashok-nagar",
+      "url": "https://chennaimetrorail.org/station-information/ashok-nagar/",
+      "phase_one_ids": [
+        249
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d485.875019686081!2d80.21095131964783!3d13.035661671433154!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5266e015b1a315%3A0xf3e2b62a5b8c75f!2sMetro%20Station%20Ashok%20Nagar%2C%20Ashok%20Nagar%2C%20Chennai%2C%20Tamil%20Nadu%20600083!5e0!3m2!1sen!2sin!4v1713614865288!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6904,
+      "name": "Ekkattuthangal",
+      "slug": "ekkattuthangal",
+      "url": "https://chennaimetrorail.org/station-information/ekkattuthangal/",
+      "phase_one_ids": [
+        249
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1155.70097590681!2d80.20494300304732!3d13.016606965423183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52673ea186a899%3A0x3525b7a1f02cd9ac!2sMetro%20Station%20Ekkattuthangal%2C%20Chennai%2C%20Tamil%20Nadu%20600032!5e0!3m2!1sen!2sin!4v1713614999946!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6899,
+      "name": "Arignar Anna Alandur Metro",
+      "slug": "arignar-anna-alandur-metro-2",
+      "url": "https://chennaimetrorail.org/station-information/arignar-anna-alandur-metro-2/",
+      "phase_one_ids": [
+        249
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d971.8742572109417!2d80.20064840110591!3d13.003989704098222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52674435481d51%3A0x522343be0e35985!2sAlandur!5e0!3m2!1sen!2sin!4v1713762981658!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6897,
+      "name": "St. Thomas Mount Metro",
+      "slug": "st-thomas-mount-metro",
+      "url": "https://chennaimetrorail.org/station-information/st-thomas-mount-metro/",
+      "phase_one_ids": [
+        249
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15550.534493118856!2d80.1988314!3d12.9952695!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526750a12d32a5%3A0xd642a8f9dbb24727!2sSt.Thomas%20Mount!5e0!3m2!1sen!2sin!4v1713598823176!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6740,
+      "name": "Wimco Nagar Depot Metro",
+      "slug": "wimco-nagar-depot-metro",
+      "url": "https://chennaimetrorail.org/station-information/wimco-nagar-depot-metro/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9239.397603999365!2d80.30207580778237!3d13.182051189053226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5270256c28eb19%3A0x5fcf58bb6cbe03aa!2sWimco%20Nagar%20Depot!5e0!3m2!1sen!2sin!4v1713424335138!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6738,
+      "name": "Wimco Nagar Metro",
+      "slug": "wimco-nagar-metro",
+      "url": "https://chennaimetrorail.org/station-information/wimco-nagar-metro/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3884.7238544679403!2d80.3046587788574!3d13.17980338532951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a527111f9e35cf5%3A0xcbf1b4d0d936764b!2sWimco%20Nagar%20Metro!5e0!3m2!1sen!2sin!4v1713426297468!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6736,
+      "name": "Thiruvotriyur Metro",
+      "slug": "thiruvotriyur-metro",
+      "url": "https://chennaimetrorail.org/station-information/thiruvotriyur-metro/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15538.893773136697!2d80.29693394845347!3d13.179829282695415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526f284407bac1%3A0xb023d4e495fd4c58!2sThiruvotriyur%20Metro%20Station!5e0!3m2!1sen!2sin!4v1713434524400!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6733,
+      "name": "Thiruvottriyur Theradi Metro",
+      "slug": "thiruvottriyur-theradi-metro",
+      "url": "https://chennaimetrorail.org/station-information/thiruvottriyur-theradi-metro/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.040059203966!2d80.29982707479635!3d13.159873210723175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526fc3af1e2529%3A0x3ccf10229ef467c4!2sThiruvottiyur%20Theradi!5e0!3m2!1sen!2sin!4v1713435206971!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6731,
+      "name": "Kaladipet Metro",
+      "slug": "kaladipet-metro",
+      "url": "https://chennaimetrorail.org/station-information/kaladipet-metro/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.179886771455!2d80.2968370747963!3d13.151050510919191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526fbffb7ab4f3%3A0xdbf3fbb6732cf2fc!2sKaladipet!5e0!3m2!1sen!2sin!4v1713437645582!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6729,
+      "name": "Tollgate Metro",
+      "slug": "tollgate-metro",
+      "url": "https://chennaimetrorail.org/station-information/tollgate-metro/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.299096966283!2d80.2937444747962!3d13.143524111086228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526f9657c9bedf%3A0xe9fb9a8c2e388172!2sToll%20Gate!5e0!3m2!1sen!2sin!4v1713441347547!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6727,
+      "name": "New Washermenpet Metro",
+      "slug": "new-washermenpet-metro",
+      "url": "https://chennaimetrorail.org/station-information/new-washermenpet-metro/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.443295272055!2d80.29027622479602!3d13.134414411288386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526f9bfbae6cd7%3A0xaa0683b8e70c1cbd!2sNew%20Washermenpet!5e0!3m2!1sen!2sin!4v1713444094712!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6725,
+      "name": "Tondiarpet Metro",
+      "slug": "tondiarpet-metro",
+      "url": "https://chennaimetrorail.org/station-information/tondiarpet-metro/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.6028799775004!2d80.28611267507907!3d13.124325437205261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526f775eaf6223%3A0x81d8d26af918cb9a!2sTondiarpet%20Metro!5e0!3m2!1sen!2sin!4v1713605616027!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6723,
+      "name": "Sir Thiyagaraya College Metro",
+      "slug": "sir-thiyagaraya-college-metro",
+      "url": "https://chennaimetrorail.org/station-information/sir-thiyagaraya-college-metro/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.7249487122144!2d80.28051416843866!3d13.116603083447972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526f652a0dc8d7%3A0x721bb8e5e57a0499!2sThiyagaraya%20College%20Metro!5e0!3m2!1sen!2sin!4v1713616914706!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6720,
+      "name": "Washermenpet Metro",
+      "slug": "washermenpet-metro",
+      "url": "https://chennaimetrorail.org/station-information/washermenpet-metro/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52277.827673913!2d80.24298906980071!3d13.126228366401827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526f60e9bb4053%3A0xcbf2b4605713007c!2sWashermenpet!5e0!3m2!1sen!2sin!4v1713856998149!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6718,
+      "name": "Mannadi",
+      "slug": "mannadi",
+      "url": "https://chennaimetrorail.org/station-information/mannadi/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.055252491941!2d80.28351647373415!3d13.095684862148422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526f5a9365586d%3A0xe34bb62f55643890!2sMannadi!5e0!3m2!1sen!2sin!4v1713760281569!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6716,
+      "name": "Highcourt",
+      "slug": "highcourt",
+      "url": "https://chennaimetrorail.org/station-information/highcourt/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.1781032471126!2d80.28290802373395!3d13.087896312320611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526f53cac137c3%3A0xe9a40a6f821a0963!2sHigh%20Court!5e0!3m2!1sen!2sin!4v1713765938189!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 7090,
+      "name": "Puratchi Thalaivar Dr. M.G.Ramachandran Central Metro",
+      "slug": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro",
+      "url": "https://chennaimetrorail.org/station-information/puratchi-thalaivar-dr-m-g-ramachandran-central-metro/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1943.146161164336!2d80.27259356057777!3d13.080650909851306!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52660090ca90ab%3A0x986e2f9d52763531!2sPuratchi%20Thalaivar%20Dr.M.G.Ramachandran%20Central!5e0!3m2!1sen!2sin!4v1713592619594!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6712,
+      "name": "Government Estate",
+      "slug": "government-estate",
+      "url": "https://chennaimetrorail.org/station-information/government-estate/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.4669955280733!2d80.27028177373363!3d13.069563012725673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52661cc19c96f5%3A0x9d17c7a91fbe3c34!2sGovernment%20Estate!5e0!3m2!1sen!2sin!4v1713771732225!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6708,
+      "name": "LIC",
+      "slug": "lic",
+      "url": "https://chennaimetrorail.org/station-information/lic/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.5460097734103!2d80.26349997373349!3d13.06454431283645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52661a1f3bf56d%3A0xcb8566b48b835870!2sLIC%20Metro%20Station!5e0!3m2!1sen!2sin!4v1713781076418!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6706,
+      "name": "Thousand Lights",
+      "slug": "thousand-lights",
+      "url": "https://chennaimetrorail.org/station-information/thousand-lights/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.6469993012065!2d80.25575347373342!3d13.058127062978048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267eaf05742ff%3A0xdcda4fb3618987d3!2sThousand%20Lights%20Metro%20Rail%20Station!5e0!3m2!1sen!2sin!4v1713786290565!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6704,
+      "name": "AG &#8211; DMS",
+      "slug": "ag-dms",
+      "url": "https://chennaimetrorail.org/station-information/ag-dms/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.8494843920366!2d80.24566532373316!3d13.045251063261999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52664f362ce6ad%3A0x9e431c60613d80!2sAG-DMS%20Metro!5e0!3m2!1sen!2sin!4v1713790570557!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6702,
+      "name": "Teynampet",
+      "slug": "teynampet",
+      "url": "https://chennaimetrorail.org/station-information/teynampet/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d971.7443187438322!2d80.24551377789689!3d13.03711844539991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52664ce750906d%3A0xcbbce9d234b81d11!2sTeynampet!5e0!3m2!1sen!2sin!4v1713859062281!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6700,
+      "name": "Nandanam",
+      "slug": "nandanam",
+      "url": "https://chennaimetrorail.org/station-information/nandanam/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe loading=\"lazy\" style=\"border: 0;\" src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.058317269555!2d80.23958227321089!3d13.031958313555847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267ad977fc7d5%3A0x2f8f98c4b780fdac!2sNandanam%20Metro%20Station!5e0!3m2!1sen!2sin!4v1713351356143!5m2!1sen!2sin\" width=\"100%\" height=\"400\" allowfullscreen=\"allowfullscreen\"></iframe></p>\n"
+    },
+    {
+      "id": 6698,
+      "name": "Saidapet Metro",
+      "slug": "saidapet-metro",
+      "url": "https://chennaimetrorail.org/station-information/saidapet-metro/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.1892397208994!2d80.22360160946843!3d13.023617963573042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267062758cf67%3A0x2b1bec3d14fe0d58!2sSaidapet%20Metro!5e0!3m2!1sen!2sin!4v1713860053052!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6696,
+      "name": "Little Mount",
+      "slug": "little-mount",
+      "url": "https://chennaimetrorail.org/station-information/little-mount/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.331289881379!2d80.22136727507717!3d13.014562787304808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52670cfeb34457%3A0xde8616b3efea6312!2sLittle%20Mount!5e0!3m2!1sen!2sin!4v1713793347126!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6694,
+      "name": "Guindy",
+      "slug": "guindy",
+      "url": "https://chennaimetrorail.org/station-information/guindy/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15549.650746278541!2d80.19463584060242!3d13.009371255723211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52671ea4f98865%3A0xc39849a60c679b8f!2sGuindy%20Metro%20Railway%20Station!5e0!3m2!1sen!2sin!4v1713788114305!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 7092,
+      "name": "Arignar Anna Alandur Metro",
+      "slug": "arignar-anna-alandur-metro",
+      "url": "https://chennaimetrorail.org/station-information/arignar-anna-alandur-metro/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d971.8742572109417!2d80.20064840110591!3d13.003989704098222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52674435481d51%3A0x522343be0e35985!2sAlandur!5e0!3m2!1sen!2sin!4v1713762981658!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6690,
+      "name": "OTA-Nanganallur Road",
+      "slug": "ota-nanganallur-road",
+      "url": "https://chennaimetrorail.org/station-information/ota-nanganallur-road/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.558610839009!2d80.19157157500499!3d13.000059014253818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52674e174b4cf9%3A0x9d81c7c773ce386e!2sMetro%20Station%20Nanganallur%20Road%2C%20Chennai%20-%20Trichy%20Hwy%2C%20Ramapuram%2C%20Mathas%20Nagar%2C%20St.Thomas%20Mount%2C%20Chennai%2C%20Tamil%20Nadu%20600016!5e0!3m2!1sen!2sin!4v1713869174337!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" "
+    },
+    {
+      "id": 6677,
+      "name": "Meenambakkam",
+      "slug": "meenambakkam",
+      "url": "https://chennaimetrorail.org/station-information/meenambakkam/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1374.5271358729624!2d80.1754832739529!3d12.98784601318242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5260a801f2052f%3A0xe83bd83ed133d069!2sMeenambakkam!5e0!3m2!1sen!2sin!4v1713778893687!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    },
+    {
+      "id": 6675,
+      "name": "Chennai International Airport",
+      "slug": "chennai-international-airport",
+      "url": "https://chennaimetrorail.org/station-information/chennai-international-airport/",
+      "phase_one_ids": [
+        248
+      ],
+      "phase_two_ids": [],
+      "detected_facilities": [],
+      "raw_html_snippet": "<p><iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15551.43871159988!2d80.1642095!3d12.9808255!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525e221bb4165d%3A0xe19c2ca3cd395ff!2sChennai%20Airport%20Metro!5e0!3m2!1sen!2sin!4v1713769276596!5m2!1sen!2sin\" width=\"100%\" height=\"400\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe></p>\n"
+    }
+  ]
+}
