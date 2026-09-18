@@ -1,7 +1,18 @@
-# Chennai Transport Assistant: Multi-Model Benchmark & Leaderboard
+# [ARCHIVED / PRELIMINARY] Single-Seed 3-Epoch Benchmark
 
-**Evaluation Environment:** NVIDIA RTX 4000 Ada Generation (20 GB VRAM, CUDA 12.4)
-**Date:** 2026-09-17 18:31:19
+> [!WARNING]
+> **HISTORICAL / EXPLORATORY RUN ONLY (Conducted 2026-09-17)**  
+> This document records the **preliminary exploratory trial** run with fixed 3 epochs and a single seed (`42`).
+> - Under this short 3-epoch budget, larger architectures such as **Google MuRIL (236M)** were significantly underfitted.
+> - **IndicBERT v2** placed #1 in this run because its pre-training representations converged faster within 3 epochs.
+> - Latency in this earlier run measured async CPU dispatch without CUDA synchronization (~0.33 ms).
+> 
+> 👉 **For the official, verified production benchmark with 5 seeds, early stopping, and CUDA-synchronized latencies, see:**  
+> **[Current Multi-Seed 5-Seed Benchmark (Official Leaderboard)](./current_multi_seed_5seed_benchmark.md)**
+
+**Evaluation Environment:** NVIDIA RTX 4000 Ada Generation (20 GB VRAM, CUDA 12.4)  
+**Run Date:** 2026-09-17 18:31:19  
+**Configuration:** 1 Split, Seed 42, Fixed 3 Epochs, No Early Stopping  
 
 ## 1. Executive Summary & Leaderboard
 

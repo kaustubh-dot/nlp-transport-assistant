@@ -1,4 +1,15 @@
-# Multi-Seed Intent Classification Benchmark Report
+# [CURRENT / OFFICIAL] Multi-Seed Intent Classification Benchmark Report
+
+> [!IMPORTANT]
+> **OFFICIAL PRODUCTION BENCHMARK (Conducted 2026-09-18)**  
+> This is the authoritative production benchmark evaluating all candidate architectures across 5 independent random seeds (`[42, 101, 777, 1337, 2026]`) with 15 max epochs and early stopping (patience=3).
+> - **Champion:** **Google MuRIL** (`0.8927 ± 0.0226` Test Macro-F1, `90.49% ± 1.86%` Test Accuracy, `100.0%` Gold Acceptance).
+> - **Runner-up:** **AI4Bharat IndicBERT v2** (`0.8772 ± 0.0284` Test Macro-F1).
+> - Latencies are strictly physical GPU execution times measured with `torch.cuda.synchronize()` at `batch_size=1`.
+> 
+> 👉 **For the earlier exploratory 3-epoch single-seed run, see:**  
+> **[Earlier Single-Seed 3-Epoch Benchmark (Historical)](./earlier_single_seed_3epoch_benchmark.md)**
+
 **Generated:** 2026-09-18 13:42:37  
 **Hardware:** NVIDIA RTX 4000 Ada Generation (BF16: True)  
 **Environment:** PyTorch `2.6.0+cu124`, CUDA `12.4`  

@@ -36,8 +36,8 @@ from src.intent_classifier import get_classifier, INTENT_CLASSES
 from scripts.train_and_compare_models import MODEL_REGISTRY, load_splits
 
 ACCEPTANCE_PATH = os.path.join(BASE_DIR, "data", "eval", "acceptance_test_suite.json")
-OUTPUT_MD_PATH = os.path.join(BASE_DIR, "docs", "benchmarks", "model_comparison.md")
-OUTPUT_JSON_PATH = os.path.join(BASE_DIR, "docs", "benchmarks", "benchmark_results.json")
+OUTPUT_MD_PATH = os.path.join(BASE_DIR, "docs", "benchmarks", "earlier_single_seed_3epoch_benchmark.md")
+OUTPUT_JSON_PATH = os.path.join(BASE_DIR, "docs", "benchmarks", "earlier_single_seed_3epoch_results.json")
 
 
 def evaluate_on_test_split(classifier, test_df: pd.DataFrame) -> Dict[str, float]:

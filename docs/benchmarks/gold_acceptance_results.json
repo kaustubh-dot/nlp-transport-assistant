@@ -5,8 +5,8 @@
   "intent_macro_f1": 1.0,
   "slot_exact_match_pct": 96.64,
   "factual_task_success_pct": 100.0,
-  "mean_latency_ms": 1.28,
-  "p95_latency_ms": 0.64,
+  "mean_latency_ms": 1.17,
+  "p95_latency_ms": 0.54,
   "by_form": {
     "formal_hi": {
       "count": 54,

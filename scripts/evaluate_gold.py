@@ -27,15 +27,17 @@ from src.intent_classifier import INTENT_CLASSES
 from sklearn.metrics import f1_score
 
 ACCEPTANCE_SUITE_PATH = BASE_DIR / "data/eval/acceptance_test_suite.json"
-BENCHMARK_RESULTS_PATH = BASE_DIR / "docs/benchmarks/multi_seed_benchmark_results.json"
+BENCHMARK_RESULTS_PATH = BASE_DIR / "docs/benchmarks/current_multi_seed_5seed_results.json"
+LEGACY_BENCHMARK_RESULTS_PATH = BASE_DIR / "docs/benchmarks/multi_seed_benchmark_results.json"
 OUTPUT_GOLD_JSON = BASE_DIR / "docs/benchmarks/gold_acceptance_results.json"
 
 
 def get_default_champion_model() -> str:
-    """Reads champion from multi_seed_benchmark_results.json if available, else defaults to indicbert_v2."""
-    if BENCHMARK_RESULTS_PATH.exists():
+    """Reads champion from current_multi_seed_5seed_results.json if available, else defaults to indicbert_v2."""
+    target_path = BENCHMARK_RESULTS_PATH if BENCHMARK_RESULTS_PATH.exists() else LEGACY_BENCHMARK_RESULTS_PATH
+    if target_path.exists():
         try:
-            with open(BENCHMARK_RESULTS_PATH, "r", encoding="utf-8") as f:
+            with open(target_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
             champ = data.get("champion")
             if champ and "model_key" in champ:

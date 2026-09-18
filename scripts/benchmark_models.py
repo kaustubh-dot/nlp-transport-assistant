@@ -41,8 +41,8 @@ from scripts.train_and_compare_models import (
 DEFAULT_SEEDS = [42, 101, 777, 1337, 2026]
 DEFAULT_MODELS = ["baseline", "muril", "indicbert_v2", "xlm_roberta", "hingbert", "minilm"]
 BENCHMARK_MODELS_DIR = os.path.join(MODELS_DIR, "benchmark_runs")
-DEFAULT_OUTPUT_MD = os.path.join(BASE_DIR, "docs", "benchmarks", "multi_seed_comparison.md")
-DEFAULT_OUTPUT_JSON = os.path.join(BASE_DIR, "docs", "benchmarks", "multi_seed_benchmark_results.json")
+DEFAULT_OUTPUT_MD = os.path.join(BASE_DIR, "docs", "benchmarks", "current_multi_seed_5seed_benchmark.md")
+DEFAULT_OUTPUT_JSON = os.path.join(BASE_DIR, "docs", "benchmarks", "current_multi_seed_5seed_results.json")
 
 
 def compute_mean_std(values: List[float]) -> Tuple[float, float]:

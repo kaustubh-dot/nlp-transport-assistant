@@ -30,5 +30,13 @@ Database generation replaces `data/processed/transport.db` with demo fixtures. T
 - `आखिरी मेट्रो कब छूटती है?`: explains that verified timetables are unavailable.
 - `central se airport kaise jaye`: accepts Roman Hindi.
 
+## Benchmarks & Model Evaluation
+
+- **[Current Official Benchmark (5 Seeds, Early Stopping)](docs/benchmarks/current_multi_seed_5seed_benchmark.md)**: Rigorous evaluation across 5 random seeds (`[42, 101, 777, 1337, 2026]`) with 15 max epochs and early stopping.
+  - **Champion:** Google MuRIL (Test Macro-F1: `0.8927 ± 0.0226`, 100% Gold Acceptance).
+- **[Earlier Preliminary Benchmark (Single Seed, 3 Epochs)](docs/benchmarks/earlier_single_seed_3epoch_benchmark.md)**: Archived exploratory 3-epoch trial on Seed 42.
+- **[Benchmark Guide & Rationale (docs/benchmarks/README.md)](docs/benchmarks/README.md)**: Detailed breakdown explaining the differences between earlier and current runs, why rankings changed, and physical GPU latency methodology.
+
 ## Dependencies and license
 Core dependencies are pinned in requirements.txt; the lightweight baseline does not require PyTorch. Transformer training and its environment remain a later milestone. Code is MIT licensed. External data/model licensing must be verified per artifact before distribution; no blanket license claim applies to the demonstration records.
+
