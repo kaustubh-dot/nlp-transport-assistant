@@ -59,6 +59,7 @@ htmlcov/
 
 # Streamlit config / cache
 .streamlit/
+!.streamlit/config.toml
 
 # OS-generated files
 .DS_Store

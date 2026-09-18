@@ -805,7 +805,26 @@ div[data-baseweb="tab"][aria-selected="true"] {
     }
 }
 
-/* Hallmark High-Contrast Visibility & Tactile Legibility Enhancements */
+/* Hallmark High-Contrast Visibility & Dark-Mode Override Rules */
+[data-testid="stSidebar"],
+[data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
+    color: var(--mp-ink) !important;
+}
+
+/* Widget Labels (Inputs, Selectboxes, Sliders) */
+[data-testid="stWidgetLabel"],
+[data-testid="stWidgetLabel"] p,
+[data-testid="stWidgetLabel"] span,
+[data-testid="stWidgetLabel"] label,
+label[data-testid="stWidgetLabel"] > div > p,
+div[data-testid="stTextInput"] label,
+div[data-testid="stTextInput"] label p {
+    color: var(--mp-ink) !important;
+    font-weight: 600 !important;
+    font-size: 0.875rem !important;
+    opacity: 1 !important;
+}
+
 input::placeholder, textarea::placeholder {
     color: var(--mp-ink-2) !important;
     opacity: 0.70 !important;
@@ -817,6 +836,10 @@ div[data-baseweb="input"], div[data-baseweb="base-input"] {
     background-color: var(--mp-surface) !important;
     border-radius: var(--radius-control) !important;
     box-shadow: 0 1px 2px rgba(26, 21, 17, 0.04) !important;
+}
+
+div[data-baseweb="input"] input, div[data-baseweb="base-input"] input {
+    color: var(--mp-ink) !important;
 }
 
 div[data-baseweb="input"]:focus-within {
@@ -832,14 +855,20 @@ div[data-baseweb="select"] > div {
     font-weight: 500 !important;
 }
 
-/* Radio Selector High-Contrast Container & Item Visibility */
-div[data-testid="stRadio"] label {
+div[data-baseweb="select"] span,
+div[data-baseweb="select"] div,
+div[data-baseweb="select"] input {
     color: var(--mp-ink) !important;
-    font-weight: 500 !important;
-    font-size: 0.875rem !important;
-    cursor: pointer !important;
 }
 
+div[data-baseweb="popover"],
+div[data-baseweb="popover"] ul,
+div[data-baseweb="popover"] li {
+    background-color: var(--mp-surface) !important;
+    color: var(--mp-ink) !important;
+}
+
+/* Radio Selector High-Contrast Container & Item Visibility */
 div[data-testid="stRadio"] [role="radiogroup"] {
     background-color: var(--mp-surface) !important;
     padding: 6px 12px !important;
@@ -849,10 +878,54 @@ div[data-testid="stRadio"] [role="radiogroup"] {
     margin-bottom: var(--space-xs) !important;
 }
 
+div[data-testid="stRadio"] label,
+div[data-testid="stRadio"] label p,
+div[data-testid="stRadio"] label span,
+div[data-testid="stRadio"] label div {
+    color: var(--mp-ink) !important;
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+    cursor: pointer !important;
+    opacity: 1 !important;
+}
+
+/* Checkbox High-Contrast Visibility */
+div[data-testid="stCheckbox"] label,
+div[data-testid="stCheckbox"] label p,
+div[data-testid="stCheckbox"] label span,
+div[data-testid="stCheckbox"] label div {
+    color: var(--mp-ink) !important;
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+    opacity: 1 !important;
+}
+
+/* Expander High-Contrast Visibility */
+div[data-testid="stExpander"] {
+    border: 1px solid var(--mp-rule-strong) !important;
+    border-radius: var(--radius-control) !important;
+    background-color: var(--mp-surface) !important;
+}
+
+div[data-testid="stExpander"] details summary,
+div[data-testid="stExpander"] details summary p,
+div[data-testid="stExpander"] details summary span {
+    color: var(--mp-ink) !important;
+    font-weight: 600 !important;
+    font-size: 0.875rem !important;
+}
+
+div[data-testid="stExpander"] details summary svg {
+    fill: var(--mp-ink) !important;
+    color: var(--mp-ink) !important;
+}
+
 /* Tab Navigation Visibility */
 div[data-baseweb="tab-list"] {
     background-color: transparent !important;
     border-bottom: 1.5px solid var(--mp-rule) !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
 }
 
 div[data-baseweb="tab-border"] {
@@ -870,13 +943,22 @@ div[data-baseweb="tab-highlight"] {
     background-color: transparent !important;
 }
 
-.stTabs [data-baseweb="tab"]:not([aria-selected="true"]) {
+.stTabs [data-baseweb="tab"] p,
+.stTabs [data-baseweb="tab"] span {
     color: var(--mp-ink-2) !important;
     opacity: 0.88 !important;
 }
 
-.stTabs [data-baseweb="tab"]:not([aria-selected="true"]):hover {
+.stTabs [data-baseweb="tab"]:hover p,
+.stTabs [data-baseweb="tab"]:hover span {
     color: var(--mp-accent) !important;
+    opacity: 1 !important;
+}
+
+.stTabs [data-baseweb="tab"][aria-selected="true"] p,
+.stTabs [data-baseweb="tab"][aria-selected="true"] span {
+    color: var(--mp-accent) !important;
+    font-weight: 700 !important;
     opacity: 1 !important;
 }
 
