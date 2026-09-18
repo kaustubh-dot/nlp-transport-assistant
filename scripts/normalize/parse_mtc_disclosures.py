@@ -3,6 +3,7 @@
   - data/normalized/fares/normalized_mtc_fares.csv / .json
   - data/normalized/stages/normalized_mtc_stages.csv / .json
   - data/normalized/routes/normalized_official_routes.csv / .json
+  - data/normalized/routes/mtc_official_to_gtfs_crosswalk.csv / .json
 and computes cross-references against Community GTFS transit entities.
 """
 
@@ -11,6 +12,8 @@ import sys
 import re
 import csv
 import json
+import zipfile
+import io
 from datetime import datetime
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -21,6 +24,7 @@ RAW_MTC_DIR = os.path.join(BASE_DIR, "data", "raw", "mtc", "2026-09-18")
 ROUTES_HTML = os.path.join(RAW_MTC_DIR, "mtc_official_routes.html")
 STAGES_HTML = os.path.join(RAW_MTC_DIR, "mtc_official_stages.html")
 FARES_HTML = os.path.join(RAW_MTC_DIR, "mtc_official_fares.html")
+GTFS_ZIP = os.path.join(BASE_DIR, "data", "raw", "community_gtfs", "2026-09-18", "chennai-unified-gtfs.zip")
 
 NORM_FARES_DIR = os.path.join(BASE_DIR, "data", "normalized", "fares")
 NORM_STAGES_DIR = os.path.join(BASE_DIR, "data", "normalized", "stages")
@@ -31,6 +35,19 @@ os.makedirs(NORM_STAGES_DIR, exist_ok=True)
 os.makedirs(NORM_ROUTES_DIR, exist_ok=True)
 
 
+def extract_disclosure_date(html):
+    """Dynamically extracts official source disclosure date if present in HTML, e.g. Updated on 07-08-2026."""
+    m = re.search(r"(?:Updated|Dated)\s+on\s+(\d{1,2})[-/.](\d{1,2})[-/.](\d{4})", html, re.IGNORECASE)
+    if m:
+        d, mth, y = m.groups()
+        return f"{y}-{mth.zfill(2)}-{d.zfill(2)}"
+    m2 = re.search(r"Dated\s+(\d{1,2})[-/.](\d{1,2})[-/.](\d{4})", html, re.IGNORECASE)
+    if m2:
+        d, mth, y = m2.groups()
+        return f"{y}-{mth.zfill(2)}-{d.zfill(2)}"
+    return ""
+
+
 def parse_mtc_routes():
     """Parses 685 official MTC route numbers and classifies route variants."""
     with open(ROUTES_HTML, "r", encoding="utf-8") as f:
@@ -39,6 +56,8 @@ def parse_mtc_routes():
     match = re.search(r"<select[^>]*name=[\"']selroute[\"'][^>]*>(.*?)</select>", html, re.DOTALL)
     if not match:
         raise ValueError("Could not locate selroute dropdown in mtc_official_routes.html")
+
+    disc_date = extract_disclosure_date(html)
 
     options = re.findall(r"<option\s+value=[\"'](.*?)[\"'][^>]*>(.*?)</option>", match.group(1), re.DOTALL)
     routes = []
@@ -66,7 +85,7 @@ def parse_mtc_routes():
             "agency_id": "MTC",
             "source_id": "MTC_OFFICIAL",
             "raw_file_id": "MTC_OFFICIAL_ROUTES_20260918",
-            "disclosure_date": "2026-08-07"
+            "disclosure_date": disc_date
         })
 
     csv_path = os.path.join(NORM_ROUTES_DIR, "normalized_official_routes.csv")
@@ -80,7 +99,7 @@ def parse_mtc_routes():
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(routes, f, indent=2, ensure_ascii=False)
 
-    print(f"[MTC Routes] Successfully parsed {len(routes)} official routes -> {csv_path}")
+    print(f"[MTC Routes] Successfully parsed {len(routes)} official routes -> {csv_path} (disclosure_date: {disc_date})")
     return routes
 
 
@@ -195,12 +214,98 @@ def parse_mtc_fares():
     return fares
 
 
+def generate_mtc_gtfs_crosswalk(official_routes):
+    """Builds an explicit official-MTC-to-GTFS route crosswalk.
+
+    Maps 685 official MTC route codes to Community GTFS route variants.
+    Reports exact automatic matches (1-to-1 and 1-to-many) and unmatched codes.
+    Does NOT silently force unmatched routes.
+    """
+    if not os.path.exists(GTFS_ZIP):
+        print(f"[Crosswalk Warning] GTFS zip not found at {GTFS_ZIP}")
+        return []
+
+    with zipfile.ZipFile(GTFS_ZIP) as z:
+        with z.open("routes.txt") as f:
+            gtfs_routes = list(csv.DictReader(io.TextIOWrapper(f, encoding="utf-8")))
+
+    gtfs_by_short = {}
+    for r in gtfs_routes:
+        sname = r.get("route_short_name", "").strip()
+        if not sname:
+            continue
+        clean = re.sub(r"\s+", "", sname).upper()
+        gtfs_by_short.setdefault(clean, []).append(r)
+
+    crosswalk = []
+    one_to_one = 0
+    one_to_many = 0
+    unmatched = 0
+
+    for off in official_routes:
+        code = off["route_code"].strip()
+        clean_code = re.sub(r"\s+", "", code).upper()
+
+        matches = gtfs_by_short.get(clean_code, [])
+        if len(matches) == 1:
+            m_type = "one_to_one"
+            one_to_one += 1
+            gtfs_ids = f"GTFS_ROUTE_{matches[0]['route_id']}"
+            gtfs_names = matches[0]["route_short_name"]
+            notes = "Exact single commercial route variant match"
+        elif len(matches) > 1:
+            m_type = "one_to_many"
+            one_to_many += 1
+            gtfs_ids = "|".join(f"GTFS_ROUTE_{m['route_id']}" for m in matches)
+            gtfs_names = "|".join(m["route_short_name"] for m in matches)
+            notes = f"Matches {len(matches)} operational GTFS directional/cut-trip variants"
+        else:
+            m_type = "unmatched"
+            unmatched += 1
+            gtfs_ids = ""
+            gtfs_names = ""
+            notes = "Official route code not present in community GTFS snapshot"
+
+        crosswalk.append({
+            "official_route_code": code,
+            "official_route_label": off["route_label"],
+            "service_category": off["service_category"],
+            "match_type": m_type,
+            "gtfs_route_count": len(matches),
+            "gtfs_route_ids": gtfs_ids,
+            "gtfs_short_names": gtfs_names,
+            "notes": notes
+        })
+
+    csv_path = os.path.join(NORM_ROUTES_DIR, "mtc_official_to_gtfs_crosswalk.csv")
+    json_path = os.path.join(NORM_ROUTES_DIR, "mtc_official_to_gtfs_crosswalk.json")
+
+    with open(csv_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=list(crosswalk[0].keys()))
+        writer.writeheader()
+        writer.writerows(crosswalk)
+
+    with open(json_path, "w", encoding="utf-8") as f:
+        json.dump(crosswalk, f, indent=2, ensure_ascii=False)
+
+    print("\n[MTC-to-GTFS Route Crosswalk Summary]")
+    print(f"  Total Official Route Codes: {len(official_routes)}")
+    print(f"  Exact Automatic Matches:    {one_to_one + one_to_many} ({(one_to_one + one_to_many)/len(official_routes)*100:.2f}%)")
+    print(f"    - One-to-One Matches:     {one_to_one} ({one_to_one/len(official_routes)*100:.2f}%)")
+    print(f"    - One-to-Many Matches:    {one_to_many} ({one_to_many/len(official_routes)*100:.2f}%)")
+    print(f"  Unmatched Route Codes:      {unmatched} ({unmatched/len(official_routes)*100:.2f}%)")
+    print(f"  Crosswalk artifacts generated -> {csv_path}")
+
+    return crosswalk
+
+
 def main():
     print("Parsing official MTC Bronze disclosures into Silver datasets...")
     routes = parse_mtc_routes()
     stages = parse_mtc_stages()
     fares = parse_mtc_fares()
-    print("MTC Silver normalization complete.")
+    generate_mtc_gtfs_crosswalk(routes)
+    print("MTC Silver normalization and route crosswalk complete.")
 
 
 if __name__ == "__main__":

@@ -1,43 +1,56 @@
-# Chennai Multimodal Public Transport & Places: Master Data Expansion Handoff Report (v1.2)
+# Chennai Multimodal Public Transport & Places: Master Data Expansion Handoff Report (v1.2.1)
 
-**Date:** 2026-09-18  
+**Date:** 2026-09-19  
 **Project:** Chennai Multimodal Public Transport Assistant & Knowledge Base  
-**Knowledge Base Version:** `chennai_multimodal_v1.2`  
-**Data Status:** Provisional Multisource Knowledge Base with Route Topology & Services  
+**Knowledge Base Version:** `chennai_multimodal_v1.2.1`  
+**Data Status:** Provisional Multisource Knowledge Base with Route Topology & Services (Consistency Patch v1.2.1)  
 **Stage:** Data Expansion Complete (Handoff Gate to Multilingual NLU Phase)  
 
 ---
 
 ## 1. Executive Summary
 
-With the completion of the v1.2 milestone, the transport and geographic data foundation for the Chennai Metropolitan Area is fully structured, canonicalized, and validated. This release promotes the knowledge base from stop-level spatial intelligence to a complete multimodal network containing route topologies, trip timetables, service calendars, official bus fare stages, and statutory fare tariffs.
+With the completion of the v1.2.1 consistency milestone, the transport and geographic data foundation for the Chennai Metropolitan Area is fully structured, canonicalized, and validated. This release establishes a complete multimodal network containing route topologies, trip timetables, service calendars, official bus fare stages, statutory fare tariffs, and explicit route crosswalk lineage.
 
-Key technical achievements delivered in snapshot `v1.2`:
+Key technical achievements delivered in snapshot `v1.2.1`:
 1. **Official MTC Bronze Ingestion & Silver Normalization:**
    - Parsed official MTC disclosures into Silver artifacts: 685 active bus routes (`normalized_official_routes.csv`), 1,562 fare stages (`normalized_mtc_stages.csv`), and 305 stage fare records across 11 service types (`normalized_mtc_fares.csv`).
    - Integrated these records into Gold tables `fare_stages` and `fares`.
-   - Updated source registry status from `COLLECTED_NOT_YET_PARSED` to `COLLECTED_AND_INGESTED`.
-2. **Canonical Route Topology & Schedule Service Tables:**
-   - Extended `canonical_transport.db` with 7 new relational tables: `route_stops` (96,025 rows), `trips` (47,143 rows), `stop_times` (1,360,635 rows), `service_calendars` (9 rows), `service_exceptions` (0 rows), `fare_stages` (1,562 rows), and `fares` (305 rows).
-   - Resolved Community GTFS data quality issues: fixed shifted column alignments on CMRL trips, filtered trailing non-trip test lines, and preserved scheduled timestamps spanning past midnight ($\ge 24:00:00$).
-3. **Collision-Free Interchange Identification:**
+   - Ingested source-derived disclosure date (`2026-08-07`) dynamically from official HTML disclosures.
+2. **Explicit Official-MTC-to-GTFS Route Crosswalk:**
+   - Evaluated all 685 official MTC route codes against 4,614 Community GTFS operational route variants (`mtc_official_to_gtfs_crosswalk.csv` / `.json`).
+   - **605 matched route codes (88.32%):** 27 exact one-to-one matches, 578 one-to-many matches linking to 2,444 operational GTFS variants.
+   - **80 unmatched route codes (11.68%):** Preserved transparently as unmatched; not silently forced.
+   - Populated 2,444 explicit route provenance links into `entity_source_links` (`source_id = 'MTC_OFFICIAL'`).
+3. **MTC Fare-Stage Canonical-Stop Linkage Coverage:**
+   - Improved linkage using canonical stop names, `stop_names` aliases, normalized stop names, common transit abbreviations (`B.S.` $\leftrightarrow$ `BUS STAND`, `B.T.` $\leftrightarrow$ `BUS TERMINUS`, `O.T.` $\leftrightarrow$ `OLD TERMINUS`, etc.), and directional pole-pair clustering.
+   - **Total Stages:** 1,562
+   - **Matched Stages:** 579 (37.07%) — 94 unique stop matches, 485 directional pole pairs / same-name cluster matches.
+   - **Unmatched Stages:** 983 (62.93%) — administrative stages/rural landmarks not present in GTFS bus stop points.
+   - **Ambiguous Matches:** 0 (0.00%) — resolved safely via bus-mode prioritization and alphanumeric canonical keys.
+4. **Canonical Route Topology & Schedule Service Tables:**
+   - Extended `canonical_transport.db` with 7 relational tables: `route_stops` (96,025 rows), `trips` (47,143 rows), `stop_times` (1,360,635 rows), `service_calendars` (9 rows), `service_exceptions` (0 rows), `fare_stages` (1,562 rows), and `fares` (305 rows).
+   - Documented that `route_stops` captures the **representative longest-trip topology per route-direction**. Multi-pattern variant topologies (`route_patterns` / `route_pattern_stops`) are explicitly deferred before full routing implementation.
+   - Audited GTFS feed and confirmed that `calendar_dates.txt` is absent from the community feed, so `service_exceptions` contains 0 exception records by design.
+5. **Collision-Free Interchange Identification:**
    - Implemented deterministic SHA-256 sorted-pair hashing (`INT_<hash>`) for all candidate interchange transfers.
    - Preserved all 45 candidate transfer rows without `INSERT OR REPLACE` collisions.
-4. **SQLite 100MB File Size Budget Enforcement:**
+6. **SQLite 100MB File Size Budget Enforcement:**
    - Optimized `stop_times` using SQLite `WITHOUT ROWID` clustered on `(trip_id, stop_sequence)` and eliminated redundant source string repetitions.
-   - After vacuuming, `canonical_transport.db` measures **81.04 MB**, well under GitHub's 100 MB file limit.
-5. **Authoritative Boundary & Source Provenance:**
+   - After vacuuming, `canonical_transport.db` measures **81.27 MB**, safely below GitHub's 100 MB file limit.
+7. **Authoritative Boundary & Source Provenance:**
    - Documented the official CMA boundary provenance as `OpenCity-hosted Government of Tamil Nadu dataset; source: CUMTA`.
    - Formally designated CUMTA GTFS as `PUBLIC_BUT_FETCH_FAILED` in all manifests and reports.
-6. **Strict Frozen Benchmark Isolation:**
-   - Confirmed 0 byte drift on the frozen NLP benchmark splits (`train.csv`: 3,916, `validation.csv`: 716, `test.csv`: 572, Seed 42) and the **149-case gold acceptance test suite**.
+   - Ensured provenance dates are strictly source-derived, clearing unsupported hard-coded publication dates.
+8. **Strict Frozen Benchmark Isolation:**
+   - Confirmed 0 byte drift on the frozen NLP benchmark splits (`train.csv`: 3,916, `validation.csv`: 716, `test.csv`: 572, Seed 42, frozen 70/15/15 split) and the **149-case gold acceptance test suite**.
    - All 74 existing pytest regression tests pass cleanly.
 
 ---
 
 ## 2. Explicit Asset Classification Taxonomy
 
-All assets and tables in snapshot `v1.2` are classified under the five-tier taxonomy:
+All assets and tables in snapshot `v1.2.1` are classified under the five-tier taxonomy:
 
 ### A. CONFIRMED
 Assets directly verified against official operator disclosures, ground truth surveys, or frozen baselines:
@@ -47,12 +60,12 @@ Assets directly verified against official operator disclosures, ground truth sur
 - **Official MTC Route & Stage Registers:** 685 official route numbers and 1,562 official fare stages verified from `mtcbus.tn.gov.in`.
 - **Official MTC Fare Tariffs:** Statutory fare matrix across 11 service types and 30 fare stages (G.O. Ms No. 48).
 - **Southern Railway Station Codes:** MAS, MS, MSB, TBM, CGL, TRL, AJJ, etc.
-- **Frozen NLP Benchmark:** 3,916 train / 716 val / 572 test records and exactly 149 gold acceptance test queries. All 74 existing pytest regression tests pass.
+- **Frozen NLP Benchmark:** 3,916 train / 716 val / 572 test records (frozen 70/15/15 split, Seed 42) and exactly 149 gold acceptance test queries. All 74 existing pytest regression tests pass.
 
 ### B. PROVISIONAL
 Multi-source canonical entities and topologies produced via automated cross-source resolution, verified structurally:
-- **Canonical Transport Database (`canonical_transport.db`):** 81.04 MB SQLite database containing 7,136 physical stops, 4,619 routes, 96,025 route-stops, 47,143 trips, 1,360,635 stop times, 1,562 fare stages, 305 fares, and 7,246 entity source links.
-- **Silver Normalized Layers:** `normalized_stops.csv`, `normalized_routes.csv`, `normalized_places.csv`, `normalized_official_routes.csv`, `normalized_mtc_stages.csv`, `normalized_mtc_fares.csv`.
+- **Canonical Transport Database (`canonical_transport.db`):** 81.27 MB SQLite database containing 7,136 physical stops, 4,619 routes, 96,025 route-stops, 47,143 trips, 1,360,635 stop times, 1,562 fare stages (579 matched), 305 fares, and 9,695 entity source links (7,246 stop links + 2,449 route links).
+- **Silver Normalized Layers:** `normalized_stops.csv`, `normalized_routes.csv`, `normalized_places.csv`, `normalized_official_routes.csv`, `normalized_mtc_stages.csv`, `normalized_mtc_fares.csv`, `mtc_official_to_gtfs_crosswalk.csv`.
 - **Source-Provided Tamil Script Names:** 421 distinct stops (`stop_names.language = 'ta'`) and 120+ places.
 
 ### C. UNVERIFIED
@@ -70,6 +83,7 @@ Publicly referenced official datasets that could not be automatically downloaded
 ### E. DEFERRED
 Components intentionally postponed to downstream phases without blocking the multimodal knowledge base:
 - **MTC Live Vehicle Telemetry (GTFS-RT):** Requires dynamic mobile app session tokens; deferred to real-time tracking phase.
+- **Route Patterns Topology (`route_patterns` / `route_pattern_stops`):** Full multi-pattern variant topologies deferred before full routing implementation.
 - **Devanagari Hindi Station Strings:** Local transit agencies do not publish Hindi strings for Chennai stops; machine transliteration and multilingual utterance generation are deferred to the multilingual NLP phase.
 - **Model Training & Fine-Tuning:** Deep learning training on multilingual intent/slot models is strictly deferred until data audit sign-off.
 
@@ -87,15 +101,19 @@ Components intentionally postponed to downstream phases without blocking the mul
 | | External Chennai-Serving Retention | 95 | CONFIRMED (`inside_cma = 0`) |
 | **MRTS** | Viaduct Stations | 19 | CONFIRMED / PROVISIONAL |
 | **MTC City Bus** | Official Route Numbers | 685 | CONFIRMED (`normalized_official_routes.csv`) |
+| | Official Route Crosswalk Matched | 605 | CONFIRMED (88.32%, linking 2,444 GTFS variants) |
+| | Official Route Crosswalk Unmatched | 80 | CONFIRMED (11.68% transparently preserved) |
 | | Official Fare Stages | 1,562 | CONFIRMED (`fare_stages` table) |
+| | Fare Stages Matched to Stops | 579 | PROVISIONAL (37.07% alias-aware linkage) |
+| | Fare Stages Unmatched | 983 | PROVISIONAL (62.93% unmapped administrative points) |
 | | Official Stage Fares | 305 | CONFIRMED (`fares` table, 11 service types) |
 | | Commercial Route Variants | 4,614 | PROVISIONAL (4,619 total in `transport_routes`) |
 | | Canonical Physical Bus Stops | 6,870 | PROVISIONAL |
-| **Route Topology** | Route Stop Sequences (`route_stops`) | 96,025 | PROVISIONAL (across 3,940 route-directions) |
+| **Route Topology** | Route Stop Sequences (`route_stops`) | 96,025 | PROVISIONAL (representative longest-trip topology) |
 | | Scheduled Operational Trips (`trips`) | 47,143 | PROVISIONAL |
 | | Scheduled Stop Times (`stop_times`) | 1,360,635 | PROVISIONAL |
-| | Service Calendars (`service_calendars`) | 9 | PROVISIONAL |
-| | Service Exceptions (`service_exceptions`) | 0 | PROVISIONAL (schema prepared) |
+| | Weekly Service Calendars (`service_calendars`) | 9 | PROVISIONAL |
+| | Service Exceptions (`service_exceptions`) | 0 | PROVISIONAL (0 records: calendar_dates absent from feed) |
 | **Geography** | Official CMA Boundary Vertices | 7,157 | CONFIRMED (OpenCity / CUMTA MultiPolygon) |
 | | Physical Stops Inside CMA | 7,041 | PROVISIONAL (`inside_cma = 1`) |
 | | Physical Stops Outside CMA | 95 | PROVISIONAL (`inside_cma = 0`) |
@@ -105,19 +123,19 @@ Components intentionally postponed to downstream phases without blocking the mul
 | | Interchange Candidates | 45 | UNVERIFIED (`confirmed = 0`, unique SHA-256 IDs) |
 | | Walking Transfer Candidates | 151 | UNVERIFIED (`walkable = unverified`) |
 | **Provenance** | Immutable Raw Files | 11 | CONFIRMED (Bronze layer, SHA-256 verified) |
-| | Entity Source Links | 7,246 | PROVISIONAL (100% source records mapped) |
-| **Database File** | `canonical_transport.db` | 81.04 MB | CONFIRMED (< 100 MB GitHub file limit) |
-| **NLP Benchmark** | Frozen Train / Val / Test Split | 3,916 / 716 / 572 | CONFIRMED (Untouched, Seed 42) |
+| | Entity Source Links | 9,695 | PROVISIONAL (7,246 stop links + 2,449 route links) |
+| **Database File** | `canonical_transport.db` | 81.27 MB | CONFIRMED (< 100 MB GitHub file limit) |
+| **NLP Benchmark** | Frozen Train / Val / Test Split | 3,916 / 716 / 572 | CONFIRMED (Untouched, frozen 70/15/15 split) |
 | | Gold Acceptance Test Suite | 149 queries | CONFIRMED (Untouched) |
 | | Pytest Regression Suite | 74 / 74 pass | CONFIRMED (100% pass rate) |
 
 ---
 
-## 4. Structural Query Capabilities & Verified Examples in v1.2
+## 4. Structural Query Capabilities & Verified Examples in v1.2.1
 
-The canonical database now supports rich multimodal transit queries without relying on external API calls. The following queries have been verified directly on `canonical_transport.db`:
+The canonical database supports rich multimodal transit queries directly against local SQLite:
 
-### Example 1: Route Stop Sequence
+### Example 1: Route Stop Sequence (Longest-Trip Topology)
 Querying the sequence of stops for bus route `GTFS_ROUTE_10003`:
 ```sql
 SELECT rs.route_id, rs.direction_id, rs.stop_sequence, ts.canonical_name, ts.mode
@@ -127,12 +145,6 @@ WHERE rs.route_id = 'GTFS_ROUTE_10003'
 ORDER BY rs.stop_sequence
 LIMIT 5;
 ```
-*Result:*
-- Sequence 1: Thiruvallur Terminal (bus)
-- Sequence 2: Thiruvallur (bus)
-- Sequence 3: Thiruvallur Court Or Old Collector Office (bus)
-- Sequence 4: Kakkalur (bus)
-- Sequence 5: Kakkalur Industrial Estate (bus)
 
 ### Example 2: Scheduled Trip Timetable
 Querying scheduled departure times for Green Line Metro trips:
@@ -145,10 +157,6 @@ WHERE t.route_id = 'CMRL_GREEN_CORRIDOR_2'
 ORDER BY t.trip_id, st.stop_sequence
 LIMIT 5;
 ```
-*Result:*
-- `CMRL_2_saturday_d0_05` | Stop 1: Puratchi Thalaivar Dr. M.G. Ramachandran Central (05:00:00)
-- `CMRL_2_saturday_d0_05` | Stop 18: St. Thomas Mount (08:00:00)
-- `CMRL_2_saturday_d0_08` | Stop 1: Puratchi Thalaivar Dr. M.G. Ramachandran Central (08:00:00)
 
 ### Example 3: Official MTC Stage Fare Lookup
 Querying statutory fares for Ordinary bus services at stages 1, 5, 10, 15, and 20:
@@ -158,12 +166,6 @@ FROM fares
 WHERE service_type = 'Ordinary Services' AND stage_number IN (1, 5, 10, 15, 20)
 ORDER BY stage_number;
 ```
-*Result:*
-- Stage 1: Rs. 5.00
-- Stage 5: Rs. 9.00
-- Stage 10: Rs. 14.00
-- Stage 15: Rs. 17.00
-- Stage 20: Rs. 19.00
 
 ### Example 4: Multimodal Transfer Lookup
 Querying candidate transfer connections under 250m:
@@ -175,12 +177,6 @@ JOIN transport_stops s1 ON i.from_stop_id = s1.stop_id
 JOIN transport_stops s2 ON i.to_stop_id = s2.stop_id
 LIMIT 5;
 ```
-*Result:*
-- `INT_405EA8DBA058`: Guindy (suburban_rail) <-> Guindy Metro Station (metro), 84.8m
-- `INT_D02A4CD154DC`: Tambaram (suburban_rail) <-> Tambaram MTC Terminus (bus), 136.9m
-- `INT_C89C9E1BFB0F`: Egmore Metro (metro) <-> Chennai Egmore (suburban_rail), 146.4m
-- `INT_57C59BB7B28A`: Guindy (suburban_rail) <-> Guindy Bus Terminus (bus), 159.0m
-- `INT_259CEB5AD528`: Guindy (suburban_rail) <-> Guindy Bus Stand (bus), 201.2m
 
 ---
 
@@ -191,19 +187,19 @@ LIMIT 5;
 | `data/processed/split/train.csv` | Exactly 3,916 rows | 3,916 rows | PASS |
 | `data/processed/split/validation.csv` | Exactly 716 rows | 716 rows | PASS |
 | `data/processed/split/test.csv` | Exactly 572 rows | 572 rows | PASS |
-| Split Partition Seed | Seed 42 (80/10/10) | Preserved | PASS |
+| Split Partition Seed | Seed 42 (frozen 70/15/15 split) | Preserved | PASS |
 | `data/eval/acceptance_test_suite.json` | Exactly 149 test queries | 149 test queries | PASS |
 | Existing Regression Tests | 74 pytest unit/integration tests | 74 / 74 pass | PASS |
-| Database Size Limit | Strict < 100 MB | 81.04 MB | PASS |
+| Database Size Limit | Strict < 100 MB | 81.27 MB | PASS |
 | Automated Audit Checks (`validate_canonical.py`) | 10 / 10 checks pass | 10 / 10 pass | PASS |
 
 ---
 
 ## 6. Next Phase Recommendations & Strict Boundaries
 
-1. **Approved for Handoff:** The `chennai_multimodal_v1.2` knowledge base is verified, structurally indexed, and ready to serve as the factual ground truth layer for the upcoming multilingual NLU phase.
+1. **Approved for Handoff:** The `chennai_multimodal_v1.2.1` knowledge base is verified, structurally indexed, and ready to serve as the factual ground truth layer for the upcoming multilingual NLU phase.
 2. **Prioritized Human Review:** When conducting domain review of manual gates, focus exclusively on the **10 Tier-1 Core Hubs** (Central, Egmore, Guindy, Airport, Tambaram, CMBT, Beach, Alandur, St. Thomas Mount, Velachery) and the 45 interchange candidates.
 3. **Multilingual NLU Rules:**
-   - Derive entity dictionaries and slot values directly from `canonical_transport.db` (`stop_names`, `place_names`, `fare_stages`).
+   - Derive entity dictionaries and slot values directly from `canonical_transport.db` (`stop_names`, `place_names`, `fare_stages`, `transport_routes`).
    - Synthetic translation and transliteration to Hindi, Hinglish, and Tanglish must occur only during training utterance synthesis, never modifying raw or canonical transport layers.
    - Retain the 149-query acceptance test suite as the unchanging evaluation standard.

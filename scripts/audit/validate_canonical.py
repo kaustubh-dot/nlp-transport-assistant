@@ -85,11 +85,19 @@ def run_validations() -> Dict[str, Any]:
     log_check("Tamil Names Preserved", ta_stop_names > 0, f"Found {ta_stop_names} stops with preserved Tamil script names.")
 
     # Check 7: End-to-end source link provenance
+    cur.execute("SELECT count(*) FROM entity_source_links WHERE entity_type = 'stop'")
+    stop_links = cur.fetchone()[0]
+    cur.execute("SELECT count(*) FROM entity_source_links WHERE entity_type = 'route'")
+    route_links = cur.fetchone()[0]
     cur.execute("SELECT count(*) FROM entity_source_links")
     links_count = cur.fetchone()[0]
     cur.execute("SELECT count(*) FROM transport_stops")
     stops_count = cur.fetchone()[0]
-    log_check("Source-Link Provenance Complete", links_count >= stops_count, f"Total source links: {links_count} for {stops_count} canonical stops.")
+    log_check(
+        "Source-Link Provenance Complete",
+        stop_links >= stops_count and route_links > 0,
+        f"Total source links: {links_count} ({stop_links} stop links for {stops_count} canonical stops, {route_links} route links)."
+    )
 
     # Check 8: Route-Stops Foreign Key Integrity (Routes and Stops)
     cur.execute("""

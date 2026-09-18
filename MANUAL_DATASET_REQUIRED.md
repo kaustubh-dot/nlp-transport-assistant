@@ -62,7 +62,7 @@ INT_CENTRAL_METRO_RAIL,CMRL_CENTRAL,SR_CENTRAL_MMC,pedestrian_subway,true,180.0,
 INT_ALANDUR_INTERCHANGE,CMRL_ALANDUR_L1,CMRL_ALANDUR_L2,integrated_interchange,true,30.0,1.0,Elevated multi-level cross-corridor metro interchange.
 ```
 
-**Candidates for Review:** `data/manual/interchanges/interchange_candidates.csv` (211 candidates).
+**Candidates for Review:** `data/manual/interchanges/interchange_candidates.csv` (45 candidates).
 
 ---
 
@@ -86,7 +86,7 @@ from_entity,to_entity,walkable,walking_distance_m,walking_time_min,verification_
 CMRL_GUINDY,SR_GUINDY,true,120.0,2.0,pedestrian_subway,Direct pedestrian subway beneath GST Road connects Metro concourse to railway platform.
 ```
 
-**Candidates for Review:** `data/manual/walking_transfers/walking_candidates.csv` (211 candidates).
+**Candidates for Review:** `data/manual/walking_transfers/walking_candidates.csv` (151 candidates).
 
 ---
 

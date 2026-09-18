@@ -1,0 +1,686 @@
+official_route_code,official_route_label,service_category,match_type,gtfs_route_count,gtfs_route_ids,gtfs_short_names,notes
+101,101,regular,one_to_many,14,GTFS_ROUTE_18117|GTFS_ROUTE_18141|GTFS_ROUTE_18317|GTFS_ROUTE_18316|GTFS_ROUTE_18327|GTFS_ROUTE_17953|GTFS_ROUTE_18330|GTFS_ROUTE_16917|GTFS_ROUTE_16952|GTFS_ROUTE_16926|GTFS_ROUTE_18143|GTFS_ROUTE_18144|GTFS_ROUTE_18145|GTFS_ROUTE_16949,101|101|101|101|101|101|101|101|101|101|101|101|101|101,Matches 14 operational GTFS directional/cut-trip variants
+101CT,101CT,cut_trip,one_to_many,4,GTFS_ROUTE_18986|GTFS_ROUTE_21367|GTFS_ROUTE_22653|GTFS_ROUTE_22798,101 CT|101CT|101 CT|101CT,Matches 4 operational GTFS directional/cut-trip variants
+101E,101E,express,one_to_many,2,GTFS_ROUTE_23242|GTFS_ROUTE_23241,101E|101E,Matches 2 operational GTFS directional/cut-trip variants
+101X,101X,deluxe_express,one_to_many,2,GTFS_ROUTE_21419|GTFS_ROUTE_22313,101X|101X,Matches 2 operational GTFS directional/cut-trip variants
+102,102,regular,one_to_many,2,GTFS_ROUTE_16861|GTFS_ROUTE_24079,102|102,Matches 2 operational GTFS directional/cut-trip variants
+102A,102A,regular,one_to_many,2,GTFS_ROUTE_10248|GTFS_ROUTE_23155,102A|102A,Matches 2 operational GTFS directional/cut-trip variants
+102C,102C,regular,one_to_many,3,GTFS_ROUTE_10251|GTFS_ROUTE_17480|GTFS_ROUTE_23157,102C|102C|102C,Matches 3 operational GTFS directional/cut-trip variants
+102CT,102CT,cut_trip,one_to_many,4,GTFS_ROUTE_17431|GTFS_ROUTE_18486|GTFS_ROUTE_17428|GTFS_ROUTE_23164,102CT|102CT|102CT|102 CT,Matches 4 operational GTFS directional/cut-trip variants
+102E,102E,express,one_to_many,2,GTFS_ROUTE_24047|GTFS_ROUTE_24048,102E|102E,Matches 2 operational GTFS directional/cut-trip variants
+102K,102K,regular,one_to_many,6,GTFS_ROUTE_17355|GTFS_ROUTE_19745|GTFS_ROUTE_19171|GTFS_ROUTE_19172|GTFS_ROUTE_17384|GTFS_ROUTE_17386,102K|102K|102K|102K|102K|102K,Matches 6 operational GTFS directional/cut-trip variants
+102K#,102K#,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+102M,102M,regular,one_to_many,2,GTFS_ROUTE_23113|GTFS_ROUTE_23168,102M|102M,Matches 2 operational GTFS directional/cut-trip variants
+102P,102P,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+102S,102S,regular,one_to_one,1,GTFS_ROUTE_23175,102S,Exact single commercial route variant match
+102X,102X,deluxe_express,one_to_many,5,GTFS_ROUTE_8472|GTFS_ROUTE_10457|GTFS_ROUTE_10443|GTFS_ROUTE_14059|GTFS_ROUTE_14064,102X|102X|102X|102X|102X,Matches 5 operational GTFS directional/cut-trip variants
+104,104,regular,one_to_many,5,GTFS_ROUTE_18116|GTFS_ROUTE_16835|GTFS_ROUTE_16841|GTFS_ROUTE_16846|GTFS_ROUTE_16843,104|104|104|104|104,Matches 5 operational GTFS directional/cut-trip variants
+104A,104A,regular,one_to_many,6,GTFS_ROUTE_10526|GTFS_ROUTE_10522|GTFS_ROUTE_10529|GTFS_ROUTE_10519|GTFS_ROUTE_22803|GTFS_ROUTE_22805,104A|104A|104A|104A|104A|104A,Matches 6 operational GTFS directional/cut-trip variants
+104C,104C,regular,one_to_many,2,GTFS_ROUTE_8917|GTFS_ROUTE_23087,104C|104C,Matches 2 operational GTFS directional/cut-trip variants
+104CX,104CX,deluxe_express,one_to_many,4,GTFS_ROUTE_15932|GTFS_ROUTE_3478|GTFS_ROUTE_3480|GTFS_ROUTE_15933,104CX|104CX|104CX|104CX,Matches 4 operational GTFS directional/cut-trip variants
+104F,104F,regular,one_to_many,5,GTFS_ROUTE_18972|GTFS_ROUTE_10568|GTFS_ROUTE_10578|GTFS_ROUTE_10577|GTFS_ROUTE_10561,104F|104F|104F|104F|104F,Matches 5 operational GTFS directional/cut-trip variants
+104G,104G,regular,one_to_many,4,GTFS_ROUTE_10579|GTFS_ROUTE_10580|GTFS_ROUTE_18270|GTFS_ROUTE_20233,104G|104G|104G|104G,Matches 4 operational GTFS directional/cut-trip variants
+104K,104K,regular,one_to_many,4,GTFS_ROUTE_10642|GTFS_ROUTE_9634|GTFS_ROUTE_15863|GTFS_ROUTE_22643,104K|104K|104K|104K,Matches 4 operational GTFS directional/cut-trip variants
+104M,104M,regular,one_to_many,4,GTFS_ROUTE_10668|GTFS_ROUTE_10670|GTFS_ROUTE_10672|GTFS_ROUTE_10674,104M|104M|104M|104M,Matches 4 operational GTFS directional/cut-trip variants
+104P,104P,regular,one_to_many,2,GTFS_ROUTE_10678|GTFS_ROUTE_24087,104P|104P,Matches 2 operational GTFS directional/cut-trip variants
+104T,104T,regular,one_to_many,4,GTFS_ROUTE_10684|GTFS_ROUTE_10681|GTFS_ROUTE_10683|GTFS_ROUTE_24109,104T|104T|104T|104T,Matches 4 operational GTFS directional/cut-trip variants
+105,105,regular,one_to_many,3,GTFS_ROUTE_16821|GTFS_ROUTE_21676|GTFS_ROUTE_23381,105|105|105,Matches 3 operational GTFS directional/cut-trip variants
+105A,105A,regular,one_to_many,4,GTFS_ROUTE_10694|GTFS_ROUTE_10701|GTFS_ROUTE_10702|GTFS_ROUTE_10705,105A|105A|105A|105A,Matches 4 operational GTFS directional/cut-trip variants
+109,109,regular,one_to_many,9,GTFS_ROUTE_18085|GTFS_ROUTE_16789|GTFS_ROUTE_16776|GTFS_ROUTE_21136|GTFS_ROUTE_16787|GTFS_ROUTE_16774|GTFS_ROUTE_16785|GTFS_ROUTE_16797|GTFS_ROUTE_23601,109|109|109|109|109|109|109|109|109,Matches 9 operational GTFS directional/cut-trip variants
+109A,109A,regular,one_to_many,3,GTFS_ROUTE_21780|GTFS_ROUTE_22679|GTFS_ROUTE_22680,109A|109A|109A,Matches 3 operational GTFS directional/cut-trip variants
+109C,109C,regular,one_to_many,4,GTFS_ROUTE_10736|GTFS_ROUTE_10738|GTFS_ROUTE_16356|GTFS_ROUTE_10732,109C|109C|109C|109C,Matches 4 operational GTFS directional/cut-trip variants
+109CT,109CT,cut_trip,one_to_many,4,GTFS_ROUTE_22929|GTFS_ROUTE_23124|GTFS_ROUTE_23125|GTFS_ROUTE_23351,109 CT|109Ct|109Ct|109 CT,Matches 4 operational GTFS directional/cut-trip variants
+109T,109T,regular,one_to_many,3,GTFS_ROUTE_21536|GTFS_ROUTE_22984|GTFS_ROUTE_22985,109T|109T|109T,Matches 3 operational GTFS directional/cut-trip variants
+109X,109X,deluxe_express,one_to_one,1,GTFS_ROUTE_21144,109X,Exact single commercial route variant match
+10A,10A,regular,one_to_many,2,GTFS_ROUTE_23044|GTFS_ROUTE_23089,10A|10A,Matches 2 operational GTFS directional/cut-trip variants
+10E,10E,express,one_to_many,2,GTFS_ROUTE_18802|GTFS_ROUTE_14510,10E|10E,Matches 2 operational GTFS directional/cut-trip variants
+11,11,regular,one_to_many,2,GTFS_ROUTE_16092|GTFS_ROUTE_21748,11|11,Matches 2 operational GTFS directional/cut-trip variants
+111,111,regular,one_to_many,6,GTFS_ROUTE_23902|GTFS_ROUTE_23903|GTFS_ROUTE_16765|GTFS_ROUTE_16767|GTFS_ROUTE_17522|GTFS_ROUTE_16769,111|111|111|111|111|111,Matches 6 operational GTFS directional/cut-trip variants
+111ET,111ET,regular,one_to_many,6,GTFS_ROUTE_10846|GTFS_ROUTE_16064|GTFS_ROUTE_16065|GTFS_ROUTE_10842|GTFS_ROUTE_10843|GTFS_ROUTE_10845,111Et|111Et|111Et|111Et|111Et|111Et,Matches 6 operational GTFS directional/cut-trip variants
+113,113,regular,one_to_many,4,GTFS_ROUTE_23818|GTFS_ROUTE_23820|GTFS_ROUTE_16719|GTFS_ROUTE_16725,113|113|113|113,Matches 4 operational GTFS directional/cut-trip variants
+113A,113A,regular,one_to_many,2,GTFS_ROUTE_23980|GTFS_ROUTE_23981,113A|113A,Matches 2 operational GTFS directional/cut-trip variants
+114,114,regular,one_to_many,8,GTFS_ROUTE_17800|GTFS_ROUTE_16678|GTFS_ROUTE_16686|GTFS_ROUTE_16684|GTFS_ROUTE_19263|GTFS_ROUTE_16691|GTFS_ROUTE_16687|GTFS_ROUTE_16693,114|114|114|114|114|114|114|114,Matches 8 operational GTFS directional/cut-trip variants
+114A,114A,regular,one_to_many,4,GTFS_ROUTE_17637|GTFS_ROUTE_9466|GTFS_ROUTE_10884|GTFS_ROUTE_9469,114A|114A|114A|114A,Matches 4 operational GTFS directional/cut-trip variants
+114C,114C,regular,one_to_many,4,GTFS_ROUTE_10890|GTFS_ROUTE_10892|GTFS_ROUTE_10899|GTFS_ROUTE_10894,114C|114C|114C|114C,Matches 4 operational GTFS directional/cut-trip variants
+114CCT,114CCT,cut_trip,one_to_many,6,GTFS_ROUTE_10902|GTFS_ROUTE_10907|GTFS_ROUTE_10915|GTFS_ROUTE_10917|GTFS_ROUTE_10919|GTFS_ROUTE_10916,114CCt|114CCt|114CCt|114CCt|114CCt|114CCt,Matches 6 operational GTFS directional/cut-trip variants
+114D,114D,regular,one_to_many,6,GTFS_ROUTE_8134|GTFS_ROUTE_9929|GTFS_ROUTE_10926|GTFS_ROUTE_13687|GTFS_ROUTE_13688|GTFS_ROUTE_17650,114D|114D|114D|114D|114D|114D,Matches 6 operational GTFS directional/cut-trip variants
+114E,114E,express,one_to_many,4,GTFS_ROUTE_10937|GTFS_ROUTE_10951|GTFS_ROUTE_10962|GTFS_ROUTE_10956,114E|114E|114E|114E,Matches 4 operational GTFS directional/cut-trip variants
+114ET,114ET,regular,one_to_many,6,GTFS_ROUTE_11005|GTFS_ROUTE_11006|GTFS_ROUTE_10968|GTFS_ROUTE_11007|GTFS_ROUTE_10970|GTFS_ROUTE_11010,114Et|114Et|114Et|114Et|114Et|114Et,Matches 6 operational GTFS directional/cut-trip variants
+114G,114G,regular,one_to_many,6,GTFS_ROUTE_11011|GTFS_ROUTE_11013|GTFS_ROUTE_11014|GTFS_ROUTE_11015|GTFS_ROUTE_11016|GTFS_ROUTE_11012,114G|114G|114G|114G|114G|114G,Matches 6 operational GTFS directional/cut-trip variants
+114P,114P,regular,one_to_many,9,GTFS_ROUTE_11019|GTFS_ROUTE_11022|GTFS_ROUTE_11023|GTFS_ROUTE_11024|GTFS_ROUTE_11025|GTFS_ROUTE_11026|GTFS_ROUTE_16331|GTFS_ROUTE_11017|GTFS_ROUTE_11021,114P|114P|114P|114P|114P|114P|114P|114P|114P,Matches 9 operational GTFS directional/cut-trip variants
+114S,114S,regular,one_to_many,6,GTFS_ROUTE_17824|GTFS_ROUTE_17826|GTFS_ROUTE_17834|GTFS_ROUTE_11027|GTFS_ROUTE_11030|GTFS_ROUTE_11031,114S|114S|114S|114S|114S|114S,Matches 6 operational GTFS directional/cut-trip variants
+118,118,regular,one_to_many,8,GTFS_ROUTE_16662|GTFS_ROUTE_16660|GTFS_ROUTE_16658|GTFS_ROUTE_16654|GTFS_ROUTE_16656|GTFS_ROUTE_16664|GTFS_ROUTE_21671|GTFS_ROUTE_21673,118|118|118|118|118|118|118|118,Matches 8 operational GTFS directional/cut-trip variants
+118ET,118ET,regular,one_to_many,2,GTFS_ROUTE_18975|GTFS_ROUTE_11042,118Et|118Et,Matches 2 operational GTFS directional/cut-trip variants
+118G,118G,regular,one_to_many,2,GTFS_ROUTE_22730|GTFS_ROUTE_22729,118G|118G,Matches 2 operational GTFS directional/cut-trip variants
+118N,118N,regular,one_to_many,2,GTFS_ROUTE_18978|GTFS_ROUTE_11053,118N|118N,Matches 2 operational GTFS directional/cut-trip variants
+118P,118P,regular,one_to_many,3,GTFS_ROUTE_11055|GTFS_ROUTE_11061|GTFS_ROUTE_2658,118P|118P|118P,Matches 3 operational GTFS directional/cut-trip variants
+118T,118T,regular,one_to_many,2,GTFS_ROUTE_22689|GTFS_ROUTE_22691,118T|118T,Matches 2 operational GTFS directional/cut-trip variants
+119,119,regular,one_to_many,3,GTFS_ROUTE_17835|GTFS_ROUTE_16640|GTFS_ROUTE_23394,119|119|119,Matches 3 operational GTFS directional/cut-trip variants
+119G,119G,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+11G,11G,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+11M,11M,regular,one_to_many,2,GTFS_ROUTE_19459|GTFS_ROUTE_19734,11M|11M,Matches 2 operational GTFS directional/cut-trip variants
+120,120,regular,one_to_many,2,GTFS_ROUTE_20398|GTFS_ROUTE_20399,120|120,Matches 2 operational GTFS directional/cut-trip variants
+120A,120A,regular,one_to_many,8,GTFS_ROUTE_15890|GTFS_ROUTE_17825|GTFS_ROUTE_17837|GTFS_ROUTE_10996|GTFS_ROUTE_17833|GTFS_ROUTE_18293|GTFS_ROUTE_15891|GTFS_ROUTE_10999,120A|120A|120A|120A|120A|120A|120A|120A,Matches 8 operational GTFS directional/cut-trip variants
+120CT,120CT,cut_trip,unmatched,0,,,Official route code not present in community GTFS snapshot
+120E,120E,express,unmatched,0,,,Official route code not present in community GTFS snapshot
+120F,120F,regular,one_to_many,2,GTFS_ROUTE_21959|GTFS_ROUTE_21956,120F|120F,Matches 2 operational GTFS directional/cut-trip variants
+120G,120G,regular,one_to_many,2,GTFS_ROUTE_22008|GTFS_ROUTE_22011,120G|120G,Matches 2 operational GTFS directional/cut-trip variants
+120K,120K,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+120KET,120KET,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+121,121,regular,one_to_many,2,GTFS_ROUTE_17276|GTFS_ROUTE_17275,121|121,Matches 2 operational GTFS directional/cut-trip variants
+121A,121A,regular,one_to_many,8,GTFS_ROUTE_10942|GTFS_ROUTE_10943|GTFS_ROUTE_10944|GTFS_ROUTE_10945|GTFS_ROUTE_10946|GTFS_ROUTE_10947|GTFS_ROUTE_10948|GTFS_ROUTE_10949,121A|121A|121A|121A|121A|121A|121A|121A,Matches 8 operational GTFS directional/cut-trip variants
+121C,121C,regular,one_to_many,5,GTFS_ROUTE_10938|GTFS_ROUTE_10941|GTFS_ROUTE_10939|GTFS_ROUTE_19498|GTFS_ROUTE_20184,121C|121C|121C|121C|121C,Matches 5 operational GTFS directional/cut-trip variants
+121CT,121CT,cut_trip,one_to_many,5,GTFS_ROUTE_10934|GTFS_ROUTE_10933|GTFS_ROUTE_17538|GTFS_ROUTE_15888|GTFS_ROUTE_23395,121Ct|121Ct|121Ct|121Ct|121 CT,Matches 5 operational GTFS directional/cut-trip variants
+121D,121D,regular,one_to_many,5,GTFS_ROUTE_19270|GTFS_ROUTE_10922|GTFS_ROUTE_10924|GTFS_ROUTE_10925|GTFS_ROUTE_10929,121D|121D|121D|121D|121D,Matches 5 operational GTFS directional/cut-trip variants
+121G,121G,regular,one_to_many,4,GTFS_ROUTE_10913|GTFS_ROUTE_10914|GTFS_ROUTE_23400|GTFS_ROUTE_23402,121G|121G|121G|121G,Matches 4 operational GTFS directional/cut-trip variants
+121M,121M,regular,one_to_many,10,GTFS_ROUTE_10900|GTFS_ROUTE_10903|GTFS_ROUTE_10904|GTFS_ROUTE_10905|GTFS_ROUTE_10891|GTFS_ROUTE_10895|GTFS_ROUTE_10898|GTFS_ROUTE_15246|GTFS_ROUTE_13542|GTFS_ROUTE_20179,121M|121M|121M|121M|121M|121M|121M|121M|121M|121M,Matches 10 operational GTFS directional/cut-trip variants
+121MET,121MET,regular,one_to_many,3,GTFS_ROUTE_10885|GTFS_ROUTE_10889|GTFS_ROUTE_20890,121MEt|121MEt|121MEt,Matches 3 operational GTFS directional/cut-trip variants
+129C,129C,regular,one_to_many,4,GTFS_ROUTE_18783|GTFS_ROUTE_10879|GTFS_ROUTE_21710|GTFS_ROUTE_21712,129C|129C|129C|129C,Matches 4 operational GTFS directional/cut-trip variants
+12B,12B,regular,one_to_many,4,GTFS_ROUTE_17904|GTFS_ROUTE_10873|GTFS_ROUTE_10875|GTFS_ROUTE_13720,12B|12B|12B|12B,Matches 4 operational GTFS directional/cut-trip variants
+12G,12G,regular,one_to_many,4,GTFS_ROUTE_18750|GTFS_ROUTE_10868|GTFS_ROUTE_19750|GTFS_ROUTE_9632,12G|12G|12G|12G,Matches 4 operational GTFS directional/cut-trip variants
+12M,12M,regular,one_to_many,2,GTFS_ROUTE_18610|GTFS_ROUTE_23726,12M|12M,Matches 2 operational GTFS directional/cut-trip variants
+12X,12X,deluxe_express,one_to_many,6,GTFS_ROUTE_18764|GTFS_ROUTE_10084|GTFS_ROUTE_10090|GTFS_ROUTE_10083|GTFS_ROUTE_15302|GTFS_ROUTE_20312,12X|12X|12X|12X|12X|12X,Matches 6 operational GTFS directional/cut-trip variants
+13,13,regular,one_to_many,2,GTFS_ROUTE_21755|GTFS_ROUTE_21758,13|13,Matches 2 operational GTFS directional/cut-trip variants
+142,142,regular,one_to_many,3,GTFS_ROUTE_17284|GTFS_ROUTE_17288|GTFS_ROUTE_24100,142|142|142,Matches 3 operational GTFS directional/cut-trip variants
+142B,142B,regular,one_to_many,4,GTFS_ROUTE_10138|GTFS_ROUTE_24111|GTFS_ROUTE_22000|GTFS_ROUTE_21994,142B|142B|142B|142B,Matches 4 operational GTFS directional/cut-trip variants
+142P,142P,regular,one_to_many,2,GTFS_ROUTE_24113|GTFS_ROUTE_21788,142P|142P,Matches 2 operational GTFS directional/cut-trip variants
+147A,147A,regular,one_to_many,3,GTFS_ROUTE_18911|GTFS_ROUTE_10145|GTFS_ROUTE_10147,147A|147A|147A,Matches 3 operational GTFS directional/cut-trip variants
+147B,147B,regular,one_to_many,4,GTFS_ROUTE_18941|GTFS_ROUTE_10152|GTFS_ROUTE_18691|GTFS_ROUTE_10154,147B|147B|147B|147B,Matches 4 operational GTFS directional/cut-trip variants
+147C,147C,regular,one_to_many,6,GTFS_ROUTE_19820|GTFS_ROUTE_19821|GTFS_ROUTE_15773|GTFS_ROUTE_18942|GTFS_ROUTE_10160|GTFS_ROUTE_18692,147C|147C|147C|147C|147C|147C,Matches 6 operational GTFS directional/cut-trip variants
+147V,147V,regular,one_to_many,3,GTFS_ROUTE_18945|GTFS_ROUTE_10176|GTFS_ROUTE_18696,147V|147V|147V,Matches 3 operational GTFS directional/cut-trip variants
+14A,14A,regular,one_to_many,2,GTFS_ROUTE_20333|GTFS_ROUTE_20334,14A|14A,Matches 2 operational GTFS directional/cut-trip variants
+14M,14M,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+15,15,regular,one_to_many,3,GTFS_ROUTE_17798|GTFS_ROUTE_16118|GTFS_ROUTE_16111,15|15|15,Matches 3 operational GTFS directional/cut-trip variants
+150,150,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+153,153,regular,one_to_many,5,GTFS_ROUTE_17312|GTFS_ROUTE_18147|GTFS_ROUTE_18020|GTFS_ROUTE_18148|GTFS_ROUTE_23403,153|153|153|153|153,Matches 5 operational GTFS directional/cut-trip variants
+153A,153A,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+153C,153C,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+153P,153P,regular,one_to_many,4,GTFS_ROUTE_10272|GTFS_ROUTE_22940|GTFS_ROUTE_23404|GTFS_ROUTE_23405,153P|153P|153P|153P,Matches 4 operational GTFS directional/cut-trip variants
+153T,153T,regular,one_to_many,4,GTFS_ROUTE_18150|GTFS_ROUTE_18149|GTFS_ROUTE_22747|GTFS_ROUTE_22748,153T|153T|153T|153T,Matches 4 operational GTFS directional/cut-trip variants
+154,154,regular,one_to_many,11,GTFS_ROUTE_17765|GTFS_ROUTE_17909|GTFS_ROUTE_19607|GTFS_ROUTE_17349|GTFS_ROUTE_16799|GTFS_ROUTE_19649|GTFS_ROUTE_17542|GTFS_ROUTE_16677|GTFS_ROUTE_16813|GTFS_ROUTE_16815|GTFS_ROUTE_16817,154|154|154|154|154|154|154|154|154|154|154,Matches 11 operational GTFS directional/cut-trip variants
+154B,154B,regular,one_to_many,3,GTFS_ROUTE_19723|GTFS_ROUTE_22749|GTFS_ROUTE_22750,154B|154B|154B,Matches 3 operational GTFS directional/cut-trip variants
+154E,154E,express,one_to_many,4,GTFS_ROUTE_10303|GTFS_ROUTE_10304|GTFS_ROUTE_10305|GTFS_ROUTE_9052,154E|154E|154E|154E,Matches 4 operational GTFS directional/cut-trip variants
+154P,154P,regular,one_to_many,2,GTFS_ROUTE_23735|GTFS_ROUTE_23736,154P|154P,Matches 2 operational GTFS directional/cut-trip variants
+155A,155A,regular,one_to_many,2,GTFS_ROUTE_23093|GTFS_ROUTE_23406,155A|155A,Matches 2 operational GTFS directional/cut-trip variants
+157,157,regular,one_to_many,2,GTFS_ROUTE_17372|GTFS_ROUTE_17373,157|157,Matches 2 operational GTFS directional/cut-trip variants
+157E,157E,express,one_to_many,2,GTFS_ROUTE_20183|GTFS_ROUTE_23103,157E|157E,Matches 2 operational GTFS directional/cut-trip variants
+159,159,regular,one_to_many,6,GTFS_ROUTE_17787|GTFS_ROUTE_17790|GTFS_ROUTE_17409|GTFS_ROUTE_17791|GTFS_ROUTE_17438|GTFS_ROUTE_17623,159|159|159|159|159|159,Matches 6 operational GTFS directional/cut-trip variants
+159B,159B,regular,one_to_many,2,GTFS_ROUTE_23243|GTFS_ROUTE_23244,159B|159B,Matches 2 operational GTFS directional/cut-trip variants
+159E,159E,express,one_to_many,2,GTFS_ROUTE_10349|GTFS_ROUTE_10350,159E|159E,Matches 2 operational GTFS directional/cut-trip variants
+159K,159K,regular,one_to_many,5,GTFS_ROUTE_10357|GTFS_ROUTE_10355|GTFS_ROUTE_10356|GTFS_ROUTE_16363|GTFS_ROUTE_16683,159K|159K|159K|159K|159K,Matches 5 operational GTFS directional/cut-trip variants
+15BET,15BET,regular,one_to_many,2,GTFS_ROUTE_16364|GTFS_ROUTE_23410,15BEt|15BEt,Matches 2 operational GTFS directional/cut-trip variants
+15F,15F,regular,one_to_many,2,GTFS_ROUTE_15236|GTFS_ROUTE_15237,15F|15F,Matches 2 operational GTFS directional/cut-trip variants
+15G,15G,regular,one_to_many,2,GTFS_ROUTE_23412|GTFS_ROUTE_23413,15G|15G,Matches 2 operational GTFS directional/cut-trip variants
+164,164,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+166,166,regular,one_to_many,4,GTFS_ROUTE_17525|GTFS_ROUTE_17528|GTFS_ROUTE_17540|GTFS_ROUTE_17541,166|166|166|166,Matches 4 operational GTFS directional/cut-trip variants
+166K,166K,regular,one_to_many,4,GTFS_ROUTE_10415|GTFS_ROUTE_9783|GTFS_ROUTE_10416|GTFS_ROUTE_9782,166K|166K|166K|166K,Matches 4 operational GTFS directional/cut-trip variants
+16J,16J,regular,one_to_many,3,GTFS_ROUTE_10419|GTFS_ROUTE_18156|GTFS_ROUTE_23414,16J|16J|16J,Matches 3 operational GTFS directional/cut-trip variants
+16K,16K,regular,one_to_many,2,GTFS_ROUTE_10426|GTFS_ROUTE_10431,16K|16K,Matches 2 operational GTFS directional/cut-trip variants
+170A,170A,regular,one_to_many,4,GTFS_ROUTE_15800|GTFS_ROUTE_15801|GTFS_ROUTE_23421|GTFS_ROUTE_23424,170A|170A|170A|170A,Matches 4 operational GTFS directional/cut-trip variants
+170C,170C,regular,one_to_many,5,GTFS_ROUTE_15924|GTFS_ROUTE_15753|GTFS_ROUTE_15757|GTFS_ROUTE_15925|GTFS_ROUTE_24093,170C|170C|170C|170C|170C,Matches 5 operational GTFS directional/cut-trip variants
+170CE,170CE,express,one_to_many,4,GTFS_ROUTE_17914|GTFS_ROUTE_20181|GTFS_ROUTE_15892|GTFS_ROUTE_10458,170CE|170CE|170CE|170CE,Matches 4 operational GTFS directional/cut-trip variants
+170K,170K,regular,one_to_many,4,GTFS_ROUTE_10467|GTFS_ROUTE_24092|GTFS_ROUTE_21792|GTFS_ROUTE_21795,170K|170K|170K|170K,Matches 4 operational GTFS directional/cut-trip variants
+170T,170T,regular,one_to_many,4,GTFS_ROUTE_15804|GTFS_ROUTE_19264|GTFS_ROUTE_19340|GTFS_ROUTE_19341,170T|170T|170T|170T,Matches 4 operational GTFS directional/cut-trip variants
+170TX,170TX,deluxe_express,one_to_many,14,GTFS_ROUTE_17676|GTFS_ROUTE_16303|GTFS_ROUTE_17724|GTFS_ROUTE_15803|GTFS_ROUTE_17870|GTFS_ROUTE_17873|GTFS_ROUTE_17874|GTFS_ROUTE_17875|GTFS_ROUTE_16286|GTFS_ROUTE_15802|GTFS_ROUTE_16285|GTFS_ROUTE_16304|GTFS_ROUTE_17526|GTFS_ROUTE_17527,170Tx|170Tx|170Tx|170Tx|170Tx|170Tx|170Tx|170Tx|170Tx|170Tx|170Tx|170Tx|170Tx|170Tx,Matches 14 operational GTFS directional/cut-trip variants
+17D,17D,regular,one_to_one,1,GTFS_ROUTE_22519,17D,Exact single commercial route variant match
+17E,17E,express,one_to_many,2,GTFS_ROUTE_20715|GTFS_ROUTE_10482,17E|17E,Matches 2 operational GTFS directional/cut-trip variants
+17K,17K,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+188A,188A,regular,one_to_many,4,GTFS_ROUTE_10489|GTFS_ROUTE_10492|GTFS_ROUTE_16353|GTFS_ROUTE_16352,188A|188A|188A|188A,Matches 4 operational GTFS directional/cut-trip variants
+188C,188C,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+188E,188E,express,unmatched,0,,,Official route code not present in community GTFS snapshot
+188ET,188ET,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+188K,188K,regular,one_to_many,6,GTFS_ROUTE_10517|GTFS_ROUTE_10515|GTFS_ROUTE_10520|GTFS_ROUTE_10525|GTFS_ROUTE_15832|GTFS_ROUTE_10514,188K|188K|188K|188K|188K|188K,Matches 6 operational GTFS directional/cut-trip variants
+188T,188T,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+18A,18A,regular,one_to_many,5,GTFS_ROUTE_15508|GTFS_ROUTE_15517|GTFS_ROUTE_14372|GTFS_ROUTE_10543|GTFS_ROUTE_10547,18A|18A|18A|18A|18A,Matches 5 operational GTFS directional/cut-trip variants
+18ACT,18ACT,cut_trip,one_to_many,8,GTFS_ROUTE_19207|GTFS_ROUTE_19209|GTFS_ROUTE_19387|GTFS_ROUTE_10549|GTFS_ROUTE_10554|GTFS_ROUTE_10551|GTFS_ROUTE_16312|GTFS_ROUTE_10552,18A CT|18A CT|18A Ct|18ACT|18ACT|18ACT|18ACT|18ACT,Matches 8 operational GTFS directional/cut-trip variants
+18B,18B,regular,one_to_many,4,GTFS_ROUTE_16372|GTFS_ROUTE_16382|GTFS_ROUTE_22087|GTFS_ROUTE_22090,18B|18B|18B|18B,Matches 4 operational GTFS directional/cut-trip variants
+18D,18D,regular,one_to_many,3,GTFS_ROUTE_17533|GTFS_ROUTE_23080|GTFS_ROUTE_23081,18D|18D|18D,Matches 3 operational GTFS directional/cut-trip variants
+18E,18E,express,one_to_many,2,GTFS_ROUTE_10620|GTFS_ROUTE_10623,18E|18E,Matches 2 operational GTFS directional/cut-trip variants
+18H,18H,regular,one_to_many,2,GTFS_ROUTE_22637|GTFS_ROUTE_22638,18H|18H,Matches 2 operational GTFS directional/cut-trip variants
+18K,18K,regular,one_to_many,2,GTFS_ROUTE_10632|GTFS_ROUTE_10634,18K|18K,Matches 2 operational GTFS directional/cut-trip variants
+18M,18M,regular,one_to_many,2,GTFS_ROUTE_21358|GTFS_ROUTE_21359,18M|18M,Matches 2 operational GTFS directional/cut-trip variants
+18N,18N,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+18P,18P,regular,one_to_many,2,GTFS_ROUTE_10645|GTFS_ROUTE_10647,18P|18P,Matches 2 operational GTFS directional/cut-trip variants
+18R,18R,regular,one_to_many,2,GTFS_ROUTE_10651|GTFS_ROUTE_10653,18R|18R,Matches 2 operational GTFS directional/cut-trip variants
+18RX,18RX,deluxe_express,unmatched,0,,,Official route code not present in community GTFS snapshot
+18S,18S,regular,one_to_many,2,GTFS_ROUTE_23048|GTFS_ROUTE_23054,18S|18S,Matches 2 operational GTFS directional/cut-trip variants
+18X,18X,deluxe_express,one_to_one,1,GTFS_ROUTE_22357,18X,Exact single commercial route variant match
+19,19,regular,one_to_many,5,GTFS_ROUTE_24052|GTFS_ROUTE_16153|GTFS_ROUTE_16139|GTFS_ROUTE_16143|GTFS_ROUTE_16152,19|19|19|19|19,Matches 5 operational GTFS directional/cut-trip variants
+19A,19A,regular,one_to_one,1,GTFS_ROUTE_15960,19A,Exact single commercial route variant match
+19B,19B,regular,one_to_many,4,GTFS_ROUTE_10696|GTFS_ROUTE_10697|GTFS_ROUTE_10698|GTFS_ROUTE_23186,19B|19B|19B|19B,Matches 4 operational GTFS directional/cut-trip variants
+19BET,19BET,regular,one_to_many,4,GTFS_ROUTE_23777|GTFS_ROUTE_10700|GTFS_ROUTE_10706|GTFS_ROUTE_10712,19BEt|19BEt|19BEt|19BEt,Matches 4 operational GTFS directional/cut-trip variants
+19C,19C,regular,one_to_many,4,GTFS_ROUTE_15127|GTFS_ROUTE_10715|GTFS_ROUTE_23115|GTFS_ROUTE_23116,19C|19C|19C|19C,Matches 4 operational GTFS directional/cut-trip variants
+19D,19D,regular,one_to_many,11,GTFS_ROUTE_17803|GTFS_ROUTE_17864|GTFS_ROUTE_17865|GTFS_ROUTE_10730|GTFS_ROUTE_9750|GTFS_ROUTE_9753|GTFS_ROUTE_16360|GTFS_ROUTE_10737|GTFS_ROUTE_9756|GTFS_ROUTE_10731|GTFS_ROUTE_23190,19D|19D|19D|19D|19D|19D|19D|19D|19D|19D|19D,Matches 11 operational GTFS directional/cut-trip variants
+19T,19T,regular,one_to_many,4,GTFS_ROUTE_8580|GTFS_ROUTE_9560|GTFS_ROUTE_23117|GTFS_ROUTE_23118,19T|19T|19T|19T,Matches 4 operational GTFS directional/cut-trip variants
+1C,1C,regular,one_to_many,3,GTFS_ROUTE_19846|GTFS_ROUTE_17537|GTFS_ROUTE_23429,1C|1C|1C,Matches 3 operational GTFS directional/cut-trip variants
+1D,1D,regular,one_to_many,2,GTFS_ROUTE_18863|GTFS_ROUTE_20891,1D|1D,Matches 2 operational GTFS directional/cut-trip variants
+20,20,regular,one_to_many,2,GTFS_ROUTE_16168|GTFS_ROUTE_16166,20|20,Matches 2 operational GTFS directional/cut-trip variants
+202,202,regular,one_to_many,4,GTFS_ROUTE_3290|GTFS_ROUTE_4465|GTFS_ROUTE_10780|GTFS_ROUTE_10781,202|202|202|202,Matches 4 operational GTFS directional/cut-trip variants
+202A,202A,regular,one_to_many,2,GTFS_ROUTE_10783|GTFS_ROUTE_10782,202A|202A,Matches 2 operational GTFS directional/cut-trip variants
+202X,202X,deluxe_express,one_to_many,4,GTFS_ROUTE_15893|GTFS_ROUTE_10784|GTFS_ROUTE_15894|GTFS_ROUTE_22668,202X|202X|202X|202X,Matches 4 operational GTFS directional/cut-trip variants
+206,206,regular,one_to_many,2,GTFS_ROUTE_22670|GTFS_ROUTE_22671,206|206,Matches 2 operational GTFS directional/cut-trip variants
+20A,20A,regular,one_to_one,1,GTFS_ROUTE_22202,20A,Exact single commercial route variant match
+20D,20D,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+20P,20P,regular,one_to_many,2,GTFS_ROUTE_18157|GTFS_ROUTE_18158,20P|20P,Matches 2 operational GTFS directional/cut-trip variants
+21,21,regular,one_to_one,1,GTFS_ROUTE_16178,21,Exact single commercial route variant match
+21C,21C,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+21EET,21EET,regular,one_to_many,2,GTFS_ROUTE_17667|GTFS_ROUTE_10114,21EEt|21EEt,Matches 2 operational GTFS directional/cut-trip variants
+21G,21G,regular,one_to_many,7,GTFS_ROUTE_8458|GTFS_ROUTE_15116|GTFS_ROUTE_16347|GTFS_ROUTE_20534|GTFS_ROUTE_20535|GTFS_ROUTE_18388|GTFS_ROUTE_15125,21G|21G|21G|21G|21G|21G|21G,Matches 7 operational GTFS directional/cut-trip variants
+21L,21L,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+21P,21P,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+22,22,regular,one_to_many,4,GTFS_ROUTE_17789|GTFS_ROUTE_17793|GTFS_ROUTE_16562|GTFS_ROUTE_22639,22|22|22|22,Matches 4 operational GTFS directional/cut-trip variants
+221,221,regular,one_to_many,2,GTFS_ROUTE_10202|GTFS_ROUTE_23145,221|221,Matches 2 operational GTFS directional/cut-trip variants
+23C,23C,regular,one_to_many,7,GTFS_ROUTE_10214|GTFS_ROUTE_19996|GTFS_ROUTE_10213|GTFS_ROUTE_19991|GTFS_ROUTE_19993|GTFS_ROUTE_20126|GTFS_ROUTE_22899,23C|23C|23C|23C|23C|23C|23C,Matches 7 operational GTFS directional/cut-trip variants
+23V,23V,regular,one_to_many,3,GTFS_ROUTE_10219|GTFS_ROUTE_10224|GTFS_ROUTE_10225,23V|23V|23V,Matches 3 operational GTFS directional/cut-trip variants
+242,242,regular,one_to_one,1,GTFS_ROUTE_23559,242,Exact single commercial route variant match
+24A,24A,regular,one_to_many,5,GTFS_ROUTE_15949|GTFS_ROUTE_10241|GTFS_ROUTE_15835|GTFS_ROUTE_16523|GTFS_ROUTE_22924,24A|24A|24A|24A|24A,Matches 5 operational GTFS directional/cut-trip variants
+24AX,24AX,deluxe_express,one_to_many,4,GTFS_ROUTE_19343|GTFS_ROUTE_16350|GTFS_ROUTE_22925|GTFS_ROUTE_22926,24AX|24AX|24AX|24AX,Matches 4 operational GTFS directional/cut-trip variants
+25,25,regular,one_to_many,7,GTFS_ROUTE_18162|GTFS_ROUTE_16574|GTFS_ROUTE_16573|GTFS_ROUTE_16576|GTFS_ROUTE_16584|GTFS_ROUTE_19657|GTFS_ROUTE_18161,25|25|25|25|25|25|25,Matches 7 operational GTFS directional/cut-trip variants
+26,26,regular,one_to_many,2,GTFS_ROUTE_16604|GTFS_ROUTE_16614,26|26,Matches 2 operational GTFS directional/cut-trip variants
+266,266,regular,one_to_many,4,GTFS_ROUTE_18168|GTFS_ROUTE_18169|GTFS_ROUTE_10392|GTFS_ROUTE_10394,266|266|266|266,Matches 4 operational GTFS directional/cut-trip variants
+26B,26B,regular,one_to_many,2,GTFS_ROUTE_10400|GTFS_ROUTE_21828,26B|26B,Matches 2 operational GTFS directional/cut-trip variants
+26G,26G,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+26K,26K,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+26M,26M,regular,one_to_one,1,GTFS_ROUTE_10510,26M,Exact single commercial route variant match
+26R,26R,regular,one_to_one,1,GTFS_ROUTE_22873,26 R,Exact single commercial route variant match
+27B,27B,regular,one_to_many,7,GTFS_ROUTE_10590|GTFS_ROUTE_10600|GTFS_ROUTE_10604|GTFS_ROUTE_10595|GTFS_ROUTE_10597|GTFS_ROUTE_10602|GTFS_ROUTE_9312,27B|27B|27B|27B|27B|27B|27B,Matches 7 operational GTFS directional/cut-trip variants
+27D,27D,regular,one_to_many,5,GTFS_ROUTE_18808|GTFS_ROUTE_10605|GTFS_ROUTE_18780|GTFS_ROUTE_18782|GTFS_ROUTE_20311,27D|27D|27D|27D|27D,Matches 5 operational GTFS directional/cut-trip variants
+28A,28A,regular,one_to_many,2,GTFS_ROUTE_23433|GTFS_ROUTE_23434,28A|28A,Matches 2 operational GTFS directional/cut-trip variants
+28B,28B,regular,one_to_many,5,GTFS_ROUTE_11088|GTFS_ROUTE_11086|GTFS_ROUTE_11089|GTFS_ROUTE_23270|GTFS_ROUTE_23271,28B|28B|28B|28B|28B,Matches 5 operational GTFS directional/cut-trip variants
+297,297,regular,one_to_many,2,GTFS_ROUTE_17704|GTFS_ROUTE_16250,297|297,Matches 2 operational GTFS directional/cut-trip variants
+29A,29A,regular,one_to_many,5,GTFS_ROUTE_18751|GTFS_ROUTE_15108|GTFS_ROUTE_15109|GTFS_ROUTE_11102|GTFS_ROUTE_16305,29A|29A|29A|29A|29A,Matches 5 operational GTFS directional/cut-trip variants
+29AET,29AET,regular,one_to_many,4,GTFS_ROUTE_11121|GTFS_ROUTE_11129|GTFS_ROUTE_21802|GTFS_ROUTE_21809,29AEt|29AEt|29AEt|29AEt,Matches 4 operational GTFS directional/cut-trip variants
+29AEX,29AEX,deluxe_express,one_to_many,4,GTFS_ROUTE_11137|GTFS_ROUTE_11133|GTFS_ROUTE_24108|GTFS_ROUTE_21700,29AEX|29AEX|29AEX|29AEX,Matches 4 operational GTFS directional/cut-trip variants
+29B,29B,regular,one_to_many,8,GTFS_ROUTE_15106|GTFS_ROUTE_11143|GTFS_ROUTE_11151|GTFS_ROUTE_17836|GTFS_ROUTE_17856|GTFS_ROUTE_11158|GTFS_ROUTE_18717|GTFS_ROUTE_15105,29B|29B|29B|29B|29B|29B|29B|29B,Matches 8 operational GTFS directional/cut-trip variants
+29C,29C,regular,one_to_many,5,GTFS_ROUTE_8631|GTFS_ROUTE_8640|GTFS_ROUTE_11172|GTFS_ROUTE_15850|GTFS_ROUTE_15101,29C|29C|29C|29C|29C,Matches 5 operational GTFS directional/cut-trip variants
+29CET,29CET,regular,one_to_many,4,GTFS_ROUTE_11157|GTFS_ROUTE_15100|GTFS_ROUTE_21694|GTFS_ROUTE_21695,29CEt|29CEt|29CEt|29CEt,Matches 4 operational GTFS directional/cut-trip variants
+29CEX,29CEX,deluxe_express,one_to_many,4,GTFS_ROUTE_11154|GTFS_ROUTE_24089|GTFS_ROUTE_24104|GTFS_ROUTE_21680,29CEX|29CEX|29CEX|29CEX,Matches 4 operational GTFS directional/cut-trip variants
+29D,29D,regular,one_to_many,4,GTFS_ROUTE_18756|GTFS_ROUTE_17806|GTFS_ROUTE_11147|GTFS_ROUTE_11150,29D|29D|29D|29D,Matches 4 operational GTFS directional/cut-trip variants
+29E,29E,express,one_to_many,9,GTFS_ROUTE_15096|GTFS_ROUTE_18916|GTFS_ROUTE_11142|GTFS_ROUTE_15878|GTFS_ROUTE_15879|GTFS_ROUTE_15093|GTFS_ROUTE_15094|GTFS_ROUTE_15095|GTFS_ROUTE_11139,29E|29E|29E|29E|29E|29E|29E|29E|29E,Matches 9 operational GTFS directional/cut-trip variants
+29ET,29ET,regular,one_to_many,5,GTFS_ROUTE_15089|GTFS_ROUTE_24091|GTFS_ROUTE_24107|GTFS_ROUTE_15091|GTFS_ROUTE_21692,29Et|29Et|29Et|29Et|29Et,Matches 5 operational GTFS directional/cut-trip variants
+29NET,29NET,regular,one_to_many,4,GTFS_ROUTE_24105|GTFS_ROUTE_15085|GTFS_ROUTE_15088|GTFS_ROUTE_21689,29NEt|29NEt|29NEt|29NEt,Matches 4 operational GTFS directional/cut-trip variants
+2A,2A,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+2B,2B,regular,one_to_many,2,GTFS_ROUTE_19462|GTFS_ROUTE_20450,2B|2B,Matches 2 operational GTFS directional/cut-trip variants
+3,3,regular,one_to_many,5,GTFS_ROUTE_17501|GTFS_ROUTE_16552|GTFS_ROUTE_24065|GTFS_ROUTE_24066|GTFS_ROUTE_16547,3|3|3|3|3,Matches 5 operational GTFS directional/cut-trip variants
+31A,31A,regular,one_to_many,2,GTFS_ROUTE_11083|GTFS_ROUTE_11082,31A|31A,Matches 2 operational GTFS directional/cut-trip variants
+31B,31B,regular,one_to_many,2,GTFS_ROUTE_11087|GTFS_ROUTE_11085,31B|31B,Matches 2 operational GTFS directional/cut-trip variants
+31G,31G,regular,one_to_many,2,GTFS_ROUTE_11090|GTFS_ROUTE_11091,31G|31G,Matches 2 operational GTFS directional/cut-trip variants
+31M,31M,regular,one_to_many,2,GTFS_ROUTE_11093|GTFS_ROUTE_11094,31M|31M,Matches 2 operational GTFS directional/cut-trip variants
+31P,31P,regular,one_to_many,2,GTFS_ROUTE_11175|GTFS_ROUTE_11176,31P|31P,Matches 2 operational GTFS directional/cut-trip variants
+32A,32A,regular,one_to_many,4,GTFS_ROUTE_23266|GTFS_ROUTE_23283|GTFS_ROUTE_23441|GTFS_ROUTE_23442,32A|32A|32A|32A,Matches 4 operational GTFS directional/cut-trip variants
+32AX,32AX,deluxe_express,unmatched,0,,,Official route code not present in community GTFS snapshot
+32B,32B,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+33B,33B,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+33C,33C,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+33L,33L,regular,one_to_many,2,GTFS_ROUTE_13554|GTFS_ROUTE_13557,33L|33L,Matches 2 operational GTFS directional/cut-trip variants
+34,34,regular,one_to_many,2,GTFS_ROUTE_16752|GTFS_ROUTE_18698,34|34,Matches 2 operational GTFS directional/cut-trip variants
+35,35,regular,one_to_one,1,GTFS_ROUTE_16631,35,Exact single commercial route variant match
+35C,35C,regular,one_to_many,4,GTFS_ROUTE_22049|GTFS_ROUTE_22051|GTFS_ROUTE_22062|GTFS_ROUTE_22063,35C|35C|35C|35C,Matches 4 operational GTFS directional/cut-trip variants
+36K,36K,regular,one_to_many,4,GTFS_ROUTE_11182|GTFS_ROUTE_11185|GTFS_ROUTE_22988|GTFS_ROUTE_22989,36K|36K|36K|36K,Matches 4 operational GTFS directional/cut-trip variants
+36M,36M,regular,one_to_many,4,GTFS_ROUTE_11173|GTFS_ROUTE_11178|GTFS_ROUTE_22990|GTFS_ROUTE_22991,36M|36M|36M|36M,Matches 4 operational GTFS directional/cut-trip variants
+36V,36V,regular,one_to_many,4,GTFS_ROUTE_19307|GTFS_ROUTE_19345|GTFS_ROUTE_22992|GTFS_ROUTE_22993,36V|36V|36V|36V,Matches 4 operational GTFS directional/cut-trip variants
+37,37,regular,one_to_many,12,GTFS_ROUTE_16672|GTFS_ROUTE_16661|GTFS_ROUTE_16657|GTFS_ROUTE_16663|GTFS_ROUTE_18176|GTFS_ROUTE_16655|GTFS_ROUTE_15023|GTFS_ROUTE_16671|GTFS_ROUTE_16665|GTFS_ROUTE_18170|GTFS_ROUTE_18171|GTFS_ROUTE_18175,37|37|37|37|37|37|37|37|37|37|37|37,Matches 12 operational GTFS directional/cut-trip variants
+37B,37B,regular,one_to_many,2,GTFS_ROUTE_24110|GTFS_ROUTE_21281,37B|37B,Matches 2 operational GTFS directional/cut-trip variants
+37CT,37CT,cut_trip,one_to_many,7,GTFS_ROUTE_11248|GTFS_ROUTE_11243|GTFS_ROUTE_11246|GTFS_ROUTE_18103|GTFS_ROUTE_11245|GTFS_ROUTE_11247|GTFS_ROUTE_23445,37Ct|37Ct|37Ct|37Ct|37Ct|37Ct|37 CT,Matches 7 operational GTFS directional/cut-trip variants
+37D,37D,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+37E,37E,express,one_to_many,4,GTFS_ROUTE_19476|GTFS_ROUTE_19487|GTFS_ROUTE_13560|GTFS_ROUTE_13561,37E|37E|37E|37E,Matches 4 operational GTFS directional/cut-trip variants
+37ECT,37ECT,cut_trip,one_to_many,4,GTFS_ROUTE_11252|GTFS_ROUTE_11254|GTFS_ROUTE_11253|GTFS_ROUTE_11251,37ECt|37ECt|37ECt|37ECt,Matches 4 operational GTFS directional/cut-trip variants
+37G,37G,regular,one_to_many,2,GTFS_ROUTE_11261|GTFS_ROUTE_15324,37G|37G,Matches 2 operational GTFS directional/cut-trip variants
+38A,38A,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+38C,38C,regular,one_to_many,4,GTFS_ROUTE_11278|GTFS_ROUTE_11275|GTFS_ROUTE_11276|GTFS_ROUTE_11277,38C|38C|38C|38C,Matches 4 operational GTFS directional/cut-trip variants
+38D,38D,regular,one_to_many,4,GTFS_ROUTE_11284|GTFS_ROUTE_20455|GTFS_ROUTE_22997|GTFS_ROUTE_22998,38D|38D|38D|38D,Matches 4 operational GTFS directional/cut-trip variants
+38G,38G,regular,one_to_many,3,GTFS_ROUTE_22476|GTFS_ROUTE_22516|GTFS_ROUTE_22587,38G|38G|38G,Matches 3 operational GTFS directional/cut-trip variants
+38H,38H,regular,one_to_one,1,GTFS_ROUTE_11303,38H,Exact single commercial route variant match
+4,4,regular,one_to_many,3,GTFS_ROUTE_16073|GTFS_ROUTE_16078|GTFS_ROUTE_16077,4|4|4,Matches 3 operational GTFS directional/cut-trip variants
+40A,40A,regular,one_to_many,4,GTFS_ROUTE_11332|GTFS_ROUTE_11328|GTFS_ROUTE_22806|GTFS_ROUTE_22809,40A|40A|40A|40A,Matches 4 operational GTFS directional/cut-trip variants
+40H,40H,regular,one_to_many,6,GTFS_ROUTE_11341|GTFS_ROUTE_11345|GTFS_ROUTE_9981|GTFS_ROUTE_9982|GTFS_ROUTE_18641|GTFS_ROUTE_18683,40H|40H|40H|40H|40H|40H,Matches 6 operational GTFS directional/cut-trip variants
+40L,40L,regular,one_to_many,7,GTFS_ROUTE_11356|GTFS_ROUTE_11358|GTFS_ROUTE_11359|GTFS_ROUTE_11355|GTFS_ROUTE_16461|GTFS_ROUTE_16483|GTFS_ROUTE_329,40L|40L|40L|40L|40L|40L|40L,Matches 7 operational GTFS directional/cut-trip variants
+40N,40N,regular,one_to_many,4,GTFS_ROUTE_9320|GTFS_ROUTE_11360|GTFS_ROUTE_18645|GTFS_ROUTE_18700,40N|40N|40N|40N,Matches 4 operational GTFS directional/cut-trip variants
+41D,41D,regular,one_to_one,1,GTFS_ROUTE_15303,41D,Exact single commercial route variant match
+42,42,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+42B,42B,regular,one_to_one,1,GTFS_ROUTE_15829,42B,Exact single commercial route variant match
+42C,42C,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+42D,42D,regular,one_to_many,4,GTFS_ROUTE_24119|GTFS_ROUTE_24121|GTFS_ROUTE_22492|GTFS_ROUTE_22593,42D|42D|42D|42D,Matches 4 operational GTFS directional/cut-trip variants
+42M,42M,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+44,44,regular,one_to_many,4,GTFS_ROUTE_21608|GTFS_ROUTE_21609|GTFS_ROUTE_22999|GTFS_ROUTE_23000,44|44|44|44,Matches 4 operational GTFS directional/cut-trip variants
+44C,44C,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+44CT,44CT,cut_trip,one_to_many,6,GTFS_ROUTE_21601|GTFS_ROUTE_21624|GTFS_ROUTE_21626|GTFS_ROUTE_21627|GTFS_ROUTE_23273|GTFS_ROUTE_23282,44 CT|44CT|44Ct|44Ct|44CT|44CT,Matches 6 operational GTFS directional/cut-trip variants
+45A,45A,regular,one_to_many,5,GTFS_ROUTE_17712|GTFS_ROUTE_11347|GTFS_ROUTE_11351|GTFS_ROUTE_23055|GTFS_ROUTE_23056,45A|45A|45A|45A|45A,Matches 5 operational GTFS directional/cut-trip variants
+45ACT,45ACT,cut_trip,one_to_many,5,GTFS_ROUTE_15813|GTFS_ROUTE_17774|GTFS_ROUTE_17775|GTFS_ROUTE_18393|GTFS_ROUTE_15816,45ACt|45ACt|45ACt|45A CT|45ACt,Matches 5 operational GTFS directional/cut-trip variants
+45B,45B,regular,one_to_many,8,GTFS_ROUTE_11378|GTFS_ROUTE_11380|GTFS_ROUTE_11382|GTFS_ROUTE_11367|GTFS_ROUTE_11371|GTFS_ROUTE_11384|GTFS_ROUTE_11385|GTFS_ROUTE_15926,45B|45B|45B|45B|45B|45B|45B|45B,Matches 8 operational GTFS directional/cut-trip variants
+45BET,45BET,regular,one_to_many,4,GTFS_ROUTE_18816|GTFS_ROUTE_11388|GTFS_ROUTE_11390|GTFS_ROUTE_11391,45BEt|45BEt|45BEt|45BEt,Matches 4 operational GTFS directional/cut-trip variants
+46,46,regular,one_to_many,9,GTFS_ROUTE_16734|GTFS_ROUTE_16736|GTFS_ROUTE_16737|GTFS_ROUTE_16739|GTFS_ROUTE_16742|GTFS_ROUTE_16743|GTFS_ROUTE_16740|GTFS_ROUTE_21800|GTFS_ROUTE_21803,46|46|46|46|46|46|46|46|46,Matches 9 operational GTFS directional/cut-trip variants
+46ET,46ET,regular,one_to_many,4,GTFS_ROUTE_11405|GTFS_ROUTE_20294|GTFS_ROUTE_21821|GTFS_ROUTE_21824,46Et|46Et|46Et|46Et,Matches 4 operational GTFS directional/cut-trip variants
+46G,46G,regular,one_to_many,4,GTFS_ROUTE_18888|GTFS_ROUTE_11406|GTFS_ROUTE_16046|GTFS_ROUTE_15428,46G|46G|46G|46G,Matches 4 operational GTFS directional/cut-trip variants
+47,47,regular,one_to_many,4,GTFS_ROUTE_16757|GTFS_ROUTE_16759|GTFS_ROUTE_23122|GTFS_ROUTE_23123,47|47|47|47,Matches 4 operational GTFS directional/cut-trip variants
+47A,47A,regular,one_to_many,4,GTFS_ROUTE_19412|GTFS_ROUTE_11414|GTFS_ROUTE_19879|GTFS_ROUTE_11422,47A|47A|47A|47A,Matches 4 operational GTFS directional/cut-trip variants
+47C,47C,regular,one_to_many,4,GTFS_ROUTE_11430|GTFS_ROUTE_11431|GTFS_ROUTE_11434|GTFS_ROUTE_22944,47C|47C|47C|47C,Matches 4 operational GTFS directional/cut-trip variants
+47CX,47CX,deluxe_express,one_to_many,4,GTFS_ROUTE_11437|GTFS_ROUTE_11436|GTFS_ROUTE_22946|GTFS_ROUTE_22947,47CX|47CX|47CX|47CX,Matches 4 operational GTFS directional/cut-trip variants
+47DCT,47DCT,cut_trip,one_to_many,6,GTFS_ROUTE_18947|GTFS_ROUTE_18952|GTFS_ROUTE_15866|GTFS_ROUTE_15867|GTFS_ROUTE_18703|GTFS_ROUTE_18715,47DCt|47D CT|47DCt|47DCt|47DCt|47D CT,Matches 6 operational GTFS directional/cut-trip variants
+47T,47T,regular,one_to_many,4,GTFS_ROUTE_19532|GTFS_ROUTE_19553|GTFS_ROUTE_19753|GTFS_ROUTE_19788,47T|47T|47T|47T,Matches 4 operational GTFS directional/cut-trip variants
+48A,48A,regular,one_to_many,4,GTFS_ROUTE_11483|GTFS_ROUTE_11486|GTFS_ROUTE_11487|GTFS_ROUTE_11484,48A|48A|48A|48A,Matches 4 operational GTFS directional/cut-trip variants
+48AET,48AET,regular,one_to_many,4,GTFS_ROUTE_11482|GTFS_ROUTE_11479|GTFS_ROUTE_11480|GTFS_ROUTE_11481,48AEt|48AEt|48AEt|48AEt,Matches 4 operational GTFS directional/cut-trip variants
+48B,48B,regular,one_to_many,7,GTFS_ROUTE_11471|GTFS_ROUTE_11473|GTFS_ROUTE_11476|GTFS_ROUTE_11477|GTFS_ROUTE_19889|GTFS_ROUTE_8032|GTFS_ROUTE_18418,48B|48B|48B|48B|48B|48B|48B,Matches 7 operational GTFS directional/cut-trip variants
+48BX,48BX,deluxe_express,one_to_many,4,GTFS_ROUTE_11467|GTFS_ROUTE_11468|GTFS_ROUTE_11469|GTFS_ROUTE_11470,48BX|48BX|48BX|48BX,Matches 4 operational GTFS directional/cut-trip variants
+48C,48C,regular,one_to_many,6,GTFS_ROUTE_11464|GTFS_ROUTE_11465|GTFS_ROUTE_14455|GTFS_ROUTE_14451|GTFS_ROUTE_14453|GTFS_ROUTE_11466,48C|48C|48C|48C|48C|48C,Matches 6 operational GTFS directional/cut-trip variants
+48K,48K,regular,one_to_many,7,GTFS_ROUTE_7307|GTFS_ROUTE_11456|GTFS_ROUTE_11457|GTFS_ROUTE_11458|GTFS_ROUTE_11459|GTFS_ROUTE_11460|GTFS_ROUTE_15869,48K|48K|48K|48K|48K|48K|48K,Matches 7 operational GTFS directional/cut-trip variants
+48P,48P,regular,one_to_many,4,GTFS_ROUTE_11453|GTFS_ROUTE_11454|GTFS_ROUTE_11451|GTFS_ROUTE_11452,48P|48P|48P|48P,Matches 4 operational GTFS directional/cut-trip variants
+49,49,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+49A,49A,regular,one_to_many,4,GTFS_ROUTE_23811|GTFS_ROUTE_23812|GTFS_ROUTE_23813|GTFS_ROUTE_23814,49A|49A|49A|49A,Matches 4 operational GTFS directional/cut-trip variants
+49F,49F,regular,one_to_many,4,GTFS_ROUTE_18179|GTFS_ROUTE_18180|GTFS_ROUTE_11435|GTFS_ROUTE_11438,49F|49F|49F|49F,Matches 4 operational GTFS directional/cut-trip variants
+49K,49K,regular,one_to_many,5,GTFS_ROUTE_11423|GTFS_ROUTE_11428|GTFS_ROUTE_14868|GTFS_ROUTE_14871|GTFS_ROUTE_11426,49K|49K|49K|49K|49K,Matches 5 operational GTFS directional/cut-trip variants
+49X,49X,deluxe_express,one_to_many,4,GTFS_ROUTE_23845|GTFS_ROUTE_23847|GTFS_ROUTE_20338|GTFS_ROUTE_20339,49X|49X|49X|49X,Matches 4 operational GTFS directional/cut-trip variants
+4M,4M,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+50,50,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+500,500,regular,one_to_many,2,GTFS_ROUTE_22698|GTFS_ROUTE_22699,500|500,Matches 2 operational GTFS directional/cut-trip variants
+500A,500A,regular,one_to_many,2,GTFS_ROUTE_21677|GTFS_ROUTE_21678,500A|500A,Matches 2 operational GTFS directional/cut-trip variants
+500D,500D,regular,one_to_many,4,GTFS_ROUTE_11509|GTFS_ROUTE_11510|GTFS_ROUTE_21674|GTFS_ROUTE_21675,500D|500D|500D|500D,Matches 4 operational GTFS directional/cut-trip variants
+500E,500E,express,one_to_many,2,GTFS_ROUTE_11515|GTFS_ROUTE_11517,500E|500E,Matches 2 operational GTFS directional/cut-trip variants
+500ET,500ET,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+500P,500P,regular,one_to_many,8,GTFS_ROUTE_18466|GTFS_ROUTE_18467|GTFS_ROUTE_11523|GTFS_ROUTE_11524|GTFS_ROUTE_11526|GTFS_ROUTE_11527|GTFS_ROUTE_18489|GTFS_ROUTE_8868,500P|500P|500P|500P|500P|500P|500P|500P,Matches 8 operational GTFS directional/cut-trip variants
+500R,500R,regular,one_to_many,2,GTFS_ROUTE_11528|GTFS_ROUTE_11529,500R|500R,Matches 2 operational GTFS directional/cut-trip variants
+500W,500W,regular,one_to_many,4,GTFS_ROUTE_18804|GTFS_ROUTE_11530|GTFS_ROUTE_11533|GTFS_ROUTE_20473,500W|500W|500W|500W,Matches 4 operational GTFS directional/cut-trip variants
+505,505,regular,one_to_many,12,GTFS_ROUTE_11534|GTFS_ROUTE_11535|GTFS_ROUTE_11537|GTFS_ROUTE_11538|GTFS_ROUTE_11540|GTFS_ROUTE_11543|GTFS_ROUTE_11544|GTFS_ROUTE_11545|GTFS_ROUTE_11547|GTFS_ROUTE_11541|GTFS_ROUTE_11542|GTFS_ROUTE_15764,505|505|505|505|505|505|505|505|505|505|505|505,Matches 12 operational GTFS directional/cut-trip variants
+505K,505K,regular,one_to_many,6,GTFS_ROUTE_16259|GTFS_ROUTE_10003|GTFS_ROUTE_11548|GTFS_ROUTE_11549|GTFS_ROUTE_11550|GTFS_ROUTE_11551,505K|505K|505K|505K|505K|505K,Matches 6 operational GTFS directional/cut-trip variants
+50ET,50ET,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+50M,50M,regular,one_to_many,4,GTFS_ROUTE_18181|GTFS_ROUTE_18182|GTFS_ROUTE_22594|GTFS_ROUTE_22595,50M|50M|50M|50M,Matches 4 operational GTFS directional/cut-trip variants
+51,51,regular,one_to_many,5,GTFS_ROUTE_16895|GTFS_ROUTE_16906|GTFS_ROUTE_16915|GTFS_ROUTE_16925|GTFS_ROUTE_574,51|51|51|51|51,Matches 5 operational GTFS directional/cut-trip variants
+512,512,regular,one_to_many,4,GTFS_ROUTE_11584|GTFS_ROUTE_17929|GTFS_ROUTE_15778|GTFS_ROUTE_15781,512|512|512|512,Matches 4 operational GTFS directional/cut-trip variants
+512S,512S,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+514,514,regular,one_to_many,8,GTFS_ROUTE_11587|GTFS_ROUTE_11588|GTFS_ROUTE_11589|GTFS_ROUTE_11590|GTFS_ROUTE_11594|GTFS_ROUTE_11595|GTFS_ROUTE_16361|GTFS_ROUTE_11592,514|514|514|514|514|514|514|514,Matches 8 operational GTFS directional/cut-trip variants
+514ET,514ET,regular,one_to_many,9,GTFS_ROUTE_11596|GTFS_ROUTE_11597|GTFS_ROUTE_11598|GTFS_ROUTE_11604|GTFS_ROUTE_11605|GTFS_ROUTE_11606|GTFS_ROUTE_11599|GTFS_ROUTE_11601|GTFS_ROUTE_11603,514Et|514Et|514Et|514Et|514Et|514Et|514Et|514Et|514Et,Matches 9 operational GTFS directional/cut-trip variants
+515,515,regular,one_to_many,3,GTFS_ROUTE_19705|GTFS_ROUTE_22704|GTFS_ROUTE_22705,515|515|515,Matches 3 operational GTFS directional/cut-trip variants
+515A,515A,regular,one_to_many,9,GTFS_ROUTE_17715|GTFS_ROUTE_11610|GTFS_ROUTE_11619|GTFS_ROUTE_11611|GTFS_ROUTE_11612|GTFS_ROUTE_11613|GTFS_ROUTE_11615|GTFS_ROUTE_11618|GTFS_ROUTE_11620,515A|515A|515A|515A|515A|515A|515A|515A|515A,Matches 9 operational GTFS directional/cut-trip variants
+515B,515B,regular,one_to_many,4,GTFS_ROUTE_11621|GTFS_ROUTE_11622|GTFS_ROUTE_22717|GTFS_ROUTE_22719,515B|515B|515B|515B,Matches 4 operational GTFS directional/cut-trip variants
+515CT,515CT,cut_trip,one_to_many,3,GTFS_ROUTE_20483|GTFS_ROUTE_22720|GTFS_ROUTE_22723,515 CT|515CT|515CT,Matches 3 operational GTFS directional/cut-trip variants
+515K,515K,regular,one_to_many,2,GTFS_ROUTE_11627|GTFS_ROUTE_22658,515K|515K,Matches 2 operational GTFS directional/cut-trip variants
+515M,515M,regular,one_to_many,4,GTFS_ROUTE_3460|GTFS_ROUTE_18298|GTFS_ROUTE_11630|GTFS_ROUTE_11631,515M|515M|515M|515M,Matches 4 operational GTFS directional/cut-trip variants
+515T,515T,regular,one_to_many,2,GTFS_ROUTE_22655|GTFS_ROUTE_22656,515T|515T,Matches 2 operational GTFS directional/cut-trip variants
+517K,517K,regular,one_to_many,2,GTFS_ROUTE_11638|GTFS_ROUTE_21666,517K|517K,Matches 2 operational GTFS directional/cut-trip variants
+519T,519T,regular,one_to_many,2,GTFS_ROUTE_22688|GTFS_ROUTE_22694,519T|519T,Matches 2 operational GTFS directional/cut-trip variants
+51A,51A,regular,one_to_many,18,GTFS_ROUTE_23809|GTFS_ROUTE_23810|GTFS_ROUTE_6810|GTFS_ROUTE_8221|GTFS_ROUTE_8223|GTFS_ROUTE_11616|GTFS_ROUTE_11617|GTFS_ROUTE_11657|GTFS_ROUTE_11637|GTFS_ROUTE_17932|GTFS_ROUTE_11565|GTFS_ROUTE_11568|GTFS_ROUTE_11632|GTFS_ROUTE_17933|GTFS_ROUTE_11640|GTFS_ROUTE_11644|GTFS_ROUTE_11647|GTFS_ROUTE_14515,51A|51A|51A|51A|51A|51A|51A|51A|51A|51A|51A|51A|51A|51A|51A|51A|51A|51A,Matches 18 operational GTFS directional/cut-trip variants
+51AX,51AX,deluxe_express,one_to_many,5,GTFS_ROUTE_13925|GTFS_ROUTE_11665|GTFS_ROUTE_13926|GTFS_ROUTE_13920|GTFS_ROUTE_13924,51AX|51AX|51AX|51AX|51AX,Matches 5 operational GTFS directional/cut-trip variants
+51B,51B,regular,one_to_many,6,GTFS_ROUTE_19905|GTFS_ROUTE_11679|GTFS_ROUTE_18292|GTFS_ROUTE_11680|GTFS_ROUTE_11674|GTFS_ROUTE_17508,51B|51B|51B|51B|51B|51B,Matches 6 operational GTFS directional/cut-trip variants
+51C,51C,regular,one_to_many,4,GTFS_ROUTE_19582|GTFS_ROUTE_19597|GTFS_ROUTE_19602|GTFS_ROUTE_19695,51C|51C|51C|51C,Matches 4 operational GTFS directional/cut-trip variants
+51D,51D,regular,one_to_many,2,GTFS_ROUTE_11664|GTFS_ROUTE_11663,51D|51D,Matches 2 operational GTFS directional/cut-trip variants
+51J,51J,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+51M,51M,regular,one_to_many,5,GTFS_ROUTE_11649|GTFS_ROUTE_11653|GTFS_ROUTE_15011|GTFS_ROUTE_23059|GTFS_ROUTE_23060,51M|51M|51M|51M|51M,Matches 5 operational GTFS directional/cut-trip variants
+51T,51T,regular,one_to_many,4,GTFS_ROUTE_11641|GTFS_ROUTE_11642|GTFS_ROUTE_11643|GTFS_ROUTE_11645,51T|51T|51T|51T,Matches 4 operational GTFS directional/cut-trip variants
+51X,51X,deluxe_express,one_to_many,8,GTFS_ROUTE_11690|GTFS_ROUTE_11698|GTFS_ROUTE_11700|GTFS_ROUTE_18974|GTFS_ROUTE_11687|GTFS_ROUTE_11692|GTFS_ROUTE_11693|GTFS_ROUTE_11694,51X|51X|51X|51X|51X|51X|51X|51X,Matches 8 operational GTFS directional/cut-trip variants
+52,52,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+523,523,regular,one_to_many,7,GTFS_ROUTE_11724|GTFS_ROUTE_11725|GTFS_ROUTE_11713|GTFS_ROUTE_11729|GTFS_ROUTE_17948|GTFS_ROUTE_17952|GTFS_ROUTE_11727,523|523|523|523|523|523|523,Matches 7 operational GTFS directional/cut-trip variants
+523A,523A,regular,one_to_many,6,GTFS_ROUTE_11735|GTFS_ROUTE_11739|GTFS_ROUTE_11741|GTFS_ROUTE_11745|GTFS_ROUTE_17951|GTFS_ROUTE_23194,523A|523A|523A|523A|523A|523A,Matches 6 operational GTFS directional/cut-trip variants
+525,525,regular,one_to_many,2,GTFS_ROUTE_11688|GTFS_ROUTE_11683,525|525,Matches 2 operational GTFS directional/cut-trip variants
+52B,52B,regular,one_to_many,2,GTFS_ROUTE_22002|GTFS_ROUTE_22004,52B|52B,Matches 2 operational GTFS directional/cut-trip variants
+52C,52C,regular,one_to_many,2,GTFS_ROUTE_11701|GTFS_ROUTE_11702,52C|52C,Matches 2 operational GTFS directional/cut-trip variants
+52G,52G,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+52H,52H,regular,one_to_many,4,GTFS_ROUTE_11715|GTFS_ROUTE_11718|GTFS_ROUTE_21656|GTFS_ROUTE_21657,52H|52H|52H|52H,Matches 4 operational GTFS directional/cut-trip variants
+52K,52K,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+53,53,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+53C,53C,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+53E,53E,express,one_to_one,1,GTFS_ROUTE_18189,53E,Exact single commercial route variant match
+53G,53G,regular,one_to_many,4,GTFS_ROUTE_18192|GTFS_ROUTE_18193|GTFS_ROUTE_18194|GTFS_ROUTE_18195,53G|53G|53G|53G,Matches 4 operational GTFS directional/cut-trip variants
+53P,53P,regular,one_to_many,2,GTFS_ROUTE_18196|GTFS_ROUTE_18198,53P|53P,Matches 2 operational GTFS directional/cut-trip variants
+54,54,regular,one_to_many,14,GTFS_ROUTE_19631|GTFS_ROUTE_21556|GTFS_ROUTE_21557|GTFS_ROUTE_21561|GTFS_ROUTE_21569|GTFS_ROUTE_21570|GTFS_ROUTE_21579|GTFS_ROUTE_21580|GTFS_ROUTE_21583|GTFS_ROUTE_21586|GTFS_ROUTE_22832|GTFS_ROUTE_21558|GTFS_ROUTE_22836|GTFS_ROUTE_21926,54|54|54|54|54|54|54|54|54|54|54|54|54|54,Matches 14 operational GTFS directional/cut-trip variants
+547,547,regular,one_to_many,2,GTFS_ROUTE_9953|GTFS_ROUTE_9955,547|547,Matches 2 operational GTFS directional/cut-trip variants
+547A,547A,regular,one_to_many,4,GTFS_ROUTE_19891|GTFS_ROUTE_11781|GTFS_ROUTE_13563|GTFS_ROUTE_20180,547A|547A|547A|547A,Matches 4 operational GTFS directional/cut-trip variants
+549,549,regular,one_to_many,5,GTFS_ROUTE_11791|GTFS_ROUTE_11788|GTFS_ROUTE_11789|GTFS_ROUTE_11790|GTFS_ROUTE_17678,549|549|549|549|549,Matches 5 operational GTFS directional/cut-trip variants
+54B,54B,regular,one_to_many,4,GTFS_ROUTE_11793|GTFS_ROUTE_11792|GTFS_ROUTE_11794|GTFS_ROUTE_11795,54B|54B|54B|54B,Matches 4 operational GTFS directional/cut-trip variants
+54C,54C,regular,one_to_many,8,GTFS_ROUTE_18204|GTFS_ROUTE_19586|GTFS_ROUTE_19660|GTFS_ROUTE_19667|GTFS_ROUTE_18205|GTFS_ROUTE_18206|GTFS_ROUTE_18207|GTFS_ROUTE_19786,54C|54C|54C|54C|54C|54C|54C|54C,Matches 8 operational GTFS directional/cut-trip variants
+54E,54E,express,one_to_many,3,GTFS_ROUTE_19099|GTFS_ROUTE_19100|GTFS_ROUTE_19102,54E|54E|54E,Matches 3 operational GTFS directional/cut-trip variants
+54G,54G,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+54K,54K,regular,one_to_many,4,GTFS_ROUTE_18212|GTFS_ROUTE_18213|GTFS_ROUTE_22754|GTFS_ROUTE_22759,54K|54K|54K|54K,Matches 4 operational GTFS directional/cut-trip variants
+54L,54L,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+54P,54P,regular,one_to_many,4,GTFS_ROUTE_18216|GTFS_ROUTE_18217|GTFS_ROUTE_12265|GTFS_ROUTE_12266,54P|54P|54P|54P,Matches 4 operational GTFS directional/cut-trip variants
+54S,54S,regular,one_to_many,5,GTFS_ROUTE_17892|GTFS_ROUTE_18218|GTFS_ROUTE_18219|GTFS_ROUTE_17891|GTFS_ROUTE_18304,54S|54S|54S|54S|54S,Matches 5 operational GTFS directional/cut-trip variants
+54T,54T,regular,one_to_many,4,GTFS_ROUTE_18220|GTFS_ROUTE_18221|GTFS_ROUTE_22767|GTFS_ROUTE_22768,54T|54T|54T|54T,Matches 4 operational GTFS directional/cut-trip variants
+54V,54V,regular,one_to_many,4,GTFS_ROUTE_18222|GTFS_ROUTE_18223|GTFS_ROUTE_11856|GTFS_ROUTE_11858,54V|54V|54V|54V,Matches 4 operational GTFS directional/cut-trip variants
+54VCT,54VCT,cut_trip,one_to_many,4,GTFS_ROUTE_18224|GTFS_ROUTE_18225|GTFS_ROUTE_11864|GTFS_ROUTE_16349,54VCt|54VCt|54VCt|54VCt,Matches 4 operational GTFS directional/cut-trip variants
+552K,552K,regular,one_to_many,4,GTFS_ROUTE_9074|GTFS_ROUTE_9064|GTFS_ROUTE_23061|GTFS_ROUTE_23062,552K|552K|552K|552K,Matches 4 operational GTFS directional/cut-trip variants
+553K,553K,regular,one_to_many,6,GTFS_ROUTE_19124|GTFS_ROUTE_19125|GTFS_ROUTE_18226|GTFS_ROUTE_18229|GTFS_ROUTE_22771|GTFS_ROUTE_22772,553K|553K|553K|553K|553K|553K,Matches 6 operational GTFS directional/cut-trip variants
+553W,553W,regular,one_to_many,4,GTFS_ROUTE_23935|GTFS_ROUTE_23936|GTFS_ROUTE_23473|GTFS_ROUTE_23474,553W|553W|553W|553W,Matches 4 operational GTFS directional/cut-trip variants
+554B,554B,regular,one_to_many,4,GTFS_ROUTE_11884|GTFS_ROUTE_11887|GTFS_ROUTE_16577|GTFS_ROUTE_23475,554B|554B|554B|554B,Matches 4 operational GTFS directional/cut-trip variants
+555G,555G,regular,one_to_many,4,GTFS_ROUTE_11807|GTFS_ROUTE_11809|GTFS_ROUTE_11805|GTFS_ROUTE_18487,555G|555G|555G|555G,Matches 4 operational GTFS directional/cut-trip variants
+555M,555M,regular,one_to_many,4,GTFS_ROUTE_11819|GTFS_ROUTE_11813|GTFS_ROUTE_11815|GTFS_ROUTE_11817,555M|555M|555M|555M,Matches 4 operational GTFS directional/cut-trip variants
+555N,555N,regular,one_to_many,4,GTFS_ROUTE_11822|GTFS_ROUTE_11824|GTFS_ROUTE_11826|GTFS_ROUTE_11830,555N|555N|555N|555N,Matches 4 operational GTFS directional/cut-trip variants
+555P,555P,regular,one_to_many,4,GTFS_ROUTE_11831|GTFS_ROUTE_11832|GTFS_ROUTE_11833|GTFS_ROUTE_11834,555P|555P|555P|555P,Matches 4 operational GTFS directional/cut-trip variants
+555S,555S,regular,one_to_many,4,GTFS_ROUTE_11836|GTFS_ROUTE_23994|GTFS_ROUTE_19321|GTFS_ROUTE_22660,555S|555S|555S|555S,Matches 4 operational GTFS directional/cut-trip variants
+556,556,regular,one_to_many,6,GTFS_ROUTE_11850|GTFS_ROUTE_11861|GTFS_ROUTE_11863|GTFS_ROUTE_11866|GTFS_ROUTE_11867|GTFS_ROUTE_11878,556|556|556|556|556|556,Matches 6 operational GTFS directional/cut-trip variants
+557,557,regular,one_to_many,6,GTFS_ROUTE_11883|GTFS_ROUTE_11886|GTFS_ROUTE_11888|GTFS_ROUTE_11889|GTFS_ROUTE_11890|GTFS_ROUTE_11892,557|557|557|557|557|557,Matches 6 operational GTFS directional/cut-trip variants
+557AE,557AE,express,one_to_many,3,GTFS_ROUTE_17886|GTFS_ROUTE_8088|GTFS_ROUTE_18312,557AE|557AE|557AE,Matches 3 operational GTFS directional/cut-trip variants
+557C,557C,regular,one_to_many,8,GTFS_ROUTE_11930|GTFS_ROUTE_11939|GTFS_ROUTE_11940|GTFS_ROUTE_11941|GTFS_ROUTE_11932|GTFS_ROUTE_11934|GTFS_ROUTE_11936|GTFS_ROUTE_11938,557C|557C|557C|557C|557C|557C|557C|557C,Matches 8 operational GTFS directional/cut-trip variants
+557M,557M,regular,one_to_many,8,GTFS_ROUTE_11945|GTFS_ROUTE_11952|GTFS_ROUTE_11953|GTFS_ROUTE_11955|GTFS_ROUTE_11957|GTFS_ROUTE_11948|GTFS_ROUTE_11950|GTFS_ROUTE_15772,557M|557M|557M|557M|557M|557M|557M|557M,Matches 8 operational GTFS directional/cut-trip variants
+558A,558A,regular,one_to_many,4,GTFS_ROUTE_11965|GTFS_ROUTE_11960|GTFS_ROUTE_11963|GTFS_ROUTE_15782,558A|558A|558A|558A,Matches 4 operational GTFS directional/cut-trip variants
+558B,558B,regular,one_to_many,6,GTFS_ROUTE_11974|GTFS_ROUTE_11980|GTFS_ROUTE_11970|GTFS_ROUTE_11976|GTFS_ROUTE_11979|GTFS_ROUTE_15780,558B|558B|558B|558B|558B|558B,Matches 6 operational GTFS directional/cut-trip variants
+558C,558C,regular,one_to_many,6,GTFS_ROUTE_11984|GTFS_ROUTE_11988|GTFS_ROUTE_11989|GTFS_ROUTE_11991|GTFS_ROUTE_15767|GTFS_ROUTE_11985,558C|558C|558C|558C|558C|558C,Matches 6 operational GTFS directional/cut-trip variants
+558L,558L,regular,one_to_many,4,GTFS_ROUTE_12000|GTFS_ROUTE_12003|GTFS_ROUTE_11996|GTFS_ROUTE_11998,558L|558L|558L|558L,Matches 4 operational GTFS directional/cut-trip variants
+558P,558P,regular,one_to_many,8,GTFS_ROUTE_12005|GTFS_ROUTE_12007|GTFS_ROUTE_12008|GTFS_ROUTE_12009|GTFS_ROUTE_12012|GTFS_ROUTE_12013|GTFS_ROUTE_12014|GTFS_ROUTE_12015,558P|558P|558P|558P|558P|558P|558P|558P,Matches 8 operational GTFS directional/cut-trip variants
+55A,55A,regular,one_to_many,6,GTFS_ROUTE_12019|GTFS_ROUTE_12022|GTFS_ROUTE_12024|GTFS_ROUTE_12025|GTFS_ROUTE_12026|GTFS_ROUTE_12027,55A|55A|55A|55A|55A|55A,Matches 6 operational GTFS directional/cut-trip variants
+55B,55B,regular,one_to_many,2,GTFS_ROUTE_12028|GTFS_ROUTE_12040,55B|55B,Matches 2 operational GTFS directional/cut-trip variants
+55C,55C,regular,one_to_many,4,GTFS_ROUTE_12042|GTFS_ROUTE_12043|GTFS_ROUTE_12044|GTFS_ROUTE_12041,55C|55C|55C|55C,Matches 4 operational GTFS directional/cut-trip variants
+55D,55D,regular,one_to_many,5,GTFS_ROUTE_11893|GTFS_ROUTE_11895|GTFS_ROUTE_11896|GTFS_ROUTE_22737|GTFS_ROUTE_22738,55D|55D|55D|55D|55D,Matches 5 operational GTFS directional/cut-trip variants
+55DET,55DET,regular,one_to_many,4,GTFS_ROUTE_11899|GTFS_ROUTE_11905|GTFS_ROUTE_22703|GTFS_ROUTE_22702,55DEt|55DEt|55DEt|55DEt,Matches 4 operational GTFS directional/cut-trip variants
+55ET,55ET,regular,one_to_many,4,GTFS_ROUTE_11906|GTFS_ROUTE_11907|GTFS_ROUTE_11908|GTFS_ROUTE_11909,55Et|55Et|55Et|55Et,Matches 4 operational GTFS directional/cut-trip variants
+55G,55G,regular,one_to_many,4,GTFS_ROUTE_11910|GTFS_ROUTE_11911|GTFS_ROUTE_22732|GTFS_ROUTE_22734,55G|55G|55G|55G,Matches 4 operational GTFS directional/cut-trip variants
+55H,55H,regular,one_to_many,4,GTFS_ROUTE_14564|GTFS_ROUTE_14565|GTFS_ROUTE_14566|GTFS_ROUTE_14567,55H|55H|55H|55H,Matches 4 operational GTFS directional/cut-trip variants
+55K,55K,regular,one_to_many,6,GTFS_ROUTE_11919|GTFS_ROUTE_11915|GTFS_ROUTE_11914|GTFS_ROUTE_11916|GTFS_ROUTE_11917|GTFS_ROUTE_11918,55K|55K|55K|55K|55K|55K,Matches 6 operational GTFS directional/cut-trip variants
+55M,55M,regular,one_to_many,2,GTFS_ROUTE_22711|GTFS_ROUTE_22712,55M|55M,Matches 2 operational GTFS directional/cut-trip variants
+55N,55N,regular,one_to_many,2,GTFS_ROUTE_19248|GTFS_ROUTE_19342,55N|55N,Matches 2 operational GTFS directional/cut-trip variants
+55P,55P,regular,one_to_many,4,GTFS_ROUTE_18409|GTFS_ROUTE_18410|GTFS_ROUTE_15771|GTFS_ROUTE_15770,55P|55P|55P|55P,Matches 4 operational GTFS directional/cut-trip variants
+55V,55V,regular,one_to_many,2,GTFS_ROUTE_22700|GTFS_ROUTE_22701,55V|55V,Matches 2 operational GTFS directional/cut-trip variants
+55X,55X,deluxe_express,one_to_many,4,GTFS_ROUTE_11925|GTFS_ROUTE_11927|GTFS_ROUTE_22645|GTFS_ROUTE_22647,55X|55X|55X|55X,Matches 4 operational GTFS directional/cut-trip variants
+565,565,regular,one_to_many,2,GTFS_ROUTE_17340|GTFS_ROUTE_17338,565|565,Matches 2 operational GTFS directional/cut-trip variants
+566,566,regular,one_to_many,4,GTFS_ROUTE_17330|GTFS_ROUTE_17329|GTFS_ROUTE_17331|GTFS_ROUTE_17489,566|566|566|566,Matches 4 operational GTFS directional/cut-trip variants
+566B,566B,regular,one_to_many,6,GTFS_ROUTE_11943|GTFS_ROUTE_11949|GTFS_ROUTE_11951|GTFS_ROUTE_11942|GTFS_ROUTE_11946|GTFS_ROUTE_11947,566B|566B|566B|566B|566B|566B,Matches 6 operational GTFS directional/cut-trip variants
+568B,568B,regular,one_to_many,4,GTFS_ROUTE_11954|GTFS_ROUTE_16537|GTFS_ROUTE_22740|GTFS_ROUTE_22741,568B|568B|568B|568B,Matches 4 operational GTFS directional/cut-trip variants
+56A,56A,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+56ACT,56ACT,cut_trip,one_to_many,2,GTFS_ROUTE_15219|GTFS_ROUTE_13936,56ACt|56ACt,Matches 2 operational GTFS directional/cut-trip variants
+56C,56C,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+56D,56D,regular,one_to_one,1,GTFS_ROUTE_15861,56D,Exact single commercial route variant match
+56DET,56DET,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+56F,56F,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+56J,56J,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+56K,56K,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+56P,56P,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+56PA,56PA,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+57,57,regular,one_to_many,5,GTFS_ROUTE_17939|GTFS_ROUTE_17942|GTFS_ROUTE_17074|GTFS_ROUTE_17818|GTFS_ROUTE_17823,57|57|57|57|57,Matches 5 operational GTFS directional/cut-trip variants
+570,570,regular,one_to_many,8,GTFS_ROUTE_17967|GTFS_ROUTE_17304|GTFS_ROUTE_17311|GTFS_ROUTE_17739|GTFS_ROUTE_17742|GTFS_ROUTE_24006|GTFS_ROUTE_24007|GTFS_ROUTE_18488,570|570|570|570|570|570|570|570,Matches 8 operational GTFS directional/cut-trip variants
+570ET,570ET,regular,one_to_many,9,GTFS_ROUTE_15885|GTFS_ROUTE_23917|GTFS_ROUTE_23918|GTFS_ROUTE_12091|GTFS_ROUTE_12092|GTFS_ROUTE_12093|GTFS_ROUTE_12094|GTFS_ROUTE_12096|GTFS_ROUTE_12097,570Et|570Et|570Et|570Et|570Et|570Et|570Et|570Et|570Et,Matches 9 operational GTFS directional/cut-trip variants
+570P,570P,regular,one_to_many,6,GTFS_ROUTE_9378|GTFS_ROUTE_9377|GTFS_ROUTE_9379|GTFS_ROUTE_12101|GTFS_ROUTE_12102|GTFS_ROUTE_12103,570P|570P|570P|570P|570P|570P,Matches 6 operational GTFS directional/cut-trip variants
+572,572,regular,one_to_many,2,GTFS_ROUTE_22810|GTFS_ROUTE_22811,572|572,Matches 2 operational GTFS directional/cut-trip variants
+572A,572A,regular,one_to_many,4,GTFS_ROUTE_12111|GTFS_ROUTE_12112|GTFS_ROUTE_12113|GTFS_ROUTE_12115,572A|572A|572A|572A,Matches 4 operational GTFS directional/cut-trip variants
+572K,572K,regular,one_to_many,4,GTFS_ROUTE_20285|GTFS_ROUTE_20287|GTFS_ROUTE_22814|GTFS_ROUTE_22817,572K|572K|572K|572K,Matches 4 operational GTFS directional/cut-trip variants
+578,578,regular,one_to_many,6,GTFS_ROUTE_18230|GTFS_ROUTE_12122|GTFS_ROUTE_12135|GTFS_ROUTE_18231|GTFS_ROUTE_23002|GTFS_ROUTE_23711,578|578|578|578|578|578,Matches 6 operational GTFS directional/cut-trip variants
+578A,578A,regular,one_to_many,2,GTFS_ROUTE_12140|GTFS_ROUTE_12141,578A|578A,Matches 2 operational GTFS directional/cut-trip variants
+578ET,578ET,regular,one_to_many,4,GTFS_ROUTE_17703|GTFS_ROUTE_12145|GTFS_ROUTE_22777|GTFS_ROUTE_23007,578Et|578Et|578Et|578Et,Matches 4 operational GTFS directional/cut-trip variants
+578M,578M,regular,one_to_many,4,GTFS_ROUTE_19674|GTFS_ROUTE_19762|GTFS_ROUTE_20482|GTFS_ROUTE_20485,578M|578M|578M|578M,Matches 4 operational GTFS directional/cut-trip variants
+578P,578P,regular,one_to_many,6,GTFS_ROUTE_19232|GTFS_ROUTE_19329|GTFS_ROUTE_19760|GTFS_ROUTE_19331|GTFS_ROUTE_20470|GTFS_ROUTE_20490,578P|578P|578P|578P|578P|578P,Matches 6 operational GTFS directional/cut-trip variants
+579A,579A,regular,one_to_many,6,GTFS_ROUTE_17719|GTFS_ROUTE_12154|GTFS_ROUTE_12156|GTFS_ROUTE_12165|GTFS_ROUTE_12162|GTFS_ROUTE_22605,579A|579A|579A|579A|579A|579A,Matches 6 operational GTFS directional/cut-trip variants
+579C,579C,regular,one_to_many,4,GTFS_ROUTE_17679|GTFS_ROUTE_2743|GTFS_ROUTE_12166|GTFS_ROUTE_12171,579C|579C|579C|579C,Matches 4 operational GTFS directional/cut-trip variants
+579K,579K,regular,one_to_many,6,GTFS_ROUTE_4946|GTFS_ROUTE_17675|GTFS_ROUTE_16256|GTFS_ROUTE_12173|GTFS_ROUTE_12175|GTFS_ROUTE_12176,579K|579K|579K|579K|579K|579K,Matches 6 operational GTFS directional/cut-trip variants
+57A,57A,regular,one_to_many,5,GTFS_ROUTE_18129|GTFS_ROUTE_18322|GTFS_ROUTE_13697|GTFS_ROUTE_12178|GTFS_ROUTE_12179,57A|57A|57A|57A|57A,Matches 5 operational GTFS directional/cut-trip variants
+57B,57B,regular,one_to_many,4,GTFS_ROUTE_15929|GTFS_ROUTE_12181|GTFS_ROUTE_12182|GTFS_ROUTE_12184,57B|57B|57B|57B,Matches 4 operational GTFS directional/cut-trip variants
+57CCT,57CCT,cut_trip,one_to_many,2,GTFS_ROUTE_12185|GTFS_ROUTE_12186,57CCt|57CCt,Matches 2 operational GTFS directional/cut-trip variants
+57D,57D,regular,one_to_one,1,GTFS_ROUTE_22635,57D,Exact single commercial route variant match
+57E,57E,express,one_to_many,2,GTFS_ROUTE_12194|GTFS_ROUTE_12195,57E|57E,Matches 2 operational GTFS directional/cut-trip variants
+57F,57F,regular,one_to_many,2,GTFS_ROUTE_12221|GTFS_ROUTE_22298,57F|57F,Matches 2 operational GTFS directional/cut-trip variants
+57G,57G,regular,one_to_many,4,GTFS_ROUTE_12199|GTFS_ROUTE_12196|GTFS_ROUTE_12197|GTFS_ROUTE_12198,57G|57G|57G|57G,Matches 4 operational GTFS directional/cut-trip variants
+57H,57H,regular,one_to_one,1,GTFS_ROUTE_21989,57H,Exact single commercial route variant match
+57J,57J,regular,one_to_many,4,GTFS_ROUTE_12128|GTFS_ROUTE_22602|GTFS_ROUTE_22604|GTFS_ROUTE_22622,57J|57J|57J|57J,Matches 4 operational GTFS directional/cut-trip variants
+57M,57M,regular,one_to_many,4,GTFS_ROUTE_15895|GTFS_ROUTE_12133|GTFS_ROUTE_22609|GTFS_ROUTE_22610,57M|57M|57M|57M,Matches 4 operational GTFS directional/cut-trip variants
+57P,57P,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+57X,57X,deluxe_express,one_to_many,3,GTFS_ROUTE_12137|GTFS_ROUTE_12138|GTFS_ROUTE_19679,57X|57X|57X,Matches 3 operational GTFS directional/cut-trip variants
+580,580,regular,one_to_many,9,GTFS_ROUTE_9986|GTFS_ROUTE_9992|GTFS_ROUTE_12159|GTFS_ROUTE_12163|GTFS_ROUTE_14855|GTFS_ROUTE_18309|GTFS_ROUTE_17912|GTFS_ROUTE_17927|GTFS_ROUTE_17928,580|580|580|580|580|580|580|580|580,Matches 9 operational GTFS directional/cut-trip variants
+580A,580A,regular,one_to_many,4,GTFS_ROUTE_12271|GTFS_ROUTE_12272|GTFS_ROUTE_12274|GTFS_ROUTE_12276,580A|580A|580A|580A,Matches 4 operational GTFS directional/cut-trip variants
+580M,580M,regular,one_to_many,4,GTFS_ROUTE_15896|GTFS_ROUTE_15897|GTFS_ROUTE_22823|GTFS_ROUTE_22825,580M|580M|580M|580M,Matches 4 operational GTFS directional/cut-trip variants
+583,583,regular,one_to_many,3,GTFS_ROUTE_938|GTFS_ROUTE_14990|GTFS_ROUTE_14988,583|583|583,Matches 3 operational GTFS directional/cut-trip variants
+583A,583A,regular,one_to_many,6,GTFS_ROUTE_12324|GTFS_ROUTE_17983|GTFS_ROUTE_17984|GTFS_ROUTE_17985|GTFS_ROUTE_17987|GTFS_ROUTE_12322,583A|583A|583A|583A|583A|583A,Matches 6 operational GTFS directional/cut-trip variants
+583C,583C,regular,one_to_many,4,GTFS_ROUTE_12326|GTFS_ROUTE_12327|GTFS_ROUTE_12328|GTFS_ROUTE_21653,583C|583C|583C|583C,Matches 4 operational GTFS directional/cut-trip variants
+583D,583D,regular,one_to_many,2,GTFS_ROUTE_12331|GTFS_ROUTE_12332,583D|583D,Matches 2 operational GTFS directional/cut-trip variants
+583K,583K,regular,one_to_many,8,GTFS_ROUTE_6532|GTFS_ROUTE_6533|GTFS_ROUTE_12333|GTFS_ROUTE_12335|GTFS_ROUTE_12339|GTFS_ROUTE_12340|GTFS_ROUTE_12341|GTFS_ROUTE_22663,583K|583K|583K|583K|583K|583K|583K|583K,Matches 8 operational GTFS directional/cut-trip variants
+588,588,regular,one_to_many,4,GTFS_ROUTE_18269|GTFS_ROUTE_15995|GTFS_ROUTE_12344|GTFS_ROUTE_12347,588|588|588|588,Matches 4 operational GTFS directional/cut-trip variants
+58V,58V,regular,one_to_many,4,GTFS_ROUTE_12354|GTFS_ROUTE_15930|GTFS_ROUTE_12351|GTFS_ROUTE_12353,58V|58V|58V|58V,Matches 4 operational GTFS directional/cut-trip variants
+59,59,regular,one_to_many,4,GTFS_ROUTE_17097|GTFS_ROUTE_17095|GTFS_ROUTE_17092|GTFS_ROUTE_17099,59|59|59|59,Matches 4 operational GTFS directional/cut-trip variants
+591,591,regular,one_to_many,3,GTFS_ROUTE_12360|GTFS_ROUTE_12362|GTFS_ROUTE_12361,591|591|591,Matches 3 operational GTFS directional/cut-trip variants
+591C,591C,regular,one_to_many,2,GTFS_ROUTE_12363|GTFS_ROUTE_12364,591C|591C,Matches 2 operational GTFS directional/cut-trip variants
+592,592,regular,one_to_many,4,GTFS_ROUTE_12366|GTFS_ROUTE_12368|GTFS_ROUTE_12365|GTFS_ROUTE_12367,592|592|592|592,Matches 4 operational GTFS directional/cut-trip variants
+592V,592V,regular,one_to_many,5,GTFS_ROUTE_12372|GTFS_ROUTE_18093|GTFS_ROUTE_18091|GTFS_ROUTE_18092|GTFS_ROUTE_18098,592V|592V|592V|592V|592V,Matches 5 operational GTFS directional/cut-trip variants
+593CT,593CT,cut_trip,one_to_many,6,GTFS_ROUTE_12380|GTFS_ROUTE_12377|GTFS_ROUTE_12381|GTFS_ROUTE_12384|GTFS_ROUTE_12382|GTFS_ROUTE_12379,593Ct|593Ct|593Ct|593Ct|593Ct|593Ct,Matches 6 operational GTFS directional/cut-trip variants
+595,595,regular,one_to_one,1,GTFS_ROUTE_12389,595,Exact single commercial route variant match
+597,597,regular,one_to_many,4,GTFS_ROUTE_12401|GTFS_ROUTE_16325|GTFS_ROUTE_12397|GTFS_ROUTE_13853,597|597|597|597,Matches 4 operational GTFS directional/cut-trip variants
+597A,597A,regular,one_to_many,3,GTFS_ROUTE_12414|GTFS_ROUTE_15957|GTFS_ROUTE_17624,597A|597A|597A,Matches 3 operational GTFS directional/cut-trip variants
+597C,597C,regular,one_to_many,4,GTFS_ROUTE_12417|GTFS_ROUTE_12418|GTFS_ROUTE_19583|GTFS_ROUTE_19635,597C|597C|597C|597C,Matches 4 operational GTFS directional/cut-trip variants
+597CET,597CET,regular,one_to_many,3,GTFS_ROUTE_12420|GTFS_ROUTE_19364|GTFS_ROUTE_12427,597CEt|597CEt|597CEt,Matches 3 operational GTFS directional/cut-trip variants
+597T,597T,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+5B,5B,regular,one_to_many,3,GTFS_ROUTE_23765|GTFS_ROUTE_23766|GTFS_ROUTE_23506,5B|5B|5B,Matches 3 operational GTFS directional/cut-trip variants
+5C,5C,regular,one_to_many,4,GTFS_ROUTE_8395|GTFS_ROUTE_21148|GTFS_ROUTE_21325|GTFS_ROUTE_21329,5C|5C|5C|5C,Matches 4 operational GTFS directional/cut-trip variants
+5E,5E,express,one_to_many,2,GTFS_ROUTE_18958|GTFS_ROUTE_22325,5E|5E,Matches 2 operational GTFS directional/cut-trip variants
+5G,5G,regular,one_to_many,2,GTFS_ROUTE_12300|GTFS_ROUTE_17544,5G|5G,Matches 2 operational GTFS directional/cut-trip variants
+5S,5S,regular,one_to_many,4,GTFS_ROUTE_12301|GTFS_ROUTE_12302|GTFS_ROUTE_12303|GTFS_ROUTE_12304,5S|5S|5S|5S,Matches 4 operational GTFS directional/cut-trip variants
+6,6,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+60,60,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+60A,60A,regular,one_to_one,1,GTFS_ROUTE_21836,60A,Exact single commercial route variant match
+60D,60D,regular,one_to_many,2,GTFS_ROUTE_23507|GTFS_ROUTE_23508,60D|60D,Matches 2 operational GTFS directional/cut-trip variants
+60E,60E,express,unmatched,0,,,Official route code not present in community GTFS snapshot
+60G,60G,regular,one_to_many,4,GTFS_ROUTE_5426|GTFS_ROUTE_5434|GTFS_ROUTE_23509|GTFS_ROUTE_23510,60G|60G|60G|60G,Matches 4 operational GTFS directional/cut-trip variants
+60H,60H,regular,one_to_one,1,GTFS_ROUTE_12390,60H,Exact single commercial route variant match
+61A,61A,regular,one_to_many,2,GTFS_ROUTE_12400|GTFS_ROUTE_12398,61A|61A,Matches 2 operational GTFS directional/cut-trip variants
+61C,61C,regular,one_to_many,4,GTFS_ROUTE_12411|GTFS_ROUTE_12407|GTFS_ROUTE_12406|GTFS_ROUTE_12409,61C|61C|61C|61C,Matches 4 operational GTFS directional/cut-trip variants
+61E,61E,express,one_to_many,4,GTFS_ROUTE_12413|GTFS_ROUTE_12422|GTFS_ROUTE_12425|GTFS_ROUTE_12426,61E|61E|61E|61E,Matches 4 operational GTFS directional/cut-trip variants
+61K,61K,regular,one_to_many,4,GTFS_ROUTE_12428|GTFS_ROUTE_12432|GTFS_ROUTE_12433|GTFS_ROUTE_12430,61K|61K|61K|61K,Matches 4 operational GTFS directional/cut-trip variants
+61R,61R,regular,one_to_many,4,GTFS_ROUTE_12435|GTFS_ROUTE_12436|GTFS_ROUTE_12438|GTFS_ROUTE_12434,61R|61R|61R|61R,Matches 4 operational GTFS directional/cut-trip variants
+62,62,regular,one_to_many,14,GTFS_ROUTE_17131|GTFS_ROUTE_18294|GTFS_ROUTE_17159|GTFS_ROUTE_17151|GTFS_ROUTE_17154|GTFS_ROUTE_17146|GTFS_ROUTE_17152|GTFS_ROUTE_20088|GTFS_ROUTE_20089|GTFS_ROUTE_17122|GTFS_ROUTE_17186|GTFS_ROUTE_17135|GTFS_ROUTE_17140|GTFS_ROUTE_17143,62|62|62|62|62|62|62|62|62|62|62|62|62|62,Matches 14 operational GTFS directional/cut-trip variants
+62A,62A,regular,one_to_many,4,GTFS_ROUTE_12493|GTFS_ROUTE_12495|GTFS_ROUTE_12497|GTFS_ROUTE_12499,62A|62A|62A|62A,Matches 4 operational GTFS directional/cut-trip variants
+62B,62B,regular,one_to_many,4,GTFS_ROUTE_12502|GTFS_ROUTE_12505|GTFS_ROUTE_17653|GTFS_ROUTE_12501,62B|62B|62B|62B,Matches 4 operational GTFS directional/cut-trip variants
+62CT,62CT,cut_trip,one_to_many,5,GTFS_ROUTE_12508|GTFS_ROUTE_19619|GTFS_ROUTE_15884|GTFS_ROUTE_12511|GTFS_ROUTE_12512,62Ct|62 CT|62Ct|62Ct|62Ct,Matches 5 operational GTFS directional/cut-trip variants
+62M,62M,regular,one_to_many,4,GTFS_ROUTE_12517|GTFS_ROUTE_12513|GTFS_ROUTE_12514|GTFS_ROUTE_23512,62M|62M|62M|62M,Matches 4 operational GTFS directional/cut-trip variants
+63,63,regular,one_to_many,6,GTFS_ROUTE_17970|GTFS_ROUTE_17238|GTFS_ROUTE_17234|GTFS_ROUTE_17975|GTFS_ROUTE_17242|GTFS_ROUTE_17236,63|63|63|63|63|63,Matches 6 operational GTFS directional/cut-trip variants
+64C,64C,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+64D,64D,regular,one_to_many,3,GTFS_ROUTE_12559|GTFS_ROUTE_12560|GTFS_ROUTE_12562,64D|64D|64D,Matches 3 operational GTFS directional/cut-trip variants
+64K,64K,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+64KET,64KET,regular,one_to_many,2,GTFS_ROUTE_12552|GTFS_ROUTE_12554,64KEt|64KEt,Matches 2 operational GTFS directional/cut-trip variants
+64M,64M,regular,one_to_many,4,GTFS_ROUTE_12547|GTFS_ROUTE_12548|GTFS_ROUTE_23513|GTFS_ROUTE_23514,64M|64M|64M|64M,Matches 4 operational GTFS directional/cut-trip variants
+65A,65A,regular,one_to_many,2,GTFS_ROUTE_12543|GTFS_ROUTE_12546,65A|65A,Matches 2 operational GTFS directional/cut-trip variants
+65B,65B,regular,one_to_many,4,GTFS_ROUTE_12540|GTFS_ROUTE_12538|GTFS_ROUTE_19664|GTFS_ROUTE_19721,65B|65B|65B|65B,Matches 4 operational GTFS directional/cut-trip variants
+65CCT,65CCT,cut_trip,one_to_many,2,GTFS_ROUTE_12537|GTFS_ROUTE_12536,65CCt|65CCt,Matches 2 operational GTFS directional/cut-trip variants
+65D,65D,regular,one_to_many,2,GTFS_ROUTE_22843|GTFS_ROUTE_22844,65D|65D,Matches 2 operational GTFS directional/cut-trip variants
+65E,65E,express,one_to_many,2,GTFS_ROUTE_22826|GTFS_ROUTE_22827,65E|65E,Matches 2 operational GTFS directional/cut-trip variants
+65G,65G,regular,one_to_many,4,GTFS_ROUTE_17772|GTFS_ROUTE_12530|GTFS_ROUTE_18303|GTFS_ROUTE_12531,65G|65G|65G|65G,Matches 4 operational GTFS directional/cut-trip variants
+65H,65H,regular,one_to_many,2,GTFS_ROUTE_12527|GTFS_ROUTE_12526,65H|65H,Matches 2 operational GTFS directional/cut-trip variants
+65K,65K,regular,one_to_many,2,GTFS_ROUTE_12507|GTFS_ROUTE_22835,65K|65K,Matches 2 operational GTFS directional/cut-trip variants
+66,66,regular,one_to_many,5,GTFS_ROUTE_17263|GTFS_ROUTE_17261|GTFS_ROUTE_17269|GTFS_ROUTE_19718|GTFS_ROUTE_23724,66|66|66|66|66,Matches 5 operational GTFS directional/cut-trip variants
+66A,66A,regular,one_to_many,2,GTFS_ROUTE_12494|GTFS_ROUTE_12492,66A|66A,Matches 2 operational GTFS directional/cut-trip variants
+66K,66K,regular,one_to_many,7,GTFS_ROUTE_12477|GTFS_ROUTE_12489|GTFS_ROUTE_3159|GTFS_ROUTE_12488|GTFS_ROUTE_12490|GTFS_ROUTE_15833|GTFS_ROUTE_14974,66K|66K|66K|66K|66K|66K|66K,Matches 7 operational GTFS directional/cut-trip variants
+66M,66M,regular,one_to_many,4,GTFS_ROUTE_19685|GTFS_ROUTE_15793|GTFS_ROUTE_15792|GTFS_ROUTE_17485,66M|66M|66M|66M,Matches 4 operational GTFS directional/cut-trip variants
+66P,66P,regular,one_to_many,3,GTFS_ROUTE_12463|GTFS_ROUTE_12469|GTFS_ROUTE_15864,66P|66P|66P,Matches 3 operational GTFS directional/cut-trip variants
+66PX,66PX,deluxe_express,one_to_many,6,GTFS_ROUTE_15798|GTFS_ROUTE_19454|GTFS_ROUTE_19469|GTFS_ROUTE_19559|GTFS_ROUTE_19663|GTFS_ROUTE_15799,66PX|66PX|66PX|66PX|66PX|66PX,Matches 6 operational GTFS directional/cut-trip variants
+6D,6D,regular,one_to_many,2,GTFS_ROUTE_8341|GTFS_ROUTE_8342,6D|6D,Matches 2 operational GTFS directional/cut-trip variants
+6DET,6DET,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+70,70,regular,one_to_many,3,GTFS_ROUTE_17241|GTFS_ROUTE_17233|GTFS_ROUTE_17796,70|70|70,Matches 3 operational GTFS directional/cut-trip variants
+70A,70A,regular,one_to_many,7,GTFS_ROUTE_12643|GTFS_ROUTE_12641|GTFS_ROUTE_12629|GTFS_ROUTE_12630|GTFS_ROUTE_15877|GTFS_ROUTE_12638|GTFS_ROUTE_12632,70A|70A|70A|70A|70A|70A|70A,Matches 7 operational GTFS directional/cut-trip variants
+70ACT,70ACT,cut_trip,one_to_many,10,GTFS_ROUTE_16365|GTFS_ROUTE_12645|GTFS_ROUTE_12648|GTFS_ROUTE_12650|GTFS_ROUTE_12651|GTFS_ROUTE_12653|GTFS_ROUTE_12655|GTFS_ROUTE_12657|GTFS_ROUTE_19496|GTFS_ROUTE_12646,70ACt|70ACt|70ACt|70ACt|70ACt|70ACt|70ACt|70ACt|70A CT|70ACt,Matches 10 operational GTFS directional/cut-trip variants
+70C,70C,regular,one_to_many,13,GTFS_ROUTE_12706|GTFS_ROUTE_12664|GTFS_ROUTE_12668|GTFS_ROUTE_12670|GTFS_ROUTE_12687|GTFS_ROUTE_12694|GTFS_ROUTE_12703|GTFS_ROUTE_12704|GTFS_ROUTE_12659|GTFS_ROUTE_15825|GTFS_ROUTE_17924|GTFS_ROUTE_15826|GTFS_ROUTE_20236,70C|70C|70C|70C|70C|70C|70C|70C|70C|70C|70C|70C|70C,Matches 13 operational GTFS directional/cut-trip variants
+70CCT,70CCT,cut_trip,one_to_many,3,GTFS_ROUTE_19482|GTFS_ROUTE_18335|GTFS_ROUTE_19772,70CCt|70C CT|70CCt,Matches 3 operational GTFS directional/cut-trip variants
+70E,70E,express,one_to_many,5,GTFS_ROUTE_18878|GTFS_ROUTE_12724|GTFS_ROUTE_12725|GTFS_ROUTE_12726|GTFS_ROUTE_12729,70E|70E|70E|70E|70E,Matches 5 operational GTFS directional/cut-trip variants
+70F,70F,regular,one_to_many,6,GTFS_ROUTE_12738|GTFS_ROUTE_12731|GTFS_ROUTE_12732|GTFS_ROUTE_12734|GTFS_ROUTE_17949|GTFS_ROUTE_12740,70F|70F|70F|70F|70F|70F,Matches 6 operational GTFS directional/cut-trip variants
+70G,70G,regular,one_to_many,4,GTFS_ROUTE_18905|GTFS_ROUTE_3177|GTFS_ROUTE_12749|GTFS_ROUTE_3180,70G|70G|70G|70G,Matches 4 operational GTFS directional/cut-trip variants
+70H,70H,regular,one_to_many,4,GTFS_ROUTE_12581|GTFS_ROUTE_12582|GTFS_ROUTE_23516|GTFS_ROUTE_23517,70H|70H|70H|70H,Matches 4 operational GTFS directional/cut-trip variants
+70J,70J,regular,one_to_many,6,GTFS_ROUTE_7317|GTFS_ROUTE_12586|GTFS_ROUTE_12587|GTFS_ROUTE_12584|GTFS_ROUTE_17934|GTFS_ROUTE_15872,70J|70J|70J|70J|70J|70J,Matches 6 operational GTFS directional/cut-trip variants
+70K,70K,regular,one_to_many,4,GTFS_ROUTE_12588|GTFS_ROUTE_12589|GTFS_ROUTE_12591|GTFS_ROUTE_12590,70K|70K|70K|70K,Matches 4 operational GTFS directional/cut-trip variants
+70LCT,70LCT,cut_trip,one_to_many,4,GTFS_ROUTE_12592|GTFS_ROUTE_12594|GTFS_ROUTE_12595|GTFS_ROUTE_22949,70LCt|70LCt|70LCt|70LCt,Matches 4 operational GTFS directional/cut-trip variants
+70M,70M,regular,one_to_many,6,GTFS_ROUTE_12596|GTFS_ROUTE_12597|GTFS_ROUTE_12598|GTFS_ROUTE_12599|GTFS_ROUTE_12600|GTFS_ROUTE_12601,70M|70M|70M|70M|70M|70M,Matches 6 operational GTFS directional/cut-trip variants
+70N,70N,regular,one_to_many,4,GTFS_ROUTE_19448|GTFS_ROUTE_12603|GTFS_ROUTE_12604|GTFS_ROUTE_12605,70N|70N|70N|70N,Matches 4 operational GTFS directional/cut-trip variants
+70T,70T,regular,one_to_many,6,GTFS_ROUTE_12606|GTFS_ROUTE_24106|GTFS_ROUTE_12608|GTFS_ROUTE_14460|GTFS_ROUTE_14461|GTFS_ROUTE_21691,70T|70T|70T|70T|70T|70T,Matches 6 operational GTFS directional/cut-trip variants
+70V,70V,regular,one_to_many,2,GTFS_ROUTE_16268|GTFS_ROUTE_16267,70V|70V,Matches 2 operational GTFS directional/cut-trip variants
+71D,71D,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+71E,71E,express,one_to_many,5,GTFS_ROUTE_21524|GTFS_ROUTE_12644|GTFS_ROUTE_21521|GTFS_ROUTE_21522|GTFS_ROUTE_21520,71E|71E|71E|71E|71E,Matches 5 operational GTFS directional/cut-trip variants
+71H,71H,regular,one_to_many,2,GTFS_ROUTE_21967|GTFS_ROUTE_21969,71H|71H,Matches 2 operational GTFS directional/cut-trip variants
+71V,71V,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+72,72,regular,one_to_many,4,GTFS_ROUTE_17214|GTFS_ROUTE_17215|GTFS_ROUTE_17211|GTFS_ROUTE_17220,72|72|72|72,Matches 4 operational GTFS directional/cut-trip variants
+72M,72M,regular,one_to_many,4,GTFS_ROUTE_12713|GTFS_ROUTE_12714|GTFS_ROUTE_12718|GTFS_ROUTE_18726,72M|72M|72M|72M,Matches 4 operational GTFS directional/cut-trip variants
+73,73,regular,one_to_many,2,GTFS_ROUTE_17201|GTFS_ROUTE_17202,73|73,Matches 2 operational GTFS directional/cut-trip variants
+73A,73A,regular,one_to_many,2,GTFS_ROUTE_22833|GTFS_ROUTE_22834,73A|73A,Matches 2 operational GTFS directional/cut-trip variants
+73C,73C,regular,one_to_many,2,GTFS_ROUTE_12722|GTFS_ROUTE_12723,73C|73C,Matches 2 operational GTFS directional/cut-trip variants
+73CT,73CT,cut_trip,one_to_many,2,GTFS_ROUTE_12727|GTFS_ROUTE_12730,73Ct|73Ct,Matches 2 operational GTFS directional/cut-trip variants
+76,76,regular,one_to_many,12,GTFS_ROUTE_17179|GTFS_ROUTE_17172|GTFS_ROUTE_17168|GTFS_ROUTE_17169|GTFS_ROUTE_17174|GTFS_ROUTE_17176|GTFS_ROUTE_17177|GTFS_ROUTE_17530|GTFS_ROUTE_17534|GTFS_ROUTE_17535|GTFS_ROUTE_22856|GTFS_ROUTE_22857,76|76|76|76|76|76|76|76|76|76|76|76,Matches 12 operational GTFS directional/cut-trip variants
+76B,76B,regular,one_to_many,6,GTFS_ROUTE_12756|GTFS_ROUTE_14952|GTFS_ROUTE_12753|GTFS_ROUTE_14953|GTFS_ROUTE_14954|GTFS_ROUTE_14956,76B|76B|76B|76B|76B|76B,Matches 6 operational GTFS directional/cut-trip variants
+77,77,regular,one_to_many,3,GTFS_ROUTE_17138|GTFS_ROUTE_17126|GTFS_ROUTE_23522,77|77|77,Matches 3 operational GTFS directional/cut-trip variants
+77A,77A,regular,one_to_many,4,GTFS_ROUTE_12784|GTFS_ROUTE_12785|GTFS_ROUTE_12787|GTFS_ROUTE_12788,77A|77A|77A|77A,Matches 4 operational GTFS directional/cut-trip variants
+77B,77B,regular,one_to_many,4,GTFS_ROUTE_12793|GTFS_ROUTE_12790|GTFS_ROUTE_12792|GTFS_ROUTE_12795,77B|77B|77B|77B,Matches 4 operational GTFS directional/cut-trip variants
+77CT,77CT,cut_trip,one_to_many,6,GTFS_ROUTE_12800|GTFS_ROUTE_12796|GTFS_ROUTE_12798|GTFS_ROUTE_12801|GTFS_ROUTE_22166|GTFS_ROUTE_23523,77Ct|77Ct|77Ct|77Ct|77 CT|77 CT,Matches 6 operational GTFS directional/cut-trip variants
+77E,77E,express,one_to_many,7,GTFS_ROUTE_12804|GTFS_ROUTE_9455|GTFS_ROUTE_9456|GTFS_ROUTE_12812|GTFS_ROUTE_12807|GTFS_ROUTE_22828|GTFS_ROUTE_22829,77E|77E|77E|77E|77E|77E|77E,Matches 7 operational GTFS directional/cut-trip variants
+77FCT,77FCT,cut_trip,one_to_many,2,GTFS_ROUTE_12799|GTFS_ROUTE_12797,77FCt|77FCt,Matches 2 operational GTFS directional/cut-trip variants
+77K,77K,regular,one_to_many,6,GTFS_ROUTE_12783|GTFS_ROUTE_12782|GTFS_ROUTE_12786|GTFS_ROUTE_12789|GTFS_ROUTE_12791|GTFS_ROUTE_12794,77K|77K|77K|77K|77K|77K,Matches 6 operational GTFS directional/cut-trip variants
+77M,77M,regular,one_to_many,9,GTFS_ROUTE_12767|GTFS_ROUTE_16348|GTFS_ROUTE_16443|GTFS_ROUTE_12771|GTFS_ROUTE_12772|GTFS_ROUTE_12775|GTFS_ROUTE_12777|GTFS_ROUTE_12765|GTFS_ROUTE_12769,77M|77M|77M|77M|77M|77M|77M|77M|77M,Matches 9 operational GTFS directional/cut-trip variants
+77P,77P,regular,one_to_many,6,GTFS_ROUTE_12803|GTFS_ROUTE_12805|GTFS_ROUTE_12808|GTFS_ROUTE_12811|GTFS_ROUTE_12809|GTFS_ROUTE_12806,77P|77P|77P|77P|77P|77P,Matches 6 operational GTFS directional/cut-trip variants
+77T,77T,regular,one_to_many,4,GTFS_ROUTE_17725|GTFS_ROUTE_16257|GTFS_ROUTE_12816|GTFS_ROUTE_12817,77T|77T|77T|77T,Matches 4 operational GTFS directional/cut-trip variants
+77V,77V,regular,one_to_many,6,GTFS_ROUTE_12820|GTFS_ROUTE_12824|GTFS_ROUTE_17950|GTFS_ROUTE_12822|GTFS_ROUTE_12825|GTFS_ROUTE_12826,77V|77V|77V|77V|77V|77V,Matches 6 operational GTFS directional/cut-trip variants
+77VET,77VET,regular,one_to_many,4,GTFS_ROUTE_12827|GTFS_ROUTE_12828|GTFS_ROUTE_12829|GTFS_ROUTE_22941,77VEt|77VEt|77VEt|77VEt,Matches 4 operational GTFS directional/cut-trip variants
+78,78,regular,one_to_many,11,GTFS_ROUTE_17087|GTFS_ROUTE_17093|GTFS_ROUTE_17100|GTFS_ROUTE_17104|GTFS_ROUTE_17089|GTFS_ROUTE_17096|GTFS_ROUTE_17105|GTFS_ROUTE_23937|GTFS_ROUTE_23938|GTFS_ROUTE_17088|GTFS_ROUTE_17098,78|78|78|78|78|78|78|78|78|78|78,Matches 11 operational GTFS directional/cut-trip variants
+79A,79A,regular,one_to_many,2,GTFS_ROUTE_12847|GTFS_ROUTE_12845,79A|79A,Matches 2 operational GTFS directional/cut-trip variants
+79V,79V,regular,one_to_many,6,GTFS_ROUTE_17705|GTFS_ROUTE_12855|GTFS_ROUTE_12857|GTFS_ROUTE_12858|GTFS_ROUTE_12851|GTFS_ROUTE_12849,79V|79V|79V|79V|79V|79V,Matches 6 operational GTFS directional/cut-trip variants
+7E,7E,express,unmatched,0,,,Official route code not present in community GTFS snapshot
+7H,7H,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+7K,7K,regular,one_to_one,1,GTFS_ROUTE_18678,7K,Exact single commercial route variant match
+7M,7M,regular,one_to_many,2,GTFS_ROUTE_15948|GTFS_ROUTE_15865,7M|7M,Matches 2 operational GTFS directional/cut-trip variants
+7MET,7MET,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+88C,88C,regular,one_to_one,1,GTFS_ROUTE_12920,88C,Exact single commercial route variant match
+88CET,88CET,regular,one_to_many,4,GTFS_ROUTE_18769|GTFS_ROUTE_18770|GTFS_ROUTE_12924|GTFS_ROUTE_12925,88CEt|88CEt|88CEt|88CEt,Matches 4 operational GTFS directional/cut-trip variants
+88D,88D,regular,one_to_many,2,GTFS_ROUTE_23525|GTFS_ROUTE_23526,88D|88D,Matches 2 operational GTFS directional/cut-trip variants
+88K,88K,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+88KET,88KET,regular,one_to_many,2,GTFS_ROUTE_12941|GTFS_ROUTE_12945,88KEt|88KEt,Matches 2 operational GTFS directional/cut-trip variants
+88L,88L,regular,one_to_many,2,GTFS_ROUTE_12839|GTFS_ROUTE_12841,88L|88L,Matches 2 operational GTFS directional/cut-trip variants
+88M,88M,regular,one_to_many,2,GTFS_ROUTE_12844|GTFS_ROUTE_12846,88M|88M,Matches 2 operational GTFS directional/cut-trip variants
+88R,88R,regular,one_to_many,4,GTFS_ROUTE_12848|GTFS_ROUTE_12850|GTFS_ROUTE_12852|GTFS_ROUTE_12854,88R|88R|88R|88R,Matches 4 operational GTFS directional/cut-trip variants
+89,89,regular,one_to_many,6,GTFS_ROUTE_17051|GTFS_ROUTE_17060|GTFS_ROUTE_17056|GTFS_ROUTE_17052|GTFS_ROUTE_17053|GTFS_ROUTE_17058,89|89|89|89|89|89,Matches 6 operational GTFS directional/cut-trip variants
+89A,89A,regular,one_to_many,4,GTFS_ROUTE_12866|GTFS_ROUTE_12864|GTFS_ROUTE_12871|GTFS_ROUTE_12873,89A|89A|89A|89A,Matches 4 operational GTFS directional/cut-trip variants
+89T,89T,regular,one_to_many,2,GTFS_ROUTE_12881|GTFS_ROUTE_12883,89T|89T,Matches 2 operational GTFS directional/cut-trip variants
+89TCT,89TCT,cut_trip,one_to_many,4,GTFS_ROUTE_12885|GTFS_ROUTE_12884|GTFS_ROUTE_23528|GTFS_ROUTE_23529,89TCt|89TCt|89TCt|89TCt,Matches 4 operational GTFS directional/cut-trip variants
+8ACT,8ACT,cut_trip,one_to_many,4,GTFS_ROUTE_20982|GTFS_ROUTE_20984|GTFS_ROUTE_23530|GTFS_ROUTE_23531,8ACT|8ACT|8ACT|8ACT,Matches 4 operational GTFS directional/cut-trip variants
+8B,8B,regular,one_to_many,2,GTFS_ROUTE_12888|GTFS_ROUTE_20919,8B|8B,Matches 2 operational GTFS directional/cut-trip variants
+91,91,regular,one_to_many,4,GTFS_ROUTE_19155|GTFS_ROUTE_24072|GTFS_ROUTE_17040|GTFS_ROUTE_19754,91|91|91|91,Matches 4 operational GTFS directional/cut-trip variants
+91A,91A,regular,one_to_many,3,GTFS_ROUTE_12928|GTFS_ROUTE_12930|GTFS_ROUTE_23532,91A|91A|91A,Matches 3 operational GTFS directional/cut-trip variants
+91R,91R,regular,one_to_many,6,GTFS_ROUTE_24073|GTFS_ROUTE_12946|GTFS_ROUTE_12937|GTFS_ROUTE_12942|GTFS_ROUTE_23063|GTFS_ROUTE_23064,91 R|91R|91R|91R|91R|91R,Matches 6 operational GTFS directional/cut-trip variants
+91V,91V,regular,one_to_many,5,GTFS_ROUTE_3283|GTFS_ROUTE_3488|GTFS_ROUTE_8672|GTFS_ROUTE_3610|GTFS_ROUTE_3215,91V|91V|91V|91V|91V,Matches 5 operational GTFS directional/cut-trip variants
+95,95,regular,one_to_many,5,GTFS_ROUTE_17488|GTFS_ROUTE_16990|GTFS_ROUTE_16994|GTFS_ROUTE_16998|GTFS_ROUTE_23137,95|95|95|95|95,Matches 5 operational GTFS directional/cut-trip variants
+95X,95X,deluxe_express,one_to_many,9,GTFS_ROUTE_17957|GTFS_ROUTE_3516|GTFS_ROUTE_3503|GTFS_ROUTE_3506|GTFS_ROUTE_3513|GTFS_ROUTE_4942|GTFS_ROUTE_17976|GTFS_ROUTE_12245|GTFS_ROUTE_3492,95X|95X|95X|95X|95X|95X|95X|95X|95X,Matches 9 operational GTFS directional/cut-trip variants
+95XCT,95XCT,cut_trip,one_to_many,9,GTFS_ROUTE_9771|GTFS_ROUTE_12993|GTFS_ROUTE_9774|GTFS_ROUTE_19164|GTFS_ROUTE_23995|GTFS_ROUTE_24046|GTFS_ROUTE_12990|GTFS_ROUTE_12984|GTFS_ROUTE_12988,95XCt|95XCt|95XCt|95X CT|95XCt|95X CT|95XCt|95XCt|95XCt,Matches 9 operational GTFS directional/cut-trip variants
+96,96,regular,one_to_many,2,GTFS_ROUTE_19550|GTFS_ROUTE_19712,96|96,Matches 2 operational GTFS directional/cut-trip variants
+99,99,regular,one_to_many,2,GTFS_ROUTE_16966|GTFS_ROUTE_16969,99|99,Matches 2 operational GTFS directional/cut-trip variants
+99A,99A,regular,one_to_many,4,GTFS_ROUTE_24013|GTFS_ROUTE_24014|GTFS_ROUTE_24023|GTFS_ROUTE_14066,99A|99A|99A|99A,Matches 4 operational GTFS directional/cut-trip variants
+99C,99C,regular,one_to_many,4,GTFS_ROUTE_23990|GTFS_ROUTE_23991|GTFS_ROUTE_19568|GTFS_ROUTE_16282,99C|99C|99C|99C,Matches 4 operational GTFS directional/cut-trip variants
+99X,99X,deluxe_express,one_to_many,5,GTFS_ROUTE_17956|GTFS_ROUTE_18252|GTFS_ROUTE_13037|GTFS_ROUTE_13034|GTFS_ROUTE_23202,99X|99X|99X|99X|99X,Matches 5 operational GTFS directional/cut-trip variants
+9M,9M,regular,one_to_many,4,GTFS_ROUTE_13045|GTFS_ROUTE_13049|GTFS_ROUTE_23049|GTFS_ROUTE_23050,9M|9M|9M|9M,Matches 4 operational GTFS directional/cut-trip variants
+9MET,9MET,regular,one_to_many,3,GTFS_ROUTE_21937|GTFS_ROUTE_23078|GTFS_ROUTE_23079,9MEt|9MEt|9MEt,Matches 3 operational GTFS directional/cut-trip variants
+A1,A1,regular,one_to_many,2,GTFS_ROUTE_13028|GTFS_ROUTE_13030,A1|A1,Matches 2 operational GTFS directional/cut-trip variants
+A1ET,A1ET,regular,one_to_many,4,GTFS_ROUTE_8029|GTFS_ROUTE_8031|GTFS_ROUTE_13016|GTFS_ROUTE_13014,A1Et|A1Et|A1Et|A1Et,Matches 4 operational GTFS directional/cut-trip variants
+A45B,A45B,regular,one_to_many,4,GTFS_ROUTE_15927|GTFS_ROUTE_13001|GTFS_ROUTE_13012|GTFS_ROUTE_13013,A45B|A45B|A45B|A45B,Matches 4 operational GTFS directional/cut-trip variants
+A47,A47,regular,one_to_many,2,GTFS_ROUTE_18951|GTFS_ROUTE_18714,A47|A47,Matches 2 operational GTFS directional/cut-trip variants
+A51,A51,regular,one_to_many,4,GTFS_ROUTE_20638|GTFS_ROUTE_12989|GTFS_ROUTE_22484|GTFS_ROUTE_22848,A51|A51|A51|A51,Matches 4 operational GTFS directional/cut-trip variants
+A54C,A54C,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+B18,B18,regular,one_to_many,2,GTFS_ROUTE_23268|GTFS_ROUTE_23269,B18|B18,Matches 2 operational GTFS directional/cut-trip variants
+B70CT,B70CT,cut_trip,one_to_many,4,GTFS_ROUTE_17730|GTFS_ROUTE_12952|GTFS_ROUTE_12954|GTFS_ROUTE_12958,B70Ct|B70Ct|B70Ct|B70Ct,Matches 4 operational GTFS directional/cut-trip variants
+C33,C33,regular,one_to_many,4,GTFS_ROUTE_19463|GTFS_ROUTE_15221|GTFS_ROUTE_23541|GTFS_ROUTE_23542,C33|C33|C33|C33,Matches 4 operational GTFS directional/cut-trip variants
+C56C,C56C,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+C56CET,C56CET,regular,one_to_many,2,GTFS_ROUTE_13050|GTFS_ROUTE_13046,C56CEt|C56CEt,Matches 2 operational GTFS directional/cut-trip variants
+C64,C64,regular,one_to_many,4,GTFS_ROUTE_17652|GTFS_ROUTE_17659|GTFS_ROUTE_17660|GTFS_ROUTE_15222,C64|C64|C64|C64,Matches 4 operational GTFS directional/cut-trip variants
+CU1,CU1,regular,one_to_one,1,GTFS_ROUTE_20449,CU1,Exact single commercial route variant match
+CU2,CU2,regular,one_to_one,1,GTFS_ROUTE_23487,CU2,Exact single commercial route variant match
+D51ET,D51ET,regular,one_to_many,2,GTFS_ROUTE_13057|GTFS_ROUTE_13055,D51Et|D51Et,Matches 2 operational GTFS directional/cut-trip variants
+D70,D70,regular,one_to_many,8,GTFS_ROUTE_15928|GTFS_ROUTE_15067|GTFS_ROUTE_13059|GTFS_ROUTE_13069|GTFS_ROUTE_13064|GTFS_ROUTE_17524|GTFS_ROUTE_23067|GTFS_ROUTE_23068,D70|D70|D70|D70|D70|D70|D70|D70,Matches 8 operational GTFS directional/cut-trip variants
+D70CT,D70CT,cut_trip,one_to_many,7,GTFS_ROUTE_3147|GTFS_ROUTE_18239|GTFS_ROUTE_13095|GTFS_ROUTE_13097|GTFS_ROUTE_13099|GTFS_ROUTE_13101|GTFS_ROUTE_22791,D70Ct|D70 CT|D70Ct|D70Ct|D70Ct|D70Ct|D70Ct,Matches 7 operational GTFS directional/cut-trip variants
+D70X,D70X,deluxe_express,one_to_many,5,GTFS_ROUTE_13104|GTFS_ROUTE_13106|GTFS_ROUTE_13110|GTFS_ROUTE_13107|GTFS_ROUTE_13109,D70X|D70X|D70X|D70X|D70X,Matches 5 operational GTFS directional/cut-trip variants
+E18,E18,regular,one_to_many,3,GTFS_ROUTE_13115|GTFS_ROUTE_13120|GTFS_ROUTE_13128,E18|E18|E18,Matches 3 operational GTFS directional/cut-trip variants
+E51,E51,regular,one_to_one,1,GTFS_ROUTE_21948,E51,Exact single commercial route variant match
+F70,F70,regular,one_to_many,3,GTFS_ROUTE_23939|GTFS_ROUTE_23940|GTFS_ROUTE_23544,F70|F70|F70,Matches 3 operational GTFS directional/cut-trip variants
+G18,G18,regular,one_to_many,6,GTFS_ROUTE_23768|GTFS_ROUTE_23769|GTFS_ROUTE_13074|GTFS_ROUTE_13080|GTFS_ROUTE_15066|GTFS_ROUTE_15064,G18|G18|G18|G18|G18|G18,Matches 6 operational GTFS directional/cut-trip variants
+J51,J51,regular,one_to_many,4,GTFS_ROUTE_13072|GTFS_ROUTE_13061|GTFS_ROUTE_23072|GTFS_ROUTE_23073,J51|J51|J51|J51,Matches 4 operational GTFS directional/cut-trip variants
+J66,J66,regular,one_to_many,2,GTFS_ROUTE_13058|GTFS_ROUTE_13060,J66|J66,Matches 2 operational GTFS directional/cut-trip variants
+M1,M1,feeder_or_small,one_to_many,3,GTFS_ROUTE_13098|GTFS_ROUTE_13100|GTFS_ROUTE_13103,M1|M1|M1,Matches 3 operational GTFS directional/cut-trip variants
+M18C,M18C,feeder_or_small,one_to_many,5,GTFS_ROUTE_13118|GTFS_ROUTE_13124|GTFS_ROUTE_13127|GTFS_ROUTE_13129|GTFS_ROUTE_23074,M18C|M18C|M18C|M18C|M18C,Matches 5 operational GTFS directional/cut-trip variants
+M18G,M18G,feeder_or_small,one_to_many,2,GTFS_ROUTE_13131|GTFS_ROUTE_13133,M18G|M18G,Matches 2 operational GTFS directional/cut-trip variants
+M19B,M19B,feeder_or_small,one_to_many,6,GTFS_ROUTE_13157|GTFS_ROUTE_13162|GTFS_ROUTE_15058|GTFS_ROUTE_13152|GTFS_ROUTE_13154|GTFS_ROUTE_13156,M19B|M19B|M19B|M19B|M19B|M19B,Matches 6 operational GTFS directional/cut-trip variants
+M1A,M1A,feeder_or_small,one_to_many,2,GTFS_ROUTE_13163|GTFS_ROUTE_13164,M1A|M1A,Matches 2 operational GTFS directional/cut-trip variants
+M27,M27,feeder_or_small,one_to_many,6,GTFS_ROUTE_13171|GTFS_ROUTE_13172|GTFS_ROUTE_13176|GTFS_ROUTE_13178|GTFS_ROUTE_13180|GTFS_ROUTE_18734,M27|M27|M27|M27|M27|M27,Matches 6 operational GTFS directional/cut-trip variants
+M51,M51,feeder_or_small,one_to_many,4,GTFS_ROUTE_23770|GTFS_ROUTE_13186|GTFS_ROUTE_13188|GTFS_ROUTE_13189,M51|M51|M51|M51,Matches 4 operational GTFS directional/cut-trip variants
+M51D,M51D,feeder_or_small,one_to_many,2,GTFS_ROUTE_13194|GTFS_ROUTE_13196,M51D|M51D,Matches 2 operational GTFS directional/cut-trip variants
+M51DCT,M51DCT,cut_trip,one_to_many,3,GTFS_ROUTE_18375|GTFS_ROUTE_18387|GTFS_ROUTE_23204,M51DCT|M51DCt|M51DCT,Matches 3 operational GTFS directional/cut-trip variants
+M51R,M51R,feeder_or_small,one_to_many,2,GTFS_ROUTE_13205|GTFS_ROUTE_13208,M51R|M51R,Matches 2 operational GTFS directional/cut-trip variants
+M51V,M51V,feeder_or_small,one_to_many,6,GTFS_ROUTE_15988|GTFS_ROUTE_13225|GTFS_ROUTE_13227|GTFS_ROUTE_13230|GTFS_ROUTE_13232|GTFS_ROUTE_3643,M51V|M51V|M51V|M51V|M51V|M51V,Matches 6 operational GTFS directional/cut-trip variants
+M51VC,M51VC,feeder_or_small,one_to_many,6,GTFS_ROUTE_9021|GTFS_ROUTE_17996|GTFS_ROUTE_18305|GTFS_ROUTE_9023|GTFS_ROUTE_9025|GTFS_ROUTE_9022,M51VC|M51VC|M51VC|M51VC|M51VC|M51VC,Matches 6 operational GTFS directional/cut-trip variants
+M52ET,M52ET,feeder_or_small,one_to_many,11,GTFS_ROUTE_15923|GTFS_ROUTE_5527|GTFS_ROUTE_13211|GTFS_ROUTE_13212|GTFS_ROUTE_13214|GTFS_ROUTE_3206|GTFS_ROUTE_14485|GTFS_ROUTE_13216|GTFS_ROUTE_13218|GTFS_ROUTE_13219|GTFS_ROUTE_2746,M52Et|M52Et|M52Et|M52Et|M52Et|M52Et|M52Et|M52Et|M52Et|M52Et|M52Et,Matches 11 operational GTFS directional/cut-trip variants
+M60,M60,feeder_or_small,one_to_many,4,GTFS_ROUTE_13207|GTFS_ROUTE_13200|GTFS_ROUTE_13202|GTFS_ROUTE_13203,M60|M60|M60|M60,Matches 4 operational GTFS directional/cut-trip variants
+M70,M70,feeder_or_small,unmatched,0,,,Official route code not present in community GTFS snapshot
+M88,M88,feeder_or_small,one_to_many,6,GTFS_ROUTE_13183|GTFS_ROUTE_14865|GTFS_ROUTE_8728|GTFS_ROUTE_13177|GTFS_ROUTE_13179|GTFS_ROUTE_13181,M88|M88|M88|M88|M88|M88,Matches 6 operational GTFS directional/cut-trip variants
+M88ET,M88ET,feeder_or_small,one_to_many,4,GTFS_ROUTE_17657|GTFS_ROUTE_13150|GTFS_ROUTE_13151|GTFS_ROUTE_13155,M88Et|M88Et|M88Et|M88Et,Matches 4 operational GTFS directional/cut-trip variants
+M88T,M88T,feeder_or_small,one_to_many,4,GTFS_ROUTE_13143|GTFS_ROUTE_13144|GTFS_ROUTE_13146|GTFS_ROUTE_13148,M88T|M88T|M88T|M88T,Matches 4 operational GTFS directional/cut-trip variants
+MAA1,MAA1,feeder_or_small,one_to_many,3,GTFS_ROUTE_19402|GTFS_ROUTE_19725|GTFS_ROUTE_22649,MAA1|MAA1|MAA1,Matches 3 operational GTFS directional/cut-trip variants
+MAA2,MAA2,feeder_or_small,one_to_many,3,GTFS_ROUTE_19198|GTFS_ROUTE_23978|GTFS_ROUTE_22369,MAA2|MAA2|MAA2,Matches 3 operational GTFS directional/cut-trip variants
+N45B,N45B,regular,one_to_many,2,GTFS_ROUTE_13137|GTFS_ROUTE_13140,N45B|N45B,Matches 2 operational GTFS directional/cut-trip variants
+P570S,P570S,regular,unmatched,0,,,Official route code not present in community GTFS snapshot
+P91,P91,regular,one_to_many,2,GTFS_ROUTE_23636|GTFS_ROUTE_23638,P91|P91,Matches 2 operational GTFS directional/cut-trip variants
+S1,S1,feeder_or_small,one_to_many,3,GTFS_ROUTE_13236|GTFS_ROUTE_13241|GTFS_ROUTE_13235,S1|S1|S1,Matches 3 operational GTFS directional/cut-trip variants
+S100,S100,feeder_or_small,one_to_many,4,GTFS_ROUTE_13248|GTFS_ROUTE_13242|GTFS_ROUTE_13246|GTFS_ROUTE_21651,S100|S100|S100|S100,Matches 4 operational GTFS directional/cut-trip variants
+S11,S11,feeder_or_small,one_to_many,4,GTFS_ROUTE_15968|GTFS_ROUTE_8489|GTFS_ROUTE_8486|GTFS_ROUTE_13665,S11|S11|S11|S11,Matches 4 operational GTFS directional/cut-trip variants
+S12,S12,feeder_or_small,one_to_many,8,GTFS_ROUTE_13255|GTFS_ROUTE_13257|GTFS_ROUTE_13260|GTFS_ROUTE_13261|GTFS_ROUTE_13262|GTFS_ROUTE_15805|GTFS_ROUTE_3421|GTFS_ROUTE_3423,S12|S12|S12|S12|S12|S12|S12|S12,Matches 8 operational GTFS directional/cut-trip variants
+S13,S13,feeder_or_small,one_to_many,4,GTFS_ROUTE_18385|GTFS_ROUTE_18386|GTFS_ROUTE_23065|GTFS_ROUTE_23066,S13|S13|S13|S13,Matches 4 operational GTFS directional/cut-trip variants
+S15,S15,feeder_or_small,one_to_many,4,GTFS_ROUTE_13237|GTFS_ROUTE_18079|GTFS_ROUTE_18080|GTFS_ROUTE_13234,S15|S15|S15|S15,Matches 4 operational GTFS directional/cut-trip variants
+S165,S165,feeder_or_small,one_to_many,4,GTFS_ROUTE_13243|GTFS_ROUTE_13244|GTFS_ROUTE_14354|GTFS_ROUTE_14356,S165|S165|S165|S165,Matches 4 operational GTFS directional/cut-trip variants
+S166,S166,feeder_or_small,one_to_many,4,GTFS_ROUTE_13254|GTFS_ROUTE_13252|GTFS_ROUTE_13256|GTFS_ROUTE_13259,S166|S166|S166|S166,Matches 4 operational GTFS directional/cut-trip variants
+S167,S167,feeder_or_small,one_to_many,4,GTFS_ROUTE_13268|GTFS_ROUTE_13266|GTFS_ROUTE_13270|GTFS_ROUTE_13273,S167|S167|S167|S167,Matches 4 operational GTFS directional/cut-trip variants
+S17,S17,feeder_or_small,one_to_many,6,GTFS_ROUTE_18884|GTFS_ROUTE_364|GTFS_ROUTE_13283|GTFS_ROUTE_361|GTFS_ROUTE_362|GTFS_ROUTE_363,S17|S17|S17|S17|S17|S17,Matches 6 operational GTFS directional/cut-trip variants
+S18D,S18D,feeder_or_small,one_to_many,4,GTFS_ROUTE_18398|GTFS_ROUTE_16374|GTFS_ROUTE_23052|GTFS_ROUTE_23053,S18D|S18D|S18D|S18D,Matches 4 operational GTFS directional/cut-trip variants
+S18K,S18K,feeder_or_small,one_to_many,3,GTFS_ROUTE_23941|GTFS_ROUTE_13305|GTFS_ROUTE_23108,S18K|S18K|S18K,Matches 3 operational GTFS directional/cut-trip variants
+S19,S19,feeder_or_small,one_to_many,4,GTFS_ROUTE_13310|GTFS_ROUTE_13313|GTFS_ROUTE_2935|GTFS_ROUTE_13309,S19|S19|S19|S19,Matches 4 operational GTFS directional/cut-trip variants
+S2,S2,feeder_or_small,unmatched,0,,,Official route code not present in community GTFS snapshot
+S20,S20,feeder_or_small,one_to_many,2,GTFS_ROUTE_13321|GTFS_ROUTE_23942,S20|S20,Matches 2 operational GTFS directional/cut-trip variants
+S21C,S21C,feeder_or_small,one_to_many,2,GTFS_ROUTE_13327|GTFS_ROUTE_13329,S21C|S21C,Matches 2 operational GTFS directional/cut-trip variants
+S22,S22,feeder_or_small,one_to_many,4,GTFS_ROUTE_9596|GTFS_ROUTE_13284|GTFS_ROUTE_13285|GTFS_ROUTE_16313,S22|S22|S22|S22,Matches 4 operational GTFS directional/cut-trip variants
+S23,S23,feeder_or_small,one_to_many,4,GTFS_ROUTE_18462|GTFS_ROUTE_18463|GTFS_ROUTE_15784|GTFS_ROUTE_15785,S23|S23|S23|S23,Matches 4 operational GTFS directional/cut-trip variants
+S24,S24,feeder_or_small,one_to_many,2,GTFS_ROUTE_15982|GTFS_ROUTE_13290,s24|s24,Matches 2 operational GTFS directional/cut-trip variants
+S25,S25,feeder_or_small,one_to_many,6,GTFS_ROUTE_13298|GTFS_ROUTE_13301|GTFS_ROUTE_13304|GTFS_ROUTE_15996|GTFS_ROUTE_13295|GTFS_ROUTE_17532,S25|S25|S25|S25|S25|S25,Matches 6 operational GTFS directional/cut-trip variants
+S25A,S25A,feeder_or_small,one_to_many,2,GTFS_ROUTE_13306|GTFS_ROUTE_13308,S25A|S25A,Matches 2 operational GTFS directional/cut-trip variants
+S26,S26,feeder_or_small,one_to_many,6,GTFS_ROUTE_13315|GTFS_ROUTE_13317|GTFS_ROUTE_13318|GTFS_ROUTE_23943|GTFS_ROUTE_13311|GTFS_ROUTE_13314,S26|S26|S26|S26|S26|S26,Matches 6 operational GTFS directional/cut-trip variants
+S27,S27,feeder_or_small,one_to_many,4,GTFS_ROUTE_13325|GTFS_ROUTE_9666|GTFS_ROUTE_13323|GTFS_ROUTE_10865,S27|S27|S27|S27,Matches 4 operational GTFS directional/cut-trip variants
+S28,S28,feeder_or_small,one_to_many,2,GTFS_ROUTE_13326|GTFS_ROUTE_13328,S28|S28,Matches 2 operational GTFS directional/cut-trip variants
+S30,S30,feeder_or_small,one_to_many,2,GTFS_ROUTE_13330|GTFS_ROUTE_13331,S30|S30,Matches 2 operational GTFS directional/cut-trip variants
+S30CT,S30CT,cut_trip,one_to_many,4,GTFS_ROUTE_18001|GTFS_ROUTE_19764|GTFS_ROUTE_18612|GTFS_ROUTE_13335,S30Ct|S30Ct|S30Ct|S30Ct,Matches 4 operational GTFS directional/cut-trip variants
+S30K,S30K,feeder_or_small,one_to_many,4,GTFS_ROUTE_18005|GTFS_ROUTE_18002|GTFS_ROUTE_18003|GTFS_ROUTE_18004,S30K|S30K|S30K|S30K,Matches 4 operational GTFS directional/cut-trip variants
+S31,S31,feeder_or_small,one_to_many,2,GTFS_ROUTE_13363|GTFS_ROUTE_13364,S31|S31,Matches 2 operational GTFS directional/cut-trip variants
+S35,S35,feeder_or_small,one_to_many,4,GTFS_ROUTE_23965|GTFS_ROUTE_23967|GTFS_ROUTE_18007|GTFS_ROUTE_19774,S35|S35|S35|S35,Matches 4 operational GTFS directional/cut-trip variants
+S36,S36,feeder_or_small,one_to_many,4,GTFS_ROUTE_13371|GTFS_ROUTE_13372|GTFS_ROUTE_13373|GTFS_ROUTE_13374,S36|S36|S36|S36,Matches 4 operational GTFS directional/cut-trip variants
+S3X,S3X,deluxe_express,one_to_many,2,GTFS_ROUTE_18268|GTFS_ROUTE_15128,S3X|S3X,Matches 2 operational GTFS directional/cut-trip variants
+S4,S4,feeder_or_small,one_to_many,3,GTFS_ROUTE_21634|GTFS_ROUTE_21635|GTFS_ROUTE_23547,S4|S4|S4,Matches 3 operational GTFS directional/cut-trip variants
+S40,S40,feeder_or_small,one_to_many,4,GTFS_ROUTE_13381|GTFS_ROUTE_13382|GTFS_ROUTE_13384|GTFS_ROUTE_13385,S40|S40|S40|S40,Matches 4 operational GTFS directional/cut-trip variants
+S41,S41,feeder_or_small,one_to_many,4,GTFS_ROUTE_13387|GTFS_ROUTE_13388|GTFS_ROUTE_13389|GTFS_ROUTE_13390,S41|S41|S41|S41,Matches 4 operational GTFS directional/cut-trip variants
+S42,S42,feeder_or_small,one_to_many,4,GTFS_ROUTE_13393|GTFS_ROUTE_13394|GTFS_ROUTE_13395|GTFS_ROUTE_13397,S42|S42|S42|S42,Matches 4 operational GTFS directional/cut-trip variants
+S43,S43,feeder_or_small,one_to_many,4,GTFS_ROUTE_13402|GTFS_ROUTE_13399|GTFS_ROUTE_13401|GTFS_ROUTE_13404,S43|S43|S43|S43,Matches 4 operational GTFS directional/cut-trip variants
+S44,S44,feeder_or_small,one_to_many,4,GTFS_ROUTE_13333|GTFS_ROUTE_9862|GTFS_ROUTE_13336|GTFS_ROUTE_13338,S44|S44|S44|S44,Matches 4 operational GTFS directional/cut-trip variants
+S45,S45,feeder_or_small,one_to_many,2,GTFS_ROUTE_13341|GTFS_ROUTE_13344,S45|S45,Matches 2 operational GTFS directional/cut-trip variants
+S46,S46,feeder_or_small,one_to_many,4,GTFS_ROUTE_20364|GTFS_ROUTE_20417|GTFS_ROUTE_20416|GTFS_ROUTE_22830,S46|S46|S46|S46,Matches 4 operational GTFS directional/cut-trip variants
+S47,S47,feeder_or_small,one_to_many,2,GTFS_ROUTE_13345|GTFS_ROUTE_13346,S47|S47,Matches 2 operational GTFS directional/cut-trip variants
+S47M,S47M,feeder_or_small,one_to_many,2,GTFS_ROUTE_13347|GTFS_ROUTE_16316,S47M|S47M,Matches 2 operational GTFS directional/cut-trip variants
+S48,S48,feeder_or_small,one_to_many,2,GTFS_ROUTE_13349|GTFS_ROUTE_13350,S48|S48,Matches 2 operational GTFS directional/cut-trip variants
+S49,S49,feeder_or_small,one_to_many,2,GTFS_ROUTE_22837|GTFS_ROUTE_22838,S49|S49,Matches 2 operational GTFS directional/cut-trip variants
+S5,S5,feeder_or_small,one_to_many,8,GTFS_ROUTE_13353|GTFS_ROUTE_13359|GTFS_ROUTE_16281|GTFS_ROUTE_13352|GTFS_ROUTE_13354|GTFS_ROUTE_13356|GTFS_ROUTE_13357|GTFS_ROUTE_13358,S5|S5|S5|S5|S5|S5|S5|S5,Matches 8 operational GTFS directional/cut-trip variants
+S50,S50,feeder_or_small,one_to_many,2,GTFS_ROUTE_13361|GTFS_ROUTE_13362,S50|S50,Matches 2 operational GTFS directional/cut-trip variants
+S51,S51,feeder_or_small,one_to_many,4,GTFS_ROUTE_13383|GTFS_ROUTE_13386|GTFS_ROUTE_13391|GTFS_ROUTE_13392,S51|S51|S51|S51,Matches 4 operational GTFS directional/cut-trip variants
+S52,S52,feeder_or_small,one_to_many,2,GTFS_ROUTE_13396|GTFS_ROUTE_13398,S52|S52,Matches 2 operational GTFS directional/cut-trip variants
+S53,S53,feeder_or_small,one_to_many,2,GTFS_ROUTE_13403|GTFS_ROUTE_13405,S53|S53,Matches 2 operational GTFS directional/cut-trip variants
+S55,S55,feeder_or_small,one_to_many,4,GTFS_ROUTE_18311|GTFS_ROUTE_13431|GTFS_ROUTE_13433|GTFS_ROUTE_17482,S55|S55|S55|S55,Matches 4 operational GTFS directional/cut-trip variants
+S55W,S55W,feeder_or_small,one_to_many,2,GTFS_ROUTE_19693|GTFS_ROUTE_18011,S55W|S55W,Matches 2 operational GTFS directional/cut-trip variants
+S56,S56,feeder_or_small,unmatched,0,,,Official route code not present in community GTFS snapshot
+S58,S58,feeder_or_small,one_to_many,2,GTFS_ROUTE_17697|GTFS_ROUTE_17249,S58|S58,Matches 2 operational GTFS directional/cut-trip variants
+S59,S59,feeder_or_small,one_to_many,4,GTFS_ROUTE_17163|GTFS_ROUTE_17170|GTFS_ROUTE_17185|GTFS_ROUTE_17189,S59|S59|S59|S59,Matches 4 operational GTFS directional/cut-trip variants
+S6,S6,feeder_or_small,one_to_many,2,GTFS_ROUTE_22708|GTFS_ROUTE_22707,S6|S6,Matches 2 operational GTFS directional/cut-trip variants
+S60,S60,feeder_or_small,one_to_many,4,GTFS_ROUTE_17008|GTFS_ROUTE_17004|GTFS_ROUTE_17021|GTFS_ROUTE_17037,S60|S60|S60|S60,Matches 4 operational GTFS directional/cut-trip variants
+S62,S62,feeder_or_small,one_to_many,4,GTFS_ROUTE_16965|GTFS_ROUTE_16957|GTFS_ROUTE_16983|GTFS_ROUTE_16970,S62|S62|S62|S62,Matches 4 operational GTFS directional/cut-trip variants
+S63,S63,feeder_or_small,one_to_many,2,GTFS_ROUTE_16936|GTFS_ROUTE_16924,S63|S63,Matches 2 operational GTFS directional/cut-trip variants
+S64,S64,feeder_or_small,one_to_many,6,GTFS_ROUTE_18023|GTFS_ROUTE_16881|GTFS_ROUTE_16894|GTFS_ROUTE_16901|GTFS_ROUTE_16884|GTFS_ROUTE_16888,S64|S64|S64|S64|S64|S64,Matches 6 operational GTFS directional/cut-trip variants
+S66,S66,feeder_or_small,one_to_many,2,GTFS_ROUTE_16842|GTFS_ROUTE_16845,S66|S66,Matches 2 operational GTFS directional/cut-trip variants
+S67,S67,feeder_or_small,one_to_many,3,GTFS_ROUTE_18460|GTFS_ROUTE_18461|GTFS_ROUTE_16818,S67|S67|S67,Matches 3 operational GTFS directional/cut-trip variants
+S69,S69,feeder_or_small,one_to_many,4,GTFS_ROUTE_16502|GTFS_ROUTE_16500|GTFS_ROUTE_16501|GTFS_ROUTE_16499,S69|S69|S69|S69,Matches 4 operational GTFS directional/cut-trip variants
+S70K,S70K,feeder_or_small,one_to_many,2,GTFS_ROUTE_16495|GTFS_ROUTE_16496,S70K|S70K,Matches 2 operational GTFS directional/cut-trip variants
+S73,S73,feeder_or_small,one_to_many,2,GTFS_ROUTE_16490|GTFS_ROUTE_22950,S73|S73,Matches 2 operational GTFS directional/cut-trip variants
+S73T,S73T,feeder_or_small,unmatched,0,,,Official route code not present in community GTFS snapshot
+S74,S74,feeder_or_small,one_to_many,4,GTFS_ROUTE_18019|GTFS_ROUTE_16486|GTFS_ROUTE_16484|GTFS_ROUTE_16485,S74|S74|S74|S74,Matches 4 operational GTFS directional/cut-trip variants
+S75,S75,feeder_or_small,one_to_many,7,GTFS_ROUTE_16468|GTFS_ROUTE_16477|GTFS_ROUTE_16469|GTFS_ROUTE_16476|GTFS_ROUTE_16475|GTFS_ROUTE_22784|GTFS_ROUTE_22786,S75|S75|S75|S75|S75|S75|S75,Matches 7 operational GTFS directional/cut-trip variants
+S79,S79,feeder_or_small,one_to_many,3,GTFS_ROUTE_19403|GTFS_ROUTE_19404|GTFS_ROUTE_19519,S79|S79|S79,Matches 3 operational GTFS directional/cut-trip variants
+S80,S80,feeder_or_small,one_to_many,2,GTFS_ROUTE_18022|GTFS_ROUTE_18033,S80|S80,Matches 2 operational GTFS directional/cut-trip variants
+S81,S81,feeder_or_small,one_to_many,2,GTFS_ROUTE_21649|GTFS_ROUTE_21650,S81|S81,Matches 2 operational GTFS directional/cut-trip variants
+S82,S82,feeder_or_small,one_to_many,4,GTFS_ROUTE_16453|GTFS_ROUTE_16454|GTFS_ROUTE_21220|GTFS_ROUTE_21221,S82|S82|S82|S82,Matches 4 operational GTFS directional/cut-trip variants
+S83,S83,feeder_or_small,one_to_many,4,GTFS_ROUTE_16450|GTFS_ROUTE_16449|GTFS_ROUTE_21219|GTFS_ROUTE_21222,S83|S83|S83|S83,Matches 4 operational GTFS directional/cut-trip variants
+S84,S84,feeder_or_small,one_to_many,4,GTFS_ROUTE_16444|GTFS_ROUTE_16446|GTFS_ROUTE_21225|GTFS_ROUTE_21218,S84|S84|S84|S84,Matches 4 operational GTFS directional/cut-trip variants
+S86,S86,feeder_or_small,one_to_many,4,GTFS_ROUTE_23968|GTFS_ROUTE_23969|GTFS_ROUTE_16438|GTFS_ROUTE_16440,S86|S86|S86|S86,Matches 4 operational GTFS directional/cut-trip variants
+S88A,S88A,feeder_or_small,one_to_many,4,GTFS_ROUTE_16425|GTFS_ROUTE_16427|GTFS_ROUTE_16428|GTFS_ROUTE_16426,S88A|S88A|S88A|S88A,Matches 4 operational GTFS directional/cut-trip variants
+S90,S90,feeder_or_small,one_to_many,4,GTFS_ROUTE_19805|GTFS_ROUTE_19775|GTFS_ROUTE_16419|GTFS_ROUTE_22687,S90|S90|S90|S90,Matches 4 operational GTFS directional/cut-trip variants
+S94,S94,feeder_or_small,one_to_many,4,GTFS_ROUTE_16412|GTFS_ROUTE_16415|GTFS_ROUTE_16414|GTFS_ROUTE_16413,S94|S94|S94|S94,Matches 4 operational GTFS directional/cut-trip variants
+S95,S95,feeder_or_small,one_to_many,4,GTFS_ROUTE_16407|GTFS_ROUTE_16408|GTFS_ROUTE_16409|GTFS_ROUTE_16410,S95|S95|S95|S95,Matches 4 operational GTFS directional/cut-trip variants
+S97,S97,feeder_or_small,one_to_many,4,GTFS_ROUTE_23970|GTFS_ROUTE_23971|GTFS_ROUTE_16403|GTFS_ROUTE_16400,S97|S97|S97|S97,Matches 4 operational GTFS directional/cut-trip variants
+S98,S98,feeder_or_small,one_to_many,4,GTFS_ROUTE_16396|GTFS_ROUTE_16395|GTFS_ROUTE_16397|GTFS_ROUTE_16394,S98|S98|S98|S98,Matches 4 operational GTFS directional/cut-trip variants
+SC1,SC1,feeder_or_small,one_to_one,1,GTFS_ROUTE_16389,SC1,Exact single commercial route variant match
+T23C,T23C,regular,one_to_many,6,GTFS_ROUTE_18762|GTFS_ROUTE_16248|GTFS_ROUTE_16249|GTFS_ROUTE_16319|GTFS_ROUTE_16243|GTFS_ROUTE_16244,T23C|T23C|T23C|T23C|T23C|T23C,Matches 6 operational GTFS directional/cut-trip variants
+T29,T29,regular,one_to_many,4,GTFS_ROUTE_16240|GTFS_ROUTE_16239|GTFS_ROUTE_21709|GTFS_ROUTE_21711,T29|T29|T29|T29,Matches 4 operational GTFS directional/cut-trip variants
+T29C,T29C,regular,one_to_many,10,GTFS_ROUTE_17839|GTFS_ROUTE_17840|GTFS_ROUTE_16226|GTFS_ROUTE_17543|GTFS_ROUTE_16221|GTFS_ROUTE_16230|GTFS_ROUTE_16222|GTFS_ROUTE_16223|GTFS_ROUTE_23119|GTFS_ROUTE_23120,T29C|T29C|T29C|T29C|T29C|T29C|T29C|T29C|T29C|T29C,Matches 10 operational GTFS directional/cut-trip variants
+V51,V51,feeder_or_small,one_to_many,4,GTFS_ROUTE_19474|GTFS_ROUTE_16211|GTFS_ROUTE_16212|GTFS_ROUTE_16187,V51|V51|V51|V51,Matches 4 operational GTFS directional/cut-trip variants
+V51CT,V51CT,cut_trip,one_to_many,6,GTFS_ROUTE_18989|GTFS_ROUTE_18991|GTFS_ROUTE_18992|GTFS_ROUTE_18995|GTFS_ROUTE_19279|GTFS_ROUTE_19313,V51CT|V51CT|V51CT|V51 CT|V51 CT|V51CT,Matches 6 operational GTFS directional/cut-trip variants

@@ -568,6 +568,36 @@ def build_canonical_database():
             """, (rid, aid, r["route_short_name"], r["route_long_name"], r["mode"], r["status"], r["source_id"]))
             route_count += 1
 
+    # Ingest MTC official to GTFS route crosswalk source links
+    crosswalk_csv = os.path.join(BASE_DIR, "data", "normalized", "routes", "mtc_official_to_gtfs_crosswalk.csv")
+    route_links_count = 0
+    if os.path.exists(crosswalk_csv):
+        with open(crosswalk_csv, "r", encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                if row["match_type"] in ["one_to_one", "one_to_many"] and row["gtfs_route_ids"]:
+                    off_code = row["official_route_code"]
+                    for gtfs_id in row["gtfs_route_ids"].split("|"):
+                        gtfs_id = gtfs_id.strip()
+                        if gtfs_id:
+                            cur.execute("""
+                                INSERT INTO entity_source_links (entity_type, canonical_entity_id, source_id, source_record_id, raw_file_id, relationship, confidence)
+                                VALUES (?, ?, ?, ?, ?, ?, ?)
+                            """, ("route", gtfs_id, "MTC_OFFICIAL", off_code, "MTC_OFFICIAL_ROUTES_20260918", "official_disclosure", 1.0))
+                            route_links_count += 1
+        print(f"  - Ingested {route_links_count:,} route entity_source_links from official MTC crosswalk.")
+
+    # CMRL route source links
+    for cmrl_r in ["CMRL_BLUE_CORRIDOR_1", "CMRL_GREEN_CORRIDOR_2"]:
+        cur.execute("""
+            INSERT INTO entity_source_links (entity_type, canonical_entity_id, source_id, source_record_id, raw_file_id, relationship, confidence)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, ("route", cmrl_r, "CMRL_API", cmrl_r, "CMRL_WP_API_20260918", "official_disclosure", 1.0))
+    for cmrl_p2 in ["CMRL_CORRIDOR_3_PHASE2", "CMRL_CORRIDOR_4_PHASE2", "CMRL_CORRIDOR_5_PHASE2"]:
+        cur.execute("""
+            INSERT INTO entity_source_links (entity_type, canonical_entity_id, source_id, source_record_id, raw_file_id, relationship, confidence)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, ("route", cmrl_p2, "CMRL_OFFICIAL", cmrl_p2, "CMRL_PHASE2_STATUS_20260918", "official_disclosure", 1.0))
+
     # Populate Places
     place_count = 0
     with open(PLACES_CSV, "r", encoding="utf-8") as f:
@@ -657,7 +687,7 @@ def build_canonical_database():
     # ==========================================
     print("Ingesting Route Topology and Schedule Service Tables...")
 
-    # A. Service Calendars
+    # A. Service Calendars & Exceptions
     service_ids = set()
     with zipfile.ZipFile(GTFS_ZIP) as z:
         with z.open("calendar.txt") as f:
@@ -672,6 +702,19 @@ def build_canonical_database():
                     int(r["thursday"]), int(r["friday"]), int(r["saturday"]), int(r["sunday"]),
                     r["start_date"], r["end_date"], "CHENNAI_COMMUNITY_GTFS"
                 ))
+
+        if "calendar_dates.txt" in z.namelist():
+            with z.open("calendar_dates.txt") as f:
+                reader = csv.DictReader(io.TextIOWrapper(f, encoding="utf-8"))
+                exc_count = 0
+                for r in reader:
+                    cur.execute("""
+                        INSERT OR REPLACE INTO service_exceptions VALUES (?, ?, ?, ?)
+                    """, (r["service_id"].strip(), r["date"].strip(), int(r["exception_type"]), "CHENNAI_COMMUNITY_GTFS"))
+                    exc_count += 1
+                print(f"  - Ingested {exc_count:,} service_exceptions from calendar_dates.txt.")
+        else:
+            print("  - [GTFS Feed Audit] calendar_dates.txt is not present in community GTFS feed; service_exceptions contains 0 exception records by design.")
 
     # B. Trips & Stop Times Loading
     route_alias = {
@@ -753,6 +796,9 @@ def build_canonical_database():
     print(f"  - Ingested {total_st_count:,} stop_times rows.")
 
     # D. Populate route_stops (Canonical Ordered Topology)
+    # NOTE: route_stops captures the representative longest-trip topology per route-direction.
+    # Full multi-pattern variant topologies (route_patterns / route_pattern_stops) are explicitly
+    # deferred to the routing graph implementation phase to avoid schema and storage bloat.
     route_dir_trips = defaultdict(list)
     for tid, (rid, dir_id) in trip_to_route_dir.items():
         route_dir_trips[(rid, dir_id)].append(tid)
@@ -769,22 +815,102 @@ def build_canonical_database():
     cur.executemany("INSERT INTO route_stops VALUES (?, ?, ?, ?, ?, ?, ?)", route_stops_data)
     print(f"  - Ingested {len(route_stops_data):,} route_stops rows across {len(route_dir_trips):,} route-directions.")
 
-    # E. Official MTC Fare Stages
+    # E. Official MTC Fare Stages (Alias & Abbreviation Aware Linkage)
+    def alphanum_key(s):
+        return re.sub(r'[^A-Z0-9]', '', s.upper())
+
+    def clean_variations(s):
+        if not s:
+            return set()
+        variations = set()
+        s_upper = s.upper().strip()
+        f1 = re.sub(r'\.', '', s_upper)
+        f1 = re.sub(r'[^A-Z0-9\s]', ' ', f1)
+        f1 = re.sub(r'\s+', ' ', f1).strip()
+        if f1:
+            variations.add(f1)
+        f2 = re.sub(r'[^A-Z0-9\s]', ' ', s_upper)
+        f2 = re.sub(r'\s+', ' ', f2).strip()
+        if f2:
+            variations.add(f2)
+        for base in list(variations):
+            for pattern, repl in [
+                (r'\b(BS|B S)\b', 'BUS STAND'),
+                (r'\b(BT|B T)\b', 'BUS TERMINUS'),
+                (r'\b(OT|O T)\b', 'OLD TERMINUS'),
+                (r'\b(RS|R S)\b', 'RAILWAY STATION'),
+                (r'\b(JN|J N)\b', 'JUNCTION'),
+                (r'\bRD\b', 'ROAD')
+            ]:
+                v = re.sub(pattern, repl, base)
+                if v != base:
+                    variations.add(v)
+        return variations
+
+    stop_index = defaultdict(list)
+    stops_by_id = {cs["stop_id"]: cs for cs in canonical_stops}
+
+    for cs in canonical_stops:
+        sid = cs["stop_id"]
+        for v in clean_variations(cs["canonical_name"]):
+            stop_index[v].append(sid)
+        for mem in cs["member_records"]:
+            orig = mem.get("original_name")
+            norm = mem.get("normalized_name")
+            if orig:
+                for v in clean_variations(orig):
+                    stop_index[v].append(sid)
+            if norm:
+                for v in clean_variations(norm):
+                    stop_index[v].append(sid)
+
+    # Also index stop_names
+    cur.execute("SELECT stop_id, name FROM stop_names")
+    for sid, n in cur.fetchall():
+        for v in clean_variations(n):
+            stop_index[v].append(sid)
+
     stage_rows = []
-    mtc_stops_by_name = {
-        cs["canonical_name"].strip().upper(): cs["stop_id"]
-        for cs in canonical_stops if cs["agency_id"] == "MTC"
-    }
+    matched_count = 0
+    unmatched_count = 0
+    ambiguous_count = 0
 
     if os.path.exists(MTC_STAGES_CSV):
         with open(MTC_STAGES_CSV, "r", encoding="utf-8") as f:
             for r in csv.DictReader(f):
                 sname = r["stage_name"]
-                matched_cid = mtc_stops_by_name.get(sname.strip().upper())
+                cands = []
+                for v in clean_variations(sname):
+                    for sid in stop_index.get(v, []):
+                        if sid not in cands:
+                            cands.append(sid)
+
+                matched_cid = None
+                if cands:
+                    bus_cands = [sid for sid in cands if stops_by_id.get(sid, {}).get("mode") == "bus"]
+                    filtered = bus_cands if bus_cands else cands
+
+                    if len(filtered) == 1:
+                        matched_cid = filtered[0]
+                        matched_count += 1
+                    else:
+                        keys = set(alphanum_key(stops_by_id[sid]["canonical_name"]) for sid in filtered if sid in stops_by_id)
+                        if len(keys) == 1:
+                            matched_cid = filtered[0]
+                            matched_count += 1
+                        else:
+                            ambiguous_count += 1
+                else:
+                    unmatched_count += 1
+
                 stage_rows.append((r["stage_id"], sname, matched_cid, "MTC", "MTC_OFFICIAL"))
 
         cur.executemany("INSERT INTO fare_stages VALUES (?, ?, ?, ?, ?)", stage_rows)
         print(f"  - Ingested {len(stage_rows):,} official MTC fare stages.")
+        print(f"    [Fare Stage Linkage Coverage] Total: {len(stage_rows):,} | "
+              f"Matched: {matched_count:,} ({matched_count/len(stage_rows)*100:.2f}%) | "
+              f"Unmatched: {unmatched_count:,} ({unmatched_count/len(stage_rows)*100:.2f}%) | "
+              f"Ambiguous: {ambiguous_count:,} ({ambiguous_count/len(stage_rows)*100:.2f}%)")
 
     # F. Official MTC Fares Matrix
     fare_rows = []
@@ -806,6 +932,10 @@ def build_canonical_database():
     cur.execute("CREATE INDEX idx_trips_route ON trips(route_id);")
     cur.execute("CREATE INDEX idx_trips_service ON trips(service_id);")
     cur.execute("CREATE INDEX idx_fare_stages_stop ON fare_stages(canonical_stop_id);")
+
+    final_total_source_links = cur.execute("SELECT count(*) FROM entity_source_links").fetchone()[0]
+    stop_source_links = cur.execute("SELECT count(*) FROM entity_source_links WHERE entity_type = 'stop'").fetchone()[0]
+    route_source_links = cur.execute("SELECT count(*) FROM entity_source_links WHERE entity_type = 'route'").fetchone()[0]
 
     conn.commit()
     print("Compacting database with VACUUM...")
@@ -837,7 +967,7 @@ def build_canonical_database():
 | **Clustering net reduction** | {len(stops) - len(canonical_stops):,} | Source record reduction achieved through multi-link connected component clustering |
 | **Unresolved same-mode matches** | {unresolved_matches:,} | Ambiguous candidate pairs kept separate for human review |
 | **Deliberately kept separate (cross-mode)** | {deliberately_kept_separate:,} | Cross-mode candidate pairs (Metro ↔ Rail ↔ Bus) strictly kept as separate physical entities |
-| **Total entity_source_links** | {total_source_links:,} | Comprehensive provenance links connecting canonical entities to upstream source records |
+| **Total entity_source_links** | {final_total_source_links:,} | Comprehensive provenance links connecting canonical entities to upstream source records ({stop_source_links:,} stop links, {route_source_links:,} route links) |
 
 ---
 
@@ -897,7 +1027,7 @@ def build_canonical_database():
     print(f"Summary:")
     print(f"  - Normalized Stops: {len(stops)}")
     print(f"  - Canonical Physical Stops: {len(canonical_stops)} ({cma_inside} inside CMA, {cma_outside} outside CMA)")
-    print(f"  - Total Entity Source Links: {total_source_links}")
+    print(f"  - Total Entity Source Links: {final_total_source_links} ({stop_source_links} stop links, {route_source_links} route links)")
     print(f"  - Automatic Merge Edges: {auto_merges} (Net clustering reduction: {len(stops) - len(canonical_stops)})")
     print(f"  - Routes: {route_count}")
     print(f"  - Trips: {len(trips_data)}")

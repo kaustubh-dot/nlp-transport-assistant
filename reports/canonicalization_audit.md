@@ -1,6 +1,6 @@
 # Canonicalization & Entity Resolution Audit (v1.2)
 
-**Date:** 2026-09-18  
+**Date:** 2026-09-19  
 **Knowledge Base Version:** `chennai_multimodal_v1.2` (Provisional Multisource Knowledge Base with Route Topology & Services)  
 **Database:** `data/canonical/transit/canonical_transport.db`  
 
@@ -18,7 +18,7 @@
 | **Clustering net reduction** | 110 | Source record reduction achieved through multi-link connected component clustering |
 | **Unresolved same-mode matches** | 464 | Ambiguous candidate pairs kept separate for human review |
 | **Deliberately kept separate (cross-mode)** | 282 | Cross-mode candidate pairs (Metro ↔ Rail ↔ Bus) strictly kept as separate physical entities |
-| **Total entity_source_links** | 7,246 | Comprehensive provenance links connecting canonical entities to upstream source records |
+| **Total entity_source_links** | 9,695 | Comprehensive provenance links connecting canonical entities to upstream source records (7,246 stop links, 2,449 route links) |
 
 ---
 

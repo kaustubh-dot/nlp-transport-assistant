@@ -1,12 +1,12 @@
 {
-  "active_snapshot_version": "chennai_multimodal_v1.2",
+  "active_snapshot_version": "chennai_multimodal_v1.2.1",
   "current_snapshot": {
-    "snapshot_version": "chennai_multimodal_v1.2",
-    "status": "Provisional Multisource Knowledge Base with Route Topology & Services",
-    "creation_date": "2026-09-18T23:00:00Z",
-    "source_registry_version": "1.2",
-    "normalization_version": "1.2",
-    "canonicalization_version": "1.2",
+    "snapshot_version": "chennai_multimodal_v1.2.1",
+    "status": "Provisional Multisource Knowledge Base with Route Topology & Services (Consistency Patch v1.2.1)",
+    "creation_date": "2026-09-19T00:15:00Z",
+    "source_registry_version": "1.2.1",
+    "normalization_version": "1.2.1",
+    "canonicalization_version": "1.2.1",
     "benchmark_status": {
       "frozen_split_train_rows": 3916,
       "frozen_split_val_rows": 716,
@@ -23,7 +23,9 @@
       "clustering_net_reduction": 110,
       "unresolved_matches": 464,
       "deliberately_kept_separate": 282,
-      "total_entity_source_links": 7246,
+      "total_entity_source_links": 9695,
+      "entity_source_links_stops": 7246,
+      "entity_source_links_routes": 2449,
       "total_routes": 4619,
       "total_trips": 47143,
       "total_stop_times": 1360635,
@@ -37,8 +39,13 @@
       "places_inside_cma": 1282,
       "places_outside_cma": 339,
       "official_mtc_stages": 1562,
+      "official_mtc_stages_matched": 579,
+      "official_mtc_stages_unmatched": 983,
+      "official_mtc_stages_ambiguous": 0,
       "official_mtc_fares": 305,
-      "official_mtc_routes": 685
+      "official_mtc_routes": 685,
+      "official_mtc_routes_matched": 605,
+      "official_mtc_routes_unmatched": 80
     },
     "raw_sources": [
       {
@@ -244,13 +251,22 @@
         "transport_agencies": 4,
         "transport_stops": 7136,
         "transport_routes": 4619,
+        "stop_names": 7571,
         "places": 1621,
+        "place_names": 1670,
         "transport_hubs": 62,
         "hub_members": 211,
-        "interchanges": 37,
+        "interchanges": 45,
         "walking_transfers": 151,
         "accessibility": 41,
-        "entity_source_links": 7246
+        "entity_source_links": 9695,
+        "route_stops": 96025,
+        "trips": 47143,
+        "stop_times": 1360635,
+        "service_calendars": 9,
+        "service_exceptions": 0,
+        "fare_stages": 1562,
+        "fares": 305
       }
     },
     "manual_candidate_datasets": [
@@ -276,6 +292,12 @@
       {
         "table_name": "normalized_official_routes",
         "relative_path": "data/normalized/routes/normalized_official_routes.csv",
+        "rows": 685,
+        "format": "CSV"
+      },
+      {
+        "table_name": "mtc_official_to_gtfs_crosswalk",
+        "relative_path": "data/normalized/routes/mtc_official_to_gtfs_crosswalk.csv",
         "rows": 685,
         "format": "CSV"
       }
