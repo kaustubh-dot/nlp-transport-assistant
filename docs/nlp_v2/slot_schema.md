@@ -23,6 +23,8 @@ In the multimodal NLU system, slots capture structured attributes extracted from
 
 ## 2. Definitive Canonical Slot Ontology
 
+The authoritative multimodal transport assistant ontology defines exactly **23 canonical slots** organized across four operational categories:
+
 ### 2.1 Spatial & Geographic Entity Slots
 
 #### `origin`

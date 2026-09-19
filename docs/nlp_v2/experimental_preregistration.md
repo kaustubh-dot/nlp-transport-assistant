@@ -111,6 +111,8 @@ To eliminate researcher discretion, the 8 configurations are generated via **det
 
 To guarantee reproducibility and measure run-to-run variance:
 - **Pilot Experiments (Gate B)**: 3 seeds (`[42, 101, 777]`).
+  - Total pilot matrix: 3 taxonomies (T1, T2, T3) × 2 regimes (Regime A, Regime B) × 2 model families (TF-IDF, MuRIL) × 3 seeds = **36 total model-training runs** (18 runs per model family).
+  - No artificial wall-clock limits; actual wall-clock runtimes are measured and logged.
 - **Core Benchmark Comparisons**: The established 5 historical seeds:
   `[42, 101, 777, 1337, 2026]`.
 - **Close Finalists (<0.01 Macro-F1 delta)**: Expanded to 10 seeds to verify statistical significance.
@@ -148,11 +150,14 @@ Pass condition: Overall task accuracy >= 95.0%, 0 hallucinations.
 
 ## 7. Statistical Testing Procedures Across Seeds
 
-1. **Per-Example Paired Testing Mandate**:
-   McNemar's test and paired bootstrap **must operate on matched per-example prediction pairs**. They must never be applied to averaged summary metrics across seeds.
-2. **Multi-Seed Paired Protocol**:
-   For candidate models evaluated across 5 seeds:
-   - For each seed $s \in \{42, 101, 777, 1337, 2026\}$, compute the per-example $2 \times 2$ contingency matrix between incumbent $M_{\text{incumbent}}$ and challenger $M_{\text{challenger}}$:
-     $$\chi^2_s = \frac{(|b_s - c_s| - 1)^2}{b_s + c_s}, \quad df = 1$$
-   - Report seed-specific $p$-values alongside the omnibus hierarchical bootstrap confidence interval for $\Delta \text{Macro-F1}$ ($B = 1,000$ iterations).
-   - Reject the null hypothesis of equal performance at $\alpha = 0.05$ only when the improvement is statistically significant across matched seeds.
+1. **Intra-Taxonomy Matched Testing**:
+   - Within the same taxonomy (e.g. T2 MuRIL vs T2 TF-IDF), paired per-example statistical significance tests (McNemar's test and paired bootstrap) **must operate on matched per-example prediction pairs** on matched seeds. They must never be applied to averaged summary metrics across seeds.
+   - For candidate models evaluated across 5 seeds:
+     - For each seed $s \in \{42, 101, 777, 1337, 2026\}$, compute the per-example $2 \times 2$ contingency matrix between incumbent $M_{\text{incumbent}}$ and challenger $M_{\text{challenger}}$:
+       $$\chi^2_s = \frac{(|b_s - c_s| - 1)^2}{b_s + c_s}, \quad df = 1$$
+     - Report seed-specific $p$-values alongside the omnibus hierarchical bootstrap confidence interval for $\Delta \text{Macro-F1}$ ($B = 1,000$ iterations).
+     - Reject the null hypothesis of equal performance at $\alpha = 0.05$ only when the improvement is statistically significant across matched seeds.
+2. **Cross-Taxonomy Comparison Discipline**:
+   - Across different taxonomies (T1 = 9 labels, T2 = 12 labels, T3 = 16 labels), **do NOT directly apply ordinary McNemar to raw class predictions**.
+   - Primary cross-taxonomy evaluation relies on Macro-F1, overall accuracy, per-intent F1, confusion matrices, class-boundary confusion, sample efficiency, variance across seeds, downstream action correctness, slot-contract complexity, annotation ambiguity, and end-to-end usefulness.
+   - If conducting paired statistical hypothesis testing across taxonomies, predictions and gold labels must first be mapped to a common shared semantic/action representation (`semantic_operation`), with the explicit mapping documented. Do not manufacture a significance test simply because a test procedure is available.

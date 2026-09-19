@@ -127,9 +127,13 @@ $$\text{Base Gold Size} \ge 10 \text{ independently authored cases} \times K_{\t
 
 ## 5. Statistical Testing Across Seeds and Per-Example Predictions
 
-1. **Per-Example Paired Testing Mandate**:
-   Statistical significance tests (McNemar's test and paired bootstrap) **must operate on paired per-example predictions**, never on aggregated or averaged metrics across seeds. Applying McNemar to aggregate numbers is mathematically invalid.
-2. **Multi-Seed Protocol for Finalists**:
+1. **Intra-Taxonomy Matched Testing**:
+   - Within the same taxonomy (e.g. T2 MuRIL vs T2 TF-IDF), paired per-example statistical significance tests (McNemar's test and paired bootstrap) **must operate on paired per-example predictions** on matched seeds, never on aggregated or averaged metrics across seeds. Applying McNemar to aggregate numbers is mathematically invalid.
+2. **Cross-Taxonomy Comparison Discipline**:
+   - Across different taxonomies (T1 = 9 labels, T2 = 12 labels, T3 = 16 labels), **do NOT directly apply ordinary McNemar to raw class predictions**. Because label spaces differ, raw cross-taxonomy contingency tables are mathematically meaningless.
+   - Primary cross-taxonomy evaluation relies on Macro-F1, overall accuracy, per-intent F1, confusion matrices, class-boundary confusion, sample efficiency, variance across seeds, downstream action correctness, slot-contract complexity, annotation ambiguity, and end-to-end usefulness.
+   - If conducting paired statistical hypothesis testing across taxonomies, predictions and gold labels must first be mapped to a common shared semantic/action representation (`semantic_operation`), with the explicit mapping documented. Do not manufacture a significance test simply because a test procedure is available.
+3. **Multi-Seed Protocol for Finalists**:
    - For serious finalists, serialize `predictions.jsonl` for every evaluation seed (`[42, 101, 777, 1337, 2026]`).
    - Perform matched-seed paired comparisons ($S_i^{\text{ModelA}}$ vs $S_i^{\text{ModelB}}$) across all queries.
    - Report mean, standard deviation, and 95% bootstrap confidence intervals ($B = 1,000$ iterations).

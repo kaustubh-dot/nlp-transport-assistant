@@ -111,10 +111,11 @@ Comparing taxonomies of different sizes (9, 12, 16 classes) on a single arbitrar
 - **Benefits**:
   - **Regime A (Equal Total Budget ~5,000 samples)**: T1 = 5,000 (~555/intent), T2 = 5,000 (~417/intent), T3 = 5,000 (~312/intent). Answers: Which taxonomy performs best under a fixed annotation and training budget?
   - **Regime B (Equal Class Density ~500/intent)**: T1 = 4,500, T2 = 6,000, T3 = 8,000. Answers: How do the taxonomies compare when each class has equal representation and statistical power?
-  - Evaluated across seeds `[42, 101, 777]` with paired McNemar and bootstrap tests on matched predictions.
+  - Evaluated across seeds `[42, 101, 777]`.
+  - Statistical testing discipline: Within the same taxonomy (e.g. T2 MuRIL vs T2 TF-IDF), paired per-example McNemar and bootstrap tests on matched predictions are valid. Across different taxonomies with differing label spaces (T1 = 9, T2 = 12, T3 = 16), models are compared primarily via Macro-F1, per-intent F1, confusion matrices, class-boundary confusion, seed stability, and downstream semantic-operation correctness; paired statistical tests across taxonomies are conducted only after explicit projection onto a common shared semantic-operation space.
   - Disentangles sample starvation from class boundary geometry.
 - **Risks**:
-  - Requires training 12 experimental runs per model type (3 taxonomies x 2 regimes x 2 model families x 3 seeds) using fast training protocols (<15 minutes total on RTX 4000 Ada GPU).
+  - Requires executing 36 total model-training runs (3 taxonomies × 2 regimes × 2 model families × 3 seeds = 36 runs total, or 18 runs per model family). Actual wall-clock runtime will be measured and recorded empirically.
 
 ### Option B: Single Regime A Only (Equal Total Budget ~5,000 Samples)
 - **Benefits**:

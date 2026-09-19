@@ -90,11 +90,11 @@ The v2 conversational pipeline maintains strict boundaries between language unde
 - T1 (Broad: 9 Intents): Coarse goals, high sample efficiency, extensive slot delegation. Real-time inquiries pooled in `out_of_scope`.
 - T2 (Medium: 12 Intents): Separates fare calculation from ticketing rules; dedicated interchange intent; semantic `realtime_status_query` intent evaluated for safe refusal.
 - T3 (Fine: 16 Intents): Atomic capabilities, higher boundary overlap.
-- Gate B Pilot Fairness: Evaluated under **Regime A** (Equal Total Data: ~5,000 samples each) and **Regime B** (Equal Samples Per Class: ~500 samples/intent) across pilot seeds `[42, 101, 777]`. Taxonomy is frozen only after Gate B comparison.
+- Gate B Pilot Fairness: Evaluated under **Regime A** (Equal Total Data: ~5,000 samples each) and **Regime B** (Equal Samples Per Class: ~500 samples/intent) across pilot seeds `[42, 101, 777]`, totaling **36 model-training runs** (3 taxonomies × 2 regimes × 2 model families × 3 seeds = 36 runs; 18 runs per model family). Taxonomy is frozen only after Gate B comparison.
 - Reference Document: [intent_taxonomy_candidates.md](file:///home/ug3aidsstudents/projects/NLP/docs/nlp_v2/intent_taxonomy_candidates.md).
 
 ### 3.4 Canonical Slot Schema & Ambiguity Rules (Phase N3)
-- Canonical Slots: `origin`, `destination`, `via`, `station`, `stop`, `landmark`, `locality`, `route_number`, `line_name`, `transport_mode`, `mode_from`, `mode_to`, `preference`, `timing_type`, `time`, `temporal_relative`, `date`, `ticket_type`, `fare_type`, `stage_number`, `service_type`, `facility_type`, `accessibility_feature`.
+- Canonical Slots: Exactly **23 canonical slots** (`origin`, `destination`, `via`, `station`, `stop`, `landmark`, `locality`, `route_number`, `line_name`, `transport_mode`, `mode_from`, `mode_to`, `preference`, `timing_type`, `time`, `temporal_relative`, `date`, `ticket_type`, `fare_type`, `stage_number`, `service_type`, `facility_type`, `accessibility_feature`).
 - Strict Zero-Default Ambiguity Rules:
   - Bare time expressions (`8 baje`, `8 बजे`): Dual candidates `["08:00:00", "20:00:00"]` preserved with `temporal_ambiguity = true`. No silent morning defaulting.
   - Hindi `कल / kal`: Resolved to `+1` or `-1` **only** under unambiguous grammatical tense/aspect evidence. In neutral contexts, emits `UNRESOLVED_TEMPORAL_AMBIGUITY` requiring dialogue clarification.
@@ -123,7 +123,7 @@ The v2 conversational pipeline maintains strict boundaries between language unde
 - 6 Evaluation Layers: Intent Macro-F1, Slot BIO F1, Top-1/Top-3 Entity Accuracy, Routing Graph Correctness, Task Success Rate, Response Grounding.
 - Model Registry: Google MuRIL (`google/muril-base-cased`), AI4Bharat IndicBERT v2 (`ai4bharat/IndicBERTv2-MLM-only`), Multilingual MiniLM, Meta XLM-RoBERTa, L3Cube HingBERT, and Microsoft mDeBERTa-v3.
 - Hyperparameter Reproducibility: 8 trials per model selected via deterministic random search with fixed seed `42`.
-- Statistical Testing Across Seeds: Matched per-example paired McNemar and bootstrap testing; no McNemar testing on averaged summary metrics.
+- Statistical Testing Discipline: Within the same taxonomy, matched per-example paired McNemar and bootstrap testing is valid; across different taxonomies, models are compared via Macro-F1, confusion matrices, and downstream semantic-operation correctness (raw cross-taxonomy McNemar is invalid across differing label spaces unless projected onto a common semantic space).
 - Final Test Discipline: Development -> Finalist Freeze -> Final Test -> Gold Acceptance.
 - Coverage-Based Gold Suite: $\ge 10$ independently authored cases per intent $\times$ 5 language classes ($\ge 600$ cases for T2).
 - Reference Documents: [evaluation_protocol.md](file:///home/ug3aidsstudents/projects/NLP/docs/nlp_v2/evaluation_protocol.md), [experimental_preregistration.md](file:///home/ug3aidsstudents/projects/NLP/docs/nlp_v2/experimental_preregistration.md).

@@ -302,4 +302,4 @@ To ensure an uncompromised empirical comparison, the final intent taxonomy will 
   - T3 (16 intents): ~8,000 samples
 - Eliminates the sample-size penalty for finer taxonomies to determine whether the classes are linguistically separable under equal training evidence.
 
-Both regimes will be evaluated on pilot seeds `[42, 101, 777]` using TF-IDF + Logistic Regression and Google MuRIL. The final taxonomy will be selected based on the empirical results in `reports/nlp_v2/taxonomy_pilot_results.md`.
+Both regimes will be evaluated on pilot seeds `[42, 101, 777]` using TF-IDF + Logistic Regression and Google MuRIL across **36 total model-training runs** (3 taxonomies × 2 regimes × 2 model families × 3 seeds = 36 runs; 18 runs per model family). Within-taxonomy comparisons use matched per-example McNemar and bootstrap tests; cross-taxonomy comparisons evaluate Macro-F1, confusion matrices, and mapped downstream semantic operations. The final taxonomy will be selected based on the empirical results in `reports/nlp_v2/taxonomy_pilot_results.md`.
