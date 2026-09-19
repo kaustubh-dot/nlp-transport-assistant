@@ -196,3 +196,91 @@ def test_stress_eval_surface_stability_and_v2_alignment():
         assert ro["T3_label"] == rv["T3_label"]
         assert ro["semantic_operation"] == rv["semantic_operation"]
         assert ro["contrast_group_id"] == rv["contrast_group_id"]
+
+
+def test_topology_reconciliation_invariants():
+    """Verify topology candidate invariants: candidate == matches + nonmatches across splits."""
+    manifest_path = os.path.join(DATA_DIR, "gate_b2_manifest.json")
+    with open(manifest_path, "r", encoding="utf-8") as f:
+        manifest = json.load(f)
+
+    topo = manifest["topology_reconciliation"]
+    cand = topo["route_stop_relation_candidates"]
+    matches = topo["canonical_representative_pattern_matches"]
+    nonmatches = topo["provisional_non_matches"]
+
+    # Invariant: candidate count == representative matches + provisional non-matches
+    assert cand == matches + nonmatches, f"Topology invariant failure: {cand} != {matches} + {nonmatches}"
+    assert topo["invariant_pass"] is True
+
+    per_split = topo["per_split"]
+    assert sum(per_split[s]["candidates"] for s in ["train", "validation", "stress_eval"]) == cand
+    assert sum(per_split[s]["matches"] for s in ["train", "validation", "stress_eval"]) == matches
+    assert sum(per_split[s]["nonmatches"] for s in ["train", "validation", "stress_eval"]) == nonmatches
+
+    for s in ["train", "validation", "stress_eval"]:
+        assert per_split[s]["candidates"] == per_split[s]["matches"] + per_split[s]["nonmatches"]
+
+
+def test_db_metadata_mismatch_not_silently_passed():
+    """Verify MISMATCH_DB_* cannot be silently marked as PASS without documented exception."""
+    import scripts.nlp_v2.gate_b2.audit_entity_grounding as aeg
+    summary, _ = aeg.run_gazetteer_audit()
+
+    records = summary["records"]
+    assert summary["mode_operator_validation"]["db_metadata_mismatches"] == 5
+    assert summary["status_counts"]["DB_METADATA_MISMATCH_REVIEW_REQUIRED"] == 5
+
+    expected_mismatch_stops = {"Chennai Beach", "Chepauk", "Velachery", "Tiruvottiyur", "Chromepet"}
+    actual_mismatch_stops = set()
+
+    for r in records:
+        if r["operator_validation"] == "DB_METADATA_MISMATCH_REVIEW_REQUIRED":
+            assert r["status"] == "DB_METADATA_MISMATCH_REVIEW_REQUIRED", f"Record {r['entity_name']} must be flagged as DB_METADATA_MISMATCH_REVIEW_REQUIRED"
+            assert r["status"] != "PASS", f"Record {r['entity_name']} was silently marked as PASS!"
+            assert "declared operator = SR" in r["notes"]
+            assert "DB agency value = MTC" in r["notes"]
+            actual_mismatch_stops.add(r["entity_name"])
+
+        # Any other mismatch cannot be PASS
+        if "MISMATCH" in str(r.get("mode_validation", "")) or "MISMATCH" in str(r.get("operator_validation", "")):
+            assert r["status"] != "PASS", f"Record {r['entity_name']} with mismatch was marked as PASS!"
+
+    assert actual_mismatch_stops == expected_mismatch_stops
+
+
+def test_seed_777_mcnemar_consistency():
+    """Verify seed 777 McNemar p-value is reported consistently as 0.822 across docs and reports."""
+    # Check evaluate script
+    eval_script_path = os.path.join(BASE_DIR, "scripts", "nlp_v2", "gate_b2", "evaluate_gate_b2.py")
+    with open(eval_script_path, "r", encoding="utf-8") as f:
+        script_text = f.read()
+    assert "p = 0.822" in script_text
+    assert "0.800" not in script_text
+
+    # Check confirmation reports
+    report_v2_path = os.path.join(REPORT_DIR, "gate_b2_confirmation_results_v2.md")
+    with open(report_v2_path, "r", encoding="utf-8") as f:
+        v2_text = f.read()
+    assert "p = 0.822" in v2_text
+    assert "0.800" not in v2_text
+    assert "0.8220" not in v2_text
+
+
+def test_annotation_guide_agreement_distinction():
+    """Verify annotation guide clearly separates Reviewer 1 vs Reviewer 2 from Reviewer vs Gold."""
+    guide_path = os.path.join(BASE_DIR, "docs", "nlp_v2", "gate_b2_human_annotation_guide.md")
+    with open(guide_path, "r", encoding="utf-8") as f:
+        guide_text = f.read()
+
+    # Verify column schema
+    assert "T2_reviewer_1" in guide_text
+    assert "T2_reviewer_2" in guide_text
+    assert "T3_reviewer_1" in guide_text
+    assert "T3_reviewer_2" in guide_text
+
+    # Verify inter-annotator vs gold separation
+    assert "Inter-Annotator Agreement (Reviewer 1 vs Reviewer 2)" in guide_text
+    assert "Reviewer-vs-Gold Benchmark Evaluation (Separate from Agreement)" in guide_text
+    assert "Reviewer-vs-gold comparison must NEVER be referred to as \"inter-annotator agreement.\"" in guide_text
+

@@ -34,11 +34,21 @@ You are participating in an independent annotation study to assess the semantic 
 1. **T2 Medium Taxonomy (12 Intents)**: A coarser, modular architecture where related operations are grouped under common parent intents.
 2. **T3 Fine Taxonomy (16 Intents)**: A fine-grained, direct-dispatch architecture where every distinct downstream operational API is represented as an atomic intent class.
 
-You will annotate a blind challenge sample of **350 utterances** in `data/nlp_v2/gate_b2/human_annotation_blind.csv`. For each query, you will independently assign:
-- **`T2_reviewer`**: The best fitting T2 intent (from the 12 defined classes).
-- **`T3_reviewer`**: The best fitting T3 intent (from the 16 defined classes).
-- **`reviewer_clarification_required`**: `true` if the query is fundamentally ambiguous or underspecified, otherwise `false`.
-- **`reviewer_notes`**: Optional observations on linguistic ambiguity or boundary confusion.
+You will annotate a blind challenge sample of **350 utterances** in `data/nlp_v2/gate_b2/human_annotation_blind.csv`.
+The schema of the blind annotation file is:
+- `annotation_id`: Unique challenge identifier (`ANN_00001` to `ANN_00350`).
+- `utterance_id`: Tracked query ID from the Gate B.2 stress-eval split.
+- `query`: Commuter natural language query surface text (transliterated, code-switched, colloquial, or clean).
+- For Reviewer 1:
+  - **`T2_reviewer_1`**: The best fitting T2 intent (from the 12 defined classes).
+  - **`T3_reviewer_1`**: The best fitting T3 intent (from the 16 defined classes).
+  - **`reviewer_1_clarification_required`**: `true` if the query is fundamentally ambiguous or underspecified, otherwise `false`.
+  - **`reviewer_1_notes`**: Optional observations on linguistic ambiguity or boundary confusion.
+- For Reviewer 2:
+  - **`T2_reviewer_2`**: The best fitting T2 intent (from the 12 defined classes).
+  - **`T3_reviewer_2`**: The best fitting T3 intent (from the 16 defined classes).
+  - **`reviewer_2_clarification_required`**: `true` if the query is fundamentally ambiguous or underspecified, otherwise `false`.
+  - **`reviewer_2_notes`**: Optional observations on linguistic ambiguity or boundary confusion.
 
 ---
 
@@ -126,8 +136,23 @@ In your notes column, describe the competing interpretations.
 
 ---
 
-## 5. Submission Procedure
+## 5. Submission Procedure & Agreement Metrics
 
-1. Complete columns `T2_reviewer_1`, `T3_reviewer_1`, `reviewer_1_clarification_required`, `reviewer_1_notes` (for Reviewer 1) or corresponding Reviewer 2 columns in `data/nlp_v2/gate_b2/human_annotation_blind.csv`.
+1. Complete your assigned reviewer columns in `data/nlp_v2/gate_b2/human_annotation_blind.csv`:
+   - Reviewer 1: `T2_reviewer_1`, `T3_reviewer_1`, `reviewer_1_clarification_required`, `reviewer_1_notes`.
+   - Reviewer 2: `T2_reviewer_2`, `T3_reviewer_2`, `reviewer_2_clarification_required`, `reviewer_2_notes`.
 2. Ensure values match the exact canonical intent names listed in Section 2.
-3. Save the file. Agreement metrics (Cohen's $\kappa$, raw agreement, boundary confusion matrix) will be computed automatically against the key.
+3. Save the file.
+
+### 5.1 Inter-Annotator Agreement (Reviewer 1 vs Reviewer 2)
+Inter-annotator agreement measures consensus between independent human reviewers **strictly without reference to the gold key**:
+- **T2 Raw Agreement & Cohen's $\kappa$**: Proportion of queries where Reviewer 1 and Reviewer 2 assign the exact same T2 intent class.
+- **T3 Raw Agreement & Cohen's $\kappa$**: Proportion of queries where Reviewer 1 and Reviewer 2 assign the exact same T3 intent class.
+- **Clarification-Required Agreement**: Binary agreement on whether clarification is required (`reviewer_1_clarification_required` vs `reviewer_2_clarification_required`).
+- **Disagreement Adjudication**: A third independent adjudicator reviews only the subset where Reviewer 1 and Reviewer 2 disagree.
+
+### 5.2 Reviewer-vs-Gold Benchmark Evaluation (Separate from Agreement)
+Reviewer-vs-gold evaluation is a **separate evaluation against benchmark ground truth**, conducted only after inter-annotator agreement is frozen:
+- **Reviewer 1 vs Gold Accuracy**: Accuracy of Reviewer 1 against the pre-established gold intent labels in `human_annotation_key.json`.
+- **Reviewer 2 vs Gold Accuracy**: Accuracy of Reviewer 2 against the pre-established gold intent labels in `human_annotation_key.json`.
+- **CRITICAL DISTINCTION**: Reviewer-vs-gold comparison must NEVER be referred to as "inter-annotator agreement." It evaluates benchmark alignment, whereas inter-annotator agreement measures human-human consistency and reproducibility.

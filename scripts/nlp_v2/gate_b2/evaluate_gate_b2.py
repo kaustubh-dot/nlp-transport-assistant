@@ -496,11 +496,11 @@ Gate B.2 evaluates candidate taxonomies on the confirmed and grounded stress-eva
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
 | **Seed 42** | {mcnemar_results['seed_42']['b_t3_wins']} | {mcnemar_results['seed_42']['c_t2h_wins']} | {mcnemar_results['seed_42']['both_correct']} | {mcnemar_results['seed_42']['both_incorrect']} | {mcnemar_results['seed_42']['chi2_statistic']:.4f} | {mcnemar_results['seed_42']['p_value']:.4e} | **Statistically Significant** (T3 wins) |
 | **Seed 101** | {mcnemar_results['seed_101']['b_t3_wins']} | {mcnemar_results['seed_101']['c_t2h_wins']} | {mcnemar_results['seed_101']['both_correct']} | {mcnemar_results['seed_101']['both_incorrect']} | {mcnemar_results['seed_101']['chi2_statistic']:.4f} | {mcnemar_results['seed_101']['p_value']:.4e} | **Statistically Significant** (T3 wins) |
-| **Seed 777** | {mcnemar_results['seed_777']['b_t3_wins']} | {mcnemar_results['seed_777']['c_t2h_wins']} | {mcnemar_results['seed_777']['both_correct']} | {mcnemar_results['seed_777']['both_incorrect']} | {mcnemar_results['seed_777']['chi2_statistic']:.4f} | {mcnemar_results['seed_777']['p_value']:.4f} | No significant difference (near tie) |
+| **Seed 777** | {mcnemar_results['seed_777']['b_t3_wins']} | {mcnemar_results['seed_777']['c_t2h_wins']} | {mcnemar_results['seed_777']['both_correct']} | {mcnemar_results['seed_777']['both_incorrect']} | {mcnemar_results['seed_777']['chi2_statistic']:.4f} | {mcnemar_results['seed_777']['p_value']:.3f} | No significant difference (near tie) |
 
 > [!NOTE]
 > **Multi-Seed Significance Interpretation (Section 36):**
-> T3 shows a positive aggregate multi-seed advantage (+4.11 pp). Two of three seeds (42 and 101) show individually significant paired gains under McNemar's test with continuity correction, while seed 777 is statistically indistinguishable ($p = 0.800$).
+> T3 shows a positive aggregate multi-seed advantage (+4.11 pp). Two of three seeds (42 and 101) show individually significant paired gains under McNemar's test with continuity correction, while seed 777 is statistically indistinguishable ($p = 0.822$).
 
 ### Hierarchical Query x Seed Bootstrap (1,000 Resamples)
 - **Mean Accuracy Difference (T3 - T2-H)**: `{bootstrap_results['mean_diff']:+.4f}`

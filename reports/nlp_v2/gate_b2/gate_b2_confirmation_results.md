@@ -26,7 +26,7 @@ Gate B.2 evaluates candidate taxonomies on the confirmed and grounded stress-eva
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Seed 42** | 64 | 10 | 520 | 112 | 37.9595 | 7.2230e-10 |
 | **Seed 101** | 57 | 27 | 507 | 115 | 10.0119 | 1.5553e-03 |
-| **Seed 777** | 41 | 38 | 493 | 134 | 0.0506 | 8.2197e-01 |
+| **Seed 777** | 41 | 38 | 493 | 134 | 0.0506 | 0.822 |
 
 ### Hierarchical Query x Seed Bootstrap (1,000 Resamples)
 - **Mean Accuracy Difference (T3 - T2-H)**: `+0.0412`

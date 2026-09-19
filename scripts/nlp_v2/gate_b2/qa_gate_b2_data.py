@@ -298,8 +298,28 @@ def run_qa_checks():
                 assert fg not in b_fields, f"Forbidden gold column '{fg}' exposed in human_annotation_blind.csv!"
         print("  human_annotation_blind.csv strictly contains NO gold labels.")
 
+    # 7. Check Topology Reconciliation Invariants
+    print("\nChecking Topology Reconciliation Invariants...")
+    topo = manifest.get("topology_reconciliation", {})
+    assert topo, "Missing topology_reconciliation section in gate_b2_manifest.json"
+    
+    cand = topo["route_stop_relation_candidates"]
+    matches = topo["canonical_representative_pattern_matches"]
+    nonmatches = topo["provisional_non_matches"]
+    
+    assert cand == matches + nonmatches, f"Topology invariant failure: {cand} != {matches} + {nonmatches}"
+    assert topo.get("invariant_pass") is True
+    
+    per_split = topo.get("per_split", {})
+    assert sum(per_split[s]["candidates"] for s in ["train", "validation", "stress_eval"]) == cand
+    assert sum(per_split[s]["matches"] for s in ["train", "validation", "stress_eval"]) == matches
+    assert sum(per_split[s]["nonmatches"] for s in ["train", "validation", "stress_eval"]) == nonmatches
+    for s in ["train", "validation", "stress_eval"]:
+        assert per_split[s]["candidates"] == per_split[s]["matches"] + per_split[s]["nonmatches"]
+    print(f"  Topology invariants verified: {cand} candidates == {matches} matches + {nonmatches} provisional non-matches.")
+
     print("\n" + "=" * 70)
-    print("ALL GATE B.2 QA & INTEGRITY CHECKS PASSED SUCCESSFULLY (25/25)")
+    print("ALL GATE B.2 QA & INTEGRITY CHECKS PASSED SUCCESSFULLY (26/26)")
     print("=" * 70)
 
 if __name__ == "__main__":

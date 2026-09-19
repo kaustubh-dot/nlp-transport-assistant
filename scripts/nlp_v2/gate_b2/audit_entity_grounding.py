@@ -183,8 +183,23 @@ def run_gazetteer_audit() -> Tuple[Dict[str, Any], str]:
     ]
 
     audit_records = []
-    counts = {"PASS": 0, "FAIL_FIXED": 0, "AMBIGUOUS": 0, "PROVISIONAL": 0}
-    mode_op_stats = {"validated": 0, "not_directly_verifiable": 0, "failed": 0}
+    counts = {
+        "PASS": 0,
+        "FAIL_FIXED": 0,
+        "AMBIGUOUS": 0,
+        "PROVISIONAL": 0,
+        "DB_METADATA_MISMATCH_REVIEW_REQUIRED": 0,
+        "FAIL": 0
+    }
+    mode_op_stats = {
+        "directly_validated": 0,
+        "validated_via_hub_members": 0,
+        "not_directly_verifiable": 0,
+        "db_metadata_mismatches": 0,
+        "hard_failures": 0,
+        "validated": 0,
+        "failed": 0
+    }
 
     # 1. Audit Stations
     for primary, aliases, cid, cname, etype, op, mode in raw_stations:
@@ -207,12 +222,6 @@ def run_gazetteer_audit() -> Tuple[Dict[str, Any], str]:
             "notes": ""
         }
 
-        # Check Egmore special case
-        if primary == "Egmore":
-            rec["status"] = "FAIL_FIXED"
-            rec["notes"] = "Pre-audit mapped to HUB_PURATCHI_THALAIVAR_DR__M_G_RAMACHANDRAN_CENTRAL (Chennai Central). Corrected to HUB_EGMORE."
-            counts["FAIL_FIXED"] += 1
-        
         if etype == "transport_hub":
             rec["db_table"] = "transport_hubs"
             if cid in hubs_db:
@@ -221,16 +230,16 @@ def run_gazetteer_audit() -> Tuple[Dict[str, Any], str]:
                 rec["name_match"] = (hubs_db[cid].strip().lower() == cname.strip().lower())
                 # Hub tables don't store mode/operator directly; cross-check member stops
                 hm = hub_members_modes.get(cid, {"modes": set(), "agencies": set()})
-                if mode in hm["modes"]:
-                    rec["mode_validation"] = "VALIDATED_VIA_HUB_MEMBERS"
-                else:
-                    rec["mode_validation"] = "NOT_DIRECTLY_VALIDATABLE_IN_HUB_TABLE"
-                if op in hm["agencies"]:
-                    rec["operator_validation"] = "VALIDATED_VIA_HUB_MEMBERS"
-                else:
-                    rec["operator_validation"] = "NOT_DIRECTLY_VALIDATABLE_IN_HUB_TABLE"
+                mode_ok = mode in hm["modes"]
+                op_ok = op in hm["agencies"]
                 
-                mode_op_stats["not_directly_verifiable"] += 1
+                rec["mode_validation"] = "VALIDATED_VIA_HUB_MEMBERS" if mode_ok else "NOT_DIRECTLY_VALIDATABLE"
+                rec["operator_validation"] = "VALIDATED_VIA_HUB_MEMBERS" if op_ok else "NOT_DIRECTLY_VALIDATABLE"
+                
+                if mode_ok and op_ok:
+                    mode_op_stats["validated_via_hub_members"] += 1
+                else:
+                    mode_op_stats["not_directly_verifiable"] += 1
             else:
                 rec["status"] = "AMBIGUOUS"
                 counts["AMBIGUOUS"] += 1
@@ -243,9 +252,21 @@ def run_gazetteer_audit() -> Tuple[Dict[str, Any], str]:
                 rec["db_canonical_name"] = db_s["name"]
                 rec["name_match"] = (db_s["name"].strip().lower() == cname.strip().lower())
                 rec["mode_validation"] = "VALIDATED" if db_s["mode"] == mode else f"MISMATCH_DB_{db_s['mode']}"
-                rec["operator_validation"] = "VALIDATED" if db_s["agency"] == op else f"MISMATCH_DB_{db_s['agency']}"
+                
+                if db_s["agency"] == op:
+                    rec["operator_validation"] = "VALIDATED"
+                elif db_s["agency"] == "MTC" and op == "SR" and db_s["mode"] in ("suburban_rail", "mrts"):
+                    # Case A: Canonical DB metadata mismatch (OSM rail stops assigned MTC agency)
+                    rec["operator_validation"] = "DB_METADATA_MISMATCH_REVIEW_REQUIRED"
+                else:
+                    rec["operator_validation"] = f"MISMATCH_DB_{db_s['agency']}"
+
                 if rec["mode_validation"] == "VALIDATED" and rec["operator_validation"] == "VALIDATED":
-                    mode_op_stats["validated"] += 1
+                    mode_op_stats["directly_validated"] += 1
+                elif rec["operator_validation"] == "DB_METADATA_MISMATCH_REVIEW_REQUIRED":
+                    mode_op_stats["db_metadata_mismatches"] += 1
+                elif "MISMATCH" in str(rec["mode_validation"]) or "MISMATCH" in str(rec["operator_validation"]):
+                    mode_op_stats["hard_failures"] += 1
                 else:
                     mode_op_stats["not_directly_verifiable"] += 1
             else:
@@ -258,21 +279,37 @@ def run_gazetteer_audit() -> Tuple[Dict[str, Any], str]:
                 rec["id_in_db"] = True
                 rec["db_canonical_name"] = places_db[cid]["name"]
                 rec["name_match"] = (places_db[cid]["name"].strip().lower() == cname.strip().lower())
-                rec["mode_validation"] = "NOT_DIRECTLY_VALIDATABLE_POI"
-                rec["operator_validation"] = "NOT_DIRECTLY_VALIDATABLE_POI"
+                rec["mode_validation"] = "NOT_DIRECTLY_VALIDATABLE"
+                rec["operator_validation"] = "NOT_DIRECTLY_VALIDATABLE"
                 mode_op_stats["not_directly_verifiable"] += 1
             else:
                 rec["status"] = "AMBIGUOUS"
                 counts["AMBIGUOUS"] += 1
 
-        # Check name alias alignment
-        if primary != "Egmore":
-            if not rec["name_match"]:
-                rec["status"] = "PROVISIONAL"
-                rec["notes"] = f"Canonical name alias variance: DB '{rec['db_canonical_name']}' vs declared '{cname}'"
-                counts["PROVISIONAL"] += 1
-            else:
-                counts["PASS"] += 1
+        # Determine overall record status
+        if primary == "Egmore":
+            rec["status"] = "FAIL_FIXED"
+            rec["notes"] = "Pre-audit mapped to HUB_PURATCHI_THALAIVAR_DR__M_G_RAMACHANDRAN_CENTRAL (Chennai Central). Corrected to HUB_EGMORE."
+            counts["FAIL_FIXED"] += 1
+        elif rec["operator_validation"] == "DB_METADATA_MISMATCH_REVIEW_REQUIRED":
+            rec["status"] = "DB_METADATA_MISMATCH_REVIEW_REQUIRED"
+            rec["notes"] = "declared operator = SR, DB agency value = MTC, mode = suburban_rail/mrts. In canonical_transport.db v1.2.2, all 107 suburban_rail and 2 mrts stops from OSM ingestion defaulted to agency_id='MTC' instead of 'SOUTHERN_RAILWAY'/'SR' (Case A: KB metadata review required)."
+            counts["DB_METADATA_MISMATCH_REVIEW_REQUIRED"] += 1
+        elif not rec["id_in_db"]:
+            rec["status"] = "AMBIGUOUS"
+            rec["notes"] = f"Canonical ID '{cid}' missing from target DB table '{rec['db_table']}'"
+            counts["AMBIGUOUS"] += 1
+        elif not rec["name_match"]:
+            rec["status"] = "PROVISIONAL"
+            rec["notes"] = f"Canonical name alias variance: DB '{rec['db_canonical_name']}' vs declared '{cname}'"
+            counts["PROVISIONAL"] += 1
+        elif "MISMATCH" in str(rec.get("mode_validation", "")) or "MISMATCH" in str(rec.get("operator_validation", "")):
+            rec["status"] = "FAIL"
+            rec["notes"] = f"Validation failure: mode={rec['mode_validation']}, operator={rec['operator_validation']}"
+            counts["FAIL"] += 1
+        else:
+            rec["status"] = "PASS"
+            counts["PASS"] += 1
 
         audit_records.append(rec)
 
@@ -311,21 +348,40 @@ def run_gazetteer_audit() -> Tuple[Dict[str, Any], str]:
             rec["operator_validation"] = "VALIDATED" if r_db["agency"] == op else f"MISMATCH_DB_{r_db['agency']}"
 
             if rec["mode_validation"] == "VALIDATED" and rec["operator_validation"] == "VALIDATED":
-                mode_op_stats["validated"] += 1
+                mode_op_stats["directly_validated"] += 1
+            elif "MISMATCH" in str(rec["mode_validation"]) or "MISMATCH" in str(rec["operator_validation"]):
+                mode_op_stats["hard_failures"] += 1
             else:
                 mode_op_stats["not_directly_verifiable"] += 1
 
-            if r_db["short_name"].strip().lower() != cname.strip().lower():
+            if not rec["name_match"]:
                 rec["status"] = "PROVISIONAL"
                 rec["notes"] = f"Variant route pattern short_name in GTFS: DB has '{r_db['short_name']}', query uses base route '{cname}'"
                 counts["PROVISIONAL"] += 1
+            elif r_db["short_name"].strip().lower() != cname.strip().lower():
+                rec["status"] = "PROVISIONAL"
+                rec["notes"] = f"Variant route pattern short_name in GTFS: DB has '{r_db['short_name']}', query uses base route '{cname}'"
+                counts["PROVISIONAL"] += 1
+            elif "MISMATCH" in str(rec["mode_validation"]) or "MISMATCH" in str(rec["operator_validation"]):
+                rec["status"] = "FAIL"
+                rec["notes"] = f"Validation failure: mode={rec['mode_validation']}, operator={rec['operator_validation']}"
+                counts["FAIL"] += 1
             else:
+                rec["status"] = "PASS"
                 counts["PASS"] += 1
         else:
             rec["status"] = "AMBIGUOUS"
             counts["AMBIGUOUS"] += 1
 
         audit_records.append(rec)
+
+    # Populate compatibility keys
+    mode_op_stats["validated"] = mode_op_stats["directly_validated"]
+    mode_op_stats["failed"] = mode_op_stats["hard_failures"]
+
+    # Remove zero count for FAIL if empty to keep clean
+    if counts.get("FAIL", 0) == 0:
+        counts.pop("FAIL", None)
 
     # 3. Compile Audit Result Summary
     total_audited = len(audit_records)
@@ -337,6 +393,21 @@ def run_gazetteer_audit() -> Tuple[Dict[str, Any], str]:
         "routes_audited": len(raw_routes),
         "status_counts": counts,
         "mode_operator_validation": mode_op_stats,
+        "rail_mrts_db_mismatch_finding": {
+            "finding_category": "Case A — Canonical DB Metadata Review Required",
+            "declared_operator": "SR",
+            "db_agency_value": "MTC",
+            "mode": "suburban_rail / mrts",
+            "affected_stops": ["Chennai Beach", "Chepauk", "Velachery", "Tiruvottiyur", "Chromepet"],
+            "explanation": (
+                "In canonical_transport.db (snapshot chennai_multimodal_v1.2.2), all 107 suburban_rail stops "
+                "and 2 mrts stops ingested from OSM Overpass were populated with agency_id='MTC' by default. "
+                "In reality, Suburban Rail and MRTS lines in Chennai are operated by Southern Railway (SR), "
+                "whereas MTC strictly operates buses. Because the canonical DB is frozen during Gate B, "
+                "no DB modifications were made in this patch. These 5 stops are explicitly marked as "
+                "DB_METADATA_MISMATCH_REVIEW_REQUIRED for future multimodal KB maintenance."
+            )
+        },
         "egmore_audit": {
             "status": "FAIL_FIXED",
             "old_canonical_id": "HUB_PURATCHI_THALAIVAR_DR__M_G_RAMACHANDRAN_CENTRAL",
@@ -370,19 +441,34 @@ def run_gazetteer_audit() -> Tuple[Dict[str, Any], str]:
 | **PASS (Exact DB & Name Correspondence)** | **{counts['PASS']}** | {counts['PASS']/total_audited*100:.1f}% |
 | **FAIL_FIXED (Egmore Central Mapping Corrected)** | **{counts['FAIL_FIXED']}** | {counts['FAIL_FIXED']/total_audited*100:.1f}% |
 | **PROVISIONAL (Base Route / Stop Sub-name Variations)** | **{counts['PROVISIONAL']}** | {counts['PROVISIONAL']/total_audited*100:.1f}% |
+| **DB_METADATA_MISMATCH_REVIEW_REQUIRED (Rail/MRTS Agency MTC in DB)** | **{counts['DB_METADATA_MISMATCH_REVIEW_REQUIRED']}** | {counts['DB_METADATA_MISMATCH_REVIEW_REQUIRED']/total_audited*100:.1f}% |
 | **AMBIGUOUS (Unresolved or Missing from DB)** | **{counts['AMBIGUOUS']}** | 0.0% |
 
 ### Mode / Operator Validation Breakdown
 
 | Category | Count | Status Description |
 | :--- | :---: | :--- |
-| **Directly DB Validated** | {mode_op_stats['validated']} | Mode and agency confirmed via `transport_stops` or `transport_routes` table |
-| **Not Directly Verifiable** | {mode_op_stats['not_directly_verifiable']} | `transport_hubs` and `places` tables do not have native mode/agency columns; cross-checked via hub member stops |
-| **Validation Failed** | {mode_op_stats['failed']} | Zero records failed validation |
+| **Directly DB Validated** | {mode_op_stats['directly_validated']} | Mode and agency confirmed via `transport_stops` or `transport_routes` table |
+| **Validated via Hub Members** | {mode_op_stats['validated_via_hub_members']} | Mode and agency confirmed via member stops in `hub_members` |
+| **Not Directly Verifiable** | {mode_op_stats['not_directly_verifiable']} | `transport_hubs` and `places` tables do not have native mode/agency columns; hub member stops lack direct mode/agency match |
+| **DB Metadata Mismatches** | {mode_op_stats['db_metadata_mismatches']} | Declared `SR` / `suburban_rail` / `mrts`, but canonical DB `transport_stops.agency_id` is `MTC` (Case A) |
+| **Hard Failures** | {mode_op_stats['hard_failures']} | Zero records failed validation |
 
 ---
 
-## 2. Egmore Grounding Rectification
+## 2. Rail / MRTS Southern Railway (SR) vs DB MTC Finding (Case A)
+
+> [!WARNING]
+> **Canonical DB Metadata Anomaly (Case A — Review Required)**:
+> - **Affected Records (5 Stops):** `Chennai Beach` (`RAIL_CHENNAI_BEACH`), `Chepauk` (`MRTS_CHEPAUK`), `Velachery` (`MRTS_VELACHERY`), `Tiruvottiyur` (`RAIL_TIRUVOTTIYUR`), `Chromepet` (`RAIL_CHROMEPET`).
+> - **Declared Operator / Mode:** `operator = SR`, `mode = suburban_rail` / `mrts`.
+> - **Database Record:** `canonical_transport.db` (`chennai_multimodal_v1.2.2`) lists `mode = suburban_rail` / `mrts`, but `agency_id = 'MTC'`.
+> - **Investigation Finding:** In `canonical_transport.db`, all 107 `suburban_rail` stops and 2 `mrts` stops ingested from OSM Overpass defaulted to `agency_id = 'MTC'`. In reality, Suburban Rail and MRTS services in Chennai are operated by Southern Railway (`SOUTHERN_RAILWAY`, code `SR`), while MTC operates buses.
+> - **Protocol Handling:** Per frozen KB policy, database contents are NOT modified in this patch. Instead of silently marking these as `PASS` or obscuring them as 'not directly verifiable', the audit explicitly records them as **`DB_METADATA_MISMATCH_REVIEW_REQUIRED`**.
+
+---
+
+## 3. Egmore Grounding Rectification
 
 > [!IMPORTANT]
 > **Egmore Resolution Correction**:
@@ -393,7 +479,7 @@ def run_gazetteer_audit() -> Tuple[Dict[str, Any], str]:
 
 ---
 
-## 3. Complete Gazetteer Audit Table
+## 4. Complete Gazetteer Audit Table
 
 | Surface / Name | Declared Canonical ID | DB Table | ID in DB? | DB Canonical Name | Mode / Operator Validation | Audit Status | Notes |
 | :--- | :--- | :---: | :---: | :--- | :--- | :---: | :--- |
@@ -406,7 +492,8 @@ def run_gazetteer_audit() -> Tuple[Dict[str, Any], str]:
         f.write(md_content)
 
     print(f"Audited {total_audited} entries.")
-    print(f"PASS: {counts['PASS']}, FAIL_FIXED: {counts['FAIL_FIXED']}, PROVISIONAL: {counts['PROVISIONAL']}, AMBIGUOUS: {counts['AMBIGUOUS']}")
+    print(f"Status Counts: {counts}")
+    print(f"Mode/Operator Validation: {mode_op_stats}")
     print(f"Reports written to {json_path} and {md_path}")
 
     return summary, md_content

@@ -5,15 +5,34 @@
   "stations_audited": 45,
   "routes_audited": 10,
   "status_counts": {
-    "PASS": 46,
+    "PASS": 41,
     "FAIL_FIXED": 1,
     "AMBIGUOUS": 0,
-    "PROVISIONAL": 8
+    "PROVISIONAL": 8,
+    "DB_METADATA_MISMATCH_REVIEW_REQUIRED": 5
   },
   "mode_operator_validation": {
+    "directly_validated": 31,
+    "validated_via_hub_members": 10,
+    "not_directly_verifiable": 9,
+    "db_metadata_mismatches": 5,
+    "hard_failures": 0,
     "validated": 31,
-    "not_directly_verifiable": 24,
     "failed": 0
+  },
+  "rail_mrts_db_mismatch_finding": {
+    "finding_category": "Case A — Canonical DB Metadata Review Required",
+    "declared_operator": "SR",
+    "db_agency_value": "MTC",
+    "mode": "suburban_rail / mrts",
+    "affected_stops": [
+      "Chennai Beach",
+      "Chepauk",
+      "Velachery",
+      "Tiruvottiyur",
+      "Chromepet"
+    ],
+    "explanation": "In canonical_transport.db (snapshot chennai_multimodal_v1.2.2), all 107 suburban_rail stops and 2 mrts stops ingested from OSM Overpass were populated with agency_id='MTC' by default. In reality, Suburban Rail and MRTS lines in Chennai are operated by Southern Railway (SR), whereas MTC strictly operates buses. Because the canonical DB is frozen during Gate B, no DB modifications were made in this patch. These 5 stops are explicitly marked as DB_METADATA_MISMATCH_REVIEW_REQUIRED for future multimodal KB maintenance."
   },
   "egmore_audit": {
     "status": "FAIL_FIXED",
@@ -73,8 +92,8 @@
       "id_in_db": true,
       "db_canonical_name": "Guindy",
       "name_match": true,
-      "mode_validation": "NOT_DIRECTLY_VALIDATABLE_IN_HUB_TABLE",
-      "operator_validation": "NOT_DIRECTLY_VALIDATABLE_IN_HUB_TABLE",
+      "mode_validation": "NOT_DIRECTLY_VALIDATABLE",
+      "operator_validation": "NOT_DIRECTLY_VALIDATABLE",
       "status": "PASS",
       "notes": ""
     },
@@ -109,8 +128,8 @@
       "id_in_db": true,
       "db_canonical_name": "Alandur",
       "name_match": true,
-      "mode_validation": "NOT_DIRECTLY_VALIDATABLE_IN_HUB_TABLE",
-      "operator_validation": "NOT_DIRECTLY_VALIDATABLE_IN_HUB_TABLE",
+      "mode_validation": "NOT_DIRECTLY_VALIDATABLE",
+      "operator_validation": "NOT_DIRECTLY_VALIDATABLE",
       "status": "PASS",
       "notes": ""
     },
@@ -344,7 +363,7 @@
       "db_canonical_name": "Tambaram",
       "name_match": true,
       "mode_validation": "VALIDATED_VIA_HUB_MEMBERS",
-      "operator_validation": "NOT_DIRECTLY_VALIDATABLE_IN_HUB_TABLE",
+      "operator_validation": "NOT_DIRECTLY_VALIDATABLE",
       "status": "PASS",
       "notes": ""
     },
@@ -469,8 +488,8 @@
       "id_in_db": true,
       "db_canonical_name": "Poonamallee",
       "name_match": true,
-      "mode_validation": "NOT_DIRECTLY_VALIDATABLE_IN_HUB_TABLE",
-      "operator_validation": "NOT_DIRECTLY_VALIDATABLE_IN_HUB_TABLE",
+      "mode_validation": "NOT_DIRECTLY_VALIDATABLE",
+      "operator_validation": "NOT_DIRECTLY_VALIDATABLE",
       "status": "PASS",
       "notes": ""
     },
@@ -542,9 +561,9 @@
       "db_canonical_name": "Chennai Beach",
       "name_match": true,
       "mode_validation": "VALIDATED",
-      "operator_validation": "MISMATCH_DB_MTC",
-      "status": "PASS",
-      "notes": ""
+      "operator_validation": "DB_METADATA_MISMATCH_REVIEW_REQUIRED",
+      "status": "DB_METADATA_MISMATCH_REVIEW_REQUIRED",
+      "notes": "declared operator = SR, DB agency value = MTC, mode = suburban_rail/mrts. In canonical_transport.db v1.2.2, all 107 suburban_rail and 2 mrts stops from OSM ingestion defaulted to agency_id='MTC' instead of 'SOUTHERN_RAILWAY'/'SR' (Case A: KB metadata review required)."
     },
     {
       "entity_name": "Mambalam",
@@ -560,7 +579,7 @@
       "db_canonical_name": "Mambalam",
       "name_match": true,
       "mode_validation": "VALIDATED_VIA_HUB_MEMBERS",
-      "operator_validation": "NOT_DIRECTLY_VALIDATABLE_IN_HUB_TABLE",
+      "operator_validation": "NOT_DIRECTLY_VALIDATABLE",
       "status": "PASS",
       "notes": ""
     },
@@ -578,9 +597,9 @@
       "db_canonical_name": "Chepauk",
       "name_match": true,
       "mode_validation": "VALIDATED",
-      "operator_validation": "MISMATCH_DB_MTC",
-      "status": "PASS",
-      "notes": ""
+      "operator_validation": "DB_METADATA_MISMATCH_REVIEW_REQUIRED",
+      "status": "DB_METADATA_MISMATCH_REVIEW_REQUIRED",
+      "notes": "declared operator = SR, DB agency value = MTC, mode = suburban_rail/mrts. In canonical_transport.db v1.2.2, all 107 suburban_rail and 2 mrts stops from OSM ingestion defaulted to agency_id='MTC' instead of 'SOUTHERN_RAILWAY'/'SR' (Case A: KB metadata review required)."
     },
     {
       "entity_name": "Thirumayilai",
@@ -595,8 +614,8 @@
       "id_in_db": true,
       "db_canonical_name": "Thirumayilai",
       "name_match": true,
-      "mode_validation": "NOT_DIRECTLY_VALIDATABLE_IN_HUB_TABLE",
-      "operator_validation": "NOT_DIRECTLY_VALIDATABLE_IN_HUB_TABLE",
+      "mode_validation": "NOT_DIRECTLY_VALIDATABLE",
+      "operator_validation": "NOT_DIRECTLY_VALIDATABLE",
       "status": "PASS",
       "notes": ""
     },
@@ -614,9 +633,9 @@
       "db_canonical_name": "Velachery",
       "name_match": true,
       "mode_validation": "VALIDATED",
-      "operator_validation": "MISMATCH_DB_MTC",
-      "status": "PASS",
-      "notes": ""
+      "operator_validation": "DB_METADATA_MISMATCH_REVIEW_REQUIRED",
+      "status": "DB_METADATA_MISMATCH_REVIEW_REQUIRED",
+      "notes": "declared operator = SR, DB agency value = MTC, mode = suburban_rail/mrts. In canonical_transport.db v1.2.2, all 107 suburban_rail and 2 mrts stops from OSM ingestion defaulted to agency_id='MTC' instead of 'SOUTHERN_RAILWAY'/'SR' (Case A: KB metadata review required)."
     },
     {
       "entity_name": "T. Nagar",
@@ -649,8 +668,8 @@
       "id_in_db": true,
       "db_canonical_name": "Marina Beach,Chennai",
       "name_match": true,
-      "mode_validation": "NOT_DIRECTLY_VALIDATABLE_POI",
-      "operator_validation": "NOT_DIRECTLY_VALIDATABLE_POI",
+      "mode_validation": "NOT_DIRECTLY_VALIDATABLE",
+      "operator_validation": "NOT_DIRECTLY_VALIDATABLE",
       "status": "PASS",
       "notes": ""
     },
@@ -668,7 +687,7 @@
       "db_canonical_name": "Avadi",
       "name_match": true,
       "mode_validation": "VALIDATED_VIA_HUB_MEMBERS",
-      "operator_validation": "NOT_DIRECTLY_VALIDATABLE_IN_HUB_TABLE",
+      "operator_validation": "NOT_DIRECTLY_VALIDATABLE",
       "status": "PASS",
       "notes": ""
     },
@@ -686,9 +705,9 @@
       "db_canonical_name": "Tiruvottiyur",
       "name_match": true,
       "mode_validation": "VALIDATED",
-      "operator_validation": "MISMATCH_DB_MTC",
-      "status": "PASS",
-      "notes": ""
+      "operator_validation": "DB_METADATA_MISMATCH_REVIEW_REQUIRED",
+      "status": "DB_METADATA_MISMATCH_REVIEW_REQUIRED",
+      "notes": "declared operator = SR, DB agency value = MTC, mode = suburban_rail/mrts. In canonical_transport.db v1.2.2, all 107 suburban_rail and 2 mrts stops from OSM ingestion defaulted to agency_id='MTC' instead of 'SOUTHERN_RAILWAY'/'SR' (Case A: KB metadata review required)."
     },
     {
       "entity_name": "Chromepet",
@@ -704,9 +723,9 @@
       "db_canonical_name": "Chromepet",
       "name_match": true,
       "mode_validation": "VALIDATED",
-      "operator_validation": "MISMATCH_DB_MTC",
-      "status": "PASS",
-      "notes": ""
+      "operator_validation": "DB_METADATA_MISMATCH_REVIEW_REQUIRED",
+      "status": "DB_METADATA_MISMATCH_REVIEW_REQUIRED",
+      "notes": "declared operator = SR, DB agency value = MTC, mode = suburban_rail/mrts. In canonical_transport.db v1.2.2, all 107 suburban_rail and 2 mrts stops from OSM ingestion defaulted to agency_id='MTC' instead of 'SOUTHERN_RAILWAY'/'SR' (Case A: KB metadata review required)."
     },
     {
       "entity_name": "Perambur",
@@ -722,7 +741,7 @@
       "db_canonical_name": "Perambur",
       "name_match": true,
       "mode_validation": "VALIDATED_VIA_HUB_MEMBERS",
-      "operator_validation": "NOT_DIRECTLY_VALIDATABLE_IN_HUB_TABLE",
+      "operator_validation": "NOT_DIRECTLY_VALIDATABLE",
       "status": "PASS",
       "notes": ""
     },

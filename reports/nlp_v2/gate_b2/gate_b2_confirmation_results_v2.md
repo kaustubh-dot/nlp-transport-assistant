@@ -34,11 +34,11 @@ Gate B.2 evaluates candidate taxonomies on the confirmed and grounded stress-eva
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
 | **Seed 42** | 64 | 10 | 520 | 112 | 37.9595 | 7.2230e-10 | **Statistically Significant** (T3 wins) |
 | **Seed 101** | 57 | 27 | 507 | 115 | 10.0119 | 1.5553e-03 | **Statistically Significant** (T3 wins) |
-| **Seed 777** | 41 | 38 | 493 | 134 | 0.0506 | 0.8220 | No significant difference (near tie) |
+| **Seed 777** | 41 | 38 | 493 | 134 | 0.0506 | 0.822 | No significant difference (near tie) |
 
 > [!NOTE]
 > **Multi-Seed Significance Interpretation (Section 36):**
-> T3 shows a positive aggregate multi-seed advantage (+4.11 pp). Two of three seeds (42 and 101) show individually significant paired gains under McNemar's test with continuity correction, while seed 777 is statistically indistinguishable ($p = 0.800$).
+> T3 shows a positive aggregate multi-seed advantage (+4.11 pp). Two of three seeds (42 and 101) show individually significant paired gains under McNemar's test with continuity correction, while seed 777 is statistically indistinguishable ($p = 0.822$).
 
 ### Hierarchical Query x Seed Bootstrap (1,000 Resamples)
 - **Mean Accuracy Difference (T3 - T2-H)**: `+0.0412`
