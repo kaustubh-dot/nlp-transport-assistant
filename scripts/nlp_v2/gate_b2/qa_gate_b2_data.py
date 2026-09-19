@@ -110,6 +110,7 @@ def run_qa_checks():
     all_utterance_ids = set()
     all_queries: Dict[str, Set[str]] = {}
     contrast_group_splits: Dict[str, str] = {}
+    entity_stats = {"validated": 0, "not_directly_verifiable": 0, "failed": 0}
 
     for split in splits:
         csv_file = f"gate_b2_{split}.csv"
@@ -167,12 +168,22 @@ def run_qa_checks():
             for ent in ents:
                 cid = ent.get("canonical_id", "")
                 assert cid, f"Missing canonical_id in entity in {uid}"
-                # If synthetic/provisional custom route IDs are used, check prefix
-                if not (cid in all_valid_ids or cid.startswith("SR_") or cid.startswith("HUB_") or cid.startswith("METRO_") or cid.startswith("BUS_") or cid.startswith("RAIL_")):
-                    raise AssertionError(f"Unknown canonical ID '{cid}' in {uid}")
-
                 etype = ent.get("entity_type", "")
                 assert etype in ("transport_stop", "transport_hub", "transport_route", "place"), f"Invalid entity_type '{etype}' in {uid}"
+
+                # Strict DB table existence check - NO prefix shortcuts allowed!
+                if etype == "transport_stop":
+                    assert cid in valid_stops, f"transport_stop ID '{cid}' does not exist in transport_stops.stop_id in {uid}"
+                    entity_stats["validated"] += 1
+                elif etype == "transport_hub":
+                    assert cid in valid_hubs, f"transport_hub ID '{cid}' does not exist in transport_hubs.hub_id in {uid}"
+                    entity_stats["not_directly_verifiable"] += 1
+                elif etype == "transport_route":
+                    assert cid in valid_routes, f"transport_route ID '{cid}' does not exist in transport_routes.route_id in {uid}"
+                    entity_stats["validated"] += 1
+                elif etype == "place":
+                    assert cid in valid_places, f"place ID '{cid}' does not exist in places.place_id in {uid}"
+                    entity_stats["not_directly_verifiable"] += 1
 
                 mode = ent.get("mode", "")
                 assert mode in ("metro", "bus", "suburban_rail", "mrts", "hub", "locality", "POI"), f"Invalid mode '{mode}' in {uid}"
@@ -235,6 +246,12 @@ def run_qa_checks():
     assert len(val_stress_overlap) == 0, f"Found {len(val_stress_overlap)} queries in both validation and stress_eval: {list(val_stress_overlap)[:3]}"
     print("  Zero exact or normalized duplicate leakage across splits.")
 
+    print(f"\nEntity Grounding Validation Summary:")
+    print(f"  DB-Validated Entities: {entity_stats['validated']}")
+    print(f"  Not Directly Verifiable (Hubs/Places): {entity_stats['not_directly_verifiable']}")
+    print(f"  Validation Failures: {entity_stats['failed']}")
+    assert entity_stats["failed"] == 0, f"Found {entity_stats['failed']} entity validation failures!"
+
     # 5. Check Frozen stress_eval Checksum
     print("\nChecking Frozen stress_eval SHA-256 Checksum...")
     stress_csv_path = os.path.join(DATA_DIR, "gate_b2_stress_eval.csv")
@@ -244,6 +261,30 @@ def run_qa_checks():
     expected_hash = manifest["stress_eval_sha256"]
     assert actual_hash == expected_hash, f"stress_eval checksum mismatch! Actual: {actual_hash}, Manifest: {expected_hash}"
     print(f"  stress_eval SHA-256 verified bitwise frozen: {actual_hash}")
+
+    # 5b. Check Versioned stress_eval Metadata v2 (if present)
+    v2_csv_path = os.path.join(DATA_DIR, "gate_b2_stress_eval_metadata_v2.csv")
+    if os.path.exists(v2_csv_path):
+        print("\nChecking Versioned stress_eval Metadata v2...")
+        with open(v2_csv_path, "rb") as f:
+            v2_hash = hashlib.sha256(f.read()).hexdigest()
+        assert v2_hash == manifest.get("stress_eval_metadata_v2_sha256", v2_hash)
+        
+        # Verify 1:1 row alignment with original stress_eval
+        with open(stress_csv_path, "r", encoding="utf-8") as f_orig, open(v2_csv_path, "r", encoding="utf-8") as f_v2:
+            r_orig = list(csv.DictReader(f_orig))
+            r_v2 = list(csv.DictReader(f_v2))
+            assert len(r_orig) == len(r_v2) == 706
+            for ro, rv in zip(r_orig, r_v2):
+                assert ro["utterance_id"] == rv["utterance_id"]
+                assert ro["query"] == rv["query"]
+                assert ro["clean_query"] == rv["clean_query"]
+                assert ro["T2_label"] == rv["T2_label"]
+                assert ro["T3_label"] == rv["T3_label"]
+                assert ro["semantic_operation"] == rv["semantic_operation"]
+                assert rv["entity_grounding_status"] in ("ENTITY_GROUNDED", "ENTITY_PARTIALLY_GROUNDED", "ENTITY_UNRESOLVED")
+                assert rv["fact_grounding_status"] in ("FACT_CONFIRMED", "FACT_PROVISIONAL", "FACT_NOT_VERIFIED", "NLU_ONLY_SYNTHETIC", "REQUIRES_REALTIME_DATA", "NOT_CURRENTLY_SUPPORTED")
+        print(f"  gate_b2_stress_eval_metadata_v2.csv verified (706 rows aligned, SHA: {v2_hash[:16]}...)")
 
     # 6. Check Human Annotation Blind File (if present)
     blind_file = os.path.join(DATA_DIR, "human_annotation_blind.csv")

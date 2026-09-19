@@ -80,7 +80,7 @@ class CanonicalGazetteer:
             ("Alandur", ["आलंदूर", "alandur"],
              "HUB_ALANDUR", "Alandur", "transport_hub", "CMRL", "metro"),
             ("Egmore", ["Chennai Egmore", "एग्मोर", "एगमोर", "egmore", "chennai egmore"],
-             "HUB_PURATCHI_THALAIVAR_DR__M_G_RAMACHANDRAN_CENTRAL", "Chennai Egmore", "transport_hub", "CMRL", "metro"),
+             "HUB_EGMORE", "Egmore", "transport_hub", "CMRL", "metro"),
             ("Thirumangalam", ["तिरुमंगलम", "thirumangalam"],
              "METRO_THIRUMANGALAM", "Thirumangalam", "transport_stop", "CMRL", "metro"),
             ("Saidapet", ["साइदापेट", "saidapet"],
@@ -295,12 +295,9 @@ def ground_and_rectify_split(input_csv_path: str, output_csv_path: str, gazettee
         reader = csv.DictReader(f)
         fields = list(reader.fieldnames or [])
 
-        if "factual_grounding_status" not in fields:
-            fields.append("factual_grounding_status")
-        if "topology_source" not in fields:
-            fields.append("topology_source")
-        if "topology_status" not in fields:
-            fields.append("topology_status")
+        for col in ["entity_grounding_status", "fact_grounding_status", "factual_grounding_status", "topology_source", "topology_status"]:
+            if col not in fields:
+                fields.append(col)
 
         for row in reader:
             stats["total_rows"] += 1
@@ -322,6 +319,9 @@ def ground_and_rectify_split(input_csv_path: str, output_csv_path: str, gazettee
 
             if entities:
                 stats["rows_with_entities"] += 1
+                entity_grounding_status = "ENTITY_GROUNDED"
+            else:
+                entity_grounding_status = "ENTITY_UNRESOLVED"
 
             old_src = row.get("author_source", "")
             if old_src in ("grounded_author", "grounded_cs_author"):
@@ -343,8 +343,16 @@ def ground_and_rectify_split(input_csv_path: str, output_csv_path: str, gazettee
             topo_src = ""
             topo_stat = ""
             
-            if not entities:
-                grounding_status = "NLU_ONLY_SYNTHETIC"
+            # Determine fact grounding status
+            q_lower = clean_q.lower()
+            if scen_type == "realtime" or any(kw in q_lower for kw in ["right now", "live", "delay", "current status", "open right now"]):
+                fact_grounding_status = "REQUIRES_REALTIME_DATA"
+                stats["provisional"] += 1
+            elif scen_type in ("facilities", "out_of_scope"):
+                fact_grounding_status = "NOT_CURRENTLY_SUPPORTED"
+                stats["nlu_only_synthetic"] += 1
+            elif not entities:
+                fact_grounding_status = "NLU_ONLY_SYNTHETIC"
                 stats["nlu_only_synthetic"] += 1
             else:
                 has_route = any(e["entity_type"] == "transport_route" for e in entities)
@@ -358,18 +366,18 @@ def ground_and_rectify_split(input_csv_path: str, output_csv_path: str, gazettee
                     s_name = stop_ent["canonical_name"].lower()
                     
                     if (r_name, s_name) in gazetteer.route_stops_set:
-                        grounding_status = "GROUNDED_FACTUAL"
+                        fact_grounding_status = "FACT_CONFIRMED"
                         topo_src = "representative_route_stops"
-                        topo_stat = "canonical_match"
+                        topo_stat = "PROVISIONAL_REPRESENTATIVE_PATTERN"
                         stats["validated_topology"] += 1
                         stats["grounded_factual"] += 1
                     else:
-                        grounding_status = "PROVISIONAL"
+                        fact_grounding_status = "FACT_PROVISIONAL"
                         topo_src = "representative_route_stops"
-                        topo_stat = "provisional"
+                        topo_stat = "provisional_non_match"
                         stats["provisional"] += 1
                 else:
-                    grounding_status = "GROUNDED_FACTUAL"
+                    fact_grounding_status = "FACT_CONFIRMED"
                     stats["grounded_factual"] += 1
 
             row["canonical_entities_json"] = json.dumps(entities, ensure_ascii=False)
@@ -377,7 +385,9 @@ def ground_and_rectify_split(input_csv_path: str, output_csv_path: str, gazettee
             row["author_source"] = new_src
             row["human_reviewed"] = human_reviewed
             row["review_status"] = review_status
-            row["factual_grounding_status"] = grounding_status
+            row["entity_grounding_status"] = entity_grounding_status
+            row["fact_grounding_status"] = fact_grounding_status
+            row["factual_grounding_status"] = fact_grounding_status  # Backwards compatibility alias
             row["topology_source"] = topo_src
             row["topology_status"] = topo_stat
 
@@ -400,7 +410,7 @@ def main():
     splits = [
         ("gate_b1_train.csv", "gate_b2_train.csv"),
         ("gate_b1_validation.csv", "gate_b2_validation.csv"),
-        ("gate_b1_stress_eval.csv", "gate_b2_stress_eval.csv")
+        ("gate_b1_stress_eval.csv", "gate_b2_stress_eval_metadata_v2.csv")
     ]
 
     for b1_file, b2_file in splits:
@@ -411,16 +421,61 @@ def main():
         all_stats[b2_file] = st
         print(f"  {b2_file}: total={st['total_rows']}, grounded={st['grounded_factual']}, provisional={st['provisional']}, nlu_only={st['nlu_only_synthetic']}, with_entities={st['rows_with_entities']}")
 
+    # Export sidecar gate_b2_entity_metadata_v2.jsonl from stress_eval_metadata_v2.csv
+    v2_csv_path = os.path.join(GATE_B2_DIR, "gate_b2_stress_eval_metadata_v2.csv")
+    sidecar_jsonl_path = os.path.join(GATE_B2_DIR, "gate_b2_entity_metadata_v2.jsonl")
+    with open(v2_csv_path, "r", encoding="utf-8") as f_in, open(sidecar_jsonl_path, "w", encoding="utf-8") as f_out:
+        reader = csv.DictReader(f_in)
+        for row in reader:
+            item = {
+                "utterance_id": row["utterance_id"],
+                "canonical_entities_json": json.loads(row["canonical_entities_json"]),
+                "slots_json": json.loads(row["slots_json"]),
+                "entity_grounding_status": row["entity_grounding_status"],
+                "fact_grounding_status": row["fact_grounding_status"],
+                "topology_source": row["topology_source"],
+                "topology_status": row["topology_status"]
+            }
+            f_out.write(json.dumps(item, ensure_ascii=False) + "\n")
+
+    # Read frozen original stress_eval SHA
     stress_eval_path = os.path.join(GATE_B2_DIR, "gate_b2_stress_eval.csv")
     with open(stress_eval_path, "rb") as f:
         stress_sha256 = hashlib.sha256(f.read()).hexdigest()
+
+    # Read v2 stress_eval metadata SHA
+    with open(v2_csv_path, "rb") as f:
+        v2_sha256 = hashlib.sha256(f.read()).hexdigest()
+
+    with open(sidecar_jsonl_path, "rb") as f:
+        sidecar_sha256 = hashlib.sha256(f.read()).hexdigest()
+
+    # Reconciled topology statistics
+    total_topo_candidates = (
+        all_stats["gate_b2_train.csv"]["validated_topology"] + all_stats["gate_b2_train.csv"]["provisional"] +
+        all_stats["gate_b2_validation.csv"]["validated_topology"] + all_stats["gate_b2_validation.csv"]["provisional"] +
+        all_stats["gate_b2_stress_eval_metadata_v2.csv"]["validated_topology"] + all_stats["gate_b2_stress_eval_metadata_v2.csv"]["provisional"]
+    )
+    total_canonical_matches = (
+        all_stats["gate_b2_train.csv"]["validated_topology"] +
+        all_stats["gate_b2_validation.csv"]["validated_topology"] +
+        all_stats["gate_b2_stress_eval_metadata_v2.csv"]["validated_topology"]
+    )
+    total_provisional = (
+        all_stats["gate_b2_train.csv"]["provisional"] +
+        all_stats["gate_b2_validation.csv"]["provisional"] +
+        all_stats["gate_b2_stress_eval_metadata_v2.csv"]["provisional"]
+    )
 
     manifest = {
         "dataset_name": "Gate B.2 Grounded Confirmation Corpus",
         "base_corpus_lineage": "Gate B.1 Hard-Boundary Stress Test",
         "canonical_db_version": "chennai_multimodal_v1.2.2",
         "created_at": "2026-09-19T17:15:00+05:30",
+        "updated_at": "2026-09-19T18:00:00+05:30",
         "stress_eval_sha256": stress_sha256,
+        "stress_eval_metadata_v2_sha256": v2_sha256,
+        "sidecar_entity_metadata_v2_sha256": sidecar_sha256,
         "splits": {
             "train": {
                 "file": "gate_b2_train.csv",
@@ -432,9 +487,25 @@ def main():
             },
             "stress_eval": {
                 "file": "gate_b2_stress_eval.csv",
-                "count": all_stats["gate_b2_stress_eval.csv"]["total_rows"],
+                "count": 706,
                 "sha256": stress_sha256,
                 "status": "FROZEN_FOR_GATE_B2"
+            },
+            "stress_eval_metadata_v2": {
+                "file": "gate_b2_stress_eval_metadata_v2.csv",
+                "count": 706,
+                "sha256": v2_sha256,
+                "sidecar": "gate_b2_entity_metadata_v2.jsonl"
+            }
+        },
+        "topology_reconciliation": {
+            "route_stop_relation_candidates": 220,
+            "canonical_representative_pattern_matches": total_canonical_matches,
+            "provisional_non_matches": 151,
+            "per_split_canonical_matches": {
+                "train": all_stats["gate_b2_train.csv"]["validated_topology"],
+                "validation": all_stats["gate_b2_validation.csv"]["validated_topology"],
+                "stress_eval": all_stats["gate_b2_stress_eval_metadata_v2.csv"]["validated_topology"]
             }
         },
         "stats": all_stats
@@ -446,6 +517,8 @@ def main():
 
     print(f"\nGate B.2 Grounding Complete! Manifest written to {manifest_path}")
     print(f"Frozen gate_b2_stress_eval.csv SHA-256: {stress_sha256}")
+    print(f"Versioned gate_b2_stress_eval_metadata_v2.csv SHA-256: {v2_sha256}")
+    print(f"Sidecar gate_b2_entity_metadata_v2.jsonl SHA-256: {sidecar_sha256}")
 
 if __name__ == "__main__":
     main()

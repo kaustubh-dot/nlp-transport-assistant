@@ -27,6 +27,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.pa
 DATA_DIR = os.path.join(BASE_DIR, "data", "nlp_v2", "gate_b2")
 EXP_DIR = os.path.join(BASE_DIR, "experiments", "nlp_v2", "gate_b2")
 MODEL_NAME = "google/muril-base-cased"
+MODEL_REVISION = "afd9f36c7923d54e97903922ff1b260d091d202f"
 
 os.makedirs(EXP_DIR, exist_ok=True)
 
@@ -115,7 +116,7 @@ def train_t3(seed: int, max_epochs: int = 30, patience: int = 3, min_delta: floa
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
 
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, revision=MODEL_REVISION)
     train_rows = load_split("train")
     val_rows = load_split("validation")
     stress_rows = load_split("stress_eval")
@@ -128,6 +129,7 @@ def train_t3(seed: int, max_epochs: int = 30, patience: int = 3, min_delta: floa
 
     model = AutoModelForSequenceClassification.from_pretrained(
         MODEL_NAME,
+        revision=MODEL_REVISION,
         num_labels=len(T3_CLASSES)
     ).to(device)
 

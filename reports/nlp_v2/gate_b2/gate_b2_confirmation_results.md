@@ -105,3 +105,24 @@ Gate B.2 evaluates candidate taxonomies on the confirmed and grounded stress-eva
 | `OTHER` | 20 | Representative failure cases documented in JSON |
 | `FACILITY_VS_ACCESSIBILITY` | 2 | Representative failure cases documented in JSON |
 
+
+
+---
+
+## 6. POST-AUDIT CORRECTIONS (Gate B.2 Audit Patch)
+
+An independent technical audit of the Gate B.2 repository identified the following implementation and reporting discrepancies, which have been rectified:
+
+1. **Status & Lineage Correction:** Remote GitHub contains `9345a246d44534e7aa002f7535f1cadae8c2b086` (`exp(nlp_v2): complete T2-H vs T3 taxonomy confirmation`). The framework commit is `5f547429151862f3a5da4b4f7d612bb7c6388517`. The final taxonomy decision is strictly PAUSED PENDING REAL HUMAN ANNOTATION.
+2. **T2-H Architecture Description:** T2-H is implemented as a shared-encoder multitask MuRIL model with a 12-class T2 top-level intent head + a global 16-class atomic semantic-subtype head with joint loss $\lambda = 1.0$, rather than conditional hierarchical heads. It provides strong multitask supervision with identical parameter capacity.
+3. **Ambiguity-Aware Metric Correction:** Stored `acceptable_secondary_labels` are in the T3 label vocabulary. Evaluating `pred_T2_intent in acceptable_secondary_labels` caused incompatible namespace comparison. After mapping secondary labels to operations and T2 coarse intents, corrected ambiguity-aware accuracy is:
+   - **T2-H:** 0.7668 ± 0.0084 (previously reported as 0.7531)
+   - **T3:** 0.8069 ± 0.0306 (previously reported as 0.8069)
+   - **Corrected Difference:** **+0.0401 (+4.01 pp)** (superseding the previously claimed +5.38 pp).
+4. **Entity Grounding Rectification (Egmore):** In `ground_entities.py`, Egmore was previously mapped to Central (`HUB_PURATCHI_THALAIVAR_DR__M_G_RAMACHANDRAN_CENTRAL`). This was corrected to `HUB_EGMORE` (`METRO_EGMORE`). All 55 gazetteer entries were audited against `canonical_transport.db`.
+5. **Calibration Comparability:** Marked as **NOT DIRECTLY COMPARABLE** because T3 uses single 16-class softmax confidence while T2-H uses a dual-head probability product.
+6. **Masking Diagnostic Interpretation:** Entity masking stability reflects absence of degradation on this diagnostic set, but does not prove unconstrained generalization to unseen entities. Token masking indicates greater dependence on masked vocabulary.
+7. **Convergence Report Verification:** Corrected T2-H validation Op-F1 values in `convergence_report.md` to match metrics JSONs (seed 42: 0.8563, seed 101: 0.8723, seed 777: 0.8883).
+8. **Hugging Face Model Revision:** Locally cached commit hash pinned as `afd9f36c7923d54e97903922ff1b260d091d202f`.
+
+Full corrected results are documented in `reports/nlp_v2/gate_b2/gate_b2_confirmation_results_v2.json` and `.md`.

@@ -1,0 +1,27 @@
+{
+  "annotation_version": "v2.0",
+  "dataset_name": "Gate B.2 350-Query Blind Human Annotation Study",
+  "sample_size": 350,
+  "reviewers_required": 2,
+  "blinded": true,
+  "procedural_blinding": true,
+  "technical_gold_inaccessibility": false,
+  "gold_hidden_from_reviewer_package": true,
+  "reviewer_package_files": [
+    "data/nlp_v2/gate_b2/human_annotation_blind.csv",
+    "docs/nlp_v2/gate_b2_human_annotation_guide.md"
+  ],
+  "forbidden_reference_files": [
+    "data/nlp_v2/gate_b2/human_annotation_key.json",
+    "data/nlp_v2/gate_b2/gate_b2_stress_eval.csv",
+    "data/nlp_v2/gate_b2/gate_b2_stress_eval_metadata_v2.csv",
+    "data/nlp_v2/gate_b2/gate_b2_entity_metadata_v2.jsonl",
+    "experiments/nlp_v2/gate_b2/predictions_*.jsonl",
+    "reports/nlp_v2/gate_b2/*",
+    "TAXONOMY_B2_*.md"
+  ],
+  "guideline_version": "v2.0",
+  "sample_sha256": "94fd8bb3e7f2e3bdaf274c4ee5bcf7e083e9ef2a66322fbcf7bee2cadf231999",
+  "created_at": "2026-09-19T18:00:00+05:30",
+  "status": "AWAITING_HUMAN_REVIEW"
+}

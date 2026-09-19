@@ -3,7 +3,10 @@
   "base_corpus_lineage": "Gate B.1 Hard-Boundary Stress Test",
   "canonical_db_version": "chennai_multimodal_v1.2.2",
   "created_at": "2026-09-19T17:15:00+05:30",
+  "updated_at": "2026-09-19T18:00:00+05:30",
   "stress_eval_sha256": "26cbf6517e25511d19d67051f500459ef7d78d87e5fbd1eb6d21849842242a1c",
+  "stress_eval_metadata_v2_sha256": "be3a271fc4164b73ee395dde83f06968498a8822a51a85c1365b98abfdd69abb",
+  "sidecar_entity_metadata_v2_sha256": "b56bd924397f4e63488beabe777c388ae9d217f4d24312a21e7b1070f6c2fb86",
   "splits": {
     "train": {
       "file": "gate_b2_train.csv",
@@ -18,14 +21,30 @@
       "count": 706,
       "sha256": "26cbf6517e25511d19d67051f500459ef7d78d87e5fbd1eb6d21849842242a1c",
       "status": "FROZEN_FOR_GATE_B2"
+    },
+    "stress_eval_metadata_v2": {
+      "file": "gate_b2_stress_eval_metadata_v2.csv",
+      "count": 706,
+      "sha256": "be3a271fc4164b73ee395dde83f06968498a8822a51a85c1365b98abfdd69abb",
+      "sidecar": "gate_b2_entity_metadata_v2.jsonl"
+    }
+  },
+  "topology_reconciliation": {
+    "route_stop_relation_candidates": 220,
+    "canonical_representative_pattern_matches": 67,
+    "provisional_non_matches": 151,
+    "per_split_canonical_matches": {
+      "train": 35,
+      "validation": 4,
+      "stress_eval": 28
     }
   },
   "stats": {
     "gate_b2_train.csv": {
       "total_rows": 1396,
-      "grounded_factual": 1240,
-      "provisional": 46,
-      "nlu_only_synthetic": 110,
+      "grounded_factual": 1039,
+      "provisional": 128,
+      "nlu_only_synthetic": 229,
       "rows_with_entities": 1286,
       "author_sources": {
         "CURATED_MINIMAL_PAIR": 176,
@@ -33,13 +52,13 @@
         "TEMPLATE_GENERATED": 550,
         "CURATED_HARD_CASE": 569
       },
-      "validated_topology": 36
+      "validated_topology": 35
     },
     "gate_b2_validation.csv": {
       "total_rows": 410,
-      "grounded_factual": 354,
-      "provisional": 20,
-      "nlu_only_synthetic": 36,
+      "grounded_factual": 300,
+      "provisional": 27,
+      "nlu_only_synthetic": 83,
       "rows_with_entities": 374,
       "author_sources": {
         "CURATED_MINIMAL_PAIR": 76,
@@ -47,13 +66,13 @@
         "TEMPLATE_GENERATED": 132,
         "CURATED_HARD_CASE": 169
       },
-      "validated_topology": 5
+      "validated_topology": 4
     },
-    "gate_b2_stress_eval.csv": {
+    "gate_b2_stress_eval_metadata_v2.csv": {
       "total_rows": 706,
-      "grounded_factual": 580,
-      "provisional": 85,
-      "nlu_only_synthetic": 41,
+      "grounded_factual": 463,
+      "provisional": 146,
+      "nlu_only_synthetic": 97,
       "rows_with_entities": 665,
       "author_sources": {
         "CURATED_MINIMAL_PAIR": 181,

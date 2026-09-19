@@ -7,6 +7,27 @@
 
 ---
 
+> [!CAUTION]
+> # PROCEDURAL BLINDING PROTOCOL — MANDATORY FOR ALL ANNOTATORS
+>
+> **ANNOTATORS MUST NOT INSPECT THE GITHUB REPOSITORY DURING THE LABELING TASK.**
+>
+> Gold labels and model predictions exist elsewhere in the repository (e.g. `human_annotation_key.json`, `gate_b2_stress_eval.csv`, prediction files, and reports).
+> Therefore, this study relies on **procedural blinding**, not technical inaccessibility.
+>
+> For a valid, uncorrupted blind annotation study, each reviewer must use **ONLY**:
+> 1. The supplied blind annotation CSV: `data/nlp_v2/gate_b2/human_annotation_blind.csv`
+> 2. This annotation guideline document: `docs/nlp_v2/gate_b2/human_annotation_guide.md`
+>
+> Do NOT consult:
+> - `data/nlp_v2/gate_b2/human_annotation_key.json`
+> - `data/nlp_v2/gate_b2/gate_b2_stress_eval.csv`
+> - `experiments/nlp_v2/gate_b2/predictions_*.jsonl`
+> - Model reports or taxonomy decision documents
+> until independent labeling by both reviewers is 100% complete and submitted.
+
+---
+
 ## 1. Objective of This Annotation Study
 
 You are participating in an independent annotation study to assess the semantic boundaries of two candidate intent taxonomies for the Chennai Multimodal Public Transport Assistant:

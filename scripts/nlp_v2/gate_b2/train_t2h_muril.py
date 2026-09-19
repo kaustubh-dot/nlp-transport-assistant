@@ -30,6 +30,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.pa
 DATA_DIR = os.path.join(BASE_DIR, "data", "nlp_v2", "gate_b2")
 EXP_DIR = os.path.join(BASE_DIR, "experiments", "nlp_v2", "gate_b2")
 MODEL_NAME = "google/muril-base-cased"
+MODEL_REVISION = "afd9f36c7923d54e97903922ff1b260d091d202f"
 
 os.makedirs(EXP_DIR, exist_ok=True)
 
@@ -119,9 +120,9 @@ class MultitaskDataset(Dataset):
 
 
 class MultitaskMurilT2H(nn.Module):
-    def __init__(self, model_name: str, num_t2: int = 12, num_subtype: int = 16):
+    def __init__(self, model_name: str = MODEL_NAME, revision: str = MODEL_REVISION, num_t2: int = 12, num_subtype: int = 16):
         super().__init__()
-        self.encoder = AutoModel.from_pretrained(model_name)
+        self.encoder = AutoModel.from_pretrained(model_name, revision=revision)
         hidden_size = self.encoder.config.hidden_size
         self.dropout = nn.Dropout(0.1)
         self.t2_head = nn.Linear(hidden_size, num_t2)
@@ -158,7 +159,7 @@ def train_t2h(seed: int, max_epochs: int = 30, patience: int = 3, min_delta: flo
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
 
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, revision=MODEL_REVISION)
     train_rows = load_split("train")
     val_rows = load_split("validation")
     stress_rows = load_split("stress_eval")

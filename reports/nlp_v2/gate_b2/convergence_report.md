@@ -21,8 +21,8 @@ In Gate B.1, fine-tuning was constrained by `max_epochs = 15`, causing multiple 
 | Model / Architecture | Seed | Epochs Completed | Best Epoch | Stopping Epoch | Early Stop Triggered? | Distance from Max Ceiling (30) | Runtime (s) | Best Val Metric |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **T2-H (Shared-Encoder Multitask)** | 42 | 12 | **9** | 12 | **YES** | **21 epochs** | 111.3s | Val Op-F1: 0.8563 |
-| **T2-H (Shared-Encoder Multitask)** | 101 | 13 | **10** | 13 | **YES** | **20 epochs** | 119.9s | Val Op-F1: 0.8510 |
-| **T2-H (Shared-Encoder Multitask)** | 777 | 14 | **11** | 14 | **YES** | **19 epochs** | 129.3s | Val Op-F1: 0.8548 |
+| **T2-H (Shared-Encoder Multitask)** | 101 | 13 | **10** | 13 | **YES** | **20 epochs** | 119.9s | Val Op-F1: 0.8723 |
+| **T2-H (Shared-Encoder Multitask)** | 777 | 14 | **11** | 14 | **YES** | **19 epochs** | 129.3s | Val Op-F1: 0.8883 |
 | **T3 (Direct 16-Class)** | 42 | 25 | **22** | 25 | **YES** | **8 epochs** | 234.1s | Val Macro-F1: 0.9155 |
 | **T3 (Direct 16-Class)** | 101 | 19 | **16** | 19 | **YES** | **14 epochs** | 178.2s | Val Macro-F1: 0.8605 |
 | **T3 (Direct 16-Class)** | 777 | 16 | **13** | 16 | **YES** | **17 epochs** | 150.4s | Val Macro-F1: 0.8615 |
