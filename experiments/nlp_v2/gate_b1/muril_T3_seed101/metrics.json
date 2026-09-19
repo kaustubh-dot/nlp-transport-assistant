@@ -1,0 +1,49 @@
+{
+  "experiment_id": "muril_T3_seed101",
+  "model_family": "muril",
+  "taxonomy": "T3",
+  "seed": 101,
+  "num_classes": 16,
+  "train_samples": 1396,
+  "val_samples": 410,
+  "eval_samples": 706,
+  "best_epoch": 14,
+  "best_val_macro_f1": 0.791229370046503,
+  "eval_loss": 1.9772596494334278,
+  "accuracy": 0.7464589235127479,
+  "macro_f1": 0.6976920692650418,
+  "weighted_f1": 0.7224642473592906,
+  "op_compatible_accuracy": 0.7464589235127479,
+  "per_class_f1": {
+    "fare_calculation": 0.819672131147541,
+    "first_and_last_service": 0.7931034482758621,
+    "interchange_transfer": 0.48717948717948717,
+    "mode_availability": 0.6557377049180327,
+    "multimodal_route": 0.8648648648648649,
+    "nearest_transport": 0.9056603773584906,
+    "out_of_scope": 0.0,
+    "point_to_point_route": 0.8432432432432433,
+    "realtime_status_query": 0.925,
+    "route_stop_membership": 0.8909090909090909,
+    "route_stop_sequence": 0.6987951807228916,
+    "scheduled_departure": 0.8048780487804879,
+    "service_frequency": 0.7692307692307693,
+    "station_accessibility": 0.6842105263157895,
+    "station_facilities": 0.47058823529411764,
+    "ticketing_and_passes": 0.55
+  },
+  "diagnostics": {
+    "token_masked": {
+      "accuracy": 0.6954674220963173,
+      "macro_f1": 0.638035015879556,
+      "accuracy_drop": 0.05099150141643061,
+      "macro_f1_drop": 0.05965705338548577
+    },
+    "entity_masked": {
+      "accuracy": 0.7464589235127479,
+      "macro_f1": 0.6976920692650418,
+      "accuracy_drop": 0.0,
+      "macro_f1_drop": 0.0
+    }
+  }
+}

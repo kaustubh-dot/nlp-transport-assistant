@@ -1,0 +1,30 @@
+{
+  "experiment_id": "tfidf_word_T2_seed777",
+  "model_family": "tfidf_word",
+  "taxonomy": "T2",
+  "seed": 777,
+  "num_classes": 12,
+  "train_samples": 1396,
+  "val_samples": 410,
+  "eval_samples": 706,
+  "val_accuracy": 0.6853658536585366,
+  "val_macro_f1": 0.6384270890543092,
+  "accuracy": 0.5269121813031161,
+  "macro_f1": 0.4209134467967692,
+  "weighted_f1": 0.5175314404468473,
+  "op_compatible_accuracy": 0.5269121813031161,
+  "per_class_f1": {
+    "accessibility": 0.3333333333333333,
+    "fare_query": 0.35,
+    "interchange_query": 0.2,
+    "nearest_transport": 0.3125,
+    "out_of_scope": 0.0,
+    "realtime_status_query": 0.8059701492537313,
+    "route_query": 0.3888888888888889,
+    "route_stops": 0.5357142857142857,
+    "service_availability": 0.5416666666666666,
+    "service_timing": 0.8362573099415205,
+    "station_facilities": 0.6037735849056604,
+    "ticketing_rules": 0.14285714285714285
+  }
+}

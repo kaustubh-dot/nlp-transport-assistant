@@ -1,0 +1,45 @@
+{
+  "experiment_id": "muril_T2_seed42",
+  "model_family": "muril",
+  "taxonomy": "T2",
+  "seed": 42,
+  "num_classes": 12,
+  "train_samples": 1396,
+  "val_samples": 410,
+  "eval_samples": 706,
+  "best_epoch": 14,
+  "best_val_macro_f1": 0.6706894420852582,
+  "eval_loss": 1.4293167935552409,
+  "accuracy": 0.7790368271954674,
+  "macro_f1": 0.597751800167596,
+  "weighted_f1": 0.7477631185487076,
+  "op_compatible_accuracy": 0.7790368271954674,
+  "per_class_f1": {
+    "accessibility": 0.7647058823529411,
+    "fare_query": 0.5714285714285714,
+    "interchange_query": 0.4473684210526316,
+    "nearest_transport": 0.704225352112676,
+    "out_of_scope": 0.0,
+    "realtime_status_query": 0.8539325842696629,
+    "route_query": 0.900990099009901,
+    "route_stops": 0.9256756756756757,
+    "service_availability": 0.5060240963855421,
+    "service_timing": 0.9532163742690059,
+    "station_facilities": 0.5454545454545454,
+    "ticketing_rules": 0.0
+  },
+  "diagnostics": {
+    "token_masked": {
+      "accuracy": 0.7407932011331445,
+      "macro_f1": 0.5631163050712329,
+      "accuracy_drop": 0.0382436260623229,
+      "macro_f1_drop": 0.0346354950963631
+    },
+    "entity_masked": {
+      "accuracy": 0.7790368271954674,
+      "macro_f1": 0.597751800167596,
+      "accuracy_drop": 0.0,
+      "macro_f1_drop": 0.0
+    }
+  }
+}

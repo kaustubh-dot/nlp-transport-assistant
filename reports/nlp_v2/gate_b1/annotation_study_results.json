@@ -1,0 +1,37 @@
+{
+  "sample_size": 350,
+  "T2": {
+    "agreement_count": 265,
+    "raw_agreement": 0.7571,
+    "cohen_kappa": 0.6959,
+    "disagreements_count": 85,
+    "disagreement_pairs": {
+      "route_query vs service_availability": 17,
+      "service_timing vs route_stops": 15,
+      "route_query vs service_timing": 15,
+      "route_query vs route_stops": 12,
+      "service_availability vs service_timing": 12,
+      "route_stops vs service_timing": 12,
+      "interchange_query vs station_facilities": 1,
+      "station_facilities vs accessibility": 1
+    }
+  },
+  "T3": {
+    "agreement_count": 246,
+    "raw_agreement": 0.7029,
+    "cohen_kappa": 0.6685,
+    "disagreements_count": 104,
+    "disagreement_pairs": {
+      "point_to_point_route vs mode_availability": 17,
+      "scheduled_departure vs route_stop_sequence": 15,
+      "point_to_point_route vs scheduled_departure": 15,
+      "point_to_point_route vs route_stop_sequence": 12,
+      "mode_availability vs first_and_last_service": 12,
+      "route_stop_sequence vs scheduled_departure": 12,
+      "scheduled_departure vs first_and_last_service": 12,
+      "route_stop_membership vs route_stop_sequence": 6,
+      "interchange_transfer vs station_facilities": 1,
+      "station_facilities vs station_accessibility": 1
+    }
+  }
+}

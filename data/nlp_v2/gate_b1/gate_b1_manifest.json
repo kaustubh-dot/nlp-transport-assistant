@@ -1,0 +1,70 @@
+{
+  "gate_b1_dataset_version": "gate_b1_hard_stress_v1.0",
+  "kb_snapshot_version": "chennai_multimodal_v1.2.2",
+  "taxonomies": {
+    "T2": "T2_MEDIUM_V1",
+    "T3": "T3_FINE_V1"
+  },
+  "created_at": "2026-09-19T11:00:00Z",
+  "random_seed": 42,
+  "total_sample_count": 2512,
+  "split_counts": {
+    "train": 1396,
+    "validation": 410,
+    "stress_eval": 706
+  },
+  "language_distribution": {
+    "EN": 657,
+    "HI_DEVA": 612,
+    "HI_LATN": 477,
+    "HINGLISH_LATN": 550,
+    "MIXED_SCRIPT_CS": 216
+  },
+  "code_switch_distribution": {
+    "CS0": 1074,
+    "CS2": 481,
+    "CS3": 546,
+    "CS4": 216,
+    "CS1": 195
+  },
+  "noise_distribution": {
+    "N3": 228,
+    "N0": 1147,
+    "N4": 248,
+    "N2": 354,
+    "N1": 351,
+    "N5": 184
+  },
+  "scenario_distribution": {
+    "PLAN_ROUTE": 385,
+    "CHECK_SERVICE_AVAILABILITY": 130,
+    "GET_INTERCHANGE_DETAILS": 134,
+    "LIST_ROUTE_STOPS": 129,
+    "CHECK_STOP_ON_ROUTE": 218,
+    "GET_FIRST_LAST_SERVICE": 170,
+    "GET_SERVICE_FREQUENCY": 130,
+    "GET_SCHEDULED_DEPARTURES": 232,
+    "CALCULATE_FARE": 138,
+    "GET_TICKETING_POLICY": 95,
+    "GET_STATION_FACILITY": 177,
+    "GET_ACCESSIBILITY_INFO": 124,
+    "PLAN_MULTIMODAL_ROUTE": 116,
+    "REJECT_UNSUPPORTED_REALTIME": 129,
+    "FIND_NEAREST_STATION": 120,
+    "REJECT_OUT_OF_SCOPE": 85
+  },
+  "subsets": {
+    "minimal_pair_queries": 433,
+    "contrast_groups_count": 183,
+    "independently_authored_count": 647,
+    "ambiguous_queries_count": 232,
+    "implicit_queries_count": 308,
+    "stress_eval_independent_pct": 0.5410764872521246
+  },
+  "checksums": {
+    "train_csv_sha256": "4f3c5028578c4b255e0d6815b7e31894c2e07d547dff160ce3f57f5c415b36b2",
+    "validation_csv_sha256": "d399ab50209ef66c969b941e453154d0e91eaa1801332c87cbcfb28c212e5f1e",
+    "stress_eval_csv_sha256": "f6631c8a29ef78521fbee1594c8a85b1f7e0a0286590015a959b522e985d0082",
+    "all_csv_sha256": "aab43d19d2853b8d038eb8bbeb35e3e86cf6b1a97b8cf8cb85cec56d935c1189"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "experiment_id": "tfidf_wordchar_T2_seed101",
+  "model_family": "tfidf_wordchar",
+  "taxonomy": "T2",
+  "seed": 101,
+  "num_classes": 12,
+  "train_samples": 1396,
+  "val_samples": 410,
+  "eval_samples": 706,
+  "val_accuracy": 0.751219512195122,
+  "val_macro_f1": 0.7200203549896961,
+  "accuracy": 0.623229461756374,
+  "macro_f1": 0.587557834455252,
+  "weighted_f1": 0.6232658907606377,
+  "op_compatible_accuracy": 0.623229461756374,
+  "per_class_f1": {
+    "accessibility": 0.47619047619047616,
+    "fare_query": 0.42857142857142855,
+    "interchange_query": 0.42857142857142855,
+    "nearest_transport": 0.65,
+    "out_of_scope": 0.0,
+    "realtime_status_query": 0.9333333333333333,
+    "route_query": 0.44390243902439025,
+    "route_stops": 0.6218487394957983,
+    "service_availability": 0.6538461538461539,
+    "service_timing": 0.8888888888888888,
+    "station_facilities": 0.7636363636363637,
+    "ticketing_rules": 0.7619047619047619
+  }
+}

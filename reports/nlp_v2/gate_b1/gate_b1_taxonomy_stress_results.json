@@ -1,0 +1,676 @@
+{
+  "benchmark_version": "gate_b1_taxonomy_stress_test",
+  "eval_samples": 706,
+  "contrast_groups_count": 76,
+  "models": {
+    "tfidf_word": {
+      "T2_intent_accuracy_mean": 0.5269121813031161,
+      "T2_intent_accuracy_std": 0.0,
+      "T2_intent_macro_f1_mean": 0.4209134467967692,
+      "T2_intent_macro_f1_std": 0.0,
+      "T2A_downstream_op_acc_mean": 0.43342776203966005,
+      "T2A_downstream_op_acc_std": 0.0,
+      "T2B_downstream_op_acc_mean": 0.4518413597733711,
+      "T2B_downstream_op_acc_std": 0.0,
+      "T2A_contrast_group_exact_consistency": 0.25,
+      "T2B_contrast_group_exact_consistency": 0.4605263157894737,
+      "T3_intent_accuracy_mean": 0.44334277620396606,
+      "T3_intent_accuracy_std": 5.551115123125783e-17,
+      "T3_intent_macro_f1_mean": 0.43227698365145417,
+      "T3_intent_macro_f1_std": 0.0,
+      "T3_downstream_op_acc_mean": 0.44334277620396606,
+      "T3_downstream_op_acc_std": 5.551115123125783e-17,
+      "T3_contrast_group_exact_consistency": 0.42105263157894735
+    },
+    "tfidf_wordchar": {
+      "T2_intent_accuracy_mean": 0.623229461756374,
+      "T2_intent_accuracy_std": 0.0,
+      "T2_intent_macro_f1_mean": 0.587557834455252,
+      "T2_intent_macro_f1_std": 0.0,
+      "T2A_downstream_op_acc_mean": 0.5113314447592068,
+      "T2A_downstream_op_acc_std": 0.0,
+      "T2B_downstream_op_acc_mean": 0.5439093484419264,
+      "T2B_downstream_op_acc_std": 0.0,
+      "T2A_contrast_group_exact_consistency": 0.43421052631578955,
+      "T2B_contrast_group_exact_consistency": 0.6447368421052632,
+      "T3_intent_accuracy_mean": 0.5722379603399433,
+      "T3_intent_accuracy_std": 0.0,
+      "T3_intent_macro_f1_mean": 0.5913859330411777,
+      "T3_intent_macro_f1_std": 0.0,
+      "T3_downstream_op_acc_mean": 0.5722379603399433,
+      "T3_downstream_op_acc_std": 0.0,
+      "T3_contrast_group_exact_consistency": 0.6710526315789473
+    },
+    "muril": {
+      "T2_intent_accuracy_mean": 0.7988668555240793,
+      "T2_intent_accuracy_std": 0.01619115033001158,
+      "T2_intent_macro_f1_mean": 0.6507636448751675,
+      "T2_intent_macro_f1_std": 0.03831543573935921,
+      "T2A_downstream_op_acc_mean": 0.6067044381491974,
+      "T2A_downstream_op_acc_std": 0.00934796500152186,
+      "T2B_downstream_op_acc_mean": 0.7011331444759207,
+      "T2B_downstream_op_acc_std": 0.014021947502282835,
+      "T2A_contrast_group_exact_consistency": 0.49561403508771934,
+      "T2B_contrast_group_exact_consistency": 0.706140350877193,
+      "T3_intent_accuracy_mean": 0.7422096317280453,
+      "T3_intent_accuracy_std": 0.009179519402843986,
+      "T3_intent_macro_f1_mean": 0.6894845757661453,
+      "T3_intent_macro_f1_std": 0.029085159069207982,
+      "T3_downstream_op_acc_mean": 0.7422096317280453,
+      "T3_downstream_op_acc_std": 0.009179519402843986,
+      "T3_contrast_group_exact_consistency": 0.8508771929824562
+    }
+  },
+  "statistical_tests": {
+    "mcnemar_t3_vs_t2a": {
+      "statistic": 59.815384615384616,
+      "p_value": 1.0436096431476471e-14,
+      "b": 152,
+      "c": 43
+    },
+    "mcnemar_t3_vs_t2b": {
+      "statistic": 16.875,
+      "p_value": 3.992397476904053e-05,
+      "b": 83,
+      "c": 37
+    },
+    "bootstrap_t3_vs_t2b": {
+      "mean_diff": 0.14508641621419935,
+      "ci_95": [
+        0.10916046043003136,
+        0.1816461595780713
+      ],
+      "p_value": 0.0
+    }
+  },
+  "stratified_breakdown": {
+    "language_class": {
+      "EN": {
+        "count": 215,
+        "t2a_op_acc": 0.4744186046511628,
+        "t2b_op_acc": 0.5813953488372093,
+        "t3_op_acc": 0.6325581395348837,
+        "t3_gain_over_t2b": 0.051162790697674376
+      },
+      "HINGLISH_LATN": {
+        "count": 164,
+        "t2a_op_acc": 0.774390243902439,
+        "t2b_op_acc": 0.7439024390243902,
+        "t3_op_acc": 0.7865853658536586,
+        "t3_gain_over_t2b": 0.04268292682926833
+      },
+      "HI_DEVA": {
+        "count": 202,
+        "t2a_op_acc": 0.5742574257425742,
+        "t2b_op_acc": 0.7920792079207921,
+        "t3_op_acc": 0.8366336633663366,
+        "t3_gain_over_t2b": 0.04455445544554448
+      },
+      "HI_LATN": {
+        "count": 72,
+        "t2a_op_acc": 0.5833333333333334,
+        "t2b_op_acc": 0.8055555555555556,
+        "t3_op_acc": 0.9166666666666666,
+        "t3_gain_over_t2b": 0.11111111111111105
+      },
+      "MIXED_SCRIPT_CS": {
+        "count": 53,
+        "t2a_op_acc": 0.6415094339622641,
+        "t2b_op_acc": 0.3584905660377358,
+        "t3_op_acc": 0.5660377358490566,
+        "t3_gain_over_t2b": 0.20754716981132076
+      }
+    },
+    "code_switch_level": {
+      "CS0": {
+        "count": 327,
+        "t2a_op_acc": 0.5565749235474006,
+        "t2b_op_acc": 0.6422018348623854,
+        "t3_op_acc": 0.7247706422018348,
+        "t3_gain_over_t2b": 0.08256880733944949
+      },
+      "CS1": {
+        "count": 90,
+        "t2a_op_acc": 0.4,
+        "t2b_op_acc": 0.8333333333333334,
+        "t3_op_acc": 0.7555555555555555,
+        "t3_gain_over_t2b": -0.07777777777777783
+      },
+      "CS2": {
+        "count": 74,
+        "t2a_op_acc": 0.5945945945945946,
+        "t2b_op_acc": 0.8108108108108109,
+        "t3_op_acc": 0.918918918918919,
+        "t3_gain_over_t2b": 0.10810810810810811
+      },
+      "CS3": {
+        "count": 162,
+        "t2a_op_acc": 0.7716049382716049,
+        "t2b_op_acc": 0.7407407407407407,
+        "t3_op_acc": 0.7839506172839507,
+        "t3_gain_over_t2b": 0.04320987654320996
+      },
+      "CS4": {
+        "count": 53,
+        "t2a_op_acc": 0.6415094339622641,
+        "t2b_op_acc": 0.3584905660377358,
+        "t3_op_acc": 0.5660377358490566,
+        "t3_gain_over_t2b": 0.20754716981132076
+      }
+    },
+    "noise_level": {
+      "N0": {
+        "count": 330,
+        "t2a_op_acc": 0.6666666666666666,
+        "t2b_op_acc": 0.7484848484848485,
+        "t3_op_acc": 0.806060606060606,
+        "t3_gain_over_t2b": 0.0575757575757575
+      },
+      "N1": {
+        "count": 101,
+        "t2a_op_acc": 0.5742574257425742,
+        "t2b_op_acc": 0.6435643564356436,
+        "t3_op_acc": 0.7920792079207921,
+        "t3_gain_over_t2b": 0.14851485148514854
+      },
+      "N2": {
+        "count": 91,
+        "t2a_op_acc": 0.6043956043956044,
+        "t2b_op_acc": 0.6703296703296703,
+        "t3_op_acc": 0.7472527472527473,
+        "t3_gain_over_t2b": 0.07692307692307698
+      },
+      "N3": {
+        "count": 58,
+        "t2a_op_acc": 0.603448275862069,
+        "t2b_op_acc": 0.7758620689655172,
+        "t3_op_acc": 0.7758620689655172,
+        "t3_gain_over_t2b": 0.0
+      },
+      "N4": {
+        "count": 71,
+        "t2a_op_acc": 0.5211267605633803,
+        "t2b_op_acc": 0.5915492957746479,
+        "t3_op_acc": 0.676056338028169,
+        "t3_gain_over_t2b": 0.08450704225352113
+      },
+      "N5": {
+        "count": 55,
+        "t2a_op_acc": 0.2909090909090909,
+        "t2b_op_acc": 0.43636363636363634,
+        "t3_op_acc": 0.41818181818181815,
+        "t3_gain_over_t2b": -0.018181818181818188
+      }
+    },
+    "author_source": {
+      "independent_authored": {
+        "count": 181,
+        "t2a_op_acc": 0.7071823204419889,
+        "t2b_op_acc": 0.8342541436464088,
+        "t3_op_acc": 0.9613259668508287,
+        "t3_gain_over_t2b": 0.1270718232044199
+      },
+      "synthetic_stress": {
+        "count": 525,
+        "t2a_op_acc": 0.5580952380952381,
+        "t2b_op_acc": 0.6342857142857142,
+        "t3_op_acc": 0.6780952380952381,
+        "t3_gain_over_t2b": 0.043809523809523854
+      }
+    },
+    "is_implicit": {
+      "False": {
+        "count": 592,
+        "t2a_op_acc": 0.6773648648648649,
+        "t2b_op_acc": 0.6638513513513513,
+        "t3_op_acc": 0.7516891891891891,
+        "t3_gain_over_t2b": 0.08783783783783783
+      },
+      "True": {
+        "count": 114,
+        "t2a_op_acc": 0.17543859649122806,
+        "t2b_op_acc": 0.7982456140350878,
+        "t3_op_acc": 0.7456140350877193,
+        "t3_gain_over_t2b": -0.052631578947368474
+      }
+    },
+    "is_ambiguous": {
+      "False": {
+        "count": 608,
+        "t2a_op_acc": 0.5608552631578947,
+        "t2b_op_acc": 0.6973684210526315,
+        "t3_op_acc": 0.7763157894736842,
+        "t3_gain_over_t2b": 0.07894736842105265
+      },
+      "True": {
+        "count": 98,
+        "t2a_op_acc": 0.8163265306122449,
+        "t2b_op_acc": 0.6122448979591837,
+        "t3_op_acc": 0.5918367346938775,
+        "t3_gain_over_t2b": -0.020408163265306145
+      }
+    }
+  },
+  "error_review": {
+    "total_errors_audited": 259,
+    "distribution_by_category": {
+      "BOUNDARY_CONFUSION_FARE_VS_PASS_RULES": 7,
+      "HIGH_COMPLEXITY_CODE_SWITCHING": 31,
+      "SEVERE_ORTHOGRAPHIC_OR_KEYBOARD_NOISE": 85,
+      "CROSS_DOMAIN_SEMANTIC_CONFUSION": 40,
+      "BOUNDARY_CONFUSION_STOP_SEQUENCE_VS_MEMBERSHIP": 10,
+      "BOUNDARY_CONFUSION_SERVICE_TIMING_SUBTYPES": 2,
+      "LEXICAL_AMBIGUITY_OR_DUAL_INTENT": 42,
+      "IMPLICIT_INTENT_WITHOUT_KEYWORDS": 42
+    },
+    "sample_errors": {
+      "BOUNDARY_CONFUSION_FARE_VS_PASS_RULES": [
+        {
+          "utterance_id": "GB1_00092",
+          "query": "can i use chennai metro smart card for discount on airport to central journey",
+          "gold_operation": "GET_TICKETING_POLICY",
+          "gold_t2": "ticketing_rules",
+          "gold_t3": "ticketing_and_passes",
+          "pred_t2": "fare_query",
+          "pred_t3": "ticketing_and_passes",
+          "op_t2a": "CALCULATE_FARE",
+          "op_t2b": "CALCULATE_FARE",
+          "op_t3": "GET_TICKETING_POLICY",
+          "t2_error": true,
+          "t3_error": false,
+          "noise_level": "N1",
+          "code_switch_level": "CS0",
+          "language_class": "EN"
+        },
+        {
+          "utterance_id": "GB1_00094",
+          "query": "\u0915\u094d\u092f\u093e \u0917\u093f\u0902\u0921\u0940 \u0938\u0947 \u0906\u0932\u0902\u0926\u0942\u0930 \u092f\u093e\u0924\u094d\u0930\u093e \u092a\u0930 \u0938\u094d\u092e\u093e\u0930\u094d\u091f \u0915\u093e\u0930\u094d\u0921 \u0938\u0947 \u0921\u093f\u0938\u094d\u0915\u093e\u0909\u0902\u091f \u092e\u093f\u0932\u0924\u093e \u0939\u0948?",
+          "gold_operation": "GET_TICKETING_POLICY",
+          "gold_t2": "ticketing_rules",
+          "gold_t3": "ticketing_and_passes",
+          "pred_t2": "fare_query",
+          "pred_t3": "ticketing_and_passes",
+          "op_t2a": "CALCULATE_FARE",
+          "op_t2b": "CALCULATE_FARE",
+          "op_t3": "GET_TICKETING_POLICY",
+          "t2_error": true,
+          "t3_error": false,
+          "noise_level": "N0",
+          "code_switch_level": "CS0",
+          "language_class": "HI_DEVA"
+        },
+        {
+          "utterance_id": "GB1_00100",
+          "query": "\u0915\u094d\u092f\u093e \u0938\u0940\u090f\u092e\u092c\u0940\u091f\u0940 \u0938\u0947 \u090f\u092f\u0930\u092a\u094b\u0930\u094d\u091f \u092f\u093e\u0924\u094d\u0930\u093e \u092a\u0930 \u0938\u094d\u092e\u093e\u0930\u094d\u091f \u0915\u093e\u0930\u094d\u0921 \u0938\u0947 \u0921\u093f\u0938\u094d\u0915\u093e\u0909\u0902\u091f \u092e\u093f\u0932\u0924\u093e \u0939\u0948?",
+          "gold_operation": "GET_TICKETING_POLICY",
+          "gold_t2": "ticketing_rules",
+          "gold_t3": "ticketing_and_passes",
+          "pred_t2": "fare_query",
+          "pred_t3": "ticketing_and_passes",
+          "op_t2a": "CALCULATE_FARE",
+          "op_t2b": "CALCULATE_FARE",
+          "op_t3": "GET_TICKETING_POLICY",
+          "t2_error": true,
+          "t3_error": false,
+          "noise_level": "N0",
+          "code_switch_level": "CS0",
+          "language_class": "HI_DEVA"
+        }
+      ],
+      "HIGH_COMPLEXITY_CODE_SWITCHING": [
+        {
+          "utterance_id": "GB1_00102",
+          "query": "thirumangalam se saidapet travel ke liye monthly pass valid hai kya",
+          "gold_operation": "GET_TICKETING_POLICY",
+          "gold_t2": "ticketing_rules",
+          "gold_t3": "ticketing_and_passes",
+          "pred_t2": "service_availability",
+          "pred_t3": "ticketing_and_passes",
+          "op_t2a": "CHECK_SERVICE_AVAILABILITY",
+          "op_t2b": "CHECK_SERVICE_AVAILABILITY",
+          "op_t3": "GET_TICKETING_POLICY",
+          "t2_error": true,
+          "t3_error": false,
+          "noise_level": "N1",
+          "code_switch_level": "CS3",
+          "language_class": "HINGLISH_LATN"
+        },
+        {
+          "utterance_id": "GB1_00136",
+          "query": "Velachery se Airport local train aur bus dono combine karke route kya hai?",
+          "gold_operation": "PLAN_MULTIMODAL_ROUTE",
+          "gold_t2": "route_query",
+          "gold_t3": "multimodal_route",
+          "pred_t2": "route_query",
+          "pred_t3": "multimodal_route",
+          "op_t2a": "PLAN_MULTIMODAL_ROUTE",
+          "op_t2b": "PLAN_ROUTE",
+          "op_t3": "PLAN_MULTIMODAL_ROUTE",
+          "t2_error": true,
+          "t3_error": false,
+          "noise_level": "N0",
+          "code_switch_level": "CS3",
+          "language_class": "HINGLISH_LATN"
+        },
+        {
+          "utterance_id": "GB1_00009",
+          "query": "Alandur to Egmore route me line change kahan karni hogi?",
+          "gold_operation": "GET_INTERCHANGE_DETAILS",
+          "gold_t2": "interchange_query",
+          "gold_t3": "interchange_transfer",
+          "pred_t2": "fare_query",
+          "pred_t3": "interchange_transfer",
+          "op_t2a": "CALCULATE_FARE",
+          "op_t2b": "CALCULATE_FARE",
+          "op_t3": "GET_INTERCHANGE_DETAILS",
+          "t2_error": true,
+          "t3_error": false,
+          "noise_level": "N0",
+          "code_switch_level": "CS3",
+          "language_class": "HINGLISH_LATN"
+        }
+      ],
+      "SEVERE_ORTHOGRAPHIC_OR_KEYBOARD_NOISE": [
+        {
+          "utterance_id": "GB1_00262",
+          "query": "\u0906\u0932\u0902\u0926\u0942\u0930 \u0938\u0947 \u0917\u093f\u0902\u0921\u093f \u092f\u093e\u0924\u094d\u0930\u093e \u0915\u0947 \u0932\u093f\u090f \u091f\u094b\u0915\u0928 \u092f\u093e \u0915\u093e\u0930\u094d\u0921 \u0928\u093f\u092f\u092e \u0915\u094d\u092f\u093e \u0939\u0948",
+          "gold_operation": "GET_TICKETING_POLICY",
+          "gold_t2": "ticketing_rules",
+          "gold_t3": "ticketing_and_passes",
+          "pred_t2": "fare_query",
+          "pred_t3": "ticketing_and_passes",
+          "op_t2a": "CALCULATE_FARE",
+          "op_t2b": "CALCULATE_FARE",
+          "op_t3": "GET_TICKETING_POLICY",
+          "t2_error": true,
+          "t3_error": false,
+          "noise_level": "N2",
+          "code_switch_level": "CS0",
+          "language_class": "HI_DEVA"
+        },
+        {
+          "utterance_id": "GB1_00264",
+          "query": "\u0924\u093e\u0902\u092c\u0930\u092e \u0938\u0947 \u091a\u0947\u0928\u094d\u0928\u0908 \u0938\u0947\u0902\u091f\u094d\u0930\u0932 \u092f\u093e\u0924\u094d\u0930\u093e \u0915\u0947 \u0932\u093f\u090f \u091f\u094b\u0915\u0928 \u092f\u093e \u0915\u093e\u0930\u094d\u0921 \u0928\u093f\u092f\u092e \u0915\u094d\u092f\u093e \u0939?\u0948",
+          "gold_operation": "GET_TICKETING_POLICY",
+          "gold_t2": "ticketing_rules",
+          "gold_t3": "ticketing_and_passes",
+          "pred_t2": "fare_query",
+          "pred_t3": "ticketing_and_passes",
+          "op_t2a": "CALCULATE_FARE",
+          "op_t2b": "CALCULATE_FARE",
+          "op_t3": "GET_TICKETING_POLICY",
+          "t2_error": true,
+          "t3_error": false,
+          "noise_level": "N3",
+          "code_switch_level": "CS0",
+          "language_class": "HI_DEVA"
+        },
+        {
+          "utterance_id": "GB1_00266",
+          "query": "\u0915\u094b\u092f\u092e\u094d\u092c\u0948\u0921\u0941 \u0938\u0947 \u090f\u092f\u0930\u092a\u094b\u0930\u094d\u091f \u092f\u093e\u0924\u094d\u0930\u093e \u0915\u0947 \u0932\u093f\u090f \u091f\u094b\u0915\u0928 \u092f\u093e \u0915\u093e\u0930\u094d\u0921 \u0928\u093f\u092f\u092e \u0915\u094d\u092f\u093e \u0939\u0948",
+          "gold_operation": "GET_TICKETING_POLICY",
+          "gold_t2": "ticketing_rules",
+          "gold_t3": "ticketing_and_passes",
+          "pred_t2": "fare_query",
+          "pred_t3": "ticketing_and_passes",
+          "op_t2a": "CALCULATE_FARE",
+          "op_t2b": "CALCULATE_FARE",
+          "op_t3": "GET_TICKETING_POLICY",
+          "t2_error": true,
+          "t3_error": false,
+          "noise_level": "N2",
+          "code_switch_level": "CS0",
+          "language_class": "HI_DEVA"
+        }
+      ],
+      "CROSS_DOMAIN_SEMANTIC_CONFUSION": [
+        {
+          "utterance_id": "GB1_00184",
+          "query": "Anna Nagar Tower se Central badalna kahan padega?",
+          "gold_operation": "GET_INTERCHANGE_DETAILS",
+          "gold_t2": "interchange_query",
+          "gold_t3": "interchange_transfer",
+          "pred_t2": "fare_query",
+          "pred_t3": "interchange_transfer",
+          "op_t2a": "CALCULATE_FARE",
+          "op_t2b": "CALCULATE_FARE",
+          "op_t3": "GET_INTERCHANGE_DETAILS",
+          "t2_error": true,
+          "t3_error": false,
+          "noise_level": "N0",
+          "code_switch_level": "CS2",
+          "language_class": "HI_LATN"
+        },
+        {
+          "utterance_id": "GB1_00187",
+          "query": "Koyambedu se Alandur badalna kahan padega?",
+          "gold_operation": "GET_INTERCHANGE_DETAILS",
+          "gold_t2": "interchange_query",
+          "gold_t3": "interchange_transfer",
+          "pred_t2": "fare_query",
+          "pred_t3": "interchange_transfer",
+          "op_t2a": "CALCULATE_FARE",
+          "op_t2b": "CALCULATE_FARE",
+          "op_t3": "GET_INTERCHANGE_DETAILS",
+          "t2_error": true,
+          "t3_error": false,
+          "noise_level": "N0",
+          "code_switch_level": "CS2",
+          "language_class": "HI_LATN"
+        },
+        {
+          "utterance_id": "GB1_01793",
+          "query": "Route 570 Siruseri IT Park par halt karti hai kya?",
+          "gold_operation": "CHECK_STOP_ON_ROUTE",
+          "gold_t2": "route_stops",
+          "gold_t3": "route_stop_membership",
+          "pred_t2": "route_stops",
+          "pred_t3": "point_to_point_route",
+          "op_t2a": "LIST_ROUTE_STOPS",
+          "op_t2b": "CHECK_STOP_ON_ROUTE",
+          "op_t3": "PLAN_ROUTE",
+          "t2_error": false,
+          "t3_error": true,
+          "noise_level": "N0",
+          "code_switch_level": "CS2",
+          "language_class": "HI_LATN"
+        }
+      ],
+      "BOUNDARY_CONFUSION_STOP_SEQUENCE_VS_MEMBERSHIP": [
+        {
+          "utterance_id": "GB1_00039",
+          "query": "102 \u0915\u0947 \u0938\u093e\u0930\u0947 \u0938\u094d\u091f\u0949\u092a\u094d\u0938 \u0915\u0940 \u0932\u093f\u0938\u094d\u091f \u092c\u0924\u093e\u090f\u0902",
+          "gold_operation": "LIST_ROUTE_STOPS",
+          "gold_t2": "route_stops",
+          "gold_t3": "route_stop_sequence",
+          "pred_t2": "route_stops",
+          "pred_t3": "route_stop_sequence",
+          "op_t2a": "LIST_ROUTE_STOPS",
+          "op_t2b": "CHECK_STOP_ON_ROUTE",
+          "op_t3": "LIST_ROUTE_STOPS",
+          "t2_error": true,
+          "t3_error": false,
+          "noise_level": "N0",
+          "code_switch_level": "CS0",
+          "language_class": "HI_DEVA"
+        },
+        {
+          "utterance_id": "GB1_00045",
+          "query": "29c \u0915\u0947 \u0938\u093e\u0930\u0947 \u0938\u094d\u091f\u0949\u092a\u094d\u0938 \u0915\u0940 \u0932\u093f\u0938\u094d\u091f \u092c\u0924\u093e\u090f\u0902",
+          "gold_operation": "LIST_ROUTE_STOPS",
+          "gold_t2": "route_stops",
+          "gold_t3": "route_stop_sequence",
+          "pred_t2": "route_stops",
+          "pred_t3": "route_stop_sequence",
+          "op_t2a": "LIST_ROUTE_STOPS",
+          "op_t2b": "CHECK_STOP_ON_ROUTE",
+          "op_t3": "LIST_ROUTE_STOPS",
+          "t2_error": true,
+          "t3_error": false,
+          "noise_level": "N1",
+          "code_switch_level": "CS0",
+          "language_class": "HI_DEVA"
+        },
+        {
+          "utterance_id": "GB1_00051",
+          "query": "19B \u0915\u0947 \u0938\u093e\u0930\u0947 \u0938\u094d\u091f\u0949\u092a\u094d\u0938 \u0915\u0940 \u0932\u093f\u0938\u094d\u091f \u092c\u0924\u093e\u090f\u0902",
+          "gold_operation": "LIST_ROUTE_STOPS",
+          "gold_t2": "route_stops",
+          "gold_t3": "route_stop_sequence",
+          "pred_t2": "route_stops",
+          "pred_t3": "route_stop_sequence",
+          "op_t2a": "LIST_ROUTE_STOPS",
+          "op_t2b": "CHECK_STOP_ON_ROUTE",
+          "op_t3": "LIST_ROUTE_STOPS",
+          "t2_error": true,
+          "t3_error": false,
+          "noise_level": "N0",
+          "code_switch_level": "CS0",
+          "language_class": "HI_DEVA"
+        }
+      ],
+      "BOUNDARY_CONFUSION_SERVICE_TIMING_SUBTYPES": [
+        {
+          "utterance_id": "GB1_00066",
+          "query": "\u090f\u092f\u0930\u092a\u094b\u0930\u094d\u091f \u0938\u0947 \u0938\u0941\u092c\u0939 8:30 \u092c\u091c\u0947 \u0915\u094c\u0928 \u0938\u0940 metro \u0924\u092f \u0939\u0948?",
+          "gold_operation": "GET_SCHEDULED_DEPARTURES",
+          "gold_t2": "service_timing",
+          "gold_t3": "scheduled_departure",
+          "pred_t2": "service_timing",
+          "pred_t3": "scheduled_departure",
+          "op_t2a": "GET_SCHEDULED_DEPARTURES",
+          "op_t2b": "GET_FIRST_LAST_SERVICE",
+          "op_t3": "GET_SCHEDULED_DEPARTURES",
+          "t2_error": true,
+          "t3_error": false,
+          "noise_level": "N0",
+          "code_switch_level": "CS0",
+          "language_class": "HI_DEVA"
+        },
+        {
+          "utterance_id": "GB1_01116",
+          "query": "ye bus 570 kitni der me ek baar milti hai OMR road pe?",
+          "gold_operation": "GET_SERVICE_FREQUENCY",
+          "gold_t2": "service_timing",
+          "gold_t3": "service_frequency",
+          "pred_t2": "service_timing",
+          "pred_t3": "service_frequency",
+          "op_t2a": "GET_SERVICE_FREQUENCY",
+          "op_t2b": "GET_SCHEDULED_DEPARTURES",
+          "op_t3": "GET_SERVICE_FREQUENCY",
+          "t2_error": true,
+          "t3_error": false,
+          "noise_level": "N0",
+          "code_switch_level": "CS2",
+          "language_class": "HI_LATN"
+        }
+      ],
+      "LEXICAL_AMBIGUITY_OR_DUAL_INTENT": [
+        {
+          "utterance_id": "GB1_00596",
+          "query": "Is Central station open right now?",
+          "gold_operation": "CHECK_SERVICE_AVAILABILITY",
+          "gold_t2": "service_availability",
+          "gold_t3": "mode_availability",
+          "pred_t2": "realtime_status_query",
+          "pred_t3": "route_stop_membership",
+          "op_t2a": "REJECT_UNSUPPORTED_REALTIME",
+          "op_t2b": "REJECT_UNSUPPORTED_REALTIME",
+          "op_t3": "CHECK_STOP_ON_ROUTE",
+          "t2_error": true,
+          "t3_error": true,
+          "noise_level": "N0",
+          "code_switch_level": "CS0",
+          "language_class": "EN"
+        },
+        {
+          "utterance_id": "GB1_00602",
+          "query": "Is Egmore station open right nwo?",
+          "gold_operation": "CHECK_SERVICE_AVAILABILITY",
+          "gold_t2": "service_availability",
+          "gold_t3": "mode_availability",
+          "pred_t2": "interchange_query",
+          "pred_t3": "station_accessibility",
+          "op_t2a": "GET_INTERCHANGE_DETAILS",
+          "op_t2b": "GET_INTERCHANGE_DETAILS",
+          "op_t3": "GET_ACCESSIBILITY_INFO",
+          "t2_error": true,
+          "t3_error": true,
+          "noise_level": "N3",
+          "code_switch_level": "CS0",
+          "language_class": "EN"
+        },
+        {
+          "utterance_id": "GB1_00608",
+          "query": "Is Tambaram station open right now?",
+          "gold_operation": "CHECK_SERVICE_AVAILABILITY",
+          "gold_t2": "service_availability",
+          "gold_t3": "mode_availability",
+          "pred_t2": "fare_query",
+          "pred_t3": "route_stop_membership",
+          "op_t2a": "CALCULATE_FARE",
+          "op_t2b": "CALCULATE_FARE",
+          "op_t3": "CHECK_STOP_ON_ROUTE",
+          "t2_error": true,
+          "t3_error": true,
+          "noise_level": "N0",
+          "code_switch_level": "CS0",
+          "language_class": "EN"
+        }
+      ],
+      "IMPLICIT_INTENT_WITHOUT_KEYWORDS": [
+        {
+          "utterance_id": "GB1_00798",
+          "query": "570 to siruseri",
+          "gold_operation": "CHECK_STOP_ON_ROUTE",
+          "gold_t2": "route_stops",
+          "gold_t3": "route_stop_membership",
+          "pred_t2": "service_timing",
+          "pred_t3": "route_stop_membership",
+          "op_t2a": "GET_SCHEDULED_DEPARTURES",
+          "op_t2b": "GET_SCHEDULED_DEPARTURES",
+          "op_t3": "CHECK_STOP_ON_ROUTE",
+          "t2_error": true,
+          "t3_error": false,
+          "noise_level": "N0",
+          "code_switch_level": "CS0",
+          "language_class": "EN"
+        },
+        {
+          "utterance_id": "GB1_00800",
+          "query": "570 to gndy",
+          "gold_operation": "CHECK_STOP_ON_ROUTE",
+          "gold_t2": "route_stops",
+          "gold_t3": "route_stop_membership",
+          "pred_t2": "service_timing",
+          "pred_t3": "route_stop_membership",
+          "op_t2a": "GET_SCHEDULED_DEPARTURES",
+          "op_t2b": "GET_SCHEDULED_DEPARTURES",
+          "op_t3": "CHECK_STOP_ON_ROUTE",
+          "t2_error": true,
+          "t3_error": false,
+          "noise_level": "N4",
+          "code_switch_level": "CS0",
+          "language_class": "EN"
+        },
+        {
+          "utterance_id": "GB1_00805",
+          "query": "570 to kyoambedu",
+          "gold_operation": "CHECK_STOP_ON_ROUTE",
+          "gold_t2": "route_stops",
+          "gold_t3": "route_stop_membership",
+          "pred_t2": "service_timing",
+          "pred_t3": "route_stop_membership",
+          "op_t2a": "GET_SCHEDULED_DEPARTURES",
+          "op_t2b": "GET_SCHEDULED_DEPARTURES",
+          "op_t3": "CHECK_STOP_ON_ROUTE",
+          "t2_error": true,
+          "t3_error": false,
+          "noise_level": "N3",
+          "code_switch_level": "CS0",
+          "language_class": "EN"
+        }
+      ]
+    }
+  }
+}

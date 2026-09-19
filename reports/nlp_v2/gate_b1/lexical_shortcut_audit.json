@@ -1,0 +1,970 @@
+{
+  "dataset_version": "gate_b1_hard_stress_v1.0",
+  "sample_count": 2512,
+  "taxonomies": {
+    "T2": {
+      "key_transit_terms": [
+        {
+          "term": "frequency",
+          "frequency": 33,
+          "dominant_label": "service_timing",
+          "purity": 1.0,
+          "distribution": {
+            "service_timing": 33
+          }
+        },
+        {
+          "term": "headway",
+          "frequency": 8,
+          "dominant_label": "service_timing",
+          "purity": 1.0,
+          "distribution": {
+            "service_timing": 8
+          }
+        },
+        {
+          "term": "interval",
+          "frequency": 2,
+          "dominant_label": "service_timing",
+          "purity": 1.0,
+          "distribution": {
+            "service_timing": 2
+          }
+        },
+        {
+          "term": "fare",
+          "frequency": 48,
+          "dominant_label": "fare_query",
+          "purity": 1.0,
+          "distribution": {
+            "fare_query": 48
+          }
+        },
+        {
+          "term": "ticket",
+          "frequency": 33,
+          "dominant_label": "fare_query",
+          "purity": 0.8485,
+          "distribution": {
+            "fare_query": 28,
+            "ticketing_rules": 5
+          }
+        },
+        {
+          "term": "tariff",
+          "frequency": 25,
+          "dominant_label": "fare_query",
+          "purity": 1.0,
+          "distribution": {
+            "fare_query": 25
+          }
+        },
+        {
+          "term": "cost",
+          "frequency": 3,
+          "dominant_label": "fare_query",
+          "purity": 1.0,
+          "distribution": {
+            "fare_query": 3
+          }
+        },
+        {
+          "term": "charge",
+          "frequency": 1,
+          "dominant_label": "fare_query",
+          "purity": 1.0,
+          "distribution": {
+            "fare_query": 1
+          }
+        },
+        {
+          "term": "live",
+          "frequency": 81,
+          "dominant_label": "realtime_status_query",
+          "purity": 1.0,
+          "distribution": {
+            "realtime_status_query": 81
+          }
+        },
+        {
+          "term": "gps",
+          "frequency": 43,
+          "dominant_label": "realtime_status_query",
+          "purity": 1.0,
+          "distribution": {
+            "realtime_status_query": 43
+          }
+        },
+        {
+          "term": "delay",
+          "frequency": 27,
+          "dominant_label": "realtime_status_query",
+          "purity": 1.0,
+          "distribution": {
+            "realtime_status_query": 27
+          }
+        },
+        {
+          "term": "tracker",
+          "frequency": 31,
+          "dominant_label": "realtime_status_query",
+          "purity": 1.0,
+          "distribution": {
+            "realtime_status_query": 31
+          }
+        },
+        {
+          "term": "interchange",
+          "frequency": 45,
+          "dominant_label": "interchange_query",
+          "purity": 0.8222,
+          "distribution": {
+            "route_query": 8,
+            "interchange_query": 37
+          }
+        },
+        {
+          "term": "change",
+          "frequency": 20,
+          "dominant_label": "interchange_query",
+          "purity": 0.65,
+          "distribution": {
+            "interchange_query": 13,
+            "service_availability": 7
+          }
+        },
+        {
+          "term": "transfer",
+          "frequency": 19,
+          "dominant_label": "interchange_query",
+          "purity": 1.0,
+          "distribution": {
+            "interchange_query": 19
+          }
+        },
+        {
+          "term": "switch",
+          "frequency": 9,
+          "dominant_label": "interchange_query",
+          "purity": 1.0,
+          "distribution": {
+            "interchange_query": 9
+          }
+        },
+        {
+          "term": "sequence",
+          "frequency": 18,
+          "dominant_label": "route_stops",
+          "purity": 1.0,
+          "distribution": {
+            "route_stops": 18
+          }
+        },
+        {
+          "term": "stops",
+          "frequency": 33,
+          "dominant_label": "route_stops",
+          "purity": 0.7879,
+          "distribution": {
+            "route_stops": 26,
+            "service_timing": 7
+          }
+        },
+        {
+          "term": "halts",
+          "frequency": 25,
+          "dominant_label": "route_stops",
+          "purity": 1.0,
+          "distribution": {
+            "route_stops": 25
+          }
+        },
+        {
+          "term": "list",
+          "frequency": 25,
+          "dominant_label": "route_stops",
+          "purity": 1.0,
+          "distribution": {
+            "route_stops": 25
+          }
+        },
+        {
+          "term": "halt",
+          "frequency": 16,
+          "dominant_label": "route_stops",
+          "purity": 1.0,
+          "distribution": {
+            "route_stops": 16
+          }
+        },
+        {
+          "term": "stop",
+          "frequency": 32,
+          "dominant_label": "route_stops",
+          "purity": 0.6562,
+          "distribution": {
+            "route_stops": 21,
+            "nearest_transport": 11
+          }
+        },
+        {
+          "term": "touch",
+          "frequency": 1,
+          "dominant_label": "route_stops",
+          "purity": 1.0,
+          "distribution": {
+            "route_stops": 1
+          }
+        },
+        {
+          "term": "first",
+          "frequency": 31,
+          "dominant_label": "service_timing",
+          "purity": 1.0,
+          "distribution": {
+            "service_timing": 31
+          }
+        },
+        {
+          "term": "early",
+          "frequency": 16,
+          "dominant_label": "service_timing",
+          "purity": 1.0,
+          "distribution": {
+            "service_timing": 16
+          }
+        },
+        {
+          "term": "earliest",
+          "frequency": 5,
+          "dominant_label": "service_timing",
+          "purity": 1.0,
+          "distribution": {
+            "service_timing": 5
+          }
+        },
+        {
+          "term": "last",
+          "frequency": 56,
+          "dominant_label": "service_timing",
+          "purity": 1.0,
+          "distribution": {
+            "service_timing": 56
+          }
+        },
+        {
+          "term": "night",
+          "frequency": 47,
+          "dominant_label": "service_timing",
+          "purity": 0.8298,
+          "distribution": {
+            "service_timing": 39,
+            "route_query": 8
+          }
+        },
+        {
+          "term": "midnight",
+          "frequency": 3,
+          "dominant_label": "service_timing",
+          "purity": 1.0,
+          "distribution": {
+            "service_timing": 3
+          }
+        },
+        {
+          "term": "schedule",
+          "frequency": 49,
+          "dominant_label": "service_timing",
+          "purity": 1.0,
+          "distribution": {
+            "service_timing": 49
+          }
+        },
+        {
+          "term": "timetable",
+          "frequency": 43,
+          "dominant_label": "service_timing",
+          "purity": 1.0,
+          "distribution": {
+            "service_timing": 43
+          }
+        },
+        {
+          "term": "scheduled",
+          "frequency": 62,
+          "dominant_label": "service_timing",
+          "purity": 1.0,
+          "distribution": {
+            "service_timing": 62
+          }
+        }
+      ],
+      "extreme_tokens_count": 498,
+      "extreme_tokens": [
+        {
+          "token": "parking",
+          "frequency": 102,
+          "dominant_label": "station_facilities",
+          "purity": 1.0
+        },
+        {
+          "token": "live",
+          "frequency": 81,
+          "dominant_label": "realtime_status_query",
+          "purity": 1.0
+        },
+        {
+          "token": "kitne",
+          "frequency": 65,
+          "dominant_label": "service_timing",
+          "purity": 1.0
+        },
+        {
+          "token": "scheduled",
+          "frequency": 62,
+          "dominant_label": "service_timing",
+          "purity": 1.0
+        },
+        {
+          "token": "baje",
+          "frequency": 57,
+          "dominant_label": "service_timing",
+          "purity": 1.0
+        },
+        {
+          "token": "reach",
+          "frequency": 56,
+          "dominant_label": "route_query",
+          "purity": 1.0
+        },
+        {
+          "token": "last",
+          "frequency": 56,
+          "dominant_label": "service_timing",
+          "purity": 1.0
+        },
+        {
+          "token": "schedule",
+          "frequency": 49,
+          "dominant_label": "service_timing",
+          "purity": 1.0
+        },
+        {
+          "token": "fare",
+          "frequency": 48,
+          "dominant_label": "fare_query",
+          "purity": 1.0
+        },
+        {
+          "token": "kab",
+          "frequency": 46,
+          "dominant_label": "service_timing",
+          "purity": 1.0
+        },
+        {
+          "token": "lift",
+          "frequency": 45,
+          "dominant_label": "accessibility",
+          "purity": 1.0
+        },
+        {
+          "token": "timetable",
+          "frequency": 43,
+          "dominant_label": "service_timing",
+          "purity": 1.0
+        },
+        {
+          "token": "gps",
+          "frequency": 43,
+          "dominant_label": "realtime_status_query",
+          "purity": 1.0
+        },
+        {
+          "token": "gap",
+          "frequency": 42,
+          "dominant_label": "service_timing",
+          "purity": 1.0
+        },
+        {
+          "token": "बह",
+          "frequency": 40,
+          "dominant_label": "service_timing",
+          "purity": 1.0
+        },
+        {
+          "token": "स_बह",
+          "frequency": 40,
+          "dominant_label": "service_timing",
+          "purity": 1.0
+        },
+        {
+          "token": "gap_me",
+          "frequency": 40,
+          "dominant_label": "service_timing",
+          "purity": 1.0
+        },
+        {
+          "token": "ke_gap",
+          "frequency": 40,
+          "dominant_label": "service_timing",
+          "purity": 1.0
+        },
+        {
+          "token": "पहल",
+          "frequency": 39,
+          "dominant_label": "service_timing",
+          "purity": 1.0
+        },
+        {
+          "token": "wheelchair",
+          "frequency": 39,
+          "dominant_label": "accessibility",
+          "purity": 1.0
+        },
+        {
+          "token": "क_सबस",
+          "frequency": 39,
+          "dominant_label": "nearest_transport",
+          "purity": 1.0
+        },
+        {
+          "token": "trains",
+          "frequency": 38,
+          "dominant_label": "service_timing",
+          "purity": 1.0
+        },
+        {
+          "token": "vehicle_parking",
+          "frequency": 37,
+          "dominant_label": "station_facilities",
+          "purity": 1.0
+        },
+        {
+          "token": "to_reach",
+          "frequency": 37,
+          "dominant_label": "route_query",
+          "purity": 1.0
+        },
+        {
+          "token": "departure",
+          "frequency": 35,
+          "dominant_label": "service_timing",
+          "purity": 1.0
+        },
+        {
+          "token": "subah",
+          "frequency": 35,
+          "dominant_label": "service_timing",
+          "purity": 1.0
+        },
+        {
+          "token": "बज",
+          "frequency": 34,
+          "dominant_label": "service_timing",
+          "purity": 1.0
+        },
+        {
+          "token": "single",
+          "frequency": 34,
+          "dominant_label": "fare_query",
+          "purity": 1.0
+        },
+        {
+          "token": "tactile",
+          "frequency": 34,
+          "dominant_label": "accessibility",
+          "purity": 1.0
+        },
+        {
+          "token": "frequency",
+          "frequency": 33,
+          "dominant_label": "service_timing",
+          "purity": 1.0
+        }
+      ]
+    },
+    "T3": {
+      "key_transit_terms": [
+        {
+          "term": "frequency",
+          "frequency": 33,
+          "dominant_label": "service_frequency",
+          "purity": 1.0,
+          "distribution": {
+            "service_frequency": 33
+          }
+        },
+        {
+          "term": "headway",
+          "frequency": 8,
+          "dominant_label": "service_frequency",
+          "purity": 1.0,
+          "distribution": {
+            "service_frequency": 8
+          }
+        },
+        {
+          "term": "interval",
+          "frequency": 2,
+          "dominant_label": "service_frequency",
+          "purity": 1.0,
+          "distribution": {
+            "service_frequency": 2
+          }
+        },
+        {
+          "term": "fare",
+          "frequency": 48,
+          "dominant_label": "fare_calculation",
+          "purity": 1.0,
+          "distribution": {
+            "fare_calculation": 48
+          }
+        },
+        {
+          "term": "ticket",
+          "frequency": 33,
+          "dominant_label": "fare_calculation",
+          "purity": 0.8485,
+          "distribution": {
+            "fare_calculation": 28,
+            "ticketing_and_passes": 5
+          }
+        },
+        {
+          "term": "tariff",
+          "frequency": 25,
+          "dominant_label": "fare_calculation",
+          "purity": 1.0,
+          "distribution": {
+            "fare_calculation": 25
+          }
+        },
+        {
+          "term": "cost",
+          "frequency": 3,
+          "dominant_label": "fare_calculation",
+          "purity": 1.0,
+          "distribution": {
+            "fare_calculation": 3
+          }
+        },
+        {
+          "term": "charge",
+          "frequency": 1,
+          "dominant_label": "fare_calculation",
+          "purity": 1.0,
+          "distribution": {
+            "fare_calculation": 1
+          }
+        },
+        {
+          "term": "live",
+          "frequency": 81,
+          "dominant_label": "realtime_status_query",
+          "purity": 1.0,
+          "distribution": {
+            "realtime_status_query": 81
+          }
+        },
+        {
+          "term": "gps",
+          "frequency": 43,
+          "dominant_label": "realtime_status_query",
+          "purity": 1.0,
+          "distribution": {
+            "realtime_status_query": 43
+          }
+        },
+        {
+          "term": "delay",
+          "frequency": 27,
+          "dominant_label": "realtime_status_query",
+          "purity": 1.0,
+          "distribution": {
+            "realtime_status_query": 27
+          }
+        },
+        {
+          "term": "tracker",
+          "frequency": 31,
+          "dominant_label": "realtime_status_query",
+          "purity": 1.0,
+          "distribution": {
+            "realtime_status_query": 31
+          }
+        },
+        {
+          "term": "interchange",
+          "frequency": 45,
+          "dominant_label": "interchange_transfer",
+          "purity": 0.8222,
+          "distribution": {
+            "multimodal_route": 8,
+            "interchange_transfer": 37
+          }
+        },
+        {
+          "term": "change",
+          "frequency": 20,
+          "dominant_label": "interchange_transfer",
+          "purity": 0.65,
+          "distribution": {
+            "interchange_transfer": 13,
+            "mode_availability": 7
+          }
+        },
+        {
+          "term": "transfer",
+          "frequency": 19,
+          "dominant_label": "interchange_transfer",
+          "purity": 1.0,
+          "distribution": {
+            "interchange_transfer": 19
+          }
+        },
+        {
+          "term": "switch",
+          "frequency": 9,
+          "dominant_label": "interchange_transfer",
+          "purity": 1.0,
+          "distribution": {
+            "interchange_transfer": 9
+          }
+        },
+        {
+          "term": "sequence",
+          "frequency": 18,
+          "dominant_label": "route_stop_sequence",
+          "purity": 1.0,
+          "distribution": {
+            "route_stop_sequence": 18
+          }
+        },
+        {
+          "term": "stops",
+          "frequency": 33,
+          "dominant_label": "route_stop_sequence",
+          "purity": 0.7879,
+          "distribution": {
+            "route_stop_sequence": 26,
+            "scheduled_departure": 7
+          }
+        },
+        {
+          "term": "halts",
+          "frequency": 25,
+          "dominant_label": "route_stop_sequence",
+          "purity": 1.0,
+          "distribution": {
+            "route_stop_sequence": 25
+          }
+        },
+        {
+          "term": "list",
+          "frequency": 25,
+          "dominant_label": "route_stop_sequence",
+          "purity": 1.0,
+          "distribution": {
+            "route_stop_sequence": 25
+          }
+        },
+        {
+          "term": "halt",
+          "frequency": 16,
+          "dominant_label": "route_stop_membership",
+          "purity": 1.0,
+          "distribution": {
+            "route_stop_membership": 16
+          }
+        },
+        {
+          "term": "stop",
+          "frequency": 32,
+          "dominant_label": "route_stop_membership",
+          "purity": 0.375,
+          "distribution": {
+            "route_stop_membership": 12,
+            "nearest_transport": 11,
+            "route_stop_sequence": 9
+          }
+        },
+        {
+          "term": "touch",
+          "frequency": 1,
+          "dominant_label": "route_stop_membership",
+          "purity": 1.0,
+          "distribution": {
+            "route_stop_membership": 1
+          }
+        },
+        {
+          "term": "first",
+          "frequency": 31,
+          "dominant_label": "first_and_last_service",
+          "purity": 1.0,
+          "distribution": {
+            "first_and_last_service": 31
+          }
+        },
+        {
+          "term": "early",
+          "frequency": 16,
+          "dominant_label": "first_and_last_service",
+          "purity": 1.0,
+          "distribution": {
+            "first_and_last_service": 16
+          }
+        },
+        {
+          "term": "earliest",
+          "frequency": 5,
+          "dominant_label": "first_and_last_service",
+          "purity": 1.0,
+          "distribution": {
+            "first_and_last_service": 5
+          }
+        },
+        {
+          "term": "last",
+          "frequency": 56,
+          "dominant_label": "first_and_last_service",
+          "purity": 1.0,
+          "distribution": {
+            "first_and_last_service": 56
+          }
+        },
+        {
+          "term": "night",
+          "frequency": 47,
+          "dominant_label": "first_and_last_service",
+          "purity": 0.617,
+          "distribution": {
+            "scheduled_departure": 10,
+            "point_to_point_route": 8,
+            "first_and_last_service": 29
+          }
+        },
+        {
+          "term": "midnight",
+          "frequency": 3,
+          "dominant_label": "first_and_last_service",
+          "purity": 1.0,
+          "distribution": {
+            "first_and_last_service": 3
+          }
+        },
+        {
+          "term": "schedule",
+          "frequency": 49,
+          "dominant_label": "scheduled_departure",
+          "purity": 1.0,
+          "distribution": {
+            "scheduled_departure": 49
+          }
+        },
+        {
+          "term": "timetable",
+          "frequency": 43,
+          "dominant_label": "scheduled_departure",
+          "purity": 1.0,
+          "distribution": {
+            "scheduled_departure": 43
+          }
+        },
+        {
+          "term": "scheduled",
+          "frequency": 62,
+          "dominant_label": "scheduled_departure",
+          "purity": 1.0,
+          "distribution": {
+            "scheduled_departure": 62
+          }
+        }
+      ],
+      "extreme_tokens_count": 464,
+      "extreme_tokens": [
+        {
+          "token": "parking",
+          "frequency": 102,
+          "dominant_label": "station_facilities",
+          "purity": 1.0
+        },
+        {
+          "token": "live",
+          "frequency": 81,
+          "dominant_label": "realtime_status_query",
+          "purity": 1.0
+        },
+        {
+          "token": "scheduled",
+          "frequency": 62,
+          "dominant_label": "scheduled_departure",
+          "purity": 1.0
+        },
+        {
+          "token": "last",
+          "frequency": 56,
+          "dominant_label": "first_and_last_service",
+          "purity": 1.0
+        },
+        {
+          "token": "schedule",
+          "frequency": 49,
+          "dominant_label": "scheduled_departure",
+          "purity": 1.0
+        },
+        {
+          "token": "fare",
+          "frequency": 48,
+          "dominant_label": "fare_calculation",
+          "purity": 1.0
+        },
+        {
+          "token": "lift",
+          "frequency": 45,
+          "dominant_label": "station_accessibility",
+          "purity": 1.0
+        },
+        {
+          "token": "timetable",
+          "frequency": 43,
+          "dominant_label": "scheduled_departure",
+          "purity": 1.0
+        },
+        {
+          "token": "gps",
+          "frequency": 43,
+          "dominant_label": "realtime_status_query",
+          "purity": 1.0
+        },
+        {
+          "token": "gap",
+          "frequency": 42,
+          "dominant_label": "service_frequency",
+          "purity": 1.0
+        },
+        {
+          "token": "gap_me",
+          "frequency": 40,
+          "dominant_label": "service_frequency",
+          "purity": 1.0
+        },
+        {
+          "token": "ke_gap",
+          "frequency": 40,
+          "dominant_label": "service_frequency",
+          "purity": 1.0
+        },
+        {
+          "token": "पहल",
+          "frequency": 39,
+          "dominant_label": "first_and_last_service",
+          "purity": 1.0
+        },
+        {
+          "token": "wheelchair",
+          "frequency": 39,
+          "dominant_label": "station_accessibility",
+          "purity": 1.0
+        },
+        {
+          "token": "क_सबस",
+          "frequency": 39,
+          "dominant_label": "nearest_transport",
+          "purity": 1.0
+        },
+        {
+          "token": "vehicle_parking",
+          "frequency": 37,
+          "dominant_label": "station_facilities",
+          "purity": 1.0
+        },
+        {
+          "token": "departure",
+          "frequency": 35,
+          "dominant_label": "scheduled_departure",
+          "purity": 1.0
+        },
+        {
+          "token": "single",
+          "frequency": 34,
+          "dominant_label": "fare_calculation",
+          "purity": 1.0
+        },
+        {
+          "token": "tactile",
+          "frequency": 34,
+          "dominant_label": "station_accessibility",
+          "purity": 1.0
+        },
+        {
+          "token": "frequency",
+          "frequency": 33,
+          "dominant_label": "service_frequency",
+          "purity": 1.0
+        },
+        {
+          "token": "status",
+          "frequency": 32,
+          "dominant_label": "realtime_status_query",
+          "purity": 1.0
+        },
+        {
+          "token": "sa",
+          "frequency": 32,
+          "dominant_label": "nearest_transport",
+          "purity": 1.0
+        },
+        {
+          "token": "counter",
+          "frequency": 32,
+          "dominant_label": "ticketing_and_passes",
+          "purity": 1.0
+        },
+        {
+          "token": "safe",
+          "frequency": 32,
+          "dominant_label": "station_facilities",
+          "purity": 1.0
+        },
+        {
+          "token": "बह_पहल",
+          "frequency": 32,
+          "dominant_label": "first_and_last_service",
+          "purity": 1.0
+        },
+        {
+          "token": "first",
+          "frequency": 31,
+          "dominant_label": "first_and_last_service",
+          "purity": 1.0
+        },
+        {
+          "token": "tracker",
+          "frequency": 31,
+          "dominant_label": "realtime_status_query",
+          "purity": 1.0
+        },
+        {
+          "token": "ज_एग",
+          "frequency": 31,
+          "dominant_label": "route_stop_membership",
+          "purity": 1.0
+        },
+        {
+          "token": "location",
+          "frequency": 30,
+          "dominant_label": "realtime_status_query",
+          "purity": 1.0
+        },
+        {
+          "token": "closest",
+          "frequency": 30,
+          "dominant_label": "nearest_transport",
+          "purity": 1.0
+        }
+      ]
+    }
+  }
+}
