@@ -20,6 +20,14 @@
     "validated": 31,
     "failed": 0
   },
+  "rail_agency_distribution": {
+    "mrts": {
+      "MTC": 2
+    },
+    "suburban_rail": {
+      "MTC": 107
+    }
+  },
   "rail_mrts_db_mismatch_finding": {
     "finding_category": "Case A — Canonical DB Metadata Review Required",
     "declared_operator": "SR",
@@ -32,7 +40,16 @@
       "Tiruvottiyur",
       "Chromepet"
     ],
-    "explanation": "In canonical_transport.db (snapshot chennai_multimodal_v1.2.2), all 107 suburban_rail stops and 2 mrts stops ingested from OSM Overpass were populated with agency_id='MTC' by default. In reality, Suburban Rail and MRTS lines in Chennai are operated by Southern Railway (SR), whereas MTC strictly operates buses. Because the canonical DB is frozen during Gate B, no DB modifications were made in this patch. These 5 stops are explicitly marked as DB_METADATA_MISMATCH_REVIEW_REQUIRED for future multimodal KB maintenance."
+    "rail_agency_distribution": {
+      "mrts": {
+        "MTC": 2
+      },
+      "suburban_rail": {
+        "MTC": 107
+      }
+    },
+    "db_verified_fact": "The canonical DB currently contains 107 suburban_rail stops and 2 MRTS stops whose agency_id is MTC.",
+    "explanation": "The canonical DB currently contains 107 suburban_rail stops and 2 MRTS stops whose agency_id is MTC. In reality, Suburban Rail and MRTS lines in Chennai are operated by Southern Railway (SR), whereas MTC strictly operates buses. The current canonical DB contains this metadata mismatch; the precise ingestion cause is not independently established by this audit. Because the canonical DB is frozen during Gate B, no DB modifications were made in this patch. These 5 stops are explicitly marked as DB_METADATA_MISMATCH_REVIEW_REQUIRED for future multimodal KB maintenance."
   },
   "egmore_audit": {
     "status": "FAIL_FIXED",
@@ -563,7 +580,7 @@
       "mode_validation": "VALIDATED",
       "operator_validation": "DB_METADATA_MISMATCH_REVIEW_REQUIRED",
       "status": "DB_METADATA_MISMATCH_REVIEW_REQUIRED",
-      "notes": "declared operator = SR, DB agency value = MTC, mode = suburban_rail/mrts. In canonical_transport.db v1.2.2, all 107 suburban_rail and 2 mrts stops from OSM ingestion defaulted to agency_id='MTC' instead of 'SOUTHERN_RAILWAY'/'SR' (Case A: KB metadata review required)."
+      "notes": "declared operator = SR, DB agency value = MTC, mode = suburban_rail. The canonical DB currently contains 107 suburban_rail stops and 2 MRTS stops whose agency_id is MTC. The current canonical DB contains this metadata mismatch; the precise ingestion cause is not independently established by this audit (Case A: KB metadata review required)."
     },
     {
       "entity_name": "Mambalam",
@@ -599,7 +616,7 @@
       "mode_validation": "VALIDATED",
       "operator_validation": "DB_METADATA_MISMATCH_REVIEW_REQUIRED",
       "status": "DB_METADATA_MISMATCH_REVIEW_REQUIRED",
-      "notes": "declared operator = SR, DB agency value = MTC, mode = suburban_rail/mrts. In canonical_transport.db v1.2.2, all 107 suburban_rail and 2 mrts stops from OSM ingestion defaulted to agency_id='MTC' instead of 'SOUTHERN_RAILWAY'/'SR' (Case A: KB metadata review required)."
+      "notes": "declared operator = SR, DB agency value = MTC, mode = mrts. The canonical DB currently contains 107 suburban_rail stops and 2 MRTS stops whose agency_id is MTC. The current canonical DB contains this metadata mismatch; the precise ingestion cause is not independently established by this audit (Case A: KB metadata review required)."
     },
     {
       "entity_name": "Thirumayilai",
@@ -635,7 +652,7 @@
       "mode_validation": "VALIDATED",
       "operator_validation": "DB_METADATA_MISMATCH_REVIEW_REQUIRED",
       "status": "DB_METADATA_MISMATCH_REVIEW_REQUIRED",
-      "notes": "declared operator = SR, DB agency value = MTC, mode = suburban_rail/mrts. In canonical_transport.db v1.2.2, all 107 suburban_rail and 2 mrts stops from OSM ingestion defaulted to agency_id='MTC' instead of 'SOUTHERN_RAILWAY'/'SR' (Case A: KB metadata review required)."
+      "notes": "declared operator = SR, DB agency value = MTC, mode = mrts. The canonical DB currently contains 107 suburban_rail stops and 2 MRTS stops whose agency_id is MTC. The current canonical DB contains this metadata mismatch; the precise ingestion cause is not independently established by this audit (Case A: KB metadata review required)."
     },
     {
       "entity_name": "T. Nagar",
@@ -707,7 +724,7 @@
       "mode_validation": "VALIDATED",
       "operator_validation": "DB_METADATA_MISMATCH_REVIEW_REQUIRED",
       "status": "DB_METADATA_MISMATCH_REVIEW_REQUIRED",
-      "notes": "declared operator = SR, DB agency value = MTC, mode = suburban_rail/mrts. In canonical_transport.db v1.2.2, all 107 suburban_rail and 2 mrts stops from OSM ingestion defaulted to agency_id='MTC' instead of 'SOUTHERN_RAILWAY'/'SR' (Case A: KB metadata review required)."
+      "notes": "declared operator = SR, DB agency value = MTC, mode = suburban_rail. The canonical DB currently contains 107 suburban_rail stops and 2 MRTS stops whose agency_id is MTC. The current canonical DB contains this metadata mismatch; the precise ingestion cause is not independently established by this audit (Case A: KB metadata review required)."
     },
     {
       "entity_name": "Chromepet",
@@ -725,7 +742,7 @@
       "mode_validation": "VALIDATED",
       "operator_validation": "DB_METADATA_MISMATCH_REVIEW_REQUIRED",
       "status": "DB_METADATA_MISMATCH_REVIEW_REQUIRED",
-      "notes": "declared operator = SR, DB agency value = MTC, mode = suburban_rail/mrts. In canonical_transport.db v1.2.2, all 107 suburban_rail and 2 mrts stops from OSM ingestion defaulted to agency_id='MTC' instead of 'SOUTHERN_RAILWAY'/'SR' (Case A: KB metadata review required)."
+      "notes": "declared operator = SR, DB agency value = MTC, mode = suburban_rail. The canonical DB currently contains 107 suburban_rail stops and 2 MRTS stops whose agency_id is MTC. The current canonical DB contains this metadata mismatch; the precise ingestion cause is not independently established by this audit (Case A: KB metadata review required)."
     },
     {
       "entity_name": "Perambur",

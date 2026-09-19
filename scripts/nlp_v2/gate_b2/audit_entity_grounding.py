@@ -65,6 +65,24 @@ def run_gazetteer_audit() -> Tuple[Dict[str, Any], str]:
         if a:
             hub_members_modes[hid]["agencies"].add(a)
 
+    # Dynamically derive rail and MRTS agency distribution directly from SQL
+    cur.execute("""
+        SELECT mode, agency_id, COUNT(*)
+        FROM transport_stops
+        WHERE mode IN ('suburban_rail', 'mrts')
+        GROUP BY mode, agency_id
+        ORDER BY mode, agency_id;
+    """)
+    rail_agency_distribution: Dict[str, Dict[str, int]] = {}
+    for r_mode, r_agency, r_count in cur.fetchall():
+        if r_mode not in rail_agency_distribution:
+            rail_agency_distribution[r_mode] = {}
+        rail_agency_distribution[r_mode][r_agency] = r_count
+
+    sr_mtc = rail_agency_distribution.get("suburban_rail", {}).get("MTC", 0)
+    mrts_mtc = rail_agency_distribution.get("mrts", {}).get("MTC", 0)
+    db_fact_str = f"The canonical DB currently contains {sr_mtc} suburban_rail stops and {mrts_mtc} MRTS stops whose agency_id is MTC."
+
     # Core station declarations to audit (including pre-fix Egmore check)
     raw_stations = [
         ("Central", ["Chennai Central", "Puratchi Thalaivar Dr. M.G.Ramachandran Central", "चेन्नई सेंट्रल", "सेंट्रल", "central", "chennai central", "mgr central"],
@@ -293,7 +311,11 @@ def run_gazetteer_audit() -> Tuple[Dict[str, Any], str]:
             counts["FAIL_FIXED"] += 1
         elif rec["operator_validation"] == "DB_METADATA_MISMATCH_REVIEW_REQUIRED":
             rec["status"] = "DB_METADATA_MISMATCH_REVIEW_REQUIRED"
-            rec["notes"] = "declared operator = SR, DB agency value = MTC, mode = suburban_rail/mrts. In canonical_transport.db v1.2.2, all 107 suburban_rail and 2 mrts stops from OSM ingestion defaulted to agency_id='MTC' instead of 'SOUTHERN_RAILWAY'/'SR' (Case A: KB metadata review required)."
+            rec["notes"] = (
+                f"declared operator = SR, DB agency value = MTC, mode = {mode}. "
+                f"{db_fact_str} The current canonical DB contains this metadata mismatch; "
+                "the precise ingestion cause is not independently established by this audit (Case A: KB metadata review required)."
+            )
             counts["DB_METADATA_MISMATCH_REVIEW_REQUIRED"] += 1
         elif not rec["id_in_db"]:
             rec["status"] = "AMBIGUOUS"
@@ -393,19 +415,22 @@ def run_gazetteer_audit() -> Tuple[Dict[str, Any], str]:
         "routes_audited": len(raw_routes),
         "status_counts": counts,
         "mode_operator_validation": mode_op_stats,
+        "rail_agency_distribution": rail_agency_distribution,
         "rail_mrts_db_mismatch_finding": {
             "finding_category": "Case A — Canonical DB Metadata Review Required",
             "declared_operator": "SR",
             "db_agency_value": "MTC",
             "mode": "suburban_rail / mrts",
             "affected_stops": ["Chennai Beach", "Chepauk", "Velachery", "Tiruvottiyur", "Chromepet"],
+            "rail_agency_distribution": rail_agency_distribution,
+            "db_verified_fact": db_fact_str,
             "explanation": (
-                "In canonical_transport.db (snapshot chennai_multimodal_v1.2.2), all 107 suburban_rail stops "
-                "and 2 mrts stops ingested from OSM Overpass were populated with agency_id='MTC' by default. "
+                f"{db_fact_str} "
                 "In reality, Suburban Rail and MRTS lines in Chennai are operated by Southern Railway (SR), "
-                "whereas MTC strictly operates buses. Because the canonical DB is frozen during Gate B, "
-                "no DB modifications were made in this patch. These 5 stops are explicitly marked as "
-                "DB_METADATA_MISMATCH_REVIEW_REQUIRED for future multimodal KB maintenance."
+                "whereas MTC strictly operates buses. The current canonical DB contains this metadata mismatch; "
+                "the precise ingestion cause is not independently established by this audit. "
+                "Because the canonical DB is frozen during Gate B, no DB modifications were made in this patch. "
+                "These 5 stops are explicitly marked as DB_METADATA_MISMATCH_REVIEW_REQUIRED for future multimodal KB maintenance."
             )
         },
         "egmore_audit": {
@@ -463,7 +488,8 @@ def run_gazetteer_audit() -> Tuple[Dict[str, Any], str]:
 > - **Affected Records (5 Stops):** `Chennai Beach` (`RAIL_CHENNAI_BEACH`), `Chepauk` (`MRTS_CHEPAUK`), `Velachery` (`MRTS_VELACHERY`), `Tiruvottiyur` (`RAIL_TIRUVOTTIYUR`), `Chromepet` (`RAIL_CHROMEPET`).
 > - **Declared Operator / Mode:** `operator = SR`, `mode = suburban_rail` / `mrts`.
 > - **Database Record:** `canonical_transport.db` (`chennai_multimodal_v1.2.2`) lists `mode = suburban_rail` / `mrts`, but `agency_id = 'MTC'`.
-> - **Investigation Finding:** In `canonical_transport.db`, all 107 `suburban_rail` stops and 2 `mrts` stops ingested from OSM Overpass defaulted to `agency_id = 'MTC'`. In reality, Suburban Rail and MRTS services in Chennai are operated by Southern Railway (`SOUTHERN_RAILWAY`, code `SR`), while MTC operates buses.
+> - **Direct SQL Verified DB Fact:** {db_fact_str} (Distribution: `{json.dumps(rail_agency_distribution)}`).
+> - **Interpretation & Provenance:** Suburban Rail and MRTS services in Chennai are operated by Southern Railway (`SOUTHERN_RAILWAY`, code `SR`), while MTC operates buses. The current canonical DB contains this metadata mismatch; the precise ingestion cause is not independently established by this audit.
 > - **Protocol Handling:** Per frozen KB policy, database contents are NOT modified in this patch. Instead of silently marking these as `PASS` or obscuring them as 'not directly verifiable', the audit explicitly records them as **`DB_METADATA_MISMATCH_REVIEW_REQUIRED`**.
 
 ---

@@ -284,3 +284,33 @@ def test_annotation_guide_agreement_distinction():
     assert "Reviewer-vs-Gold Benchmark Evaluation (Separate from Agreement)" in guide_text
     assert "Reviewer-vs-gold comparison must NEVER be referred to as \"inter-annotator agreement.\"" in guide_text
 
+
+def test_rail_agency_distribution_matches_sql():
+    """Verify aggregate rail agency distribution in generated audit JSON equals direct SQL query."""
+    json_path = os.path.join(REPORT_DIR, "entity_grounding_audit.json")
+    with open(json_path, "r", encoding="utf-8") as f:
+        audit_data = json.load(f)
+
+    audit_dist = audit_data["rail_agency_distribution"]
+
+    # Direct SQL query against canonical_transport.db
+    conn = sqlite3.connect(DB_PATH)
+    cur = conn.cursor()
+    cur.execute("""
+        SELECT mode, agency_id, COUNT(*)
+        FROM transport_stops
+        WHERE mode IN ('suburban_rail', 'mrts')
+        GROUP BY mode, agency_id
+        ORDER BY mode, agency_id;
+    """)
+    sql_dist = {}
+    for mode, agency, count in cur.fetchall():
+        if mode not in sql_dist:
+            sql_dist[mode] = {}
+        sql_dist[mode][agency] = count
+
+    assert audit_dist == sql_dist, f"Audit rail_agency_distribution {audit_dist} != direct SQL query {sql_dist}"
+    assert "suburban_rail" in audit_dist
+    assert "mrts" in audit_dist
+    assert audit_data["rail_mrts_db_mismatch_finding"]["rail_agency_distribution"] == sql_dist
+
