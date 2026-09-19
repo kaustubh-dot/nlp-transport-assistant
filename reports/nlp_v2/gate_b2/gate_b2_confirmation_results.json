@@ -1,0 +1,802 @@
+{
+  "evaluation_name": "Gate B.2 Confirmation Experiment Results",
+  "sample_size": 706,
+  "seeds": [
+    42,
+    101,
+    777
+  ],
+  "core_metrics": {
+    "T2-H": {
+      "intent_accuracy": {
+        "mean": 0.8215297450424929,
+        "std": 0.006119679601896002,
+        "seeds": [
+          0.8186968838526912,
+          0.830028328611898,
+          0.8158640226628895
+        ]
+      },
+      "intent_macro_f1": {
+        "mean": 0.7426196082936537,
+        "std": 0.01171158872754667,
+        "seeds": [
+          0.7321841834854417,
+          0.7366987212530849,
+          0.7589759201424346
+        ]
+      },
+      "downstream_op_accuracy": {
+        "mean": 0.7530689329556185,
+        "std": 0.0024074690810164225,
+        "seeds": [
+          0.7507082152974505,
+          0.7563739376770539,
+          0.7521246458923513
+        ]
+      },
+      "downstream_op_macro_f1": {
+        "mean": 0.7104587681018568,
+        "std": 0.009785658144194312,
+        "seeds": [
+          0.7061205073427022,
+          0.7012470690669432,
+          0.7240087278959249
+        ]
+      },
+      "contrast_group_accuracy": {
+        "mean": 0.9210526315789473,
+        "std": 0.0,
+        "seeds": [
+          0.9210526315789473,
+          0.9210526315789473,
+          0.9210526315789473
+        ]
+      },
+      "ambiguity_aware_accuracy": {
+        "mean": 0.7530689329556185,
+        "std": 0.0024074690810164225,
+        "seeds": [
+          0.7507082152974505,
+          0.7563739376770539,
+          0.7521246458923513
+        ]
+      }
+    },
+    "T3": {
+      "intent_accuracy": {
+        "mean": 0.7941454202077431,
+        "std": 0.029104881978134888,
+        "seeds": [
+          0.8271954674220963,
+          0.7988668555240793,
+          0.7563739376770539
+        ]
+      },
+      "intent_macro_f1": {
+        "mean": 0.7419606003934334,
+        "std": 0.037566555294297636,
+        "seeds": [
+          0.7874415084277349,
+          0.7430000616053335,
+          0.6954402311472319
+        ]
+      },
+      "downstream_op_accuracy": {
+        "mean": 0.7941454202077431,
+        "std": 0.029104881978134888,
+        "seeds": [
+          0.8271954674220963,
+          0.7988668555240793,
+          0.7563739376770539
+        ]
+      },
+      "downstream_op_macro_f1": {
+        "mean": 0.7419606003934334,
+        "std": 0.0375665552942976,
+        "seeds": [
+          0.7874415084277347,
+          0.7430000616053335,
+          0.6954402311472319
+        ]
+      },
+      "contrast_group_accuracy": {
+        "mean": 0.9385964912280702,
+        "std": 0.012405382126079768,
+        "seeds": [
+          0.9473684210526315,
+          0.9473684210526315,
+          0.9210526315789473
+        ]
+      },
+      "ambiguity_aware_accuracy": {
+        "mean": 0.8068932955618507,
+        "std": 0.030649352912403182,
+        "seeds": [
+          0.8371104815864022,
+          0.8186968838526912,
+          0.7648725212464589
+        ]
+      }
+    }
+  },
+  "mcnemar_per_seed": {
+    "seed_42": {
+      "b_t3_wins": 64,
+      "c_t2h_wins": 10,
+      "both_correct": 520,
+      "both_incorrect": 112,
+      "chi2_statistic": 37.95945945945946,
+      "p_value": 7.223001086131831e-10
+    },
+    "seed_101": {
+      "b_t3_wins": 57,
+      "c_t2h_wins": 27,
+      "both_correct": 507,
+      "both_incorrect": 115,
+      "chi2_statistic": 10.011904761904763,
+      "p_value": 0.0015553158298389214
+    },
+    "seed_777": {
+      "b_t3_wins": 41,
+      "c_t2h_wins": 38,
+      "both_correct": 493,
+      "both_incorrect": 134,
+      "chi2_statistic": 0.05063291139240506,
+      "p_value": 0.8219655979326043
+    }
+  },
+  "hierarchical_bootstrap": {
+    "mean_diff": 0.04118413597733711,
+    "ci_lower_95": 0.02453966005665725,
+    "ci_upper_95": 0.058073654390934815,
+    "two_sided_p_val": 0.0
+  },
+  "calibration": {
+    "T2-H": {
+      "mean_confidence_correct": 0.016718111666018685,
+      "mean_confidence_incorrect": 0.014926886695292895,
+      "mean_confidence_ambiguous": 0.01873957705335552,
+      "ece": 0.7367931303829377,
+      "brier_score": 0.72818236984783
+    },
+    "T3": {
+      "mean_confidence_correct": 0.6300053182595124,
+      "mean_confidence_incorrect": 0.4330584324827982,
+      "mean_confidence_ambiguous": 0.6946448501275511,
+      "ece": 0.2080465430240793,
+      "brier_score": 0.1974409281700934
+    }
+  },
+  "subgroups": {
+    "language_class": {
+      "EN": {
+        "count": 215,
+        "T2-H_op_acc": 0.6821705426356589,
+        "T3_op_acc": 0.7085271317829457,
+        "delta": 0.02635658914728678
+      },
+      "HINGLISH_LATN": {
+        "count": 164,
+        "T2-H_op_acc": 0.7703252032520326,
+        "T3_op_acc": 0.8211382113821138,
+        "delta": 0.05081300813008127
+      },
+      "HI_DEVA": {
+        "count": 202,
+        "T2-H_op_acc": 0.8465346534653465,
+        "T3_op_acc": 0.8498349834983498,
+        "delta": 0.0033003300330033403
+      },
+      "HI_LATN": {
+        "count": 72,
+        "T2-H_op_acc": 0.9444444444444445,
+        "T3_op_acc": 0.9490740740740741,
+        "delta": 0.004629629629629539
+      },
+      "MIXED_SCRIPT_CS": {
+        "count": 53,
+        "T2-H_op_acc": 0.3710691823899371,
+        "T3_op_acc": 0.6352201257861635,
+        "delta": 0.2641509433962264
+      }
+    },
+    "code_switch_level": {
+      "CS0": {
+        "count": 327,
+        "T2-H_op_acc": 0.7278287461773699,
+        "T3_op_acc": 0.7594291539245668,
+        "delta": 0.03160040774719686
+      },
+      "CS1": {
+        "count": 90,
+        "T2-H_op_acc": 0.8851851851851852,
+        "T3_op_acc": 0.8407407407407407,
+        "delta": -0.04444444444444451
+      },
+      "CS2": {
+        "count": 74,
+        "T2-H_op_acc": 0.945945945945946,
+        "T3_op_acc": 0.9504504504504506,
+        "delta": 0.0045045045045045695
+      },
+      "CS3": {
+        "count": 162,
+        "T2-H_op_acc": 0.7674897119341564,
+        "T3_op_acc": 0.8189300411522634,
+        "delta": 0.05144032921810704
+      },
+      "CS4": {
+        "count": 53,
+        "T2-H_op_acc": 0.3710691823899371,
+        "T3_op_acc": 0.6352201257861635,
+        "delta": 0.2641509433962264
+      }
+    },
+    "noise_level": {
+      "N0": {
+        "count": 330,
+        "T2-H_op_acc": 0.794949494949495,
+        "T3_op_acc": 0.8242424242424242,
+        "delta": 0.02929292929292926
+      },
+      "N1": {
+        "count": 101,
+        "T2-H_op_acc": 0.778877887788779,
+        "T3_op_acc": 0.8283828382838284,
+        "delta": 0.04950495049504944
+      },
+      "N2": {
+        "count": 91,
+        "T2-H_op_acc": 0.717948717948718,
+        "T3_op_acc": 0.7509157509157509,
+        "delta": 0.03296703296703296
+      },
+      "N3": {
+        "count": 58,
+        "T2-H_op_acc": 0.8333333333333334,
+        "T3_op_acc": 0.8448275862068965,
+        "delta": 0.011494252873563093
+      },
+      "N4": {
+        "count": 71,
+        "T2-H_op_acc": 0.647887323943662,
+        "T3_op_acc": 0.7417840375586854,
+        "delta": 0.09389671361502339
+      },
+      "N5": {
+        "count": 55,
+        "T2-H_op_acc": 0.5636363636363636,
+        "T3_op_acc": 0.6363636363636364,
+        "delta": 0.07272727272727275
+      }
+    },
+    "author_source": {
+      "CURATED_AMBIGUITY": {
+        "count": 98,
+        "T2-H_op_acc": 0.49659863945578236,
+        "T3_op_acc": 0.5612244897959183,
+        "delta": 0.06462585034013596
+      },
+      "CURATED_HARD_CASE": {
+        "count": 217,
+        "T2-H_op_acc": 0.7434715821812596,
+        "T3_op_acc": 0.7726574500768049,
+        "delta": 0.029185867895545226
+      },
+      "CURATED_MINIMAL_PAIR": {
+        "count": 181,
+        "T2-H_op_acc": 0.9650092081031306,
+        "T3_op_acc": 0.9742173112338858,
+        "delta": 0.009208103130755152
+      },
+      "TEMPLATE_GENERATED": {
+        "count": 210,
+        "T2-H_op_acc": 0.7000000000000001,
+        "T3_op_acc": 0.7698412698412698,
+        "delta": 0.0698412698412697
+      }
+    },
+    "clarification_required": {
+      "False": {
+        "count": 608,
+        "T2-H_op_acc": 0.794407894736842,
+        "T3_op_acc": 0.8316885964912281,
+        "delta": 0.037280701754386025
+      },
+      "True": {
+        "count": 98,
+        "T2-H_op_acc": 0.49659863945578236,
+        "T3_op_acc": 0.5612244897959183,
+        "delta": 0.06462585034013596
+      }
+    }
+  },
+  "error_analysis_summary": {
+    "INTERCHANGE_VS_ROUTE": 39,
+    "ROUTE_VS_MULTIMODAL": 23,
+    "AVAILABILITY_VS_ROUTE": 38,
+    "TIMING_SUBTYPE": 30,
+    "SEQUENCE_VS_MEMBERSHIP": 24,
+    "SEVERE_NOISE_CORRUPTION": 9,
+    "STATIC_VS_REALTIME": 1,
+    "OTHER": 20,
+    "FACILITY_VS_ACCESSIBILITY": 2
+  },
+  "error_exemplars": {
+    "INTERCHANGE_VS_ROUTE": [
+      {
+        "utterance_id": "GB1_00263",
+        "query": "तंबरम स चन्नई संट्रल क किरय कितन लगग",
+        "gold_operation": "CALCULATE_FARE",
+        "T2H_pred_operation": "GET_INTERCHANGE_DETAILS",
+        "T3_pred_operation": "CALCULATE_FARE",
+        "T2H_correct": false,
+        "T3_correct": true,
+        "noise_level": "N4",
+        "code_switch_level": "CS0",
+        "category": "INTERCHANGE_VS_ROUTE"
+      },
+      {
+        "utterance_id": "GB1_00030",
+        "query": "whr do i nd to chng lns whn trvlng frm hgh crt to st thms mnt",
+        "gold_operation": "GET_INTERCHANGE_DETAILS",
+        "T2H_pred_operation": "GET_INTERCHANGE_DETAILS",
+        "T3_pred_operation": "PLAN_MULTIMODAL_ROUTE",
+        "T2H_correct": true,
+        "T3_correct": false,
+        "noise_level": "N5",
+        "code_switch_level": "CS0",
+        "category": "INTERCHANGE_VS_ROUTE"
+      },
+      {
+        "utterance_id": "GB1_00599",
+        "query": "कहाँ सै चेन्नई सेंट्रल जाऊं",
+        "gold_operation": "PLAN_ROUTE",
+        "T2H_pred_operation": "GET_INTERCHANGE_DETAILS",
+        "T3_pred_operation": "GET_INTERCHANGE_DETAILS",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N2",
+        "code_switch_level": "CS0",
+        "category": "INTERCHANGE_VS_ROUTE"
+      },
+      {
+        "utterance_id": "GB1_00617",
+        "query": "कहाँ से गिंडी जाऊं?",
+        "gold_operation": "PLAN_ROUTE",
+        "T2H_pred_operation": "GET_INTERCHANGE_DETAILS",
+        "T3_pred_operation": "GET_STATION_FACILITY",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N0",
+        "code_switch_level": "CS0",
+        "category": "INTERCHANGE_VS_ROUTE"
+      },
+      {
+        "utterance_id": "GB1_00641",
+        "query": "कहाँ से बीच जाऊं?",
+        "gold_operation": "PLAN_ROUTE",
+        "T2H_pred_operation": "GET_INTERCHANGE_DETAILS",
+        "T3_pred_operation": "GET_ACCESSIBILITY_INFO",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N0",
+        "code_switch_level": "CS0",
+        "category": "INTERCHANGE_VS_ROUTE"
+      }
+    ],
+    "ROUTE_VS_MULTIMODAL": [
+      {
+        "utterance_id": "GB1_00136",
+        "query": "Velachery se Airport local train aur bus dono combine karke route kya hai?",
+        "gold_operation": "PLAN_MULTIMODAL_ROUTE",
+        "T2H_pred_operation": "PLAN_ROUTE",
+        "T3_pred_operation": "PLAN_MULTIMODAL_ROUTE",
+        "T2H_correct": false,
+        "T3_correct": true,
+        "noise_level": "N0",
+        "code_switch_level": "CS3",
+        "category": "ROUTE_VS_MULTIMODAL"
+      },
+      {
+        "utterance_id": "GB1_00004",
+        "query": "गिंड स कयमबड मट्रो स कैस जएं",
+        "gold_operation": "PLAN_ROUTE",
+        "T2H_pred_operation": "FIND_NEAREST_STATION",
+        "T3_pred_operation": "PLAN_ROUTE",
+        "T2H_correct": false,
+        "T3_correct": true,
+        "noise_level": "N4",
+        "code_switch_level": "CS0",
+        "category": "ROUTE_VS_MULTIMODAL"
+      },
+      {
+        "utterance_id": "GB1_00610",
+        "query": "tmbrm to anywhr mtro",
+        "gold_operation": "PLAN_ROUTE",
+        "T2H_pred_operation": "GET_SCHEDULED_DEPARTURES",
+        "T3_pred_operation": "PLAN_ROUTE",
+        "T2H_correct": false,
+        "T3_correct": true,
+        "noise_level": "N4",
+        "code_switch_level": "CS0",
+        "category": "ROUTE_VS_MULTIMODAL"
+      },
+      {
+        "utterance_id": "GB1_00634",
+        "query": "brdwy to anywhr mtro",
+        "gold_operation": "PLAN_ROUTE",
+        "T2H_pred_operation": "GET_FIRST_LAST_SERVICE",
+        "T3_pred_operation": "PLAN_ROUTE",
+        "T2H_correct": false,
+        "T3_correct": true,
+        "noise_level": "N4",
+        "code_switch_level": "CS0",
+        "category": "ROUTE_VS_MULTIMODAL"
+      },
+      {
+        "utterance_id": "GB1_00605",
+        "query": "कहाँ से एग्मोर जाऊं?",
+        "gold_operation": "PLAN_ROUTE",
+        "T2H_pred_operation": "GET_INTERCHANGE_DETAILS",
+        "T3_pred_operation": "PLAN_ROUTE",
+        "T2H_correct": false,
+        "T3_correct": true,
+        "noise_level": "N0",
+        "code_switch_level": "CS0",
+        "category": "ROUTE_VS_MULTIMODAL"
+      }
+    ],
+    "AVAILABILITY_VS_ROUTE": [
+      {
+        "utterance_id": "GB1_00408",
+        "query": "is thr a drct bs or trn frm chpk to bch",
+        "gold_operation": "CHECK_SERVICE_AVAILABILITY",
+        "T2H_pred_operation": "CALCULATE_FARE",
+        "T3_pred_operation": "CALCULATE_FARE",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N5",
+        "code_switch_level": "CS0",
+        "category": "AVAILABILITY_VS_ROUTE"
+      },
+      {
+        "utterance_id": "GB1_00426",
+        "query": "is thr a drct bus or trn from prmbr to gndy",
+        "gold_operation": "CHECK_SERVICE_AVAILABILITY",
+        "T2H_pred_operation": "PLAN_ROUTE",
+        "T3_pred_operation": "PLAN_MULTIMODAL_ROUTE",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N4",
+        "code_switch_level": "CS0",
+        "category": "AVAILABILITY_VS_ROUTE"
+      },
+      {
+        "utterance_id": "GB1_00596",
+        "query": "Is Central station open right now?",
+        "gold_operation": "CHECK_SERVICE_AVAILABILITY",
+        "T2H_pred_operation": "REJECT_UNSUPPORTED_REALTIME",
+        "T3_pred_operation": "GET_FIRST_LAST_SERVICE",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N0",
+        "code_switch_level": "CS0",
+        "category": "AVAILABILITY_VS_ROUTE"
+      },
+      {
+        "utterance_id": "GB1_00602",
+        "query": "Is Egmore station open right nwo?",
+        "gold_operation": "CHECK_SERVICE_AVAILABILITY",
+        "T2H_pred_operation": "GET_STATION_FACILITY",
+        "T3_pred_operation": "GET_INTERCHANGE_DETAILS",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N3",
+        "code_switch_level": "CS0",
+        "category": "AVAILABILITY_VS_ROUTE"
+      },
+      {
+        "utterance_id": "GB1_00608",
+        "query": "Is Tambaram station open right now?",
+        "gold_operation": "CHECK_SERVICE_AVAILABILITY",
+        "T2H_pred_operation": "REJECT_UNSUPPORTED_REALTIME",
+        "T3_pred_operation": "GET_INTERCHANGE_DETAILS",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N0",
+        "code_switch_level": "CS0",
+        "category": "AVAILABILITY_VS_ROUTE"
+      }
+    ],
+    "TIMING_SUBTYPE": [
+      {
+        "utterance_id": "GB1_00075",
+        "query": "कयमबड स सुबह 830 बज कौन स bus तय है",
+        "gold_operation": "GET_SCHEDULED_DEPARTURES",
+        "T2H_pred_operation": "GET_SCHEDULED_DEPARTURES",
+        "T3_pred_operation": "GET_FIRST_LAST_SERVICE",
+        "T2H_correct": true,
+        "T3_correct": false,
+        "noise_level": "N4",
+        "code_switch_level": "CS0",
+        "category": "TIMING_SUBTYPE"
+      },
+      {
+        "utterance_id": "GB1_00234",
+        "query": "Koyambedu se 1015 pe konsi scheduled intercity bus hai",
+        "gold_operation": "GET_SCHEDULED_DEPARTURES",
+        "T2H_pred_operation": "GET_FIRST_LAST_SERVICE",
+        "T3_pred_operation": "GET_SCHEDULED_DEPARTURES",
+        "T2H_correct": false,
+        "T3_correct": true,
+        "noise_level": "N2",
+        "code_switch_level": "CS3",
+        "category": "TIMING_SUBTYPE"
+      },
+      {
+        "utterance_id": "GB1_00594",
+        "query": "central से next train kab hai",
+        "gold_operation": "GET_SCHEDULED_DEPARTURES",
+        "T2H_pred_operation": "GET_FIRST_LAST_SERVICE",
+        "T3_pred_operation": "GET_FIRST_LAST_SERVICE",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N1",
+        "code_switch_level": "CS4",
+        "category": "TIMING_SUBTYPE"
+      },
+      {
+        "utterance_id": "GB1_00600",
+        "query": "Egmore से next train kab h",
+        "gold_operation": "GET_SCHEDULED_DEPARTURES",
+        "T2H_pred_operation": "FIND_NEAREST_STATION",
+        "T3_pred_operation": "GET_FIRST_LAST_SERVICE",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N2",
+        "code_switch_level": "CS4",
+        "category": "TIMING_SUBTYPE"
+      },
+      {
+        "utterance_id": "GB1_00606",
+        "query": "Tambaram से next train kab hai?",
+        "gold_operation": "GET_SCHEDULED_DEPARTURES",
+        "T2H_pred_operation": "FIND_NEAREST_STATION",
+        "T3_pred_operation": "FIND_NEAREST_STATION",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N0",
+        "code_switch_level": "CS4",
+        "category": "TIMING_SUBTYPE"
+      }
+    ],
+    "SEQUENCE_VS_MEMBERSHIP": [
+      {
+        "utterance_id": "GB1_00546",
+        "query": "Route 570?",
+        "gold_operation": "LIST_ROUTE_STOPS",
+        "T2H_pred_operation": "CHECK_STOP_ON_ROUTE",
+        "T3_pred_operation": "CHECK_STOP_ON_ROUTE",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N0",
+        "code_switch_level": "CS0",
+        "category": "SEQUENCE_VS_MEMBERSHIP"
+      },
+      {
+        "utterance_id": "GB1_00550",
+        "query": "route 114",
+        "gold_operation": "LIST_ROUTE_STOPS",
+        "T2H_pred_operation": "CHECK_STOP_ON_ROUTE",
+        "T3_pred_operation": "CHECK_STOP_ON_ROUTE",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N1",
+        "code_switch_level": "CS0",
+        "category": "SEQUENCE_VS_MEMBERSHIP"
+      },
+      {
+        "utterance_id": "GB1_00554",
+        "query": "Route 29C?",
+        "gold_operation": "LIST_ROUTE_STOPS",
+        "T2H_pred_operation": "CHECK_STOP_ON_ROUTE",
+        "T3_pred_operation": "CHECK_STOP_ON_ROUTE",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N0",
+        "code_switch_level": "CS0",
+        "category": "SEQUENCE_VS_MEMBERSHIP"
+      },
+      {
+        "utterance_id": "GB1_00558",
+        "query": "rout 54",
+        "gold_operation": "LIST_ROUTE_STOPS",
+        "T2H_pred_operation": "CHECK_STOP_ON_ROUTE",
+        "T3_pred_operation": "CHECK_STOP_ON_ROUTE",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N2",
+        "code_switch_level": "CS0",
+        "category": "SEQUENCE_VS_MEMBERSHIP"
+      },
+      {
+        "utterance_id": "GB1_00562",
+        "query": "route a1",
+        "gold_operation": "LIST_ROUTE_STOPS",
+        "T2H_pred_operation": "CHECK_STOP_ON_ROUTE",
+        "T3_pred_operation": "CHECK_STOP_ON_ROUTE",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N1",
+        "code_switch_level": "CS0",
+        "category": "SEQUENCE_VS_MEMBERSHIP"
+      }
+    ],
+    "SEVERE_NOISE_CORRUPTION": [
+      {
+        "utterance_id": "GB1_02262",
+        "query": "fnd nrst mtro or bs stn nr nn ngr twr",
+        "gold_operation": "FIND_NEAREST_STATION",
+        "T2H_pred_operation": "CHECK_STOP_ON_ROUTE",
+        "T3_pred_operation": "LIST_ROUTE_STOPS",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N5",
+        "code_switch_level": "CS3",
+        "category": "SEVERE_NOISE_CORRUPTION"
+      },
+      {
+        "utterance_id": "GB1_02263",
+        "query": "fnd nrst mtro or bs stn nr thrmnglm",
+        "gold_operation": "FIND_NEAREST_STATION",
+        "T2H_pred_operation": "CHECK_STOP_ON_ROUTE",
+        "T3_pred_operation": "LIST_ROUTE_STOPS",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N5",
+        "code_switch_level": "CS3",
+        "category": "SEVERE_NOISE_CORRUPTION"
+      },
+      {
+        "utterance_id": "GB1_02039",
+        "query": "किल्पौक स एयरपरट क एक तरफ क यत्र क किरय क्य है",
+        "gold_operation": "CALCULATE_FARE",
+        "T2H_pred_operation": "FIND_NEAREST_STATION",
+        "T3_pred_operation": "FIND_NEAREST_STATION",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N4",
+        "code_switch_level": "CS0",
+        "category": "SEVERE_NOISE_CORRUPTION"
+      },
+      {
+        "utterance_id": "GB1_02471",
+        "query": "तरमगलम मं vgtrn fd dlvry app स आ सकत ह",
+        "gold_operation": "REJECT_OUT_OF_SCOPE",
+        "T2H_pred_operation": "REJECT_UNSUPPORTED_REALTIME",
+        "T3_pred_operation": "GET_TICKETING_POLICY",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N5",
+        "code_switch_level": "CS1",
+        "category": "SEVERE_NOISE_CORRUPTION"
+      },
+      {
+        "utterance_id": "GB1_00792",
+        "query": "htl nr cntrl stn",
+        "gold_operation": "REJECT_OUT_OF_SCOPE",
+        "T2H_pred_operation": "CHECK_STOP_ON_ROUTE",
+        "T3_pred_operation": "CHECK_STOP_ON_ROUTE",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N5",
+        "code_switch_level": "CS0",
+        "category": "SEVERE_NOISE_CORRUPTION"
+      }
+    ],
+    "STATIC_VS_REALTIME": [
+      {
+        "utterance_id": "GB1_02475",
+        "query": "तरमगलम पर bs क rltm gps lctn trc ह रह ह",
+        "gold_operation": "REJECT_UNSUPPORTED_REALTIME",
+        "T2H_pred_operation": "GET_SERVICE_FREQUENCY",
+        "T3_pred_operation": "GET_SERVICE_FREQUENCY",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N5",
+        "code_switch_level": "CS1",
+        "category": "STATIC_VS_REALTIME"
+      }
+    ],
+    "OTHER": [
+      {
+        "utterance_id": "GB1_00793",
+        "query": "hotel near airport station",
+        "gold_operation": "REJECT_OUT_OF_SCOPE",
+        "T2H_pred_operation": "FIND_NEAREST_STATION",
+        "T3_pred_operation": "FIND_NEAREST_STATION",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N0",
+        "code_switch_level": "CS0",
+        "category": "OTHER"
+      },
+      {
+        "utterance_id": "GB1_00794",
+        "query": "hotel near guindy station",
+        "gold_operation": "REJECT_OUT_OF_SCOPE",
+        "T2H_pred_operation": "FIND_NEAREST_STATION",
+        "T3_pred_operation": "FIND_NEAREST_STATION",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N0",
+        "code_switch_level": "CS0",
+        "category": "OTHER"
+      },
+      {
+        "utterance_id": "GB1_01256",
+        "query": "Good South Indian vegetarian restaurants near sntrl station",
+        "gold_operation": "REJECT_OUT_OF_SCOPE",
+        "T2H_pred_operation": "GET_STATION_FACILITY",
+        "T3_pred_operation": "FIND_NEAREST_STATION",
+        "T2H_correct": false,
+        "T3_correct": false,
+        "noise_level": "N2",
+        "code_switch_level": "CS0",
+        "category": "OTHER"
+      },
+      {
+        "utterance_id": "GB1_01271",
+        "query": "good south indian vegetarian restaurants near airport station",
+        "gold_operation": "REJECT_OUT_OF_SCOPE",
+        "T2H_pred_operation": "GET_STATION_FACILITY",
+        "T3_pred_operation": "REJECT_OUT_OF_SCOPE",
+        "T2H_correct": false,
+        "T3_correct": true,
+        "noise_level": "N1",
+        "code_switch_level": "CS0",
+        "category": "OTHER"
+      },
+      {
+        "utterance_id": "GB1_01301",
+        "query": "good south indian vegetarian restaurants near alandur station",
+        "gold_operation": "REJECT_OUT_OF_SCOPE",
+        "T2H_pred_operation": "GET_STATION_FACILITY",
+        "T3_pred_operation": "REJECT_OUT_OF_SCOPE",
+        "T2H_correct": false,
+        "T3_correct": true,
+        "noise_level": "N1",
+        "code_switch_level": "CS0",
+        "category": "OTHER"
+      }
+    ],
+    "FACILITY_VS_ACCESSIBILITY": [
+      {
+        "utterance_id": "GB1_01175",
+        "query": "gndy mtro stn cncrs me atm ya drnkng wtr avl h",
+        "gold_operation": "GET_STATION_FACILITY",
+        "T2H_pred_operation": "GET_STATION_FACILITY",
+        "T3_pred_operation": "GET_ACCESSIBILITY_INFO",
+        "T2H_correct": true,
+        "T3_correct": false,
+        "noise_level": "N5",
+        "code_switch_level": "CS3",
+        "category": "FACILITY_VS_ACCESSIBILITY"
+      },
+      {
+        "utterance_id": "GB1_01178",
+        "query": "kymbd mtro stn cncrs me atm ya drnkng wtr avlbl hai",
+        "gold_operation": "GET_STATION_FACILITY",
+        "T2H_pred_operation": "GET_STATION_FACILITY",
+        "T3_pred_operation": "GET_ACCESSIBILITY_INFO",
+        "T2H_correct": true,
+        "T3_correct": false,
+        "noise_level": "N4",
+        "code_switch_level": "CS3",
+        "category": "FACILITY_VS_ACCESSIBILITY"
+      }
+    ]
+  }
+}
