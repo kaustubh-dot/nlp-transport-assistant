@@ -1,0 +1,30 @@
+{
+  "experiment_id": "regime_b_T2_muril_seed101",
+  "model_family": "muril",
+  "regime": "regime_b",
+  "taxonomy": "T2",
+  "seed": 101,
+  "best_epoch": 1,
+  "num_classes": 12,
+  "train_samples": 4204,
+  "val_samples": 901,
+  "eval_samples": 895,
+  "accuracy": 1.0,
+  "macro_f1": 1.0,
+  "weighted_f1": 1.0,
+  "semantic_op_accuracy": 1.0,
+  "per_class_f1": {
+    "accessibility": 1.0,
+    "fare_query": 1.0,
+    "interchange_query": 1.0,
+    "nearest_transport": 1.0,
+    "out_of_scope": 1.0,
+    "realtime_status_query": 1.0,
+    "route_query": 1.0,
+    "route_stops": 1.0,
+    "service_availability": 1.0,
+    "service_timing": 1.0,
+    "station_facilities": 1.0,
+    "ticketing_rules": 1.0
+  }
+}

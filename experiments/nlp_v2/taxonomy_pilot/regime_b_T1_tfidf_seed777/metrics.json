@@ -1,0 +1,26 @@
+{
+  "experiment_id": "regime_b_T1_tfidf_seed777",
+  "model_family": "tfidf_logreg",
+  "regime": "regime_b",
+  "taxonomy": "T1",
+  "seed": 777,
+  "num_classes": 9,
+  "train_samples": 3159,
+  "val_samples": 671,
+  "eval_samples": 670,
+  "accuracy": 0.9985074626865672,
+  "macro_f1": 0.9985272962231488,
+  "weighted_f1": 0.9985077247076009,
+  "semantic_op_accuracy": 0.9985074626865672,
+  "per_class_f1": {
+    "accessibility": 1.0,
+    "fare_and_ticketing": 1.0,
+    "nearest_transport": 1.0,
+    "out_of_scope": 1.0,
+    "route_query": 0.9935483870967742,
+    "route_stops": 1.0,
+    "service_availability": 1.0,
+    "service_timing": 0.9931972789115646,
+    "station_and_facilities": 1.0
+  }
+}

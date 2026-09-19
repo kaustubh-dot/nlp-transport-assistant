@@ -1,0 +1,207 @@
+{
+  "version": "1.0",
+  "description": "Shared canonical semantic scenario projection matrix across candidate taxonomies T1, T2, and T3",
+  "taxonomies": {
+    "T1": {
+      "version": "T1_BROAD_V1",
+      "intent_count": 9,
+      "intents": [
+        "route_query",
+        "route_stops",
+        "service_timing",
+        "service_availability",
+        "fare_and_ticketing",
+        "station_and_facilities",
+        "accessibility",
+        "nearest_transport",
+        "out_of_scope"
+      ]
+    },
+    "T2": {
+      "version": "T2_MEDIUM_V1",
+      "intent_count": 12,
+      "intents": [
+        "route_query",
+        "route_stops",
+        "service_timing",
+        "service_availability",
+        "fare_query",
+        "ticketing_rules",
+        "station_facilities",
+        "accessibility",
+        "interchange_query",
+        "nearest_transport",
+        "realtime_status_query",
+        "out_of_scope"
+      ]
+    },
+    "T3": {
+      "version": "T3_FINE_V1",
+      "intent_count": 16,
+      "intents": [
+        "point_to_point_route",
+        "multimodal_route",
+        "route_stop_sequence",
+        "route_stop_membership",
+        "first_and_last_service",
+        "service_frequency",
+        "scheduled_departure",
+        "mode_availability",
+        "fare_calculation",
+        "ticketing_and_passes",
+        "station_facilities",
+        "station_accessibility",
+        "interchange_transfer",
+        "nearest_transport",
+        "realtime_status_query",
+        "out_of_scope"
+      ]
+    }
+  },
+  "scenarios": [
+    {
+      "semantic_scenario_type": "point_to_point_route",
+      "T1_label": "route_query",
+      "T2_label": "route_query",
+      "T3_label": "point_to_point_route",
+      "downstream_operation": "PLAN_ROUTE",
+      "capability_state": "ANSWERABLE_WITH_PROVISIONAL_DATA",
+      "description": "Direct point-to-point journey planning from origin to destination on single transit mode."
+    },
+    {
+      "semantic_scenario_type": "multimodal_route",
+      "T1_label": "route_query",
+      "T2_label": "route_query",
+      "T3_label": "multimodal_route",
+      "downstream_operation": "PLAN_MULTIMODAL_ROUTE",
+      "capability_state": "ANSWERABLE_WITH_PROVISIONAL_DATA",
+      "description": "Multi-mode route recommendation across Metro, Bus, and Suburban Rail networks."
+    },
+    {
+      "semantic_scenario_type": "route_stop_sequence",
+      "T1_label": "route_stops",
+      "T2_label": "route_stops",
+      "T3_label": "route_stop_sequence",
+      "downstream_operation": "LIST_ROUTE_STOPS",
+      "capability_state": "ANSWERABLE_WITH_PROVISIONAL_DATA",
+      "description": "Complete ordered stop sequence list for a designated bus or metro route."
+    },
+    {
+      "semantic_scenario_type": "route_stop_membership",
+      "T1_label": "route_stops",
+      "T2_label": "route_stops",
+      "T3_label": "route_stop_membership",
+      "downstream_operation": "CHECK_STOP_ON_ROUTE",
+      "capability_state": "ANSWERABLE_WITH_PROVISIONAL_DATA",
+      "description": "Verification of whether a specific stop is served along a designated route."
+    },
+    {
+      "semantic_scenario_type": "first_and_last_service",
+      "T1_label": "service_timing",
+      "T2_label": "service_timing",
+      "T3_label": "first_and_last_service",
+      "downstream_operation": "GET_FIRST_LAST_SERVICE",
+      "capability_state": "ANSWERABLE_NOW",
+      "description": "First or last scheduled train/bus service departure from a terminal or station."
+    },
+    {
+      "semantic_scenario_type": "service_frequency",
+      "T1_label": "service_timing",
+      "T2_label": "service_timing",
+      "T3_label": "service_frequency",
+      "downstream_operation": "GET_SERVICE_FREQUENCY",
+      "capability_state": "ANSWERABLE_NOW",
+      "description": "Operational headway intervals (peak vs non-peak frequency) on corridors."
+    },
+    {
+      "semantic_scenario_type": "scheduled_departure",
+      "T1_label": "service_timing",
+      "T2_label": "service_timing",
+      "T3_label": "scheduled_departure",
+      "downstream_operation": "GET_SCHEDULED_DEPARTURES",
+      "capability_state": "ANSWERABLE_NOW",
+      "description": "Scheduled departure timetables at a specific stop or station around a given time."
+    },
+    {
+      "semantic_scenario_type": "mode_availability",
+      "T1_label": "service_availability",
+      "T2_label": "service_availability",
+      "T3_label": "mode_availability",
+      "downstream_operation": "CHECK_SERVICE_AVAILABILITY",
+      "capability_state": "ANSWERABLE_WITH_PROVISIONAL_DATA",
+      "description": "Inquiry on whether any transit service (bus, metro, suburban) operates between two areas."
+    },
+    {
+      "semantic_scenario_type": "fare_calculation",
+      "T1_label": "fare_and_ticketing",
+      "T2_label": "fare_query",
+      "T3_label": "fare_calculation",
+      "downstream_operation": "CALCULATE_FARE",
+      "capability_state": "ANSWERABLE_NOW",
+      "description": "Calculation of journey fare amount between stations or for given stage count."
+    },
+    {
+      "semantic_scenario_type": "ticketing_and_passes",
+      "T1_label": "fare_and_ticketing",
+      "T2_label": "ticketing_rules",
+      "T3_label": "ticketing_and_passes",
+      "downstream_operation": "GET_TICKETING_POLICY",
+      "capability_state": "ANSWERABLE_NOW",
+      "description": "Information on Smart Cards, QR tickets, monthly passes, concessions, and card recharge."
+    },
+    {
+      "semantic_scenario_type": "station_facilities",
+      "T1_label": "station_and_facilities",
+      "T2_label": "station_facilities",
+      "T3_label": "station_facilities",
+      "downstream_operation": "GET_STATION_FACILITY",
+      "capability_state": "ANSWERABLE_NOW",
+      "description": "Inquiries regarding verified station parking and physical transport facilities."
+    },
+    {
+      "semantic_scenario_type": "station_accessibility",
+      "T1_label": "accessibility",
+      "T2_label": "accessibility",
+      "T3_label": "station_accessibility",
+      "downstream_operation": "GET_ACCESSIBILITY_INFO",
+      "capability_state": "ANSWERABLE_NOW",
+      "description": "Accessibility features for persons with disabilities (wheelchair, lifts, tactile paths)."
+    },
+    {
+      "semantic_scenario_type": "interchange_transfer",
+      "T1_label": "station_and_facilities",
+      "T2_label": "interchange_query",
+      "T3_label": "interchange_transfer",
+      "downstream_operation": "GET_INTERCHANGE_DETAILS",
+      "capability_state": "ANSWERABLE_AFTER_MANUAL_VERIFICATION",
+      "description": "Transfer feasible at multimodal hubs (e.g. Metro to Suburban Rail, Metro to Bus)."
+    },
+    {
+      "semantic_scenario_type": "nearest_transport",
+      "T1_label": "nearest_transport",
+      "T2_label": "nearest_transport",
+      "T3_label": "nearest_transport",
+      "downstream_operation": "FIND_NEAREST_STATION",
+      "capability_state": "ANSWERABLE_NOW",
+      "description": "Finding closest transit node, metro station, or bus stop near a landmark or locality."
+    },
+    {
+      "semantic_scenario_type": "realtime_status_query",
+      "T1_label": "out_of_scope",
+      "T2_label": "realtime_status_query",
+      "T3_label": "realtime_status_query",
+      "downstream_operation": "REJECT_UNSUPPORTED_REALTIME",
+      "capability_state": "REQUIRES_REALTIME_DATA",
+      "description": "Commuter query requesting live vehicle GPS location, real-time arrival delays, or crowd density."
+    },
+    {
+      "semantic_scenario_type": "out_of_scope",
+      "T1_label": "out_of_scope",
+      "T2_label": "out_of_scope",
+      "T3_label": "out_of_scope",
+      "downstream_operation": "REJECT_OUT_OF_SCOPE",
+      "capability_state": "OUT_OF_SCOPE",
+      "description": "Non-transit inquiries, cab/ride bookings, weather, hotels, food, intercity trains/flights."
+    }
+  ]
+}

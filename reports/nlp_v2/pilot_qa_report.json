@@ -1,0 +1,120 @@
+{
+  "status": "PASS",
+  "total_datasets_checked": 6,
+  "datasets": {
+    "regime_a_T1": {
+      "regime": "regime_a",
+      "taxonomy": "T1",
+      "partition_counts": {
+        "pilot_train": 3354,
+        "pilot_validation": 709,
+        "pilot_eval": 737
+      },
+      "checks": {
+        "unique_utterance_ids": true,
+        "valid_taxonomy_labels": true,
+        "zero_semantic_family_leakage": true,
+        "zero_cross_partition_query_duplicates": true,
+        "valid_language_and_script_tags": true,
+        "valid_canonical_entities": true,
+        "strict_temporal_ambiguity_rules": true
+      },
+      "passed": true
+    },
+    "regime_a_T2": {
+      "regime": "regime_a",
+      "taxonomy": "T2",
+      "partition_counts": {
+        "pilot_train": 3354,
+        "pilot_validation": 709,
+        "pilot_eval": 737
+      },
+      "checks": {
+        "unique_utterance_ids": true,
+        "valid_taxonomy_labels": true,
+        "zero_semantic_family_leakage": true,
+        "zero_cross_partition_query_duplicates": true,
+        "valid_language_and_script_tags": true,
+        "valid_canonical_entities": true,
+        "strict_temporal_ambiguity_rules": true
+      },
+      "passed": true
+    },
+    "regime_a_T3": {
+      "regime": "regime_a",
+      "taxonomy": "T3",
+      "partition_counts": {
+        "pilot_train": 3354,
+        "pilot_validation": 709,
+        "pilot_eval": 737
+      },
+      "checks": {
+        "unique_utterance_ids": true,
+        "valid_taxonomy_labels": true,
+        "zero_semantic_family_leakage": true,
+        "zero_cross_partition_query_duplicates": true,
+        "valid_language_and_script_tags": true,
+        "valid_canonical_entities": true,
+        "strict_temporal_ambiguity_rules": true
+      },
+      "passed": true
+    },
+    "regime_b_T1": {
+      "regime": "regime_b",
+      "taxonomy": "T1",
+      "partition_counts": {
+        "pilot_train": 3159,
+        "pilot_validation": 671,
+        "pilot_eval": 670
+      },
+      "checks": {
+        "unique_utterance_ids": true,
+        "valid_taxonomy_labels": true,
+        "zero_semantic_family_leakage": true,
+        "zero_cross_partition_query_duplicates": true,
+        "valid_language_and_script_tags": true,
+        "valid_canonical_entities": true,
+        "strict_temporal_ambiguity_rules": true
+      },
+      "passed": true
+    },
+    "regime_b_T2": {
+      "regime": "regime_b",
+      "taxonomy": "T2",
+      "partition_counts": {
+        "pilot_train": 4204,
+        "pilot_validation": 901,
+        "pilot_eval": 895
+      },
+      "checks": {
+        "unique_utterance_ids": true,
+        "valid_taxonomy_labels": true,
+        "zero_semantic_family_leakage": true,
+        "zero_cross_partition_query_duplicates": true,
+        "valid_language_and_script_tags": true,
+        "valid_canonical_entities": true,
+        "strict_temporal_ambiguity_rules": true
+      },
+      "passed": true
+    },
+    "regime_b_T3": {
+      "regime": "regime_b",
+      "taxonomy": "T3",
+      "partition_counts": {
+        "pilot_train": 5604,
+        "pilot_validation": 1199,
+        "pilot_eval": 1197
+      },
+      "checks": {
+        "unique_utterance_ids": true,
+        "valid_taxonomy_labels": true,
+        "zero_semantic_family_leakage": true,
+        "zero_cross_partition_query_duplicates": true,
+        "valid_language_and_script_tags": true,
+        "valid_canonical_entities": true,
+        "strict_temporal_ambiguity_rules": true
+      },
+      "passed": true
+    }
+  }
+}

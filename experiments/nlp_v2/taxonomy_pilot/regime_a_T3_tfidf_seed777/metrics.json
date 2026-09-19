@@ -1,0 +1,33 @@
+{
+  "experiment_id": "regime_a_T3_tfidf_seed777",
+  "model_family": "tfidf_logreg",
+  "regime": "regime_a",
+  "taxonomy": "T3",
+  "seed": 777,
+  "num_classes": 16,
+  "train_samples": 3354,
+  "val_samples": 709,
+  "eval_samples": 737,
+  "accuracy": 1.0,
+  "macro_f1": 1.0,
+  "weighted_f1": 1.0,
+  "semantic_op_accuracy": 1.0,
+  "per_class_f1": {
+    "fare_calculation": 1.0,
+    "first_and_last_service": 1.0,
+    "interchange_transfer": 1.0,
+    "mode_availability": 1.0,
+    "multimodal_route": 1.0,
+    "nearest_transport": 1.0,
+    "out_of_scope": 1.0,
+    "point_to_point_route": 1.0,
+    "realtime_status_query": 1.0,
+    "route_stop_membership": 1.0,
+    "route_stop_sequence": 1.0,
+    "scheduled_departure": 1.0,
+    "service_frequency": 1.0,
+    "station_accessibility": 1.0,
+    "station_facilities": 1.0,
+    "ticketing_and_passes": 1.0
+  }
+}

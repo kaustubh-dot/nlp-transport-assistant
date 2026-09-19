@@ -1,0 +1,1438 @@
+{
+  "title": "NLP v2 Gate B Taxonomy Pilot Results",
+  "description": "Controlled empirical pilot evaluation across 3 Taxonomies, 2 Regimes, 2 Model Families, and 3 Seeds.",
+  "total_experiments_loaded": 36,
+  "aggregated_configurations": {
+    "regime_a_T1_muril": {
+      "regime": "regime_a",
+      "taxonomy": "T1",
+      "model_family": "muril",
+      "num_runs": 3,
+      "seeds": [
+        42,
+        777,
+        101
+      ],
+      "num_classes": 9,
+      "accuracy": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "macro_f1": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "weighted_f1": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "semantic_op_accuracy": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "language_accuracies": {
+        "HINGLISH_LATN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HI_LATN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "EN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HI_DEVA": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "MIXED_SCRIPT_CS": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        }
+      },
+      "per_class_f1": {
+        "accessibility": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "fare_and_ticketing": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "nearest_transport": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "out_of_scope": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "route_query": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "route_stops": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "service_availability": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "service_timing": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "station_and_facilities": {
+          "mean": 1.0,
+          "std": 0.0
+        }
+      }
+    },
+    "regime_a_T1_tfidf_logreg": {
+      "regime": "regime_a",
+      "taxonomy": "T1",
+      "model_family": "tfidf_logreg",
+      "num_runs": 3,
+      "seeds": [
+        101,
+        777,
+        42
+      ],
+      "num_classes": 9,
+      "accuracy": {
+        "mean": 0.9959294436906377,
+        "std": 0.0
+      },
+      "macro_f1": {
+        "mean": 0.9970852086586449,
+        "std": 0.0
+      },
+      "weighted_f1": {
+        "mean": 0.9959188999515063,
+        "std": 0.0
+      },
+      "semantic_op_accuracy": {
+        "mean": 0.9959294436906377,
+        "std": 0.0
+      },
+      "language_accuracies": {
+        "HINGLISH_LATN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HI_LATN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "EN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HI_DEVA": {
+          "accuracy_mean": 0.9838709677419355,
+          "accuracy_std": 0.0
+        },
+        "MIXED_SCRIPT_CS": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        }
+      },
+      "per_class_f1": {
+        "accessibility": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "fare_and_ticketing": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "nearest_transport": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "out_of_scope": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "route_query": {
+          "mean": 0.9842931937172775,
+          "std": 0.0
+        },
+        "route_stops": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "service_availability": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "service_timing": {
+          "mean": 0.9894736842105263,
+          "std": 0.0
+        },
+        "station_and_facilities": {
+          "mean": 1.0,
+          "std": 0.0
+        }
+      }
+    },
+    "regime_a_T2_muril": {
+      "regime": "regime_a",
+      "taxonomy": "T2",
+      "model_family": "muril",
+      "num_runs": 3,
+      "seeds": [
+        777,
+        42,
+        101
+      ],
+      "num_classes": 12,
+      "accuracy": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "macro_f1": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "weighted_f1": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "semantic_op_accuracy": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "language_accuracies": {
+        "HINGLISH_LATN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HI_LATN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "EN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HI_DEVA": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "MIXED_SCRIPT_CS": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        }
+      },
+      "per_class_f1": {
+        "accessibility": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "fare_query": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "interchange_query": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "nearest_transport": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "out_of_scope": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "realtime_status_query": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "route_query": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "route_stops": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "service_availability": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "service_timing": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "station_facilities": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "ticketing_rules": {
+          "mean": 1.0,
+          "std": 0.0
+        }
+      }
+    },
+    "regime_a_T2_tfidf_logreg": {
+      "regime": "regime_a",
+      "taxonomy": "T2",
+      "model_family": "tfidf_logreg",
+      "num_runs": 3,
+      "seeds": [
+        42,
+        777,
+        101
+      ],
+      "num_classes": 12,
+      "accuracy": {
+        "mean": 0.9959294436906377,
+        "std": 0.0
+      },
+      "macro_f1": {
+        "mean": 0.9978139064939837,
+        "std": 0.0
+      },
+      "weighted_f1": {
+        "mean": 0.9959188999515063,
+        "std": 0.0
+      },
+      "semantic_op_accuracy": {
+        "mean": 0.9959294436906377,
+        "std": 0.0
+      },
+      "language_accuracies": {
+        "HINGLISH_LATN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HI_LATN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "EN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HI_DEVA": {
+          "accuracy_mean": 0.9838709677419355,
+          "accuracy_std": 0.0
+        },
+        "MIXED_SCRIPT_CS": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        }
+      },
+      "per_class_f1": {
+        "accessibility": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "fare_query": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "interchange_query": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "nearest_transport": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "out_of_scope": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "realtime_status_query": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "route_query": {
+          "mean": 0.9842931937172775,
+          "std": 0.0
+        },
+        "route_stops": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "service_availability": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "service_timing": {
+          "mean": 0.9894736842105263,
+          "std": 0.0
+        },
+        "station_facilities": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "ticketing_rules": {
+          "mean": 1.0,
+          "std": 0.0
+        }
+      }
+    },
+    "regime_a_T3_muril": {
+      "regime": "regime_a",
+      "taxonomy": "T3",
+      "model_family": "muril",
+      "num_runs": 3,
+      "seeds": [
+        42,
+        101,
+        777
+      ],
+      "num_classes": 16,
+      "accuracy": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "macro_f1": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "weighted_f1": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "semantic_op_accuracy": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "language_accuracies": {
+        "HINGLISH_LATN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HI_LATN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "EN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HI_DEVA": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "MIXED_SCRIPT_CS": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        }
+      },
+      "per_class_f1": {
+        "fare_calculation": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "first_and_last_service": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "interchange_transfer": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "mode_availability": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "multimodal_route": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "nearest_transport": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "out_of_scope": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "point_to_point_route": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "realtime_status_query": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "route_stop_membership": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "route_stop_sequence": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "scheduled_departure": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "service_frequency": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "station_accessibility": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "station_facilities": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "ticketing_and_passes": {
+          "mean": 1.0,
+          "std": 0.0
+        }
+      }
+    },
+    "regime_a_T3_tfidf_logreg": {
+      "regime": "regime_a",
+      "taxonomy": "T3",
+      "model_family": "tfidf_logreg",
+      "num_runs": 3,
+      "seeds": [
+        101,
+        42,
+        777
+      ],
+      "num_classes": 16,
+      "accuracy": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "macro_f1": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "weighted_f1": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "semantic_op_accuracy": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "language_accuracies": {
+        "HINGLISH_LATN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HI_LATN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "EN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HI_DEVA": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "MIXED_SCRIPT_CS": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        }
+      },
+      "per_class_f1": {
+        "fare_calculation": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "first_and_last_service": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "interchange_transfer": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "mode_availability": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "multimodal_route": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "nearest_transport": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "out_of_scope": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "point_to_point_route": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "realtime_status_query": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "route_stop_membership": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "route_stop_sequence": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "scheduled_departure": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "service_frequency": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "station_accessibility": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "station_facilities": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "ticketing_and_passes": {
+          "mean": 1.0,
+          "std": 0.0
+        }
+      }
+    },
+    "regime_b_T1_muril": {
+      "regime": "regime_b",
+      "taxonomy": "T1",
+      "model_family": "muril",
+      "num_runs": 3,
+      "seeds": [
+        777,
+        101,
+        42
+      ],
+      "num_classes": 9,
+      "accuracy": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "macro_f1": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "weighted_f1": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "semantic_op_accuracy": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "language_accuracies": {
+        "HI_DEVA": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "EN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HI_LATN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HINGLISH_LATN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "MIXED_SCRIPT_CS": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        }
+      },
+      "per_class_f1": {
+        "accessibility": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "fare_and_ticketing": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "nearest_transport": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "out_of_scope": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "route_query": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "route_stops": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "service_availability": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "service_timing": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "station_and_facilities": {
+          "mean": 1.0,
+          "std": 0.0
+        }
+      }
+    },
+    "regime_b_T1_tfidf_logreg": {
+      "regime": "regime_b",
+      "taxonomy": "T1",
+      "model_family": "tfidf_logreg",
+      "num_runs": 3,
+      "seeds": [
+        101,
+        777,
+        42
+      ],
+      "num_classes": 9,
+      "accuracy": {
+        "mean": 0.9985074626865672,
+        "std": 0.0
+      },
+      "macro_f1": {
+        "mean": 0.9985272962231488,
+        "std": 0.0
+      },
+      "weighted_f1": {
+        "mean": 0.998507724707601,
+        "std": 1.1102230246251565e-16
+      },
+      "semantic_op_accuracy": {
+        "mean": 0.9985074626865672,
+        "std": 0.0
+      },
+      "language_accuracies": {
+        "HI_DEVA": {
+          "accuracy_mean": 0.9939759036144579,
+          "accuracy_std": 0.0
+        },
+        "EN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HI_LATN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HINGLISH_LATN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "MIXED_SCRIPT_CS": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        }
+      },
+      "per_class_f1": {
+        "accessibility": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "fare_and_ticketing": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "nearest_transport": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "out_of_scope": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "route_query": {
+          "mean": 0.9935483870967742,
+          "std": 0.0
+        },
+        "route_stops": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "service_availability": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "service_timing": {
+          "mean": 0.9931972789115647,
+          "std": 1.1102230246251565e-16
+        },
+        "station_and_facilities": {
+          "mean": 1.0,
+          "std": 0.0
+        }
+      }
+    },
+    "regime_b_T2_muril": {
+      "regime": "regime_b",
+      "taxonomy": "T2",
+      "model_family": "muril",
+      "num_runs": 3,
+      "seeds": [
+        777,
+        42,
+        101
+      ],
+      "num_classes": 12,
+      "accuracy": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "macro_f1": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "weighted_f1": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "semantic_op_accuracy": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "language_accuracies": {
+        "EN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HI_DEVA": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HINGLISH_LATN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HI_LATN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "MIXED_SCRIPT_CS": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        }
+      },
+      "per_class_f1": {
+        "accessibility": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "fare_query": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "interchange_query": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "nearest_transport": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "out_of_scope": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "realtime_status_query": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "route_query": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "route_stops": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "service_availability": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "service_timing": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "station_facilities": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "ticketing_rules": {
+          "mean": 1.0,
+          "std": 0.0
+        }
+      }
+    },
+    "regime_b_T2_tfidf_logreg": {
+      "regime": "regime_b",
+      "taxonomy": "T2",
+      "model_family": "tfidf_logreg",
+      "num_runs": 3,
+      "seeds": [
+        101,
+        42,
+        777
+      ],
+      "num_classes": 12,
+      "accuracy": {
+        "mean": 0.9988826815642456,
+        "std": 1.1102230246251565e-16
+      },
+      "macro_f1": {
+        "mean": 0.9988954721673616,
+        "std": 0.0
+      },
+      "weighted_f1": {
+        "mean": 0.9988828777140699,
+        "std": 0.0
+      },
+      "semantic_op_accuracy": {
+        "mean": 0.9988826815642456,
+        "std": 1.1102230246251565e-16
+      },
+      "language_accuracies": {
+        "EN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HI_DEVA": {
+          "accuracy_mean": 0.9954954954954957,
+          "accuracy_std": 1.1102230246251565e-16
+        },
+        "HINGLISH_LATN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HI_LATN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "MIXED_SCRIPT_CS": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        }
+      },
+      "per_class_f1": {
+        "accessibility": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "fare_query": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "interchange_query": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "nearest_transport": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "out_of_scope": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "realtime_status_query": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "route_query": {
+          "mean": 0.9935483870967742,
+          "std": 0.0
+        },
+        "route_stops": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "service_availability": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "service_timing": {
+          "mean": 0.9931972789115647,
+          "std": 1.1102230246251565e-16
+        },
+        "station_facilities": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "ticketing_rules": {
+          "mean": 1.0,
+          "std": 0.0
+        }
+      }
+    },
+    "regime_b_T3_muril": {
+      "regime": "regime_b",
+      "taxonomy": "T3",
+      "model_family": "muril",
+      "num_runs": 3,
+      "seeds": [
+        42,
+        101,
+        777
+      ],
+      "num_classes": 16,
+      "accuracy": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "macro_f1": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "weighted_f1": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "semantic_op_accuracy": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "language_accuracies": {
+        "HINGLISH_LATN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "MIXED_SCRIPT_CS": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "EN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HI_DEVA": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HI_LATN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        }
+      },
+      "per_class_f1": {
+        "fare_calculation": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "first_and_last_service": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "interchange_transfer": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "mode_availability": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "multimodal_route": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "nearest_transport": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "out_of_scope": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "point_to_point_route": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "realtime_status_query": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "route_stop_membership": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "route_stop_sequence": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "scheduled_departure": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "service_frequency": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "station_accessibility": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "station_facilities": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "ticketing_and_passes": {
+          "mean": 1.0,
+          "std": 0.0
+        }
+      }
+    },
+    "regime_b_T3_tfidf_logreg": {
+      "regime": "regime_b",
+      "taxonomy": "T3",
+      "model_family": "tfidf_logreg",
+      "num_runs": 3,
+      "seeds": [
+        101,
+        777,
+        42
+      ],
+      "num_classes": 16,
+      "accuracy": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "macro_f1": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "weighted_f1": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "semantic_op_accuracy": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "language_accuracies": {
+        "HINGLISH_LATN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "MIXED_SCRIPT_CS": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "EN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HI_DEVA": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        },
+        "HI_LATN": {
+          "accuracy_mean": 1.0,
+          "accuracy_std": 0.0
+        }
+      },
+      "per_class_f1": {
+        "fare_calculation": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "first_and_last_service": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "interchange_transfer": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "mode_availability": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "multimodal_route": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "nearest_transport": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "out_of_scope": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "point_to_point_route": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "realtime_status_query": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "route_stop_membership": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "route_stop_sequence": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "scheduled_departure": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "service_frequency": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "station_accessibility": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "station_facilities": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "ticketing_and_passes": {
+          "mean": 1.0,
+          "std": 0.0
+        }
+      }
+    }
+  },
+  "intra_taxonomy_comparisons": {
+    "regime_a_T1": {
+      "regime": "regime_a",
+      "taxonomy": "T1",
+      "sample_size": 737,
+      "muril_accuracy": 1.0,
+      "tfidf_accuracy": 0.9959294436906377,
+      "muril_correct_tfidf_wrong": 3,
+      "tfidf_correct_muril_wrong": 0,
+      "mcnemar_statistic": 1.3333333333333333,
+      "mcnemar_p_value": 0.24821307898992026,
+      "bootstrap_accuracy_diff": {
+        "observed_difference": 0.004070556309362261,
+        "ci_95_lower": 0.0,
+        "ci_95_upper": 0.009497964721845276,
+        "p_value": 0.1351
+      }
+    },
+    "regime_a_T2": {
+      "regime": "regime_a",
+      "taxonomy": "T2",
+      "sample_size": 737,
+      "muril_accuracy": 1.0,
+      "tfidf_accuracy": 0.9959294436906377,
+      "muril_correct_tfidf_wrong": 3,
+      "tfidf_correct_muril_wrong": 0,
+      "mcnemar_statistic": 1.3333333333333333,
+      "mcnemar_p_value": 0.24821307898992026,
+      "bootstrap_accuracy_diff": {
+        "observed_difference": 0.004070556309362261,
+        "ci_95_lower": 0.0,
+        "ci_95_upper": 0.009497964721845276,
+        "p_value": 0.1351
+      }
+    },
+    "regime_a_T3": {
+      "regime": "regime_a",
+      "taxonomy": "T3",
+      "sample_size": 737,
+      "muril_accuracy": 1.0,
+      "tfidf_accuracy": 1.0,
+      "muril_correct_tfidf_wrong": 0,
+      "tfidf_correct_muril_wrong": 0,
+      "mcnemar_statistic": 0.0,
+      "mcnemar_p_value": 1.0,
+      "bootstrap_accuracy_diff": {
+        "observed_difference": 0.0,
+        "ci_95_lower": 0.0,
+        "ci_95_upper": 0.0,
+        "p_value": 1.0
+      }
+    },
+    "regime_b_T1": {
+      "regime": "regime_b",
+      "taxonomy": "T1",
+      "sample_size": 670,
+      "muril_accuracy": 1.0,
+      "tfidf_accuracy": 0.9985074626865672,
+      "muril_correct_tfidf_wrong": 1,
+      "tfidf_correct_muril_wrong": 0,
+      "mcnemar_statistic": 0.0,
+      "mcnemar_p_value": 1.0,
+      "bootstrap_accuracy_diff": {
+        "observed_difference": 0.0014925373134327957,
+        "ci_95_lower": 0.0,
+        "ci_95_upper": 0.004477611940298498,
+        "p_value": 0.6351
+      }
+    },
+    "regime_b_T2": {
+      "regime": "regime_b",
+      "taxonomy": "T2",
+      "sample_size": 895,
+      "muril_accuracy": 1.0,
+      "tfidf_accuracy": 0.9988826815642458,
+      "muril_correct_tfidf_wrong": 1,
+      "tfidf_correct_muril_wrong": 0,
+      "mcnemar_statistic": 0.0,
+      "mcnemar_p_value": 1.0,
+      "bootstrap_accuracy_diff": {
+        "observed_difference": 0.0011173184357542443,
+        "ci_95_lower": 0.0,
+        "ci_95_upper": 0.003351955307262622,
+        "p_value": 0.4386
+      }
+    },
+    "regime_b_T3": {
+      "regime": "regime_b",
+      "taxonomy": "T3",
+      "sample_size": 1197,
+      "muril_accuracy": 1.0,
+      "tfidf_accuracy": 1.0,
+      "muril_correct_tfidf_wrong": 0,
+      "tfidf_correct_muril_wrong": 0,
+      "mcnemar_statistic": 0.0,
+      "mcnemar_p_value": 1.0,
+      "bootstrap_accuracy_diff": {
+        "observed_difference": 0.0,
+        "ci_95_lower": 0.0,
+        "ci_95_upper": 0.0,
+        "p_value": 1.0
+      }
+    }
+  },
+  "cross_taxonomy_operation_comparisons": {
+    "tfidf_T1_vs_T2": {
+      "model_family": "tfidf",
+      "comparison": "T1_vs_T2",
+      "sample_size": 737,
+      "model_A_op_accuracy": 0.9959294436906377,
+      "model_B_op_accuracy": 0.9959294436906377,
+      "mcnemar_b": 0,
+      "mcnemar_c": 0,
+      "mcnemar_statistic": 0.0,
+      "mcnemar_p_value": 1.0,
+      "bootstrap_difference": {
+        "observed_difference": 0.0,
+        "ci_95_lower": 0.0,
+        "ci_95_upper": 0.0,
+        "p_value": 1.0
+      }
+    },
+    "tfidf_T2_vs_T3": {
+      "model_family": "tfidf",
+      "comparison": "T2_vs_T3",
+      "sample_size": 737,
+      "model_A_op_accuracy": 0.9959294436906377,
+      "model_B_op_accuracy": 1.0,
+      "mcnemar_b": 0,
+      "mcnemar_c": 3,
+      "mcnemar_statistic": 1.3333333333333333,
+      "mcnemar_p_value": 0.24821307898992026,
+      "bootstrap_difference": {
+        "observed_difference": -0.004070556309362261,
+        "ci_95_lower": -0.009497964721845276,
+        "ci_95_upper": 0.0,
+        "p_value": 0.1352
+      }
+    },
+    "tfidf_T1_vs_T3": {
+      "model_family": "tfidf",
+      "comparison": "T1_vs_T3",
+      "sample_size": 737,
+      "model_A_op_accuracy": 0.9959294436906377,
+      "model_B_op_accuracy": 1.0,
+      "mcnemar_b": 0,
+      "mcnemar_c": 3,
+      "mcnemar_statistic": 1.3333333333333333,
+      "mcnemar_p_value": 0.24821307898992026,
+      "bootstrap_difference": {
+        "observed_difference": -0.004070556309362261,
+        "ci_95_lower": -0.009497964721845276,
+        "ci_95_upper": 0.0,
+        "p_value": 0.1352
+      }
+    },
+    "muril_T1_vs_T2": {
+      "model_family": "muril",
+      "comparison": "T1_vs_T2",
+      "sample_size": 737,
+      "model_A_op_accuracy": 1.0,
+      "model_B_op_accuracy": 1.0,
+      "mcnemar_b": 0,
+      "mcnemar_c": 0,
+      "mcnemar_statistic": 0.0,
+      "mcnemar_p_value": 1.0,
+      "bootstrap_difference": {
+        "observed_difference": 0.0,
+        "ci_95_lower": 0.0,
+        "ci_95_upper": 0.0,
+        "p_value": 1.0
+      }
+    },
+    "muril_T2_vs_T3": {
+      "model_family": "muril",
+      "comparison": "T2_vs_T3",
+      "sample_size": 737,
+      "model_A_op_accuracy": 1.0,
+      "model_B_op_accuracy": 1.0,
+      "mcnemar_b": 0,
+      "mcnemar_c": 0,
+      "mcnemar_statistic": 0.0,
+      "mcnemar_p_value": 1.0,
+      "bootstrap_difference": {
+        "observed_difference": 0.0,
+        "ci_95_lower": 0.0,
+        "ci_95_upper": 0.0,
+        "p_value": 1.0
+      }
+    },
+    "muril_T1_vs_T3": {
+      "model_family": "muril",
+      "comparison": "T1_vs_T3",
+      "sample_size": 737,
+      "model_A_op_accuracy": 1.0,
+      "model_B_op_accuracy": 1.0,
+      "mcnemar_b": 0,
+      "mcnemar_c": 0,
+      "mcnemar_statistic": 0.0,
+      "mcnemar_p_value": 1.0,
+      "bootstrap_difference": {
+        "observed_difference": 0.0,
+        "ci_95_lower": 0.0,
+        "ci_95_upper": 0.0,
+        "p_value": 1.0
+      }
+    }
+  },
+  "most_confused_pairs": [
+    {
+      "gold": "route_query",
+      "predicted": "service_timing",
+      "count": 24
+    }
+  ]
+}
