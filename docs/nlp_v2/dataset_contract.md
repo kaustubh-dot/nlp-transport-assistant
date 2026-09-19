@@ -3,7 +3,7 @@
 Document: `docs/nlp_v2/dataset_contract.md`  
 Snapshot Version: `chennai_multimodal_v1.2.1`  
 Date: 2026-09-19  
-Status: Authoritative Dataset Specification
+Status: Authoritative Dataset Specification (Corrected Methodology Patch)
 
 ---
 
@@ -11,22 +11,28 @@ Status: Authoritative Dataset Specification
 
 1. **Language-Native Utterance Families**:
    Utterance families are authored independently in English, Hindi, and Hinglish. We strictly prohibit synthesizing the corpus by machine-translating an English template bank into Indic languages, which introduces unnatural syntax and translation artifacts.
-2. **Semantic Hierarchy & Family Disjointness**:
+2. **Taxonomy-Agnostic Parameterization**:
+   The dataset generator and schema do not presuppose a single final intent taxonomy. All generation configs, manifests, and dataset versions are parameterized by `taxonomy_version` (`T1_BROAD`, `T2_MEDIUM`, or `T3_FINE`). The final taxonomy is frozen only after Gate B pilot evaluation.
+3. **Semantic Hierarchy & Family Disjointness**:
    Utterances are organized into a strict four-tier hierarchy:
    - `semantic_family_id`: The high-level communicative meaning (e.g. `how_to_travel_direct`). Shared across language variants.
    - `family_id`: The syntactic/grammatical template family within a specific language (e.g. `how_to_travel_direct:hi_postposition`).
    - `paraphrase_group_id`: Lexical paraphrase variations of a specific syntactic template.
    - `utterance_id`: The individual populated utterance with specific entities.
-3. **Controlled Entity Grounding**:
+4. **Controlled Entity Grounding**:
    Slots are drawn directly from canonical tables in `canonical_transport.db` (7,136 stops, 4,619 routes, 1,621 places). Entity sampling is stratified across Head (frequent transit hubs), Mid (suburban stations, arterial bus stops), and Tail (rural halts, local bus stages).
-4. **Nested Size Scaling**:
+5. **Controlled Challenge Partition Isolation**:
+   - `challenge_unseen_pairs` (controlled): isolates unseen origin-destination pairs while permitting known syntactic families from training.
+   - `challenge_unseen_aliases` (controlled): isolates unseen transliterated aliases while permitting known syntactic families from training.
+   - `challenge_hard_unseen_pairs` / `challenge_hard_unseen_aliases` (optional hard): isolates both entity condition and syntactic family simultaneously.
+6. **Nested Size Scaling**:
    The generator produces nested, reproducible dataset slices (`5k`, `10k`, `20k`, `40k`, `80k`) sharing the exact same validation, test, and challenge partitions.
 
 ---
 
 ## 2. Definitive V2 Row Schema
 
-Every row in the generated v2 dataset must conform to the following schema. It provides both structured JSON representations (`slots_json`, `entity_surfaces_json`, `canonical_entities_json`) for clean programmatic evaluation and flattened columns for rapid tabular analytics.
+Every row in the generated v2 dataset conforms to the following schema. It provides both structured JSON representations (`slots_json`, `entity_surfaces_json`, `canonical_entities_json`) for programmatic evaluation and flattened columns for tabular analytics.
 
 ```
 V2 UTTERANCE SCHEMA:
@@ -35,8 +41,8 @@ Field Name                  Type        Description
 ----------------------------------------------------------------------------------------------------
 utterance_id                string      Unique immutable ID (e.g. V2_UTT_000001)
 query                       string      Raw commuter query text (preserving casing and noise)
-intent                      string      Primary intent label (from approved taxonomy T2)
-intent_subtype              string      Granular subtype (e.g. first_service, stage_fare)
+intent                      string      Primary intent label (governed by taxonomy_version)
+intent_subtype              string      Granular operational subtype
 
 family_id                   string      Language-specific template family ID
 semantic_family_id          string      Cross-lingual semantic concept ID (for leakage prevention)
@@ -56,21 +62,31 @@ noise_type                  string      Specific noise mechanism (canonical, typ
 origin_id                   string      Canonical origin entity ID (or null)
 destination_id              string      Canonical destination entity ID (or null)
 via_id                      string      Canonical intermediate waypoint entity ID (or null)
-station_id                  string      Canonical single station/stop entity ID (or null)
+station_id                  string      Canonical single station entity ID (or null)
+stop_id                     string      Canonical bus stop entity ID (or null)
 place_id                    string      Canonical landmark/place ID (or null)
 route_number                string      Normalized operational route code (e.g. 102A, 21G)
+line_name                   string      Transit corridor name (e.g. Blue Line, Green Line)
 transport_mode              string      Explicit mode (metro, bus, suburban_rail, mrts, any)
+mode_from                   string      Interchange departure mode (or null)
+mode_to                     string      Interchange arrival mode (or null)
+preference                  string      Travel preference (fastest, cheapest, direct_only)
 timing_type                 string      Timing subtype (first, last, frequency, departure, operating_hours)
-time                        string      Normalized ISO time string (HH:MM:SS) (or null)
-facility_type               string      Requested facility (parking, lift, restroom)
-accessibility_feature       string      Requested accessibility feature (wheelchair, tactile_paths)
-ticket_type                 string      Requested ticket/pass product (smart_card, token)
+time                        string      Normalized ISO time string (HH:MM:SS) or candidate set
+temporal_relative           string      Relative day marker (aaj, kal, parso, today, tomorrow)
+date                        string      ISO date (YYYY-MM-DD) (or null)
+ticket_type                 string      Ticketing instrument (smart_card, token, monthly_pass)
+fare_type                   string      Pricing scheme (stage_fare, distance_fare, concession)
+stage_number                integer     MTC statutory fare stage index (1 to 30) (or null)
+service_type                string      Bus service tariff tier (Ordinary Services, Deluxe, etc.)
+facility_type               string      Station amenity (parking, restroom, etc.)
+accessibility_feature       string      Accessibility feature (wheelchair, lift, tactile_paths)
 
 slots_json                  json        Full dictionary of extracted typed slots
 entity_surfaces_json        json        List of extracted surface spans with char start/end offsets
 canonical_entities_json     json        List of resolved canonical entity objects with candidate IDs
 
-answerability_status        string      Status from answerability matrix (ANSWERABLE_NOW, etc.)
+answerability_status        string      Status from answerability matrix (ANSWERABLE_NOW, REQUIRES_REALTIME_DATA, etc.)
 source_type                 string      Source origin (authored_template, harvested_commuter, seed_expansion)
 generation_method           string      Generation algorithm version (e.g. v2_generator_rev1)
 
@@ -78,21 +94,24 @@ human_reviewed              boolean     True if audited by human domain expert
 review_status               string      Review state (unreviewed, approved, rejected, modified)
 
 kb_snapshot_version         string      Factual snapshot version (chennai_multimodal_v1.2.1)
+taxonomy_version            string      Taxonomy schema version (T1_BROAD, T2_MEDIUM, T3_FINE)
 dataset_version             string      NLP dataset release version (e.g. v2.0-candidate)
-split                       string      Partition assignment (train, validation, test, challenge_unseen, challenge_alias)
+split                       string      Partition: train, validation, test, challenge_unseen_pairs,
+                                        challenge_unseen_aliases, challenge_hard_unseen_pairs,
+                                        challenge_hard_unseen_aliases
 ```
 
 ---
 
 ## 3. Machine-Readable Manifest Specification
 
-Every generated dataset artifact must be accompanied by an immutable manifest (`manifest.json`) verifying provenance, dataset distributions, and cryptographic checksums:
+Every generated dataset artifact is accompanied by an immutable manifest (`manifest.json`) verifying provenance, distributions, and cryptographic checksums:
 
 ```json
 {
-  "dataset_version": "v2.0-freeze",
+  "dataset_version": "v2.0-candidate-40k",
   "created_at": "2026-09-19T00:00:00Z",
-  "taxonomy_version": "T2_MEDIUM_12",
+  "taxonomy_version": "T2_MEDIUM",
   "slot_schema_version": "v2.0",
   "kb_snapshot_version": "chennai_multimodal_v1.2.1",
   "generation_script_version": "scripts/nlp_v2/generate_dataset.py@commit",
@@ -101,7 +120,9 @@ Every generated dataset artifact must be accompanied by an immutable manifest (`
   "split_proportions": {
     "train": 28000,
     "validation": 6000,
-    "test": 6000
+    "test": 6000,
+    "challenge_unseen_pairs": 1000,
+    "challenge_unseen_aliases": 1000
   },
   "intent_distribution": {
     "route_query": 5600,
@@ -114,7 +135,7 @@ Every generated dataset artifact must be accompanied by an immutable manifest (`
     "accessibility": 2400,
     "interchange_query": 2400,
     "nearest_transport": 3200,
-    "unsupported_live_status": 2800,
+    "realtime_status_query": 2800,
     "out_of_scope": 2800
   },
   "language_distribution": {
@@ -160,22 +181,23 @@ Every generated dataset artifact must be accompanied by an immutable manifest (`
 
 ## 4. Automated Dataset QA Verification Suite
 
-Before any generated dataset partition is accepted or frozen, it must execute and pass an automated validation script (`scripts/nlp_v2/validate_dataset.py`).
+Before any generated dataset partition is accepted or frozen, it must pass the automated validation script (`scripts/nlp_v2/validate_dataset.py`).
 
 ### Mandatory QA Rules:
 1. **Zero Duplicate Utterance IDs**:
    All `utterance_id` values must be globally unique.
 2. **Normalized Query Deduplication**:
    No exact duplicate normalized queries within any partition.
-3. **Leakage Invariant (Zero Split Contamination)**:
-   - No `family_id` present in `train` may appear in `validation` or `test`.
-   - No `semantic_family_id` present in `train` may appear in `validation` or `test`.
-   - No `paraphrase_group_id` present in `train` may appear in `validation` or `test`.
+3. **Leakage Invariant (Zero Primary Split Contamination)**:
+   - No `family_id` in `train` may appear in `validation` or `test`.
+   - No `semantic_family_id` in `train` may appear in `validation` or `test`.
+   - No `paraphrase_group_id` in `train` may appear in `validation` or `test`.
 4. **Canonical Entity Reference Integrity**:
-   All entity IDs (`origin_id`, `destination_id`, `station_id`, `route_number`, `place_id`) must resolve against live tables in `data/canonical/transit/canonical_transport.db`.
+   All entity IDs (`origin_id`, `destination_id`, `station_id`, `stop_id`, `route_number`, `place_id`) must resolve against live tables in `canonical_transport.db`.
 5. **Contract Enforcement**:
    - `REQ` slots must be non-null.
    - `FORBIDDEN` slots must be strictly null.
-   - Any query classified as `out_of_scope` must have null transit entity IDs.
-6. **Valid Language & Script Metadata**:
+6. **Entity Preservation in Out-of-Scope Rows**:
+   Out-of-scope rows are **not** required to have null transit entities. If an out-of-scope query refers to real transit entities (e.g. "Book an Uber from Central to Airport", "Weather in Guindy"), those entity spans and canonical IDs must be annotated and verified against `canonical_transport.db`. OOS status defines an unsupported user action, not the absence of transit entities.
+7. **Valid Language & Script Metadata**:
    All language and script tags must match allowed enum values. No Latin-only string may be tagged as `HI_DEVA`.

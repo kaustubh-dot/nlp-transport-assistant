@@ -3,7 +3,7 @@
 Document: `docs/nlp_v2/evaluation_protocol.md`  
 Snapshot Version: `chennai_multimodal_v1.2.1`  
 Date: 2026-09-19  
-Status: Authoritative Evaluation Protocol
+Status: Authoritative Evaluation Protocol (Corrected Methodology Patch)
 
 ---
 
@@ -16,27 +16,27 @@ To prevent opaque aggregation, the evaluation protocol assesses performance acro
 | LAYER 1: INTENT CLASSIFICATION                                          |
 | Macro-F1, Accuracy, Per-Class F1, Confusion Matrix, OOS Calibration     |
 +-------------------------------------------------------------------------+
-                                    |
+                                    │
 +-------------------------------------------------------------------------+
 | LAYER 2: SLOT SPAN EXTRACTION                                           |
 | Span Strict F1 (BIO boundary), Exact Slot-Set Match, Per-Slot F1        |
 +-------------------------------------------------------------------------+
-                                    |
+                                    │
 +-------------------------------------------------------------------------+
 | LAYER 3: CANONICAL ENTITY RESOLUTION                                    |
 | Top-1 Canonical Accuracy, Top-3 Accuracy, Ambiguity Rate, Unresolved Rate|
 +-------------------------------------------------------------------------+
-                                    |
+                                    │
 +-------------------------------------------------------------------------+
 | LAYER 4: TRANSPORT KB RETRIEVAL & ROUTING                               |
 | Table Hit Rate, Correct Routing Graph Path, Fare Stage Consistency      |
 +-------------------------------------------------------------------------+
-                                    |
+                                    │
 +-------------------------------------------------------------------------+
 | LAYER 5: END-TO-END TASK SUCCESS                                        |
 | Factual Task Success Rate, Unsupported Rejection Rate, Zero Hallucination|
 +-------------------------------------------------------------------------+
-                                    |
+                                    │
 +-------------------------------------------------------------------------+
 | LAYER 6: RESPONSE GENERATION                                            |
 | Response Language Match (EN, HI, Hinglish), Grounded Fact Fidelity     |
@@ -76,31 +76,71 @@ An error at Layer 4 (e.g. database path not found) is never counted as an intent
 ### Layer 4 & 5: Task Success & Factual Safety Metrics
 - **End-to-End Task Success Rate**:
   $$\text{TaskSuccess} = \mathbb{I}(\text{IntentCorrect} \land \text{RequiredSlotsCorrect} \land \text{EntitiesResolved} \land \text{KBQueriedCorrectly})$$
-- **Unsupported Request Rejection Accuracy**: Accuracy on refusing `REQUIRES_REALTIME_DATA` queries (e.g. live bus tracking) without hallucinating facts.
+- **Real-Time Request Rejection Accuracy**: Accuracy on refusing `realtime_status_query` (`REQUIRES_REALTIME_DATA`) queries (e.g. live bus tracking) without hallucinating live facts.
 - **Hallucination Rate**: Any response containing fabricated fares, nonexistent route stops, or false live telemetry. Must be strictly **0.0%**.
 
 ---
 
-## 3. Calibration and Confidence Diagnostics
+## 3. Strict Experimental Lifecycle & Test Discipline
 
-Commuter assistants must be well-calibrated; a model should not output 0.99 confidence on an out-of-domain or malformed request.
+To guarantee benchmark integrity and prevent test contamination, development proceeds through four strictly partitioned phases:
 
-1. **Expected Calibration Error (ECE)**:
-   Partition predictions into $M=10$ confidence bins:
-   $$\text{ECE} = \sum_{m=1}^M \frac{|B_m|}{N} \left| \text{acc}(B_m) - \text{conf}(B_m) \right|$$
-2. **Brier Score**:
-   Mean squared difference between predicted class probabilities and one-hot true labels.
-3. **Reliability Diagrams**:
-   Plotted for all finalist models, specifically analyzing confidence on ambiguous and noisy inputs.
+```
+1. DEVELOPMENT PHASE:
+   Train models strictly on 'train' partition.
+   Tune hyperparameters and monitor convergence strictly on 'validation'.
+   Diagnose error modes and zero-shot entity behavior on dev challenge sets
+   (challenge_unseen_pairs, challenge_unseen_aliases).
+
+2. FINALIST FREEZE GATE:
+   Lock candidate architectures, preprocessing pipelines, hyperparameter configs,
+   taxonomy version, and confidence thresholds. No code or configuration changes permitted after this point.
+
+3. FINAL TEST BENCHMARK:
+   Execute frozen finalists on untouched 'test' partition.
+   Log per-example predictions across seeds.
+   Do NOT use test set errors for post-hoc hyperparameter tuning or feature engineering.
+
+4. INDEPENDENT GOLD ACCEPTANCE SUITE:
+   Evaluate selected champion on the independently authored, external Gold Suite.
+```
 
 ---
 
-## 4. Latency and Resource Measurement Protocol
+## 4. Coverage-Based Independent Gold Suite Specification
 
-To ensure latency numbers are physical, reproducible, and comparable:
-1. **Isolated Execution**: Batch size = 1, single query inference on dedicated GPU.
-2. **CUDA Synchronization**:
-   Every timing interval must be bracketed by `torch.cuda.synchronize()` before and after inference:
+The v2 Gold Suite replaces arbitrary sample size targets with a formal coverage-based requirement:
+
+$$\text{Base Gold Size} \ge 10 \text{ independently authored cases} \times K_{\text{intents}} \times 5 \text{ language classes}$$
+
+- **Scale under Taxonomy T1 (9 intents)**: $\ge 450$ curated queries.
+- **Scale under Taxonomy T2 (12 intents)**: $\ge 600$ curated queries.
+- **Scale under Taxonomy T3 (16 intents)**: $\ge 800$ curated queries.
+- **Additional Robustness Cases**:
+  - Typographical noise and chat abbreviations ($\ge 50$ cases).
+  - Rare/tail bus stop and suburban rail entities ($\ge 50$ cases).
+  - Alphanumeric bus route variants (`102A`, `21G`, `102K#`) ($\ge 30$ cases).
+  - Boundary out-of-scope and real-time status queries ($\ge 50$ cases).
+- **Authoring Independence**: Gold queries must be independently authored by native Hindi and Tamil/English bilingual speakers without access to training template banks.
+
+---
+
+## 5. Statistical Testing Across Seeds and Per-Example Predictions
+
+1. **Per-Example Paired Testing Mandate**:
+   Statistical significance tests (McNemar's test and paired bootstrap) **must operate on paired per-example predictions**, never on aggregated or averaged metrics across seeds. Applying McNemar to aggregate numbers is mathematically invalid.
+2. **Multi-Seed Protocol for Finalists**:
+   - For serious finalists, serialize `predictions.jsonl` for every evaluation seed (`[42, 101, 777, 1337, 2026]`).
+   - Perform matched-seed paired comparisons ($S_i^{\text{ModelA}}$ vs $S_i^{\text{ModelB}}$) across all queries.
+   - Report mean, standard deviation, and 95% bootstrap confidence intervals ($B = 1,000$ iterations).
+   - Use hierarchical / seed-aware bootstrap for final robustness comparisons.
+
+---
+
+## 6. Physical Latency & Calibration Protocol
+
+1. **CUDA Synchronization**:
+   Timing intervals must use `torch.cuda.synchronize()` at `batch_size = 1`:
    ```python
    torch.cuda.synchronize()
    t0 = time.perf_counter()
@@ -108,58 +148,6 @@ To ensure latency numbers are physical, reproducible, and comparable:
    torch.cuda.synchronize()
    latency_ms = (time.perf_counter() - t0) * 1000.0
    ```
-3. **Reported Statistics**:
-   - Warm-up: 50 discarded iterations.
-   - Evaluation: Mean, P50, P95, and P99 latency across test queries.
-   - Peak GPU VRAM footprint (`torch.cuda.max_memory_allocated()`).
-   - Model serialized disk size (MB).
-
----
-
-## 5. Storage of Per-Example Prediction Records
-
-Aggregated summary statistics discard critical diagnostic evidence. Every benchmark run must serialize a machine-readable JSON Lines file (`predictions.jsonl`) recording per-example inferences:
-
-```json
-{
-  "experiment_id": "V2_T2_B_MURIL_NORM0_SIZE40K_SEED42",
-  "model_name": "google/muril-base-cased",
-  "seed": 42,
-  "utterance_id": "V2_UTT_001234",
-  "query": "guindy se central metro ka last train kab hai",
-  "language": "HINGLISH_LATN",
-  "code_switch_level": "CS2",
-  "noise_level": "N2",
-  "gold_intent": "service_timing",
-  "pred_intent": "service_timing",
-  "confidence": 0.942,
-  "intent_correct": true,
-  "gold_slots": {"origin": "HUB_GUINDY", "destination": "HUB_CENTRAL", "transport_mode": "metro", "timing_type": "last"},
-  "pred_slots": {"origin": "HUB_GUINDY", "destination": "HUB_CENTRAL", "transport_mode": "metro", "timing_type": "last"},
-  "slots_exact_match": true,
-  "latency_ms": 3.12
-}
-```
-
----
-
-## 6. Formal Error Taxonomy for Failure Analysis
-
-Finalist error analyses will classify failures into 17 standardized categories:
-1. `intent_boundary_error`: Misclassification between adjacent valid intents (e.g. `service_timing` vs `service_availability`).
-2. `missing_required_slot`: Extractor failed to detect a mandatory slot.
-3. `wrong_slot_type`: Slot detected but assigned incorrect type (e.g. `destination` labeled as `origin`).
-4. `entity_span_error`: Extracted boundary missed leading/trailing letters (`uindy` instead of `guindy`).
-5. `entity_resolution_error`: Extracted span mapped to incorrect canonical ID.
-6. `hub_node_ambiguity`: Failure to resolve generic hub vs specific modal station platform.
-7. `transliteration_failure`: Failure caused by non-standard Romanization.
-8. `hinglish_normalization_failure`: Parser tripped by colloquial Hinglish grammatical frames.
-9. `code_switch_failure`: Classifier failed specifically on CS3/CS4 mixed-script queries.
-10. `translation_corruption`: Pipeline A translation altered or erased a transit entity.
-11. `route_number_corruption`: Route number suffix stripped or mistranslated (`102A` -> `102`).
-12. `temporal_normalization_failure`: Failure to parse time expressions (`raat 8 baje`).
-13. `oos_false_positive`: In-domain transit question incorrectly rejected as out-of-scope.
-14. `oos_false_negative`: Out-of-scope or live-tracking query falsely fulfilled as a static transit answer.
-15. `kb_missing_data`: System failed due to unlinked stage or uncataloged bus stop.
-16. `routing_graph_error`: Pathfinding algorithm failed to compute valid transfer edge.
-17. `response_generation_error`: Response text contradicted retrieval payload.
+2. **Calibration Diagnostics**:
+   - Compute Expected Calibration Error (ECE, 10 bins) and Brier score.
+   - Specifically evaluate confidence calibration on ambiguous entities, noisy queries, and `out_of_scope`.

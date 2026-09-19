@@ -3,7 +3,7 @@
 Document: `docs/nlp_v2/experimental_preregistration.md`  
 Snapshot Version: `chennai_multimodal_v1.2.1`  
 Date: 2026-09-19  
-Status: Authoritative Preregistration Plan (Pre-Execution Lock)
+Status: Authoritative Preregistration Plan (Corrected Methodology Patch)
 
 ---
 
@@ -21,7 +21,7 @@ To prevent p-hacking, selective reporting, and repeated optimization against the
 - **Representative Benchmark Architectures**:
   - TF-IDF + Logistic Regression
   - Google MuRIL
-  - AI4Bharat IndicBERT v2
+  - AI4Bharat IndicBERT v2 (`ai4bharat/IndicBERTv2-MLM-only`)
 - **Tracked Metrics**: Validation Macro-F1, Language Subgroup F1, Entity Resolution Accuracy.
 
 ### Experiment 2: Template-Family Scaling vs Sample-Size Inflation
@@ -31,12 +31,15 @@ To prevent p-hacking, selective reporting, and repeated optimization against the
   - Condition D2 (High Diversity, Low Repetition): 40k samples generated from 400 template families.
 - **Hypothesis**: Condition D2 will achieve statistically superior out-of-family generalization on test holdout.
 
-### Experiment 3: Language-Mixture Variations
+### Experiment 3: Language-Mixture Variations (Covering All 5 Formal Classes)
 - **Research Question**: What training language proportion maximizes code-switched and Romanized Hindi performance without degrading English?
-- **Controlled Mixtures**:
-  - Mixture `L1` (Balanced Equal): English 33%, Hindi-Devanagari 33%, Hinglish 34%.
-  - Mixture `L2` (Commuter Real-World): English 20%, Hindi-Devanagari 30%, Hinglish 50%.
-  - Mixture `L3` (Code-Switch Enriched): English 20%, Hindi-Devanagari 20%, Hinglish 40%, Mixed-Script 20%.
+- **Controlled Mixtures (Explicitly modeling `EN`, `HI_DEVA`, `HI_LATN`, `HINGLISH_LATN`, `MIXED_SCRIPT_CS`)**:
+  - **Mixture `L1` (Balanced Baseline)**:
+    `EN`: 25%, `HI_DEVA`: 25%, `HI_LATN`: 15%, `HINGLISH_LATN`: 25%, `MIXED_SCRIPT_CS`: 10%.
+  - **Mixture `L2` (Colloquial Commuter Enriched)**:
+    `EN`: 15%, `HI_DEVA`: 20%, `HI_LATN`: 20%, `HINGLISH_LATN`: 35%, `MIXED_SCRIPT_CS`: 10%.
+  - **Mixture `L3` (High Code-Switching & Romanized Focus)**:
+    `EN`: 15%, `HI_DEVA`: 15%, `HI_LATN`: 15%, `HINGLISH_LATN`: 40%, `MIXED_SCRIPT_CS`: 15%.
 
 ### Experiment 4: Pipeline Architectures & Preprocessing Ablations
 
@@ -69,26 +72,30 @@ Input -> Script/Lang Detection -> Transliteration Normalization -> Code-Switch N
 
 ## 3. Candidate Model Registry
 
-| Model Key | HuggingFace Hub Identifier | Parameters | Vocabulary Size | Linguistic Strengths | Research Justification |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| `baseline` | `sklearn.linear_model.LogisticRegression` | ~50k | Char (2-5) + Word (1-3) | Zero latency, deterministic | Fast empirical floor |
-| `muril` | `google/muril-base-cased` | 236M | 197k (Indic-focused) | Trained on 17 Indic languages + English, transliterated pairs | **Historical incumbent champion** |
-| `indicbert_v2` | `ai4bharat/indic-bert` | 135M | 200k (ALUM) | Efficient Indic parameterization | Historical v1 runner-up |
-| `minilm` | `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` | 117M | 250k | Low inference latency (2.7 ms) | High deployment efficiency |
-| `xlm_roberta` | `xlm-roberta-base` | 278M | 250k | 100 languages, cross-lingual transfer | High capacity multilingual |
-| `hingbert` | `l3cube-pune/hing-bert` | 110M | 30k | Explicit Hinglish Roman pre-training | Code-switch domain alignment |
-| `mdeberta_v3` | `microsoft/mdeberta-v3-base` | 278M | 250k | Disentangled attention, high NLU benchmark scores | Strong modern NLU alternative |
+| Model Key | HuggingFace Hub Identifier | Pinned Revision | Parameters | Vocabulary Size | Linguistic Strengths | Research Justification |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `baseline` | `sklearn.linear_model.LogisticRegression` | N/A | ~50k | Char (2-5) + Word (1-3) | Zero latency, deterministic | Fast empirical floor |
+| `muril` | `google/muril-base-cased` | `main` | 236M | 197k (Indic-focused) | Trained on 17 Indic languages + English, transliterated pairs | **Historical incumbent champion** |
+| `indicbert_v2` | `ai4bharat/IndicBERTv2-MLM-only` | `main` | 278M | 250k (ALUM) | Pre-trained on IndicCorp v2 + English; MLM-only objective | **Verified v1 runner-up checkpoint** |
+| `indicbert_v1` | `ai4bharat/indic-bert` | `main` | 135M | 200k | Lightweight Indic ALBERT | Historical baseline comparison |
+| `minilm` | `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` | `main` | 117M | 250k | Low inference latency (2.7 ms) | High deployment efficiency |
+| `xlm_roberta` | `xlm-roberta-base` | `main` | 278M | 250k | 100 languages, cross-lingual transfer | High capacity multilingual |
+| `hingbert` | `l3cube-pune/hing-bert` | `main` | 110M | 30k | Explicit Hinglish Roman pre-training | Code-switch domain alignment |
+| `mdeberta_v3` | `microsoft/mdeberta-v3-base` | `main` | 278M | 250k | Disentangled attention, high NLU benchmark scores | Strong modern NLU alternative |
 
 ---
 
-## 4. Hyperparameter Search Space (Validation Only)
+## 4. Hyperparameter Search Space & Reproducibility (Validation Only)
 
-Each serious candidate model receives an identical hyperparameter search budget of **8 trials** evaluated strictly on validation Macro-F1:
+Each serious candidate model receives an identical hyperparameter search budget of **8 trials** evaluated strictly on validation Macro-F1.
 
-| Hyperparameter | Search Range / Grid Values |
+### Deterministic Trial Selection Protocol:
+To eliminate researcher discretion, the 8 configurations are generated via **deterministic pseudo-random search using fixed search seed `42`** across the predefined search space:
+
+| Hyperparameter | Search Space Grid |
 | :--- | :--- |
 | **Learning Rate** | `[1e-5, 2e-5, 3e-5, 5e-5]` (AdamW) |
-| **Batch Size** | `[16, 32]` (standardized effective batch size = 32) |
+| **Effective Batch Size** | `[16, 32]` |
 | **Weight Decay** | `[0.01, 0.1]` |
 | **Warmup Ratio** | `[0.05, 0.10]` |
 | **Max Epochs** | `15` ceiling |
@@ -96,14 +103,14 @@ Each serious candidate model receives an identical hyperparameter search budget 
 | **Precision** | `bfloat16` mixed precision |
 | **Max Sequence Length** | `128` tokens |
 
-*Discipline Rule*: Hyperparameter tuning against the test partition is strictly prohibited.
+*Discipline Rule*: Hyperparameter tuning against the test partition is strictly prohibited. All 8 configurations and trial metrics must be logged in `experiments/nlp_v2/hyperparameter_trials.jsonl`.
 
 ---
 
 ## 5. Training Seed Protocol
 
-To guarantee reproducibility and measure run-to-run variance, we establish a two-tiered seed funnel:
-- **Exploratory Pilot Experiments**: 2 seeds (`[42, 101]`).
+To guarantee reproducibility and measure run-to-run variance:
+- **Pilot Experiments (Gate B)**: 3 seeds (`[42, 101, 777]`).
 - **Core Benchmark Comparisons**: The established 5 historical seeds:
   `[42, 101, 777, 1337, 2026]`.
 - **Close Finalists (<0.01 Macro-F1 delta)**: Expanded to 10 seeds to verify statistical significance.
@@ -121,28 +128,31 @@ Reject any model with Macro-F1 < 0.70 on any individual language partition
                        │
 STAGE 2: FACTUAL SAFETY & ENTITY FIDELITY GATE
 Reject any model with Entity Corruption > 3.0%, Hallucination Rate > 0.0%,
-or Unsupported Request Rejection Accuracy < 90.0%.
+or Realtime Status Rejection Accuracy < 90.0%.
                        │
 STAGE 3: PRIMARY MACRO-F1 RANKING
 Rank remaining models by Test Macro-F1 (mean across 5 seeds).
                        │
 STAGE 4: STATISTICAL SIGNIFICANCE & EFFICIENCY BREAKERS
 If top two models are not statistically distinguishable
-(McNemar test p > 0.05 AND paired bootstrap 95% CI overlap):
+(McNemar test p > 0.05 AND paired bootstrap 95% CI overlap on matched seeds):
 Prefer model with lower P95 latency, smaller memory, or simpler pipeline.
                        │
 STAGE 5: INDEPENDENT GOLD ACCEPTANCE
-Evaluate selected champion on external, untouched 150-case Gold Suite.
+Evaluate selected champion on external, untouched Coverage-Based Gold Suite
+(>= 10 cases x K intents x 5 language classes).
 Pass condition: Overall task accuracy >= 95.0%, 0 hallucinations.
 ```
 
 ---
 
-## 7. Statistical Testing Procedures
+## 7. Statistical Testing Procedures Across Seeds
 
-1. **Paired Bootstrap Confidence Intervals**:
-   Compute 95% bootstrap confidence intervals for Macro-F1 by resampling test queries with replacement ($B = 1,000$ iterations).
-2. **McNemar's Test**:
-   Evaluate paired binary correctness matrices between the incumbent (MuRIL) and challengers:
-   $$\chi^2 = \frac{(|b - c| - 1)^2}{b + c}, \quad df = 1$$
-   where $b$ is queries model 1 got right and model 2 got wrong, and $c$ is vice-versa. Reject null hypothesis of equal performance at $\alpha = 0.05$.
+1. **Per-Example Paired Testing Mandate**:
+   McNemar's test and paired bootstrap **must operate on matched per-example prediction pairs**. They must never be applied to averaged summary metrics across seeds.
+2. **Multi-Seed Paired Protocol**:
+   For candidate models evaluated across 5 seeds:
+   - For each seed $s \in \{42, 101, 777, 1337, 2026\}$, compute the per-example $2 \times 2$ contingency matrix between incumbent $M_{\text{incumbent}}$ and challenger $M_{\text{challenger}}$:
+     $$\chi^2_s = \frac{(|b_s - c_s| - 1)^2}{b_s + c_s}, \quad df = 1$$
+   - Report seed-specific $p$-values alongside the omnibus hierarchical bootstrap confidence interval for $\Delta \text{Macro-F1}$ ($B = 1,000$ iterations).
+   - Reject the null hypothesis of equal performance at $\alpha = 0.05$ only when the improvement is statistically significant across matched seeds.

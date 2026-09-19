@@ -3,7 +3,7 @@
 Document: `docs/nlp_v2/language_and_robustness_spec.md`  
 Snapshot Version: `chennai_multimodal_v1.2.1`  
 Date: 2026-09-19  
-Status: Authoritative Language & Robustness Framework
+Status: Authoritative Language & Robustness Framework (Corrected Methodology Patch)
 
 ---
 
@@ -13,13 +13,15 @@ The primary v2 NLP benchmark covers four linguistic strata across two scripts (L
 
 ### 1.1 Five Formal Language Classes
 
-| Language Code | Script | Description | Corpus Target (%) | Representative Query Example |
+| Language Code | Script | Description | Pilot/Default Proposal (%) | Representative Query Example |
 | :--- | :--- | :--- | :---: | :--- |
-| **`EN`** | Latin (`Latn`) | Monolingual English transit query | ~25% | "What is the earliest metro from Central to Airport?" |
-| **`HI_DEVA`** | Devanagari (`Deva`) | Monolingual Hindi in Devanagari script | ~25% | "चेन्नई सेन्ट्रल से एयरपोर्ट के लिए पहली मेट्रो कितने बजे है?" |
-| **`HI_LATN`** | Latin (`Latn`) | Monolingual Hindi in Roman script (pure Roman Hindi) | ~15% | "chennai central se airport ke liye pehli metro kitne baje hai?" |
-| **`HINGLISH_LATN`** | Latin (`Latn`) | Code-mixed Hindi and English in Latin script | ~25% | "central se airport ka first metro timing kya hai schedule batao" |
-| **`MIXED_SCRIPT_CS`** | Mixed (`Deva` + `Latn`) | Intra-sentential code-switching across scripts | ~10% | "Central से Airport के लिए first metro कब departure karti hai?" |
+| **`EN`** | Latin (`Latn`) | Monolingual English transit query | 25% (Proposal) | "What is the earliest metro from Central to Airport?" |
+| **`HI_DEVA`** | Devanagari (`Deva`) | Monolingual Hindi in Devanagari script | 25% (Proposal) | "चेन्नई सेन्ट्रल से एयरपोर्ट के लिए पहली मेट्रो कितने बजे है?" |
+| **`HI_LATN`** | Latin (`Latn`) | Monolingual Hindi in Roman script (pure Roman Hindi) | 15% (Proposal) | "chennai central se airport ke liye pehli metro kitne baje hai?" |
+| **`HINGLISH_LATN`** | Latin (`Latn`) | Code-mixed Hindi and English in Latin script | 25% (Proposal) | "central se airport ka first metro timing kya hai schedule batao" |
+| **`MIXED_SCRIPT_CS`** | Mixed (`Deva` + `Latn`) | Intra-sentential code-switching across scripts | 10% (Proposal) | "Central से Airport के लिए first metro कब departure karti hai?" |
+
+*Status Note on Proportions*: The 25/25/15/25/10 distribution is a starting proposal for pilot synthesis. Final proportions will be determined experimentally in the Language-Mixture study (preregistered across all 5 classes).
 
 *Tamil Scope Note*: Tamil station and stop names in `canonical_transport.db` (421 verified Tamil strings) participate in entity resolution and alias evaluation. Monolingual Tamil intent classification is deferred to a future phase to preserve research depth on Hindi-English code-switching.
 
@@ -100,9 +102,9 @@ Collapsing these tasks causes acute system failures, such as translation engines
 
 ---
 
-## 5. Controlled Lexical Variation Dictionary for Dataset Synthesis
+## 5. Controlled Lexical Variation & Ambiguity Handling
 
-To ensure natural linguistic diversity in synthesized families, the generator must draw from realistic variation pools:
+To ensure natural linguistic diversity in synthesized families, the generator draws from realistic variation pools while respecting ambiguity rules:
 
 ### Hindi / Hinglish Transit Function Words:
 - `kaise` (how): `kaise`, `kese`, `kaiseh`, `kis tarah`, `kaise jau`, `kaha se`
@@ -118,3 +120,7 @@ To ensure natural linguistic diversity in synthesized families, the generator mu
 - `bus terminus` → `bus terminus`, `bt`, `b.t.`, `terminus`
 - `junction` → `junction`, `jn`, `junc`
 - `road` → `road`, `rd`, `salai`
+
+### Strict Zero-Default Rule for Ambiguous Time and Relative Days:
+1. Bare times (`8 baje`, `8 बजे`) must **not** default to 08:00. Dual candidates `08:00:00` and `20:00:00` are retained with `temporal_ambiguity = true`.
+2. Relative day `कल / kal` must **not** default to tomorrow. It is resolved to `+1` (tomorrow) or `-1` (yesterday) solely when auxiliary verbs or tense markers provide unambiguous grammatical evidence; otherwise, an explicit unresolved ambiguity flag is emitted.

@@ -3,7 +3,7 @@
 Document: `docs/nlp_v2/entity_resolution_contract.md`  
 Snapshot Version: `chennai_multimodal_v1.2.1`  
 Date: 2026-09-19  
-Status: Authoritative Entity & Normalization Specification
+Status: Authoritative Entity & Normalization Specification (Corrected Methodology Patch)
 
 ---
 
@@ -58,6 +58,8 @@ All language surfaces (English, Hindi Devanagari, Roman Hindi, Hinglish, Tamil) 
 | **Transit Route** | `ROUTE_<OPERATOR>_<CODE>` | `transport_routes` | 4,619 | `CMRL_BLUE_CORRIDOR_1`, `GTFS_ROUTE_23917` |
 | **Official Fare Stage** | `MTC_STAGE_<ID>` | `fare_stages` | 1,562 | `MTC_STAGE_0002_100_FEET_ROAD_JN` |
 | **Place / POI** | `OSM_POI_<ID>` | `places` | 1,621 | `OSM_POI_7820652140` (Shri Maruthi Hospital) |
+
+*Station Code Qualification*: Station telegraphic codes (e.g. MAS, MS, MSB, TBM) exist in source metadata and stop IDs, but `transport_stops` lacks a dedicated `station_code` column. Resolving queries explicitly asking for station codes is marked `NOT_CURRENTLY_SUPPORTED` until an explicit canonical lookup is implemented.
 
 ---
 
@@ -141,15 +143,18 @@ Commuter queries express time in colloquial Hindi, Hinglish, and English with va
    - `shaam 6 baje` / `शाम 6 बजे` → `18:00:00`
    - `dopahar 2 baje` / `दोपहर 2 बजे` → `14:00:00`
    - `subah 5 baje` / `सुबह 5 बजे` → `05:00:00`
-3. **Ambiguous Bare Numbers (`8 baje`, `8 बजे`)**:
-   - When period-of-day is unspecified, default to the upcoming scheduled window relative to current query context or flag `temporal_ambiguity: true` with both `08:00` and `20:00` candidate interpretations.
-4. **Relative Day Markers and the Hindi `कल` (Kal) Ambiguity**:
-   - In Hindi, `कल` (`kal`) means either "yesterday" or "tomorrow" depending on grammatical aspect (past vs future tense):
-     - "kal train aayi thi" (yesterday, past)
-     - "kal train milegi kya" (tomorrow, future)
-   - In real transit assistant queries, passengers almost universally refer to future travel. However, in ambiguous queries without clear tense markers (e.g. "kal ka schedule"), the system must record:
-     `{"temporal_relative": "kal", "resolved_temporal_offset_days": +1, "confidence": 0.90, "unresolved_ambiguity": false}`
-   - The system must never silently normalize `कल` to `today` (`aaj`).
+3. **Strict Disallowance of Defaulting for Bare Times (`8 baje`, `8 बजे`)**:
+   - **Do not default to 08:00**.
+   - When period-of-day is unspecified, preserve dual candidates `["08:00:00", "20:00:00"]` with `temporal_ambiguity: true`. Resolution requires contextual dialogue or explicit user clarification.
+4. **Strict Disallowance of Defaulting for Hindi `कल / kal`**:
+   - In Hindi, `कल` (`kal`) denotes either "yesterday" or "tomorrow" based entirely on grammatical aspect and tense.
+   - **Zero Default Rule**: Never default ambiguous `kal` to tomorrow.
+   - Resolve to `+1` (tomorrow) or `-1` (yesterday) **only** when grammatical tense/aspect provides unambiguous proof:
+     - "kal train aayi thi" (past auxiliary `thi` → yesterday, `-1`)
+     - "kal train milegi kya" (future verb `milegi` → tomorrow, `+1`)
+   - In ambiguous queries lacking tense markers (e.g. "kal ka schedule", "kal ki timing"), emit:
+     `{"temporal_relative": "kal", "resolved_temporal_offset": "UNRESOLVED_TEMPORAL_AMBIGUITY", "requires_clarification": true}`.
+   - The system must never silently normalize `कल` to `today` (`aaj`) or assume `tomorrow`.
 
 ---
 
