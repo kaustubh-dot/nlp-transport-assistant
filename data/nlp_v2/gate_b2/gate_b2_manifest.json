@@ -1,0 +1,67 @@
+{
+  "dataset_name": "Gate B.2 Grounded Confirmation Corpus",
+  "base_corpus_lineage": "Gate B.1 Hard-Boundary Stress Test",
+  "canonical_db_version": "chennai_multimodal_v1.2.2",
+  "created_at": "2026-09-19T17:15:00+05:30",
+  "stress_eval_sha256": "26cbf6517e25511d19d67051f500459ef7d78d87e5fbd1eb6d21849842242a1c",
+  "splits": {
+    "train": {
+      "file": "gate_b2_train.csv",
+      "count": 1396
+    },
+    "validation": {
+      "file": "gate_b2_validation.csv",
+      "count": 410
+    },
+    "stress_eval": {
+      "file": "gate_b2_stress_eval.csv",
+      "count": 706,
+      "sha256": "26cbf6517e25511d19d67051f500459ef7d78d87e5fbd1eb6d21849842242a1c",
+      "status": "FROZEN_FOR_GATE_B2"
+    }
+  },
+  "stats": {
+    "gate_b2_train.csv": {
+      "total_rows": 1396,
+      "grounded_factual": 1240,
+      "provisional": 46,
+      "nlu_only_synthetic": 110,
+      "rows_with_entities": 1286,
+      "author_sources": {
+        "CURATED_MINIMAL_PAIR": 176,
+        "CURATED_AMBIGUITY": 101,
+        "TEMPLATE_GENERATED": 550,
+        "CURATED_HARD_CASE": 569
+      },
+      "validated_topology": 36
+    },
+    "gate_b2_validation.csv": {
+      "total_rows": 410,
+      "grounded_factual": 354,
+      "provisional": 20,
+      "nlu_only_synthetic": 36,
+      "rows_with_entities": 374,
+      "author_sources": {
+        "CURATED_MINIMAL_PAIR": 76,
+        "CURATED_AMBIGUITY": 33,
+        "TEMPLATE_GENERATED": 132,
+        "CURATED_HARD_CASE": 169
+      },
+      "validated_topology": 5
+    },
+    "gate_b2_stress_eval.csv": {
+      "total_rows": 706,
+      "grounded_factual": 580,
+      "provisional": 85,
+      "nlu_only_synthetic": 41,
+      "rows_with_entities": 665,
+      "author_sources": {
+        "CURATED_MINIMAL_PAIR": 181,
+        "CURATED_AMBIGUITY": 98,
+        "TEMPLATE_GENERATED": 210,
+        "CURATED_HARD_CASE": 217
+      },
+      "validated_topology": 28
+    }
+  }
+}
