@@ -1,8 +1,14 @@
 # NLP v2 Gate B.1 Hard-Boundary Taxonomy Stress Test Results
 
+> [!WARNING]
+> **GATE B.1 PROVENANCE & METHODOLOGY AUDIT NOTICE (Gate B.2 Pre-Freeze Correction)**:
+> 1. **Evaluation Size**: The stress evaluation set contains exactly **706** utterances (corrected from descriptive typo 630).
+> 2. **Curated Synthetic Hard Cases**: Subsets previously labeled "independent authored" refer to separately curated synthetic hard-case banks (`scripts/nlp_v2/gate_b1/data_generation_specs.py`), not verified independent external human authorship.
+> 3. **Simulated Annotation**: Historical annotation agreement figures were produced by a deterministic persona simulation, not real human inter-annotator agreement.
+
 ## 1. Executive Summary & Core Comparison
 
-Gate B.1 rigorously stresses candidate taxonomies **T2_MEDIUM_V1** (12 intents) and **T3_FINE_V1** (16 intents) on a diagnostic corpus of 630 evaluation utterances featuring real text corruptions (N0–N5), multi-dialect code-switching (CS0–CS4), minimal-pair contrast groups, implicit queries, and ambiguous intents with zero synthetic markers.
+Gate B.1 rigorously stresses candidate taxonomies **T2_MEDIUM_V1** (12 intents) and **T3_FINE_V1** (16 intents) on a diagnostic corpus of 706 stress-evaluation utterances featuring real text corruptions (N0–N5), multi-dialect code-switching (CS0–CS4), minimal-pair contrast groups, implicit queries, and ambiguous intents with zero synthetic markers.
 
 ### Multi-Seed Aggregate Performance Table
 
@@ -84,12 +90,12 @@ Gate B.1 rigorously stresses candidate taxonomies **T2_MEDIUM_V1** (12 intents) 
 | `False` | 608 | 0.5609 | 0.6974 | **0.7763** | +0.0789 |
 | `True` | 98 | 0.8163 | 0.6122 | **0.5918** | -0.0204 |
 
-### Generalization: Synthetic Stress vs Independent Authored
+### Generalization: Base Generator vs Curated Synthetic Hard Cases (Previously Labeled Independent Authored)
 
 | Subgroup | Count | T2-A Op Acc | T2-B Op Acc | T3 Op Acc | T3 Gain over T2-B |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| `independent_authored` | 181 | 0.7072 | 0.8343 | **0.9613** | +0.1271 |
-| `synthetic_stress` | 525 | 0.5581 | 0.6343 | **0.6781** | +0.0438 |
+| `curated_hard_cases` (formerly `independent_authored`) | 181 | 0.7072 | 0.8343 | **0.9613** | +0.1271 |
+| `base_generator` (formerly `synthetic_stress`) | 525 | 0.5581 | 0.6343 | **0.6781** | +0.0438 |
 
 ---
 

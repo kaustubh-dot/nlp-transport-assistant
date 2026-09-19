@@ -1,13 +1,19 @@
 # GATE B.1 HARD-BOUNDARY STRESS TEST COMPLETE
 
 CLEANUP COMMIT:
-`c8d7cc14db362e54e8e19c01741bc5ec16086fd5` (`chore(nlp_v2): audit Gate B and version fare-enriched KB as v1.2.2`)
+`c8d7cc1250bbbd8a75b90e46b8a6c7edfd2b846c` (`chore(nlp_v2): audit Gate B and version fare-enriched KB as v1.2.2`)
 
 GATE B.1 COMMIT:
-`f4e4962` (`feat(nlp_v2): complete hard-boundary T2 vs T3 stress test`)
+`9b827eacc1d26b87c25444ee471797fcf72a8719` (`feat(nlp_v2): complete hard-boundary T2 vs T3 stress test`)
 
 KB SNAPSHOT:
 `chennai_multimodal_v1.2.2` (20 application tables + `sqlite_sequence`, 1,681 CMRL fare records, effective 2021-02-22, retrieved 2026-09-19)
+
+> [!WARNING]
+> **METHODOLOGY & PROVENANCE AUDIT CORRECTION (Gate B.2 Pre-Freeze Audit)**:
+> 1. **Simulated Annotation**: The Gate B.1 agreement numbers below were produced by a deterministic persona simulation (`scripts/nlp_v2/gate_b1/annotation_study.py`) and do **not** represent real human inter-annotator agreement. They serve only as heuristic boundary stress indicators.
+> 2. **Curated Synthetic Hard Cases**: The "independently authored" subset below refers to separately curated synthetic hard-case banks (`scripts/nlp_v2/gate_b1/data_generation_specs.py`), not verified independent external human authorship.
+> 3. **Auto-Assigned Review Status**: Gate B.1 generated rows were programmatically marked `human_reviewed=True`; genuine human review provenance was not recorded.
 
 DATASET SIZE:
 2,512 total unique records:
@@ -15,9 +21,9 @@ DATASET SIZE:
 - `gate_b1_validation.csv`: 410 rows (16.3%)
 - `gate_b1_stress_eval.csv`: 706 rows (28.1%)
 
-INDEPENDENTLY AUTHORED CASES:
-- Overall: 647 records (25.8% of total corpus, exceeding >=25% requirement)
-- Stress-eval Challenge Quota: 382 records (54.1% of stress_eval, exceeding >=50% requirement)
+CURATED SYNTHETIC HARD CASES (PREVIOUSLY LABELED INDEPENDENTLY AUTHORED):
+- Overall: 647 records (25.8% of total corpus, curated synthetic hard cases)
+- Stress-eval Challenge Quota: 382 records (54.1% of stress_eval, curated synthetic hard cases)
 
 MINIMAL-PAIR GROUPS:
 - 183 total contrast groups (433 queries total across corpus, exceeding >=400 requirement)
@@ -27,10 +33,10 @@ AMBIGUOUS CASES:
 - 232 queries annotated with `ambiguity_type`, `clarification_required`, and `acceptable_secondary_labels` (exceeding >=200 requirement)
 - 98 ambiguous queries in `stress_eval`
 
-HUMAN ANNOTATION AGREEMENT (Blind Study on 350 Hard Challenge Queries):
+SIMULATED ANNOTATION-BOUNDARY STRESS INDICATORS (Deterministic Persona Simulation on 350 Hard Challenge Queries):
 - **T2**: 75.71% raw agreement, Cohen's $\kappa = 0.6959$
 - **T3**: 70.29% raw agreement, Cohen's $\kappa = 0.6685$
-- *Finding*: T2 achieves higher inter-annotator agreement (+5.42 pp, $\Delta\kappa = +0.0274$) because human annotators experience boundary hesitation when separating `point_to_point_route` vs `multimodal_route` and `route_stop_sequence` vs `route_stop_membership`.
+- *Finding (Diagnostic Heuristic Only)*: T2 achieves higher simulated agreement (+5.42 pp, $\Delta\kappa = +0.0274$) because the heuristic simulation encodes boundary hesitation when separating `point_to_point_route` vs `multimodal_route` and `route_stop_sequence` vs `route_stop_membership`. Note: This does not represent real human agreement.
 
 TF-IDF RESULTS:
 - **TFIDF-WORD** (word unigrams + bigrams):
@@ -132,7 +138,7 @@ EVIDENCE:
 4. **Resilience**: T3 holds up across independent authored cases (96.1% op accuracy) and all five language/CS strata.
 
 COUNTERARGUMENT:
-T2 has slightly higher human annotation agreement (75.71% vs 70.29%, +5.42 pp) and simpler top-level intent semantics (12 classes instead of 16). In low-resource settings with limited training data, T2 would require fewer samples per class to achieve convergence.
+T2 showed slightly higher simulated annotation agreement (75.71% vs 70.29%, +5.42 pp in heuristic boundary simulation) and simpler top-level intent semantics (12 classes instead of 16). In low-resource settings with limited training data, T2 would require fewer samples per class to achieve convergence. Note: Real human inter-annotator agreement must be measured in Gate B.2 before final freeze.
 
 WHAT WOULD CHANGE IF THE OTHER TAXONOMY WERE SELECTED:
 If T2 were selected, NLP v2 would need to build, test, and maintain a secondary 2-stage pipeline (T2-B auxiliary classifier or slot-based dispatch rules) to disambiguate route planning, stop listing vs checking, and timing headways before hitting downstream SQL queries.

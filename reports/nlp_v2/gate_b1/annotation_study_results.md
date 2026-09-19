@@ -1,11 +1,15 @@
-# Gate B.1 Blind Human Annotation Ambiguity Study
+# Gate B.1 Simulated Annotation-Boundary Stress Indicators
+
+> [!WARNING]
+> **SIMULATED ANNOTATION NOTICE (Gate B.2 Pre-Freeze Audit)**:
+> Previous Gate B.1 agreement numbers below were produced by a deterministic annotation-boundary simulation (`scripts/nlp_v2/gate_b1/annotation_study.py`) and do **not** represent real human inter-annotator agreement. Reviewer 1 emitted gold labels while Reviewer 2 applied deterministic heuristic perturbations. These numbers are preserved purely as a diagnostic benchmark of boundary brittleness under synthetic persona stress, NOT as human consensus metrics. Real human annotation must be conducted in Gate B.2.
 
 **Sample Size:** 350 challenging transit utterances (minimal pairs, ambiguous queries, implicit intents)  
-**Protocol:** Two independent blind annotators evaluating surface text without generator metadata.  
+**Protocol:** Deterministic dual-persona simulation evaluating surface text under heuristic perturbation rules.  
 
 ---
 
-## Key Findings: Human Agreement Comparison (T2 vs. T3)
+## Key Findings: Simulated Boundary Stress Indicators (T2 vs. T3)
 
 | Metric | T2 Medium (12 Intents) | T3 Fine (16 Intents) | Difference (T2 - T3) |
 | :--- | :--- | :--- | :--- |
@@ -38,12 +42,12 @@
 
 ---
 
-## Architectural Interpretation
+## Architectural Interpretation (Heuristic Boundary Simulation)
 
-1. **T2 Medium achieves substantially higher human agreement** ($\kappa = 0.6959$, 75.7%) compared to T3 Fine ($\kappa = 0.6685$, 70.3%).
-2. **T3 produces 104 inter-annotator disagreements** (29.7% disagreement rate) across fine-grained subtype boundaries:
-   - `point_to_point_route` vs `multimodal_route`: Annotators cannot reliably determine from surface phrasing whether the routing engine will discover a single or multi-leg path unless multimodality is explicitly requested.
-   - `route_stop_sequence` vs `route_stop_membership`: Elliptical queries (e.g. `'21G Guindy?'`) trigger annotator divergence between stop presence check and corridor sequence display.
-   - `service_frequency` vs `scheduled_departure`: Commuters asking about headway around peak hours blend timetable inquiry with frequency lookups.
-3. **Conclusion for Taxonomy Selection**:
-   T2 Medium provides substantially superior annotation consistency and lower ambiguity for both human labelers and conversational users.
+1. **T2 Medium achieves higher simulated persona agreement** ($\kappa = 0.6959$, 75.7%) compared to T3 Fine ($\kappa = 0.6685$, 70.3%) under the deterministic heuristic rules.
+2. **T3 produces 104 simulated disagreements** (29.7% disagreement rate) across fine-grained subtype boundaries:
+   - `point_to_point_route` vs `multimodal_route`: Heuristic rules flag divergence when surface phrasing lacks explicit multimodality keywords.
+   - `route_stop_sequence` vs `route_stop_membership`: Elliptical queries (e.g. `'21G Guindy?'`) trigger divergent heuristics between stop presence check and corridor sequence display.
+   - `service_frequency` vs `scheduled_departure`: Heuristics for peak hour headway queries blend timetable inquiry with frequency lookups.
+3. **Conclusion & Mandatory Next Step**:
+   While the simulated stress test suggests T2 boundaries are less brittle under heuristic perturbation, this does **not** substitute for real human consensus. Gate B.2 must execute a genuine blind study with two independent human annotators before any final taxonomy decision.
