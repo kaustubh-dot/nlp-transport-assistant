@@ -1,9 +1,9 @@
 # Chennai Multimodal Multilingual NLP v2 Master Task Specification (Phase N8)
 
 Document: `docs/nlp_v2/nlp_v2_task_spec.md`  
-Snapshot Version: `chennai_multimodal_v1.2.1`  
+Snapshot Version: `chennai_multimodal_v1.2.2`  
 Reference Commit: `755f5754d9adb2ac7ea8358f5e7ae404ce942909`  
-Database Structure: 19 application tables + SQLite internal `sqlite_sequence`  
+Database Structure: 20 application tables + SQLite internal `sqlite_sequence`  
 Date: 2026-09-19  
 Status: Authoritative Consolidated Specification (Gate A Deliverable, Corrected Methodology Patch)
 
@@ -13,7 +13,7 @@ Status: Authoritative Consolidated Specification (Gate A Deliverable, Corrected 
 
 The objective of the Chennai Multimodal Multilingual NLP v2 research program is to establish a rigorous, reproducible, and factually grounded conversational assistant across Chennai's public transport network. 
 
-Following the completion of the multimodal data expansion phase (snapshot `chennai_multimodal_v1.2.1`), the transit knowledge base encompasses 7,136 physical stops, 4,619 routes, 1,360,635 stop times, and 1,562 official bus fare stages stored across 19 application tables in `canonical_transport.db` (81.27 MB SQLite). The historical CMRL v1 benchmark (5,204 samples, 7 metro-only intents, 41 stations) is preserved intact as an immutable reference.
+Following the completion of the multimodal data expansion phase (snapshot `chennai_multimodal_v1.2.2`), the transit knowledge base encompasses 7,136 physical stops, 4,619 routes, 1,360,635 stop times, 1,562 official bus fare stages, and 1,681 CMRL station fare matrix records stored across 20 application tables in `canonical_transport.db` (81.27 MB SQLite). The historical CMRL v1 benchmark (5,204 samples, 7 metro-only intents, 41 stations) is preserved intact as an immutable reference.
 
 This master task specification consolidates the research design produced across Phases N0 through N7 and incorporates the Gate A methodology corrections to govern all subsequent dataset synthesis, pilot testing, and model benchmarking.
 
@@ -75,7 +75,7 @@ The v2 conversational pipeline maintains strict boundaries between language unde
 - Reference Document: [current_nlp_audit.md](../../reports/nlp_v2/current_nlp_audit.md).
 
 ### 3.2 Canonical Knowledge Base Answerability Contract (Phase N1)
-- Data Foundation: `canonical_transport.db` (19 application tables + `sqlite_sequence`, 81.27 MB).
+- Data Foundation: `canonical_transport.db` (20 application tables + `sqlite_sequence`, 81.27 MB).
 - Answerability Rules:
   - `ANSWERABLE_NOW`: Confirmed CMRL metro topology, official MTC stage tariffs G.O. Ms 48, Metro station parking availability (`accessibility.parking_available`).
   - `ANSWERABLE_WITH_PROVISIONAL_DATA`: GTFS representative longest-trip route stops, static timetables, 579 matched bus stages, CMRL distance-tier fare calculation, direct coordinate spatial proximity lookups (`places`, `transport_stops`).

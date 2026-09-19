@@ -1,7 +1,7 @@
 # Intent Taxonomy Candidates for Chennai Multimodal Transport NLU (Phase N2)
 
 Document: `docs/nlp_v2/intent_taxonomy_candidates.md`  
-Snapshot Version: `chennai_multimodal_v1.2.1`  
+Snapshot Version: `chennai_multimodal_v1.2.2`  
 Date: 2026-09-19  
 Status: Proposal for Gate A Review & Gate B Pilot Comparison (Corrected Methodology Patch)
 

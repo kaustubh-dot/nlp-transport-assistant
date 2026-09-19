@@ -1,7 +1,7 @@
 # Typed Slot Schema and Intent-Slot Contract Matrix (Phase N3)
 
 Document: `docs/nlp_v2/slot_schema.md`  
-Snapshot Version: `chennai_multimodal_v1.2.1`  
+Snapshot Version: `chennai_multimodal_v1.2.2`  
 Date: 2026-09-19  
 Status: Authoritative Slot Specification (Corrected Methodology Patch)
 

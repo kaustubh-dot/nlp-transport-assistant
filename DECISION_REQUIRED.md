@@ -2,7 +2,7 @@
 
 Date: 2026-09-19  
 Project: Chennai Multimodal Public Transport Assistant (`nlp-transport-assistant`)  
-Knowledge Base Snapshot: `chennai_multimodal_v1.2.1`  
+Knowledge Base Snapshot: `chennai_multimodal_v1.2.2`  
 Deliverables Produced: Phases N0 through N8 (`docs/nlp_v2/*` and `reports/nlp_v2/*`)
 
 ---
@@ -61,7 +61,7 @@ Phase P1 (Gate B: Taxonomy Pilot Implementation).
 Classification and response strategy for commuter queries requesting live vehicle locations, real-time delays, or dynamic tracking.
 
 ### Why a decision is required:
-Commuters frequently ask "Where is bus 102 right now?" or "Is metro running late?". The canonical knowledge base (`chennai_multimodal_v1.2.1`) has static timetables and topologies, but zero live GPS telemetry. The system must never hallucinate live positions. User intent must describe communicative goal, while capability state describes system execution.
+Commuters frequently ask "Where is bus 102 right now?" or "Is metro running late?". The canonical knowledge base (`chennai_multimodal_v1.2.2`) has static timetables and topologies, but zero live GPS telemetry. The system must never hallucinate live positions. User intent must describe communicative goal, while capability state describes system execution.
 
 ### Option A (Recommended): Dedicated Intent `realtime_status_query` with Capability `REQUIRES_REALTIME_DATA`
 - **Benefits**:

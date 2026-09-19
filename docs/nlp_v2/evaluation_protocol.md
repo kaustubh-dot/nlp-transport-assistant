@@ -1,7 +1,7 @@
 # Multimodal Multilingual Evaluation Protocol (Phase N7)
 
 Document: `docs/nlp_v2/evaluation_protocol.md`  
-Snapshot Version: `chennai_multimodal_v1.2.1`  
+Snapshot Version: `chennai_multimodal_v1.2.2`  
 Date: 2026-09-19  
 Status: Authoritative Evaluation Protocol (Corrected Methodology Patch)
 

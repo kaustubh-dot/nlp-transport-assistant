@@ -1,7 +1,7 @@
 # Split and Leakage Policy Specification (Phase N6)
 
 Document: `docs/nlp_v2/split_and_leakage_policy.md`  
-Snapshot Version: `chennai_multimodal_v1.2.1`  
+Snapshot Version: `chennai_multimodal_v1.2.2`  
 Date: 2026-09-19  
 Status: Authoritative Split & Leakage Policy (Corrected Methodology Patch)
 

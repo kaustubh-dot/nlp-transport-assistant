@@ -1,10 +1,20 @@
-# TAXONOMY PILOT COMPLETE
+# TAXONOMY PILOT COMPLETE (HISTORICAL SMOKE TEST)
+
+> [!IMPORTANT]
+> **Audit Note (Gate B Status Reclassification):**
+> Gate B was a controlled synthetic smoke test and reached artificial ceiling performance due to synthetic generator marker leakage (`[seq F15]`, `(F13)`, `#2`), formulaic templates, and uncorrupted noise metadata. Its results should not be interpreted as decisive T2-vs-T3 evidence.
+> Key clarifications:
+> - The aggregate TF-IDF error count across all 18 runs is **24** off-diagonal confusions (`route_query` -> `service_timing`), not 16.
+> - MuRIL best epochs range from **1 to 3** (e.g. `regime_a_T2_muril_seed42` reached best checkpoint at epoch 3).
+> - Historical TF-IDF is a **word unigram/bigram (1, 2)** model without character n-grams.
+> - Downstream semantic operation accuracy in this pilot reflects **operation compatibility accuracy** (gold op ∈ allowed ops for predicted intent), not exact downstream atomic dispatch.
+> - Final taxonomy selection between T2 and T3 is deferred to the Gate B.1 hard-boundary stress test (`TAXONOMY_B1_DECISION_REQUIRED.md`).
 
 ## Regime A results:
 Regime A evaluated all three candidate taxonomies under an equal total budget constraint of 4,800 samples (3,354 train / 709 validation / 737 eval) projected from the shared canonical semantic scenario bank:
-- T1 (9 intents): Google MuRIL achieved Accuracy 1.0000, Macro-F1 1.0000, Weighted-F1 1.0000, Sem-Op Acc 1.0000. TF-IDF achieved Accuracy 0.9959, Macro-F1 0.9971, Weighted-F1 0.9959, Sem-Op Acc 0.9959 across all 3 seeds.
-- T2 (12 intents): Google MuRIL achieved Accuracy 1.0000, Macro-F1 1.0000, Weighted-F1 1.0000, Sem-Op Acc 1.0000. TF-IDF achieved Accuracy 0.9959, Macro-F1 0.9978, Weighted-F1 0.9959, Sem-Op Acc 0.9959 across all 3 seeds.
-- T3 (16 intents): Google MuRIL achieved Accuracy 1.0000, Macro-F1 1.0000, Weighted-F1 1.0000, Sem-Op Acc 1.0000. TF-IDF achieved Accuracy 1.0000, Macro-F1 1.0000, Weighted-F1 1.0000, Sem-Op Acc 1.0000 across all 3 seeds.
+- T1 (9 intents): Google MuRIL achieved Accuracy 1.0000, Macro-F1 1.0000, Weighted-F1 1.0000, Op-Compatibility Acc 1.0000. TF-IDF achieved Accuracy 0.9959, Macro-F1 0.9971, Weighted-F1 0.9959, Op-Compatibility Acc 0.9959 across all 3 seeds.
+- T2 (12 intents): Google MuRIL achieved Accuracy 1.0000, Macro-F1 1.0000, Weighted-F1 1.0000, Op-Compatibility Acc 1.0000. TF-IDF achieved Accuracy 0.9959, Macro-F1 0.9978, Weighted-F1 0.9959, Op-Compatibility Acc 0.9959 across all 3 seeds.
+- T3 (16 intents): Google MuRIL achieved Accuracy 1.0000, Macro-F1 1.0000, Weighted-F1 1.0000, Op-Compatibility Acc 1.0000. TF-IDF achieved Accuracy 1.0000, Macro-F1 1.0000, Weighted-F1 1.0000, Op-Compatibility Acc 1.0000 across all 3 seeds.
 
 ## Regime B results:
 Regime B evaluated candidate taxonomies under equal class density (~500 samples per intent class):
@@ -13,17 +23,17 @@ Regime B evaluated candidate taxonomies under equal class density (~500 samples 
 - T3 (16 intents, 8,000 total samples: 5,604 train / 1,199 val / 1,197 eval): Google MuRIL achieved Accuracy 1.0000, Macro-F1 1.0000. TF-IDF achieved Accuracy 1.0000, Macro-F1 1.0000 across all 3 seeds.
 
 ## TF-IDF findings:
-TF-IDF + Logistic Regression delivered strong baseline performance across all setups (>0.995 Macro-F1). On T1 and T2, TF-IDF misclassified a small cluster of Devanagari Hindi queries where route inquiry phrases shared n-grams with timing queries. On T3, the fine-grained semantic boundaries allowed TF-IDF to achieve 1.0000 Macro-F1 without off-diagonal errors.
+TF-IDF + Logistic Regression (word unigram/bigram `(1, 2)`) delivered strong baseline performance across all setups (>0.995 Macro-F1). On T1 and T2, TF-IDF misclassified a small cluster of Devanagari Hindi queries where route inquiry phrases shared n-grams with timing queries. On T3, the fine-grained semantic boundaries allowed TF-IDF to achieve 1.0000 Macro-F1 without off-diagonal errors.
 
 ## MuRIL findings:
-Google MuRIL (`google/muril-base-cased`) achieved 1.0000 Accuracy, 1.0000 Macro-F1, and 1.0000 Downstream Semantic-Operation Accuracy across all 18 runs, all taxonomies, both regimes, and all seeds. MuRIL converged within 1 to 2 epochs and triggered early stopping by epoch 4 or 5. Its pretrained multilingual subword representations eliminated lexical overlap errors across scripts and language mixtures.
+Google MuRIL (`google/muril-base-cased`) achieved 1.0000 Accuracy, 1.0000 Macro-F1, and 1.0000 Operation Compatibility Accuracy across all 18 runs, all taxonomies, both regimes, and all seeds. MuRIL best validation checkpoints were reached at epochs 1 to 3, triggering early stopping by epoch 4 or 5. Its pretrained multilingual subword representations eliminated lexical overlap errors across scripts and language mixtures.
 
 ## Seed stability:
 Performance was completely stable across seeds `[42, 101, 777]`. Standard deviation for Accuracy and Macro-F1 was 0.00000 across all 36 runs.
 
 ## Most confused intent pairs:
 Across all 36 experimental runs, only one off-diagonal confusion occurred:
-- Gold: `route_query` mispredicted as Predicted: `service_timing` (16 total occurrences across the 18 TF-IDF runs, 0 in MuRIL).
+- Gold: `route_query` mispredicted as Predicted: `service_timing` (24 total occurrences across the 18 TF-IDF runs, 0 in MuRIL).
 The misclassified query was Hindi Devanagari: `तिरुमंगलम से साइदापेट मेट्रो से जाने का रास्ता क्या है?`. The n-gram `मेट्रो से जाने` overlapped with transit timing phrasing in TF-IDF. MuRIL resolved this query correctly in all runs.
 
 ## Language subgroup findings:
@@ -34,10 +44,10 @@ The misclassified query was Hindi Devanagari: `तिरुमंगलम स�
 - Mixed Script (MIXED_SCRIPT_CS, 10% of data): 100.0% accuracy across all models and runs.
 
 ## Hinglish findings:
-Transliterated Hindi and mixed-script code-switching exhibited zero performance degradation. Both word/char n-grams in TF-IDF and multilingual subwords in MuRIL handled Chennai transit entities embedded in colloquial Hindi-English matrices seamlessly.
+Transliterated Hindi and mixed-script code-switching exhibited zero performance degradation. Both word n-grams in TF-IDF and multilingual subwords in MuRIL handled Chennai transit entities embedded in colloquial Hindi-English matrices seamlessly.
 
-## Shared downstream semantic-operation accuracy:
-On the shared Regime A evaluation set (737 queries), downstream semantic operation success was:
+## Shared downstream operation compatibility accuracy:
+On the shared Regime A evaluation set (737 queries), downstream operation compatibility success was:
 - T1: MuRIL 1.0000, TF-IDF 0.9959
 - T2: MuRIL 1.0000, TF-IDF 0.9959
 - T3: MuRIL 1.0000, TF-IDF 1.0000

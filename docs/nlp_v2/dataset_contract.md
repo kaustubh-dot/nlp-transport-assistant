@@ -1,7 +1,7 @@
 # Multimodal Multilingual Dataset Contract (Phase N5)
 
 Document: `docs/nlp_v2/dataset_contract.md`  
-Snapshot Version: `chennai_multimodal_v1.2.1`  
+Snapshot Version: `chennai_multimodal_v1.2.2`  
 Date: 2026-09-19  
 Status: Authoritative Dataset Specification (Corrected Methodology Patch)
 
@@ -93,7 +93,7 @@ generation_method           string      Generation algorithm version (e.g. v2_ge
 human_reviewed              boolean     True if audited by human domain expert
 review_status               string      Review state (unreviewed, approved, rejected, modified)
 
-kb_snapshot_version         string      Factual snapshot version (chennai_multimodal_v1.2.1)
+kb_snapshot_version         string      Factual snapshot version (chennai_multimodal_v1.2.2)
 taxonomy_version            string      Taxonomy schema version (T1_BROAD, T2_MEDIUM, T3_FINE)
 dataset_version             string      NLP dataset release version (e.g. v2.0-candidate)
 split                       string      Partition: train, validation, test, challenge_unseen_pairs,
@@ -113,7 +113,7 @@ Every generated dataset artifact is accompanied by an immutable manifest (`manif
   "created_at": "2026-09-19T00:00:00Z",
   "taxonomy_version": "T2_MEDIUM",
   "slot_schema_version": "v2.0",
-  "kb_snapshot_version": "chennai_multimodal_v1.2.1",
+  "kb_snapshot_version": "chennai_multimodal_v1.2.2",
   "generation_script_version": "scripts/nlp_v2/generate_dataset.py@commit",
   "random_seed": 42,
   "sample_count": 40000,

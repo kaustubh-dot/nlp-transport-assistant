@@ -1,7 +1,7 @@
 # Language and Robustness Specification (Phase N4)
 
 Document: `docs/nlp_v2/language_and_robustness_spec.md`  
-Snapshot Version: `chennai_multimodal_v1.2.1`  
+Snapshot Version: `chennai_multimodal_v1.2.2`  
 Date: 2026-09-19  
 Status: Authoritative Language & Robustness Framework (Corrected Methodology Patch)
 

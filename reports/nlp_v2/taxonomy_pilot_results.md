@@ -1,5 +1,15 @@
 # NLP v2 Gate B Taxonomy Pilot Results
 
+> [!IMPORTANT]
+> **Audit Note (Gate B Status Reclassification):**
+> Gate B was a controlled synthetic smoke test and reached artificial ceiling performance due to synthetic generator marker leakage (`[seq F15]`, `(F13)`, `#2`), formulaic templates, and uncorrupted noise metadata. Its results should not be interpreted as decisive T2-vs-T3 evidence.
+> Key clarifications:
+> - The aggregate TF-IDF error count across all 18 runs is **24** off-diagonal confusions (`route_query` -> `service_timing`), not 16.
+> - MuRIL best epochs range from **1 to 3** (e.g. `regime_a_T2_muril_seed42` reached best checkpoint at epoch 3).
+> - Historical TF-IDF is a **word unigram/bigram (1, 2)** model without character n-grams.
+> - Downstream semantic operation accuracy in this pilot reflects **operation compatibility accuracy** (gold op ∈ allowed ops for predicted intent), not exact downstream atomic dispatch.
+> - Final taxonomy selection between T2 and T3 is deferred to the Gate B.1 hard-boundary stress test.
+
 ## 1. Executive Summary and Experimental Overview
 
 This report documents the empirical results of the controlled taxonomy pilot comparing:

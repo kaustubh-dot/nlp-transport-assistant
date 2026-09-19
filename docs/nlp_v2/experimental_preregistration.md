@@ -1,7 +1,7 @@
 # Experimental Preregistration Document (Phase N7)
 
 Document: `docs/nlp_v2/experimental_preregistration.md`  
-Snapshot Version: `chennai_multimodal_v1.2.1`  
+Snapshot Version: `chennai_multimodal_v1.2.2`  
 Date: 2026-09-19  
 Status: Authoritative Preregistration Plan (Corrected Methodology Patch)
 

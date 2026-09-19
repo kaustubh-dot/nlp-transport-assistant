@@ -1,8 +1,8 @@
 # Chennai Transit Knowledge Base Answerability Matrix (v2 Contract)
 
 Document: `docs/nlp_v2/answerability_matrix.md`  
-Snapshot Version: `chennai_multimodal_v1.2.1`  
-Database Structure: 19 application tables + SQLite internal `sqlite_sequence`  
+Snapshot Version: `chennai_multimodal_v1.2.2`  
+Database Structure: 20 application tables + SQLite internal `sqlite_sequence`  
 Date: 2026-09-19  
 Status: Authoritative Reference Contract (Corrected Methodology Patch)
 
@@ -10,9 +10,9 @@ Status: Authoritative Reference Contract (Corrected Methodology Patch)
 
 ## 1. Overview and Allowed Statuses
 
-To prevent model hallucination and preserve factual integrity across all NLU evaluation layers, every user conversational capability is assigned an explicit answerability status under `chennai_multimodal_v1.2.1`.
+To prevent model hallucination and preserve factual integrity across all NLU evaluation layers, every user conversational capability is assigned an explicit answerability status under `chennai_multimodal_v1.2.2`.
 
-The canonical database contains 19 application-domain tables (`transport_agencies`, `transport_stops`, `stop_names`, `transport_routes`, `route_stops`, `trips`, `stop_times`, `service_calendars`, `service_exceptions`, `fare_stages`, `fares`, `interchanges`, `walking_transfers`, `transport_hubs`, `hub_members`, `places`, `place_names`, `accessibility`, `entity_source_links`) plus the SQLite internal system table `sqlite_sequence`.
+The canonical database contains 20 application-domain tables (`transport_agencies`, `transport_stops`, `stop_names`, `transport_routes`, `route_stops`, `trips`, `stop_times`, `service_calendars`, `service_exceptions`, `fare_stages`, `fares`, `cmrl_station_fares`, `interchanges`, `walking_transfers`, `transport_hubs`, `hub_members`, `places`, `place_names`, `accessibility`, `entity_source_links`) plus the SQLite internal system table `sqlite_sequence`.
 
 The seven allowed answerability statuses:
 1. `ANSWERABLE_NOW`: Supported directly by confirmed ground truth tables (e.g. CMRL operational network, official MTC stage tariffs G.O. Ms 48).

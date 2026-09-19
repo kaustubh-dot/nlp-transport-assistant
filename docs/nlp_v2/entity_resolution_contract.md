@@ -1,7 +1,7 @@
 # Canonical Entity Resolution and Normalization Contract (Phase N3)
 
 Document: `docs/nlp_v2/entity_resolution_contract.md`  
-Snapshot Version: `chennai_multimodal_v1.2.1`  
+Snapshot Version: `chennai_multimodal_v1.2.2`  
 Date: 2026-09-19  
 Status: Authoritative Entity & Normalization Specification (Corrected Methodology Patch)
 
@@ -31,7 +31,7 @@ A correct span extraction with an incorrect canonical resolution is an **entity 
 
 ---
 
-## 2. Canonical Entity Namespaces in `chennai_multimodal_v1.2.1`
+## 2. Canonical Entity Namespaces in `chennai_multimodal_v1.2.2`
 
 All language surfaces (English, Hindi Devanagari, Roman Hindi, Hinglish, Tamil) resolve into uniform canonical IDs in `canonical_transport.db`:
 
