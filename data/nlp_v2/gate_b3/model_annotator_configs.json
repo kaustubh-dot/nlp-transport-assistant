@@ -1,43 +1,70 @@
 {
   "study": "Gate B.3 Annotation-Stability Framework",
-  "configuration_frozen": false,
-  "frozen_at": null,
-  "prompt_sha256": null,
-  "t2_guide_sha256": null,
-  "t3_guide_sha256": null,
-  "schema_sha256": null,
+  "configuration_frozen": true,
+  "frozen_at": "2026-09-20T11:15:00Z",
+  "configuration_sha256": "056c92b94f0258ff4af8d7e74a4bd57eaab425c078c5e4e739a78125e18aedeb",
+  "prompt_sha256": "6d37c2646de761c0530f6fe99403e6e1f12a56880da66c8406b8b63ca828da57",
+  "t2_guide_sha256": "f1b538c0c141738ada760f52ea93640c9ae91fa9c9e6d7ac13089559d9f3cfac",
+  "t3_guide_sha256": "0256b4b27b02e04c6948e85d0c33e81e75c8f38b090d1ac37770bcb0ad57599d",
+  "schema_sha256": "0fb81d7cfb9520f19e87797ad774e6f9cd8d8dbe1946cb3dab0f7b7c201954a4",
   "MODEL_A": {
-    "provider": "PENDING",
-    "model": "PENDING",
-    "version": "PENDING",
-    "exact_version_or_revision": null,
-    "status": "PENDING",
-    "configuration_frozen": false,
-    "execution_timestamp": null,
-    "decoding_parameters": {
-      "temperature": 0.0,
-      "max_tokens": 1024
+    "source_id": "MODEL_A",
+    "provider": "OpenAI",
+    "model": "GPT-6 Astra",
+    "version": "GPT-6 Astra",
+    "exact_version_or_revision": "NOT_EXPOSED_BY_PROVIDER",
+    "execution_environment": "Codex",
+    "status": "FROZEN_NOT_EXECUTION_READY",
+    "configuration_frozen": true,
+    "reasoning_configuration": {
+      "effort": "medium"
     },
-    "tool_availability": "NONE",
-    "prompt_hash": null,
-    "taxonomy_guide_hash": null,
-    "provenance_notes": "Astra review context must never be reused. Must use clean isolated request context."
+    "tool_policy": {
+      "web": "DISABLED_REQUIRED",
+      "external_retrieval": "DISABLED_REQUIRED",
+      "original_repository_access": "FORBIDDEN",
+      "other_annotator_access": "FORBIDDEN"
+    },
+    "request_isolation": "ONE_QUERY_ONE_FRESH_CONTEXT_REQUIRED",
+    "retry_policy": {
+      "max_retries": 0,
+      "mode": "NO_IN_CONTEXT_RETRIES_ALLOWED"
+    },
+    "execution_isolation_verified": false,
+    "synthetic_smoke_test_passed": false,
+    "benchmark_execution_authorized": false,
+    "execution_timestamp": null,
+    "configuration_sha256": "7861de9a0071fab99885411cc3ad3bd0378e98924c01980f2c1957a24e68091e",
+    "provenance_notes": "Model identity frozen from the user-visible execution environment. An immutable provider checkpoint revision has not been independently exposed. Astra review context must never be reused. Must use clean isolated request context in sterile workspace Astra_testing."
   },
   "MODEL_B": {
-    "provider": "PENDING",
-    "model": "PENDING",
-    "version": "PENDING",
-    "exact_version_or_revision": null,
-    "status": "PENDING",
-    "configuration_frozen": false,
-    "execution_timestamp": null,
-    "decoding_parameters": {
-      "temperature": 0.0,
-      "max_tokens": 1024
+    "source_id": "MODEL_B",
+    "provider": "Anthropic",
+    "model": "Claude Opus 4.6",
+    "version": "Claude Opus 4.6",
+    "exact_version_or_revision": "NOT_EXPOSED_BY_PROVIDER",
+    "execution_environment": "Antigravity / isolated Claude execution backend",
+    "status": "FROZEN_NOT_EXECUTION_READY",
+    "configuration_frozen": true,
+    "reasoning_configuration": {
+      "mode": "TO_BE_VERIFIED_DURING_EXECUTION_BACKEND_PREFLIGHT"
     },
-    "tool_availability": "NONE",
-    "prompt_hash": null,
-    "taxonomy_guide_hash": null,
-    "provenance_notes": "Distinct model family from MODEL_A recommended for family diversity."
+    "tool_policy": {
+      "web": "DISABLED_REQUIRED",
+      "external_retrieval": "DISABLED_REQUIRED",
+      "original_repository_access": "FORBIDDEN",
+      "other_annotator_access": "FORBIDDEN"
+    },
+    "request_isolation": "ONE_QUERY_ONE_FRESH_CONTEXT_REQUIRED",
+    "retry_policy": {
+      "max_retries": 0,
+      "mode": "NO_IN_CONTEXT_RETRIES_ALLOWED"
+    },
+    "execution_isolation_verified": false,
+    "synthetic_smoke_test_passed": false,
+    "benchmark_execution_authorized": false,
+    "execution_timestamp": null,
+    "configuration_sha256": "8f90c8207b7309e72ce5c33a787d102a70ca5f421e36db90625384e419d525a5",
+    "provenance_notes": "Model identity frozen from the user-visible execution environment. An immutable provider checkpoint revision has not been independently exposed. Distinct model family from MODEL_A. Must execute in sterile workspace gate-b3-model-b-claude."
   }
 }

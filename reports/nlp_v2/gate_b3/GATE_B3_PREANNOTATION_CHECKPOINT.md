@@ -3,7 +3,7 @@
 ## PRE-ANNOTATION CHECKPOINT REPORT
 
 **BASE COMMIT:**  
-`51c7d74d6e38fef8795b5a04b711e8a17b7e2608`
+`4d8320e7f46574c2d9bd419ce1b48ecfb32c84d8`
 
 **ACTIVE KB:**  
 `chennai_multimodal_v1.2.2`
@@ -29,15 +29,34 @@ purposive enriched challenge sample
 **STUDENT PACKAGE:**  
 generated: YES  
 
-**MODEL A PACKAGE:**  
-generated: YES  
-annotation executed: NO  
+**MODEL_A:**  
+- **Model:** `GPT-6 Astra` (OpenAI / Codex)
+- **CONFIGURATION:** FROZEN
+- **STERILE BOOTSTRAP:** PASS
+- **PER-ITEM ISOLATION:** NOT VERIFIED
+- **SMOKE TEST:** NOT RUN
+- **BENCHMARK EXECUTION AUTHORIZED:** NO
+- **ANNOTATION EXECUTED:** NO
 
-**MODEL B PACKAGE:**  
-generated: YES  
-annotation executed: NO  
+**MODEL_B:**  
+- **Model:** `Claude Opus 4.6` (Anthropic / Antigravity isolated backend)
+- **CONFIGURATION:** FROZEN
+- **STERILE BOOTSTRAP:** PASS
+- **PER-ITEM ISOLATION:** NOT VERIFIED
+- **SMOKE TEST:** NOT RUN
+- **BENCHMARK EXECUTION AUTHORIZED:** NO
+- **ANNOTATION EXECUTED:** NO
 
-**FIRST PASS LOCK:**  
+**GOVERNANCE PRINCIPLE:**  
+> Configuration frozen does not mean execution authorized.
+
+**ANNOTATION-START QA:**  
+BLOCKED / NOT READY (Expected: per-item isolation, smoke tests, and execution authorization remain unverified)
+
+**ANNOTATION:**  
+NOT STARTED  
+
+**FIRST-PASS LOCK:**  
 NO  
 
 **REFERENCE JOIN:**  
@@ -59,7 +78,7 @@ PENDING
 NO  
 
 **STATUS:**  
-FRAMEWORK READY — MODEL CONFIGURATIONS MUST BE FROZEN BEFORE ANNOTATION  
+READY FOR STERILE MODEL_A / MODEL_B PREFLIGHT TRANSFER  
 
 ---
 
@@ -71,8 +90,9 @@ FRAMEWORK READY — MODEL CONFIGURATIONS MUST BE FROZEN BEFORE ANNOTATION
 - Neutral T3 annotation guide (16 classes): `docs/nlp_v2/gate_b3/t3_annotation_guide.md`
 - Isolated model prompt template & protocol: `docs/nlp_v2/gate_b3/model_annotator_prompt_template.md`
 - Bootstrap interpretation clarification note: `reports/nlp_v2/gate_b3/gate_b2_bootstrap_interpretation_note.md`
+- Model annotator sterile package transfer guide: `reports/nlp_v2/gate_b3/MODEL_ANNOTATOR_PACKAGE_TRANSFER.md`
 
-### 2. Blind Annotation Packages & Order Counterbalancing
+### 2. Blind Annotation Packages & Sanitized Manifests
 - Student order manifest: `data/nlp_v2/gate_b3/student_order_manifest.json` (deterministic 175/175 split, counterbalanced order)
 - Student blind CSVs:
   - `data/nlp_v2/gate_b3/student_t2_first_pass.csv` (175 queries)
@@ -84,6 +104,9 @@ FRAMEWORK READY — MODEL CONFIGURATIONS MUST BE FROZEN BEFORE ANNOTATION
   - `data/nlp_v2/gate_b3/model_a_t3_input.jsonl` (350 queries)
   - `data/nlp_v2/gate_b3/model_b_t2_input.jsonl` (350 queries)
   - `data/nlp_v2/gate_b3/model_b_t3_input.jsonl` (350 queries)
+- Model annotator sanitized execution manifests:
+  - `data/nlp_v2/gate_b3/model_a_execution_manifest.json` (OpenAI / GPT-6 Astra)
+  - `data/nlp_v2/gate_b3/model_b_execution_manifest.json` (Anthropic / Claude Opus 4.6)
 - Canonical output schema: `docs/nlp_v2/gate_b3/annotation_output_schema.json`
 
 ### 3. Tooling & Guardrails
@@ -91,5 +114,6 @@ FRAMEWORK READY — MODEL CONFIGURATIONS MUST BE FROZEN BEFORE ANNOTATION
 - Pairwise annotation stability suite: `scripts/nlp_v2/gate_b3/compute_annotation_stability.py`
 - Package validator: `scripts/nlp_v2/gate_b3/validate_annotation_package.py`
 - Pre-annotation QA gatekeeper: `scripts/nlp_v2/gate_b3/qa_gate_b3_preannotation.py`
+- Annotation-start QA gatekeeper: `scripts/nlp_v2/gate_b3/qa_gate_b3_annotation_start.py` (runtime canonical configuration hash verification)
 - Gold-boundary audit template: `data/nlp_v2/gate_b3/gold_boundary_audit_template.csv` (350 rows, blank annotations)
 - Taxonomy decision document: `reports/nlp_v2/gate_b3/TAXONOMY_B3_DECISION_REQUIRED.md` (status: PENDING)

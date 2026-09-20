@@ -379,8 +379,8 @@ def test_analysis_orchestration_fails_before_lock():
         run_full_analysis_pipeline()
 
 
-def test_annotation_start_qa_blocks_when_pending():
-    """Verify qa_gate_b3_annotation_start blocks when models remain PENDING."""
+def test_annotation_start_qa_blocks_when_execution_not_authorized():
+    """Verify qa_gate_b3_annotation_start blocks because execution readiness is unverified."""
     import subprocess
     proc = subprocess.run(
         [sys.executable, "scripts/nlp_v2/gate_b3/qa_gate_b3_annotation_start.py"],
@@ -389,8 +389,12 @@ def test_annotation_start_qa_blocks_when_pending():
     )
     assert proc.returncode != 0
     assert "STATUS: BLOCKED / NOT READY" in proc.stdout
-    assert "MODEL_A status remains PENDING" in proc.stdout
-    assert "MODEL_B status remains PENDING" in proc.stdout
+    assert "MODEL_A per-item execution isolation not verified" in proc.stdout
+    assert "MODEL_A synthetic smoke test not passed" in proc.stdout
+    assert "MODEL_A benchmark execution not authorized" in proc.stdout
+    assert "MODEL_B per-item execution isolation not verified" in proc.stdout
+    assert "MODEL_B synthetic smoke test not passed" in proc.stdout
+    assert "MODEL_B benchmark execution not authorized" in proc.stdout
 
 
 def test_guide_examples_zero_overlap_with_blind_set():
@@ -411,22 +415,47 @@ def test_guide_examples_zero_overlap_with_blind_set():
         assert len(overlaps) == 0, f"Overlap detected in {guide}: {overlaps}"
 
 
-def test_model_annotator_config_remains_pending():
-    """Verify model annotator configuration placeholders remain PENDING with freeze fields."""
+def test_model_annotator_configs_frozen_and_execution_not_ready():
+    """Verify model annotator configuration is frozen with unverified execution readiness."""
     cfg_path = os.path.join(GATE_B3_DIR, "model_annotator_configs.json")
     with open(cfg_path, "r", encoding="utf-8") as f:
         cfg = json.load(f)
 
-    assert cfg["configuration_frozen"] is False
-    assert cfg["MODEL_A"]["status"] == "PENDING"
-    assert cfg["MODEL_A"]["provider"] == "PENDING"
-    assert cfg["MODEL_A"]["configuration_frozen"] is False
-    assert cfg["MODEL_A"]["execution_timestamp"] is None
+    assert cfg["configuration_frozen"] is True
+    assert cfg["frozen_at"] is not None
+    assert cfg["configuration_sha256"] is not None
 
-    assert cfg["MODEL_B"]["status"] == "PENDING"
-    assert cfg["MODEL_B"]["provider"] == "PENDING"
-    assert cfg["MODEL_B"]["configuration_frozen"] is False
-    assert cfg["MODEL_B"]["execution_timestamp"] is None
+    # MODEL_A checks
+    m_a = cfg["MODEL_A"]
+    assert m_a["source_id"] == "MODEL_A"
+    assert m_a["provider"] == "OpenAI"
+    assert m_a["model"] == "GPT-6 Astra"
+    assert m_a["version"] == "GPT-6 Astra"
+    assert m_a["exact_version_or_revision"] == "NOT_EXPOSED_BY_PROVIDER"
+    assert m_a["execution_environment"] == "Codex"
+    assert m_a["status"] == "FROZEN_NOT_EXECUTION_READY"
+    assert m_a["configuration_frozen"] is True
+    assert m_a["reasoning_configuration"]["effort"] == "medium"
+    assert m_a["execution_isolation_verified"] is False
+    assert m_a["synthetic_smoke_test_passed"] is False
+    assert m_a["benchmark_execution_authorized"] is False
+    assert m_a["execution_timestamp"] is None
+
+    # MODEL_B checks
+    m_b = cfg["MODEL_B"]
+    assert m_b["source_id"] == "MODEL_B"
+    assert m_b["provider"] == "Anthropic"
+    assert m_b["model"] == "Claude Opus 4.6"
+    assert m_b["version"] == "Claude Opus 4.6"
+    assert m_b["exact_version_or_revision"] == "NOT_EXPOSED_BY_PROVIDER"
+    assert m_b["execution_environment"] == "Antigravity / isolated Claude execution backend"
+    assert m_b["status"] == "FROZEN_NOT_EXECUTION_READY"
+    assert m_b["configuration_frozen"] is True
+    assert m_b["reasoning_configuration"]["mode"] == "TO_BE_VERIFIED_DURING_EXECUTION_BACKEND_PREFLIGHT"
+    assert m_b["execution_isolation_verified"] is False
+    assert m_b["synthetic_smoke_test_passed"] is False
+    assert m_b["benchmark_execution_authorized"] is False
+    assert m_b["execution_timestamp"] is None
 
 
 def test_taxonomy_decision_remains_pending():
@@ -460,51 +489,80 @@ def test_bootstrap_interpretation_note_exists():
 
 
 def _create_valid_frozen_mock_config() -> dict:
+    from scripts.nlp_v2.gate_b3.qa_gate_b3_annotation_start import (
+        compute_model_config_hash,
+        compute_global_config_hash
+    )
     prompt_path = os.path.join(DOCS_B3_DIR, "model_annotator_prompt_template.md")
     t2_path = os.path.join(DOCS_B3_DIR, "t2_annotation_guide.md")
     t3_path = os.path.join(DOCS_B3_DIR, "t3_annotation_guide.md")
     schema_path = os.path.join(DOCS_B3_DIR, "annotation_output_schema.json")
 
-    return {
+    m_a = {
+        "source_id": "MODEL_A",
+        "provider": "ANTHROPIC",
+        "model": "claude-3-7-sonnet",
+        "version": "20250219",
+        "exact_version_or_revision": "claude-3-7-sonnet-20250219",
+        "execution_environment": "Codex",
+        "status": "FROZEN_NOT_EXECUTION_READY",
+        "configuration_frozen": True,
+        "reasoning_configuration": {"effort": "medium"},
+        "tool_policy": {
+            "web": "DISABLED_REQUIRED",
+            "external_retrieval": "DISABLED_REQUIRED",
+            "original_repository_access": "FORBIDDEN",
+            "other_annotator_access": "FORBIDDEN"
+        },
+        "request_isolation": "ONE_QUERY_ONE_FRESH_CONTEXT_REQUIRED",
+        "retry_policy": {"max_retries": 0, "mode": "NO_IN_CONTEXT_RETRIES_ALLOWED"},
+        "execution_isolation_verified": True,
+        "synthetic_smoke_test_passed": True,
+        "benchmark_execution_authorized": True,
+        "execution_timestamp": None,
+        "provenance_notes": "Astra review context isolated."
+    }
+    m_a["configuration_sha256"] = compute_model_config_hash(m_a)
+
+    m_b = {
+        "source_id": "MODEL_B",
+        "provider": "GOOGLE",
+        "model": "gemini-2.0-flash",
+        "version": "001",
+        "exact_version_or_revision": "gemini-2.0-flash-001",
+        "execution_environment": "Antigravity / isolated Claude execution backend",
+        "status": "FROZEN_NOT_EXECUTION_READY",
+        "configuration_frozen": True,
+        "reasoning_configuration": {"mode": "TO_BE_VERIFIED_DURING_EXECUTION_BACKEND_PREFLIGHT"},
+        "tool_policy": {
+            "web": "DISABLED_REQUIRED",
+            "external_retrieval": "DISABLED_REQUIRED",
+            "original_repository_access": "FORBIDDEN",
+            "other_annotator_access": "FORBIDDEN"
+        },
+        "request_isolation": "ONE_QUERY_ONE_FRESH_CONTEXT_REQUIRED",
+        "retry_policy": {"max_retries": 0, "mode": "NO_IN_CONTEXT_RETRIES_ALLOWED"},
+        "execution_isolation_verified": True,
+        "synthetic_smoke_test_passed": True,
+        "benchmark_execution_authorized": True,
+        "execution_timestamp": None,
+        "provenance_notes": "Diverse model family."
+    }
+    m_b["configuration_sha256"] = compute_model_config_hash(m_b)
+
+    cfg = {
         "study": "Gate B.3 Annotation-Stability Framework",
         "configuration_frozen": True,
-        "configuration_sha256": "mock_global_sha256_hash",
         "frozen_at": "2026-09-20T12:00:00Z",
         "prompt_sha256": compute_sha256(prompt_path),
         "t2_guide_sha256": compute_sha256(t2_path),
         "t3_guide_sha256": compute_sha256(t3_path),
         "schema_sha256": compute_sha256(schema_path),
-        "MODEL_A": {
-            "provider": "ANTHROPIC",
-            "model": "claude-3-7-sonnet",
-            "version": "20250219",
-            "exact_version_or_revision": "claude-3-7-sonnet-20250219",
-            "status": "FROZEN",
-            "configuration_frozen": True,
-            "configuration_sha256": "mock_model_a_sha256",
-            "execution_timestamp": None,
-            "decoding_parameters": {"temperature": 0.0, "max_tokens": 1024},
-            "tool_availability": "NONE",
-            "prompt_hash": None,
-            "taxonomy_guide_hash": None,
-            "provenance_notes": "Astra review context isolated."
-        },
-        "MODEL_B": {
-            "provider": "GOOGLE",
-            "model": "gemini-2.0-flash",
-            "version": "001",
-            "exact_version_or_revision": "gemini-2.0-flash-001",
-            "status": "FROZEN",
-            "configuration_frozen": True,
-            "configuration_sha256": "mock_model_b_sha256",
-            "execution_timestamp": None,
-            "decoding_parameters": {"temperature": 0.0, "max_tokens": 1024},
-            "tool_availability": "NONE",
-            "prompt_hash": None,
-            "taxonomy_guide_hash": None,
-            "provenance_notes": "Diverse model family."
-        }
+        "MODEL_A": m_a,
+        "MODEL_B": m_b,
     }
+    cfg["configuration_sha256"] = compute_global_config_hash(cfg, m_a["configuration_sha256"], m_b["configuration_sha256"])
+    return cfg
 
 
 def test_annotation_start_qa_model_version_checks(tmp_path):
@@ -550,8 +608,16 @@ def test_annotation_start_qa_model_version_checks(tmp_path):
         assert any("MODEL_A exact_version_or_revision must be provided when frozen" in r for r in reasons)
 
     # 4. NOT_EXPOSED_BY_PROVIDER is accepted as revision provenance
+    from scripts.nlp_v2.gate_b3.qa_gate_b3_annotation_start import (
+        compute_model_config_hash,
+        compute_global_config_hash
+    )
     cfg4 = _create_valid_frozen_mock_config()
     cfg4["MODEL_A"]["exact_version_or_revision"] = "NOT_EXPOSED_BY_PROVIDER"
+    cfg4["MODEL_A"]["configuration_sha256"] = compute_model_config_hash(cfg4["MODEL_A"])
+    cfg4["configuration_sha256"] = compute_global_config_hash(
+        cfg4, cfg4["MODEL_A"]["configuration_sha256"], cfg4["MODEL_B"]["configuration_sha256"]
+    )
     with open(cfg_file, "w", encoding="utf-8") as f:
         json.dump(cfg4, f)
     is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
@@ -633,4 +699,191 @@ def test_student_annotation_output_template_warning():
     assert "active_time_seconds >= 0" in reqs
     assert "rule_difficulty in easy/moderate/hard" in reqs
     assert "recognized_from_prior_work in true/false/unsure" in reqs
+
+
+def test_canonical_configuration_hash_recomputation():
+    """Verify stored configuration hashes match runtime canonical recomputation."""
+    from scripts.nlp_v2.gate_b3.qa_gate_b3_annotation_start import (
+        compute_model_config_hash,
+        compute_global_config_hash
+    )
+    cfg_path = os.path.join(GATE_B3_DIR, "model_annotator_configs.json")
+    with open(cfg_path, "r", encoding="utf-8") as f:
+        cfg = json.load(f)
+
+    # Recompute MODEL_A and MODEL_B
+    recomputed_a = compute_model_config_hash(cfg["MODEL_A"])
+    recomputed_b = compute_model_config_hash(cfg["MODEL_B"])
+    assert recomputed_a == cfg["MODEL_A"]["configuration_sha256"], f"MODEL_A hash mismatch: {recomputed_a}"
+    assert recomputed_b == cfg["MODEL_B"]["configuration_sha256"], f"MODEL_B hash mismatch: {recomputed_b}"
+
+    # Recompute global
+    recomputed_global = compute_global_config_hash(cfg, recomputed_a, recomputed_b)
+    assert recomputed_global == cfg["configuration_sha256"], f"Global config hash mismatch: {recomputed_global}"
+
+
+def test_mutation_of_frozen_model_field_triggers_drift(tmp_path):
+    """Verify modifying any frozen semantic field triggers FROZEN_MODEL_CONFIGURATION_DRIFT."""
+    from scripts.nlp_v2.gate_b3.qa_gate_b3_annotation_start import evaluate_annotation_start_readiness
+
+    cfg_file = tmp_path / "test_drift_config.json"
+
+    # 1. Mutate model field in MODEL_A
+    cfg1 = _create_valid_frozen_mock_config()
+    cfg1["MODEL_A"]["model"] = "GPT-4o-altered"
+    with open(cfg_file, "w", encoding="utf-8") as f:
+        json.dump(cfg1, f)
+    is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+    assert is_ready is False
+    assert any("FROZEN_MODEL_CONFIGURATION_DRIFT: MODEL_A configuration drifted!" in r for r in reasons)
+
+    # 2. Mutate reasoning_configuration in MODEL_B
+    cfg2 = _create_valid_frozen_mock_config()
+    cfg2["MODEL_B"]["reasoning_configuration"] = {"mode": "unfrozen_altered_mode"}
+    with open(cfg_file, "w", encoding="utf-8") as f:
+        json.dump(cfg2, f)
+    is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+    assert is_ready is False
+    assert any("FROZEN_MODEL_CONFIGURATION_DRIFT: MODEL_B configuration drifted!" in r for r in reasons)
+
+    # 3. Mutate global hash mismatch directly
+    cfg3 = _create_valid_frozen_mock_config()
+    cfg3["configuration_sha256"] = "bad0000000000000000000000000000000000000000000000000000000000bad"
+    with open(cfg_file, "w", encoding="utf-8") as f:
+        json.dump(cfg3, f)
+    is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+    assert is_ready is False
+    assert any("FROZEN_MODEL_CONFIGURATION_DRIFT: Global configuration drifted!" in r for r in reasons)
+
+
+def test_model_a_and_b_execution_manifests_integrity():
+    """Verify sanitized execution manifests contain correct protocol and input hashes."""
+    cfg_path = os.path.join(GATE_B3_DIR, "model_annotator_configs.json")
+    with open(cfg_path, "r", encoding="utf-8") as f:
+        cfg = json.load(f)
+
+    prompt_path = os.path.join(DOCS_B3_DIR, "model_annotator_prompt_template.md")
+    t2_path = os.path.join(DOCS_B3_DIR, "t2_annotation_guide.md")
+    t3_path = os.path.join(DOCS_B3_DIR, "t3_annotation_guide.md")
+    schema_path = os.path.join(DOCS_B3_DIR, "annotation_output_schema.json")
+
+    expected_protocol_hashes = {
+        "model_annotator_prompt_template.md": compute_sha256(prompt_path),
+        "t2_annotation_guide.md": compute_sha256(t2_path),
+        "t3_annotation_guide.md": compute_sha256(t3_path),
+        "annotation_output_schema.json": compute_sha256(schema_path),
+    }
+
+    # MODEL_A Manifest
+    manifest_a_path = os.path.join(GATE_B3_DIR, "model_a_execution_manifest.json")
+    assert os.path.exists(manifest_a_path), "Missing model_a_execution_manifest.json"
+    with open(manifest_a_path, "r", encoding="utf-8") as f:
+        man_a = json.load(f)
+
+    assert man_a["source_id"] == "MODEL_A"
+    assert man_a["provider"] == "OpenAI"
+    assert man_a["model"] == "GPT-6 Astra"
+    assert man_a["execution_environment"] == "Codex"
+    assert man_a["reasoning_effort"] == "medium"
+    assert man_a["configuration_frozen"] is True
+    assert man_a["configuration_sha256"] == cfg["MODEL_A"]["configuration_sha256"]
+    assert man_a["protocol_sha256"] == expected_protocol_hashes
+    assert man_a["input_sha256"]["model_a_t2_input.jsonl"] == compute_sha256(os.path.join(GATE_B3_DIR, "model_a_t2_input.jsonl"))
+    assert man_a["input_sha256"]["model_a_t3_input.jsonl"] == compute_sha256(os.path.join(GATE_B3_DIR, "model_a_t3_input.jsonl"))
+    assert man_a["expected_record_count_per_taxonomy"] == 350
+    assert man_a["request_isolation"] == "ONE_QUERY_ONE_FRESH_CONTEXT_REQUIRED"
+    assert man_a["execution_isolation_verified"] is False
+    assert man_a["synthetic_smoke_test_passed"] is False
+    assert man_a["benchmark_execution_authorized"] is False
+
+    # MODEL_B Manifest
+    manifest_b_path = os.path.join(GATE_B3_DIR, "model_b_execution_manifest.json")
+    assert os.path.exists(manifest_b_path), "Missing model_b_execution_manifest.json"
+    with open(manifest_b_path, "r", encoding="utf-8") as f:
+        man_b = json.load(f)
+
+    assert man_b["source_id"] == "MODEL_B"
+    assert man_b["provider"] == "Anthropic"
+    assert man_b["model"] == "Claude Opus 4.6"
+    assert man_b["execution_environment"] == "Antigravity / isolated Claude execution backend"
+    assert man_b["configuration_frozen"] is True
+    assert man_b["configuration_sha256"] == cfg["MODEL_B"]["configuration_sha256"]
+    assert man_b["protocol_sha256"] == expected_protocol_hashes
+    assert man_b["input_sha256"]["model_b_t2_input.jsonl"] == compute_sha256(os.path.join(GATE_B3_DIR, "model_b_t2_input.jsonl"))
+    assert man_b["input_sha256"]["model_b_t3_input.jsonl"] == compute_sha256(os.path.join(GATE_B3_DIR, "model_b_t3_input.jsonl"))
+    assert man_b["expected_record_count_per_taxonomy"] == 350
+    assert man_b["request_isolation"] == "ONE_QUERY_ONE_FRESH_CONTEXT_REQUIRED"
+    assert man_b["execution_isolation_verified"] is False
+    assert man_b["synthetic_smoke_test_passed"] is False
+    assert man_b["benchmark_execution_authorized"] is False
+
+
+def test_sanitized_execution_manifests_contain_no_prohibited_content():
+    """Verify execution manifests contain no gold, references, predictions, or cross-model leakage."""
+    prohibited_substrings = [
+        "gold",
+        "human_annotation_key",
+        "reference labels",
+        "student",
+        "prediction",
+        "Gate B.2",
+        "score",
+        "delta",
+        "taxonomy selection",
+    ]
+
+    manifest_a_path = os.path.join(GATE_B3_DIR, "model_a_execution_manifest.json")
+    manifest_b_path = os.path.join(GATE_B3_DIR, "model_b_execution_manifest.json")
+
+    with open(manifest_a_path, "r", encoding="utf-8") as f:
+        text_a = f.read()
+    with open(manifest_b_path, "r", encoding="utf-8") as f:
+        text_b = f.read()
+
+    # Check prohibited strings
+    for s in prohibited_substrings:
+        assert s.lower() not in text_a.lower(), f"Prohibited string '{s}' leaked in MODEL_A manifest!"
+        assert s.lower() not in text_b.lower(), f"Prohibited string '{s}' leaked in MODEL_B manifest!"
+
+    # Cross-annotator leakage check
+    assert "MODEL_B" not in text_a
+    assert "Claude" not in text_a
+    assert "Anthropic" not in text_a
+
+    assert "MODEL_A" not in text_b
+    assert "GPT-6" not in text_b
+    assert "Astra" not in text_b
+    assert "OpenAI" not in text_b
+
+
+def test_no_annotation_result_files_exist():
+    """Verify zero annotation result files exist before authorized execution."""
+    import glob
+    ann_files = glob.glob(os.path.join(GATE_B3_DIR, "*_annotations.jsonl"))
+    assert len(ann_files) == 0, f"Annotation output files found before execution: {ann_files}"
+
+
+def test_frozen_b2_and_v1_artifacts_unchanged():
+    """Verify frozen Gate B.2 benchmark data and v1 database remain bitwise unchanged."""
+    stress_csv = os.path.join(GATE_B2_DIR, "gate_b2_stress_eval.csv")
+    expected_stress_sha256 = "26cbf6517e25511d19d67051f500459ef7d78d87e5fbd1eb6d21849842242a1c"
+    assert os.path.exists(stress_csv)
+    assert compute_sha256(stress_csv) == expected_stress_sha256
+
+    blind_csv = os.path.join(GATE_B2_DIR, "human_annotation_blind.csv")
+    assert os.path.exists(blind_csv)
+    assert compute_sha256(blind_csv) == EXPECTED_SOURCE_SHA256
+
+    # Verify canonical v1 transit database exists and contains expected tables
+    import sqlite3
+    db_path = os.path.join(BASE_DIR, "data", "canonical", "transit", "canonical_transport.db")
+    assert os.path.exists(db_path)
+    conn = sqlite3.connect(db_path)
+    cur = conn.cursor()
+    cur.execute("SELECT name FROM sqlite_master WHERE type='table'")
+    tables = {r[0] for r in cur.fetchall()}
+    assert "transport_hubs" in tables
+    assert "transport_stops" in tables
+    assert "transport_routes" in tables
+    conn.close()
 

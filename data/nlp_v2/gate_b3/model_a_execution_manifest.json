@@ -1,0 +1,28 @@
+{
+  "study": "Gate B.3 Annotation-Stability Framework",
+  "source_id": "MODEL_A",
+  "source_type": "model",
+  "provider": "OpenAI",
+  "model": "GPT-6 Astra",
+  "version": "GPT-6 Astra",
+  "exact_version_or_revision": "NOT_EXPOSED_BY_PROVIDER",
+  "execution_environment": "Codex",
+  "reasoning_effort": "medium",
+  "configuration_frozen": true,
+  "configuration_sha256": "7861de9a0071fab99885411cc3ad3bd0378e98924c01980f2c1957a24e68091e",
+  "protocol_sha256": {
+    "model_annotator_prompt_template.md": "6d37c2646de761c0530f6fe99403e6e1f12a56880da66c8406b8b63ca828da57",
+    "t2_annotation_guide.md": "f1b538c0c141738ada760f52ea93640c9ae91fa9c9e6d7ac13089559d9f3cfac",
+    "t3_annotation_guide.md": "0256b4b27b02e04c6948e85d0c33e81e75c8f38b090d1ac37770bcb0ad57599d",
+    "annotation_output_schema.json": "0fb81d7cfb9520f19e87797ad774e6f9cd8d8dbe1946cb3dab0f7b7c201954a4"
+  },
+  "input_sha256": {
+    "model_a_t2_input.jsonl": "85b5c3bf3cccd3cdf1ebab289e6ac6c513387006ce9f04ac2c0c2e33c123dab0",
+    "model_a_t3_input.jsonl": "51a90d81ac2be0370b287c95bcab6e8861a5565e68082958f2229918521e5d55"
+  },
+  "expected_record_count_per_taxonomy": 350,
+  "request_isolation": "ONE_QUERY_ONE_FRESH_CONTEXT_REQUIRED",
+  "execution_isolation_verified": false,
+  "synthetic_smoke_test_passed": false,
+  "benchmark_execution_authorized": false
+}

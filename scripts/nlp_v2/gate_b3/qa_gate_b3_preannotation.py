@@ -91,7 +91,7 @@ def run_qa_checks():
         print("  Manifest gate flags verified: annotation_started=False, locked=False, ref_join=False, decision=PENDING.")
 
     # 3. Model Annotator Configs Check
-    print("\n3. Verifying Model Annotator Configs Placeholder...")
+    print("\n3. Verifying Model Annotator Configs Pre-Execution Status...")
     if not os.path.exists(CONFIGS_PATH):
         failures.append(f"Missing model configs file: {CONFIGS_PATH}")
     else:
@@ -101,13 +101,15 @@ def run_qa_checks():
             if m not in cfg:
                 failures.append(f"Missing config section for {m}")
             else:
-                if cfg[m].get("status") != "PENDING":
-                    failures.append(f"{m} status must be PENDING (got '{cfg[m].get('status')}')")
-                if cfg[m].get("provider") != "PENDING":
-                    failures.append(f"{m} provider must be PENDING (got '{cfg[m].get('provider')}')")
+                if cfg[m].get("status") not in ("PENDING", "FROZEN_NOT_EXECUTION_READY"):
+                    failures.append(f"{m} status must be PENDING or FROZEN_NOT_EXECUTION_READY (got '{cfg[m].get('status')}')")
+                if cfg[m].get("status") == "PENDING" and cfg[m].get("provider") != "PENDING":
+                    failures.append(f"{m} provider must be PENDING when status is PENDING (got '{cfg[m].get('provider')}')")
                 if cfg[m].get("execution_timestamp") is not None:
                     failures.append(f"{m} execution_timestamp must be null")
-        print("  Model configs verified: MODEL_A and MODEL_B correctly marked PENDING.")
+                if cfg[m].get("benchmark_execution_authorized") is not False:
+                    failures.append(f"{m} benchmark_execution_authorized must be false prior to execution")
+        print("  Model configs verified: MODEL_A and MODEL_B pre-execution status valid, execution_timestamp null.")
 
     # 4. Check Annotator Packages for Leakage of Gold or Predictions
     print("\n4. Verifying Annotator Input Packages for Gold/Prediction Leakage...")

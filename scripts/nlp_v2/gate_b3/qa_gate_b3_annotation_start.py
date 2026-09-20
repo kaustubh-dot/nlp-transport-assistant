@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Annotation-Start QA Gatekeeper for NLP v2 Gate B.3.
 
-Enforces Section 20, as amended by Pre-Annotation Hardening:
+Enforces Section 20, as amended by Gate B.3 Model Pair Freezing:
 Checks whether model configurations are formally frozen and ready for annotation.
 Requires:
-1. MODEL_A & MODEL_B:
+1. MODEL_A & MODEL_B Configuration:
    - status != PENDING
    - provider != PENDING
    - model != PENDING
@@ -12,19 +12,25 @@ Requires:
    - configuration_frozen == True
    - exact_version_or_revision not in (None, "", "PENDING")
      (Note: 'NOT_EXPOSED_BY_PROVIDER' is accepted as valid provenance)
-2. Hash Recomputation:
+2. Methodology Hash Recomputation:
    - prompt_sha256, t2_guide_sha256, t3_guide_sha256, schema_sha256 present
    - Computed SHA-256 for prompt, T2 guide, T3 guide, and schema must match stored hashes exactly.
    - Any mismatch reports: FROZEN_ANNOTATION_CONFIGURATION_DRIFT
-3. Model Config Hash Hook:
-   - Once configuration_frozen == True, requires configuration_sha256 to be present and non-empty.
-4. Model Diversity:
+3. Canonical Model Configuration Hash Recomputation:
+   - Reconstruct canonical frozen configuration object for MODEL_A and MODEL_B.
+   - Deterministic SHA-256 must match stored configuration_sha256 exactly.
+   - Global configuration_sha256 recomputed over protocol and model hashes must match.
+   - Any mismatch reports: FROZEN_MODEL_CONFIGURATION_DRIFT
+4. Execution-Readiness Gate:
+   - execution_isolation_verified == True
+   - synthetic_smoke_test_passed == True
+   - benchmark_execution_authorized == True
+   - When execution readiness is unverified (expected in freeze commit), reports:
+     BLOCKED / NOT READY and exits with code 1.
+5. Model Diversity:
    - MODEL_A and MODEL_B are not the exact same model family/config unless explicitly documented.
-5. Pre-Annotation Guardrails:
+6. Pre-Annotation Guardrails:
    - annotation_started == False, first_pass_locked == False, reference_join_enabled == False.
-
-When models remain PENDING (prior to model selection):
-Reports: BLOCKED / NOT READY and exits with code 1.
 """
 
 import os
@@ -47,6 +53,19 @@ METHODOLOGY_ARTIFACTS = {
     "schema_sha256": ("annotation_output_schema.json", os.path.join(DOCS_B3_DIR, "annotation_output_schema.json")),
 }
 
+CANONICAL_MODEL_FIELDS = (
+    "source_id",
+    "provider",
+    "model",
+    "version",
+    "exact_version_or_revision",
+    "execution_environment",
+    "reasoning_configuration",
+    "tool_policy",
+    "request_isolation",
+    "retry_policy",
+)
+
 
 def compute_sha256(filepath: str) -> str:
     h = hashlib.sha256()
@@ -54,6 +73,42 @@ def compute_sha256(filepath: str) -> str:
         while chunk := f.read(65536):
             h.update(chunk)
     return h.hexdigest()
+
+
+def extract_canonical_model_config(model_dict: Dict[str, Any]) -> Dict[str, Any]:
+    """Extracts only frozen semantic/execution requirements for canonical hashing."""
+    return {k: model_dict[k] for k in CANONICAL_MODEL_FIELDS if k in model_dict}
+
+
+def compute_canonical_hash(canonical_obj: Any) -> str:
+    """Computes deterministic SHA-256 over canonical JSON object."""
+    raw = json.dumps(
+        canonical_obj,
+        sort_keys=True,
+        separators=(",", ":"),
+        ensure_ascii=False
+    ).encode("utf-8")
+    return hashlib.sha256(raw).hexdigest()
+
+
+def compute_model_config_hash(model_dict: Dict[str, Any]) -> str:
+    """Computes deterministic SHA-256 for a model's canonical configuration."""
+    canonical_obj = extract_canonical_model_config(model_dict)
+    return compute_canonical_hash(canonical_obj)
+
+
+def compute_global_config_hash(cfg: Dict[str, Any], model_a_hash: str, model_b_hash: str) -> str:
+    """Computes deterministic SHA-256 for global configuration."""
+    canonical_global = {
+        "study": cfg.get("study", "Gate B.3 Annotation-Stability Framework"),
+        "prompt_sha256": cfg.get("prompt_sha256"),
+        "t2_guide_sha256": cfg.get("t2_guide_sha256"),
+        "t3_guide_sha256": cfg.get("t3_guide_sha256"),
+        "schema_sha256": cfg.get("schema_sha256"),
+        "model_a_configuration_sha256": model_a_hash,
+        "model_b_configuration_sha256": model_b_hash,
+    }
+    return compute_canonical_hash(canonical_global)
 
 
 def evaluate_annotation_start_readiness(
@@ -80,9 +135,9 @@ def evaluate_annotation_start_readiness(
         reasons_blocked.append("Global configuration_frozen is False")
 
     # If configuration is frozen, require configuration_sha256
-    if is_globally_frozen:
-        if not cfg.get("configuration_sha256"):
-            reasons_blocked.append("Global configuration_sha256 missing while configuration_frozen is True")
+    stored_global_sha = cfg.get("configuration_sha256")
+    if is_globally_frozen and not stored_global_sha:
+        reasons_blocked.append("Global configuration_sha256 missing while configuration_frozen is True")
 
     # 2. Methodology Hashes Recomputation and Verification
     for key, (artifact_name, artifact_path) in artifacts_map.items():
@@ -121,15 +176,44 @@ def evaluate_annotation_start_readiness(
         if not is_frozen:
             reasons_blocked.append(f"{m_name} configuration_frozen is False")
         else:
-            # When frozen, require configuration_sha256
-            if not m.get("configuration_sha256"):
+            # When frozen, require configuration_sha256 and verify against recomputed canonical hash
+            stored_model_sha = m.get("configuration_sha256")
+            if not stored_model_sha:
                 reasons_blocked.append(f"{m_name} configuration_sha256 missing while configuration_frozen is True")
+            else:
+                computed_model_sha = compute_model_config_hash(m)
+                if computed_model_sha != stored_model_sha:
+                    reasons_blocked.append(
+                        f"FROZEN_MODEL_CONFIGURATION_DRIFT: {m_name} configuration drifted! "
+                        f"Stored: {stored_model_sha}, Computed: {computed_model_sha}"
+                    )
             # When frozen, exact_version_or_revision must be specified
             if exact_rev in (None, "", "PENDING"):
                 reasons_blocked.append(
                     f"{m_name} exact_version_or_revision must be provided when frozen "
                     f"(got '{exact_rev}'; use 'NOT_EXPOSED_BY_PROVIDER' if provider exposes no revision)"
                 )
+
+        # Execution-readiness gate
+        if not m.get("execution_isolation_verified", False):
+            reasons_blocked.append(f"{m_name} per-item execution isolation not verified")
+        if not m.get("synthetic_smoke_test_passed", False):
+            reasons_blocked.append(f"{m_name} synthetic smoke test not passed")
+        if not m.get("benchmark_execution_authorized", False):
+            reasons_blocked.append(f"{m_name} benchmark execution not authorized")
+
+    # Recompute and verify global configuration hash if frozen
+    if is_globally_frozen and stored_global_sha:
+        m_a = cfg.get("MODEL_A", {})
+        m_b = cfg.get("MODEL_B", {})
+        sha_a = compute_model_config_hash(m_a) if m_a.get("configuration_frozen") else m_a.get("configuration_sha256", "")
+        sha_b = compute_model_config_hash(m_b) if m_b.get("configuration_frozen") else m_b.get("configuration_sha256", "")
+        computed_global_sha = compute_global_config_hash(cfg, sha_a, sha_b)
+        if computed_global_sha != stored_global_sha:
+            reasons_blocked.append(
+                f"FROZEN_MODEL_CONFIGURATION_DRIFT: Global configuration drifted! "
+                f"Stored: {stored_global_sha}, Computed: {computed_global_sha}"
+            )
 
     # 4. Model Diversity Check
     m_a = cfg.get("MODEL_A", {})
@@ -170,7 +254,7 @@ def check_annotation_start_readiness():
         print(f"\nReason(s) Blocked ({len(reasons_blocked)}):")
         for r in reasons_blocked:
             print(f"  - {r}")
-        print("\n(This block is EXPECTED prior to formal model selection and freezing.)")
+        print("\n(This block is EXPECTED prior to sterile workspace execution readiness verification.)")
         print("=" * 70)
         sys.exit(1)
     else:

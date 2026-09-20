@@ -209,7 +209,7 @@ def validate_all():
     print("  Student order manifest verified: deterministic 175/175 split, counterbalanced order.")
 
     # 5. Model Annotator Configs Validation
-    print("\n5. Verifying Model Annotator Configurations Placeholder...")
+    print("\n5. Verifying Model Annotator Configurations Pre-Execution Status...")
     cfg_path = os.path.join(GATE_B3_DIR, "model_annotator_configs.json")
     with open(cfg_path, "r", encoding="utf-8") as f:
         cfg = json.load(f)
@@ -217,11 +217,13 @@ def validate_all():
     for m in ["MODEL_A", "MODEL_B"]:
         if m not in cfg:
             raise AssertionError(f"Missing config for {m}")
-        if cfg[m]["status"] != "PENDING" or cfg[m]["provider"] != "PENDING":
-            raise AssertionError(f"{m} status must remain PENDING prior to execution!")
+        if cfg[m]["status"] not in ("PENDING", "FROZEN_NOT_EXECUTION_READY"):
+            raise AssertionError(f"{m} status must be PENDING or FROZEN_NOT_EXECUTION_READY prior to execution (got '{cfg[m]['status']}')!")
         if cfg[m]["execution_timestamp"] is not None:
             raise AssertionError(f"{m} execution_timestamp must be null prior to execution!")
-    print("  Model annotator configs verified: MODEL_A and MODEL_B status = PENDING.")
+        if cfg[m].get("benchmark_execution_authorized") is not False:
+            raise AssertionError(f"{m} benchmark_execution_authorized must be false prior to execution!")
+    print("  Model annotator configs verified: pre-execution status valid, execution_timestamp null.")
 
     # 6. Gold Boundary Audit Template Validation
     print("\n6. Verifying Gold Boundary Audit Template...")
