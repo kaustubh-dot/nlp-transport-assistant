@@ -1,0 +1,33 @@
+{
+  "study": "Gate B.3 Annotation-Stability Framework",
+  "MODEL_A": {
+    "provider": "PENDING",
+    "model": "PENDING",
+    "version": "PENDING",
+    "status": "PENDING",
+    "execution_timestamp": null,
+    "decoding_parameters": {
+      "temperature": 0.0,
+      "max_tokens": 1024
+    },
+    "tool_availability": "NONE",
+    "prompt_hash": null,
+    "taxonomy_guide_hash": null,
+    "provenance_notes": "Astra review context must never be reused. Must use clean isolated request context."
+  },
+  "MODEL_B": {
+    "provider": "PENDING",
+    "model": "PENDING",
+    "version": "PENDING",
+    "status": "PENDING",
+    "execution_timestamp": null,
+    "decoding_parameters": {
+      "temperature": 0.0,
+      "max_tokens": 1024
+    },
+    "tool_availability": "NONE",
+    "prompt_hash": null,
+    "taxonomy_guide_hash": null,
+    "provenance_notes": "Distinct model family from MODEL_A recommended for family diversity."
+  }
+}

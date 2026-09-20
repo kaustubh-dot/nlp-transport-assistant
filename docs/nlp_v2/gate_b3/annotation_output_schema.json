@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GateB3AnnotationOutputRecord",
+  "description": "Canonical schema for single-item Gate B.3 annotation outputs from student or model annotators.",
+  "type": "object",
+  "required": [
+    "annotation_id",
+    "source_id",
+    "source_type",
+    "taxonomy_version",
+    "run_id",
+    "primary_label",
+    "acceptable_labels",
+    "clarification_required",
+    "clarification_reasons",
+    "brief_justification",
+    "recognized_from_prior_work",
+    "response_status"
+  ],
+  "properties": {
+    "annotation_id": {
+      "type": "string",
+      "pattern": "^ANN_B2_[0-9]{3}$",
+      "description": "Unique opaque annotation identifier matching ANN_B2_001 through ANN_B2_350."
+    },
+    "source_id": {
+      "type": "string",
+      "description": "Unique identifier of the annotator (e.g. STUDENT_R1, MODEL_A, MODEL_B)."
+    },
+    "source_type": {
+      "type": "string",
+      "enum": ["student", "model"],
+      "description": "Discriminator indicating whether the annotation was produced by student review or an isolated model annotator."
+    },
+    "taxonomy_version": {
+      "type": "string",
+      "enum": ["T2", "T3"],
+      "description": "Intent taxonomy evaluated: T2 (12 classes) or T3 (16 classes)."
+    },
+    "run_id": {
+      "type": "string",
+      "description": "Identifier of the annotation run or pass."
+    },
+    "primary_label": {
+      "type": ["string", "null"],
+      "description": "Preferred canonical intent label, or null if no single interpretation is defensibly preferred."
+    },
+    "acceptable_labels": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "description": "Non-empty set of acceptable canonical intent labels under the evaluated taxonomy."
+    },
+    "clarification_required": {
+      "type": "boolean",
+      "description": "Indicates whether user clarification or slot specification is required."
+    },
+    "clarification_reasons": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "intent_ambiguity",
+          "missing_slot",
+          "multiple_goals",
+          "uninterpretable"
+        ]
+      },
+      "description": "Structured reasons for requiring clarification."
+    },
+    "brief_justification": {
+      "type": "string",
+      "description": "Concise natural language semantic rationale for the classification."
+    },
+    "recognized_from_prior_work": {
+      "type": "string",
+      "enum": ["true", "false", "unsure", "not_applicable"],
+      "description": "Prior exposure diagnostic: true/false/unsure for student annotator; not_applicable for model annotators."
+    },
+    "response_status": {
+      "type": "string",
+      "enum": ["VALID", "FORMAT_REPAIRED", "FAILED"],
+      "description": "Quality status of the structured record."
+    }
+  },
+  "additionalProperties": false
+}

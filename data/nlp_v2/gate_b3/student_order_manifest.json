@@ -1,0 +1,2802 @@
+[
+  {
+    "annotation_id": "ANN_B2_001",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 175,
+    "second_pass_order": 133
+  },
+  {
+    "annotation_id": "ANN_B2_002",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 165,
+    "second_pass_order": 9
+  },
+  {
+    "annotation_id": "ANN_B2_003",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 120,
+    "second_pass_order": 39
+  },
+  {
+    "annotation_id": "ANN_B2_004",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 107,
+    "second_pass_order": 73
+  },
+  {
+    "annotation_id": "ANN_B2_005",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 99,
+    "second_pass_order": 157
+  },
+  {
+    "annotation_id": "ANN_B2_006",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 46,
+    "second_pass_order": 51
+  },
+  {
+    "annotation_id": "ANN_B2_007",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 22,
+    "second_pass_order": 107
+  },
+  {
+    "annotation_id": "ANN_B2_008",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 18,
+    "second_pass_order": 118
+  },
+  {
+    "annotation_id": "ANN_B2_009",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 121,
+    "second_pass_order": 112
+  },
+  {
+    "annotation_id": "ANN_B2_010",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 26,
+    "second_pass_order": 121
+  },
+  {
+    "annotation_id": "ANN_B2_011",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 125,
+    "second_pass_order": 118
+  },
+  {
+    "annotation_id": "ANN_B2_012",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 45,
+    "second_pass_order": 93
+  },
+  {
+    "annotation_id": "ANN_B2_013",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 21,
+    "second_pass_order": 88
+  },
+  {
+    "annotation_id": "ANN_B2_014",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 17,
+    "second_pass_order": 147
+  },
+  {
+    "annotation_id": "ANN_B2_015",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 94,
+    "second_pass_order": 163
+  },
+  {
+    "annotation_id": "ANN_B2_016",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 91,
+    "second_pass_order": 57
+  },
+  {
+    "annotation_id": "ANN_B2_017",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 167,
+    "second_pass_order": 117
+  },
+  {
+    "annotation_id": "ANN_B2_018",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 126,
+    "second_pass_order": 115
+  },
+  {
+    "annotation_id": "ANN_B2_019",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 156,
+    "second_pass_order": 131
+  },
+  {
+    "annotation_id": "ANN_B2_020",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 106,
+    "second_pass_order": 1
+  },
+  {
+    "annotation_id": "ANN_B2_021",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 130,
+    "second_pass_order": 69
+  },
+  {
+    "annotation_id": "ANN_B2_022",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 2,
+    "second_pass_order": 149
+  },
+  {
+    "annotation_id": "ANN_B2_023",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 149,
+    "second_pass_order": 57
+  },
+  {
+    "annotation_id": "ANN_B2_024",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 89,
+    "second_pass_order": 5
+  },
+  {
+    "annotation_id": "ANN_B2_025",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 52,
+    "second_pass_order": 82
+  },
+  {
+    "annotation_id": "ANN_B2_026",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 109,
+    "second_pass_order": 101
+  },
+  {
+    "annotation_id": "ANN_B2_027",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 102,
+    "second_pass_order": 72
+  },
+  {
+    "annotation_id": "ANN_B2_028",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 134,
+    "second_pass_order": 59
+  },
+  {
+    "annotation_id": "ANN_B2_029",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 9,
+    "second_pass_order": 95
+  },
+  {
+    "annotation_id": "ANN_B2_030",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 117,
+    "second_pass_order": 10
+  },
+  {
+    "annotation_id": "ANN_B2_031",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 105,
+    "second_pass_order": 133
+  },
+  {
+    "annotation_id": "ANN_B2_032",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 23,
+    "second_pass_order": 164
+  },
+  {
+    "annotation_id": "ANN_B2_033",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 34,
+    "second_pass_order": 70
+  },
+  {
+    "annotation_id": "ANN_B2_034",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 80,
+    "second_pass_order": 63
+  },
+  {
+    "annotation_id": "ANN_B2_035",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 83,
+    "second_pass_order": 87
+  },
+  {
+    "annotation_id": "ANN_B2_036",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 35,
+    "second_pass_order": 142
+  },
+  {
+    "annotation_id": "ANN_B2_037",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 71,
+    "second_pass_order": 51
+  },
+  {
+    "annotation_id": "ANN_B2_038",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 160,
+    "second_pass_order": 112
+  },
+  {
+    "annotation_id": "ANN_B2_039",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 168,
+    "second_pass_order": 19
+  },
+  {
+    "annotation_id": "ANN_B2_040",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 40,
+    "second_pass_order": 44
+  },
+  {
+    "annotation_id": "ANN_B2_041",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 62,
+    "second_pass_order": 100
+  },
+  {
+    "annotation_id": "ANN_B2_042",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 101,
+    "second_pass_order": 27
+  },
+  {
+    "annotation_id": "ANN_B2_043",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 99,
+    "second_pass_order": 150
+  },
+  {
+    "annotation_id": "ANN_B2_044",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 70,
+    "second_pass_order": 67
+  },
+  {
+    "annotation_id": "ANN_B2_045",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 44,
+    "second_pass_order": 96
+  },
+  {
+    "annotation_id": "ANN_B2_046",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 28,
+    "second_pass_order": 88
+  },
+  {
+    "annotation_id": "ANN_B2_047",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 103,
+    "second_pass_order": 146
+  },
+  {
+    "annotation_id": "ANN_B2_048",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 173,
+    "second_pass_order": 62
+  },
+  {
+    "annotation_id": "ANN_B2_049",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 35,
+    "second_pass_order": 123
+  },
+  {
+    "annotation_id": "ANN_B2_050",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 118,
+    "second_pass_order": 159
+  },
+  {
+    "annotation_id": "ANN_B2_051",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 166,
+    "second_pass_order": 146
+  },
+  {
+    "annotation_id": "ANN_B2_052",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 18,
+    "second_pass_order": 7
+  },
+  {
+    "annotation_id": "ANN_B2_053",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 113,
+    "second_pass_order": 161
+  },
+  {
+    "annotation_id": "ANN_B2_054",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 54,
+    "second_pass_order": 81
+  },
+  {
+    "annotation_id": "ANN_B2_055",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 32,
+    "second_pass_order": 52
+  },
+  {
+    "annotation_id": "ANN_B2_056",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 86,
+    "second_pass_order": 152
+  },
+  {
+    "annotation_id": "ANN_B2_057",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 51,
+    "second_pass_order": 100
+  },
+  {
+    "annotation_id": "ANN_B2_058",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 73,
+    "second_pass_order": 114
+  },
+  {
+    "annotation_id": "ANN_B2_059",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 144,
+    "second_pass_order": 108
+  },
+  {
+    "annotation_id": "ANN_B2_060",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 151,
+    "second_pass_order": 122
+  },
+  {
+    "annotation_id": "ANN_B2_061",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 150,
+    "second_pass_order": 145
+  },
+  {
+    "annotation_id": "ANN_B2_062",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 153,
+    "second_pass_order": 21
+  },
+  {
+    "annotation_id": "ANN_B2_063",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 164,
+    "second_pass_order": 29
+  },
+  {
+    "annotation_id": "ANN_B2_064",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 119,
+    "second_pass_order": 99
+  },
+  {
+    "annotation_id": "ANN_B2_065",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 152,
+    "second_pass_order": 4
+  },
+  {
+    "annotation_id": "ANN_B2_066",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 84,
+    "second_pass_order": 3
+  },
+  {
+    "annotation_id": "ANN_B2_067",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 92,
+    "second_pass_order": 141
+  },
+  {
+    "annotation_id": "ANN_B2_068",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 172,
+    "second_pass_order": 92
+  },
+  {
+    "annotation_id": "ANN_B2_069",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 162,
+    "second_pass_order": 64
+  },
+  {
+    "annotation_id": "ANN_B2_070",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 171,
+    "second_pass_order": 43
+  },
+  {
+    "annotation_id": "ANN_B2_071",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 109,
+    "second_pass_order": 136
+  },
+  {
+    "annotation_id": "ANN_B2_072",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 127,
+    "second_pass_order": 134
+  },
+  {
+    "annotation_id": "ANN_B2_073",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 81,
+    "second_pass_order": 149
+  },
+  {
+    "annotation_id": "ANN_B2_074",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 82,
+    "second_pass_order": 79
+  },
+  {
+    "annotation_id": "ANN_B2_075",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 130,
+    "second_pass_order": 109
+  },
+  {
+    "annotation_id": "ANN_B2_076",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 21,
+    "second_pass_order": 134
+  },
+  {
+    "annotation_id": "ANN_B2_077",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 157,
+    "second_pass_order": 73
+  },
+  {
+    "annotation_id": "ANN_B2_078",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 172,
+    "second_pass_order": 129
+  },
+  {
+    "annotation_id": "ANN_B2_079",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 129,
+    "second_pass_order": 135
+  },
+  {
+    "annotation_id": "ANN_B2_080",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 7,
+    "second_pass_order": 65
+  },
+  {
+    "annotation_id": "ANN_B2_081",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 37,
+    "second_pass_order": 127
+  },
+  {
+    "annotation_id": "ANN_B2_082",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 68,
+    "second_pass_order": 170
+  },
+  {
+    "annotation_id": "ANN_B2_083",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 74,
+    "second_pass_order": 55
+  },
+  {
+    "annotation_id": "ANN_B2_084",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 53,
+    "second_pass_order": 117
+  },
+  {
+    "annotation_id": "ANN_B2_085",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 114,
+    "second_pass_order": 17
+  },
+  {
+    "annotation_id": "ANN_B2_086",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 98,
+    "second_pass_order": 77
+  },
+  {
+    "annotation_id": "ANN_B2_087",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 48,
+    "second_pass_order": 49
+  },
+  {
+    "annotation_id": "ANN_B2_088",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 61,
+    "second_pass_order": 98
+  },
+  {
+    "annotation_id": "ANN_B2_089",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 136,
+    "second_pass_order": 113
+  },
+  {
+    "annotation_id": "ANN_B2_090",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 50,
+    "second_pass_order": 143
+  },
+  {
+    "annotation_id": "ANN_B2_091",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 3,
+    "second_pass_order": 174
+  },
+  {
+    "annotation_id": "ANN_B2_092",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 3,
+    "second_pass_order": 113
+  },
+  {
+    "annotation_id": "ANN_B2_093",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 133,
+    "second_pass_order": 66
+  },
+  {
+    "annotation_id": "ANN_B2_094",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 141,
+    "second_pass_order": 6
+  },
+  {
+    "annotation_id": "ANN_B2_095",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 93,
+    "second_pass_order": 25
+  },
+  {
+    "annotation_id": "ANN_B2_096",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 142,
+    "second_pass_order": 144
+  },
+  {
+    "annotation_id": "ANN_B2_097",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 20,
+    "second_pass_order": 42
+  },
+  {
+    "annotation_id": "ANN_B2_098",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 114,
+    "second_pass_order": 119
+  },
+  {
+    "annotation_id": "ANN_B2_099",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 58,
+    "second_pass_order": 171
+  },
+  {
+    "annotation_id": "ANN_B2_100",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 163,
+    "second_pass_order": 58
+  },
+  {
+    "annotation_id": "ANN_B2_101",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 169,
+    "second_pass_order": 156
+  },
+  {
+    "annotation_id": "ANN_B2_102",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 63,
+    "second_pass_order": 50
+  },
+  {
+    "annotation_id": "ANN_B2_103",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 14,
+    "second_pass_order": 66
+  },
+  {
+    "annotation_id": "ANN_B2_104",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 64,
+    "second_pass_order": 8
+  },
+  {
+    "annotation_id": "ANN_B2_105",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 100,
+    "second_pass_order": 32
+  },
+  {
+    "annotation_id": "ANN_B2_106",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 61,
+    "second_pass_order": 46
+  },
+  {
+    "annotation_id": "ANN_B2_107",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 104,
+    "second_pass_order": 33
+  },
+  {
+    "annotation_id": "ANN_B2_108",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 60,
+    "second_pass_order": 40
+  },
+  {
+    "annotation_id": "ANN_B2_109",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 154,
+    "second_pass_order": 56
+  },
+  {
+    "annotation_id": "ANN_B2_110",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 6,
+    "second_pass_order": 106
+  },
+  {
+    "annotation_id": "ANN_B2_111",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 46,
+    "second_pass_order": 132
+  },
+  {
+    "annotation_id": "ANN_B2_112",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 68,
+    "second_pass_order": 175
+  },
+  {
+    "annotation_id": "ANN_B2_113",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 38,
+    "second_pass_order": 126
+  },
+  {
+    "annotation_id": "ANN_B2_114",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 85,
+    "second_pass_order": 131
+  },
+  {
+    "annotation_id": "ANN_B2_115",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 87,
+    "second_pass_order": 139
+  },
+  {
+    "annotation_id": "ANN_B2_116",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 87,
+    "second_pass_order": 153
+  },
+  {
+    "annotation_id": "ANN_B2_117",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 106,
+    "second_pass_order": 41
+  },
+  {
+    "annotation_id": "ANN_B2_118",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 8,
+    "second_pass_order": 70
+  },
+  {
+    "annotation_id": "ANN_B2_119",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 56,
+    "second_pass_order": 136
+  },
+  {
+    "annotation_id": "ANN_B2_120",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 125,
+    "second_pass_order": 162
+  },
+  {
+    "annotation_id": "ANN_B2_121",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 100,
+    "second_pass_order": 145
+  },
+  {
+    "annotation_id": "ANN_B2_122",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 158,
+    "second_pass_order": 56
+  },
+  {
+    "annotation_id": "ANN_B2_123",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 88,
+    "second_pass_order": 138
+  },
+  {
+    "annotation_id": "ANN_B2_124",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 97,
+    "second_pass_order": 35
+  },
+  {
+    "annotation_id": "ANN_B2_125",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 9,
+    "second_pass_order": 3
+  },
+  {
+    "annotation_id": "ANN_B2_126",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 108,
+    "second_pass_order": 10
+  },
+  {
+    "annotation_id": "ANN_B2_127",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 37,
+    "second_pass_order": 50
+  },
+  {
+    "annotation_id": "ANN_B2_128",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 72,
+    "second_pass_order": 8
+  },
+  {
+    "annotation_id": "ANN_B2_129",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 16,
+    "second_pass_order": 166
+  },
+  {
+    "annotation_id": "ANN_B2_130",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 168,
+    "second_pass_order": 63
+  },
+  {
+    "annotation_id": "ANN_B2_131",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 76,
+    "second_pass_order": 125
+  },
+  {
+    "annotation_id": "ANN_B2_132",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 27,
+    "second_pass_order": 68
+  },
+  {
+    "annotation_id": "ANN_B2_133",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 98,
+    "second_pass_order": 34
+  },
+  {
+    "annotation_id": "ANN_B2_134",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 28,
+    "second_pass_order": 116
+  },
+  {
+    "annotation_id": "ANN_B2_135",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 95,
+    "second_pass_order": 81
+  },
+  {
+    "annotation_id": "ANN_B2_136",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 131,
+    "second_pass_order": 104
+  },
+  {
+    "annotation_id": "ANN_B2_137",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 161,
+    "second_pass_order": 124
+  },
+  {
+    "annotation_id": "ANN_B2_138",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 145,
+    "second_pass_order": 20
+  },
+  {
+    "annotation_id": "ANN_B2_139",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 77,
+    "second_pass_order": 85
+  },
+  {
+    "annotation_id": "ANN_B2_140",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 59,
+    "second_pass_order": 167
+  },
+  {
+    "annotation_id": "ANN_B2_141",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 128,
+    "second_pass_order": 80
+  },
+  {
+    "annotation_id": "ANN_B2_142",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 122,
+    "second_pass_order": 75
+  },
+  {
+    "annotation_id": "ANN_B2_143",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 50,
+    "second_pass_order": 102
+  },
+  {
+    "annotation_id": "ANN_B2_144",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 104,
+    "second_pass_order": 152
+  },
+  {
+    "annotation_id": "ANN_B2_145",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 75,
+    "second_pass_order": 69
+  },
+  {
+    "annotation_id": "ANN_B2_146",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 156,
+    "second_pass_order": 14
+  },
+  {
+    "annotation_id": "ANN_B2_147",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 171,
+    "second_pass_order": 45
+  },
+  {
+    "annotation_id": "ANN_B2_148",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 116,
+    "second_pass_order": 99
+  },
+  {
+    "annotation_id": "ANN_B2_149",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 52,
+    "second_pass_order": 167
+  },
+  {
+    "annotation_id": "ANN_B2_150",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 62,
+    "second_pass_order": 24
+  },
+  {
+    "annotation_id": "ANN_B2_151",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 24,
+    "second_pass_order": 138
+  },
+  {
+    "annotation_id": "ANN_B2_152",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 144,
+    "second_pass_order": 121
+  },
+  {
+    "annotation_id": "ANN_B2_153",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 96,
+    "second_pass_order": 22
+  },
+  {
+    "annotation_id": "ANN_B2_154",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 5,
+    "second_pass_order": 44
+  },
+  {
+    "annotation_id": "ANN_B2_155",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 1,
+    "second_pass_order": 47
+  },
+  {
+    "annotation_id": "ANN_B2_156",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 10,
+    "second_pass_order": 168
+  },
+  {
+    "annotation_id": "ANN_B2_157",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 123,
+    "second_pass_order": 116
+  },
+  {
+    "annotation_id": "ANN_B2_158",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 157,
+    "second_pass_order": 90
+  },
+  {
+    "annotation_id": "ANN_B2_159",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 41,
+    "second_pass_order": 91
+  },
+  {
+    "annotation_id": "ANN_B2_160",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 36,
+    "second_pass_order": 102
+  },
+  {
+    "annotation_id": "ANN_B2_161",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 83,
+    "second_pass_order": 92
+  },
+  {
+    "annotation_id": "ANN_B2_162",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 112,
+    "second_pass_order": 42
+  },
+  {
+    "annotation_id": "ANN_B2_163",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 132,
+    "second_pass_order": 59
+  },
+  {
+    "annotation_id": "ANN_B2_164",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 34,
+    "second_pass_order": 16
+  },
+  {
+    "annotation_id": "ANN_B2_165",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 57,
+    "second_pass_order": 31
+  },
+  {
+    "annotation_id": "ANN_B2_166",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 81,
+    "second_pass_order": 140
+  },
+  {
+    "annotation_id": "ANN_B2_167",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 165,
+    "second_pass_order": 38
+  },
+  {
+    "annotation_id": "ANN_B2_168",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 95,
+    "second_pass_order": 33
+  },
+  {
+    "annotation_id": "ANN_B2_169",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 49,
+    "second_pass_order": 22
+  },
+  {
+    "annotation_id": "ANN_B2_170",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 90,
+    "second_pass_order": 158
+  },
+  {
+    "annotation_id": "ANN_B2_171",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 91,
+    "second_pass_order": 25
+  },
+  {
+    "annotation_id": "ANN_B2_172",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 116,
+    "second_pass_order": 65
+  },
+  {
+    "annotation_id": "ANN_B2_173",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 72,
+    "second_pass_order": 170
+  },
+  {
+    "annotation_id": "ANN_B2_174",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 124,
+    "second_pass_order": 34
+  },
+  {
+    "annotation_id": "ANN_B2_175",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 11,
+    "second_pass_order": 21
+  },
+  {
+    "annotation_id": "ANN_B2_176",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 38,
+    "second_pass_order": 105
+  },
+  {
+    "annotation_id": "ANN_B2_177",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 23,
+    "second_pass_order": 128
+  },
+  {
+    "annotation_id": "ANN_B2_178",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 169,
+    "second_pass_order": 94
+  },
+  {
+    "annotation_id": "ANN_B2_179",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 67,
+    "second_pass_order": 5
+  },
+  {
+    "annotation_id": "ANN_B2_180",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 43,
+    "second_pass_order": 171
+  },
+  {
+    "annotation_id": "ANN_B2_181",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 33,
+    "second_pass_order": 2
+  },
+  {
+    "annotation_id": "ANN_B2_182",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 12,
+    "second_pass_order": 161
+  },
+  {
+    "annotation_id": "ANN_B2_183",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 78,
+    "second_pass_order": 120
+  },
+  {
+    "annotation_id": "ANN_B2_184",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 154,
+    "second_pass_order": 155
+  },
+  {
+    "annotation_id": "ANN_B2_185",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 16,
+    "second_pass_order": 30
+  },
+  {
+    "annotation_id": "ANN_B2_186",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 4,
+    "second_pass_order": 60
+  },
+  {
+    "annotation_id": "ANN_B2_187",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 121,
+    "second_pass_order": 77
+  },
+  {
+    "annotation_id": "ANN_B2_188",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 47,
+    "second_pass_order": 84
+  },
+  {
+    "annotation_id": "ANN_B2_189",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 127,
+    "second_pass_order": 15
+  },
+  {
+    "annotation_id": "ANN_B2_190",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 77,
+    "second_pass_order": 115
+  },
+  {
+    "annotation_id": "ANN_B2_191",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 29,
+    "second_pass_order": 74
+  },
+  {
+    "annotation_id": "ANN_B2_192",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 159,
+    "second_pass_order": 32
+  },
+  {
+    "annotation_id": "ANN_B2_193",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 85,
+    "second_pass_order": 109
+  },
+  {
+    "annotation_id": "ANN_B2_194",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 43,
+    "second_pass_order": 37
+  },
+  {
+    "annotation_id": "ANN_B2_195",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 124,
+    "second_pass_order": 28
+  },
+  {
+    "annotation_id": "ANN_B2_196",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 19,
+    "second_pass_order": 16
+  },
+  {
+    "annotation_id": "ANN_B2_197",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 117,
+    "second_pass_order": 105
+  },
+  {
+    "annotation_id": "ANN_B2_198",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 71,
+    "second_pass_order": 174
+  },
+  {
+    "annotation_id": "ANN_B2_199",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 24,
+    "second_pass_order": 55
+  },
+  {
+    "annotation_id": "ANN_B2_200",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 137,
+    "second_pass_order": 61
+  },
+  {
+    "annotation_id": "ANN_B2_201",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 93,
+    "second_pass_order": 12
+  },
+  {
+    "annotation_id": "ANN_B2_202",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 10,
+    "second_pass_order": 97
+  },
+  {
+    "annotation_id": "ANN_B2_203",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 140,
+    "second_pass_order": 148
+  },
+  {
+    "annotation_id": "ANN_B2_204",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 135,
+    "second_pass_order": 83
+  },
+  {
+    "annotation_id": "ANN_B2_205",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 19,
+    "second_pass_order": 53
+  },
+  {
+    "annotation_id": "ANN_B2_206",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 15,
+    "second_pass_order": 172
+  },
+  {
+    "annotation_id": "ANN_B2_207",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 69,
+    "second_pass_order": 19
+  },
+  {
+    "annotation_id": "ANN_B2_208",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 69,
+    "second_pass_order": 45
+  },
+  {
+    "annotation_id": "ANN_B2_209",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 66,
+    "second_pass_order": 18
+  },
+  {
+    "annotation_id": "ANN_B2_210",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 138,
+    "second_pass_order": 86
+  },
+  {
+    "annotation_id": "ANN_B2_211",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 41,
+    "second_pass_order": 153
+  },
+  {
+    "annotation_id": "ANN_B2_212",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 80,
+    "second_pass_order": 173
+  },
+  {
+    "annotation_id": "ANN_B2_213",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 120,
+    "second_pass_order": 173
+  },
+  {
+    "annotation_id": "ANN_B2_214",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 146,
+    "second_pass_order": 140
+  },
+  {
+    "annotation_id": "ANN_B2_215",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 102,
+    "second_pass_order": 23
+  },
+  {
+    "annotation_id": "ANN_B2_216",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 27,
+    "second_pass_order": 108
+  },
+  {
+    "annotation_id": "ANN_B2_217",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 65,
+    "second_pass_order": 28
+  },
+  {
+    "annotation_id": "ANN_B2_218",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 164,
+    "second_pass_order": 128
+  },
+  {
+    "annotation_id": "ANN_B2_219",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 13,
+    "second_pass_order": 80
+  },
+  {
+    "annotation_id": "ANN_B2_220",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 166,
+    "second_pass_order": 137
+  },
+  {
+    "annotation_id": "ANN_B2_221",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 142,
+    "second_pass_order": 90
+  },
+  {
+    "annotation_id": "ANN_B2_222",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 163,
+    "second_pass_order": 96
+  },
+  {
+    "annotation_id": "ANN_B2_223",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 135,
+    "second_pass_order": 130
+  },
+  {
+    "annotation_id": "ANN_B2_224",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 146,
+    "second_pass_order": 48
+  },
+  {
+    "annotation_id": "ANN_B2_225",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 55,
+    "second_pass_order": 165
+  },
+  {
+    "annotation_id": "ANN_B2_226",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 112,
+    "second_pass_order": 72
+  },
+  {
+    "annotation_id": "ANN_B2_227",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 75,
+    "second_pass_order": 154
+  },
+  {
+    "annotation_id": "ANN_B2_228",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 137,
+    "second_pass_order": 38
+  },
+  {
+    "annotation_id": "ANN_B2_229",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 88,
+    "second_pass_order": 169
+  },
+  {
+    "annotation_id": "ANN_B2_230",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 94,
+    "second_pass_order": 163
+  },
+  {
+    "annotation_id": "ANN_B2_231",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 53,
+    "second_pass_order": 93
+  },
+  {
+    "annotation_id": "ANN_B2_232",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 15,
+    "second_pass_order": 160
+  },
+  {
+    "annotation_id": "ANN_B2_233",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 32,
+    "second_pass_order": 4
+  },
+  {
+    "annotation_id": "ANN_B2_234",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 70,
+    "second_pass_order": 154
+  },
+  {
+    "annotation_id": "ANN_B2_235",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 133,
+    "second_pass_order": 7
+  },
+  {
+    "annotation_id": "ANN_B2_236",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 148,
+    "second_pass_order": 158
+  },
+  {
+    "annotation_id": "ANN_B2_237",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 108,
+    "second_pass_order": 54
+  },
+  {
+    "annotation_id": "ANN_B2_238",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 140,
+    "second_pass_order": 162
+  },
+  {
+    "annotation_id": "ANN_B2_239",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 36,
+    "second_pass_order": 110
+  },
+  {
+    "annotation_id": "ANN_B2_240",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 11,
+    "second_pass_order": 31
+  },
+  {
+    "annotation_id": "ANN_B2_241",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 33,
+    "second_pass_order": 9
+  },
+  {
+    "annotation_id": "ANN_B2_242",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 153,
+    "second_pass_order": 23
+  },
+  {
+    "annotation_id": "ANN_B2_243",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 67,
+    "second_pass_order": 54
+  },
+  {
+    "annotation_id": "ANN_B2_244",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 159,
+    "second_pass_order": 29
+  },
+  {
+    "annotation_id": "ANN_B2_245",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 40,
+    "second_pass_order": 135
+  },
+  {
+    "annotation_id": "ANN_B2_246",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 161,
+    "second_pass_order": 71
+  },
+  {
+    "annotation_id": "ANN_B2_247",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 74,
+    "second_pass_order": 61
+  },
+  {
+    "annotation_id": "ANN_B2_248",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 123,
+    "second_pass_order": 26
+  },
+  {
+    "annotation_id": "ANN_B2_249",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 132,
+    "second_pass_order": 13
+  },
+  {
+    "annotation_id": "ANN_B2_250",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 105,
+    "second_pass_order": 84
+  },
+  {
+    "annotation_id": "ANN_B2_251",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 30,
+    "second_pass_order": 71
+  },
+  {
+    "annotation_id": "ANN_B2_252",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 49,
+    "second_pass_order": 141
+  },
+  {
+    "annotation_id": "ANN_B2_253",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 79,
+    "second_pass_order": 148
+  },
+  {
+    "annotation_id": "ANN_B2_254",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 13,
+    "second_pass_order": 26
+  },
+  {
+    "annotation_id": "ANN_B2_255",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 51,
+    "second_pass_order": 165
+  },
+  {
+    "annotation_id": "ANN_B2_256",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 82,
+    "second_pass_order": 175
+  },
+  {
+    "annotation_id": "ANN_B2_257",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 174,
+    "second_pass_order": 164
+  },
+  {
+    "annotation_id": "ANN_B2_258",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 84,
+    "second_pass_order": 60
+  },
+  {
+    "annotation_id": "ANN_B2_259",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 170,
+    "second_pass_order": 130
+  },
+  {
+    "annotation_id": "ANN_B2_260",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 107,
+    "second_pass_order": 24
+  },
+  {
+    "annotation_id": "ANN_B2_261",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 31,
+    "second_pass_order": 98
+  },
+  {
+    "annotation_id": "ANN_B2_262",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 158,
+    "second_pass_order": 12
+  },
+  {
+    "annotation_id": "ANN_B2_263",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 134,
+    "second_pass_order": 35
+  },
+  {
+    "annotation_id": "ANN_B2_264",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 122,
+    "second_pass_order": 6
+  },
+  {
+    "annotation_id": "ANN_B2_265",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 173,
+    "second_pass_order": 101
+  },
+  {
+    "annotation_id": "ANN_B2_266",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 22,
+    "second_pass_order": 68
+  },
+  {
+    "annotation_id": "ANN_B2_267",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 97,
+    "second_pass_order": 139
+  },
+  {
+    "annotation_id": "ANN_B2_268",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 136,
+    "second_pass_order": 49
+  },
+  {
+    "annotation_id": "ANN_B2_269",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 149,
+    "second_pass_order": 13
+  },
+  {
+    "annotation_id": "ANN_B2_270",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 155,
+    "second_pass_order": 11
+  },
+  {
+    "annotation_id": "ANN_B2_271",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 148,
+    "second_pass_order": 91
+  },
+  {
+    "annotation_id": "ANN_B2_272",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 118,
+    "second_pass_order": 76
+  },
+  {
+    "annotation_id": "ANN_B2_273",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 147,
+    "second_pass_order": 104
+  },
+  {
+    "annotation_id": "ANN_B2_274",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 150,
+    "second_pass_order": 123
+  },
+  {
+    "annotation_id": "ANN_B2_275",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 30,
+    "second_pass_order": 41
+  },
+  {
+    "annotation_id": "ANN_B2_276",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 25,
+    "second_pass_order": 27
+  },
+  {
+    "annotation_id": "ANN_B2_277",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 86,
+    "second_pass_order": 46
+  },
+  {
+    "annotation_id": "ANN_B2_278",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 54,
+    "second_pass_order": 151
+  },
+  {
+    "annotation_id": "ANN_B2_279",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 31,
+    "second_pass_order": 172
+  },
+  {
+    "annotation_id": "ANN_B2_280",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 143,
+    "second_pass_order": 86
+  },
+  {
+    "annotation_id": "ANN_B2_281",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 143,
+    "second_pass_order": 76
+  },
+  {
+    "annotation_id": "ANN_B2_282",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 128,
+    "second_pass_order": 2
+  },
+  {
+    "annotation_id": "ANN_B2_283",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 167,
+    "second_pass_order": 125
+  },
+  {
+    "annotation_id": "ANN_B2_284",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 90,
+    "second_pass_order": 53
+  },
+  {
+    "annotation_id": "ANN_B2_285",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 160,
+    "second_pass_order": 156
+  },
+  {
+    "annotation_id": "ANN_B2_286",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 8,
+    "second_pass_order": 166
+  },
+  {
+    "annotation_id": "ANN_B2_287",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 60,
+    "second_pass_order": 40
+  },
+  {
+    "annotation_id": "ANN_B2_288",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 89,
+    "second_pass_order": 78
+  },
+  {
+    "annotation_id": "ANN_B2_289",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 141,
+    "second_pass_order": 14
+  },
+  {
+    "annotation_id": "ANN_B2_290",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 119,
+    "second_pass_order": 1
+  },
+  {
+    "annotation_id": "ANN_B2_291",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 59,
+    "second_pass_order": 83
+  },
+  {
+    "annotation_id": "ANN_B2_292",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 113,
+    "second_pass_order": 64
+  },
+  {
+    "annotation_id": "ANN_B2_293",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 76,
+    "second_pass_order": 107
+  },
+  {
+    "annotation_id": "ANN_B2_294",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 6,
+    "second_pass_order": 155
+  },
+  {
+    "annotation_id": "ANN_B2_295",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 25,
+    "second_pass_order": 103
+  },
+  {
+    "annotation_id": "ANN_B2_296",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 63,
+    "second_pass_order": 114
+  },
+  {
+    "annotation_id": "ANN_B2_297",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 147,
+    "second_pass_order": 119
+  },
+  {
+    "annotation_id": "ANN_B2_298",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 131,
+    "second_pass_order": 132
+  },
+  {
+    "annotation_id": "ANN_B2_299",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 101,
+    "second_pass_order": 126
+  },
+  {
+    "annotation_id": "ANN_B2_300",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 151,
+    "second_pass_order": 82
+  },
+  {
+    "annotation_id": "ANN_B2_301",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 14,
+    "second_pass_order": 159
+  },
+  {
+    "annotation_id": "ANN_B2_302",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 115,
+    "second_pass_order": 67
+  },
+  {
+    "annotation_id": "ANN_B2_303",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 92,
+    "second_pass_order": 94
+  },
+  {
+    "annotation_id": "ANN_B2_304",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 2,
+    "second_pass_order": 78
+  },
+  {
+    "annotation_id": "ANN_B2_305",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 64,
+    "second_pass_order": 150
+  },
+  {
+    "annotation_id": "ANN_B2_306",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 55,
+    "second_pass_order": 17
+  },
+  {
+    "annotation_id": "ANN_B2_307",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 48,
+    "second_pass_order": 15
+  },
+  {
+    "annotation_id": "ANN_B2_308",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 129,
+    "second_pass_order": 124
+  },
+  {
+    "annotation_id": "ANN_B2_309",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 57,
+    "second_pass_order": 168
+  },
+  {
+    "annotation_id": "ANN_B2_310",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 138,
+    "second_pass_order": 89
+  },
+  {
+    "annotation_id": "ANN_B2_311",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 111,
+    "second_pass_order": 11
+  },
+  {
+    "annotation_id": "ANN_B2_312",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 174,
+    "second_pass_order": 129
+  },
+  {
+    "annotation_id": "ANN_B2_313",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 4,
+    "second_pass_order": 143
+  },
+  {
+    "annotation_id": "ANN_B2_314",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 5,
+    "second_pass_order": 111
+  },
+  {
+    "annotation_id": "ANN_B2_315",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 139,
+    "second_pass_order": 111
+  },
+  {
+    "annotation_id": "ANN_B2_316",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 103,
+    "second_pass_order": 36
+  },
+  {
+    "annotation_id": "ANN_B2_317",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 126,
+    "second_pass_order": 106
+  },
+  {
+    "annotation_id": "ANN_B2_318",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 115,
+    "second_pass_order": 142
+  },
+  {
+    "annotation_id": "ANN_B2_319",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 79,
+    "second_pass_order": 97
+  },
+  {
+    "annotation_id": "ANN_B2_320",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 29,
+    "second_pass_order": 89
+  },
+  {
+    "annotation_id": "ANN_B2_321",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 110,
+    "second_pass_order": 74
+  },
+  {
+    "annotation_id": "ANN_B2_322",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 66,
+    "second_pass_order": 147
+  },
+  {
+    "annotation_id": "ANN_B2_323",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 47,
+    "second_pass_order": 120
+  },
+  {
+    "annotation_id": "ANN_B2_324",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 152,
+    "second_pass_order": 151
+  },
+  {
+    "annotation_id": "ANN_B2_325",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 20,
+    "second_pass_order": 144
+  },
+  {
+    "annotation_id": "ANN_B2_326",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 7,
+    "second_pass_order": 18
+  },
+  {
+    "annotation_id": "ANN_B2_327",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 73,
+    "second_pass_order": 157
+  },
+  {
+    "annotation_id": "ANN_B2_328",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 44,
+    "second_pass_order": 160
+  },
+  {
+    "annotation_id": "ANN_B2_329",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 78,
+    "second_pass_order": 85
+  },
+  {
+    "annotation_id": "ANN_B2_330",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 42,
+    "second_pass_order": 95
+  },
+  {
+    "annotation_id": "ANN_B2_331",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 39,
+    "second_pass_order": 30
+  },
+  {
+    "annotation_id": "ANN_B2_332",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 155,
+    "second_pass_order": 103
+  },
+  {
+    "annotation_id": "ANN_B2_333",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 17,
+    "second_pass_order": 36
+  },
+  {
+    "annotation_id": "ANN_B2_334",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 1,
+    "second_pass_order": 47
+  },
+  {
+    "annotation_id": "ANN_B2_335",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 39,
+    "second_pass_order": 169
+  },
+  {
+    "annotation_id": "ANN_B2_336",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 175,
+    "second_pass_order": 39
+  },
+  {
+    "annotation_id": "ANN_B2_337",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 12,
+    "second_pass_order": 58
+  },
+  {
+    "annotation_id": "ANN_B2_338",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 145,
+    "second_pass_order": 43
+  },
+  {
+    "annotation_id": "ANN_B2_339",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 65,
+    "second_pass_order": 37
+  },
+  {
+    "annotation_id": "ANN_B2_340",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 96,
+    "second_pass_order": 137
+  },
+  {
+    "annotation_id": "ANN_B2_341",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 170,
+    "second_pass_order": 122
+  },
+  {
+    "annotation_id": "ANN_B2_342",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 139,
+    "second_pass_order": 127
+  },
+  {
+    "annotation_id": "ANN_B2_343",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 56,
+    "second_pass_order": 79
+  },
+  {
+    "annotation_id": "ANN_B2_344",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 26,
+    "second_pass_order": 75
+  },
+  {
+    "annotation_id": "ANN_B2_345",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 45,
+    "second_pass_order": 20
+  },
+  {
+    "annotation_id": "ANN_B2_346",
+    "half": "A",
+    "first_taxonomy": "T2",
+    "second_taxonomy": "T3",
+    "first_pass_order": 162,
+    "second_pass_order": 52
+  },
+  {
+    "annotation_id": "ANN_B2_347",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 110,
+    "second_pass_order": 48
+  },
+  {
+    "annotation_id": "ANN_B2_348",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 58,
+    "second_pass_order": 87
+  },
+  {
+    "annotation_id": "ANN_B2_349",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 111,
+    "second_pass_order": 62
+  },
+  {
+    "annotation_id": "ANN_B2_350",
+    "half": "B",
+    "first_taxonomy": "T3",
+    "second_taxonomy": "T2",
+    "first_pass_order": 42,
+    "second_pass_order": 110
+  }
+]
