@@ -441,6 +441,14 @@ def test_model_annotator_configs_frozen_and_execution_not_ready():
     assert m_a["benchmark_execution_authorized"] is False
     assert m_a["execution_timestamp"] is None
 
+    expected_retry_policy = {
+        "semantic_retries": 0,
+        "format_repair_attempts": 1,
+        "transport_retry_policy": "PERMITTED_FOR_EXECUTION_FAILURE_ONLY",
+        "semantic_retry_mode": "FORBIDDEN",
+    }
+    assert m_a["retry_policy"] == expected_retry_policy
+
     # MODEL_B checks
     m_b = cfg["MODEL_B"]
     assert m_b["source_id"] == "MODEL_B"
@@ -456,6 +464,7 @@ def test_model_annotator_configs_frozen_and_execution_not_ready():
     assert m_b["synthetic_smoke_test_passed"] is False
     assert m_b["benchmark_execution_authorized"] is False
     assert m_b["execution_timestamp"] is None
+    assert m_b["retry_policy"] == expected_retry_policy
 
 
 def test_taxonomy_decision_remains_pending():
@@ -515,7 +524,12 @@ def _create_valid_frozen_mock_config() -> dict:
             "other_annotator_access": "FORBIDDEN"
         },
         "request_isolation": "ONE_QUERY_ONE_FRESH_CONTEXT_REQUIRED",
-        "retry_policy": {"max_retries": 0, "mode": "NO_IN_CONTEXT_RETRIES_ALLOWED"},
+        "retry_policy": {
+            "semantic_retries": 0,
+            "format_repair_attempts": 1,
+            "transport_retry_policy": "PERMITTED_FOR_EXECUTION_FAILURE_ONLY",
+            "semantic_retry_mode": "FORBIDDEN"
+        },
         "execution_isolation_verified": True,
         "synthetic_smoke_test_passed": True,
         "benchmark_execution_authorized": True,
@@ -541,7 +555,12 @@ def _create_valid_frozen_mock_config() -> dict:
             "other_annotator_access": "FORBIDDEN"
         },
         "request_isolation": "ONE_QUERY_ONE_FRESH_CONTEXT_REQUIRED",
-        "retry_policy": {"max_retries": 0, "mode": "NO_IN_CONTEXT_RETRIES_ALLOWED"},
+        "retry_policy": {
+            "semantic_retries": 0,
+            "format_repair_attempts": 1,
+            "transport_retry_policy": "PERMITTED_FOR_EXECUTION_FAILURE_ONLY",
+            "semantic_retry_mode": "FORBIDDEN"
+        },
         "execution_isolation_verified": True,
         "synthetic_smoke_test_passed": True,
         "benchmark_execution_authorized": True,
@@ -755,6 +774,21 @@ def test_mutation_of_frozen_model_field_triggers_drift(tmp_path):
     assert is_ready is False
     assert any("FROZEN_MODEL_CONFIGURATION_DRIFT: Global configuration drifted!" in r for r in reasons)
 
+    # 4. Mutate each retry_policy field in MODEL_A
+    for field_name, bad_value in [
+        ("semantic_retries", 1),
+        ("format_repair_attempts", 2),
+        ("transport_retry_policy", "FORBIDDEN"),
+        ("semantic_retry_mode", "PERMITTED"),
+    ]:
+        cfg_r = _create_valid_frozen_mock_config()
+        cfg_r["MODEL_A"]["retry_policy"][field_name] = bad_value
+        with open(cfg_file, "w", encoding="utf-8") as f:
+            json.dump(cfg_r, f)
+        is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+        assert is_ready is False
+        assert any("FROZEN_MODEL_CONFIGURATION_DRIFT: MODEL_A configuration drifted!" in r for r in reasons)
+
 
 def test_model_a_and_b_execution_manifests_integrity():
     """Verify sanitized execution manifests contain correct protocol and input hashes."""
@@ -886,4 +920,37 @@ def test_frozen_b2_and_v1_artifacts_unchanged():
     assert "transport_stops" in tables
     assert "transport_routes" in tables
     conn.close()
+
+
+def test_transfer_guide_manifest_checksum_separation():
+    """Verify transfer guide clearly separates manifest file SHA-256 from canonical config SHA."""
+    transfer_guide_path = os.path.join(REPORTS_B3_DIR, "MODEL_ANNOTATOR_PACKAGE_TRANSFER.md")
+    assert os.path.exists(transfer_guide_path), "Missing MODEL_ANNOTATOR_PACKAGE_TRANSFER.md"
+
+    with open(transfer_guide_path, "r", encoding="utf-8") as f:
+        guide_text = f.read()
+
+    # Verify terminology separation
+    assert "Manifest file SHA-256" in guide_text
+    assert "Canonical model configuration SHA stored inside manifest" in guide_text
+    assert "Target for `sha256sum` (Actual File Byte SHA-256)" in guide_text
+
+    # Verify actual manifest file hashes match what is documented in transfer guide
+    manifest_a_path = os.path.join(GATE_B3_DIR, "model_a_execution_manifest.json")
+    manifest_b_path = os.path.join(GATE_B3_DIR, "model_b_execution_manifest.json")
+    file_sha_a = compute_sha256(manifest_a_path)
+    file_sha_b = compute_sha256(manifest_b_path)
+
+    assert file_sha_a in guide_text, f"MODEL_A manifest file SHA {file_sha_a} not found in guide"
+    assert file_sha_b in guide_text, f"MODEL_B manifest file SHA {file_sha_b} not found in guide"
+
+    # Verify canonical config hashes match what is stored in configs
+    cfg_path = os.path.join(GATE_B3_DIR, "model_annotator_configs.json")
+    with open(cfg_path, "r", encoding="utf-8") as f:
+        cfg = json.load(f)
+
+    assert cfg["MODEL_A"]["configuration_sha256"] in guide_text
+    assert cfg["MODEL_B"]["configuration_sha256"] in guide_text
+    assert cfg["MODEL_A"]["configuration_sha256"] != file_sha_a
+    assert cfg["MODEL_B"]["configuration_sha256"] != file_sha_b
 

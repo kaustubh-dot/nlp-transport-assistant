@@ -8,7 +8,7 @@
   "exact_version_or_revision": "NOT_EXPOSED_BY_PROVIDER",
   "execution_environment": "Antigravity / isolated Claude execution backend",
   "configuration_frozen": true,
-  "configuration_sha256": "8f90c8207b7309e72ce5c33a787d102a70ca5f421e36db90625384e419d525a5",
+  "configuration_sha256": "3d1648c6280ffb3747a7f845a411b08b6d50e9e935cadfe10a3ea03a3a263349",
   "protocol_sha256": {
     "model_annotator_prompt_template.md": "6d37c2646de761c0530f6fe99403e6e1f12a56880da66c8406b8b63ca828da57",
     "t2_annotation_guide.md": "f1b538c0c141738ada760f52ea93640c9ae91fa9c9e6d7ac13089559d9f3cfac",

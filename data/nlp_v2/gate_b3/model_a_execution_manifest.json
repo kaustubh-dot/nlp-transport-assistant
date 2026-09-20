@@ -9,7 +9,7 @@
   "execution_environment": "Codex",
   "reasoning_effort": "medium",
   "configuration_frozen": true,
-  "configuration_sha256": "7861de9a0071fab99885411cc3ad3bd0378e98924c01980f2c1957a24e68091e",
+  "configuration_sha256": "fe43f5266c716f3541240e604e3432a0ca67ad14189fbc6ad4bafbe89fd6df2e",
   "protocol_sha256": {
     "model_annotator_prompt_template.md": "6d37c2646de761c0530f6fe99403e6e1f12a56880da66c8406b8b63ca828da57",
     "t2_annotation_guide.md": "f1b538c0c141738ada760f52ea93640c9ae91fa9c9e6d7ac13089559d9f3cfac",

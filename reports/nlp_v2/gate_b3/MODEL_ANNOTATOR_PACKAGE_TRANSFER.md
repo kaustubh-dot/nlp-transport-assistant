@@ -69,17 +69,21 @@ data/nlp_v2/gate_b3/model_a_t3_input.jsonl
 
 ### Preflight Checksum Verification for MODEL_A:
 
-Verify bitwise integrity inside `Astra_testing` using `sha256sum`:
+Verify bitwise file integrity inside `Astra_testing` using `sha256sum`:
 
-| File | Expected SHA-256 Checksum |
+| File | Target for `sha256sum` (Actual File Byte SHA-256) |
 | :--- | :--- |
 | `protocol/model_annotator_prompt_template.md` | `6d37c2646de761c0530f6fe99403e6e1f12a56880da66c8406b8b63ca828da57` |
 | `protocol/t2_annotation_guide.md` | `f1b538c0c141738ada760f52ea93640c9ae91fa9c9e6d7ac13089559d9f3cfac` |
 | `protocol/t3_annotation_guide.md` | `0256b4b27b02e04c6948e85d0c33e81e75c8f38b090d1ac37770bcb0ad57599d` |
 | `protocol/annotation_output_schema.json` | `0fb81d7cfb9520f19e87797ad774e6f9cd8d8dbe1946cb3dab0f7b7c201954a4` |
-| `protocol/model_a_execution_manifest.json` | Stored canonical hash: `7861de9a0071fab99885411cc3ad3bd0378e98924c01980f2c1957a24e68091e` |
+| `protocol/model_a_execution_manifest.json` | `7824d0cfaff328463d92e33edb589be604c0600c6581e8395eba4774287ebd26` |
 | `inputs/model_a_t2_input.jsonl` | `85b5c3bf3cccd3cdf1ebab289e6ac6c513387006ce9f04ac2c0c2e33c123dab0` (350 lines) |
 | `inputs/model_a_t3_input.jsonl` | `51a90d81ac2be0370b287c95bcab6e8861a5565e68082958f2229918521e5d55` (350 lines) |
+
+**Manifest Content Verification:**
+- **Manifest file SHA-256:** `7824d0cfaff328463d92e33edb589be604c0600c6581e8395eba4774287ebd26` (actual SHA-256 of the execution-manifest file bytes via `sha256sum`)
+- **Canonical model configuration SHA stored inside manifest:** `fe43f5266c716f3541240e604e3432a0ca67ad14189fbc6ad4bafbe89fd6df2e` (verifies the canonical model configuration encoded inside the manifest; not the file byte hash)
 
 ---
 
@@ -124,17 +128,21 @@ data/nlp_v2/gate_b3/model_b_t3_input.jsonl
 
 ### Preflight Checksum Verification for MODEL_B:
 
-Verify bitwise integrity inside `gate-b3-model-b-claude` using `sha256sum`:
+Verify bitwise file integrity inside `gate-b3-model-b-claude` using `sha256sum`:
 
-| File | Expected SHA-256 Checksum |
+| File | Target for `sha256sum` (Actual File Byte SHA-256) |
 | :--- | :--- |
 | `protocol/model_annotator_prompt_template.md` | `6d37c2646de761c0530f6fe99403e6e1f12a56880da66c8406b8b63ca828da57` |
 | `protocol/t2_annotation_guide.md` | `f1b538c0c141738ada760f52ea93640c9ae91fa9c9e6d7ac13089559d9f3cfac` |
 | `protocol/t3_annotation_guide.md` | `0256b4b27b02e04c6948e85d0c33e81e75c8f38b090d1ac37770bcb0ad57599d` |
 | `protocol/annotation_output_schema.json` | `0fb81d7cfb9520f19e87797ad774e6f9cd8d8dbe1946cb3dab0f7b7c201954a4` |
-| `protocol/model_b_execution_manifest.json` | Stored canonical hash: `8f90c8207b7309e72ce5c33a787d102a70ca5f421e36db90625384e419d525a5` |
+| `protocol/model_b_execution_manifest.json` | `9a8d9d87609877cc01d6bf59e30ed365e5a553374b3c20f8620f6ccf870c81e4` |
 | `inputs/model_b_t2_input.jsonl` | `85b5c3bf3cccd3cdf1ebab289e6ac6c513387006ce9f04ac2c0c2e33c123dab0` (350 lines) |
 | `inputs/model_b_t3_input.jsonl` | `51a90d81ac2be0370b287c95bcab6e8861a5565e68082958f2229918521e5d55` (350 lines) |
+
+**Manifest Content Verification:**
+- **Manifest file SHA-256:** `9a8d9d87609877cc01d6bf59e30ed365e5a553374b3c20f8620f6ccf870c81e4` (actual SHA-256 of the execution-manifest file bytes via `sha256sum`)
+- **Canonical model configuration SHA stored inside manifest:** `3d1648c6280ffb3747a7f845a411b08b6d50e9e935cadfe10a3ea03a3a263349` (verifies the canonical model configuration encoded inside the manifest; not the file byte hash)
 
 ---
 
