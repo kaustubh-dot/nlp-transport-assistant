@@ -1,14 +1,27 @@
 #!/usr/bin/env python3
 """Annotation-Start QA Gatekeeper for NLP v2 Gate B.3.
 
-Enforces Section 20 requirements:
+Enforces Section 20, as amended by Pre-Annotation Hardening:
 Checks whether model configurations are formally frozen and ready for annotation.
 Requires:
-1. MODEL_A provider != PENDING, model != PENDING, version != PENDING, configuration_frozen == True
-2. MODEL_B provider != PENDING, model != PENDING, version != PENDING, configuration_frozen == True
-3. MODEL_A and MODEL_B are not the exact same model family/config unless explicitly documented
-4. prompt_sha256, t2_guide_sha256, t3_guide_sha256, and schema_sha256 are present and non-null
-5. annotation_started == False, first_pass_locked == False, reference_join_enabled == False
+1. MODEL_A & MODEL_B:
+   - status != PENDING
+   - provider != PENDING
+   - model != PENDING
+   - version != PENDING and version != "" and version is not None
+   - configuration_frozen == True
+   - exact_version_or_revision not in (None, "", "PENDING")
+     (Note: 'NOT_EXPOSED_BY_PROVIDER' is accepted as valid provenance)
+2. Hash Recomputation:
+   - prompt_sha256, t2_guide_sha256, t3_guide_sha256, schema_sha256 present
+   - Computed SHA-256 for prompt, T2 guide, T3 guide, and schema must match stored hashes exactly.
+   - Any mismatch reports: FROZEN_ANNOTATION_CONFIGURATION_DRIFT
+3. Model Config Hash Hook:
+   - Once configuration_frozen == True, requires configuration_sha256 to be present and non-empty.
+4. Model Diversity:
+   - MODEL_A and MODEL_B are not the exact same model family/config unless explicitly documented.
+5. Pre-Annotation Guardrails:
+   - annotation_started == False, first_pass_locked == False, reference_join_enabled == False.
 
 When models remain PENDING (prior to model selection):
 Reports: BLOCKED / NOT READY and exits with code 1.
@@ -17,59 +30,121 @@ Reports: BLOCKED / NOT READY and exits with code 1.
 import os
 import sys
 import json
+import hashlib
+from typing import Dict, List, Tuple, Optional, Any
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 GATE_B3_DIR = os.path.join(BASE_DIR, "data", "nlp_v2", "gate_b3")
+DOCS_B3_DIR = os.path.join(BASE_DIR, "docs", "nlp_v2", "gate_b3")
+
 CONFIGS_PATH = os.path.join(GATE_B3_DIR, "model_annotator_configs.json")
 MANIFEST_PATH = os.path.join(GATE_B3_DIR, "gate_b3_annotation_manifest.json")
 
+METHODOLOGY_ARTIFACTS = {
+    "prompt_sha256": ("model_annotator_prompt_template.md", os.path.join(DOCS_B3_DIR, "model_annotator_prompt_template.md")),
+    "t2_guide_sha256": ("t2_annotation_guide.md", os.path.join(DOCS_B3_DIR, "t2_annotation_guide.md")),
+    "t3_guide_sha256": ("t3_annotation_guide.md", os.path.join(DOCS_B3_DIR, "t3_annotation_guide.md")),
+    "schema_sha256": ("annotation_output_schema.json", os.path.join(DOCS_B3_DIR, "annotation_output_schema.json")),
+}
 
-def check_annotation_start_readiness():
-    print("=" * 70)
-    print("NLP v2 Gate B.3 Annotation-Start QA Gatekeeper")
-    print("=" * 70)
 
+def compute_sha256(filepath: str) -> str:
+    h = hashlib.sha256()
+    with open(filepath, "rb") as f:
+        while chunk := f.read(65536):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def evaluate_annotation_start_readiness(
+    configs_path: str = CONFIGS_PATH,
+    manifest_path: str = MANIFEST_PATH,
+    artifacts_map: Optional[Dict[str, Tuple[str, str]]] = None
+) -> Tuple[bool, List[str]]:
+    """Evaluates readiness to commence model annotation."""
     reasons_blocked = []
+    if artifacts_map is None:
+        artifacts_map = METHODOLOGY_ARTIFACTS
 
-    # 1. Check Model Configs
-    if not os.path.exists(CONFIGS_PATH):
-        reasons_blocked.append(f"Missing config file: {CONFIGS_PATH}")
-    else:
-        with open(CONFIGS_PATH, "r", encoding="utf-8") as f:
-            cfg = json.load(f)
+    # 1. Check Model Configs File
+    if not os.path.exists(configs_path):
+        reasons_blocked.append(f"Missing config file: {configs_path}")
+        return False, reasons_blocked
 
-        if not cfg.get("configuration_frozen", False):
-            reasons_blocked.append("Global configuration_frozen is False")
-        if not cfg.get("prompt_sha256"):
-            reasons_blocked.append("prompt_sha256 is null or missing")
-        if not cfg.get("t2_guide_sha256"):
-            reasons_blocked.append("t2_guide_sha256 is null or missing")
-        if not cfg.get("t3_guide_sha256"):
-            reasons_blocked.append("t3_guide_sha256 is null or missing")
-        if not cfg.get("schema_sha256"):
-            reasons_blocked.append("schema_sha256 is null or missing")
+    with open(configs_path, "r", encoding="utf-8") as f:
+        cfg = json.load(f)
 
-        for m_name in ["MODEL_A", "MODEL_B"]:
-            m = cfg.get(m_name, {})
-            if m.get("status") == "PENDING" or m.get("provider") == "PENDING" or m.get("model") == "PENDING":
-                reasons_blocked.append(f"{m_name} status/provider/model remains PENDING")
-            if not m.get("configuration_frozen", False):
-                reasons_blocked.append(f"{m_name} configuration_frozen is False")
+    # Global configuration freeze check
+    is_globally_frozen = bool(cfg.get("configuration_frozen", False))
+    if not is_globally_frozen:
+        reasons_blocked.append("Global configuration_frozen is False")
 
-        # Check model diversity
-        m_a = cfg.get("MODEL_A", {})
-        m_b = cfg.get("MODEL_B", {})
-        if (
-            m_a.get("provider") != "PENDING"
-            and m_b.get("provider") != "PENDING"
-            and m_a.get("provider") == m_b.get("provider")
-            and m_a.get("model") == m_b.get("model")
-        ):
-            reasons_blocked.append("MODEL_A and MODEL_B use identical model/provider without justification")
+    # If configuration is frozen, require configuration_sha256
+    if is_globally_frozen:
+        if not cfg.get("configuration_sha256"):
+            reasons_blocked.append("Global configuration_sha256 missing while configuration_frozen is True")
 
-    # 2. Check Manifest Pre-Annotation Guardrails
-    if os.path.exists(MANIFEST_PATH):
-        with open(MANIFEST_PATH, "r", encoding="utf-8") as f:
+    # 2. Methodology Hashes Recomputation and Verification
+    for key, (artifact_name, artifact_path) in artifacts_map.items():
+        stored_hash = cfg.get(key)
+        if not stored_hash:
+            reasons_blocked.append(f"{key} ({artifact_name}) is null or missing")
+        else:
+            if not os.path.exists(artifact_path):
+                reasons_blocked.append(f"Methodology artifact file missing: {artifact_path}")
+            else:
+                current_sha = compute_sha256(artifact_path)
+                if current_sha != stored_hash:
+                    reasons_blocked.append(
+                        f"FROZEN_ANNOTATION_CONFIGURATION_DRIFT: {artifact_name} drifted! "
+                        f"Stored: {stored_hash}, Computed: {current_sha}"
+                    )
+
+    # 3. Model Specifications Verification (MODEL_A and MODEL_B)
+    for m_name in ["MODEL_A", "MODEL_B"]:
+        m = cfg.get(m_name, {})
+        status = m.get("status")
+        provider = m.get("provider")
+        model = m.get("model")
+        version = m.get("version")
+        is_frozen = m.get("configuration_frozen", False)
+        exact_rev = m.get("exact_version_or_revision")
+
+        if status == "PENDING":
+            reasons_blocked.append(f"{m_name} status remains PENDING")
+        if provider == "PENDING" or not provider:
+            reasons_blocked.append(f"{m_name} provider remains PENDING or empty")
+        if model == "PENDING" or not model:
+            reasons_blocked.append(f"{m_name} model remains PENDING or empty")
+        if version == "PENDING" or not version:
+            reasons_blocked.append(f"{m_name} version remains PENDING or empty")
+        if not is_frozen:
+            reasons_blocked.append(f"{m_name} configuration_frozen is False")
+        else:
+            # When frozen, require configuration_sha256
+            if not m.get("configuration_sha256"):
+                reasons_blocked.append(f"{m_name} configuration_sha256 missing while configuration_frozen is True")
+            # When frozen, exact_version_or_revision must be specified
+            if exact_rev in (None, "", "PENDING"):
+                reasons_blocked.append(
+                    f"{m_name} exact_version_or_revision must be provided when frozen "
+                    f"(got '{exact_rev}'; use 'NOT_EXPOSED_BY_PROVIDER' if provider exposes no revision)"
+                )
+
+    # 4. Model Diversity Check
+    m_a = cfg.get("MODEL_A", {})
+    m_b = cfg.get("MODEL_B", {})
+    if (
+        m_a.get("provider") not in (None, "PENDING", "")
+        and m_b.get("provider") not in (None, "PENDING", "")
+        and m_a.get("provider") == m_b.get("provider")
+        and m_a.get("model") == m_b.get("model")
+    ):
+        reasons_blocked.append("MODEL_A and MODEL_B use identical model/provider without justification")
+
+    # 5. Manifest Pre-Annotation Guardrails
+    if os.path.exists(manifest_path):
+        with open(manifest_path, "r", encoding="utf-8") as f:
             manifest = json.load(f)
         if manifest.get("annotation_started") is not False:
             reasons_blocked.append("annotation_started must be false before official start")
@@ -78,7 +153,18 @@ def check_annotation_start_readiness():
         if manifest.get("reference_join_enabled") is not False:
             reasons_blocked.append("reference_join_enabled must be false before annotation start")
 
-    if reasons_blocked:
+    is_ready = (len(reasons_blocked) == 0)
+    return is_ready, reasons_blocked
+
+
+def check_annotation_start_readiness():
+    print("=" * 70)
+    print("NLP v2 Gate B.3 Annotation-Start QA Gatekeeper")
+    print("=" * 70)
+
+    is_ready, reasons_blocked = evaluate_annotation_start_readiness()
+
+    if not is_ready:
         print("\nANNOTATION-START QA RESULT:")
         print("STATUS: BLOCKED / NOT READY")
         print(f"\nReason(s) Blocked ({len(reasons_blocked)}):")

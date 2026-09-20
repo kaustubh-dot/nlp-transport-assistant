@@ -1,4 +1,7 @@
 {
+  "template_status": "NON_VALID_BLANK_TEMPLATE",
+  "warning": "THIS SAMPLE RECORD IS NOT A VALID COMPLETED ANNOTATION. DO NOT COPY IT DIRECTLY INTO FINAL ANNOTATION OUTPUT.",
+  "completion_requirements": "A completed student annotation must satisfy: acceptable_labels non-empty, active_time_seconds >= 0, rule_difficulty in easy/moderate/hard, recognized_from_prior_work in true/false/unsure.",
   "description": "Template structure for student annotation output records (STUDENT_R1). Do NOT fill with synthetic data.",
   "sample_record": {
     "annotation_id": "ANN_B2_000",

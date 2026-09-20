@@ -20,6 +20,10 @@ Verifies Section 56 and Pre-Annotation Hardening requirements:
 17. Model annotator configs remain PENDING
 18. Taxonomy decision remains PENDING
 19. Bootstrap interpretation note exists with clarified wording
+20. Annotation-start QA model version and revision provenance enforcement
+21. Annotation-start QA methodology artifact hash drift detection
+22. Annotation-start QA configuration_sha256 enforcement when frozen
+23. Student annotation output template marked NON_VALID_BLANK_TEMPLATE with warning
 """
 
 import os
@@ -385,8 +389,8 @@ def test_annotation_start_qa_blocks_when_pending():
     )
     assert proc.returncode != 0
     assert "STATUS: BLOCKED / NOT READY" in proc.stdout
-    assert "MODEL_A status/provider/model remains PENDING" in proc.stdout
-    assert "MODEL_B status/provider/model remains PENDING" in proc.stdout
+    assert "MODEL_A status remains PENDING" in proc.stdout
+    assert "MODEL_B status remains PENDING" in proc.stdout
 
 
 def test_guide_examples_zero_overlap_with_blind_set():
@@ -453,3 +457,180 @@ def test_bootstrap_interpretation_note_exists():
     assert "+4.01" in content
     assert "0.0245" in content
     assert "0.0581" in content
+
+
+def _create_valid_frozen_mock_config() -> dict:
+    prompt_path = os.path.join(DOCS_B3_DIR, "model_annotator_prompt_template.md")
+    t2_path = os.path.join(DOCS_B3_DIR, "t2_annotation_guide.md")
+    t3_path = os.path.join(DOCS_B3_DIR, "t3_annotation_guide.md")
+    schema_path = os.path.join(DOCS_B3_DIR, "annotation_output_schema.json")
+
+    return {
+        "study": "Gate B.3 Annotation-Stability Framework",
+        "configuration_frozen": True,
+        "configuration_sha256": "mock_global_sha256_hash",
+        "frozen_at": "2026-09-20T12:00:00Z",
+        "prompt_sha256": compute_sha256(prompt_path),
+        "t2_guide_sha256": compute_sha256(t2_path),
+        "t3_guide_sha256": compute_sha256(t3_path),
+        "schema_sha256": compute_sha256(schema_path),
+        "MODEL_A": {
+            "provider": "ANTHROPIC",
+            "model": "claude-3-7-sonnet",
+            "version": "20250219",
+            "exact_version_or_revision": "claude-3-7-sonnet-20250219",
+            "status": "FROZEN",
+            "configuration_frozen": True,
+            "configuration_sha256": "mock_model_a_sha256",
+            "execution_timestamp": None,
+            "decoding_parameters": {"temperature": 0.0, "max_tokens": 1024},
+            "tool_availability": "NONE",
+            "prompt_hash": None,
+            "taxonomy_guide_hash": None,
+            "provenance_notes": "Astra review context isolated."
+        },
+        "MODEL_B": {
+            "provider": "GOOGLE",
+            "model": "gemini-2.0-flash",
+            "version": "001",
+            "exact_version_or_revision": "gemini-2.0-flash-001",
+            "status": "FROZEN",
+            "configuration_frozen": True,
+            "configuration_sha256": "mock_model_b_sha256",
+            "execution_timestamp": None,
+            "decoding_parameters": {"temperature": 0.0, "max_tokens": 1024},
+            "tool_availability": "NONE",
+            "prompt_hash": None,
+            "taxonomy_guide_hash": None,
+            "provenance_notes": "Diverse model family."
+        }
+    }
+
+
+def test_annotation_start_qa_model_version_checks(tmp_path):
+    """Verify version enforcement and exact revision provenance checks for frozen models."""
+    from scripts.nlp_v2.gate_b3.qa_gate_b3_annotation_start import evaluate_annotation_start_readiness
+
+    cfg = _create_valid_frozen_mock_config()
+    cfg_file = tmp_path / "test_config.json"
+
+    # Baseline: valid mock configuration passes
+    with open(cfg_file, "w", encoding="utf-8") as f:
+        json.dump(cfg, f)
+    is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+    assert is_ready is True, f"Valid baseline unexpectedly failed: {reasons}"
+    assert len(reasons) == 0
+
+    # 1. frozen model with version=PENDING is rejected
+    cfg1 = _create_valid_frozen_mock_config()
+    cfg1["MODEL_A"]["version"] = "PENDING"
+    with open(cfg_file, "w", encoding="utf-8") as f:
+        json.dump(cfg1, f)
+    is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+    assert is_ready is False
+    assert any("MODEL_A version remains PENDING" in r for r in reasons)
+
+    # 2. frozen model with version="" is rejected
+    cfg2 = _create_valid_frozen_mock_config()
+    cfg2["MODEL_A"]["version"] = ""
+    with open(cfg_file, "w", encoding="utf-8") as f:
+        json.dump(cfg2, f)
+    is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+    assert is_ready is False
+    assert any("MODEL_A version remains PENDING or empty" in r for r in reasons)
+
+    # 3. frozen model with exact_version_or_revision=null / "" / "PENDING" is rejected
+    for invalid_rev in [None, "", "PENDING"]:
+        cfg3 = _create_valid_frozen_mock_config()
+        cfg3["MODEL_A"]["exact_version_or_revision"] = invalid_rev
+        with open(cfg_file, "w", encoding="utf-8") as f:
+            json.dump(cfg3, f)
+        is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+        assert is_ready is False
+        assert any("MODEL_A exact_version_or_revision must be provided when frozen" in r for r in reasons)
+
+    # 4. NOT_EXPOSED_BY_PROVIDER is accepted as revision provenance
+    cfg4 = _create_valid_frozen_mock_config()
+    cfg4["MODEL_A"]["exact_version_or_revision"] = "NOT_EXPOSED_BY_PROVIDER"
+    with open(cfg_file, "w", encoding="utf-8") as f:
+        json.dump(cfg4, f)
+    is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+    assert is_ready is True, f"NOT_EXPOSED_BY_PROVIDER was rejected: {reasons}"
+    assert len(reasons) == 0
+
+
+def test_annotation_start_qa_methodology_hash_drift(tmp_path):
+    """Verify stored methodology hash matches pass and mismatches trigger FROZEN_ANNOTATION_CONFIGURATION_DRIFT."""
+    from scripts.nlp_v2.gate_b3.qa_gate_b3_annotation_start import evaluate_annotation_start_readiness
+
+    cfg_file = tmp_path / "test_config.json"
+
+    # Baseline matches
+    cfg = _create_valid_frozen_mock_config()
+    with open(cfg_file, "w", encoding="utf-8") as f:
+        json.dump(cfg, f)
+    is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+    assert is_ready is True
+
+    # Test drift for prompt_sha256, t2_guide_sha256, t3_guide_sha256, schema_sha256
+    drift_keys = [
+        ("prompt_sha256", "model_annotator_prompt_template.md"),
+        ("t2_guide_sha256", "t2_annotation_guide.md"),
+        ("t3_guide_sha256", "t3_annotation_guide.md"),
+        ("schema_sha256", "annotation_output_schema.json"),
+    ]
+
+    for hash_key, artifact_filename in drift_keys:
+        corrupted_cfg = _create_valid_frozen_mock_config()
+        corrupted_cfg[hash_key] = "0000000000000000000000000000000000000000000000000000000000000000"
+        with open(cfg_file, "w", encoding="utf-8") as f:
+            json.dump(corrupted_cfg, f)
+
+        is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+        assert is_ready is False
+        assert any(
+            f"FROZEN_ANNOTATION_CONFIGURATION_DRIFT: {artifact_filename} drifted!" in r
+            for r in reasons
+        ), f"Failed to report drift for {artifact_filename} in reasons: {reasons}"
+
+
+def test_annotation_start_qa_configuration_sha_requirement(tmp_path):
+    """Verify configuration_sha256 is required when configuration_frozen is True."""
+    from scripts.nlp_v2.gate_b3.qa_gate_b3_annotation_start import evaluate_annotation_start_readiness
+
+    cfg_file = tmp_path / "test_config.json"
+
+    # 1. Missing global configuration_sha256 when globally frozen
+    cfg_global_missing = _create_valid_frozen_mock_config()
+    del cfg_global_missing["configuration_sha256"]
+    with open(cfg_file, "w", encoding="utf-8") as f:
+        json.dump(cfg_global_missing, f)
+    is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+    assert is_ready is False
+    assert any("Global configuration_sha256 missing while configuration_frozen is True" in r for r in reasons)
+
+    # 2. Missing per-model configuration_sha256 when model frozen
+    cfg_model_missing = _create_valid_frozen_mock_config()
+    del cfg_model_missing["MODEL_A"]["configuration_sha256"]
+    with open(cfg_file, "w", encoding="utf-8") as f:
+        json.dump(cfg_model_missing, f)
+    is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+    assert is_ready is False
+    assert any("MODEL_A configuration_sha256 missing while configuration_frozen is True" in r for r in reasons)
+
+
+def test_student_annotation_output_template_warning():
+    """Verify student annotation output template is marked NON_VALID_BLANK_TEMPLATE with prominent warning."""
+    tmpl_path = os.path.join(GATE_B3_DIR, "student_annotation_output_template.json")
+    assert os.path.exists(tmpl_path), "Missing student_annotation_output_template.json"
+    with open(tmpl_path, "r", encoding="utf-8") as f:
+        tmpl = json.load(f)
+    assert tmpl.get("template_status") == "NON_VALID_BLANK_TEMPLATE"
+    assert "THIS SAMPLE RECORD IS NOT A VALID COMPLETED ANNOTATION" in tmpl.get("warning", "")
+    assert "DO NOT COPY IT DIRECTLY INTO FINAL ANNOTATION OUTPUT" in tmpl.get("warning", "")
+    reqs = tmpl.get("completion_requirements", "")
+    assert "acceptable_labels non-empty" in reqs
+    assert "active_time_seconds >= 0" in reqs
+    assert "rule_difficulty in easy/moderate/hard" in reqs
+    assert "recognized_from_prior_work in true/false/unsure" in reqs
+
