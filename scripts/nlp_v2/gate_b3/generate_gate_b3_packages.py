@@ -185,11 +185,19 @@ def generate_packages():
     # 5. Export Model Annotator Configs Placeholder
     model_configs = {
         "study": "Gate B.3 Annotation-Stability Framework",
+        "configuration_frozen": False,
+        "frozen_at": None,
+        "prompt_sha256": None,
+        "t2_guide_sha256": None,
+        "t3_guide_sha256": None,
+        "schema_sha256": None,
         "MODEL_A": {
             "provider": "PENDING",
             "model": "PENDING",
             "version": "PENDING",
+            "exact_version_or_revision": None,
             "status": "PENDING",
+            "configuration_frozen": False,
             "execution_timestamp": None,
             "decoding_parameters": {
                 "temperature": 0.0,
@@ -204,7 +212,9 @@ def generate_packages():
             "provider": "PENDING",
             "model": "PENDING",
             "version": "PENDING",
+            "exact_version_or_revision": None,
             "status": "PENDING",
+            "configuration_frozen": False,
             "execution_timestamp": None,
             "decoding_parameters": {
                 "temperature": 0.0,
@@ -301,6 +311,7 @@ def generate_packages():
             "model_b_t3_input": "data/nlp_v2/gate_b3/model_b_t3_input.jsonl",
             "model_annotator_configs": "data/nlp_v2/gate_b3/model_annotator_configs.json",
             "gold_boundary_audit_template": "data/nlp_v2/gate_b3/gold_boundary_audit_template.csv",
+            "student_annotation_output_template": "data/nlp_v2/gate_b3/student_annotation_output_template.json",
             "output_schema": "docs/nlp_v2/gate_b3/annotation_output_schema.json",
             "t2_annotation_guide": "docs/nlp_v2/gate_b3/t2_annotation_guide.md",
             "t3_annotation_guide": "docs/nlp_v2/gate_b3/t3_annotation_guide.md",

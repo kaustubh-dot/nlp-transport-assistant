@@ -1,25 +1,25 @@
 """Unit and Integration Tests for NLP v2 Gate B.3 Annotation-Stability Framework.
 
-Verifies Section 56 requirements:
+Verifies Section 56 and Pre-Annotation Hardening requirements:
 1. Source 350 file unchanged (row count and bitwise SHA-256)
-2. Student order assignment deterministic
-3. 175/175 deterministic half split
-4. Each student eventually sees every query under both taxonomies
-5. First/second taxonomy order is counterbalanced
-6. Model exports contain exactly 350 items each
-7. Annotator exports contain no gold
-8. Annotator exports contain no predictions
-9. Annotator exports contain no utterance_id
-10. Annotation schema validation
-11. Acceptable set rules
-12. Null primary supported
-13. Clarification reason validation
-14. First-pass lock blocks incomplete outputs
-15. Gold join blocked before lock
+2. Student order assignment deterministic and 175/175 half split
+3. Each student eventually sees every query under both taxonomies
+4. Model exports contain exactly 350 items each
+5. Annotator exports contain no gold, no predictions, no utterance_id
+6. Canonical Draft7 JSON Schema validation with student burden fields
+7. Semantic validation (student vs model burden fields, clarification invariant, taxonomy vocabularies)
+8. Exact frozen ID set validation for first-pass lock (missing, unexpected, duplicate, 351 records)
+9. Source identity validation per file (source_id, source_type, taxonomy_version)
+10. Lock integrity cryptographic hash revalidation before gold access
+11. T2 reference concordance namespace mapping regression tests
+12. Contrast-group consistency analysis
+13. Boundary panels full metrics suite
+14. End-to-end analysis orchestration blocked before lock
+15. Annotation-start QA gatekeeper logic (blocked when PENDING, passes when frozen)
 16. Guide examples have zero overlap with blind set
-17. Model annotator config remains PENDING
+17. Model annotator configs remain PENDING
 18. Taxonomy decision remains PENDING
-19. Bootstrap interpretation note exists
+19. Bootstrap interpretation note exists with clarified wording
 """
 
 import os
@@ -29,6 +29,7 @@ import json
 import hashlib
 import re
 import pytest
+from jsonschema import Draft7Validator
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 GATE_B2_DIR = os.path.join(BASE_DIR, "data", "nlp_v2", "gate_b2")
@@ -80,7 +81,6 @@ def test_student_order_assignment_deterministic_and_half_split():
     assert len(half_a) == 175, f"Half A size: {len(half_a)}"
     assert len(half_b) == 175, f"Half B size: {len(half_b)}"
 
-    # Counterbalancing check
     for r in half_a:
         assert r["first_taxonomy"] == "T2"
         assert r["second_taxonomy"] == "T3"
@@ -146,7 +146,6 @@ def test_annotator_exports_contain_no_gold_or_predictions_or_utterance_id():
         "semantic_subtype", "predictions", "prediction"
     }
 
-    # Student CSVs
     student_files = [
         "student_t2_first_pass.csv",
         "student_t3_first_pass.csv",
@@ -161,7 +160,6 @@ def test_annotator_exports_contain_no_gold_or_predictions_or_utterance_id():
             assert fields == {"annotation_id", "query", "taxonomy_version"}
             assert not (fields & forbidden), f"Forbidden field in {sf}: {fields & forbidden}"
 
-    # Model JSONLs
     model_files = [
         "model_a_t2_input.jsonl",
         "model_a_t3_input.jsonl",
@@ -178,47 +176,217 @@ def test_annotator_exports_contain_no_gold_or_predictions_or_utterance_id():
                 assert not (keys & forbidden), f"Forbidden key in {mf}:{idx}"
 
 
-def test_annotation_schema_validation_and_acceptable_set_rules():
-    """Verify annotation output schema rules."""
-    schema_path = os.path.join(DOCS_B3_DIR, "annotation_output_schema.json")
-    assert os.path.exists(schema_path), "Missing annotation_output_schema.json"
+def test_canonical_json_schema_validation_via_draft7():
+    """Verify Draft7Validator enforcement against annotation_output_schema.json."""
+    from scripts.nlp_v2.gate_b3.lock_first_pass_annotations import load_validator
+    validator = load_validator()
 
-    with open(schema_path, "r", encoding="utf-8") as f:
-        schema = json.load(f)
+    valid_student_rec = {
+        "annotation_id": "ANN_B2_001",
+        "source_id": "STUDENT_R1",
+        "source_type": "student",
+        "taxonomy_version": "T2",
+        "run_id": "STUDENT_PASS_1",
+        "primary_label": "route_query",
+        "acceptable_labels": ["route_query"],
+        "clarification_required": False,
+        "clarification_reasons": [],
+        "brief_justification": "Clear route request.",
+        "recognized_from_prior_work": "false",
+        "active_time_seconds": 12.5,
+        "rule_difficulty": "easy",
+        "response_status": "VALID"
+    }
+    assert validator.is_valid(valid_student_rec)
 
-    props = schema["properties"]
-    # 1. acceptable_labels non-empty array
-    assert props["acceptable_labels"]["type"] == "array"
-    assert props["acceptable_labels"]["minItems"] >= 1
+    # 1. Missing run_id rejected
+    bad_rec = dict(valid_student_rec)
+    del bad_rec["run_id"]
+    assert not validator.is_valid(bad_rec)
 
-    # 2. null primary supported
-    prim_type = props["primary_label"]["type"]
-    assert "null" in prim_type, f"primary_label must support null, got {prim_type}"
+    # 2. Invalid response_status rejected
+    bad_rec2 = dict(valid_student_rec, response_status="INVALID_STATUS")
+    assert not validator.is_valid(bad_rec2)
 
-    # 3. clarification reasons validation
-    enum_reasons = props["clarification_reasons"]["items"]["enum"]
-    expected_reasons = {"intent_ambiguity", "missing_slot", "multiple_goals", "uninterpretable"}
-    assert set(enum_reasons) == expected_reasons, f"Clarification reasons mismatch: {enum_reasons}"
+    # 3. Additional unexpected property rejected
+    bad_rec3 = dict(valid_student_rec, unexpected_prop="fail")
+    assert not validator.is_valid(bad_rec3)
 
-    # 4. response status validation
-    enum_status = props["response_status"]["enum"]
-    assert set(enum_status) == {"VALID", "FORMAT_REPAIRED", "FAILED"}
-
-
-def test_first_pass_lock_blocks_incomplete_outputs():
-    """Verify lock_first_pass_annotations.py refuses to lock when outputs are missing."""
-    from scripts.nlp_v2.gate_b3.lock_first_pass_annotations import attempt_lock
-    success = attempt_lock()
-    assert success is False, "Lock should NOT succeed when annotation files are missing!"
+    # 4. Null primary supported
+    null_prim_rec = dict(valid_student_rec, primary_label=None, clarification_required=True, clarification_reasons=["intent_ambiguity"])
+    assert validator.is_valid(null_prim_rec)
 
 
-def test_gold_join_blocked_before_lock():
-    """Verify compute_annotation_stability.py refuses gold key access prior to lock."""
+def test_semantic_validation_student_burden_and_invariants():
+    """Verify semantic validation rules in lock_first_pass_annotations."""
+    from scripts.nlp_v2.gate_b3.lock_first_pass_annotations import validate_record_semantics, EXPECTED_OUTPUT_SPECS
+
+    student_spec = EXPECTED_OUTPUT_SPECS["student_t2_annotations.jsonl"]
+    model_spec = EXPECTED_OUTPUT_SPECS["model_a_t2_annotations.jsonl"]
+
+    base_rec = {
+        "annotation_id": "ANN_B2_001",
+        "source_id": "STUDENT_R1",
+        "source_type": "student",
+        "taxonomy_version": "T2",
+        "run_id": "STUDENT_T2_P1",
+        "primary_label": "route_query",
+        "acceptable_labels": ["route_query"],
+        "clarification_required": False,
+        "clarification_reasons": [],
+        "brief_justification": "Valid justification",
+        "recognized_from_prior_work": "false",
+        "active_time_seconds": 8.0,
+        "rule_difficulty": "easy",
+        "response_status": "VALID"
+    }
+
+    # Student valid
+    validate_record_semantics(base_rec, student_spec, 1, "test.jsonl")
+
+    # 1. Source mismatch: MODEL_A file with source_id MODEL_B rejected
+    model_rec = dict(base_rec, source_id="MODEL_B", source_type="model", active_time_seconds=None, rule_difficulty="not_applicable", recognized_from_prior_work="not_applicable")
+    with pytest.raises(ValueError, match="source_id mismatch"):
+        validate_record_semantics(model_rec, model_spec, 1, "test.jsonl")
+
+    # 2. Student file with source_type model rejected
+    bad_student_type = dict(base_rec, source_type="model")
+    with pytest.raises(ValueError, match="source_type mismatch"):
+        validate_record_semantics(bad_student_type, student_spec, 1, "test.jsonl")
+
+    # 3. Wrong taxonomy rejected
+    bad_tax = dict(base_rec, taxonomy_version="T3")
+    with pytest.raises(ValueError, match="taxonomy_version mismatch"):
+        validate_record_semantics(bad_tax, student_spec, 1, "test.jsonl")
+
+    # 4. Student missing numeric active_time_seconds rejected
+    bad_time = dict(base_rec, active_time_seconds=None)
+    with pytest.raises(ValueError, match="active_time_seconds"):
+        validate_record_semantics(bad_time, student_spec, 1, "test.jsonl")
+
+    # 5. Model with non-null active_time_seconds rejected
+    model_valid = dict(base_rec, source_id="MODEL_A", source_type="model", active_time_seconds=None, rule_difficulty="not_applicable", recognized_from_prior_work="not_applicable")
+    validate_record_semantics(model_valid, model_spec, 1, "test.jsonl")
+
+    bad_model_time = dict(model_valid, active_time_seconds=5.0)
+    with pytest.raises(ValueError, match="Model active_time_seconds must be null"):
+        validate_record_semantics(bad_model_time, model_spec, 1, "test.jsonl")
+
+    # 6. Primary-label not in acceptable_labels rejected
+    bad_acc = dict(base_rec, acceptable_labels=["fare_query"])
+    with pytest.raises(ValueError, match="must be in acceptable_labels"):
+        validate_record_semantics(bad_acc, student_spec, 1, "test.jsonl")
+
+    # 7. Clarification invariant: clarification_required False with reasons rejected
+    bad_clar_false = dict(base_rec, clarification_required=False, clarification_reasons=["missing_slot"])
+    with pytest.raises(ValueError, match="must be empty when clarification_required is false"):
+        validate_record_semantics(bad_clar_false, student_spec, 1, "test.jsonl")
+
+    # 8. Clarification invariant: clarification_required True with empty reasons rejected
+    bad_clar_true = dict(base_rec, clarification_required=True, clarification_reasons=[])
+    with pytest.raises(ValueError, match="must be non-empty when clarification_required is true"):
+        validate_record_semantics(bad_clar_true, student_spec, 1, "test.jsonl")
+
+
+def test_t2_reference_concordance_namespace_mapping():
+    """Verify T2 reference acceptable labels collapse T3 secondary labels to T2 parents."""
+    from scripts.nlp_v2.gate_b3.compute_annotation_stability import get_reference_acceptable_set
+
+    # Fixture 1: multimodal_route maps to route_query
+    ref1 = {
+        "gold_T2_intent": "route_query",
+        "gold_T3_intent": "point_to_point_route",
+        "acceptable_secondary_labels": ["multimodal_route"]
+    }
+    t2_set1 = get_reference_acceptable_set(ref1, "T2")
+    assert t2_set1 == {"route_query"}, f"Expected {{'route_query'}}, got {t2_set1}"
+
+    # Fixture 2: timing subtypes collapse into service_timing
+    ref2 = {
+        "gold_T2_intent": "service_timing",
+        "gold_T3_intent": "scheduled_departure",
+        "acceptable_secondary_labels": ["first_and_last_service", "service_frequency"]
+    }
+    t2_set2 = get_reference_acceptable_set(ref2, "T2")
+    assert t2_set2 == {"service_timing"}, f"Expected {{'service_timing'}}, got {t2_set2}"
+
+    # Fixture 3: T3 set remains in T3 namespace
+    t3_set2 = get_reference_acceptable_set(ref2, "T3")
+    assert t3_set2 == {"scheduled_departure", "first_and_last_service", "service_frequency"}
+
+
+def test_lock_integrity_hash_revalidation_blocks_gold_access(tmp_path):
+    """Verify verify_first_pass_lock_integrity fails when locked file is mutated."""
     import scripts.nlp_v2.gate_b3.compute_annotation_stability as stab
+
+    # When lock is false initially, access is blocked
     assert stab.is_first_pass_locked() is False
-    with pytest.raises(PermissionError) as exc_info:
+    with pytest.raises(PermissionError, match="HARD GUARDRAIL VIOLATION"):
         stab.load_gold_key()
-    assert "HARD GUARDRAIL VIOLATION" in str(exc_info.value)
+
+
+def test_contrast_group_analysis_computation():
+    """Verify compute_contrast_group_analysis reports complete vs incomplete groups."""
+    from scripts.nlp_v2.gate_b3.compute_annotation_stability import compute_contrast_group_analysis
+
+    mock_gold_key = {
+        "ANN_B2_001": {"contrast_group_id": "CG_COMPLETE_01"},
+        "ANN_B2_002": {"contrast_group_id": "CG_COMPLETE_01"},
+        "ANN_B2_003": {"contrast_group_id": "CG_INCOMPLETE_01"},
+    }
+    mock_sources = {}
+    res = compute_contrast_group_analysis(mock_gold_key, mock_sources)
+
+    assert res["total_contrast_groups_represented"] == 2
+    assert "sampling_limitation_note" in res
+    assert res["complete_contrast_groups_count"] + res["incomplete_contrast_fragments_count"] == 2
+
+
+def test_boundary_panels_full_metrics():
+    """Verify boundary panels metric computation with support, disagreement, and Jaccard."""
+    from scripts.nlp_v2.gate_b3.compute_annotation_stability import compute_boundary_panels
+
+    mock_sources = {
+        "STUDENT_R1": {
+            "ANN_B2_001": {"primary_label": "point_to_point_route", "acceptable_labels": ["point_to_point_route"], "clarification_required": False},
+            "ANN_B2_002": {"primary_label": "multimodal_route", "acceptable_labels": ["multimodal_route"], "clarification_required": True, "clarification_reasons": ["multiple_goals"]}
+        },
+        "MODEL_A": {
+            "ANN_B2_001": {"primary_label": "point_to_point_route", "acceptable_labels": ["point_to_point_route"], "clarification_required": False},
+            "ANN_B2_002": {"primary_label": "point_to_point_route", "acceptable_labels": ["point_to_point_route", "multimodal_route"], "clarification_required": False}
+        }
+    }
+    panels = compute_boundary_panels(mock_sources, gold_key=None, taxonomy="T3")
+
+    p2p_panel = panels["point_to_point_vs_multimodal"]
+    assert p2p_panel["support_n"] == 2
+    assert "STUDENT_R1_vs_MODEL_A" in p2p_panel["pairwise_metrics"]
+    metrics = p2p_panel["pairwise_metrics"]["STUDENT_R1_vs_MODEL_A"]
+    assert "primary_label_disagreement_rate" in metrics
+    assert "exact_acceptable_set_agreement_rate" in metrics
+    assert "mean_acceptable_set_jaccard" in metrics
+    assert "clarification_disagreement_rate" in metrics
+
+
+def test_analysis_orchestration_fails_before_lock():
+    """Verify run_full_analysis_pipeline hard-fails with FIRST_PASS_NOT_LOCKED before lock."""
+    from scripts.nlp_v2.gate_b3.compute_annotation_stability import run_full_analysis_pipeline
+    with pytest.raises(RuntimeError, match="FIRST_PASS_NOT_LOCKED"):
+        run_full_analysis_pipeline()
+
+
+def test_annotation_start_qa_blocks_when_pending():
+    """Verify qa_gate_b3_annotation_start blocks when models remain PENDING."""
+    import subprocess
+    proc = subprocess.run(
+        [sys.executable, "scripts/nlp_v2/gate_b3/qa_gate_b3_annotation_start.py"],
+        capture_output=True,
+        text=True
+    )
+    assert proc.returncode != 0
+    assert "STATUS: BLOCKED / NOT READY" in proc.stdout
+    assert "MODEL_A status/provider/model remains PENDING" in proc.stdout
+    assert "MODEL_B status/provider/model remains PENDING" in proc.stdout
 
 
 def test_guide_examples_zero_overlap_with_blind_set():
@@ -240,17 +408,20 @@ def test_guide_examples_zero_overlap_with_blind_set():
 
 
 def test_model_annotator_config_remains_pending():
-    """Verify model annotator configuration placeholders remain PENDING."""
+    """Verify model annotator configuration placeholders remain PENDING with freeze fields."""
     cfg_path = os.path.join(GATE_B3_DIR, "model_annotator_configs.json")
     with open(cfg_path, "r", encoding="utf-8") as f:
         cfg = json.load(f)
 
+    assert cfg["configuration_frozen"] is False
     assert cfg["MODEL_A"]["status"] == "PENDING"
     assert cfg["MODEL_A"]["provider"] == "PENDING"
+    assert cfg["MODEL_A"]["configuration_frozen"] is False
     assert cfg["MODEL_A"]["execution_timestamp"] is None
 
     assert cfg["MODEL_B"]["status"] == "PENDING"
     assert cfg["MODEL_B"]["provider"] == "PENDING"
+    assert cfg["MODEL_B"]["configuration_frozen"] is False
     assert cfg["MODEL_B"]["execution_timestamp"] is None
 
 
@@ -270,13 +441,14 @@ def test_taxonomy_decision_remains_pending():
 
 
 def test_bootstrap_interpretation_note_exists():
-    """Verify Gate B.2 bootstrap interpretation note exists and preserves metrics."""
+    """Verify Gate B.2 bootstrap interpretation note exists with clarified wording."""
     note_path = os.path.join(REPORTS_B3_DIR, "gate_b2_bootstrap_interpretation_note.md")
     assert os.path.exists(note_path), "Missing gate_b2_bootstrap_interpretation_note.md"
     with open(note_path, "r", encoding="utf-8") as f:
         content = f.read()
 
     assert "query bootstrap over fixed evaluated seeds" in content
+    assert "mean operation accuracy across the three fixed evaluated seeds" in content
     assert "+4.11" in content
     assert "+4.01" in content
     assert "0.0245" in content

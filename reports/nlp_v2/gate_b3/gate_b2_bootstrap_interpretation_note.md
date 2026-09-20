@@ -23,7 +23,7 @@ This note provides a formal methodological clarification regarding the precise s
 In the Gate B.2 implementation (`scripts/nlp_v2/gate_b2/evaluate_gate_b2.py`), the bootstrap procedure operates by:
 1. Resampling query indices with replacement from the 706 stress-evaluation items ($N = 706$ queries);
 2. Retaining predictions from all three evaluated training seeds ($\{42, 101, 777\}$) for each resampled query index;
-3. Calculating the mean macro operational accuracy for T2-H and T3 across those three seeds on each resampled query slice.
+3. Calculating the mean operation accuracy across the three fixed evaluated seeds for T2-H and T3 on each resampled query slice.
 
 Because new model training runs with freshly sampled random seeds are **not** retrained inside each bootstrap iteration, the sampling variation captured is exclusively over the **query population**, conditional on the three fixed, evaluated training checkpoints.
 

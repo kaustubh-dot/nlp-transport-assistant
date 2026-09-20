@@ -15,6 +15,8 @@
     "clarification_reasons",
     "brief_justification",
     "recognized_from_prior_work",
+    "active_time_seconds",
+    "rule_difficulty",
     "response_status"
   ],
   "properties": {
@@ -78,6 +80,16 @@
       "type": "string",
       "enum": ["true", "false", "unsure", "not_applicable"],
       "description": "Prior exposure diagnostic: true/false/unsure for student annotator; not_applicable for model annotators."
+    },
+    "active_time_seconds": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "description": "Active annotation time in seconds for student annotator (null for model annotators)."
+    },
+    "rule_difficulty": {
+      "type": "string",
+      "enum": ["easy", "moderate", "hard", "not_applicable"],
+      "description": "Subjective guideline application difficulty for student annotator (not_applicable for model annotators)."
     },
     "response_status": {
       "type": "string",

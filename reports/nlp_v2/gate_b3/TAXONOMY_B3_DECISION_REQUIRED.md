@@ -35,7 +35,7 @@ At the conclusion of the Gate B.3 audit, one of the following three decisions mu
 
 ### 3.1 Conditions for `T3_FREEZE`
 T3 may be frozen for this university course project **only if all of the following criteria are satisfied**:
-1. The Gate B.2 model-side operational accuracy advantage ($+4.11\text{ pp}$ strict, $+4.01\text{ pp}$ ambiguity-aware, $p < 0.002$) remains methodologically relevant and is not negated by reference defects.
+1. The Gate B.2 model-side operational accuracy advantage ($+4.11\text{ pp}$ strict, $+4.01\text{ pp}$ ambiguity-aware, empirical $p < 0.002$ from query resampling conditional on fixed evaluated seeds; see [`gate_b2_bootstrap_interpretation_note.md`](file:///home/kaustubh/projects/NLP/reports/nlp_v2/gate_b3/gate_b2_bootstrap_interpretation_note.md)) remains methodologically relevant and is not negated by reference defects.
 2. The fine-grained splits unpacked by T3 (route, stop, and timing operations) demonstrate observed coverage and positive agreement across annotators.
 3. Added fine distinctions (e.g. `point_to_point_route` vs `multimodal_route`, `route_stop_sequence` vs `route_stop_membership`) have coherent, operationalizable expressed-meaning boundary rules.
 4. No unresolved **structural taxonomy defect** (see Section 4) is identified in those fine distinctions during the post-lock audit.

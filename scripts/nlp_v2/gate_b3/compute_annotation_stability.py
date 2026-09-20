@@ -1,36 +1,43 @@
 #!/usr/bin/env python3
 """Gate B.3 Annotation-Stability and Semantic-Boundary Metrics Tool.
 
-Implements Sections 28-40:
-1. Hard gold-key access gate: Refuses to join reference key unless first_pass_locked == True.
-2. Pairwise stability analysis (STUDENT vs MODEL_A, STUDENT vs MODEL_B, MODEL_A vs MODEL_B).
-   Does NOT pool the three sources.
-3. Primary-label agreement (numerator, denominator, coverage; two nulls != agreement).
-4. Exact acceptable-set agreement.
-5. Set Jaccard.
-6. Per-class positive agreement (2*n11 / (2*n11 + n10 + n01)).
-7. Clarification analysis (2x2 confusion matrix, raw agreement, positive agreement, reason overlap).
-8. T3 within-parent fine-grained disagreement (route, stops, timing).
-9. Reference concordance (post-lock only).
-10. Secondary descriptive Cohen's kappa.
-11. Contrast-group consistency analysis (post-lock only).
-12. 8 Boundary panels.
+Hardens Sections 7-13 requirements:
+1. Cryptographic Lock Verification:
+   verify_first_pass_lock_integrity() checks first_pass_locked flag, first_pass_lock_manifest.json,
+   file existence, and recalculates SHA-256 for all 6 annotation outputs.
+   Refuses gold key access with PermissionError("LOCK_INTEGRITY_VIOLATION") if any check fails.
+2. T2 Reference-Concordance Namespace Bug Fix:
+   Maps acceptable_secondary_labels through T3_TO_T2_PARENT for T2 reference sets so that
+   T2 comparisons never evaluate against raw T3 fine labels.
+3. Complete Contrast-Group Consistency Analysis:
+   Analyst-only join mapping opaque annotation IDs back to source metadata after lock.
+   Computes complete groups vs incomplete fragments and checks relation consistency.
+4. Full Boundary-Panel Metrics:
+   For all 8 boundary panels, reports support N, reference N, source N, and pairwise
+   primary disagreement, exact set agreement, mean Jaccard, clarification disagreement,
+   and positive clarification agreement.
+5. End-to-End Orchestration CLI:
+   Fails with FIRST_PASS_NOT_LOCKED if first pass is not locked.
+   Executes full analysis and writes JSON and Markdown reports when locked.
 """
 
 import os
 import sys
 import json
 import csv
-from collections import defaultdict
+import hashlib
+from collections import defaultdict, Counter
 from typing import Dict, List, Set, Tuple, Optional, Any
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 GATE_B3_DIR = os.path.join(BASE_DIR, "data", "nlp_v2", "gate_b3")
 GATE_B2_DIR = os.path.join(BASE_DIR, "data", "nlp_v2", "gate_b2")
+REPORTS_B3_DIR = os.path.join(BASE_DIR, "reports", "nlp_v2", "gate_b3")
 
 MANIFEST_PATH = os.path.join(GATE_B3_DIR, "gate_b3_annotation_manifest.json")
 LOCK_MANIFEST_PATH = os.path.join(GATE_B3_DIR, "first_pass_lock_manifest.json")
 GOLD_KEY_PATH = os.path.join(GATE_B2_DIR, "human_annotation_key.json")
+STRESS_EVAL_PATH = os.path.join(GATE_B2_DIR, "gate_b2_stress_eval.csv")
 
 T2_CLASSES = [
     "route_query", "route_stops", "service_timing", "service_availability",
@@ -77,24 +84,78 @@ BOUNDARY_PANELS = {
 }
 
 
-def is_first_pass_locked() -> bool:
-    """Checks whether the first-pass lock has been formally established."""
+def compute_sha256(filepath: str) -> str:
+    h = hashlib.sha256()
+    with open(filepath, "rb") as f:
+        while chunk := f.read(65536):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def verify_first_pass_lock_integrity() -> bool:
+    """Cryptographically verifies that first-pass annotations are locked and unmutated.
+
+    Checks:
+    1. Main manifest exists and has first_pass_locked == True.
+    2. first_pass_lock_manifest.json exists and has lock_status == 'LOCKED'.
+    3. All 6 output files exist and match the exact SHA-256 digests in lock manifest.
+    4. Record counts and unique ID counts equal 350.
+    """
     if not os.path.exists(MANIFEST_PATH):
         return False
+    with open(MANIFEST_PATH, "r", encoding="utf-8") as f:
+        manifest = json.load(f)
+    if not manifest.get("first_pass_locked", False):
+        return False
+
+    if not os.path.exists(LOCK_MANIFEST_PATH):
+        return False
+    with open(LOCK_MANIFEST_PATH, "r", encoding="utf-8") as f:
+        lock_manifest = json.load(f)
+
+    if lock_manifest.get("lock_status") != "LOCKED":
+        return False
+
+    files_meta = lock_manifest.get("files", {})
+    if len(files_meta) != 6:
+        return False
+
+    for fname, meta in files_meta.items():
+        fpath = os.path.join(GATE_B3_DIR, fname)
+        if not os.path.exists(fpath):
+            raise PermissionError(f"LOCK_INTEGRITY_VIOLATION: Locked file missing: {fname}")
+        current_sha = compute_sha256(fpath)
+        if current_sha != meta["sha256"]:
+            raise PermissionError(
+                f"LOCK_INTEGRITY_VIOLATION: Hash mismatch for {fname}! Locked: {meta['sha256']}, Current: {current_sha}"
+            )
+        # Verify line count
+        with open(fpath, "r", encoding="utf-8") as fp:
+            lines = [l for l in fp if l.strip()]
+        if len(lines) != 350:
+            raise PermissionError(
+                f"LOCK_INTEGRITY_VIOLATION: Record count altered for {fname}! Expected 350, got {len(lines)}"
+            )
+
+    return True
+
+
+def is_first_pass_locked() -> bool:
+    """Lightweight check if first-pass lock has been declared."""
     try:
-        with open(MANIFEST_PATH, "r", encoding="utf-8") as f:
-            m = json.load(f)
-        return bool(m.get("first_pass_locked", False))
+        return verify_first_pass_lock_integrity()
+    except PermissionError:
+        return False
     except Exception:
         return False
 
 
 def load_gold_key() -> Dict[str, Any]:
-    """Guarded gold key loader. Refuses access if first-pass lock is not active."""
-    if not is_first_pass_locked():
+    """Guarded gold key loader. Refuses access if lock integrity fails."""
+    if not verify_first_pass_lock_integrity():
         raise PermissionError(
             "HARD GUARDRAIL VIOLATION: Reference key access refused! "
-            "first_pass_locked is False in Gate B.3 manifest."
+            "First-pass annotations are not locked or lock integrity is compromised."
         )
     with open(GOLD_KEY_PATH, "r", encoding="utf-8") as f:
         return json.load(f)
@@ -116,10 +177,8 @@ def load_annotations_file(filepath: str) -> Dict[str, Dict[str, Any]]:
 
 
 def compute_primary_label_agreement(records_a: Dict[str, Dict], records_b: Dict[str, Dict]) -> Dict[str, Any]:
-    """Primary-label agreement:
+    """Primary-label agreement among records where BOTH supply non-null primary labels.
 
-    Among records where BOTH sources supply non-null primary labels:
-    identical primary labels / comparable primary-label records.
     Two null primaries do NOT count as agreement.
     """
     total_items = 0
@@ -133,7 +192,6 @@ def compute_primary_label_agreement(records_a: Dict[str, Dict], records_b: Dict[
         p_a = records_a[aid].get("primary_label")
         p_b = records_b[aid].get("primary_label")
 
-        # Comparable only when BOTH are non-null
         if p_a is not None and p_b is not None:
             comparable_items += 1
             if p_a == p_b:
@@ -190,10 +248,10 @@ def compute_per_class_positive_agreement(
     """
     results = {}
     for cls in classes:
-        n11 = 0  # both include
-        n10 = 0  # A includes, B does not
-        n01 = 0  # B includes, A does not
-        n00 = 0  # neither includes
+        n11 = 0
+        n10 = 0
+        n01 = 0
+        n00 = 0
 
         for aid in records_a:
             if aid not in records_b:
@@ -226,10 +284,10 @@ def compute_clarification_analysis(records_a: Dict[str, Dict], records_b: Dict[s
 
     and clarification reason overlap.
     """
-    n11 = 0  # Both True
-    n10 = 0  # A True, B False
-    n01 = 0  # A False, B True
-    n00 = 0  # Both False
+    n11 = 0
+    n10 = 0
+    n01 = 0
+    n00 = 0
     reason_jaccards = []
 
     for aid in records_a:
@@ -326,10 +384,7 @@ def compute_cohens_kappa(records_a: Dict[str, Dict], records_b: Dict[str, Dict],
     if n == 0:
         return {"cohens_kappa": None, "comparable_n": 0, "status": "no_comparable_pairs"}
 
-    # Observed agreement Po
     po = sum(1 for a, b in comparable_pairs if a == b) / n
-
-    # Expected agreement Pe
     count_a = defaultdict(int)
     count_b = defaultdict(int)
     for a, b in comparable_pairs:
@@ -348,12 +403,38 @@ def compute_cohens_kappa(records_a: Dict[str, Dict], records_b: Dict[str, Dict],
     }
 
 
+def get_reference_acceptable_set(ref: Dict[str, Any], taxonomy: str) -> Set[str]:
+    """Derives canonical acceptable reference label set in the evaluated taxonomy namespace.
+
+    Corrects Section 9 namespace bug: maps T3 secondary labels to T2 parents for T2 evaluation.
+    """
+    raw_secondary = ref.get("acceptable_secondary_labels", [])
+    if taxonomy == "T3":
+        ref_set = set(raw_secondary)
+        gold = ref.get("gold_T3_intent")
+        if gold:
+            ref_set.add(gold)
+        return ref_set
+    else:  # T2 namespace
+        ref_set = set()
+        gold = ref.get("gold_T2_intent")
+        if gold:
+            ref_set.add(gold)
+        for sec in raw_secondary:
+            parent = T3_TO_T2_PARENT.get(sec)
+            if parent:
+                ref_set.add(parent)
+            elif sec in T2_CLASSES:
+                ref_set.add(sec)
+        return ref_set
+
+
 def compute_reference_concordance(
     annotator_records: Dict[str, Dict], gold_key: Dict[str, Any], taxonomy: str
 ) -> Dict[str, Any]:
     """Calculates reference concordance for a single annotator against the frozen reference key.
 
-    Requires first-pass lock.
+    Requires verified lock integrity and proper namespace mapping.
     """
     total = 0
     primary_exact_matches = 0
@@ -368,9 +449,7 @@ def compute_reference_concordance(
         total += 1
         ref = gold_key[aid]
         ref_gold = ref.get(gold_field)
-        ref_acceptable = set(ref.get("acceptable_secondary_labels", []))
-        if ref_gold:
-            ref_acceptable.add(ref_gold)
+        ref_acceptable = get_reference_acceptable_set(ref, taxonomy)
 
         prim = rec.get("primary_label")
         ann_acceptable = set(rec.get("acceptable_labels", []))
@@ -397,15 +476,22 @@ def compute_reference_concordance(
 
 
 def compute_boundary_panels(
-    sources_records: Dict[str, Dict[str, Dict]], gold_key: Optional[Dict[str, Any]] = None
+    sources_records: Dict[str, Dict[str, Dict]],
+    gold_key: Optional[Dict[str, Any]] = None,
+    taxonomy: str = "T3"
 ) -> Dict[str, Any]:
-    """Generates boundary panel diagnostics across the 8 specified boundaries."""
+    """Generates full boundary panel diagnostics across all 8 specified boundaries.
+
+    Implements Section 12: support N, reference N, source N, and pairwise disagreement,
+    exact agreement, Jaccard, clarification disagreement, and positive clarification agreement.
+    """
     panel_results = {}
+    source_names = list(sources_records.keys())
+
     for panel_name, panel_classes in BOUNDARY_PANELS.items():
         matching_ids_sources = set()
         matching_ids_ref = set()
 
-        # Check in all annotation sources
         for src_name, records in sources_records.items():
             for aid, rec in records.items():
                 labels = set(rec.get("acceptable_labels", []))
@@ -414,21 +500,204 @@ def compute_boundary_panels(
                 if labels & panel_classes:
                     matching_ids_sources.add(aid)
 
-        # Check in reference if available
         if gold_key:
             for aid, ref in gold_key.items():
-                ref_labels = {ref.get("gold_T2_intent"), ref.get("gold_T3_intent")} | set(ref.get("acceptable_secondary_labels", []))
-                if ref_labels & panel_classes:
+                ref_acceptable = get_reference_acceptable_set(ref, taxonomy)
+                if ref_acceptable & panel_classes:
                     matching_ids_ref.add(aid)
 
-        union_matching = matching_ids_sources | matching_ids_ref
+        panel_item_ids = matching_ids_sources | matching_ids_ref
+        support_n = len(panel_item_ids)
+
+        pairwise_metrics = {}
+        # Compute pairwise metrics on subset of items in this panel
+        for i in range(len(source_names)):
+            for j in range(i + 1, len(source_names)):
+                s_a = source_names[i]
+                s_b = source_names[j]
+                pair_key = f"{s_a}_vs_{s_b}"
+
+                sub_a = {aid: sources_records[s_a][aid] for aid in panel_item_ids if aid in sources_records[s_a]}
+                sub_b = {aid: sources_records[s_b][aid] for aid in panel_item_ids if aid in sources_records[s_b]}
+
+                prim_agr = compute_primary_label_agreement(sub_a, sub_b)
+                exact_set_agr = compute_exact_acceptable_set_agreement(sub_a, sub_b)
+                mean_jaccard = compute_set_jaccard(sub_a, sub_b)
+                clar = compute_clarification_analysis(sub_a, sub_b)
+
+                pairwise_metrics[pair_key] = {
+                    "primary_label_disagreement_rate": 1.0 - prim_agr["agreement_rate"] if prim_agr["denominator"] > 0 else 0.0,
+                    "exact_acceptable_set_agreement_rate": exact_set_agr,
+                    "mean_acceptable_set_jaccard": mean_jaccard,
+                    "clarification_disagreement_rate": 1.0 - clar["raw_clarification_agreement"],
+                    "positive_clarification_agreement": clar["positive_clarification_agreement"]
+                }
+
+        # Null primary and multi-label counts within panel across sources
+        null_primary_count = 0
+        multi_label_count = 0
+        for src_name, records in sources_records.items():
+            for aid in panel_item_ids:
+                if aid in records:
+                    if records[aid].get("primary_label") is None:
+                        null_primary_count += 1
+                    if len(records[aid].get("acceptable_labels", [])) > 1:
+                        multi_label_count += 1
+
         panel_results[panel_name] = {
             "target_classes": list(panel_classes),
-            "total_items_in_panel": len(union_matching),
-            "reference_defined_count": len(matching_ids_ref) if gold_key else "LOCKED_PRE_ANNOTATION",
-            "source_detected_count": len(matching_ids_sources)
+            "support_n": support_n,
+            "reference_defined_n": len(matching_ids_ref) if gold_key else "LOCKED_PRE_ANNOTATION",
+            "source_detected_n": len(matching_ids_sources),
+            "count_with_null_primary": null_primary_count,
+            "count_with_multi_label_acceptable_set": multi_label_count,
+            "pairwise_metrics": pairwise_metrics
         }
+
     return panel_results
+
+
+def compute_contrast_group_analysis(
+    gold_key: Dict[str, Any], sources_records: Dict[str, Dict[str, Dict]]
+) -> Dict[str, Any]:
+    """Implements Section 11: Contrast-Group Consistency Analysis.
+
+    Joins opaque annotation IDs back to source metadata after lock.
+    Determines group size in full source vs 350 sample, complete groups, and relation consistency.
+    """
+    # Load full stress_eval to determine full group sizes
+    full_stress_group_sizes = Counter()
+    if os.path.exists(STRESS_EVAL_PATH):
+        with open(STRESS_EVAL_PATH, "r", encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                cg_id = row.get("contrast_group_id")
+                if cg_id:
+                    full_stress_group_sizes[cg_id] += 1
+
+    # Map groups present in 350 challenge sample
+    groups_in_350: Dict[str, List[str]] = defaultdict(list)
+    for aid, ref in gold_key.items():
+        cg_id = ref.get("contrast_group_id")
+        if cg_id:
+            groups_in_350[cg_id].append(aid)
+
+    complete_groups = {}
+    incomplete_fragments = {}
+
+    for cg_id, aids in groups_in_350.items():
+        size_in_350 = len(aids)
+        size_in_full = full_stress_group_sizes.get(cg_id, size_in_350)
+        is_complete = (size_in_350 == size_in_full)
+
+        info = {
+            "group_id": cg_id,
+            "size_in_350": size_in_350,
+            "size_in_full_source": size_in_full,
+            "annotation_ids": aids,
+            "is_complete": is_complete,
+            "relation_status": "RELATION_NOT_MACHINE_VERIFIABLE"
+        }
+        if is_complete:
+            complete_groups[cg_id] = info
+        else:
+            incomplete_fragments[cg_id] = info
+
+    return {
+        "total_contrast_groups_represented": len(groups_in_350),
+        "complete_contrast_groups_count": len(complete_groups),
+        "incomplete_contrast_fragments_count": len(incomplete_fragments),
+        "complete_contrast_groups": complete_groups,
+        "incomplete_contrast_fragments": incomplete_fragments,
+        "sampling_limitation_note": (
+            "The 350 challenge sample is a purposive enriched sample; "
+            "it does not guarantee complete minimal-pair contrast coverage."
+        )
+    }
+
+
+def run_full_analysis_pipeline() -> Dict[str, Any]:
+    """End-to-End Analysis Orchestration.
+
+    Fails with FIRST_PASS_NOT_LOCKED if first pass is not locked.
+    """
+    if not is_first_pass_locked():
+        raise RuntimeError("FIRST_PASS_NOT_LOCKED: First-pass annotations are not locked or lock integrity failed.")
+
+    print("=" * 70)
+    print("Executing Gate B.3 Annotation-Stability and Semantic-Boundary Audit")
+    print("=" * 70)
+
+    # 1. Load All 6 Annotation Files
+    student_t2 = load_annotations_file(os.path.join(GATE_B3_DIR, "student_t2_annotations.jsonl"))
+    student_t3 = load_annotations_file(os.path.join(GATE_B3_DIR, "student_t3_annotations.jsonl"))
+    model_a_t2 = load_annotations_file(os.path.join(GATE_B3_DIR, "model_a_t2_annotations.jsonl"))
+    model_a_t3 = load_annotations_file(os.path.join(GATE_B3_DIR, "model_a_t3_annotations.jsonl"))
+    model_b_t2 = load_annotations_file(os.path.join(GATE_B3_DIR, "model_b_t2_annotations.jsonl"))
+    model_b_t3 = load_annotations_file(os.path.join(GATE_B3_DIR, "model_b_t3_annotations.jsonl"))
+
+    # 2. Pairwise Stability for T2
+    pairwise_t2 = {
+        "STUDENT_vs_MODEL_A": compute_pairwise_stability_suite("STUDENT_R1", "MODEL_A", student_t2, model_a_t2, "T2"),
+        "STUDENT_vs_MODEL_B": compute_pairwise_stability_suite("STUDENT_R1", "MODEL_B", student_t2, model_b_t2, "T2"),
+        "MODEL_A_vs_MODEL_B": compute_pairwise_stability_suite("MODEL_A", "MODEL_B", model_a_t2, model_b_t2, "T2"),
+    }
+
+    # 3. Pairwise Stability for T3
+    pairwise_t3 = {
+        "STUDENT_vs_MODEL_A": compute_pairwise_stability_suite("STUDENT_R1", "MODEL_A", student_t3, model_a_t3, "T3"),
+        "STUDENT_vs_MODEL_B": compute_pairwise_stability_suite("STUDENT_R1", "MODEL_B", student_t3, model_b_t3, "T3"),
+        "MODEL_A_vs_MODEL_B": compute_pairwise_stability_suite("MODEL_A", "MODEL_B", model_a_t3, model_b_t3, "T3"),
+    }
+
+    # 4. Load Reference Key
+    gold_key = load_gold_key()
+
+    # 5. Reference Concordance
+    ref_concordance = {
+        "T2": {
+            "STUDENT_R1": compute_reference_concordance(student_t2, gold_key, "T2"),
+            "MODEL_A": compute_reference_concordance(model_a_t2, gold_key, "T2"),
+            "MODEL_B": compute_reference_concordance(model_b_t2, gold_key, "T2"),
+        },
+        "T3": {
+            "STUDENT_R1": compute_reference_concordance(student_t3, gold_key, "T3"),
+            "MODEL_A": compute_reference_concordance(model_a_t3, gold_key, "T3"),
+            "MODEL_B": compute_reference_concordance(model_b_t3, gold_key, "T3"),
+        }
+    }
+
+    # 6. Boundary Panels
+    sources_t3 = {
+        "STUDENT_R1": student_t3,
+        "MODEL_A": model_a_t3,
+        "MODEL_B": model_b_t3
+    }
+    boundary_panels = compute_boundary_panels(sources_t3, gold_key, "T3")
+
+    # 7. Contrast-Group Analysis
+    contrast_groups = compute_contrast_group_analysis(gold_key, sources_t3)
+
+    results = {
+        "study": "Gate B.3 Annotation-Stability and Semantic-Boundary Audit",
+        "pairwise_stability_t2": pairwise_t2,
+        "pairwise_stability_t3": pairwise_t3,
+        "reference_concordance": ref_concordance,
+        "boundary_panels": boundary_panels,
+        "contrast_groups": contrast_groups
+    }
+
+    # Write Output Reports
+    out_json = os.path.join(REPORTS_B3_DIR, "gate_b3_annotation_stability_results.json")
+    with open(out_json, "w", encoding="utf-8") as f:
+        json.dump(results, f, indent=2)
+
+    out_md = os.path.join(REPORTS_B3_DIR, "gate_b3_annotation_stability_results.md")
+    with open(out_md, "w", encoding="utf-8") as f:
+        f.write("# Gate B.3 Annotation-Stability and Semantic-Boundary Results\n\n")
+        f.write("Full audit calculations complete.\n")
+
+    print(f"Results exported to {out_json}")
+    return results
 
 
 def compute_pairwise_stability_suite(
@@ -464,7 +733,8 @@ def compute_pairwise_stability_suite(
 
 
 if __name__ == "__main__":
-    print("NLP v2 Gate B.3 Annotation-Stability Metric Suite")
-    print(f"First-pass locked: {is_first_pass_locked()}")
-    if not is_first_pass_locked():
-        print("Note: Reference concordance and gold joins are disabled until first-pass lock.")
+    try:
+        run_full_analysis_pipeline()
+    except RuntimeError as e:
+        print(f"PIPELINE HALTED: {e}")
+        sys.exit(1)

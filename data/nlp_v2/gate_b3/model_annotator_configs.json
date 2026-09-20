@@ -1,10 +1,18 @@
 {
   "study": "Gate B.3 Annotation-Stability Framework",
+  "configuration_frozen": false,
+  "frozen_at": null,
+  "prompt_sha256": null,
+  "t2_guide_sha256": null,
+  "t3_guide_sha256": null,
+  "schema_sha256": null,
   "MODEL_A": {
     "provider": "PENDING",
     "model": "PENDING",
     "version": "PENDING",
+    "exact_version_or_revision": null,
     "status": "PENDING",
+    "configuration_frozen": false,
     "execution_timestamp": null,
     "decoding_parameters": {
       "temperature": 0.0,
@@ -19,7 +27,9 @@
     "provider": "PENDING",
     "model": "PENDING",
     "version": "PENDING",
+    "exact_version_or_revision": null,
     "status": "PENDING",
+    "configuration_frozen": false,
     "execution_timestamp": null,
     "decoding_parameters": {
       "temperature": 0.0,

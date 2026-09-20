@@ -1,0 +1,35 @@
+{
+  "description": "Template structure for student annotation output records (STUDENT_R1). Do NOT fill with synthetic data.",
+  "sample_record": {
+    "annotation_id": "ANN_B2_000",
+    "source_id": "STUDENT_R1",
+    "source_type": "student",
+    "taxonomy_version": "T2",
+    "run_id": "STUDENT_PASS_1",
+    "primary_label": null,
+    "acceptable_labels": [],
+    "clarification_required": false,
+    "clarification_reasons": [],
+    "brief_justification": "",
+    "recognized_from_prior_work": "unsure",
+    "active_time_seconds": null,
+    "rule_difficulty": "easy",
+    "response_status": "VALID"
+  },
+  "field_specifications": {
+    "annotation_id": "Must match one of the 350 frozen challenge IDs (ANN_B2_001 through ANN_B2_350).",
+    "source_id": "Must be exactly 'STUDENT_R1'.",
+    "source_type": "Must be exactly 'student'.",
+    "taxonomy_version": "Must match evaluated taxonomy ('T2' or 'T3').",
+    "run_id": "Run identifier (e.g. 'STUDENT_T2_PASS1', 'STUDENT_T3_PASS2').",
+    "primary_label": "Canonical intent class name or null for irreducible semantic ambiguity.",
+    "acceptable_labels": "Non-empty array of valid canonical intent classes under the taxonomy.",
+    "clarification_required": "Boolean flag indicating whether query needs clarification or missing slot information.",
+    "clarification_reasons": "Array of reasons from ['intent_ambiguity', 'missing_slot', 'multiple_goals', 'uninterpretable']. Must be empty if clarification_required is false.",
+    "brief_justification": "Concise natural language semantic explanation.",
+    "recognized_from_prior_work": "Subjective memory diagnostic: 'true', 'false', or 'unsure'.",
+    "active_time_seconds": "Non-negative numeric value recording active annotation time in seconds.",
+    "rule_difficulty": "Subjective rule complexity indicator: 'easy', 'moderate', or 'hard'.",
+    "response_status": "'VALID', 'FORMAT_REPAIRED', or 'FAILED'."
+  }
+}

@@ -59,6 +59,8 @@ Return a single JSON object with the following schema:
   "clarification_reasons": ["intent_ambiguity" | "missing_slot" | "multiple_goals" | "uninterpretable"],
   "brief_justification": "<concise_semantic_explanation>",
   "recognized_from_prior_work": "not_applicable",
+  "active_time_seconds": null,
+  "rule_difficulty": "not_applicable",
   "response_status": "VALID"
 }
 ```

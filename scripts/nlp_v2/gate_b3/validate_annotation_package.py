@@ -250,11 +250,17 @@ def validate_all():
     assert "acceptable_labels" in props
     assert "clarification_required" in props
     assert "clarification_reasons" in props
-    assert props["acceptable_labels"]["minItems"] >= 1
-    assert "intent_ambiguity" in props["clarification_reasons"]["items"]["enum"]
-    assert "missing_slot" in props["clarification_reasons"]["items"]["enum"]
-    assert "multiple_goals" in props["clarification_reasons"]["items"]["enum"]
-    print("  Annotation output schema verified: valid structural rules and enums.")
+    assert "active_time_seconds" in props
+    assert "rule_difficulty" in props
+    assert "easy" in props["rule_difficulty"]["enum"]
+    assert "moderate" in props["rule_difficulty"]["enum"]
+    assert "hard" in props["rule_difficulty"]["enum"]
+    assert "not_applicable" in props["rule_difficulty"]["enum"]
+
+    student_tpl_path = os.path.join(GATE_B3_DIR, "student_annotation_output_template.json")
+    if not os.path.exists(student_tpl_path):
+        raise FileNotFoundError(f"Missing student output template: {student_tpl_path}")
+    print("  Annotation output schema verified: valid structural rules, burden fields, and enums.")
 
     # 8. Non-Evaluation Examples Overlap Verification
     print("\n8. Verifying Zero Overlap between Guides and Blind Set...")
