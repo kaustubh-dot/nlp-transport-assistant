@@ -101,8 +101,8 @@ def run_qa_checks():
             if m not in cfg:
                 failures.append(f"Missing config section for {m}")
             else:
-                if cfg[m].get("status") not in ("PENDING", "FROZEN_NOT_EXECUTION_READY"):
-                    failures.append(f"{m} status must be PENDING or FROZEN_NOT_EXECUTION_READY (got '{cfg[m].get('status')}')")
+                if cfg[m].get("status") not in ("PENDING", "FROZEN_NOT_EXECUTION_READY", "FROZEN_EXECUTION_READY_NOT_AUTHORIZED"):
+                    failures.append(f"{m} status must be PENDING, FROZEN_NOT_EXECUTION_READY, or FROZEN_EXECUTION_READY_NOT_AUTHORIZED (got '{cfg[m].get('status')}')")
                 if cfg[m].get("status") == "PENDING" and cfg[m].get("provider") != "PENDING":
                     failures.append(f"{m} provider must be PENDING when status is PENDING (got '{cfg[m].get('provider')}')")
                 if cfg[m].get("execution_timestamp") is not None:

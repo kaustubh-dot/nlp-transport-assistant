@@ -30,7 +30,10 @@
   "zero_tool_use_audit_required": true,
   "tool_violation_retry_attempts": 0,
   "execution_isolation_amendment_sha256": "a48b732a9373a8e2d65ab3963b1920a658ada1e3c703687b8d2d072f46e87f19",
-  "execution_isolation_verified": false,
-  "synthetic_smoke_test_passed": false,
+  "fresh_context_per_item_verified": true,
+  "empty_workdir_verified": true,
+  "zero_tool_use_audit_verified": true,
+  "execution_isolation_verified": true,
+  "synthetic_smoke_test_passed": true,
   "benchmark_execution_authorized": false
 }

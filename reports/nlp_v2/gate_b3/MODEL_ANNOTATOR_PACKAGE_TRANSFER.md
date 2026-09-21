@@ -81,12 +81,12 @@ Verify bitwise file integrity inside `Astra_testing` using `sha256sum`:
 | `protocol/t3_annotation_guide.md` | `0256b4b27b02e04c6948e85d0c33e81e75c8f38b090d1ac37770bcb0ad57599d` |
 | `protocol/annotation_output_schema.json` | `0fb81d7cfb9520f19e87797ad774e6f9cd8d8dbe1946cb3dab0f7b7c201954a4` |
 | `protocol/gate_b3_execution_isolation_amendment.md` | `a48b732a9373a8e2d65ab3963b1920a658ada1e3c703687b8d2d072f46e87f19` |
-| `protocol/model_a_execution_manifest.json` | `b46ab59e85db11712736ded8ba95cc7b8979d1fcd09282c08badc3d37f56ba8d` |
+| `protocol/model_a_execution_manifest.json` | `14883117c1caa39269493d2f16a78031c3454a84ac075d87dbbd4fb8dc4841cf` |
 | `inputs/model_a_t2_input.jsonl` | `85b5c3bf3cccd3cdf1ebab289e6ac6c513387006ce9f04ac2c0c2e33c123dab0` (350 lines) |
 | `inputs/model_a_t3_input.jsonl` | `51a90d81ac2be0370b287c95bcab6e8861a5565e68082958f2229918521e5d55` (350 lines) |
 
 **Manifest Content Verification:**
-- **Manifest file SHA-256:** `b46ab59e85db11712736ded8ba95cc7b8979d1fcd09282c08badc3d37f56ba8d` (actual SHA-256 of the execution-manifest file bytes via `sha256sum`)
+- **Manifest file SHA-256:** `14883117c1caa39269493d2f16a78031c3454a84ac075d87dbbd4fb8dc4841cf` (actual SHA-256 of the execution-manifest file bytes via `sha256sum`)
 - **Canonical model configuration SHA stored inside manifest:** `5db1c4aeae9e8cabb98a5b20637488c6812a826d27cbf4ed4cd578d28038fe5c` (verifies the canonical model configuration encoded inside the manifest; not the file byte hash)
 - **Execution isolation class:** `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION`
 
@@ -145,12 +145,12 @@ Verify bitwise file integrity inside `gate-b3-model-b-claude` using `sha256sum`:
 | `protocol/t3_annotation_guide.md` | `0256b4b27b02e04c6948e85d0c33e81e75c8f38b090d1ac37770bcb0ad57599d` |
 | `protocol/annotation_output_schema.json` | `0fb81d7cfb9520f19e87797ad774e6f9cd8d8dbe1946cb3dab0f7b7c201954a4` |
 | `protocol/gate_b3_execution_isolation_amendment.md` | `a48b732a9373a8e2d65ab3963b1920a658ada1e3c703687b8d2d072f46e87f19` |
-| `protocol/model_b_execution_manifest.json` | `152df7d510aa18e0a713af8451a7f6ff92febed016559c43b6e5afe1b85a17d0` |
+| `protocol/model_b_execution_manifest.json` | `aabe3e255f1d1d770ffbc2ec29f32acb52f9c4c47c4a32a4c95ee380932aecfb` |
 | `inputs/model_b_t2_input.jsonl` | `85b5c3bf3cccd3cdf1ebab289e6ac6c513387006ce9f04ac2c0c2e33c123dab0` (350 lines) |
 | `inputs/model_b_t3_input.jsonl` | `51a90d81ac2be0370b287c95bcab6e8861a5565e68082958f2229918521e5d55` (350 lines) |
 
 **Manifest Content Verification:**
-- **Manifest file SHA-256:** `152df7d510aa18e0a713af8451a7f6ff92febed016559c43b6e5afe1b85a17d0` (actual SHA-256 of the execution-manifest file bytes via `sha256sum`)
+- **Manifest file SHA-256:** `aabe3e255f1d1d770ffbc2ec29f32acb52f9c4c47c4a32a4c95ee380932aecfb` (actual SHA-256 of the execution-manifest file bytes via `sha256sum`)
 - **Canonical model configuration SHA stored inside manifest:** `3d9264b1172878ed07080d1ca4e087170aa83fd366f8695effbf32297318020c` (verifies the canonical model configuration encoded inside the manifest; not the file byte hash)
 - **Execution isolation class:** `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION`
 

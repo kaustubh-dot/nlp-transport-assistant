@@ -380,7 +380,7 @@ def test_analysis_orchestration_fails_before_lock():
 
 
 def test_annotation_start_qa_blocks_when_execution_not_authorized():
-    """Verify qa_gate_b3_annotation_start blocks because execution readiness is unverified."""
+    """Verify qa_gate_b3_annotation_start blocks solely because benchmark execution is not authorized."""
     import subprocess
     proc = subprocess.run(
         [sys.executable, "scripts/nlp_v2/gate_b3/qa_gate_b3_annotation_start.py"],
@@ -389,18 +389,13 @@ def test_annotation_start_qa_blocks_when_execution_not_authorized():
     )
     assert proc.returncode != 0
     assert "STATUS: BLOCKED / NOT READY" in proc.stdout
-    assert "MODEL_A fresh context per item not verified" in proc.stdout
-    assert "MODEL_A empty workdir not verified" in proc.stdout
-    assert "MODEL_A zero-tool-use audit not verified" in proc.stdout
-    assert "MODEL_A behavioral execution isolation not verified" in proc.stdout
-    assert "MODEL_A synthetic smoke test not passed" in proc.stdout
     assert "MODEL_A benchmark execution not authorized" in proc.stdout
-    assert "MODEL_B fresh context per item not verified" in proc.stdout
-    assert "MODEL_B empty workdir not verified" in proc.stdout
-    assert "MODEL_B zero-tool-use audit not verified" in proc.stdout
-    assert "MODEL_B behavioral execution isolation not verified" in proc.stdout
-    assert "MODEL_B synthetic smoke test not passed" in proc.stdout
     assert "MODEL_B benchmark execution not authorized" in proc.stdout
+    assert "fresh context per item not verified" not in proc.stdout
+    assert "empty workdir not verified" not in proc.stdout
+    assert "zero-tool-use audit not verified" not in proc.stdout
+    assert "behavioral execution isolation not verified" not in proc.stdout
+    assert "synthetic smoke test not passed" not in proc.stdout
 
 
 def test_guide_examples_zero_overlap_with_blind_set():
@@ -421,8 +416,8 @@ def test_guide_examples_zero_overlap_with_blind_set():
         assert len(overlaps) == 0, f"Overlap detected in {guide}: {overlaps}"
 
 
-def test_model_annotator_configs_frozen_and_execution_not_ready():
-    """Verify model annotator configuration is frozen with unverified execution readiness."""
+def test_model_annotator_configs_frozen_and_execution_ready():
+    """Verify model annotator configuration is frozen with verified execution readiness but unauthorized benchmark."""
     cfg_path = os.path.join(GATE_B3_DIR, "model_annotator_configs.json")
     with open(cfg_path, "r", encoding="utf-8") as f:
         cfg = json.load(f)
@@ -448,7 +443,7 @@ def test_model_annotator_configs_frozen_and_execution_not_ready():
     assert m_a["version"] == "GPT-6 Astra"
     assert m_a["exact_version_or_revision"] == "NOT_EXPOSED_BY_PROVIDER"
     assert m_a["execution_environment"] == "Codex"
-    assert m_a["status"] == "FROZEN_NOT_EXECUTION_READY"
+    assert m_a["status"] == "FROZEN_EXECUTION_READY_NOT_AUTHORIZED"
     assert m_a["configuration_frozen"] is True
     assert m_a["execution_isolation_class"] == "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION"
     assert m_a["fresh_context_per_item_required"] is True
@@ -457,8 +452,11 @@ def test_model_annotator_configs_frozen_and_execution_not_ready():
     assert m_a["zero_tool_use_audit_required"] is True
     assert m_a["tool_violation_retry_attempts"] == 0
     assert m_a["reasoning_configuration"]["effort"] == "medium"
-    assert m_a["execution_isolation_verified"] is False
-    assert m_a["synthetic_smoke_test_passed"] is False
+    assert m_a["fresh_context_per_item_verified"] is True
+    assert m_a["empty_workdir_verified"] is True
+    assert m_a["zero_tool_use_audit_verified"] is True
+    assert m_a["execution_isolation_verified"] is True
+    assert m_a["synthetic_smoke_test_passed"] is True
     assert m_a["benchmark_execution_authorized"] is False
     assert m_a["execution_timestamp"] is None
     assert m_a["retry_policy"] == expected_retry_policy
@@ -471,7 +469,7 @@ def test_model_annotator_configs_frozen_and_execution_not_ready():
     assert m_b["version"] == "Claude Opus 4.6"
     assert m_b["exact_version_or_revision"] == "NOT_EXPOSED_BY_PROVIDER"
     assert m_b["execution_environment"] == "Antigravity / isolated Claude execution backend"
-    assert m_b["status"] == "FROZEN_NOT_EXECUTION_READY"
+    assert m_b["status"] == "FROZEN_EXECUTION_READY_NOT_AUTHORIZED"
     assert m_b["configuration_frozen"] is True
     assert m_b["execution_isolation_class"] == "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION"
     assert m_b["fresh_context_per_item_required"] is True
@@ -480,8 +478,11 @@ def test_model_annotator_configs_frozen_and_execution_not_ready():
     assert m_b["zero_tool_use_audit_required"] is True
     assert m_b["tool_violation_retry_attempts"] == 0
     assert m_b["reasoning_configuration"]["mode"] == "TO_BE_VERIFIED_DURING_EXECUTION_BACKEND_PREFLIGHT"
-    assert m_b["execution_isolation_verified"] is False
-    assert m_b["synthetic_smoke_test_passed"] is False
+    assert m_b["fresh_context_per_item_verified"] is True
+    assert m_b["empty_workdir_verified"] is True
+    assert m_b["zero_tool_use_audit_verified"] is True
+    assert m_b["execution_isolation_verified"] is True
+    assert m_b["synthetic_smoke_test_passed"] is True
     assert m_b["benchmark_execution_authorized"] is False
     assert m_b["execution_timestamp"] is None
     assert m_b["retry_policy"] == expected_retry_policy
@@ -535,7 +536,7 @@ def _create_valid_frozen_mock_config() -> dict:
         "version": "20250219",
         "exact_version_or_revision": "claude-3-7-sonnet-20250219",
         "execution_environment": "Codex",
-        "status": "FROZEN_NOT_EXECUTION_READY",
+        "status": "FROZEN_EXECUTION_READY_NOT_AUTHORIZED",
         "configuration_frozen": True,
         "execution_isolation_class": "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION",
         "fresh_context_per_item_required": True,
@@ -581,7 +582,7 @@ def _create_valid_frozen_mock_config() -> dict:
         "version": "001",
         "exact_version_or_revision": "gemini-2.0-flash-001",
         "execution_environment": "Antigravity / isolated Claude execution backend",
-        "status": "FROZEN_NOT_EXECUTION_READY",
+        "status": "FROZEN_EXECUTION_READY_NOT_AUTHORIZED",
         "configuration_frozen": True,
         "execution_isolation_class": "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION",
         "fresh_context_per_item_required": True,
@@ -889,8 +890,11 @@ def test_model_a_and_b_execution_manifests_integrity():
     assert man_a["zero_tool_use_audit_required"] is True
     assert man_a["tool_violation_retry_attempts"] == 0
     assert man_a["execution_isolation_amendment_sha256"] == compute_sha256(amendment_path)
-    assert man_a["execution_isolation_verified"] is False
-    assert man_a["synthetic_smoke_test_passed"] is False
+    assert man_a["fresh_context_per_item_verified"] is True
+    assert man_a["empty_workdir_verified"] is True
+    assert man_a["zero_tool_use_audit_verified"] is True
+    assert man_a["execution_isolation_verified"] is True
+    assert man_a["synthetic_smoke_test_passed"] is True
     assert man_a["benchmark_execution_authorized"] is False
 
     # MODEL_B Manifest
@@ -917,8 +921,11 @@ def test_model_a_and_b_execution_manifests_integrity():
     assert man_b["zero_tool_use_audit_required"] is True
     assert man_b["tool_violation_retry_attempts"] == 0
     assert man_b["execution_isolation_amendment_sha256"] == compute_sha256(amendment_path)
-    assert man_b["execution_isolation_verified"] is False
-    assert man_b["synthetic_smoke_test_passed"] is False
+    assert man_b["fresh_context_per_item_verified"] is True
+    assert man_b["empty_workdir_verified"] is True
+    assert man_b["zero_tool_use_audit_verified"] is True
+    assert man_b["execution_isolation_verified"] is True
+    assert man_b["synthetic_smoke_test_passed"] is True
     assert man_b["benchmark_execution_authorized"] is False
 
 
@@ -1099,13 +1106,16 @@ def test_execution_isolation_amendment_19_requirements(tmp_path):
         assert cfg[m_name]["tool_violation_retry_attempts"] == 0, f"Requirement 10: {m_name} tool_violation_retry_attempts != 0"
         assert cfg[m_name]["retry_policy"]["tool_violation_retry_attempts"] == 0, f"Requirement 10: {m_name} retry_policy.tool_violation_retry_attempts != 0"
 
-    # 11. execution readiness still false after amendment
+    # 11. execution readiness verified after smoke test
     for m_name in ["MODEL_A", "MODEL_B"]:
-        assert cfg[m_name]["execution_isolation_verified"] is False, f"Requirement 11: {m_name} execution_isolation_verified != False"
+        assert cfg[m_name]["execution_isolation_verified"] is True, f"Requirement 11: {m_name} execution_isolation_verified != True"
+        assert cfg[m_name]["fresh_context_per_item_verified"] is True, f"Requirement 11: {m_name} fresh_context_per_item_verified != True"
+        assert cfg[m_name]["empty_workdir_verified"] is True, f"Requirement 11: {m_name} empty_workdir_verified != True"
+        assert cfg[m_name]["zero_tool_use_audit_verified"] is True, f"Requirement 11: {m_name} zero_tool_use_audit_verified != True"
 
-    # 12. smoke test still false
+    # 12. smoke test passed
     for m_name in ["MODEL_A", "MODEL_B"]:
-        assert cfg[m_name]["synthetic_smoke_test_passed"] is False, f"Requirement 12: {m_name} synthetic_smoke_test_passed != False"
+        assert cfg[m_name]["synthetic_smoke_test_passed"] is True, f"Requirement 12: {m_name} synthetic_smoke_test_passed != True"
 
     # 13. benchmark authorization false
     for m_name in ["MODEL_A", "MODEL_B"]:
@@ -1149,4 +1159,46 @@ def test_execution_isolation_amendment_19_requirements(tmp_path):
         guide_text = f.read()
     assert compute_sha256(manifest_a_path) in guide_text, "Requirement 19: MODEL_A manifest file SHA missing in transfer guide"
     assert compute_sha256(manifest_b_path) in guide_text, "Requirement 19: MODEL_B manifest file SHA missing in transfer guide"
+
+
+def test_model_execution_readiness_recorded():
+    """Verify execution readiness evidence report and manifest readiness flags."""
+    readiness_report = os.path.join(REPORTS_B3_DIR, "GATE_B3_MODEL_EXECUTION_READINESS.md")
+    assert os.path.exists(readiness_report), "Missing GATE_B3_MODEL_EXECUTION_READINESS.md"
+    with open(readiness_report, "r", encoding="utf-8") as f:
+        text = f.read()
+
+    assert "Hard architectural tool isolation is not claimed" in text
+    assert "This readiness record is based on sterile-workspace execution evidence reviewed before benchmark authorization" in text
+    assert "real benchmark invocations" in text.lower() and ": 0" in text
+    assert "33/33 PASS" in text
+    assert "gpt-6-astra" in text
+    assert "Claude Opus 4.6" in text
+    assert "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION" in text
+
+    # Manifest gate flags
+    ann_manifest_path = os.path.join(GATE_B3_DIR, "gate_b3_annotation_manifest.json")
+    with open(ann_manifest_path, "r", encoding="utf-8") as f:
+        ann_m = json.load(f)
+
+    assert ann_m["model_a_execution_ready"] is True
+    assert ann_m["model_b_execution_ready"] is True
+    assert ann_m["annotation_started"] is False
+    assert ann_m["reference_join_enabled"] is False
+    assert ann_m["first_pass_locked"] is False
+    assert ann_m["gold_boundary_audit_started"] is False
+    assert ann_m["taxonomy_decision_status"] == "PENDING"
+
+    # Execution manifests
+    for m_id, m_file in [("MODEL_A", "model_a_execution_manifest.json"), ("MODEL_B", "model_b_execution_manifest.json")]:
+        p = os.path.join(GATE_B3_DIR, m_file)
+        with open(p, "r", encoding="utf-8") as f:
+            m_data = json.load(f)
+        assert m_data["fresh_context_per_item_verified"] is True, f"{m_id} fresh_context_per_item_verified not True"
+        assert m_data["empty_workdir_verified"] is True, f"{m_id} empty_workdir_verified not True"
+        assert m_data["zero_tool_use_audit_verified"] is True, f"{m_id} zero_tool_use_audit_verified not True"
+        assert m_data["execution_isolation_verified"] is True, f"{m_id} execution_isolation_verified not True"
+        assert m_data["synthetic_smoke_test_passed"] is True, f"{m_id} synthetic_smoke_test_passed not True"
+        assert m_data["benchmark_execution_authorized"] is False, f"{m_id} benchmark_execution_authorized not False"
+
 

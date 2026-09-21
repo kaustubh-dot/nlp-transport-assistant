@@ -34,8 +34,10 @@ generated: YES
 - **CONFIGURATION:** FROZEN
 - **ISOLATION CLASS:** `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION`
 - **STERILE BOOTSTRAP:** PASS
-- **PER-ITEM ISOLATION:** NOT VERIFIED
-- **AMENDED SMOKE TEST:** NOT RUN
+- **PER-ITEM ISOLATION:** VERIFIED UNDER AMENDED PROTOCOL
+- **AMENDED SMOKE TEST:** PASS
+- **RUNNER:** READY
+- **VALIDATOR:** READY
 - **BENCHMARK EXECUTION AUTHORIZED:** NO
 - **ANNOTATION EXECUTED:** NO
 
@@ -44,8 +46,10 @@ generated: YES
 - **CONFIGURATION:** FROZEN
 - **ISOLATION CLASS:** `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION`
 - **STERILE BOOTSTRAP:** PASS
-- **PER-ITEM ISOLATION:** NOT VERIFIED
-- **AMENDED SMOKE TEST:** NOT RUN
+- **PER-ITEM ISOLATION:** VERIFIED UNDER AMENDED PROTOCOL
+- **AMENDED SMOKE TEST:** PASS
+- **RUNNER:** READY
+- **VALIDATOR:** READY
 - **BENCHMARK EXECUTION AUTHORIZED:** NO
 - **ANNOTATION EXECUTED:** NO
 
@@ -54,9 +58,17 @@ generated: YES
 >
 > Hard architectural tool exclusion was empirically unavailable on the selected non-API execution surfaces.
 > The prospective amendment was adopted before any real benchmark annotation invocation.
+>
+> Both model annotators have passed the prospective amended
+> behavioral-isolation smoke-test requirements.
+>
+> This establishes execution readiness under
+> EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION.
+>
+> It does NOT constitute benchmark execution authorization.
 
 **ANNOTATION-START QA:**  
-BLOCKED / NOT READY (Expected: per-item behavioral isolation, smoke tests, and execution authorization remain unverified)
+BLOCKED / NOT READY (Expected: benchmark execution not authorized)
 
 **ANNOTATION:**  
 NOT STARTED  
@@ -83,7 +95,7 @@ PENDING
 NO  
 
 **STATUS:**  
-READY FOR AMENDED SYNTHETIC SMOKE TESTS  
+READY FOR FINAL BENCHMARK AUTHORIZATION REVIEW  
 
 
 ---

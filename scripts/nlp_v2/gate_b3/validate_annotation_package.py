@@ -217,8 +217,8 @@ def validate_all():
     for m in ["MODEL_A", "MODEL_B"]:
         if m not in cfg:
             raise AssertionError(f"Missing config for {m}")
-        if cfg[m]["status"] not in ("PENDING", "FROZEN_NOT_EXECUTION_READY"):
-            raise AssertionError(f"{m} status must be PENDING or FROZEN_NOT_EXECUTION_READY prior to execution (got '{cfg[m]['status']}')!")
+        if cfg[m]["status"] not in ("PENDING", "FROZEN_NOT_EXECUTION_READY", "FROZEN_EXECUTION_READY_NOT_AUTHORIZED"):
+            raise AssertionError(f"{m} status must be PENDING, FROZEN_NOT_EXECUTION_READY, or FROZEN_EXECUTION_READY_NOT_AUTHORIZED prior to execution (got '{cfg[m]['status']}')!")
         if cfg[m]["execution_timestamp"] is not None:
             raise AssertionError(f"{m} execution_timestamp must be null prior to execution!")
         if cfg[m].get("benchmark_execution_authorized") is not False:
