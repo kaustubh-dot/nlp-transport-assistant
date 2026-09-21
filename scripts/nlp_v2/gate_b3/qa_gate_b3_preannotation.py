@@ -97,18 +97,29 @@ def run_qa_checks():
     else:
         with open(CONFIGS_PATH, "r", encoding="utf-8") as f:
             cfg = json.load(f)
+        ALLOWED_STATUSES = (
+            "PENDING",
+            "FROZEN_NOT_EXECUTION_READY",
+            "FROZEN_EXECUTION_READY_NOT_AUTHORIZED",
+            "FROZEN_EXECUTION_AUTHORIZED"
+        )
         for m in ["MODEL_A", "MODEL_B"]:
             if m not in cfg:
                 failures.append(f"Missing config section for {m}")
             else:
-                if cfg[m].get("status") not in ("PENDING", "FROZEN_NOT_EXECUTION_READY", "FROZEN_EXECUTION_READY_NOT_AUTHORIZED"):
-                    failures.append(f"{m} status must be PENDING, FROZEN_NOT_EXECUTION_READY, or FROZEN_EXECUTION_READY_NOT_AUTHORIZED (got '{cfg[m].get('status')}')")
-                if cfg[m].get("status") == "PENDING" and cfg[m].get("provider") != "PENDING":
+                m_status = cfg[m].get("status")
+                if m_status not in ALLOWED_STATUSES:
+                    failures.append(f"{m} status must be one of {ALLOWED_STATUSES} (got '{m_status}')")
+                if m_status == "PENDING" and cfg[m].get("provider") != "PENDING":
                     failures.append(f"{m} provider must be PENDING when status is PENDING (got '{cfg[m].get('provider')}')")
                 if cfg[m].get("execution_timestamp") is not None:
                     failures.append(f"{m} execution_timestamp must be null")
-                if cfg[m].get("benchmark_execution_authorized") is not False:
-                    failures.append(f"{m} benchmark_execution_authorized must be false prior to execution")
+                if m_status == "FROZEN_EXECUTION_AUTHORIZED":
+                    if cfg[m].get("benchmark_execution_authorized") is not True:
+                        failures.append(f"{m} benchmark_execution_authorized must be true when status is FROZEN_EXECUTION_AUTHORIZED")
+                else:
+                    if cfg[m].get("benchmark_execution_authorized") is not False:
+                        failures.append(f"{m} benchmark_execution_authorized must be false prior to execution")
         print("  Model configs verified: MODEL_A and MODEL_B pre-execution status valid, execution_timestamp null.")
 
     # 4. Check Annotator Packages for Leakage of Gold or Predictions

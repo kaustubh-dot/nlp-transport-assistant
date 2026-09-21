@@ -32,6 +32,7 @@ import csv
 import json
 import hashlib
 import re
+import glob
 import pytest
 from jsonschema import Draft7Validator
 
@@ -379,23 +380,17 @@ def test_analysis_orchestration_fails_before_lock():
         run_full_analysis_pipeline()
 
 
-def test_annotation_start_qa_blocks_when_execution_not_authorized():
-    """Verify qa_gate_b3_annotation_start blocks solely because benchmark execution is not authorized."""
+def test_annotation_start_qa_ready_when_execution_authorized():
+    """Verify qa_gate_b3_annotation_start succeeds with STATUS: READY FOR ANNOTATION EXECUTION."""
     import subprocess
     proc = subprocess.run(
         [sys.executable, "scripts/nlp_v2/gate_b3/qa_gate_b3_annotation_start.py"],
         capture_output=True,
         text=True
     )
-    assert proc.returncode != 0
-    assert "STATUS: BLOCKED / NOT READY" in proc.stdout
-    assert "MODEL_A benchmark execution not authorized" in proc.stdout
-    assert "MODEL_B benchmark execution not authorized" in proc.stdout
-    assert "fresh context per item not verified" not in proc.stdout
-    assert "empty workdir not verified" not in proc.stdout
-    assert "zero-tool-use audit not verified" not in proc.stdout
-    assert "behavioral execution isolation not verified" not in proc.stdout
-    assert "synthetic smoke test not passed" not in proc.stdout
+    assert proc.returncode == 0
+    assert "STATUS: READY FOR ANNOTATION EXECUTION" in proc.stdout
+    assert "All model configurations and prompt hashes verified frozen." in proc.stdout
 
 
 def test_guide_examples_zero_overlap_with_blind_set():
@@ -416,8 +411,8 @@ def test_guide_examples_zero_overlap_with_blind_set():
         assert len(overlaps) == 0, f"Overlap detected in {guide}: {overlaps}"
 
 
-def test_model_annotator_configs_frozen_and_execution_ready():
-    """Verify model annotator configuration is frozen with verified execution readiness but unauthorized benchmark."""
+def test_model_annotator_configs_frozen_and_execution_authorized():
+    """Verify model annotator configuration is frozen with verified execution readiness and authorized benchmark."""
     cfg_path = os.path.join(GATE_B3_DIR, "model_annotator_configs.json")
     with open(cfg_path, "r", encoding="utf-8") as f:
         cfg = json.load(f)
@@ -443,7 +438,7 @@ def test_model_annotator_configs_frozen_and_execution_ready():
     assert m_a["version"] == "GPT-6 Astra"
     assert m_a["exact_version_or_revision"] == "NOT_EXPOSED_BY_PROVIDER"
     assert m_a["execution_environment"] == "Codex"
-    assert m_a["status"] == "FROZEN_EXECUTION_READY_NOT_AUTHORIZED"
+    assert m_a["status"] == "FROZEN_EXECUTION_AUTHORIZED"
     assert m_a["configuration_frozen"] is True
     assert m_a["execution_isolation_class"] == "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION"
     assert m_a["fresh_context_per_item_required"] is True
@@ -457,7 +452,7 @@ def test_model_annotator_configs_frozen_and_execution_ready():
     assert m_a["zero_tool_use_audit_verified"] is True
     assert m_a["execution_isolation_verified"] is True
     assert m_a["synthetic_smoke_test_passed"] is True
-    assert m_a["benchmark_execution_authorized"] is False
+    assert m_a["benchmark_execution_authorized"] is True
     assert m_a["execution_timestamp"] is None
     assert m_a["retry_policy"] == expected_retry_policy
 
@@ -469,7 +464,7 @@ def test_model_annotator_configs_frozen_and_execution_ready():
     assert m_b["version"] == "Claude Opus 4.6"
     assert m_b["exact_version_or_revision"] == "NOT_EXPOSED_BY_PROVIDER"
     assert m_b["execution_environment"] == "Antigravity / isolated Claude execution backend"
-    assert m_b["status"] == "FROZEN_EXECUTION_READY_NOT_AUTHORIZED"
+    assert m_b["status"] == "FROZEN_EXECUTION_AUTHORIZED"
     assert m_b["configuration_frozen"] is True
     assert m_b["execution_isolation_class"] == "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION"
     assert m_b["fresh_context_per_item_required"] is True
@@ -483,7 +478,7 @@ def test_model_annotator_configs_frozen_and_execution_ready():
     assert m_b["zero_tool_use_audit_verified"] is True
     assert m_b["execution_isolation_verified"] is True
     assert m_b["synthetic_smoke_test_passed"] is True
-    assert m_b["benchmark_execution_authorized"] is False
+    assert m_b["benchmark_execution_authorized"] is True
     assert m_b["execution_timestamp"] is None
     assert m_b["retry_policy"] == expected_retry_policy
 
@@ -536,7 +531,7 @@ def _create_valid_frozen_mock_config() -> dict:
         "version": "20250219",
         "exact_version_or_revision": "claude-3-7-sonnet-20250219",
         "execution_environment": "Codex",
-        "status": "FROZEN_EXECUTION_READY_NOT_AUTHORIZED",
+        "status": "FROZEN_EXECUTION_AUTHORIZED",
         "configuration_frozen": True,
         "execution_isolation_class": "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION",
         "fresh_context_per_item_required": True,
@@ -582,7 +577,7 @@ def _create_valid_frozen_mock_config() -> dict:
         "version": "001",
         "exact_version_or_revision": "gemini-2.0-flash-001",
         "execution_environment": "Antigravity / isolated Claude execution backend",
-        "status": "FROZEN_EXECUTION_READY_NOT_AUTHORIZED",
+        "status": "FROZEN_EXECUTION_AUTHORIZED",
         "configuration_frozen": True,
         "execution_isolation_class": "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION",
         "fresh_context_per_item_required": True,
@@ -895,7 +890,7 @@ def test_model_a_and_b_execution_manifests_integrity():
     assert man_a["zero_tool_use_audit_verified"] is True
     assert man_a["execution_isolation_verified"] is True
     assert man_a["synthetic_smoke_test_passed"] is True
-    assert man_a["benchmark_execution_authorized"] is False
+    assert man_a["benchmark_execution_authorized"] is True
 
     # MODEL_B Manifest
     manifest_b_path = os.path.join(GATE_B3_DIR, "model_b_execution_manifest.json")
@@ -926,7 +921,7 @@ def test_model_a_and_b_execution_manifests_integrity():
     assert man_b["zero_tool_use_audit_verified"] is True
     assert man_b["execution_isolation_verified"] is True
     assert man_b["synthetic_smoke_test_passed"] is True
-    assert man_b["benchmark_execution_authorized"] is False
+    assert man_b["benchmark_execution_authorized"] is True
 
 
 def test_sanitized_execution_manifests_contain_no_prohibited_content():
@@ -1117,9 +1112,9 @@ def test_execution_isolation_amendment_19_requirements(tmp_path):
     for m_name in ["MODEL_A", "MODEL_B"]:
         assert cfg[m_name]["synthetic_smoke_test_passed"] is True, f"Requirement 12: {m_name} synthetic_smoke_test_passed != True"
 
-    # 13. benchmark authorization false
+    # 13. benchmark authorization true
     for m_name in ["MODEL_A", "MODEL_B"]:
-        assert cfg[m_name]["benchmark_execution_authorized"] is False, f"Requirement 13: {m_name} benchmark_execution_authorized != False"
+        assert cfg[m_name]["benchmark_execution_authorized"] is True, f"Requirement 13: {m_name} benchmark_execution_authorized != True"
 
     # 14. no annotation output files
     ann_files = glob.glob(os.path.join(GATE_B3_DIR, "*_annotations.jsonl"))
@@ -1199,6 +1194,64 @@ def test_model_execution_readiness_recorded():
         assert m_data["zero_tool_use_audit_verified"] is True, f"{m_id} zero_tool_use_audit_verified not True"
         assert m_data["execution_isolation_verified"] is True, f"{m_id} execution_isolation_verified not True"
         assert m_data["synthetic_smoke_test_passed"] is True, f"{m_id} synthetic_smoke_test_passed not True"
-        assert m_data["benchmark_execution_authorized"] is False, f"{m_id} benchmark_execution_authorized not False"
+        assert m_data["benchmark_execution_authorized"] is True, f"{m_id} benchmark_execution_authorized not True"
+
+
+def test_gate_b3_benchmark_execution_authorization_recorded():
+    """Verify benchmark execution authorization report, invariant hashes, and boundaries."""
+    auth_report = os.path.join(REPORTS_B3_DIR, "GATE_B3_BENCHMARK_EXECUTION_AUTHORIZATION.md")
+    assert os.path.exists(auth_report), "Missing GATE_B3_BENCHMARK_EXECUTION_AUTHORIZATION.md"
+    with open(auth_report, "r", encoding="utf-8") as f:
+        text = f.read()
+
+    assert "Gate B.3 Benchmark Execution Authorization" in text
+    assert "MODEL_A" in text and "**Authorized:** YES" in text
+    assert "MODEL_B" in text and "**Authorized:** YES" in text
+    assert "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION" in text
+    assert "real benchmark invocations" in text.lower() and "= 0" in text
+    assert "annotation_started" in text and "= false" in text
+    assert "execution_timestamp" in text and "= null" in text
+    assert "Hard architectural tool isolation is not claimed" in text
+
+    # Canonical config sha invariants
+    cfg_path = os.path.join(GATE_B3_DIR, "model_annotator_configs.json")
+    with open(cfg_path, "r", encoding="utf-8") as f:
+        cfg = json.load(f)
+
+    assert cfg["MODEL_A"]["status"] == "FROZEN_EXECUTION_AUTHORIZED"
+    assert cfg["MODEL_B"]["status"] == "FROZEN_EXECUTION_AUTHORIZED"
+    assert cfg["MODEL_A"]["benchmark_execution_authorized"] is True
+    assert cfg["MODEL_B"]["benchmark_execution_authorized"] is True
+    assert cfg["MODEL_A"]["execution_timestamp"] is None
+    assert cfg["MODEL_B"]["execution_timestamp"] is None
+
+    assert cfg["MODEL_A"]["configuration_sha256"] == "5db1c4aeae9e8cabb98a5b20637488c6812a826d27cbf4ed4cd578d28038fe5c"
+    assert cfg["MODEL_B"]["configuration_sha256"] == "3d9264b1172878ed07080d1ca4e087170aa83fd366f8695effbf32297318020c"
+    assert cfg["configuration_sha256"] == "2a7c82b9297f65f750f5f72685d329d2e65e40c0691b09546802d8cd727afc8e"
+    assert cfg["execution_isolation_amendment_sha256"] == "a48b732a9373a8e2d65ab3963b1920a658ada1e3c703687b8d2d072f46e87f19"
+
+    # Manifest file byte hashes recorded in authorization doc and matching actual files
+    man_a_path = os.path.join(GATE_B3_DIR, "model_a_execution_manifest.json")
+    man_b_path = os.path.join(GATE_B3_DIR, "model_b_execution_manifest.json")
+    man_a_sha = compute_sha256(man_a_path)
+    man_b_sha = compute_sha256(man_b_path)
+    assert man_a_sha == "17f30bb2178ceb6eda72c5b713c4c1938d5bf0147642fa931d6491a3a7bdd057"
+    assert man_b_sha == "607df806d33fb77194d64b741ed424697f05d0d64c9188512eebd8104930627a"
+    assert man_a_sha in text
+    assert man_b_sha in text
+
+    # Annotation manifest boundaries
+    ann_manifest_path = os.path.join(GATE_B3_DIR, "gate_b3_annotation_manifest.json")
+    with open(ann_manifest_path, "r", encoding="utf-8") as f:
+        ann_m = json.load(f)
+    assert ann_m["annotation_started"] is False
+    assert ann_m["reference_join_enabled"] is False
+    assert ann_m["first_pass_locked"] is False
+    assert ann_m["gold_boundary_audit_started"] is False
+    assert ann_m["taxonomy_decision_status"] == "PENDING"
+
+    # Annotation output files count == 0
+    ann_files = glob.glob(os.path.join(GATE_B3_DIR, "*_annotations.jsonl"))
+    assert len(ann_files) == 0, f"Annotation output files found: {ann_files}"
 
 

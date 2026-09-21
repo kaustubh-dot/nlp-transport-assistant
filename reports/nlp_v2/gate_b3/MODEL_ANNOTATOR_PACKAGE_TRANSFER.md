@@ -81,12 +81,12 @@ Verify bitwise file integrity inside `Astra_testing` using `sha256sum`:
 | `protocol/t3_annotation_guide.md` | `0256b4b27b02e04c6948e85d0c33e81e75c8f38b090d1ac37770bcb0ad57599d` |
 | `protocol/annotation_output_schema.json` | `0fb81d7cfb9520f19e87797ad774e6f9cd8d8dbe1946cb3dab0f7b7c201954a4` |
 | `protocol/gate_b3_execution_isolation_amendment.md` | `a48b732a9373a8e2d65ab3963b1920a658ada1e3c703687b8d2d072f46e87f19` |
-| `protocol/model_a_execution_manifest.json` | `14883117c1caa39269493d2f16a78031c3454a84ac075d87dbbd4fb8dc4841cf` |
+| `protocol/model_a_execution_manifest.json` | `17f30bb2178ceb6eda72c5b713c4c1938d5bf0147642fa931d6491a3a7bdd057` |
 | `inputs/model_a_t2_input.jsonl` | `85b5c3bf3cccd3cdf1ebab289e6ac6c513387006ce9f04ac2c0c2e33c123dab0` (350 lines) |
 | `inputs/model_a_t3_input.jsonl` | `51a90d81ac2be0370b287c95bcab6e8861a5565e68082958f2229918521e5d55` (350 lines) |
 
 **Manifest Content Verification:**
-- **Manifest file SHA-256:** `14883117c1caa39269493d2f16a78031c3454a84ac075d87dbbd4fb8dc4841cf` (actual SHA-256 of the execution-manifest file bytes via `sha256sum`)
+- **Manifest file SHA-256:** `17f30bb2178ceb6eda72c5b713c4c1938d5bf0147642fa931d6491a3a7bdd057` (actual SHA-256 of the execution-manifest file bytes via `sha256sum`)
 - **Canonical model configuration SHA stored inside manifest:** `5db1c4aeae9e8cabb98a5b20637488c6812a826d27cbf4ed4cd578d28038fe5c` (verifies the canonical model configuration encoded inside the manifest; not the file byte hash)
 - **Execution isolation class:** `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION`
 
@@ -145,37 +145,32 @@ Verify bitwise file integrity inside `gate-b3-model-b-claude` using `sha256sum`:
 | `protocol/t3_annotation_guide.md` | `0256b4b27b02e04c6948e85d0c33e81e75c8f38b090d1ac37770bcb0ad57599d` |
 | `protocol/annotation_output_schema.json` | `0fb81d7cfb9520f19e87797ad774e6f9cd8d8dbe1946cb3dab0f7b7c201954a4` |
 | `protocol/gate_b3_execution_isolation_amendment.md` | `a48b732a9373a8e2d65ab3963b1920a658ada1e3c703687b8d2d072f46e87f19` |
-| `protocol/model_b_execution_manifest.json` | `aabe3e255f1d1d770ffbc2ec29f32acb52f9c4c47c4a32a4c95ee380932aecfb` |
+| `protocol/model_b_execution_manifest.json` | `607df806d33fb77194d64b741ed424697f05d0d64c9188512eebd8104930627a` |
 | `inputs/model_b_t2_input.jsonl` | `85b5c3bf3cccd3cdf1ebab289e6ac6c513387006ce9f04ac2c0c2e33c123dab0` (350 lines) |
 | `inputs/model_b_t3_input.jsonl` | `51a90d81ac2be0370b287c95bcab6e8861a5565e68082958f2229918521e5d55` (350 lines) |
 
 **Manifest Content Verification:**
-- **Manifest file SHA-256:** `aabe3e255f1d1d770ffbc2ec29f32acb52f9c4c47c4a32a4c95ee380932aecfb` (actual SHA-256 of the execution-manifest file bytes via `sha256sum`)
+- **Manifest file SHA-256:** `607df806d33fb77194d64b741ed424697f05d0d64c9188512eebd8104930627a` (actual SHA-256 of the execution-manifest file bytes via `sha256sum`)
 - **Canonical model configuration SHA stored inside manifest:** `3d9264b1172878ed07080d1ca4e087170aa83fd366f8695effbf32297318020c` (verifies the canonical model configuration encoded inside the manifest; not the file byte hash)
 - **Execution isolation class:** `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION`
 
 ---
 
-## 4. Next Step: Amended Sterile Smoke-Test Verification
+## 4. Post-Authorization Operator Action: Execution Manifest Recopy Only
 
-In each sterile workspace:
+Both MODEL_A and MODEL_B have completed readiness verification under `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION`:
+- amended synthetic smoke test: PASS
+- zero-tool-use auditing: VERIFIED
+- tool calls observed = 0
+- web calls observed = 0
+- external file reads observed = 0
+- command executions observed = 0
 
-1. Verify one-query-one-fresh-context execution (`ONE_QUERY_ONE_FRESH_CONTEXT_REQUIRED`).
+Formal benchmark execution authorization is granted (`benchmark_execution_authorized = true`).
 
-2. Verify every semantic child runs from a fresh empty temporary working directory with no benchmark/repository paths supplied.
-
-3. Run exactly one synthetic non-benchmark smoke test under the prospectively amended `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION` protocol.
-
-4. Preserve raw execution telemetry and verify:
-   - tool calls observed = 0
-   - web calls observed = 0
-   - external file reads observed = 0
-   - command executions observed = 0
-
-5. For MODEL_A, web search must additionally be configured disabled where supported by Codex.
-
-6. Do NOT claim that filesystem or other tool capabilities are architecturally unavailable merely because no tool call occurred.
-
-7. Execution readiness may be considered for authorization only after the amended synthetic smoke test passes and fresh-context, empty-workdir, and zero-tool-use auditing have all been verified.
-
-8. Benchmark execution remains unauthorized until the original repository readiness state is explicitly updated after external review.
+**Operator Instructions Before Benchmark Execution:**
+1. The human operator must recopy **only** the updated authorized execution manifest into each sterile workspace before benchmark execution:
+   - `data/nlp_v2/gate_b3/model_a_execution_manifest.json` → `Astra_testing/protocol/model_a_execution_manifest.json` (SHA-256: `17f30bb2178ceb6eda72c5b713c4c1938d5bf0147642fa931d6491a3a7bdd057`)
+   - `data/nlp_v2/gate_b3/model_b_execution_manifest.json` → `gate-b3-model-b-claude/protocol/model_b_execution_manifest.json` (SHA-256: `607df806d33fb77194d64b741ed424697f05d0d64c9188512eebd8104930627a`)
+2. **No need to recopy benchmark JSONLs, guides, schema, or amendment** because their bitwise hashes are unchanged.
+3. Benchmark execution may proceed only after external verification of this authorization commit and after the authorized manifests are verified inside the sterile workspaces.

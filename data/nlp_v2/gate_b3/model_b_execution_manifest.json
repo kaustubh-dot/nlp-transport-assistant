@@ -34,5 +34,5 @@
   "zero_tool_use_audit_verified": true,
   "execution_isolation_verified": true,
   "synthetic_smoke_test_passed": true,
-  "benchmark_execution_authorized": false
+  "benchmark_execution_authorized": true
 }

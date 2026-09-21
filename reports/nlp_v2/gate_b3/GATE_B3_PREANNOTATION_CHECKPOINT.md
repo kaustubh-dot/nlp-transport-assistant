@@ -32,25 +32,27 @@ generated: YES
 **MODEL_A:**  
 - **Model:** `GPT-6 Astra` (OpenAI / Codex)
 - **CONFIGURATION:** FROZEN
+- **EXECUTION READINESS:** VERIFIED
 - **ISOLATION CLASS:** `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION`
 - **STERILE BOOTSTRAP:** PASS
 - **PER-ITEM ISOLATION:** VERIFIED UNDER AMENDED PROTOCOL
 - **AMENDED SMOKE TEST:** PASS
 - **RUNNER:** READY
 - **VALIDATOR:** READY
-- **BENCHMARK EXECUTION AUTHORIZED:** NO
+- **BENCHMARK EXECUTION AUTHORIZED:** YES
 - **ANNOTATION EXECUTED:** NO
 
 **MODEL_B:**  
 - **Model:** `Claude Opus 4.6` (Anthropic / Antigravity isolated backend)
 - **CONFIGURATION:** FROZEN
+- **EXECUTION READINESS:** VERIFIED
 - **ISOLATION CLASS:** `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION`
 - **STERILE BOOTSTRAP:** PASS
 - **PER-ITEM ISOLATION:** VERIFIED UNDER AMENDED PROTOCOL
 - **AMENDED SMOKE TEST:** PASS
 - **RUNNER:** READY
 - **VALIDATOR:** READY
-- **BENCHMARK EXECUTION AUTHORIZED:** NO
+- **BENCHMARK EXECUTION AUTHORIZED:** YES
 - **ANNOTATION EXECUTED:** NO
 
 **GOVERNANCE PRINCIPLE:**  
@@ -59,16 +61,16 @@ generated: YES
 > Hard architectural tool exclusion was empirically unavailable on the selected non-API execution surfaces.
 > The prospective amendment was adopted before any real benchmark annotation invocation.
 >
-> Both model annotators have passed the prospective amended
+> Both model annotators passed the prospective amended
 > behavioral-isolation smoke-test requirements.
 >
-> This establishes execution readiness under
+> Formal benchmark execution authorization is granted under
 > EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION.
 >
-> It does NOT constitute benchmark execution authorization.
+> Authorization does NOT constitute annotation execution.
 
 **ANNOTATION-START QA:**  
-BLOCKED / NOT READY (Expected: benchmark execution not authorized)
+READY FOR ANNOTATION EXECUTION
 
 **ANNOTATION:**  
 NOT STARTED  
@@ -95,7 +97,7 @@ PENDING
 NO  
 
 **STATUS:**  
-READY FOR FINAL BENCHMARK AUTHORIZATION REVIEW  
+AUTHORIZED — WAITING FOR REAL BENCHMARK EXECUTION  
 
 
 ---
