@@ -58,9 +58,10 @@ This report documents verified external evidence for **MODEL_A** (`GPT-6 Astra` 
 - **Amended Synthetic Smoke Test:** PASS
 - **Fresh Context per Item:** VERIFIED
 - **Empty Workdir per Item:** VERIFIED
-- **Inherited Generic Rules:** DOCUMENTED (global generic rules inherited, project-specific global-rule content not found)
-- **Rules Excluded:** VERIFIED
-- **Web Search Config:** DISABLED VERIFIED
+- **Inherited Generic Rules:** YES — DOCUMENTED
+- **Global Rules Project-Specific:** NO VERIFIED
+- **Rules Excluded:** NO — generic global rules remain inherited
+- **Web Isolation:** ZERO_CALL_AUDITED
 - **Structured Output:** PASS
 - **Format Repair Used:** NO (Format repair invocations: 0)
 - **Semantic Invocations:** 1 (smoke test item only)
@@ -76,7 +77,7 @@ This report documents verified external evidence for **MODEL_A** (`GPT-6 Astra` 
 - **Student Content Accessed:** NO
 - **Runner Status:** READY
 - **Validator Status:** READY
-- **Local Runner/Validator Tests:** 33/33 PASS
+- **Local Runner/Validator Test Count:** NOT SEPARATELY REPORTED
 - **Real Benchmark Invocations:** 0
 - **Benchmark Outputs Created:** NONE
 
