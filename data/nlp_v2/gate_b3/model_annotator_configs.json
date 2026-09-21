@@ -2,7 +2,7 @@
   "study": "Gate B.3 Annotation-Stability Framework",
   "configuration_frozen": true,
   "frozen_at": "2026-09-20T11:15:00Z",
-  "configuration_sha256": "001ff986f1a39829181b085b5f329965fc147bac7048a1cdf5f5eac6f32e410d",
+  "configuration_sha256": "2a7c82b9297f65f750f5f72685d329d2e65e40c0691b09546802d8cd727afc8e",
   "prompt_sha256": "6d37c2646de761c0530f6fe99403e6e1f12a56880da66c8406b8b63ca828da57",
   "t2_guide_sha256": "f1b538c0c141738ada760f52ea93640c9ae91fa9c9e6d7ac13089559d9f3cfac",
   "t3_guide_sha256": "0256b4b27b02e04c6948e85d0c33e81e75c8f38b090d1ac37770bcb0ad57599d",
@@ -23,21 +23,36 @@
       "web": "DISABLED_REQUIRED",
       "external_retrieval": "DISABLED_REQUIRED",
       "original_repository_access": "FORBIDDEN",
-      "other_annotator_access": "FORBIDDEN"
+      "other_annotator_access": "FORBIDDEN",
+      "filesystem_isolation": "BEHAVIORAL_NO_USE_WITH_EMPTY_WORKDIR",
+      "web_isolation": "CONFIG_DISABLED_AND_ZERO_CALL_AUDITED"
     },
     "request_isolation": "ONE_QUERY_ONE_FRESH_CONTEXT_REQUIRED",
     "retry_policy": {
       "semantic_retries": 0,
       "format_repair_attempts": 1,
       "transport_retry_policy": "PERMITTED_FOR_EXECUTION_FAILURE_ONLY",
-      "semantic_retry_mode": "FORBIDDEN"
+      "semantic_retry_mode": "FORBIDDEN",
+      "tool_violation_retry_attempts": 0,
+      "tool_violation_mode": "HARD_FAIL_BATCH"
     },
     "execution_isolation_verified": false,
     "synthetic_smoke_test_passed": false,
     "benchmark_execution_authorized": false,
     "execution_timestamp": null,
-    "configuration_sha256": "fe43f5266c716f3541240e604e3432a0ca67ad14189fbc6ad4bafbe89fd6df2e",
-    "provenance_notes": "Model identity frozen from the user-visible execution environment. An immutable provider checkpoint revision has not been independently exposed. Astra review context must never be reused. Must use clean isolated request context in sterile workspace Astra_testing."
+    "configuration_sha256": "5db1c4aeae9e8cabb98a5b20637488c6812a826d27cbf4ed4cd578d28038fe5c",
+    "provenance_notes": "Model identity frozen from the user-visible execution environment. An immutable provider checkpoint revision has not been independently exposed. Astra review context must never be reused. Must use clean isolated request context in sterile workspace Astra_testing under EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION.",
+    "execution_isolation_class": "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION",
+    "fresh_context_per_item_required": true,
+    "empty_workdir_required": true,
+    "benchmark_paths_provided_to_child": false,
+    "cross_query_history_allowed": false,
+    "actual_tool_use_allowed": false,
+    "zero_tool_use_audit_required": true,
+    "tool_violation_retry_attempts": 0,
+    "fresh_context_per_item_verified": false,
+    "empty_workdir_verified": false,
+    "zero_tool_use_audit_verified": false
   },
   "MODEL_B": {
     "source_id": "MODEL_B",
@@ -55,20 +70,36 @@
       "web": "DISABLED_REQUIRED",
       "external_retrieval": "DISABLED_REQUIRED",
       "original_repository_access": "FORBIDDEN",
-      "other_annotator_access": "FORBIDDEN"
+      "other_annotator_access": "FORBIDDEN",
+      "filesystem_isolation": "BEHAVIORAL_NO_USE_WITH_EMPTY_WORKDIR",
+      "web_isolation": "ZERO_CALL_AUDITED"
     },
     "request_isolation": "ONE_QUERY_ONE_FRESH_CONTEXT_REQUIRED",
     "retry_policy": {
       "semantic_retries": 0,
       "format_repair_attempts": 1,
       "transport_retry_policy": "PERMITTED_FOR_EXECUTION_FAILURE_ONLY",
-      "semantic_retry_mode": "FORBIDDEN"
+      "semantic_retry_mode": "FORBIDDEN",
+      "tool_violation_retry_attempts": 0,
+      "tool_violation_mode": "HARD_FAIL_BATCH"
     },
     "execution_isolation_verified": false,
     "synthetic_smoke_test_passed": false,
     "benchmark_execution_authorized": false,
     "execution_timestamp": null,
-    "configuration_sha256": "3d1648c6280ffb3747a7f845a411b08b6d50e9e935cadfe10a3ea03a3a263349",
-    "provenance_notes": "Model identity frozen from the user-visible execution environment. An immutable provider checkpoint revision has not been independently exposed. Distinct model family from MODEL_A. Must execute in sterile workspace gate-b3-model-b-claude."
-  }
+    "configuration_sha256": "3d9264b1172878ed07080d1ca4e087170aa83fd366f8695effbf32297318020c",
+    "provenance_notes": "Model identity frozen from the user-visible execution environment. An immutable provider checkpoint revision has not been independently exposed. Distinct model family from MODEL_A. Must execute in sterile workspace gate-b3-model-b-claude under EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION.",
+    "execution_isolation_class": "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION",
+    "fresh_context_per_item_required": true,
+    "empty_workdir_required": true,
+    "benchmark_paths_provided_to_child": false,
+    "cross_query_history_allowed": false,
+    "actual_tool_use_allowed": false,
+    "zero_tool_use_audit_required": true,
+    "tool_violation_retry_attempts": 0,
+    "fresh_context_per_item_verified": false,
+    "empty_workdir_verified": false,
+    "zero_tool_use_audit_verified": false
+  },
+  "execution_isolation_amendment_sha256": "a48b732a9373a8e2d65ab3963b1920a658ada1e3c703687b8d2d072f46e87f19"
 }

@@ -9,12 +9,13 @@
   "execution_environment": "Codex",
   "reasoning_effort": "medium",
   "configuration_frozen": true,
-  "configuration_sha256": "fe43f5266c716f3541240e604e3432a0ca67ad14189fbc6ad4bafbe89fd6df2e",
+  "configuration_sha256": "5db1c4aeae9e8cabb98a5b20637488c6812a826d27cbf4ed4cd578d28038fe5c",
   "protocol_sha256": {
     "model_annotator_prompt_template.md": "6d37c2646de761c0530f6fe99403e6e1f12a56880da66c8406b8b63ca828da57",
     "t2_annotation_guide.md": "f1b538c0c141738ada760f52ea93640c9ae91fa9c9e6d7ac13089559d9f3cfac",
     "t3_annotation_guide.md": "0256b4b27b02e04c6948e85d0c33e81e75c8f38b090d1ac37770bcb0ad57599d",
-    "annotation_output_schema.json": "0fb81d7cfb9520f19e87797ad774e6f9cd8d8dbe1946cb3dab0f7b7c201954a4"
+    "annotation_output_schema.json": "0fb81d7cfb9520f19e87797ad774e6f9cd8d8dbe1946cb3dab0f7b7c201954a4",
+    "gate_b3_execution_isolation_amendment.md": "a48b732a9373a8e2d65ab3963b1920a658ada1e3c703687b8d2d072f46e87f19"
   },
   "input_sha256": {
     "model_a_t2_input.jsonl": "85b5c3bf3cccd3cdf1ebab289e6ac6c513387006ce9f04ac2c0c2e33c123dab0",
@@ -22,6 +23,13 @@
   },
   "expected_record_count_per_taxonomy": 350,
   "request_isolation": "ONE_QUERY_ONE_FRESH_CONTEXT_REQUIRED",
+  "execution_isolation_class": "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION",
+  "fresh_context_per_item_required": true,
+  "empty_workdir_required": true,
+  "actual_tool_use_allowed": false,
+  "zero_tool_use_audit_required": true,
+  "tool_violation_retry_attempts": 0,
+  "execution_isolation_amendment_sha256": "a48b732a9373a8e2d65ab3963b1920a658ada1e3c703687b8d2d072f46e87f19",
   "execution_isolation_verified": false,
   "synthetic_smoke_test_passed": false,
   "benchmark_execution_authorized": false

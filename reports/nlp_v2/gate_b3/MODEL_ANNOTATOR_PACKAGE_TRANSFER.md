@@ -57,6 +57,9 @@ docs/nlp_v2/gate_b3/t3_annotation_guide.md
 docs/nlp_v2/gate_b3/annotation_output_schema.json
 → Astra_testing/protocol/annotation_output_schema.json
 
+docs/nlp_v2/gate_b3/gate_b3_execution_isolation_amendment.md
+→ Astra_testing/protocol/gate_b3_execution_isolation_amendment.md
+
 data/nlp_v2/gate_b3/model_a_execution_manifest.json
 → Astra_testing/protocol/model_a_execution_manifest.json
 
@@ -77,13 +80,15 @@ Verify bitwise file integrity inside `Astra_testing` using `sha256sum`:
 | `protocol/t2_annotation_guide.md` | `f1b538c0c141738ada760f52ea93640c9ae91fa9c9e6d7ac13089559d9f3cfac` |
 | `protocol/t3_annotation_guide.md` | `0256b4b27b02e04c6948e85d0c33e81e75c8f38b090d1ac37770bcb0ad57599d` |
 | `protocol/annotation_output_schema.json` | `0fb81d7cfb9520f19e87797ad774e6f9cd8d8dbe1946cb3dab0f7b7c201954a4` |
-| `protocol/model_a_execution_manifest.json` | `7824d0cfaff328463d92e33edb589be604c0600c6581e8395eba4774287ebd26` |
+| `protocol/gate_b3_execution_isolation_amendment.md` | `a48b732a9373a8e2d65ab3963b1920a658ada1e3c703687b8d2d072f46e87f19` |
+| `protocol/model_a_execution_manifest.json` | `b46ab59e85db11712736ded8ba95cc7b8979d1fcd09282c08badc3d37f56ba8d` |
 | `inputs/model_a_t2_input.jsonl` | `85b5c3bf3cccd3cdf1ebab289e6ac6c513387006ce9f04ac2c0c2e33c123dab0` (350 lines) |
 | `inputs/model_a_t3_input.jsonl` | `51a90d81ac2be0370b287c95bcab6e8861a5565e68082958f2229918521e5d55` (350 lines) |
 
 **Manifest Content Verification:**
-- **Manifest file SHA-256:** `7824d0cfaff328463d92e33edb589be604c0600c6581e8395eba4774287ebd26` (actual SHA-256 of the execution-manifest file bytes via `sha256sum`)
-- **Canonical model configuration SHA stored inside manifest:** `fe43f5266c716f3541240e604e3432a0ca67ad14189fbc6ad4bafbe89fd6df2e` (verifies the canonical model configuration encoded inside the manifest; not the file byte hash)
+- **Manifest file SHA-256:** `b46ab59e85db11712736ded8ba95cc7b8979d1fcd09282c08badc3d37f56ba8d` (actual SHA-256 of the execution-manifest file bytes via `sha256sum`)
+- **Canonical model configuration SHA stored inside manifest:** `5db1c4aeae9e8cabb98a5b20637488c6812a826d27cbf4ed4cd578d28038fe5c` (verifies the canonical model configuration encoded inside the manifest; not the file byte hash)
+- **Execution isolation class:** `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION`
 
 ---
 
@@ -116,6 +121,9 @@ docs/nlp_v2/gate_b3/t3_annotation_guide.md
 docs/nlp_v2/gate_b3/annotation_output_schema.json
 → gate-b3-model-b-claude/protocol/annotation_output_schema.json
 
+docs/nlp_v2/gate_b3/gate_b3_execution_isolation_amendment.md
+→ gate-b3-model-b-claude/protocol/gate_b3_execution_isolation_amendment.md
+
 data/nlp_v2/gate_b3/model_b_execution_manifest.json
 → gate-b3-model-b-claude/protocol/model_b_execution_manifest.json
 
@@ -136,20 +144,38 @@ Verify bitwise file integrity inside `gate-b3-model-b-claude` using `sha256sum`:
 | `protocol/t2_annotation_guide.md` | `f1b538c0c141738ada760f52ea93640c9ae91fa9c9e6d7ac13089559d9f3cfac` |
 | `protocol/t3_annotation_guide.md` | `0256b4b27b02e04c6948e85d0c33e81e75c8f38b090d1ac37770bcb0ad57599d` |
 | `protocol/annotation_output_schema.json` | `0fb81d7cfb9520f19e87797ad774e6f9cd8d8dbe1946cb3dab0f7b7c201954a4` |
-| `protocol/model_b_execution_manifest.json` | `9a8d9d87609877cc01d6bf59e30ed365e5a553374b3c20f8620f6ccf870c81e4` |
+| `protocol/gate_b3_execution_isolation_amendment.md` | `a48b732a9373a8e2d65ab3963b1920a658ada1e3c703687b8d2d072f46e87f19` |
+| `protocol/model_b_execution_manifest.json` | `152df7d510aa18e0a713af8451a7f6ff92febed016559c43b6e5afe1b85a17d0` |
 | `inputs/model_b_t2_input.jsonl` | `85b5c3bf3cccd3cdf1ebab289e6ac6c513387006ce9f04ac2c0c2e33c123dab0` (350 lines) |
 | `inputs/model_b_t3_input.jsonl` | `51a90d81ac2be0370b287c95bcab6e8861a5565e68082958f2229918521e5d55` (350 lines) |
 
 **Manifest Content Verification:**
-- **Manifest file SHA-256:** `9a8d9d87609877cc01d6bf59e30ed365e5a553374b3c20f8620f6ccf870c81e4` (actual SHA-256 of the execution-manifest file bytes via `sha256sum`)
-- **Canonical model configuration SHA stored inside manifest:** `3d1648c6280ffb3747a7f845a411b08b6d50e9e935cadfe10a3ea03a3a263349` (verifies the canonical model configuration encoded inside the manifest; not the file byte hash)
+- **Manifest file SHA-256:** `152df7d510aa18e0a713af8451a7f6ff92febed016559c43b6e5afe1b85a17d0` (actual SHA-256 of the execution-manifest file bytes via `sha256sum`)
+- **Canonical model configuration SHA stored inside manifest:** `3d9264b1172878ed07080d1ca4e087170aa83fd366f8695effbf32297318020c` (verifies the canonical model configuration encoded inside the manifest; not the file byte hash)
+- **Execution isolation class:** `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION`
 
 ---
 
-## 4. Next Step: Sterile Preflight Verification
+## 4. Next Step: Amended Sterile Smoke-Test Verification
 
 In each sterile workspace:
-1. Verify per-item request isolation (`ONE_QUERY_ONE_FRESH_CONTEXT_REQUIRED`).
-2. Run synthetic smoke test on non-benchmark sample query.
-3. Ensure tools (web, retrieval, code execution) remain completely disabled.
-4. Only when sterile bootstrap verification reports `PASS` may execution readiness be authorized.
+
+1. Verify one-query-one-fresh-context execution (`ONE_QUERY_ONE_FRESH_CONTEXT_REQUIRED`).
+
+2. Verify every semantic child runs from a fresh empty temporary working directory with no benchmark/repository paths supplied.
+
+3. Run exactly one synthetic non-benchmark smoke test under the prospectively amended `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION` protocol.
+
+4. Preserve raw execution telemetry and verify:
+   - tool calls observed = 0
+   - web calls observed = 0
+   - external file reads observed = 0
+   - command executions observed = 0
+
+5. For MODEL_A, web search must additionally be configured disabled where supported by Codex.
+
+6. Do NOT claim that filesystem or other tool capabilities are architecturally unavailable merely because no tool call occurred.
+
+7. Execution readiness may be considered for authorization only after the amended synthetic smoke test passes and fresh-context, empty-workdir, and zero-tool-use auditing have all been verified.
+
+8. Benchmark execution remains unauthorized until the original repository readiness state is explicitly updated after external review.

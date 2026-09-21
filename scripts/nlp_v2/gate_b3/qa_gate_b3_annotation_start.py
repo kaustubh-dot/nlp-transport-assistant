@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Annotation-Start QA Gatekeeper for NLP v2 Gate B.3.
 
-Enforces Section 20, as amended by Gate B.3 Model Pair Freezing:
+Enforces Section 20, as prospectively amended by Gate B.3 Execution-Isolation Amendment:
 Checks whether model configurations are formally frozen and ready for annotation.
 Requires:
 1. MODEL_A & MODEL_B Configuration:
@@ -12,9 +12,17 @@ Requires:
    - configuration_frozen == True
    - exact_version_or_revision not in (None, "", "PENDING")
      (Note: 'NOT_EXPOSED_BY_PROVIDER' is accepted as valid provenance)
+   - execution_isolation_class == "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION"
+   - actual_tool_use_allowed == False
+   - zero_tool_use_audit_required == True
+   - fresh_context_per_item_required == True
+   - empty_workdir_required == True
+   - retry_policy.tool_violation_retry_attempts == 0
+   - retry_policy.tool_violation_mode == "HARD_FAIL_BATCH"
 2. Methodology Hash Recomputation:
-   - prompt_sha256, t2_guide_sha256, t3_guide_sha256, schema_sha256 present
-   - Computed SHA-256 for prompt, T2 guide, T3 guide, and schema must match stored hashes exactly.
+   - prompt_sha256, t2_guide_sha256, t3_guide_sha256, schema_sha256,
+     and execution_isolation_amendment_sha256 present.
+   - Computed SHA-256 for prompt, T2 guide, T3 guide, schema, and amendment must match stored hashes.
    - Any mismatch reports: FROZEN_ANNOTATION_CONFIGURATION_DRIFT
 3. Canonical Model Configuration Hash Recomputation:
    - Reconstruct canonical frozen configuration object for MODEL_A and MODEL_B.
@@ -22,11 +30,14 @@ Requires:
    - Global configuration_sha256 recomputed over protocol and model hashes must match.
    - Any mismatch reports: FROZEN_MODEL_CONFIGURATION_DRIFT
 4. Execution-Readiness Gate:
-   - execution_isolation_verified == True
+   - Behavioral isolation verified (fresh_context, empty_workdir, zero_tool_use_audit)
+   - execution_isolation_verified == True (denoting verified compliance with the
+     prospectively amended EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION protocol,
+     NOT hard architectural tool isolation)
    - synthetic_smoke_test_passed == True
    - benchmark_execution_authorized == True
-   - When execution readiness is unverified (expected in freeze commit), reports:
-     BLOCKED / NOT READY and exits with code 1.
+   - When execution readiness is unverified (expected prior to synthetic smoke test completion),
+     reports: BLOCKED / NOT READY and exits with code 1.
 5. Model Diversity:
    - MODEL_A and MODEL_B are not the exact same model family/config unless explicitly documented.
 6. Pre-Annotation Guardrails:
@@ -51,6 +62,7 @@ METHODOLOGY_ARTIFACTS = {
     "t2_guide_sha256": ("t2_annotation_guide.md", os.path.join(DOCS_B3_DIR, "t2_annotation_guide.md")),
     "t3_guide_sha256": ("t3_annotation_guide.md", os.path.join(DOCS_B3_DIR, "t3_annotation_guide.md")),
     "schema_sha256": ("annotation_output_schema.json", os.path.join(DOCS_B3_DIR, "annotation_output_schema.json")),
+    "execution_isolation_amendment_sha256": ("gate_b3_execution_isolation_amendment.md", os.path.join(DOCS_B3_DIR, "gate_b3_execution_isolation_amendment.md")),
 }
 
 CANONICAL_MODEL_FIELDS = (
@@ -60,6 +72,14 @@ CANONICAL_MODEL_FIELDS = (
     "version",
     "exact_version_or_revision",
     "execution_environment",
+    "execution_isolation_class",
+    "fresh_context_per_item_required",
+    "empty_workdir_required",
+    "benchmark_paths_provided_to_child",
+    "cross_query_history_allowed",
+    "actual_tool_use_allowed",
+    "zero_tool_use_audit_required",
+    "tool_violation_retry_attempts",
     "reasoning_configuration",
     "tool_policy",
     "request_isolation",
@@ -105,6 +125,7 @@ def compute_global_config_hash(cfg: Dict[str, Any], model_a_hash: str, model_b_h
         "t2_guide_sha256": cfg.get("t2_guide_sha256"),
         "t3_guide_sha256": cfg.get("t3_guide_sha256"),
         "schema_sha256": cfg.get("schema_sha256"),
+        "execution_isolation_amendment_sha256": cfg.get("execution_isolation_amendment_sha256"),
         "model_a_configuration_sha256": model_a_hash,
         "model_b_configuration_sha256": model_b_hash,
     }
@@ -194,9 +215,47 @@ def evaluate_annotation_start_readiness(
                     f"(got '{exact_rev}'; use 'NOT_EXPOSED_BY_PROVIDER' if provider exposes no revision)"
                 )
 
-        # Execution-readiness gate
+        # Canonical isolation class requirement
+        isolation_class = m.get("execution_isolation_class")
+        if isolation_class != "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION":
+            reasons_blocked.append(
+                f"{m_name} execution_isolation_class must be 'EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION' (got '{isolation_class}')"
+            )
+
+        # Behavioral tool restriction policy requirements
+        if m.get("actual_tool_use_allowed") is not False:
+            reasons_blocked.append(f"{m_name} actual_tool_use_allowed must be False")
+        if m.get("zero_tool_use_audit_required") is not True:
+            reasons_blocked.append(f"{m_name} zero_tool_use_audit_required must be True")
+        if m.get("fresh_context_per_item_required") is not True:
+            reasons_blocked.append(f"{m_name} fresh_context_per_item_required must be True")
+        if m.get("empty_workdir_required") is not True:
+            reasons_blocked.append(f"{m_name} empty_workdir_required must be True")
+
+        # Retry policy requirements: tool violation retry attempts must be 0
+        retry_pol = m.get("retry_policy", {})
+        if retry_pol.get("tool_violation_retry_attempts") != 0:
+            reasons_blocked.append(f"{m_name} retry_policy.tool_violation_retry_attempts must be 0")
+        if retry_pol.get("tool_violation_mode") != "HARD_FAIL_BATCH":
+            reasons_blocked.append(f"{m_name} retry_policy.tool_violation_mode must be 'HARD_FAIL_BATCH'")
+
+        # Execution-readiness gate:
+        # Note: execution_isolation_verified denotes verified compliance with the
+        # prospectively amended EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION protocol
+        # (NOT hard architectural tool exclusion, which is unavailable on these non-API surfaces).
+        if not m.get("fresh_context_per_item_verified", False):
+            reasons_blocked.append(f"{m_name} fresh context per item not verified")
+        if not m.get("empty_workdir_verified", False):
+            reasons_blocked.append(f"{m_name} empty workdir not verified")
+        if not m.get("zero_tool_use_audit_verified", False):
+            reasons_blocked.append(f"{m_name} zero-tool-use audit not verified")
         if not m.get("execution_isolation_verified", False):
-            reasons_blocked.append(f"{m_name} per-item execution isolation not verified")
+            reasons_blocked.append(f"{m_name} behavioral execution isolation not verified")
+        else:
+            if not (m.get("fresh_context_per_item_verified", False) and m.get("empty_workdir_verified", False) and m.get("zero_tool_use_audit_verified", False)):
+                reasons_blocked.append(
+                    f"{m_name} execution_isolation_verified cannot be True before fresh_context, empty_workdir, and zero_tool_use_audit are verified"
+                )
         if not m.get("synthetic_smoke_test_passed", False):
             reasons_blocked.append(f"{m_name} synthetic smoke test not passed")
         if not m.get("benchmark_execution_authorized", False):

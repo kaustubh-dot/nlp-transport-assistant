@@ -32,26 +32,31 @@ generated: YES
 **MODEL_A:**  
 - **Model:** `GPT-6 Astra` (OpenAI / Codex)
 - **CONFIGURATION:** FROZEN
+- **ISOLATION CLASS:** `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION`
 - **STERILE BOOTSTRAP:** PASS
 - **PER-ITEM ISOLATION:** NOT VERIFIED
-- **SMOKE TEST:** NOT RUN
+- **AMENDED SMOKE TEST:** NOT RUN
 - **BENCHMARK EXECUTION AUTHORIZED:** NO
 - **ANNOTATION EXECUTED:** NO
 
 **MODEL_B:**  
 - **Model:** `Claude Opus 4.6` (Anthropic / Antigravity isolated backend)
 - **CONFIGURATION:** FROZEN
+- **ISOLATION CLASS:** `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION`
 - **STERILE BOOTSTRAP:** PASS
 - **PER-ITEM ISOLATION:** NOT VERIFIED
-- **SMOKE TEST:** NOT RUN
+- **AMENDED SMOKE TEST:** NOT RUN
 - **BENCHMARK EXECUTION AUTHORIZED:** NO
 - **ANNOTATION EXECUTED:** NO
 
 **GOVERNANCE PRINCIPLE:**  
 > Configuration frozen does not mean execution authorized.
+>
+> Hard architectural tool exclusion was empirically unavailable on the selected non-API execution surfaces.
+> The prospective amendment was adopted before any real benchmark annotation invocation.
 
 **ANNOTATION-START QA:**  
-BLOCKED / NOT READY (Expected: per-item isolation, smoke tests, and execution authorization remain unverified)
+BLOCKED / NOT READY (Expected: per-item behavioral isolation, smoke tests, and execution authorization remain unverified)
 
 **ANNOTATION:**  
 NOT STARTED  
@@ -78,7 +83,8 @@ PENDING
 NO  
 
 **STATUS:**  
-READY FOR STERILE MODEL_A / MODEL_B PREFLIGHT TRANSFER  
+READY FOR AMENDED SYNTHETIC SMOKE TESTS  
+
 
 ---
 
@@ -86,6 +92,7 @@ READY FOR STERILE MODEL_A / MODEL_B PREFLIGHT TRANSFER
 
 ### 1. Documentation & Guidelines
 - Prospective methodology amendment: `docs/nlp_v2/gate_b3/gate_b3_annotation_methodology_amendment.md`
+- Prospective execution-isolation amendment: `docs/nlp_v2/gate_b3/gate_b3_execution_isolation_amendment.md`
 - Neutral T2 annotation guide (12 classes): `docs/nlp_v2/gate_b3/t2_annotation_guide.md`
 - Neutral T3 annotation guide (16 classes): `docs/nlp_v2/gate_b3/t3_annotation_guide.md`
 - Isolated model prompt template & protocol: `docs/nlp_v2/gate_b3/model_annotator_prompt_template.md`
