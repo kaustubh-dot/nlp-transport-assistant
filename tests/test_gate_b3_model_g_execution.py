@@ -51,6 +51,7 @@ MODEL_G_DIR = REPO_ROOT / "scripts" / "nlp_v2" / "gate_b3" / "model_g"
 if str(MODEL_G_DIR) not in sys.path:
     sys.path.insert(0, str(MODEL_G_DIR))
 
+import run_model_g_gemini
 from run_model_g_gemini import (
     BenchmarkNotAuthorizedError,
     DuplicateConversationIdError,
@@ -85,36 +86,72 @@ from validate_model_g_outputs import (
 )
 
 
+class LiveAgyExecutionAttemptError(RuntimeError):
+    """Raised whenever a unit test execution attempts to invoke live agy."""
+    pass
+
+
+def guarded_execute_single_invocation(*args, **kwargs):
+    raise LiveAgyExecutionAttemptError(
+        "CRITICAL GUARD TRIGGERED: Unit test attempted to invoke execute_single_invocation / live agy!"
+    )
+
+
+_original_subprocess_run = run_model_g_gemini.subprocess.run
+
+
+def guarded_subprocess_run(*args, **kwargs):
+    cmd = args[0] if args else kwargs.get("args", [])
+    if (isinstance(cmd, (list, tuple)) and len(cmd) > 0 and cmd[0] == "agy") or (isinstance(cmd, str) and "agy" in cmd):
+        raise LiveAgyExecutionAttemptError(
+            "CRITICAL GUARD TRIGGERED: Unit test attempted to invoke subprocess.run(['agy', ...])!"
+        )
+    return _original_subprocess_run(*args, **kwargs)
+
+
+# Install strict module-level guards so tests can NEVER invoke live agy
+run_model_g_gemini.execute_single_invocation = guarded_execute_single_invocation
+run_model_g_gemini.subprocess.run = guarded_subprocess_run
+
+
+def create_isolated_workspace(benchmark_authorized: bool = False):
+    """
+    Creates an isolated temporary workspace from canonical fixture files.
+    Never depends on machine-global or sterile workspaces.
+    For negative-authorization tests, benchmark_authorized=False creates an unauthorized manifest copy.
+    """
+    tmp_ws = tempfile.TemporaryDirectory()
+    ws_path = Path(tmp_ws.name)
+    (ws_path / "protocol").mkdir(parents=True, exist_ok=True)
+    (ws_path / "inputs").mkdir(parents=True, exist_ok=True)
+    for f in [
+        "model_annotator_prompt_template.md",
+        "t2_annotation_guide.md",
+        "t3_annotation_guide.md",
+        "annotation_output_schema.json",
+        "gate_b3_execution_isolation_amendment.md",
+        "gate_b3_resource_feasibility_annotator_amendment.md",
+    ]:
+        shutil.copyfile(REPO_ROOT / "docs" / "nlp_v2" / "gate_b3" / f, ws_path / "protocol" / f)
+
+    canonical_manifest = json.loads(
+        (REPO_ROOT / "data" / "nlp_v2" / "gate_b3" / "model_g_execution_manifest.json").read_text(encoding="utf-8")
+    )
+    manifest_copy = dict(canonical_manifest)
+    manifest_copy["benchmark_execution_authorized"] = benchmark_authorized
+    (ws_path / "protocol" / "model_g_execution_manifest.json").write_text(
+        json.dumps(manifest_copy, indent=2), encoding="utf-8"
+    )
+
+    shutil.copyfile(REPO_ROOT / "data" / "nlp_v2" / "gate_b3" / "model_g_t2_input.jsonl", ws_path / "inputs" / "model_g_t2_input.jsonl")
+    shutil.copyfile(REPO_ROOT / "data" / "nlp_v2" / "gate_b3" / "model_g_t3_input.jsonl", ws_path / "inputs" / "model_g_t3_input.jsonl")
+    return tmp_ws, ws_path
+
+
 class TestHardenedModelGPipeline(unittest.TestCase):
     def setUp(self):
-        env_ws = os.environ.get("MODEL_G_WORKSPACE_ROOT")
-        sterile_candidate = Path("/home/kaustubh/gate-b3-model-g-gemini")
-        if env_ws and (Path(env_ws) / "protocol").exists() and (Path(env_ws) / "inputs").exists():
-            self.workspace_root = Path(env_ws)
-            self._tmp_ws = None
-        elif sterile_candidate.exists() and (sterile_candidate / "protocol").exists() and (sterile_candidate / "inputs").exists():
-            self.workspace_root = sterile_candidate
-            self._tmp_ws = None
-        else:
-            # Fallback ephemeral workspace constructed from canonical repository files
-            self._tmp_ws = tempfile.TemporaryDirectory()
-            ws_path = Path(self._tmp_ws.name)
-            (ws_path / "protocol").mkdir(parents=True, exist_ok=True)
-            (ws_path / "inputs").mkdir(parents=True, exist_ok=True)
-            for f in [
-                "model_annotator_prompt_template.md",
-                "t2_annotation_guide.md",
-                "t3_annotation_guide.md",
-                "annotation_output_schema.json",
-                "gate_b3_execution_isolation_amendment.md",
-                "gate_b3_resource_feasibility_annotator_amendment.md",
-            ]:
-                shutil.copyfile(REPO_ROOT / "docs" / "nlp_v2" / "gate_b3" / f, ws_path / "protocol" / f)
-            shutil.copyfile(REPO_ROOT / "data" / "nlp_v2" / "gate_b3" / "model_g_execution_manifest.json", ws_path / "protocol" / "model_g_execution_manifest.json")
-            shutil.copyfile(REPO_ROOT / "data" / "nlp_v2" / "gate_b3" / "model_g_t2_input.jsonl", ws_path / "inputs" / "model_g_t2_input.jsonl")
-            shutil.copyfile(REPO_ROOT / "data" / "nlp_v2" / "gate_b3" / "model_g_t3_input.jsonl", ws_path / "inputs" / "model_g_t3_input.jsonl")
-            self.workspace_root = ws_path
-
+        # Strict unit test isolation: never consult sterile workspace or machine environment
+        self._tmp_ws, self.workspace_root = create_isolated_workspace(benchmark_authorized=False)
         self.schema = load_schema(self.workspace_root)
         self.t2_guidelines = load_guidelines(self.workspace_root, "T2")
         self.t3_guidelines = load_guidelines(self.workspace_root, "T3")
@@ -124,7 +161,9 @@ class TestHardenedModelGPipeline(unittest.TestCase):
             self._tmp_ws.cleanup()
 
     # 1. Renamed benchmark input still blocked by hash
-    def test_01_renamed_benchmark_input_blocked_by_hash(self):
+    @patch("run_model_g_gemini.annotate_single_query")
+    def test_01_renamed_benchmark_input_blocked_by_hash(self, mock_annotate):
+        mock_annotate.side_effect = AssertionError("CRITICAL: annotate_single_query should NEVER be called during negative-authorization test!")
         with tempfile.TemporaryDirectory() as tmpdir:
             fake_input = Path(tmpdir) / "innocent_file.jsonl"
             # Copy T2 benchmark file
@@ -147,9 +186,12 @@ class TestHardenedModelGPipeline(unittest.TestCase):
                     workspace_root=self.workspace_root,
                     run_id="TEST",
                 )
+            self.assertEqual(mock_annotate.call_count, 0)
 
     # 2. Copied benchmark input still blocked by hash
-    def test_02_copied_benchmark_input_blocked_by_hash(self):
+    @patch("run_model_g_gemini.annotate_single_query")
+    def test_02_copied_benchmark_input_blocked_by_hash(self, mock_annotate):
+        mock_annotate.side_effect = AssertionError("CRITICAL: annotate_single_query should NEVER be called during negative-authorization test!")
         with tempfile.TemporaryDirectory() as tmpdir:
             copied_t3 = Path(tmpdir) / "arbitrary_dir" / "random_name.txt"
             copied_t3.parent.mkdir(parents=True)
@@ -168,9 +210,12 @@ class TestHardenedModelGPipeline(unittest.TestCase):
                     workspace_root=self.workspace_root,
                     run_id="TEST",
                 )
+            self.assertEqual(mock_annotate.call_count, 0)
 
     # 3. Benchmark hash rejected in synthetic mode
-    def test_03_benchmark_hash_rejected_in_synthetic_mode(self):
+    @patch("run_model_g_gemini.annotate_single_query")
+    def test_03_benchmark_hash_rejected_in_synthetic_mode(self, mock_annotate):
+        mock_annotate.side_effect = AssertionError("CRITICAL: annotate_single_query should NEVER be called during synthetic mode test!")
         with tempfile.TemporaryDirectory() as tmpdir:
             fake_synth = Path(tmpdir) / "synthetic_looks_like.jsonl"
             shutil.copyfile(self.workspace_root / "inputs" / "model_g_t2_input.jsonl", fake_synth)
@@ -186,6 +231,7 @@ class TestHardenedModelGPipeline(unittest.TestCase):
                     is_synthetic=True,
                 )
             self.assertIn("Benchmark input detected in synthetic mode", str(ctx.exception))
+            self.assertEqual(mock_annotate.call_count, 0)
 
     # 4. Missing init fails closed
     def test_04_missing_init_fails_closed(self):
@@ -807,7 +853,9 @@ class TestHardenedModelGPipeline(unittest.TestCase):
             self.assertTrue(any("Duplicate conversation_id 'reused_conv_123'" in e for e in summary["errors"]))
 
     # 25. Benchmark authorization false remains fail-closed
-    def test_25_benchmark_authorization_false_remains_fail_closed(self):
+    @patch("run_model_g_gemini.annotate_single_query")
+    def test_25_benchmark_authorization_false_remains_fail_closed(self, mock_annotate):
+        mock_annotate.side_effect = AssertionError("CRITICAL: annotate_single_query should NEVER be called during negative-authorization test!")
         self.assertFalse(check_benchmark_authorization(self.workspace_root))
         with tempfile.TemporaryDirectory() as tmpdir:
             with self.assertRaises(BenchmarkNotAuthorizedError):
@@ -819,6 +867,7 @@ class TestHardenedModelGPipeline(unittest.TestCase):
                     workspace_root=self.workspace_root,
                     run_id="PROHIBITED",
                 )
+            self.assertEqual(mock_annotate.call_count, 0)
 
     # 26. Package hash drift remains fail-closed
     def test_26_package_hash_drift_remains_fail_closed(self):
@@ -971,6 +1020,69 @@ class TestHardenedModelGPipeline(unittest.TestCase):
             self.assertEqual(json.loads(lines[0]), {"id": 1})
             self.assertEqual(json.loads(lines[1]), {"id": 2})
             self.assertEqual(len(list(Path(tmpdir).glob("*.tmp*"))), 0)
+
+    # 32. Regression: authorized live sterile workspace is never consulted by canonical tests
+    def test_32_regression_sterile_workspace_never_consulted(self):
+        sterile_candidate = Path("/home/kaustubh/gate-b3-model-g-gemini")
+        # Ensure our active workspace is strictly inside temp and not sterile
+        self.assertNotEqual(self.workspace_root.resolve(), sterile_candidate.resolve())
+        self.assertTrue(str(self.workspace_root).startswith(tempfile.gettempdir()))
+
+        # Even if environment variable attempts to point to sterile workspace, helper creates isolated tempdir
+        with patch.dict(os.environ, {"MODEL_G_WORKSPACE_ROOT": str(sterile_candidate)}):
+            tmp, ws = create_isolated_workspace(benchmark_authorized=False)
+            try:
+                self.assertNotEqual(ws.resolve(), sterile_candidate.resolve())
+                self.assertTrue(str(ws).startswith(tempfile.gettempdir()))
+            finally:
+                tmp.cleanup()
+
+    # 33. Regression: negative authorization test uses temporary unauthorized manifest
+    def test_33_regression_negative_authorization_uses_temporary_unauthorized_manifest(self):
+        # Ephemeral workspace manifest has benchmark_execution_authorized = False
+        manifest = json.loads((self.workspace_root / "protocol" / "model_g_execution_manifest.json").read_text(encoding="utf-8"))
+        self.assertFalse(manifest["benchmark_execution_authorized"])
+        self.assertFalse(check_benchmark_authorization(self.workspace_root))
+
+        # Canonical repo manifest remains unchanged (authorized = True)
+        canonical_manifest = json.loads(
+            (REPO_ROOT / "data" / "nlp_v2" / "gate_b3" / "model_g_execution_manifest.json").read_text(encoding="utf-8")
+        )
+        self.assertTrue(canonical_manifest["benchmark_execution_authorized"])
+
+    # 34. Regression: run_batch authorization tests cannot spawn agy
+    def test_34_regression_run_batch_authorization_tests_cannot_spawn_agy(self):
+        # Even if benchmark is authorized in a temporary workspace, unmocked run_batch cannot call agy
+        tmp, authorized_ws = create_isolated_workspace(benchmark_authorized=True)
+        try:
+            with tempfile.TemporaryDirectory() as tmpdir:
+                with self.assertRaises(LiveAgyExecutionAttemptError):
+                    run_batch(
+                        taxonomy="T2",
+                        input_path=authorized_ws / "inputs" / "model_g_t2_input.jsonl",
+                        output_path=Path(tmpdir) / "out.jsonl",
+                        telemetry_dir=Path(tmpdir) / "tel",
+                        workspace_root=authorized_ws,
+                        run_id="TEST_RUN",
+                    )
+        finally:
+            tmp.cleanup()
+
+    # 35. Regression: semantic-child subprocess function is mocked in all unit tests that could reach it
+    def test_35_regression_semantic_subprocess_mocked_in_unit_tests(self):
+        # Guarded function is in place
+        self.assertEqual(run_model_g_gemini.execute_single_invocation, guarded_execute_single_invocation)
+        self.assertEqual(run_model_g_gemini.subprocess.run, guarded_subprocess_run)
+
+    # 36. Guard fails if a unit test execution attempts to invoke agy
+    def test_36_guard_fails_if_unit_test_invokes_agy(self):
+        with self.assertRaises(LiveAgyExecutionAttemptError) as ctx1:
+            run_model_g_gemini.execute_single_invocation("test prompt")
+        self.assertIn("CRITICAL GUARD TRIGGERED", str(ctx1.exception))
+
+        with self.assertRaises(LiveAgyExecutionAttemptError) as ctx2:
+            run_model_g_gemini.subprocess.run(["agy", "--version"])
+        self.assertIn("CRITICAL GUARD TRIGGERED", str(ctx2.exception))
 
 
 if __name__ == "__main__":
