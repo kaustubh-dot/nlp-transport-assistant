@@ -60,23 +60,13 @@ EXPECTED_OUTPUT_SPECS = {
         "source_type": "student",
         "taxonomy_version": "T3",
     },
-    "model_a_t2_annotations.jsonl": {
-        "source_id": "MODEL_A",
+    "model_g_t2_annotations.jsonl": {
+        "source_id": "MODEL_G",
         "source_type": "model",
         "taxonomy_version": "T2",
     },
-    "model_a_t3_annotations.jsonl": {
-        "source_id": "MODEL_A",
-        "source_type": "model",
-        "taxonomy_version": "T3",
-    },
-    "model_b_t2_annotations.jsonl": {
-        "source_id": "MODEL_B",
-        "source_type": "model",
-        "taxonomy_version": "T2",
-    },
-    "model_b_t3_annotations.jsonl": {
-        "source_id": "MODEL_B",
+    "model_g_t3_annotations.jsonl": {
+        "source_id": "MODEL_G",
         "source_type": "model",
         "taxonomy_version": "T3",
     },
@@ -231,7 +221,7 @@ def attempt_lock() -> bool:
         print("LOCK REFUSED: Required annotation output files are missing:")
         for mf in missing_files:
             print(f"  - {mf}")
-        print("All 6 annotator output files must exist before locking.")
+        print("All 4 annotator output files must exist before locking.")
         return False
 
     validator = load_validator()

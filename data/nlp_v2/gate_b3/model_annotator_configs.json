@@ -1,12 +1,21 @@
 {
   "study": "Gate B.3 Annotation-Stability Framework",
   "configuration_frozen": true,
-  "frozen_at": "2026-09-20T11:15:00Z",
-  "configuration_sha256": "2a7c82b9297f65f750f5f72685d329d2e65e40c0691b09546802d8cd727afc8e",
+  "frozen_at": "2026-09-22T11:00:00Z",
+  "primary_model_annotator_source_id": "MODEL_G",
+  "primary_model_annotator_count": 1,
+  "retired_primary_model_sources": [
+    "MODEL_A",
+    "MODEL_B"
+  ],
+  "configuration_sha256": "e0f05789e9dadbbff2ab4ecf02060a7242362e3a3f4cf7d3870113e8e293ebca",
+  "historical_configuration_sha256": "2a7c82b9297f65f750f5f72685d329d2e65e40c0691b09546802d8cd727afc8e",
   "prompt_sha256": "6d37c2646de761c0530f6fe99403e6e1f12a56880da66c8406b8b63ca828da57",
   "t2_guide_sha256": "f1b538c0c141738ada760f52ea93640c9ae91fa9c9e6d7ac13089559d9f3cfac",
   "t3_guide_sha256": "0256b4b27b02e04c6948e85d0c33e81e75c8f38b090d1ac37770bcb0ad57599d",
   "schema_sha256": "0fb81d7cfb9520f19e87797ad774e6f9cd8d8dbe1946cb3dab0f7b7c201954a4",
+  "execution_isolation_amendment_sha256": "a48b732a9373a8e2d65ab3963b1920a658ada1e3c703687b8d2d072f46e87f19",
+  "resource_feasibility_amendment_sha256": "7960145fb12490699611f7c6d9a021929a42408ecc1127595572233f754d319d",
   "MODEL_A": {
     "source_id": "MODEL_A",
     "provider": "OpenAI",
@@ -14,7 +23,8 @@
     "version": "GPT-6 Astra",
     "exact_version_or_revision": "NOT_EXPOSED_BY_PROVIDER",
     "execution_environment": "Codex",
-    "status": "FROZEN_EXECUTION_AUTHORIZED",
+    "status": "ABORTED_PRE_AMENDMENT_EXECUTION",
+    "primary_analysis_included": false,
     "configuration_frozen": true,
     "reasoning_configuration": {
       "effort": "medium"
@@ -38,10 +48,10 @@
     },
     "execution_isolation_verified": true,
     "synthetic_smoke_test_passed": true,
-    "benchmark_execution_authorized": true,
+    "benchmark_execution_authorized": false,
     "execution_timestamp": null,
     "configuration_sha256": "5db1c4aeae9e8cabb98a5b20637488c6812a826d27cbf4ed4cd578d28038fe5c",
-    "provenance_notes": "Model identity frozen from the user-visible execution environment. An immutable provider checkpoint revision has not been independently exposed. Astra review context must never be reused. Must use clean isolated request context in sterile workspace Astra_testing under EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION.",
+    "provenance_notes": "Model identity frozen from the user-visible execution environment. Historical pre-amendment execution aborted after 23 accepted T2 benchmark queries due to provider usage-limit rejection. Excluded from primary Gate B.3 analysis under the Gate B.3 Resource-Feasibility Amendment. Reserved for supervisory methodology review only.",
     "execution_isolation_class": "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION",
     "fresh_context_per_item_required": true,
     "empty_workdir_required": true,
@@ -61,7 +71,8 @@
     "version": "Claude Opus 4.6",
     "exact_version_or_revision": "NOT_EXPOSED_BY_PROVIDER",
     "execution_environment": "Antigravity / isolated Claude execution backend",
-    "status": "FROZEN_EXECUTION_AUTHORIZED",
+    "status": "RETIRED_PRE_COMPLETION",
+    "primary_analysis_included": false,
     "configuration_frozen": true,
     "reasoning_configuration": {
       "mode": "TO_BE_VERIFIED_DURING_EXECUTION_BACKEND_PREFLIGHT"
@@ -85,10 +96,10 @@
     },
     "execution_isolation_verified": true,
     "synthetic_smoke_test_passed": true,
-    "benchmark_execution_authorized": true,
+    "benchmark_execution_authorized": false,
     "execution_timestamp": null,
     "configuration_sha256": "3d9264b1172878ed07080d1ca4e087170aa83fd366f8695effbf32297318020c",
-    "provenance_notes": "Model identity frozen from the user-visible execution environment. An immutable provider checkpoint revision has not been independently exposed. Distinct model family from MODEL_A. Must execute in sterile workspace gate-b3-model-b-claude under EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION.",
+    "provenance_notes": "Model identity frozen from the user-visible execution environment. Retired pre-completion from Gate B.3 bulk annotation because whole-sample execution could not be supported under available provider quota. Excluded from primary Gate B.3 analysis.",
     "execution_isolation_class": "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION",
     "fresh_context_per_item_required": true,
     "empty_workdir_required": true,
@@ -101,5 +112,52 @@
     "empty_workdir_verified": true,
     "zero_tool_use_audit_verified": true
   },
-  "execution_isolation_amendment_sha256": "a48b732a9373a8e2d65ab3963b1920a658ada1e3c703687b8d2d072f46e87f19"
+  "MODEL_G": {
+    "source_id": "MODEL_G",
+    "provider": "Google",
+    "model": "Gemini 3.8 Flash",
+    "version": "Gemini 3.8 Flash",
+    "exact_version_or_revision": "NOT_EXPOSED_BY_PROVIDER",
+    "execution_environment": "Antigravity",
+    "status": "FROZEN_NOT_EXECUTION_READY",
+    "primary_analysis_included": true,
+    "configuration_frozen": true,
+    "reasoning_configuration": {
+      "mode": "standard"
+    },
+    "tool_policy": {
+      "web": "DISABLED_REQUIRED",
+      "external_retrieval": "DISABLED_REQUIRED",
+      "original_repository_access": "FORBIDDEN",
+      "other_annotator_access": "FORBIDDEN",
+      "filesystem_isolation": "BEHAVIORAL_NO_USE_WITH_EMPTY_WORKDIR",
+      "web_isolation": "CONFIG_DISABLED_AND_ZERO_CALL_AUDITED"
+    },
+    "request_isolation": "ONE_QUERY_ONE_FRESH_CONTEXT_REQUIRED",
+    "retry_policy": {
+      "semantic_retries": 0,
+      "format_repair_attempts": 1,
+      "transport_retry_policy": "PERMITTED_FOR_EXECUTION_FAILURE_ONLY",
+      "semantic_retry_mode": "FORBIDDEN",
+      "tool_violation_retry_attempts": 0,
+      "tool_violation_mode": "HARD_FAIL_BATCH"
+    },
+    "execution_isolation_verified": false,
+    "synthetic_smoke_test_passed": false,
+    "benchmark_execution_authorized": false,
+    "execution_timestamp": null,
+    "configuration_sha256": "d4a359b72779ec15f42ffa0ba72beb57ff20ff765de901783082caee0deda1dd",
+    "provenance_notes": "Model identity frozen from Antigravity execution environment. Exact immutable provider checkpoint not exposed. Active primary model annotator replacing retired MODEL_A / MODEL_B bulk design under Gate B.3 Resource-Feasibility Amendment. Must execute under EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION with fresh context per item.",
+    "execution_isolation_class": "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION",
+    "fresh_context_per_item_required": true,
+    "empty_workdir_required": true,
+    "benchmark_paths_provided_to_child": false,
+    "cross_query_history_allowed": false,
+    "actual_tool_use_allowed": false,
+    "zero_tool_use_audit_required": true,
+    "tool_violation_retry_attempts": 0,
+    "fresh_context_per_item_verified": false,
+    "empty_workdir_verified": false,
+    "zero_tool_use_audit_verified": false
+  }
 }

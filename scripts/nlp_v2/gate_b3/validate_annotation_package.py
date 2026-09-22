@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Comprehensive Validator for NLP v2 Gate B.3 Annotation Packages.
 
-Enforces Section 54 requirements:
+Enforces Section 54 requirements, as amended by Resource-Feasibility Amendment:
 1. 350 unique annotation IDs across packages
 2. Zero gold fields in annotator exports
 3. Zero trained-model predictions in annotator exports
@@ -14,6 +14,7 @@ Enforces Section 54 requirements:
 10. Primary in acceptable_labels when non-null
 11. Zero exact normalized overlap between guide examples and blind set
 12. Original 350-query file unchanged (bitwise SHA-256 and row count)
+13. Model packages include MODEL_G blind inputs
 """
 
 import os
@@ -117,7 +118,6 @@ def validate_all():
             fields = list(reader.fieldnames or [])
             rows = list(reader)
 
-        # Exact allowed columns only
         expected_fields = ["annotation_id", "query", "taxonomy_version"]
         if fields != expected_fields:
             raise AssertionError(f"{fname}: Field mismatch! Expected {expected_fields}, got {fields}")
@@ -142,7 +142,6 @@ def validate_all():
 
         print(f"  {fname}: {len(rows)} rows, strictly blind, taxonomy {exp_tax}.")
 
-    # Verify coverage across student passes
     if len(seen_student_t2) != 350:
         raise AssertionError(f"Student T2 passes do not cover all 350 queries: {len(seen_student_t2)} covered.")
     if len(seen_student_t3) != 350:
@@ -152,6 +151,8 @@ def validate_all():
     # 3. Model Annotator Input JSONLs Validation
     print("\n3. Verifying Model Annotator Input JSONL Packages...")
     model_files = [
+        ("model_g_t2_input.jsonl", "T2"),
+        ("model_g_t3_input.jsonl", "T3"),
         ("model_a_t2_input.jsonl", "T2"),
         ("model_a_t3_input.jsonl", "T3"),
         ("model_b_t2_input.jsonl", "T2"),
@@ -218,22 +219,33 @@ def validate_all():
         "PENDING",
         "FROZEN_NOT_EXECUTION_READY",
         "FROZEN_EXECUTION_READY_NOT_AUTHORIZED",
-        "FROZEN_EXECUTION_AUTHORIZED"
+        "FROZEN_EXECUTION_AUTHORIZED",
+        "ABORTED_PRE_AMENDMENT_EXECUTION",
+        "RETIRED_PRE_COMPLETION",
     )
+
+    # Verify Active MODEL_G
+    if "MODEL_G" not in cfg:
+        raise AssertionError("Missing config for MODEL_G")
+    g_status = cfg["MODEL_G"].get("status")
+    if g_status not in ALLOWED_STATUSES:
+        raise AssertionError(f"MODEL_G status must be one of {ALLOWED_STATUSES} (got '{g_status}')")
+    if cfg["MODEL_G"]["execution_timestamp"] is not None:
+        raise AssertionError("MODEL_G execution_timestamp must be null prior to execution!")
+    if cfg["MODEL_G"].get("benchmark_execution_authorized") is not False:
+        raise AssertionError("MODEL_G benchmark_execution_authorized must be false prior to sterile preflight and smoke test!")
+
+    # Verify Retired Models
     for m in ["MODEL_A", "MODEL_B"]:
         if m not in cfg:
             raise AssertionError(f"Missing config for {m}")
         m_status = cfg[m].get("status")
         if m_status not in ALLOWED_STATUSES:
-            raise AssertionError(f"{m} status must be one of {ALLOWED_STATUSES} prior to execution (got '{m_status}')!")
+            raise AssertionError(f"{m} status must be one of {ALLOWED_STATUSES} (got '{m_status}')!")
         if cfg[m]["execution_timestamp"] is not None:
             raise AssertionError(f"{m} execution_timestamp must be null prior to execution!")
-        if m_status == "FROZEN_EXECUTION_AUTHORIZED":
-            if cfg[m].get("benchmark_execution_authorized") is not True:
-                raise AssertionError(f"{m} benchmark_execution_authorized must be true when status is FROZEN_EXECUTION_AUTHORIZED!")
-        else:
-            if cfg[m].get("benchmark_execution_authorized") is not False:
-                raise AssertionError(f"{m} benchmark_execution_authorized must be false prior to execution!")
+        if cfg[m].get("primary_analysis_included") is not False:
+            raise AssertionError(f"{m} primary_analysis_included must be false!")
     print("  Model annotator configs verified: pre-execution status valid, execution_timestamp null.")
 
     # 6. Gold Boundary Audit Template Validation
@@ -247,8 +259,8 @@ def validate_all():
         raise AssertionError(f"Audit template expected 350 rows, got {len(tpl_rows)}")
 
     for idx, r in enumerate(tpl_rows, start=1):
-        for col in ["student_T2", "student_T3", "model_A_T2", "model_A_T3", "model_B_T2", "model_B_T3"]:
-            if r[col] != "":
+        for col in ["student_T2", "student_T3", "model_G_T2", "model_G_T3", "model_A_T2", "model_A_T3", "model_B_T2", "model_B_T3"]:
+            if r.get(col, "") != "":
                 raise AssertionError(f"Audit template line {idx} has pre-filled label in {col}!")
     print("  Gold boundary audit template verified: 350 rows, all annotation fields blank.")
 

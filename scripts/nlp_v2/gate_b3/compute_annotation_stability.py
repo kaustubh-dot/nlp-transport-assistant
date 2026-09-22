@@ -117,7 +117,7 @@ def verify_first_pass_lock_integrity() -> bool:
         return False
 
     files_meta = lock_manifest.get("files", {})
-    if len(files_meta) != 6:
+    if len(files_meta) not in (4, 6):
         return False
 
     for fname, meta in files_meta.items():
@@ -627,27 +627,35 @@ def run_full_analysis_pipeline() -> Dict[str, Any]:
     print("Executing Gate B.3 Annotation-Stability and Semantic-Boundary Audit")
     print("=" * 70)
 
-    # 1. Load All 6 Annotation Files
+    # 1. Load Primary Annotation Files
     student_t2 = load_annotations_file(os.path.join(GATE_B3_DIR, "student_t2_annotations.jsonl"))
     student_t3 = load_annotations_file(os.path.join(GATE_B3_DIR, "student_t3_annotations.jsonl"))
+    model_g_t2 = load_annotations_file(os.path.join(GATE_B3_DIR, "model_g_t2_annotations.jsonl"))
+    model_g_t3 = load_annotations_file(os.path.join(GATE_B3_DIR, "model_g_t3_annotations.jsonl"))
+
+    # Historical files (if present)
     model_a_t2 = load_annotations_file(os.path.join(GATE_B3_DIR, "model_a_t2_annotations.jsonl"))
     model_a_t3 = load_annotations_file(os.path.join(GATE_B3_DIR, "model_a_t3_annotations.jsonl"))
     model_b_t2 = load_annotations_file(os.path.join(GATE_B3_DIR, "model_b_t2_annotations.jsonl"))
     model_b_t3 = load_annotations_file(os.path.join(GATE_B3_DIR, "model_b_t3_annotations.jsonl"))
 
-    # 2. Pairwise Stability for T2
+    # 2. Pairwise Stability for T2 (Primary: STUDENT ↔ MODEL_G)
     pairwise_t2 = {
-        "STUDENT_vs_MODEL_A": compute_pairwise_stability_suite("STUDENT_R1", "MODEL_A", student_t2, model_a_t2, "T2"),
-        "STUDENT_vs_MODEL_B": compute_pairwise_stability_suite("STUDENT_R1", "MODEL_B", student_t2, model_b_t2, "T2"),
-        "MODEL_A_vs_MODEL_B": compute_pairwise_stability_suite("MODEL_A", "MODEL_B", model_a_t2, model_b_t2, "T2"),
+        "STUDENT_vs_MODEL_G": compute_pairwise_stability_suite("STUDENT_R1", "MODEL_G", student_t2, model_g_t2, "T2"),
     }
+    if model_a_t2 and model_b_t2:
+        pairwise_t2["HISTORICAL_STUDENT_vs_MODEL_A"] = compute_pairwise_stability_suite("STUDENT_R1", "MODEL_A", student_t2, model_a_t2, "T2")
+        pairwise_t2["HISTORICAL_STUDENT_vs_MODEL_B"] = compute_pairwise_stability_suite("STUDENT_R1", "MODEL_B", student_t2, model_b_t2, "T2")
+        pairwise_t2["HISTORICAL_MODEL_A_vs_MODEL_B"] = compute_pairwise_stability_suite("MODEL_A", "MODEL_B", model_a_t2, model_b_t2, "T2")
 
-    # 3. Pairwise Stability for T3
+    # 3. Pairwise Stability for T3 (Primary: STUDENT ↔ MODEL_G)
     pairwise_t3 = {
-        "STUDENT_vs_MODEL_A": compute_pairwise_stability_suite("STUDENT_R1", "MODEL_A", student_t3, model_a_t3, "T3"),
-        "STUDENT_vs_MODEL_B": compute_pairwise_stability_suite("STUDENT_R1", "MODEL_B", student_t3, model_b_t3, "T3"),
-        "MODEL_A_vs_MODEL_B": compute_pairwise_stability_suite("MODEL_A", "MODEL_B", model_a_t3, model_b_t3, "T3"),
+        "STUDENT_vs_MODEL_G": compute_pairwise_stability_suite("STUDENT_R1", "MODEL_G", student_t3, model_g_t3, "T3"),
     }
+    if model_a_t3 and model_b_t3:
+        pairwise_t3["HISTORICAL_STUDENT_vs_MODEL_A"] = compute_pairwise_stability_suite("STUDENT_R1", "MODEL_A", student_t3, model_a_t3, "T3")
+        pairwise_t3["HISTORICAL_STUDENT_vs_MODEL_B"] = compute_pairwise_stability_suite("STUDENT_R1", "MODEL_B", student_t3, model_b_t3, "T3")
+        pairwise_t3["HISTORICAL_MODEL_A_vs_MODEL_B"] = compute_pairwise_stability_suite("MODEL_A", "MODEL_B", model_a_t3, model_b_t3, "T3")
 
     # 4. Load Reference Key
     gold_key = load_gold_key()
@@ -656,21 +664,18 @@ def run_full_analysis_pipeline() -> Dict[str, Any]:
     ref_concordance = {
         "T2": {
             "STUDENT_R1": compute_reference_concordance(student_t2, gold_key, "T2"),
-            "MODEL_A": compute_reference_concordance(model_a_t2, gold_key, "T2"),
-            "MODEL_B": compute_reference_concordance(model_b_t2, gold_key, "T2"),
+            "MODEL_G": compute_reference_concordance(model_g_t2, gold_key, "T2"),
         },
         "T3": {
             "STUDENT_R1": compute_reference_concordance(student_t3, gold_key, "T3"),
-            "MODEL_A": compute_reference_concordance(model_a_t3, gold_key, "T3"),
-            "MODEL_B": compute_reference_concordance(model_b_t3, gold_key, "T3"),
+            "MODEL_G": compute_reference_concordance(model_g_t3, gold_key, "T3"),
         }
     }
 
     # 6. Boundary Panels
     sources_t3 = {
         "STUDENT_R1": student_t3,
-        "MODEL_A": model_a_t3,
-        "MODEL_B": model_b_t3
+        "MODEL_G": model_g_t3
     }
     boundary_panels = compute_boundary_panels(sources_t3, gold_key, "T3")
 

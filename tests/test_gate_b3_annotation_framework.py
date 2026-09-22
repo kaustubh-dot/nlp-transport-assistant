@@ -128,8 +128,10 @@ def test_each_student_eventually_sees_every_query_under_both_taxonomies():
 
 
 def test_model_exports_contain_exactly_350_items_each():
-    """Verify all 4 model annotator export files contain exactly 350 lines."""
+    """Verify all model annotator export files contain exactly 350 lines."""
     model_files = [
+        "model_g_t2_input.jsonl",
+        "model_g_t3_input.jsonl",
         "model_a_t2_input.jsonl",
         "model_a_t3_input.jsonl",
         "model_b_t2_input.jsonl",
@@ -166,6 +168,8 @@ def test_annotator_exports_contain_no_gold_or_predictions_or_utterance_id():
             assert not (fields & forbidden), f"Forbidden field in {sf}: {fields & forbidden}"
 
     model_files = [
+        "model_g_t2_input.jsonl",
+        "model_g_t3_input.jsonl",
         "model_a_t2_input.jsonl",
         "model_a_t3_input.jsonl",
         "model_b_t2_input.jsonl",
@@ -227,7 +231,7 @@ def test_semantic_validation_student_burden_and_invariants():
     from scripts.nlp_v2.gate_b3.lock_first_pass_annotations import validate_record_semantics, EXPECTED_OUTPUT_SPECS
 
     student_spec = EXPECTED_OUTPUT_SPECS["student_t2_annotations.jsonl"]
-    model_spec = EXPECTED_OUTPUT_SPECS["model_a_t2_annotations.jsonl"]
+    model_spec = EXPECTED_OUTPUT_SPECS["model_g_t2_annotations.jsonl"]
 
     base_rec = {
         "annotation_id": "ANN_B2_001",
@@ -249,8 +253,8 @@ def test_semantic_validation_student_burden_and_invariants():
     # Student valid
     validate_record_semantics(base_rec, student_spec, 1, "test.jsonl")
 
-    # 1. Source mismatch: MODEL_A file with source_id MODEL_B rejected
-    model_rec = dict(base_rec, source_id="MODEL_B", source_type="model", active_time_seconds=None, rule_difficulty="not_applicable", recognized_from_prior_work="not_applicable")
+    # 1. Source mismatch: MODEL_G file with source_id MODEL_A rejected
+    model_rec = dict(base_rec, source_id="MODEL_A", source_type="model", active_time_seconds=None, rule_difficulty="not_applicable", recognized_from_prior_work="not_applicable")
     with pytest.raises(ValueError, match="source_id mismatch"):
         validate_record_semantics(model_rec, model_spec, 1, "test.jsonl")
 
@@ -270,7 +274,7 @@ def test_semantic_validation_student_burden_and_invariants():
         validate_record_semantics(bad_time, student_spec, 1, "test.jsonl")
 
     # 5. Model with non-null active_time_seconds rejected
-    model_valid = dict(base_rec, source_id="MODEL_A", source_type="model", active_time_seconds=None, rule_difficulty="not_applicable", recognized_from_prior_work="not_applicable")
+    model_valid = dict(base_rec, source_id="MODEL_G", source_type="model", active_time_seconds=None, rule_difficulty="not_applicable", recognized_from_prior_work="not_applicable")
     validate_record_semantics(model_valid, model_spec, 1, "test.jsonl")
 
     bad_model_time = dict(model_valid, active_time_seconds=5.0)
@@ -380,17 +384,24 @@ def test_analysis_orchestration_fails_before_lock():
         run_full_analysis_pipeline()
 
 
-def test_annotation_start_qa_ready_when_execution_authorized():
-    """Verify qa_gate_b3_annotation_start succeeds with STATUS: READY FOR ANNOTATION EXECUTION."""
+def test_annotation_start_qa_status_blocked_prior_to_model_g_readiness():
+    """Verify qa_gate_b3_annotation_start returns BLOCKED / NOT READY for MODEL_G readiness blockers."""
     import subprocess
     proc = subprocess.run(
         [sys.executable, "scripts/nlp_v2/gate_b3/qa_gate_b3_annotation_start.py"],
         capture_output=True,
         text=True
     )
-    assert proc.returncode == 0
-    assert "STATUS: READY FOR ANNOTATION EXECUTION" in proc.stdout
-    assert "All model configurations and prompt hashes verified frozen." in proc.stdout
+    assert proc.returncode == 1
+    assert "STATUS: BLOCKED / NOT READY" in proc.stdout
+    assert "MODEL_G fresh context per item not verified" in proc.stdout
+    assert "MODEL_G empty workdir not verified" in proc.stdout
+    assert "MODEL_G zero-tool-use audit not verified" in proc.stdout
+    assert "MODEL_G behavioral execution isolation not verified" in proc.stdout
+    assert "MODEL_G synthetic smoke test not passed" in proc.stdout
+    assert "MODEL_G benchmark execution not authorized" in proc.stdout
+    assert "MODEL_A" not in proc.stdout
+    assert "MODEL_B" not in proc.stdout
 
 
 def test_guide_examples_zero_overlap_with_blind_set():
@@ -411,8 +422,8 @@ def test_guide_examples_zero_overlap_with_blind_set():
         assert len(overlaps) == 0, f"Overlap detected in {guide}: {overlaps}"
 
 
-def test_model_annotator_configs_frozen_and_execution_authorized():
-    """Verify model annotator configuration is frozen with verified execution readiness and authorized benchmark."""
+def test_model_annotator_configs_frozen_and_amendment_status():
+    """Verify model annotator configuration is frozen with MODEL_G active unauthorized and historical models retired."""
     cfg_path = os.path.join(GATE_B3_DIR, "model_annotator_configs.json")
     with open(cfg_path, "r", encoding="utf-8") as f:
         cfg = json.load(f)
@@ -420,6 +431,9 @@ def test_model_annotator_configs_frozen_and_execution_authorized():
     assert cfg["configuration_frozen"] is True
     assert cfg["frozen_at"] is not None
     assert cfg["configuration_sha256"] is not None
+    assert cfg["primary_model_annotator_source_id"] == "MODEL_G"
+    assert cfg["primary_model_annotator_count"] == 1
+    assert cfg["retired_primary_model_sources"] == ["MODEL_A", "MODEL_B"]
 
     expected_retry_policy = {
         "semantic_retries": 0,
@@ -430,57 +444,50 @@ def test_model_annotator_configs_frozen_and_execution_authorized():
         "tool_violation_mode": "HARD_FAIL_BATCH",
     }
 
-    # MODEL_A checks
+    # MODEL_G checks (Active primary model annotator)
+    m_g = cfg["MODEL_G"]
+    assert m_g["source_id"] == "MODEL_G"
+    assert m_g["provider"] == "Google"
+    assert m_g["model"] == "Gemini 3.8 Flash"
+    assert m_g["version"] == "Gemini 3.8 Flash"
+    assert m_g["exact_version_or_revision"] == "NOT_EXPOSED_BY_PROVIDER"
+    assert m_g["execution_environment"] == "Antigravity"
+    assert m_g["status"] == "FROZEN_NOT_EXECUTION_READY"
+    assert m_g["configuration_frozen"] is True
+    assert m_g["primary_analysis_included"] is True
+    assert m_g["execution_isolation_class"] == "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION"
+    assert m_g["fresh_context_per_item_required"] is True
+    assert m_g["empty_workdir_required"] is True
+    assert m_g["actual_tool_use_allowed"] is False
+    assert m_g["zero_tool_use_audit_required"] is True
+    assert m_g["tool_violation_retry_attempts"] == 0
+    assert m_g["reasoning_configuration"]["mode"] == "standard"
+    assert m_g["fresh_context_per_item_verified"] is False
+    assert m_g["empty_workdir_verified"] is False
+    assert m_g["zero_tool_use_audit_verified"] is False
+    assert m_g["execution_isolation_verified"] is False
+    assert m_g["synthetic_smoke_test_passed"] is False
+    assert m_g["benchmark_execution_authorized"] is False
+    assert m_g["execution_timestamp"] is None
+    assert m_g["retry_policy"] == expected_retry_policy
+
+    # MODEL_A checks (Historical aborted execution)
     m_a = cfg["MODEL_A"]
     assert m_a["source_id"] == "MODEL_A"
     assert m_a["provider"] == "OpenAI"
     assert m_a["model"] == "GPT-6 Astra"
-    assert m_a["version"] == "GPT-6 Astra"
-    assert m_a["exact_version_or_revision"] == "NOT_EXPOSED_BY_PROVIDER"
-    assert m_a["execution_environment"] == "Codex"
-    assert m_a["status"] == "FROZEN_EXECUTION_AUTHORIZED"
-    assert m_a["configuration_frozen"] is True
-    assert m_a["execution_isolation_class"] == "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION"
-    assert m_a["fresh_context_per_item_required"] is True
-    assert m_a["empty_workdir_required"] is True
-    assert m_a["actual_tool_use_allowed"] is False
-    assert m_a["zero_tool_use_audit_required"] is True
-    assert m_a["tool_violation_retry_attempts"] == 0
-    assert m_a["reasoning_configuration"]["effort"] == "medium"
-    assert m_a["fresh_context_per_item_verified"] is True
-    assert m_a["empty_workdir_verified"] is True
-    assert m_a["zero_tool_use_audit_verified"] is True
-    assert m_a["execution_isolation_verified"] is True
-    assert m_a["synthetic_smoke_test_passed"] is True
-    assert m_a["benchmark_execution_authorized"] is True
-    assert m_a["execution_timestamp"] is None
-    assert m_a["retry_policy"] == expected_retry_policy
+    assert m_a["status"] == "ABORTED_PRE_AMENDMENT_EXECUTION"
+    assert m_a["primary_analysis_included"] is False
+    assert m_a["benchmark_execution_authorized"] is False
 
-    # MODEL_B checks
+    # MODEL_B checks (Historical retired execution)
     m_b = cfg["MODEL_B"]
     assert m_b["source_id"] == "MODEL_B"
     assert m_b["provider"] == "Anthropic"
     assert m_b["model"] == "Claude Opus 4.6"
-    assert m_b["version"] == "Claude Opus 4.6"
-    assert m_b["exact_version_or_revision"] == "NOT_EXPOSED_BY_PROVIDER"
-    assert m_b["execution_environment"] == "Antigravity / isolated Claude execution backend"
-    assert m_b["status"] == "FROZEN_EXECUTION_AUTHORIZED"
-    assert m_b["configuration_frozen"] is True
-    assert m_b["execution_isolation_class"] == "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION"
-    assert m_b["fresh_context_per_item_required"] is True
-    assert m_b["empty_workdir_required"] is True
-    assert m_b["actual_tool_use_allowed"] is False
-    assert m_b["zero_tool_use_audit_required"] is True
-    assert m_b["tool_violation_retry_attempts"] == 0
-    assert m_b["reasoning_configuration"]["mode"] == "TO_BE_VERIFIED_DURING_EXECUTION_BACKEND_PREFLIGHT"
-    assert m_b["fresh_context_per_item_verified"] is True
-    assert m_b["empty_workdir_verified"] is True
-    assert m_b["zero_tool_use_audit_verified"] is True
-    assert m_b["execution_isolation_verified"] is True
-    assert m_b["synthetic_smoke_test_passed"] is True
-    assert m_b["benchmark_execution_authorized"] is True
-    assert m_b["execution_timestamp"] is None
-    assert m_b["retry_policy"] == expected_retry_policy
+    assert m_b["status"] == "RETIRED_PRE_COMPLETION"
+    assert m_b["primary_analysis_included"] is False
+    assert m_b["benchmark_execution_authorized"] is False
 
 
 def test_taxonomy_decision_remains_pending():
@@ -523,16 +530,18 @@ def _create_valid_frozen_mock_config() -> dict:
     t3_path = os.path.join(DOCS_B3_DIR, "t3_annotation_guide.md")
     schema_path = os.path.join(DOCS_B3_DIR, "annotation_output_schema.json")
     amendment_path = os.path.join(DOCS_B3_DIR, "gate_b3_execution_isolation_amendment.md")
+    feasibility_path = os.path.join(DOCS_B3_DIR, "gate_b3_resource_feasibility_annotator_amendment.md")
 
-    m_a = {
-        "source_id": "MODEL_A",
-        "provider": "ANTHROPIC",
-        "model": "claude-3-7-sonnet",
-        "version": "20250219",
-        "exact_version_or_revision": "claude-3-7-sonnet-20250219",
-        "execution_environment": "Codex",
+    m_g = {
+        "source_id": "MODEL_G",
+        "provider": "Google",
+        "model": "Gemini 3.8 Flash",
+        "version": "Gemini 3.8 Flash",
+        "exact_version_or_revision": "NOT_EXPOSED_BY_PROVIDER",
+        "execution_environment": "Antigravity",
         "status": "FROZEN_EXECUTION_AUTHORIZED",
         "configuration_frozen": True,
+        "primary_analysis_included": True,
         "execution_isolation_class": "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION",
         "fresh_context_per_item_required": True,
         "empty_workdir_required": True,
@@ -541,7 +550,7 @@ def _create_valid_frozen_mock_config() -> dict:
         "actual_tool_use_allowed": False,
         "zero_tool_use_audit_required": True,
         "tool_violation_retry_attempts": 0,
-        "reasoning_configuration": {"effort": "medium"},
+        "reasoning_configuration": {"mode": "standard"},
         "tool_policy": {
             "web": "DISABLED_REQUIRED",
             "external_retrieval": "DISABLED_REQUIRED",
@@ -566,69 +575,46 @@ def _create_valid_frozen_mock_config() -> dict:
         "synthetic_smoke_test_passed": True,
         "benchmark_execution_authorized": True,
         "execution_timestamp": None,
-        "provenance_notes": "Astra review context isolated."
+        "provenance_notes": "Primary model annotator mock."
     }
-    m_a["configuration_sha256"] = compute_model_config_hash(m_a)
-
-    m_b = {
-        "source_id": "MODEL_B",
-        "provider": "GOOGLE",
-        "model": "gemini-2.0-flash",
-        "version": "001",
-        "exact_version_or_revision": "gemini-2.0-flash-001",
-        "execution_environment": "Antigravity / isolated Claude execution backend",
-        "status": "FROZEN_EXECUTION_AUTHORIZED",
-        "configuration_frozen": True,
-        "execution_isolation_class": "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION",
-        "fresh_context_per_item_required": True,
-        "empty_workdir_required": True,
-        "benchmark_paths_provided_to_child": False,
-        "cross_query_history_allowed": False,
-        "actual_tool_use_allowed": False,
-        "zero_tool_use_audit_required": True,
-        "tool_violation_retry_attempts": 0,
-        "reasoning_configuration": {"mode": "TO_BE_VERIFIED_DURING_EXECUTION_BACKEND_PREFLIGHT"},
-        "tool_policy": {
-            "web": "DISABLED_REQUIRED",
-            "external_retrieval": "DISABLED_REQUIRED",
-            "original_repository_access": "FORBIDDEN",
-            "other_annotator_access": "FORBIDDEN",
-            "filesystem_isolation": "BEHAVIORAL_NO_USE_WITH_EMPTY_WORKDIR",
-            "web_isolation": "ZERO_CALL_AUDITED",
-        },
-        "request_isolation": "ONE_QUERY_ONE_FRESH_CONTEXT_REQUIRED",
-        "retry_policy": {
-            "semantic_retries": 0,
-            "format_repair_attempts": 1,
-            "transport_retry_policy": "PERMITTED_FOR_EXECUTION_FAILURE_ONLY",
-            "semantic_retry_mode": "FORBIDDEN",
-            "tool_violation_retry_attempts": 0,
-            "tool_violation_mode": "HARD_FAIL_BATCH",
-        },
-        "fresh_context_per_item_verified": True,
-        "empty_workdir_verified": True,
-        "zero_tool_use_audit_verified": True,
-        "execution_isolation_verified": True,
-        "synthetic_smoke_test_passed": True,
-        "benchmark_execution_authorized": True,
-        "execution_timestamp": None,
-        "provenance_notes": "Diverse model family."
-    }
-    m_b["configuration_sha256"] = compute_model_config_hash(m_b)
+    m_g["configuration_sha256"] = compute_model_config_hash(m_g)
 
     cfg = {
         "study": "Gate B.3 Annotation-Stability Framework",
+        "primary_model_annotator_source_id": "MODEL_G",
+        "primary_model_annotator_count": 1,
+        "retired_primary_model_sources": ["MODEL_A", "MODEL_B"],
         "configuration_frozen": True,
-        "frozen_at": "2026-09-20T12:00:00Z",
+        "frozen_at": "2026-09-22T11:00:00Z",
         "prompt_sha256": compute_sha256(prompt_path),
         "t2_guide_sha256": compute_sha256(t2_path),
         "t3_guide_sha256": compute_sha256(t3_path),
         "schema_sha256": compute_sha256(schema_path),
         "execution_isolation_amendment_sha256": compute_sha256(amendment_path),
-        "MODEL_A": m_a,
-        "MODEL_B": m_b,
+        "resource_feasibility_amendment_sha256": compute_sha256(feasibility_path),
+        "MODEL_G": m_g,
+        "MODEL_A": {
+            "source_id": "MODEL_A",
+            "provider": "OpenAI",
+            "model": "GPT-6 Astra",
+            "version": "GPT-6 Astra",
+            "exact_version_or_revision": "NOT_EXPOSED_BY_PROVIDER",
+            "execution_environment": "Codex",
+            "status": "ABORTED_PRE_AMENDMENT_EXECUTION",
+            "primary_analysis_included": False,
+        },
+        "MODEL_B": {
+            "source_id": "MODEL_B",
+            "provider": "Anthropic",
+            "model": "Claude Opus 4.6",
+            "version": "Claude Opus 4.6",
+            "exact_version_or_revision": "NOT_EXPOSED_BY_PROVIDER",
+            "execution_environment": "Antigravity",
+            "status": "RETIRED_PRE_COMPLETION",
+            "primary_analysis_included": False,
+        }
     }
-    cfg["configuration_sha256"] = compute_global_config_hash(cfg, m_a["configuration_sha256"], m_b["configuration_sha256"])
+    cfg["configuration_sha256"] = compute_global_config_hash(cfg, m_g["configuration_sha256"])
     return cfg
 
 
@@ -648,31 +634,31 @@ def test_annotation_start_qa_model_version_checks(tmp_path):
 
     # 1. frozen model with version=PENDING is rejected
     cfg1 = _create_valid_frozen_mock_config()
-    cfg1["MODEL_A"]["version"] = "PENDING"
+    cfg1["MODEL_G"]["version"] = "PENDING"
     with open(cfg_file, "w", encoding="utf-8") as f:
         json.dump(cfg1, f)
     is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
     assert is_ready is False
-    assert any("MODEL_A version remains PENDING" in r for r in reasons)
+    assert any("MODEL_G version remains PENDING" in r for r in reasons)
 
     # 2. frozen model with version="" is rejected
     cfg2 = _create_valid_frozen_mock_config()
-    cfg2["MODEL_A"]["version"] = ""
+    cfg2["MODEL_G"]["version"] = ""
     with open(cfg_file, "w", encoding="utf-8") as f:
         json.dump(cfg2, f)
     is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
     assert is_ready is False
-    assert any("MODEL_A version remains PENDING or empty" in r for r in reasons)
+    assert any("MODEL_G version remains PENDING or empty" in r for r in reasons)
 
     # 3. frozen model with exact_version_or_revision=null / "" / "PENDING" is rejected
     for invalid_rev in [None, "", "PENDING"]:
         cfg3 = _create_valid_frozen_mock_config()
-        cfg3["MODEL_A"]["exact_version_or_revision"] = invalid_rev
+        cfg3["MODEL_G"]["exact_version_or_revision"] = invalid_rev
         with open(cfg_file, "w", encoding="utf-8") as f:
             json.dump(cfg3, f)
         is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
         assert is_ready is False
-        assert any("MODEL_A exact_version_or_revision must be provided when frozen" in r for r in reasons)
+        assert any("MODEL_G exact_version_or_revision must be provided when frozen" in r for r in reasons)
 
     # 4. NOT_EXPOSED_BY_PROVIDER is accepted as revision provenance
     from scripts.nlp_v2.gate_b3.qa_gate_b3_annotation_start import (
@@ -680,10 +666,10 @@ def test_annotation_start_qa_model_version_checks(tmp_path):
         compute_global_config_hash
     )
     cfg4 = _create_valid_frozen_mock_config()
-    cfg4["MODEL_A"]["exact_version_or_revision"] = "NOT_EXPOSED_BY_PROVIDER"
-    cfg4["MODEL_A"]["configuration_sha256"] = compute_model_config_hash(cfg4["MODEL_A"])
+    cfg4["MODEL_G"]["exact_version_or_revision"] = "NOT_EXPOSED_BY_PROVIDER"
+    cfg4["MODEL_G"]["configuration_sha256"] = compute_model_config_hash(cfg4["MODEL_G"])
     cfg4["configuration_sha256"] = compute_global_config_hash(
-        cfg4, cfg4["MODEL_A"]["configuration_sha256"], cfg4["MODEL_B"]["configuration_sha256"]
+        cfg4, cfg4["MODEL_G"]["configuration_sha256"]
     )
     with open(cfg_file, "w", encoding="utf-8") as f:
         json.dump(cfg4, f)
@@ -705,12 +691,14 @@ def test_annotation_start_qa_methodology_hash_drift(tmp_path):
     is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
     assert is_ready is True
 
-    # Test drift for prompt_sha256, t2_guide_sha256, t3_guide_sha256, schema_sha256
+    # Test drift for all methodology artifacts
     drift_keys = [
         ("prompt_sha256", "model_annotator_prompt_template.md"),
         ("t2_guide_sha256", "t2_annotation_guide.md"),
         ("t3_guide_sha256", "t3_annotation_guide.md"),
         ("schema_sha256", "annotation_output_schema.json"),
+        ("execution_isolation_amendment_sha256", "gate_b3_execution_isolation_amendment.md"),
+        ("resource_feasibility_amendment_sha256", "gate_b3_resource_feasibility_annotator_amendment.md"),
     ]
 
     for hash_key, artifact_filename in drift_keys:
@@ -744,12 +732,12 @@ def test_annotation_start_qa_configuration_sha_requirement(tmp_path):
 
     # 2. Missing per-model configuration_sha256 when model frozen
     cfg_model_missing = _create_valid_frozen_mock_config()
-    del cfg_model_missing["MODEL_A"]["configuration_sha256"]
+    del cfg_model_missing["MODEL_G"]["configuration_sha256"]
     with open(cfg_file, "w", encoding="utf-8") as f:
         json.dump(cfg_model_missing, f)
     is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
     assert is_ready is False
-    assert any("MODEL_A configuration_sha256 missing while configuration_frozen is True" in r for r in reasons)
+    assert any("MODEL_G configuration_sha256 missing while configuration_frozen is True" in r for r in reasons)
 
 
 def test_student_annotation_output_template_warning():
@@ -778,15 +766,20 @@ def test_canonical_configuration_hash_recomputation():
     with open(cfg_path, "r", encoding="utf-8") as f:
         cfg = json.load(f)
 
-    # Recompute MODEL_A and MODEL_B
+    # Recompute MODEL_G (active)
+    recomputed_g = compute_model_config_hash(cfg["MODEL_G"])
+    assert recomputed_g == cfg["MODEL_G"]["configuration_sha256"], f"MODEL_G hash mismatch: {recomputed_g}"
+
+    # Recompute historical MODEL_A and MODEL_B
     recomputed_a = compute_model_config_hash(cfg["MODEL_A"])
     recomputed_b = compute_model_config_hash(cfg["MODEL_B"])
     assert recomputed_a == cfg["MODEL_A"]["configuration_sha256"], f"MODEL_A hash mismatch: {recomputed_a}"
     assert recomputed_b == cfg["MODEL_B"]["configuration_sha256"], f"MODEL_B hash mismatch: {recomputed_b}"
 
     # Recompute global
-    recomputed_global = compute_global_config_hash(cfg, recomputed_a, recomputed_b)
+    recomputed_global = compute_global_config_hash(cfg, recomputed_g)
     assert recomputed_global == cfg["configuration_sha256"], f"Global config hash mismatch: {recomputed_global}"
+    assert cfg["historical_configuration_sha256"] == "2a7c82b9297f65f750f5f72685d329d2e65e40c0691b09546802d8cd727afc8e"
 
 
 def test_mutation_of_frozen_model_field_triggers_drift(tmp_path):
@@ -795,23 +788,23 @@ def test_mutation_of_frozen_model_field_triggers_drift(tmp_path):
 
     cfg_file = tmp_path / "test_drift_config.json"
 
-    # 1. Mutate model field in MODEL_A
+    # 1. Mutate model field in MODEL_G
     cfg1 = _create_valid_frozen_mock_config()
-    cfg1["MODEL_A"]["model"] = "GPT-4o-altered"
+    cfg1["MODEL_G"]["model"] = "Gemini-altered"
     with open(cfg_file, "w", encoding="utf-8") as f:
         json.dump(cfg1, f)
     is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
     assert is_ready is False
-    assert any("FROZEN_MODEL_CONFIGURATION_DRIFT: MODEL_A configuration drifted!" in r for r in reasons)
+    assert any("FROZEN_MODEL_CONFIGURATION_DRIFT: MODEL_G configuration drifted!" in r for r in reasons)
 
-    # 2. Mutate reasoning_configuration in MODEL_B
+    # 2. Mutate reasoning_configuration in MODEL_G
     cfg2 = _create_valid_frozen_mock_config()
-    cfg2["MODEL_B"]["reasoning_configuration"] = {"mode": "unfrozen_altered_mode"}
+    cfg2["MODEL_G"]["reasoning_configuration"] = {"mode": "unfrozen_altered_mode"}
     with open(cfg_file, "w", encoding="utf-8") as f:
         json.dump(cfg2, f)
     is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
     assert is_ready is False
-    assert any("FROZEN_MODEL_CONFIGURATION_DRIFT: MODEL_B configuration drifted!" in r for r in reasons)
+    assert any("FROZEN_MODEL_CONFIGURATION_DRIFT: MODEL_G configuration drifted!" in r for r in reasons)
 
     # 3. Mutate global hash mismatch directly
     cfg3 = _create_valid_frozen_mock_config()
@@ -822,7 +815,7 @@ def test_mutation_of_frozen_model_field_triggers_drift(tmp_path):
     assert is_ready is False
     assert any("FROZEN_MODEL_CONFIGURATION_DRIFT: Global configuration drifted!" in r for r in reasons)
 
-    # 4. Mutate each retry_policy field in MODEL_A
+    # 4. Mutate each retry_policy field in MODEL_G
     for field_name, bad_value in [
         ("semantic_retries", 1),
         ("format_repair_attempts", 2),
@@ -832,12 +825,12 @@ def test_mutation_of_frozen_model_field_triggers_drift(tmp_path):
         ("tool_violation_mode", "SOFT_RETRY"),
     ]:
         cfg_r = _create_valid_frozen_mock_config()
-        cfg_r["MODEL_A"]["retry_policy"][field_name] = bad_value
+        cfg_r["MODEL_G"]["retry_policy"][field_name] = bad_value
         with open(cfg_file, "w", encoding="utf-8") as f:
             json.dump(cfg_r, f)
         is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
         assert is_ready is False
-        assert any("FROZEN_MODEL_CONFIGURATION_DRIFT: MODEL_A configuration drifted!" in r for r in reasons)
+        assert any("FROZEN_MODEL_CONFIGURATION_DRIFT: MODEL_G configuration drifted!" in r for r in reasons)
 
 
 def test_model_a_and_b_execution_manifests_integrity():
@@ -1008,11 +1001,14 @@ def test_transfer_guide_manifest_checksum_separation():
     assert "Target for `sha256sum` (Actual File Byte SHA-256)" in guide_text
 
     # Verify actual manifest file hashes match what is documented in transfer guide
+    manifest_g_path = os.path.join(GATE_B3_DIR, "model_g_execution_manifest.json")
     manifest_a_path = os.path.join(GATE_B3_DIR, "model_a_execution_manifest.json")
     manifest_b_path = os.path.join(GATE_B3_DIR, "model_b_execution_manifest.json")
+    file_sha_g = compute_sha256(manifest_g_path)
     file_sha_a = compute_sha256(manifest_a_path)
     file_sha_b = compute_sha256(manifest_b_path)
 
+    assert file_sha_g in guide_text, f"MODEL_G manifest file SHA {file_sha_g} not found in guide"
     assert file_sha_a in guide_text, f"MODEL_A manifest file SHA {file_sha_a} not found in guide"
     assert file_sha_b in guide_text, f"MODEL_B manifest file SHA {file_sha_b} not found in guide"
 
@@ -1021,8 +1017,10 @@ def test_transfer_guide_manifest_checksum_separation():
     with open(cfg_path, "r", encoding="utf-8") as f:
         cfg = json.load(f)
 
+    assert cfg["MODEL_G"]["configuration_sha256"] in guide_text
     assert cfg["MODEL_A"]["configuration_sha256"] in guide_text
     assert cfg["MODEL_B"]["configuration_sha256"] in guide_text
+    assert cfg["MODEL_G"]["configuration_sha256"] != file_sha_g
     assert cfg["MODEL_A"]["configuration_sha256"] != file_sha_a
     assert cfg["MODEL_B"]["configuration_sha256"] != file_sha_b
 
@@ -1030,12 +1028,11 @@ def test_transfer_guide_manifest_checksum_separation():
     assert "remain completely disabled" not in guide_text, "Transfer guide must not claim complete tool disability"
     assert "bootstrap verification reports `PASS` may execution readiness be authorized" not in guide_text
     assert "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION" in guide_text
-    assert "zero-tool-use auditing" in guide_text
-    assert "amended synthetic smoke test" in guide_text
-    assert "tool calls observed = 0" in guide_text
-    assert "web calls observed = 0" in guide_text
-    assert "external file reads observed = 0" in guide_text
-    assert "command executions observed = 0" in guide_text
+    assert "zero-tool-use auditing" in guide_text.lower()
+    assert "tool calls observed = 0" in guide_text.lower()
+    assert "web calls observed = 0" in guide_text.lower()
+    assert "external file reads observed = 0" in guide_text.lower()
+    assert "command executions observed = 0" in guide_text.lower()
 
 
 def test_execution_isolation_amendment_19_requirements(tmp_path):
@@ -1061,9 +1058,8 @@ def test_execution_isolation_amendment_19_requirements(tmp_path):
     assert cfg.get("execution_isolation_amendment_sha256") == computed_amendment_sha, "Requirement 2: amendment hash mismatch"
 
     # 3. amendment hash included in global configuration hash
-    m_a_hash = compute_model_config_hash(cfg["MODEL_A"])
-    m_b_hash = compute_model_config_hash(cfg["MODEL_B"])
-    recomputed_global = compute_global_config_hash(cfg, m_a_hash, m_b_hash)
+    m_g_hash = compute_model_config_hash(cfg["MODEL_G"])
+    recomputed_global = compute_global_config_hash(cfg, m_g_hash)
     assert recomputed_global == cfg["configuration_sha256"], "Requirement 3: global config hash must match"
 
     # 4. mutation triggers configuration/protocol drift failure
@@ -1076,45 +1072,36 @@ def test_execution_isolation_amendment_19_requirements(tmp_path):
     assert is_ready is False, "Requirement 4: mutation must trigger failure"
     assert any("FROZEN_ANNOTATION_CONFIGURATION_DRIFT" in r or "FROZEN_MODEL_CONFIGURATION_DRIFT" in r for r in reasons)
 
-    # 5. both models have the exact canonical isolation class
-    for m_name in ["MODEL_A", "MODEL_B"]:
-        assert cfg[m_name]["execution_isolation_class"] == "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION", f"Requirement 5: {m_name} isolation class mismatch"
+    # 5. model has the exact canonical isolation class
+    assert cfg["MODEL_G"]["execution_isolation_class"] == "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION", "Requirement 5: MODEL_G isolation class mismatch"
 
     # 6. actual tool use is forbidden
-    for m_name in ["MODEL_A", "MODEL_B"]:
-        assert cfg[m_name]["actual_tool_use_allowed"] is False, f"Requirement 6: {m_name} actual_tool_use_allowed != False"
+    assert cfg["MODEL_G"]["actual_tool_use_allowed"] is False, "Requirement 6: actual_tool_use_allowed != False"
 
     # 7. zero-tool-use audit required
-    for m_name in ["MODEL_A", "MODEL_B"]:
-        assert cfg[m_name]["zero_tool_use_audit_required"] is True, f"Requirement 7: {m_name} zero_tool_use_audit_required != True"
+    assert cfg["MODEL_G"]["zero_tool_use_audit_required"] is True, "Requirement 7: zero_tool_use_audit_required != True"
 
     # 8. empty workdir required
-    for m_name in ["MODEL_A", "MODEL_B"]:
-        assert cfg[m_name]["empty_workdir_required"] is True, f"Requirement 8: {m_name} empty_workdir_required != True"
+    assert cfg["MODEL_G"]["empty_workdir_required"] is True, "Requirement 8: empty_workdir_required != True"
 
     # 9. fresh context required
-    for m_name in ["MODEL_A", "MODEL_B"]:
-        assert cfg[m_name]["fresh_context_per_item_required"] is True, f"Requirement 9: {m_name} fresh_context_per_item_required != True"
+    assert cfg["MODEL_G"]["fresh_context_per_item_required"] is True, "Requirement 9: fresh_context_per_item_required != True"
 
     # 10. tool violation retry count = 0
-    for m_name in ["MODEL_A", "MODEL_B"]:
-        assert cfg[m_name]["tool_violation_retry_attempts"] == 0, f"Requirement 10: {m_name} tool_violation_retry_attempts != 0"
-        assert cfg[m_name]["retry_policy"]["tool_violation_retry_attempts"] == 0, f"Requirement 10: {m_name} retry_policy.tool_violation_retry_attempts != 0"
+    assert cfg["MODEL_G"]["tool_violation_retry_attempts"] == 0, "Requirement 10: tool_violation_retry_attempts != 0"
+    assert cfg["MODEL_G"]["retry_policy"]["tool_violation_retry_attempts"] == 0, "Requirement 10: retry_policy.tool_violation_retry_attempts != 0"
 
-    # 11. execution readiness verified after smoke test
-    for m_name in ["MODEL_A", "MODEL_B"]:
-        assert cfg[m_name]["execution_isolation_verified"] is True, f"Requirement 11: {m_name} execution_isolation_verified != True"
-        assert cfg[m_name]["fresh_context_per_item_verified"] is True, f"Requirement 11: {m_name} fresh_context_per_item_verified != True"
-        assert cfg[m_name]["empty_workdir_verified"] is True, f"Requirement 11: {m_name} empty_workdir_verified != True"
-        assert cfg[m_name]["zero_tool_use_audit_verified"] is True, f"Requirement 11: {m_name} zero_tool_use_audit_verified != True"
+    # 11. execution readiness reset before smoke test under amended design
+    assert cfg["MODEL_G"]["execution_isolation_verified"] is False, "Requirement 11: execution_isolation_verified != False"
+    assert cfg["MODEL_G"]["fresh_context_per_item_verified"] is False, "Requirement 11: fresh_context_per_item_verified != False"
+    assert cfg["MODEL_G"]["empty_workdir_verified"] is False, "Requirement 11: empty_workdir_verified != False"
+    assert cfg["MODEL_G"]["zero_tool_use_audit_verified"] is False, "Requirement 11: zero_tool_use_audit_verified != False"
 
-    # 12. smoke test passed
-    for m_name in ["MODEL_A", "MODEL_B"]:
-        assert cfg[m_name]["synthetic_smoke_test_passed"] is True, f"Requirement 12: {m_name} synthetic_smoke_test_passed != True"
+    # 12. smoke test initially false
+    assert cfg["MODEL_G"]["synthetic_smoke_test_passed"] is False, "Requirement 12: synthetic_smoke_test_passed != False"
 
-    # 13. benchmark authorization true
-    for m_name in ["MODEL_A", "MODEL_B"]:
-        assert cfg[m_name]["benchmark_execution_authorized"] is True, f"Requirement 13: {m_name} benchmark_execution_authorized != True"
+    # 13. benchmark authorization initially false
+    assert cfg["MODEL_G"]["benchmark_execution_authorized"] is False, "Requirement 13: benchmark_execution_authorized != False"
 
     # 14. no annotation output files
     ann_files = glob.glob(os.path.join(GATE_B3_DIR, "*_annotations.jsonl"))
@@ -1138,13 +1125,17 @@ def test_execution_isolation_amendment_19_requirements(tmp_path):
     assert stops_cnt > 0, "Requirement 17: canonical v1 DB stops table empty"
 
     # 18. manifests remain sanitized
+    manifest_g_path = os.path.join(GATE_B3_DIR, "model_g_execution_manifest.json")
     manifest_a_path = os.path.join(GATE_B3_DIR, "model_a_execution_manifest.json")
     manifest_b_path = os.path.join(GATE_B3_DIR, "model_b_execution_manifest.json")
+    with open(manifest_g_path, "r", encoding="utf-8") as f:
+        text_g = f.read()
     with open(manifest_a_path, "r", encoding="utf-8") as f:
         text_a = f.read()
     with open(manifest_b_path, "r", encoding="utf-8") as f:
         text_b = f.read()
     for forbidden in ["gold", "human_annotation_key", "prediction", "student", "reference labels"]:
+        assert forbidden not in text_g.lower(), f"Requirement 18: forbidden '{forbidden}' leaked in MODEL_G manifest"
         assert forbidden not in text_a.lower(), f"Requirement 18: forbidden '{forbidden}' leaked in MODEL_A manifest"
         assert forbidden not in text_b.lower(), f"Requirement 18: forbidden '{forbidden}' leaked in MODEL_B manifest"
 
@@ -1152,6 +1143,7 @@ def test_execution_isolation_amendment_19_requirements(tmp_path):
     transfer_guide_path = os.path.join(REPORTS_B3_DIR, "MODEL_ANNOTATOR_PACKAGE_TRANSFER.md")
     with open(transfer_guide_path, "r", encoding="utf-8") as f:
         guide_text = f.read()
+    assert compute_sha256(manifest_g_path) in guide_text, "Requirement 19: MODEL_G manifest file SHA missing in transfer guide"
     assert compute_sha256(manifest_a_path) in guide_text, "Requirement 19: MODEL_A manifest file SHA missing in transfer guide"
     assert compute_sha256(manifest_b_path) in guide_text, "Requirement 19: MODEL_B manifest file SHA missing in transfer guide"
 
@@ -1171,30 +1163,38 @@ def test_model_execution_readiness_recorded():
     assert "Claude Opus 4.6" in text
     assert "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION" in text
 
+    provenance_report = os.path.join(REPORTS_B3_DIR, "GATE_B3_PRE_AMENDMENT_MODEL_EXECUTION_PROVENANCE.md")
+    assert os.path.exists(provenance_report), "Missing GATE_B3_PRE_AMENDMENT_MODEL_EXECUTION_PROVENANCE.md"
+    with open(provenance_report, "r", encoding="utf-8") as f:
+        prov_text = f.read()
+    assert "ABORTED_PRE_AMENDMENT_EXECUTION" in prov_text
+    assert "23" in prov_text
+    assert "ANN_B2_024" in prov_text
+
     # Manifest gate flags
     ann_manifest_path = os.path.join(GATE_B3_DIR, "gate_b3_annotation_manifest.json")
     with open(ann_manifest_path, "r", encoding="utf-8") as f:
         ann_m = json.load(f)
 
-    assert ann_m["model_a_execution_ready"] is True
-    assert ann_m["model_b_execution_ready"] is True
+    assert ann_m["primary_model_source_id"] == "MODEL_G"
+    assert ann_m["model_g_execution_ready"] is False
     assert ann_m["annotation_started"] is False
     assert ann_m["reference_join_enabled"] is False
     assert ann_m["first_pass_locked"] is False
     assert ann_m["gold_boundary_audit_started"] is False
     assert ann_m["taxonomy_decision_status"] == "PENDING"
+    assert ann_m["retired_primary_model_sources"] == ["MODEL_A", "MODEL_B"]
 
-    # Execution manifests
-    for m_id, m_file in [("MODEL_A", "model_a_execution_manifest.json"), ("MODEL_B", "model_b_execution_manifest.json")]:
-        p = os.path.join(GATE_B3_DIR, m_file)
-        with open(p, "r", encoding="utf-8") as f:
-            m_data = json.load(f)
-        assert m_data["fresh_context_per_item_verified"] is True, f"{m_id} fresh_context_per_item_verified not True"
-        assert m_data["empty_workdir_verified"] is True, f"{m_id} empty_workdir_verified not True"
-        assert m_data["zero_tool_use_audit_verified"] is True, f"{m_id} zero_tool_use_audit_verified not True"
-        assert m_data["execution_isolation_verified"] is True, f"{m_id} execution_isolation_verified not True"
-        assert m_data["synthetic_smoke_test_passed"] is True, f"{m_id} synthetic_smoke_test_passed not True"
-        assert m_data["benchmark_execution_authorized"] is True, f"{m_id} benchmark_execution_authorized not True"
+    # Execution manifest for MODEL_G
+    man_g_path = os.path.join(GATE_B3_DIR, "model_g_execution_manifest.json")
+    with open(man_g_path, "r", encoding="utf-8") as f:
+        m_data = json.load(f)
+    assert m_data["fresh_context_per_item_verified"] is False
+    assert m_data["empty_workdir_verified"] is False
+    assert m_data["zero_tool_use_audit_verified"] is False
+    assert m_data["execution_isolation_verified"] is False
+    assert m_data["synthetic_smoke_test_passed"] is False
+    assert m_data["benchmark_execution_authorized"] is False
 
 
 def test_gate_b3_benchmark_execution_authorization_recorded():
@@ -1209,8 +1209,6 @@ def test_gate_b3_benchmark_execution_authorization_recorded():
     assert "MODEL_B" in text and "**Authorized:** YES" in text
     assert "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION" in text
     assert "real benchmark invocations" in text.lower() and "= 0" in text
-    assert "annotation_started" in text and "= false" in text
-    assert "execution_timestamp" in text and "= null" in text
     assert "Hard architectural tool isolation is not claimed" in text
 
     # Canonical config sha invariants
@@ -1218,27 +1216,21 @@ def test_gate_b3_benchmark_execution_authorization_recorded():
     with open(cfg_path, "r", encoding="utf-8") as f:
         cfg = json.load(f)
 
-    assert cfg["MODEL_A"]["status"] == "FROZEN_EXECUTION_AUTHORIZED"
-    assert cfg["MODEL_B"]["status"] == "FROZEN_EXECUTION_AUTHORIZED"
-    assert cfg["MODEL_A"]["benchmark_execution_authorized"] is True
-    assert cfg["MODEL_B"]["benchmark_execution_authorized"] is True
-    assert cfg["MODEL_A"]["execution_timestamp"] is None
-    assert cfg["MODEL_B"]["execution_timestamp"] is None
+    assert cfg["MODEL_A"]["status"] == "ABORTED_PRE_AMENDMENT_EXECUTION"
+    assert cfg["MODEL_B"]["status"] == "RETIRED_PRE_COMPLETION"
+    assert cfg["MODEL_G"]["status"] == "FROZEN_NOT_EXECUTION_READY"
+    assert cfg["MODEL_A"]["benchmark_execution_authorized"] is False
+    assert cfg["MODEL_B"]["benchmark_execution_authorized"] is False
+    assert cfg["MODEL_G"]["benchmark_execution_authorized"] is False
+    assert cfg["MODEL_G"]["execution_timestamp"] is None
 
+    assert cfg["MODEL_G"]["configuration_sha256"] == "d4a359b72779ec15f42ffa0ba72beb57ff20ff765de901783082caee0deda1dd"
     assert cfg["MODEL_A"]["configuration_sha256"] == "5db1c4aeae9e8cabb98a5b20637488c6812a826d27cbf4ed4cd578d28038fe5c"
     assert cfg["MODEL_B"]["configuration_sha256"] == "3d9264b1172878ed07080d1ca4e087170aa83fd366f8695effbf32297318020c"
-    assert cfg["configuration_sha256"] == "2a7c82b9297f65f750f5f72685d329d2e65e40c0691b09546802d8cd727afc8e"
+    assert cfg["configuration_sha256"] == "e0f05789e9dadbbff2ab4ecf02060a7242362e3a3f4cf7d3870113e8e293ebca"
+    assert cfg["historical_configuration_sha256"] == "2a7c82b9297f65f750f5f72685d329d2e65e40c0691b09546802d8cd727afc8e"
     assert cfg["execution_isolation_amendment_sha256"] == "a48b732a9373a8e2d65ab3963b1920a658ada1e3c703687b8d2d072f46e87f19"
-
-    # Manifest file byte hashes recorded in authorization doc and matching actual files
-    man_a_path = os.path.join(GATE_B3_DIR, "model_a_execution_manifest.json")
-    man_b_path = os.path.join(GATE_B3_DIR, "model_b_execution_manifest.json")
-    man_a_sha = compute_sha256(man_a_path)
-    man_b_sha = compute_sha256(man_b_path)
-    assert man_a_sha == "17f30bb2178ceb6eda72c5b713c4c1938d5bf0147642fa931d6491a3a7bdd057"
-    assert man_b_sha == "607df806d33fb77194d64b741ed424697f05d0d64c9188512eebd8104930627a"
-    assert man_a_sha in text
-    assert man_b_sha in text
+    assert cfg["resource_feasibility_amendment_sha256"] == "7960145fb12490699611f7c6d9a021929a42408ecc1127595572233f754d319d"
 
     # Annotation manifest boundaries
     ann_manifest_path = os.path.join(GATE_B3_DIR, "gate_b3_annotation_manifest.json")
@@ -1253,5 +1245,178 @@ def test_gate_b3_benchmark_execution_authorization_recorded():
     # Annotation output files count == 0
     ann_files = glob.glob(os.path.join(GATE_B3_DIR, "*_annotations.jsonl"))
     assert len(ann_files) == 0, f"Annotation output files found: {ann_files}"
+
+
+def test_resource_feasibility_amendment_all_30_requirements():
+    """Explicit automated verification of all 30 Gate B.3 resource-feasibility amendment requirements (Section 21)."""
+    import glob
+    import sqlite3
+
+    # Load configurations and manifests
+    cfg_path = os.path.join(GATE_B3_DIR, "model_annotator_configs.json")
+    with open(cfg_path, "r", encoding="utf-8") as f:
+        cfg = json.load(f)
+
+    ann_manifest_path = os.path.join(GATE_B3_DIR, "gate_b3_annotation_manifest.json")
+    with open(ann_manifest_path, "r", encoding="utf-8") as f:
+        ann_m = json.load(f)
+
+    man_g_path = os.path.join(GATE_B3_DIR, "model_g_execution_manifest.json")
+    with open(man_g_path, "r", encoding="utf-8") as f:
+        man_g = json.load(f)
+
+    # 1. frozen source blind still exactly 350
+    with open(SOURCE_BLIND_CSV, "r", encoding="utf-8") as f:
+        source_records = list(csv.DictReader(f))
+    assert len(source_records) == 350, f"Req 1: Expected 350 source records, got {len(source_records)}"
+
+    # 2. frozen source blind SHA unchanged
+    assert compute_sha256(SOURCE_BLIND_CSV) == "94fd8bb3e7f2e3bdaf274c4ee5bcf7e083e9ef2a66322fbcf7bee2cadf231999", "Req 2: source blind SHA mismatch"
+
+    # 3. Gate B.2 stress unchanged
+    stress_csv = os.path.join(GATE_B2_DIR, "gate_b2_stress_eval.csv")
+    assert compute_sha256(stress_csv) == "26cbf6517e25511d19d67051f500459ef7d78d87e5fbd1eb6d21849842242a1c", "Req 3: Gate B.2 stress SHA mismatch"
+
+    # 4. frozen v1 unchanged
+    db_path = os.path.join(BASE_DIR, "data", "canonical", "transit", "canonical_transport.db")
+    assert os.path.exists(db_path), "Req 4: canonical transport DB missing"
+    conn = sqlite3.connect(db_path)
+    cur = conn.cursor()
+    cur.execute("SELECT count(*) FROM transport_stops")
+    stops_cnt = cur.fetchone()[0]
+    conn.close()
+    assert stops_cnt > 0, "Req 4: canonical stops table empty"
+
+    # 5. student packages unchanged
+    t2_p1 = os.path.join(GATE_B3_DIR, "student_t2_first_pass.csv")
+    t2_p2 = os.path.join(GATE_B3_DIR, "student_t2_second_pass.csv")
+    t3_p1 = os.path.join(GATE_B3_DIR, "student_t3_first_pass.csv")
+    t3_p2 = os.path.join(GATE_B3_DIR, "student_t3_second_pass.csv")
+    assert os.path.exists(t2_p1) and os.path.exists(t2_p2), "Req 5: student T2 packages missing"
+    assert os.path.exists(t3_p1) and os.path.exists(t3_p2), "Req 5: student T3 packages missing"
+    with open(t2_p1, "r", encoding="utf-8") as f:
+        t2_p1_cnt = len(list(csv.DictReader(f)))
+    with open(t2_p2, "r", encoding="utf-8") as f:
+        t2_p2_cnt = len(list(csv.DictReader(f)))
+    with open(t3_p1, "r", encoding="utf-8") as f:
+        t3_p1_cnt = len(list(csv.DictReader(f)))
+    with open(t3_p2, "r", encoding="utf-8") as f:
+        t3_p2_cnt = len(list(csv.DictReader(f)))
+    assert t2_p1_cnt == 175 and t2_p2_cnt == 175, "Req 5: student T2 count != 350 total"
+    assert t3_p1_cnt == 175 and t3_p2_cnt == 175, "Req 5: student T3 count != 350 total"
+
+    # 6. MODEL_A historical config preserved
+    assert "MODEL_A" in cfg, "Req 6: MODEL_A missing from configs"
+    assert cfg["MODEL_A"]["source_id"] == "MODEL_A", "Req 6: MODEL_A source_id mismatch"
+
+    # 7. MODEL_B historical config preserved
+    assert "MODEL_B" in cfg, "Req 7: MODEL_B missing from configs"
+    assert cfg["MODEL_B"]["source_id"] == "MODEL_B", "Req 7: MODEL_B source_id mismatch"
+
+    # 8. MODEL_A excluded from primary analysis
+    assert cfg["MODEL_A"]["primary_analysis_included"] is False, "Req 8: MODEL_A primary_analysis_included != False"
+
+    # 9. MODEL_B excluded from primary analysis
+    assert cfg["MODEL_B"]["primary_analysis_included"] is False, "Req 9: MODEL_B primary_analysis_included != False"
+
+    # 10. MODEL_G exists
+    assert "MODEL_G" in cfg, "Req 10: MODEL_G missing from configs"
+    assert cfg["MODEL_G"]["source_id"] == "MODEL_G", "Req 10: MODEL_G source_id mismatch"
+
+    # 11. MODEL_G is the active primary model annotator
+    assert cfg["primary_model_annotator_source_id"] == "MODEL_G", "Req 11: configs primary_model_annotator_source_id != MODEL_G"
+    assert ann_m["primary_model_source_id"] == "MODEL_G", "Req 11: annotation manifest primary_model_source_id != MODEL_G"
+
+    # 12. MODEL_G has 350 T2 inputs
+    g_t2_path = os.path.join(GATE_B3_DIR, "model_g_t2_input.jsonl")
+    assert os.path.exists(g_t2_path), "Req 12: model_g_t2_input.jsonl missing"
+    with open(g_t2_path, "r", encoding="utf-8") as f:
+        g_t2_records = [json.loads(line) for line in f]
+    assert len(g_t2_records) == 350, f"Req 12: MODEL_G T2 count is {len(g_t2_records)}, expected 350"
+
+    # 13. MODEL_G has 350 T3 inputs
+    g_t3_path = os.path.join(GATE_B3_DIR, "model_g_t3_input.jsonl")
+    assert os.path.exists(g_t3_path), "Req 13: model_g_t3_input.jsonl missing"
+    with open(g_t3_path, "r", encoding="utf-8") as f:
+        g_t3_records = [json.loads(line) for line in f]
+    assert len(g_t3_records) == 350, f"Req 13: MODEL_G T3 count is {len(g_t3_records)}, expected 350"
+
+    # 14. MODEL_G exact ID sets match frozen 350 sample
+    source_ids = [r["annotation_id"] for r in source_records]
+    assert [r["annotation_id"] for r in g_t2_records] == source_ids, "Req 14: MODEL_G T2 IDs do not match source blind"
+    assert [r["annotation_id"] for r in g_t3_records] == source_ids, "Req 14: MODEL_G T3 IDs do not match source blind"
+
+    # 15. MODEL_G input has only annotation_id/query/taxonomy_version
+    allowed_keys = {"annotation_id", "query", "taxonomy_version"}
+    for idx, r in enumerate(g_t2_records):
+        assert set(r.keys()) == allowed_keys, f"Req 15: T2 record {idx} keys != {allowed_keys}: {set(r.keys())}"
+    for idx, r in enumerate(g_t3_records):
+        assert set(r.keys()) == allowed_keys, f"Req 15: T3 record {idx} keys != {allowed_keys}: {set(r.keys())}"
+
+    # 16. MODEL_G no gold/provenance/prediction leakage
+    with open(g_t2_path, "r", encoding="utf-8") as f:
+        t2_text = f.read()
+    with open(g_t3_path, "r", encoding="utf-8") as f:
+        t3_text = f.read()
+    with open(man_g_path, "r", encoding="utf-8") as f:
+        man_text = f.read()
+    for forbidden in ["gold", "human_annotation_key", "prediction", "Gate B.2", "STUDENT_R1", "MODEL_A", "MODEL_B"]:
+        assert forbidden.lower() not in t2_text.lower(), f"Req 16: Forbidden '{forbidden}' found in MODEL_G T2 input"
+        assert forbidden.lower() not in t3_text.lower(), f"Req 16: Forbidden '{forbidden}' found in MODEL_G T3 input"
+    for forbidden in ["gold", "human_annotation_key", "prediction", "student", "reference labels"]:
+        assert forbidden.lower() not in man_text.lower(), f"Req 16: Forbidden '{forbidden}' found in MODEL_G manifest"
+
+    # 17. MODEL_G fresh-context requirement true
+    assert cfg["MODEL_G"]["fresh_context_per_item_required"] is True, "Req 17: fresh_context_per_item_required != True in config"
+    assert man_g["fresh_context_per_item_required"] is True, "Req 17: fresh_context_per_item_required != True in manifest"
+
+    # 18. MODEL_G zero-tool requirement true
+    assert cfg["MODEL_G"]["zero_tool_use_audit_required"] is True, "Req 18: zero_tool_use_audit_required != True in config"
+    assert man_g["zero_tool_use_audit_required"] is True, "Req 18: zero_tool_use_audit_required != True in manifest"
+
+    # 19. MODEL_G semantic retries = 0
+    assert cfg["MODEL_G"]["retry_policy"]["semantic_retries"] == 0, "Req 19: semantic_retries != 0 in config"
+
+    # 20. MODEL_G tool violation retries = 0
+    assert cfg["MODEL_G"]["retry_policy"]["tool_violation_retry_attempts"] == 0, "Req 20: tool_violation_retry_attempts != 0 in config"
+    assert cfg["MODEL_G"]["tool_violation_retry_attempts"] == 0, "Req 20: tool_violation_retry_attempts != 0 top-level config"
+    assert man_g["tool_violation_retry_attempts"] == 0, "Req 20: tool_violation_retry_attempts != 0 in manifest"
+
+    # 21. MODEL_G smoke test initially false
+    assert cfg["MODEL_G"]["synthetic_smoke_test_passed"] is False, "Req 21: synthetic_smoke_test_passed != False in config"
+    assert man_g["synthetic_smoke_test_passed"] is False, "Req 21: synthetic_smoke_test_passed != False in manifest"
+
+    # 22. MODEL_G execution isolation initially false
+    assert cfg["MODEL_G"]["execution_isolation_verified"] is False, "Req 22: execution_isolation_verified != False in config"
+    assert man_g["execution_isolation_verified"] is False, "Req 22: execution_isolation_verified != False in manifest"
+
+    # 23. MODEL_G benchmark authorization initially false
+    assert cfg["MODEL_G"]["benchmark_execution_authorized"] is False, "Req 23: benchmark_execution_authorized != False in config"
+    assert man_g["benchmark_execution_authorized"] is False, "Req 23: benchmark_execution_authorized != False in manifest"
+
+    # 24. annotation_started=false
+    assert ann_m["annotation_started"] is False, "Req 24: annotation_started != False"
+
+    # 25. first_pass_locked=false
+    assert ann_m["first_pass_locked"] is False, "Req 25: first_pass_locked != False"
+
+    # 26. reference_join_enabled=false
+    assert ann_m["reference_join_enabled"] is False, "Req 26: reference_join_enabled != False"
+
+    # 27. gold audit not started
+    assert ann_m["gold_boundary_audit_started"] is False, "Req 27: gold_boundary_audit_started != False"
+
+    # 28. taxonomy decision=PENDING
+    assert ann_m["taxonomy_decision_status"] == "PENDING", "Req 28: taxonomy_decision_status != PENDING"
+
+    # 29. no final MODEL_G annotation outputs exist
+    g_out_files = glob.glob(os.path.join(GATE_B3_DIR, "model_g_*_annotations.jsonl"))
+    assert len(g_out_files) == 0, f"Req 29: Final MODEL_G annotation outputs exist: {g_out_files}"
+
+    # 30. partial Astra annotations are not referenced as active primary input
+    assert cfg["MODEL_A"]["primary_analysis_included"] is False, "Req 30: MODEL_A marked included in primary analysis"
+    assert ann_m["primary_model_source_id"] != "MODEL_A", "Req 30: MODEL_A is primary model source"
+    assert "model_a_t2_annotations.jsonl" not in [f for f in glob.glob(os.path.join(GATE_B3_DIR, "*_annotations.jsonl"))]
+
 
 

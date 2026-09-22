@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Pre-Annotation QA Gatekeeper for NLP v2 Gate B.3.
 
-Enforces Section 55 requirements:
+Enforces Section 55 requirements, as amended by Resource-Feasibility Amendment:
 Hard-fails if:
 1. Any annotation output file already contains labels
 2. Model config is claimed completed before execution
@@ -88,7 +88,9 @@ def run_qa_checks():
             failures.append("Manifest gold_boundary_audit_started must be false prior to execution.")
         if m.get("taxonomy_decision_status") != "PENDING":
             failures.append(f"Manifest taxonomy_decision_status must be PENDING (got '{m.get('taxonomy_decision_status')}')")
-        print("  Manifest gate flags verified: annotation_started=False, locked=False, ref_join=False, decision=PENDING.")
+        if m.get("primary_model_source_id") != "MODEL_G":
+            failures.append(f"Manifest primary_model_source_id must be MODEL_G (got '{m.get('primary_model_source_id')}')")
+        print("  Manifest gate flags verified: annotation_started=False, locked=False, ref_join=False, decision=PENDING, primary=MODEL_G.")
 
     # 3. Model Annotator Configs Check
     print("\n3. Verifying Model Annotator Configs Pre-Execution Status...")
@@ -101,26 +103,36 @@ def run_qa_checks():
             "PENDING",
             "FROZEN_NOT_EXECUTION_READY",
             "FROZEN_EXECUTION_READY_NOT_AUTHORIZED",
-            "FROZEN_EXECUTION_AUTHORIZED"
+            "FROZEN_EXECUTION_AUTHORIZED",
+            "ABORTED_PRE_AMENDMENT_EXECUTION",
+            "RETIRED_PRE_COMPLETION",
         )
+
+        # Check Active Model MODEL_G
+        if "MODEL_G" not in cfg:
+            failures.append("Missing config section for MODEL_G")
+        else:
+            g_status = cfg["MODEL_G"].get("status")
+            if g_status not in ALLOWED_STATUSES:
+                failures.append(f"MODEL_G status must be one of {ALLOWED_STATUSES} (got '{g_status}')")
+            if cfg["MODEL_G"].get("execution_timestamp") is not None:
+                failures.append("MODEL_G execution_timestamp must be null")
+            if cfg["MODEL_G"].get("benchmark_execution_authorized") is not False:
+                failures.append("MODEL_G benchmark_execution_authorized must be false prior to sterile preflight and smoke test")
+
+        # Check Historical Retired Models
         for m in ["MODEL_A", "MODEL_B"]:
             if m not in cfg:
-                failures.append(f"Missing config section for {m}")
+                failures.append(f"Missing historical config section for {m}")
             else:
                 m_status = cfg[m].get("status")
                 if m_status not in ALLOWED_STATUSES:
                     failures.append(f"{m} status must be one of {ALLOWED_STATUSES} (got '{m_status}')")
-                if m_status == "PENDING" and cfg[m].get("provider") != "PENDING":
-                    failures.append(f"{m} provider must be PENDING when status is PENDING (got '{cfg[m].get('provider')}')")
+                if cfg[m].get("primary_analysis_included") is not False:
+                    failures.append(f"{m} primary_analysis_included must be false")
                 if cfg[m].get("execution_timestamp") is not None:
                     failures.append(f"{m} execution_timestamp must be null")
-                if m_status == "FROZEN_EXECUTION_AUTHORIZED":
-                    if cfg[m].get("benchmark_execution_authorized") is not True:
-                        failures.append(f"{m} benchmark_execution_authorized must be true when status is FROZEN_EXECUTION_AUTHORIZED")
-                else:
-                    if cfg[m].get("benchmark_execution_authorized") is not False:
-                        failures.append(f"{m} benchmark_execution_authorized must be false prior to execution")
-        print("  Model configs verified: MODEL_A and MODEL_B pre-execution status valid, execution_timestamp null.")
+        print("  Model configs verified: MODEL_G active pre-execution status valid, MODEL_A/B retired provenance preserved.")
 
     # 4. Check Annotator Packages for Leakage of Gold or Predictions
     print("\n4. Verifying Annotator Input Packages for Gold/Prediction Leakage...")
@@ -144,6 +156,8 @@ def run_qa_checks():
                 failures.append(f"Unexpected fields in {os.path.basename(p)}: {fields}")
 
     model_packages = [
+        os.path.join(GATE_B3_DIR, "model_g_t2_input.jsonl"),
+        os.path.join(GATE_B3_DIR, "model_g_t3_input.jsonl"),
         os.path.join(GATE_B3_DIR, "model_a_t2_input.jsonl"),
         os.path.join(GATE_B3_DIR, "model_a_t3_input.jsonl"),
         os.path.join(GATE_B3_DIR, "model_b_t2_input.jsonl"),
@@ -178,7 +192,7 @@ def run_qa_checks():
         with open(AUDIT_TEMPLATE_PATH, "r", encoding="utf-8") as f:
             reader = csv.DictReader(f)
             for idx, r in enumerate(reader, start=1):
-                for col in ["student_T2", "student_T3", "model_A_T2", "model_A_T3", "model_B_T2", "model_B_T3"]:
+                for col in ["student_T2", "student_T3", "model_G_T2", "model_G_T3", "model_A_T2", "model_A_T3", "model_B_T2", "model_B_T3"]:
                     if r.get(col, "").strip():
                         failures.append(f"Audit template line {idx} contains non-empty value in '{col}'!")
                         break

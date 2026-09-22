@@ -1,9 +1,9 @@
 # GATE B.3 ANNOTATION-STABILITY FRAMEWORK
 
-## PRE-ANNOTATION CHECKPOINT REPORT
+## PRE-ANNOTATION CHECKPOINT REPORT (AMENDED DESIGN)
 
 **BASE COMMIT:**  
-`4d8320e7f46574c2d9bd419ce1b48ecfb32c84d8`
+`2a2228d1762768af5994fc112710681a808262c6`
 
 **ACTIVE KB:**  
 `chennai_multimodal_v1.2.2`
@@ -11,11 +11,14 @@
 **METHODOLOGY:**  
 single-student blind audit  
 +  
-two isolated model annotators  
+single isolated primary model annotator (Gemini 3.8 Flash)  
 +  
 post-lock gold-boundary audit  
 
 **HUMAN IAA CLAIMED:**  
+NO  
+
+**TWO-MODEL-FAMILY AGREEMENT CLAIMED:**  
 NO  
 
 **SOURCE 350 SAMPLE:**  
@@ -26,54 +29,27 @@ unchanged: YES
 **SAMPLE TYPE:**  
 purposive enriched challenge sample  
 
-**STUDENT PACKAGE:**  
-generated: YES  
+**PRIMARY STUDENT ANNOTATOR:**  
+`STUDENT_R1`  
+READY / existing frozen student package  
 
-**MODEL_A:**  
-- **Model:** `GPT-6 Astra` (OpenAI / Codex)
-- **CONFIGURATION:** FROZEN
-- **EXECUTION READINESS:** VERIFIED
-- **ISOLATION CLASS:** `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION`
-- **STERILE BOOTSTRAP:** PASS
-- **PER-ITEM ISOLATION:** VERIFIED UNDER AMENDED PROTOCOL
-- **AMENDED SMOKE TEST:** PASS
-- **RUNNER:** READY
-- **VALIDATOR:** READY
-- **BENCHMARK EXECUTION AUTHORIZED:** YES
-- **ANNOTATION EXECUTED:** NO
+**PRIMARY MODEL ANNOTATOR:**  
+`MODEL_G` = Gemini 3.8 Flash (Google / Antigravity)  
 
-**MODEL_B:**  
-- **Model:** `Claude Opus 4.6` (Anthropic / Antigravity isolated backend)
-- **CONFIGURATION:** FROZEN
-- **EXECUTION READINESS:** VERIFIED
-- **ISOLATION CLASS:** `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION`
-- **STERILE BOOTSTRAP:** PASS
-- **PER-ITEM ISOLATION:** VERIFIED UNDER AMENDED PROTOCOL
-- **AMENDED SMOKE TEST:** PASS
-- **RUNNER:** READY
-- **VALIDATOR:** READY
-- **BENCHMARK EXECUTION AUTHORIZED:** YES
-- **ANNOTATION EXECUTED:** NO
+**MODEL_G CONFIGURATION:**  
+FROZEN  
 
-**GOVERNANCE PRINCIPLE:**  
-> Configuration frozen does not mean execution authorized.
->
-> Hard architectural tool exclusion was empirically unavailable on the selected non-API execution surfaces.
-> The prospective amendment was adopted before any real benchmark annotation invocation.
->
-> Both model annotators passed the prospective amended
-> behavioral-isolation smoke-test requirements.
->
-> Formal benchmark execution authorization is granted under
-> EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION.
->
-> Authorization does NOT constitute annotation execution.
+**MODEL_G EXECUTION ISOLATION:**  
+NOT YET VERIFIED  
 
-**ANNOTATION-START QA:**  
-READY FOR ANNOTATION EXECUTION
+**MODEL_G SYNTHETIC SMOKE TEST:**  
+NOT YET RUN  
 
-**ANNOTATION:**  
-NOT STARTED  
+**MODEL_G BENCHMARK AUTHORIZED:**  
+NO  
+
+**PRIMARY ANNOTATION STARTED:**  
+NO  
 
 **FIRST-PASS LOCK:**  
 NO  
@@ -84,21 +60,34 @@ DISABLED
 **GOLD BOUNDARY AUDIT:**  
 NOT STARTED  
 
-**BOOTSTRAP INTERPRETATION:**  
-query bootstrap conditional on fixed seeds  
-
-**MODEL RESULTS:**  
-unchanged  
-
 **TAXONOMY DECISION:**  
 PENDING  
 
-**GATE C:**  
-NO  
-
 **STATUS:**  
-AUTHORIZED — WAITING FOR REAL BENCHMARK EXECUTION  
+WAITING FOR MODEL_G STERILE PREFLIGHT / SMOKE TEST  
 
+**HISTORICAL MODEL DESIGNS:**  
+```text
+MODEL_A / MODEL_B primary design:
+RETIRED BY RESOURCE-FEASIBILITY AMENDMENT
+
+MODEL_A (GPT-6 Astra):
+23 T2 accepted / 0 T3 accepted
+Aborted pre-amendment execution due to provider usage-limit rejection
+Excluded from primary Gate B.3 analysis
+Reserved for supervisory methodology review only
+
+MODEL_B (Claude Opus 4.6):
+Real benchmark execution: NONE
+Retired pre-completion due to provider quota infeasibility
+Excluded from primary Gate B.3 analysis
+```
+
+**GOVERNANCE PRINCIPLE:**  
+> The originally authorized two-heavy-model execution design proved operationally infeasible under external provider usage limits.
+> The prospective resource-feasibility amendment was adopted before any gold/reference access, before agreement calculations, and before first-pass lock.
+> Benchmark authorization granted to previous models does NOT transfer to MODEL_G.
+> MODEL_G must independently complete sterile preflight and synthetic smoke testing before benchmark execution may be authorized.
 
 ---
 
@@ -107,10 +96,12 @@ AUTHORIZED — WAITING FOR REAL BENCHMARK EXECUTION
 ### 1. Documentation & Guidelines
 - Prospective methodology amendment: `docs/nlp_v2/gate_b3/gate_b3_annotation_methodology_amendment.md`
 - Prospective execution-isolation amendment: `docs/nlp_v2/gate_b3/gate_b3_execution_isolation_amendment.md`
+- Resource-feasibility / annotator-design amendment: `docs/nlp_v2/gate_b3/gate_b3_resource_feasibility_annotator_amendment.md`
 - Neutral T2 annotation guide (12 classes): `docs/nlp_v2/gate_b3/t2_annotation_guide.md`
 - Neutral T3 annotation guide (16 classes): `docs/nlp_v2/gate_b3/t3_annotation_guide.md`
 - Isolated model prompt template & protocol: `docs/nlp_v2/gate_b3/model_annotator_prompt_template.md`
 - Bootstrap interpretation clarification note: `reports/nlp_v2/gate_b3/gate_b2_bootstrap_interpretation_note.md`
+- Pre-amendment model execution provenance: `reports/nlp_v2/gate_b3/GATE_B3_PRE_AMENDMENT_MODEL_EXECUTION_PROVENANCE.md`
 - Model annotator sterile package transfer guide: `reports/nlp_v2/gate_b3/MODEL_ANNOTATOR_PACKAGE_TRANSFER.md`
 
 ### 2. Blind Annotation Packages & Sanitized Manifests
@@ -120,14 +111,13 @@ AUTHORIZED — WAITING FOR REAL BENCHMARK EXECUTION
   - `data/nlp_v2/gate_b3/student_t3_first_pass.csv` (175 queries)
   - `data/nlp_v2/gate_b3/student_t2_second_pass.csv` (175 queries)
   - `data/nlp_v2/gate_b3/student_t3_second_pass.csv` (175 queries)
-- Model annotator blind JSONLs:
-  - `data/nlp_v2/gate_b3/model_a_t2_input.jsonl` (350 queries)
-  - `data/nlp_v2/gate_b3/model_a_t3_input.jsonl` (350 queries)
-  - `data/nlp_v2/gate_b3/model_b_t2_input.jsonl` (350 queries)
-  - `data/nlp_v2/gate_b3/model_b_t3_input.jsonl` (350 queries)
+- Model annotator blind JSONLs (Active Primary):
+  - `data/nlp_v2/gate_b3/model_g_t2_input.jsonl` (350 queries)
+  - `data/nlp_v2/gate_b3/model_g_t3_input.jsonl` (350 queries)
 - Model annotator sanitized execution manifests:
-  - `data/nlp_v2/gate_b3/model_a_execution_manifest.json` (OpenAI / GPT-6 Astra)
-  - `data/nlp_v2/gate_b3/model_b_execution_manifest.json` (Anthropic / Claude Opus 4.6)
+  - `data/nlp_v2/gate_b3/model_g_execution_manifest.json` (Google / Gemini 3.8 Flash, Active)
+  - `data/nlp_v2/gate_b3/model_a_execution_manifest.json` (OpenAI / GPT-6 Astra, Historical)
+  - `data/nlp_v2/gate_b3/model_b_execution_manifest.json` (Anthropic / Claude Opus 4.6, Historical)
 - Canonical output schema: `docs/nlp_v2/gate_b3/annotation_output_schema.json`
 
 ### 3. Tooling & Guardrails

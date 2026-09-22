@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Annotation-Start QA Gatekeeper for NLP v2 Gate B.3.
 
-Enforces Section 20, as prospectively amended by Gate B.3 Execution-Isolation Amendment:
-Checks whether model configurations are formally frozen and ready for annotation.
+Enforces Section 20, as amended by Gate B.3 Resource-Feasibility / Annotator-Design Amendment:
+Checks whether active model configurations are formally frozen and ready for annotation.
 Requires:
-1. MODEL_A & MODEL_B Configuration:
+1. MODEL_G Configuration (Active Primary Model Annotator):
    - status != PENDING
    - provider != PENDING
    - model != PENDING
@@ -21,25 +21,25 @@ Requires:
    - retry_policy.tool_violation_mode == "HARD_FAIL_BATCH"
 2. Methodology Hash Recomputation:
    - prompt_sha256, t2_guide_sha256, t3_guide_sha256, schema_sha256,
-     and execution_isolation_amendment_sha256 present.
-   - Computed SHA-256 for prompt, T2 guide, T3 guide, schema, and amendment must match stored hashes.
+     execution_isolation_amendment_sha256, and resource_feasibility_amendment_sha256 present.
+   - Computed SHA-256 for prompt, T2 guide, T3 guide, schema, and amendments must match stored hashes.
    - Any mismatch reports: FROZEN_ANNOTATION_CONFIGURATION_DRIFT
 3. Canonical Model Configuration Hash Recomputation:
-   - Reconstruct canonical frozen configuration object for MODEL_A and MODEL_B.
+   - Reconstruct canonical frozen configuration object for MODEL_G.
    - Deterministic SHA-256 must match stored configuration_sha256 exactly.
-   - Global configuration_sha256 recomputed over protocol and model hashes must match.
+   - Global configuration_sha256 recomputed over protocol and active model hash must match.
    - Any mismatch reports: FROZEN_MODEL_CONFIGURATION_DRIFT
 4. Execution-Readiness Gate:
    - Behavioral isolation verified (fresh_context, empty_workdir, zero_tool_use_audit)
    - execution_isolation_verified == True (denoting verified compliance with the
-     prospectively amended EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION protocol,
-     NOT hard architectural tool isolation)
+     EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION protocol)
    - synthetic_smoke_test_passed == True
    - benchmark_execution_authorized == True
    - When execution readiness is unverified (expected prior to synthetic smoke test completion),
      reports: BLOCKED / NOT READY and exits with code 1.
-5. Model Diversity:
-   - MODEL_A and MODEL_B are not the exact same model family/config unless explicitly documented.
+5. Historical Retired Models:
+   - MODEL_A and MODEL_B preserved in provenance with primary_analysis_included == False.
+   - Retired models do NOT act as active blockers.
 6. Pre-Annotation Guardrails:
    - annotation_started == False, first_pass_locked == False, reference_join_enabled == False.
 """
@@ -63,6 +63,7 @@ METHODOLOGY_ARTIFACTS = {
     "t3_guide_sha256": ("t3_annotation_guide.md", os.path.join(DOCS_B3_DIR, "t3_annotation_guide.md")),
     "schema_sha256": ("annotation_output_schema.json", os.path.join(DOCS_B3_DIR, "annotation_output_schema.json")),
     "execution_isolation_amendment_sha256": ("gate_b3_execution_isolation_amendment.md", os.path.join(DOCS_B3_DIR, "gate_b3_execution_isolation_amendment.md")),
+    "resource_feasibility_amendment_sha256": ("gate_b3_resource_feasibility_annotator_amendment.md", os.path.join(DOCS_B3_DIR, "gate_b3_resource_feasibility_annotator_amendment.md")),
 }
 
 CANONICAL_MODEL_FIELDS = (
@@ -117,18 +118,43 @@ def compute_model_config_hash(model_dict: Dict[str, Any]) -> str:
     return compute_canonical_hash(canonical_obj)
 
 
-def compute_global_config_hash(cfg: Dict[str, Any], model_a_hash: str, model_b_hash: str) -> str:
-    """Computes deterministic SHA-256 for global configuration."""
-    canonical_global = {
-        "study": cfg.get("study", "Gate B.3 Annotation-Stability Framework"),
-        "prompt_sha256": cfg.get("prompt_sha256"),
-        "t2_guide_sha256": cfg.get("t2_guide_sha256"),
-        "t3_guide_sha256": cfg.get("t3_guide_sha256"),
-        "schema_sha256": cfg.get("schema_sha256"),
-        "execution_isolation_amendment_sha256": cfg.get("execution_isolation_amendment_sha256"),
-        "model_a_configuration_sha256": model_a_hash,
-        "model_b_configuration_sha256": model_b_hash,
-    }
+def compute_global_config_hash(cfg: Dict[str, Any], *args, **kwargs) -> str:
+    """Computes deterministic SHA-256 for global configuration.
+    
+    Supports amended MODEL_G single primary configuration as well as
+    historical dual-model configurations for backward compatibility in tests.
+    """
+    primary_id = cfg.get("primary_model_annotator_source_id")
+    if primary_id == "MODEL_G" or "model_g_hash" in kwargs or (len(args) == 1 and primary_id == "MODEL_G"):
+        g_hash = kwargs.get("model_g_hash")
+        if g_hash is None and len(args) >= 1:
+            g_hash = args[0]
+        if g_hash is None:
+            g_hash = compute_model_config_hash(cfg.get("MODEL_G", {}))
+        canonical_global = {
+            "study": cfg.get("study", "Gate B.3 Annotation-Stability Framework"),
+            "primary_model_annotator_source_id": "MODEL_G",
+            "prompt_sha256": cfg.get("prompt_sha256"),
+            "t2_guide_sha256": cfg.get("t2_guide_sha256"),
+            "t3_guide_sha256": cfg.get("t3_guide_sha256"),
+            "schema_sha256": cfg.get("schema_sha256"),
+            "execution_isolation_amendment_sha256": cfg.get("execution_isolation_amendment_sha256"),
+            "resource_feasibility_amendment_sha256": cfg.get("resource_feasibility_amendment_sha256"),
+            "model_g_configuration_sha256": g_hash,
+        }
+    else:
+        m_a_hash = kwargs.get("model_a_hash", args[0] if len(args) > 0 else "")
+        m_b_hash = kwargs.get("model_b_hash", args[1] if len(args) > 1 else "")
+        canonical_global = {
+            "study": cfg.get("study", "Gate B.3 Annotation-Stability Framework"),
+            "prompt_sha256": cfg.get("prompt_sha256"),
+            "t2_guide_sha256": cfg.get("t2_guide_sha256"),
+            "t3_guide_sha256": cfg.get("t3_guide_sha256"),
+            "schema_sha256": cfg.get("schema_sha256"),
+            "execution_isolation_amendment_sha256": cfg.get("execution_isolation_amendment_sha256"),
+            "model_a_configuration_sha256": m_a_hash,
+            "model_b_configuration_sha256": m_b_hash,
+        }
     return compute_canonical_hash(canonical_global)
 
 
@@ -176,8 +202,11 @@ def evaluate_annotation_start_readiness(
                         f"Stored: {stored_hash}, Computed: {current_sha}"
                     )
 
-    # 3. Model Specifications Verification (MODEL_A and MODEL_B)
-    for m_name in ["MODEL_A", "MODEL_B"]:
+    # 3. Active Primary Model Specifications Verification
+    primary_source_id = cfg.get("primary_model_annotator_source_id", "MODEL_G")
+    active_model_names = [primary_source_id] if primary_source_id in cfg else ["MODEL_G"]
+
+    for m_name in active_model_names:
         m = cfg.get(m_name, {})
         status = m.get("status")
         provider = m.get("provider")
@@ -239,10 +268,7 @@ def evaluate_annotation_start_readiness(
         if retry_pol.get("tool_violation_mode") != "HARD_FAIL_BATCH":
             reasons_blocked.append(f"{m_name} retry_policy.tool_violation_mode must be 'HARD_FAIL_BATCH'")
 
-        # Execution-readiness gate:
-        # Note: execution_isolation_verified denotes verified compliance with the
-        # prospectively amended EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION protocol
-        # (NOT hard architectural tool exclusion, which is unavailable on these non-API surfaces).
+        # Execution-readiness gate for active model:
         if not m.get("fresh_context_per_item_verified", False):
             reasons_blocked.append(f"{m_name} fresh context per item not verified")
         if not m.get("empty_workdir_verified", False):
@@ -261,31 +287,34 @@ def evaluate_annotation_start_readiness(
         if not m.get("benchmark_execution_authorized", False):
             reasons_blocked.append(f"{m_name} benchmark execution not authorized")
 
+    # Check that retired models are preserved in provenance and not included in primary analysis
+    retired_sources = cfg.get("retired_primary_model_sources", ["MODEL_A", "MODEL_B"])
+    for ret_name in retired_sources:
+        if ret_name in cfg:
+            ret_m = cfg[ret_name]
+            if ret_m.get("primary_analysis_included") is not False:
+                reasons_blocked.append(f"{ret_name} must have primary_analysis_included == False")
+
     # Recompute and verify global configuration hash if frozen
     if is_globally_frozen and stored_global_sha:
-        m_a = cfg.get("MODEL_A", {})
-        m_b = cfg.get("MODEL_B", {})
-        sha_a = compute_model_config_hash(m_a) if m_a.get("configuration_frozen") else m_a.get("configuration_sha256", "")
-        sha_b = compute_model_config_hash(m_b) if m_b.get("configuration_frozen") else m_b.get("configuration_sha256", "")
-        computed_global_sha = compute_global_config_hash(cfg, sha_a, sha_b)
+        if primary_source_id == "MODEL_G":
+            m_g = cfg.get("MODEL_G", {})
+            sha_g = compute_model_config_hash(m_g) if m_g.get("configuration_frozen") else m_g.get("configuration_sha256", "")
+            computed_global_sha = compute_global_config_hash(cfg, sha_g)
+        else:
+            m_a = cfg.get("MODEL_A", {})
+            m_b = cfg.get("MODEL_B", {})
+            sha_a = compute_model_config_hash(m_a) if m_a.get("configuration_frozen") else m_a.get("configuration_sha256", "")
+            sha_b = compute_model_config_hash(m_b) if m_b.get("configuration_frozen") else m_b.get("configuration_sha256", "")
+            computed_global_sha = compute_global_config_hash(cfg, sha_a, sha_b)
+
         if computed_global_sha != stored_global_sha:
             reasons_blocked.append(
                 f"FROZEN_MODEL_CONFIGURATION_DRIFT: Global configuration drifted! "
                 f"Stored: {stored_global_sha}, Computed: {computed_global_sha}"
             )
 
-    # 4. Model Diversity Check
-    m_a = cfg.get("MODEL_A", {})
-    m_b = cfg.get("MODEL_B", {})
-    if (
-        m_a.get("provider") not in (None, "PENDING", "")
-        and m_b.get("provider") not in (None, "PENDING", "")
-        and m_a.get("provider") == m_b.get("provider")
-        and m_a.get("model") == m_b.get("model")
-    ):
-        reasons_blocked.append("MODEL_A and MODEL_B use identical model/provider without justification")
-
-    # 5. Manifest Pre-Annotation Guardrails
+    # 4. Manifest Pre-Annotation Guardrails
     if os.path.exists(manifest_path):
         with open(manifest_path, "r", encoding="utf-8") as f:
             manifest = json.load(f)
