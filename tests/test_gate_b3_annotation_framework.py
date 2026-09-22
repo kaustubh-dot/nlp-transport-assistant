@@ -883,7 +883,9 @@ def test_model_a_and_b_execution_manifests_integrity():
     assert man_a["zero_tool_use_audit_verified"] is True
     assert man_a["execution_isolation_verified"] is True
     assert man_a["synthetic_smoke_test_passed"] is True
-    assert man_a["benchmark_execution_authorized"] is True
+    assert man_a["benchmark_execution_authorized"] is False
+    assert man_a.get("active_primary_execution") is False
+    assert man_a.get("authorization_revoked_by_resource_feasibility_amendment") is True
 
     # MODEL_B Manifest
     manifest_b_path = os.path.join(GATE_B3_DIR, "model_b_execution_manifest.json")
@@ -914,7 +916,9 @@ def test_model_a_and_b_execution_manifests_integrity():
     assert man_b["zero_tool_use_audit_verified"] is True
     assert man_b["execution_isolation_verified"] is True
     assert man_b["synthetic_smoke_test_passed"] is True
-    assert man_b["benchmark_execution_authorized"] is True
+    assert man_b["benchmark_execution_authorized"] is False
+    assert man_b.get("active_primary_execution") is False
+    assert man_b.get("authorization_revoked_by_resource_feasibility_amendment") is True
 
 
 def test_sanitized_execution_manifests_contain_no_prohibited_content():
@@ -1227,10 +1231,10 @@ def test_gate_b3_benchmark_execution_authorization_recorded():
     assert cfg["MODEL_G"]["configuration_sha256"] == "d4a359b72779ec15f42ffa0ba72beb57ff20ff765de901783082caee0deda1dd"
     assert cfg["MODEL_A"]["configuration_sha256"] == "5db1c4aeae9e8cabb98a5b20637488c6812a826d27cbf4ed4cd578d28038fe5c"
     assert cfg["MODEL_B"]["configuration_sha256"] == "3d9264b1172878ed07080d1ca4e087170aa83fd366f8695effbf32297318020c"
-    assert cfg["configuration_sha256"] == "e0f05789e9dadbbff2ab4ecf02060a7242362e3a3f4cf7d3870113e8e293ebca"
+    assert cfg["configuration_sha256"] == "b2aac9ceec68c906387a1e8521bf8538e5fd23f36b1c4e65a2f75f3a74e638df"
     assert cfg["historical_configuration_sha256"] == "2a7c82b9297f65f750f5f72685d329d2e65e40c0691b09546802d8cd727afc8e"
     assert cfg["execution_isolation_amendment_sha256"] == "a48b732a9373a8e2d65ab3963b1920a658ada1e3c703687b8d2d072f46e87f19"
-    assert cfg["resource_feasibility_amendment_sha256"] == "7960145fb12490699611f7c6d9a021929a42408ecc1127595572233f754d319d"
+    assert cfg["resource_feasibility_amendment_sha256"] == "7eaab180555f94956a4d9737bf98d2fba8477b847c9fd79136ab0e6329b39b40"
 
     # Annotation manifest boundaries
     ann_manifest_path = os.path.join(GATE_B3_DIR, "gate_b3_annotation_manifest.json")
@@ -1417,6 +1421,199 @@ def test_resource_feasibility_amendment_all_30_requirements():
     assert cfg["MODEL_A"]["primary_analysis_included"] is False, "Req 30: MODEL_A marked included in primary analysis"
     assert ann_m["primary_model_source_id"] != "MODEL_A", "Req 30: MODEL_A is primary model source"
     assert "model_a_t2_annotations.jsonl" not in [f for f in glob.glob(os.path.join(GATE_B3_DIR, "*_annotations.jsonl"))]
+
+
+def test_amended_design_hardening_all_22_requirements(tmp_path, monkeypatch):
+    """Explicit test coverage for all 22 Gate B.3 amended-design hardening requirements (Section 10)."""
+    import glob
+    import sqlite3
+    import scripts.nlp_v2.gate_b3.compute_annotation_stability as stab
+    from scripts.nlp_v2.gate_b3.generate_gate_b3_packages import (
+        generate_blind_packages,
+        generate_manifests,
+    )
+    from scripts.nlp_v2.gate_b3.lock_first_pass_annotations import EXPECTED_OUTPUT_SPECS
+
+    # Load configurations, manifests, and transfer guides
+    cfg_path = os.path.join(GATE_B3_DIR, "model_annotator_configs.json")
+    with open(cfg_path, "r", encoding="utf-8") as f:
+        cfg = json.load(f)
+
+    man_a_path = os.path.join(GATE_B3_DIR, "model_a_execution_manifest.json")
+    with open(man_a_path, "r", encoding="utf-8") as f:
+        man_a = json.load(f)
+
+    man_b_path = os.path.join(GATE_B3_DIR, "model_b_execution_manifest.json")
+    with open(man_b_path, "r", encoding="utf-8") as f:
+        man_b = json.load(f)
+
+    man_g_path = os.path.join(GATE_B3_DIR, "model_g_execution_manifest.json")
+    with open(man_g_path, "r", encoding="utf-8") as f:
+        man_g = json.load(f)
+
+    ann_m_path = os.path.join(GATE_B3_DIR, "gate_b3_annotation_manifest.json")
+    with open(ann_m_path, "r", encoding="utf-8") as f:
+        ann_m = json.load(f)
+
+    provenance_path = os.path.join(REPORTS_B3_DIR, "GATE_B3_PRE_AMENDMENT_MODEL_EXECUTION_PROVENANCE.md")
+    with open(provenance_path, "r", encoding="utf-8") as f:
+        prov_text = f.read()
+
+    transfer_guide_path = os.path.join(REPORTS_B3_DIR, "MODEL_ANNOTATOR_PACKAGE_TRANSFER.md")
+    with open(transfer_guide_path, "r", encoding="utf-8") as f:
+        transfer_text = f.read()
+
+    amendment_doc_path = os.path.join(DOCS_B3_DIR, "gate_b3_resource_feasibility_annotator_amendment.md")
+    with open(amendment_doc_path, "r", encoding="utf-8") as f:
+        amendment_text = f.read()
+
+    # 1. retired MODEL_A current manifest is unauthorized
+    assert man_a["benchmark_execution_authorized"] is False, "Req 1: MODEL_A benchmark_execution_authorized != False"
+    assert man_a.get("active_primary_execution") is False, "Req 1: MODEL_A active_primary_execution != False"
+    assert man_a.get("authorization_revoked_by_resource_feasibility_amendment") is True, "Req 1: MODEL_A revocation flag missing"
+
+    # 2. retired MODEL_B current manifest is unauthorized
+    assert man_b["benchmark_execution_authorized"] is False, "Req 2: MODEL_B benchmark_execution_authorized != False"
+    assert man_b.get("active_primary_execution") is False, "Req 2: MODEL_B active_primary_execution != False"
+    assert man_b.get("authorization_revoked_by_resource_feasibility_amendment") is True, "Req 2: MODEL_B revocation flag missing"
+
+    # 3. historical authorized manifest hashes remain documented
+    hist_a_sha = "17f30bb2178ceb6eda72c5b713c4c1938d5bf0147642fa931d6491a3a7bdd057"
+    hist_b_sha = "607df806d33fb77194d64b741ed424697f05d0d64c9188512eebd8104930627a"
+    current_a_sha = compute_sha256(man_a_path)
+    current_b_sha = compute_sha256(man_b_path)
+    assert current_a_sha == "e838082ee386d4ac4c2840ea2f7daf3dfda5c71f54ff21ac68b5a16c4c520db7"
+    assert current_b_sha == "1837a6854cb3c1d60c2b4fd910ba160c8807505e49b1fb5b9e0e517d4d835573"
+    assert hist_a_sha in prov_text, "Req 3: Historical authorized MODEL_A SHA missing from provenance"
+    assert hist_b_sha in prov_text, "Req 3: Historical authorized MODEL_B SHA missing from provenance"
+    assert current_a_sha in prov_text, "Req 3: Current retired MODEL_A SHA missing from provenance"
+    assert current_b_sha in prov_text, "Req 3: Current retired MODEL_B SHA missing from provenance"
+    assert hist_a_sha in transfer_text, "Req 3: Historical authorized MODEL_A SHA missing from transfer guide"
+    assert hist_b_sha in transfer_text, "Req 3: Historical authorized MODEL_B SHA missing from transfer guide"
+
+    # 4. package generator cannot resurrect A/B as active annotators
+    with pytest.raises(RuntimeError, match="Fail-closed"):
+        generate_manifests(output_dir=GATE_B3_DIR)
+    gen_dir = tmp_path / "gen_test"
+    generate_manifests(output_dir=str(gen_dir))
+    with open(gen_dir / "model_annotator_configs.json", "r", encoding="utf-8") as f:
+        gen_cfg = json.load(f)
+    assert gen_cfg["primary_model_annotator_source_id"] == "MODEL_G", "Req 4: Resurrected non-MODEL_G primary"
+    assert gen_cfg["MODEL_A"]["benchmark_execution_authorized"] is False, "Req 4: Resurrected MODEL_A"
+    assert gen_cfg["MODEL_B"]["benchmark_execution_authorized"] is False, "Req 4: Resurrected MODEL_B"
+    assert gen_cfg["MODEL_A"]["primary_analysis_included"] is False
+    assert gen_cfg["MODEL_B"]["primary_analysis_included"] is False
+
+    # 5. regenerated MODEL_G T2 bytes match frozen expected SHA
+    gen_paths = generate_blind_packages(output_dir=str(gen_dir))
+    expected_g_t2_sha = "85b5c3bf3cccd3cdf1ebab289e6ac6c513387006ce9f04ac2c0c2e33c123dab0"
+    assert compute_sha256(gen_paths["model_g_t2_input"]) == expected_g_t2_sha, "Req 5: Regenerated MODEL_G T2 mismatch"
+
+    # 6. regenerated MODEL_G T3 bytes match frozen expected SHA
+    expected_g_t3_sha = "51a90d81ac2be0370b287c95bcab6e8861a5565e68082958f2229918521e5d55"
+    assert compute_sha256(gen_paths["model_g_t3_input"]) == expected_g_t3_sha, "Req 6: Regenerated MODEL_G T3 mismatch"
+
+    # 7. primary analysis does not load/use MODEL_A outputs
+    # 8. primary analysis does not load/use MODEL_B outputs
+    stability_script_path = os.path.join(BASE_DIR, "scripts", "nlp_v2", "gate_b3", "compute_annotation_stability.py")
+    with open(stability_script_path, "r", encoding="utf-8") as f:
+        stab_code = f.read()
+    assert "model_a" not in stab_code.lower(), "Req 7: MODEL_A referenced in compute_annotation_stability.py"
+    assert "model_b" not in stab_code.lower(), "Req 8: MODEL_B referenced in compute_annotation_stability.py"
+
+    # 9. primary analysis pair set contains only STUDENT_R1 ↔ MODEL_G
+    assert "STUDENT_vs_MODEL_G" in stab_code, "Req 9: STUDENT_vs_MODEL_G missing from analysis"
+    assert "HISTORICAL" not in stab_code, "Req 9: Historical models included in active analysis"
+
+    # 10. gold loader fails before first-pass lock
+    monkeypatch.setattr(stab, "verify_first_pass_lock_integrity", lambda: False)
+    with pytest.raises(PermissionError, match="HARD GUARDRAIL VIOLATION"):
+        stab.load_gold_key()
+
+    # 11. gold loader fails when locked but reference_join_enabled=false
+    monkeypatch.setattr(stab, "verify_first_pass_lock_integrity", lambda: True)
+    test_manifest_file = tmp_path / "test_manifest.json"
+    with open(test_manifest_file, "w", encoding="utf-8") as f:
+        json.dump({"first_pass_locked": True, "reference_join_enabled": False}, f)
+    with pytest.raises(PermissionError, match="^REFERENCE_JOIN_DISABLED:"):
+        stab.load_gold_key(manifest_path=str(test_manifest_file))
+
+    # 12. gold loader succeeds only when lock valid and reference_join_enabled=true
+    with open(test_manifest_file, "w", encoding="utf-8") as f:
+        json.dump({"first_pass_locked": True, "reference_join_enabled": True}, f)
+    gold_data = stab.load_gold_key(manifest_path=str(test_manifest_file))
+    assert len(gold_data) == 350, "Req 12: Gold key did not load 350 items when authorized"
+
+    # 13. lock corruption blocks gold even if reference join enabled
+    def mock_corrupted_lock():
+        raise PermissionError("LOCK_INTEGRITY_VIOLATION: Hash mismatch for file!")
+    monkeypatch.setattr(stab, "verify_first_pass_lock_integrity", mock_corrupted_lock)
+    with pytest.raises(PermissionError, match="LOCK_INTEGRITY_VIOLATION"):
+        stab.load_gold_key(manifest_path=str(test_manifest_file))
+
+    # 14. MODEL_G sanitized manifest includes exact retry policy
+    expected_retry_policy = {
+        "semantic_retries": 0,
+        "format_repair_attempts": 1,
+        "transport_retry_policy": "PERMITTED_FOR_EXECUTION_FAILURE_ONLY",
+        "semantic_retry_mode": "FORBIDDEN",
+        "tool_violation_retry_attempts": 0,
+        "tool_violation_mode": "HARD_FAIL_BATCH",
+    }
+    assert man_g.get("retry_policy") == expected_retry_policy, "Req 14: MODEL_G manifest retry_policy mismatch"
+
+    # 15. lock script documents four active outputs
+    lock_script_path = os.path.join(BASE_DIR, "scripts", "nlp_v2", "gate_b3", "lock_first_pass_annotations.py")
+    with open(lock_script_path, "r", encoding="utf-8") as f:
+        lock_code = f.read()
+    assert "all six outputs" not in lock_code, "Req 15: Stale 'six outputs' found in lock script"
+    assert "all four active primary outputs" in lock_code, "Req 15: Missing 'four active primary outputs' in lock docstring"
+    assert set(EXPECTED_OUTPUT_SPECS.keys()) == {
+        "student_t2_annotations.jsonl",
+        "student_t3_annotations.jsonl",
+        "model_g_t2_annotations.jsonl",
+        "model_g_t3_annotations.jsonl",
+    }, "Req 15: EXPECTED_OUTPUT_SPECS keys mismatch"
+
+    # 16. resource-feasibility amendment distinguishes automatic reference concordance from author-led gold-boundary audit
+    assert "Post-lock reference concordance:" in amendment_text, "Req 16: Missing reference concordance distinction"
+    assert "computed programmatically" in amendment_text, "Req 16: Missing programmatic reference concordance"
+    assert "All-item gold-boundary audit:" in amendment_text, "Req 16: Missing gold-boundary audit section"
+    assert "author-led" in amendment_text.lower(), "Req 16: Missing author-led gold-boundary audit"
+
+    # 17. MODEL_G readiness flags remain false
+    assert cfg["MODEL_G"]["fresh_context_per_item_verified"] is False, "Req 17: fresh_context_per_item_verified != False"
+    assert cfg["MODEL_G"]["empty_workdir_verified"] is False, "Req 17: empty_workdir_verified != False"
+    assert cfg["MODEL_G"]["zero_tool_use_audit_verified"] is False, "Req 17: zero_tool_use_audit_verified != False"
+    assert cfg["MODEL_G"]["execution_isolation_verified"] is False, "Req 17: execution_isolation_verified != False"
+    assert cfg["MODEL_G"]["synthetic_smoke_test_passed"] is False, "Req 17: synthetic_smoke_test_passed != False"
+
+    # 18. MODEL_G benchmark authorization remains false
+    assert cfg["MODEL_G"]["benchmark_execution_authorized"] is False, "Req 18: cfg benchmark_execution_authorized != False"
+    assert man_g["benchmark_execution_authorized"] is False, "Req 18: manifest benchmark_execution_authorized != False"
+    assert ann_m["model_g_execution_ready"] is False, "Req 18: ann_m model_g_execution_ready != False"
+
+    # 19. no MODEL_G annotations exist
+    g_anns = glob.glob(os.path.join(GATE_B3_DIR, "model_g_*_annotations.jsonl"))
+    assert len(g_anns) == 0, f"Req 19: Unexpected MODEL_G annotation files found: {g_anns}"
+
+    # 20. source blind SHA unchanged
+    assert compute_sha256(SOURCE_BLIND_CSV) == "94fd8bb3e7f2e3bdaf274c4ee5bcf7e083e9ef2a66322fbcf7bee2cadf231999", "Req 20: source blind SHA changed"
+
+    # 21. Gate B.2 stress SHA unchanged
+    stress_csv = os.path.join(GATE_B2_DIR, "gate_b2_stress_eval.csv")
+    assert compute_sha256(stress_csv) == "26cbf6517e25511d19d67051f500459ef7d78d87e5fbd1eb6d21849842242a1c", "Req 21: stress eval SHA changed"
+
+    # 22. frozen v1 untouched by this commit
+    db_path = os.path.join(BASE_DIR, "data", "canonical", "transit", "canonical_transport.db")
+    assert os.path.exists(db_path), "Req 22: canonical transport DB missing"
+    conn = sqlite3.connect(db_path)
+    cur = conn.cursor()
+    cur.execute("SELECT count(*) FROM transport_stops")
+    stops_cnt = cur.fetchone()[0]
+    conn.close()
+    assert stops_cnt > 0, "Req 22: canonical stops table empty"
+
 
 
 

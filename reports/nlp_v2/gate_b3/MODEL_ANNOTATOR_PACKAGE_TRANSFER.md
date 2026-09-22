@@ -86,13 +86,13 @@ Verify bitwise file integrity inside `gate-b3-model-g-gemini` using `sha256sum`:
 | `protocol/t3_annotation_guide.md` | `0256b4b27b02e04c6948e85d0c33e81e75c8f38b090d1ac37770bcb0ad57599d` |
 | `protocol/annotation_output_schema.json` | `0fb81d7cfb9520f19e87797ad774e6f9cd8d8dbe1946cb3dab0f7b7c201954a4` |
 | `protocol/gate_b3_execution_isolation_amendment.md` | `a48b732a9373a8e2d65ab3963b1920a658ada1e3c703687b8d2d072f46e87f19` |
-| `protocol/gate_b3_resource_feasibility_annotator_amendment.md` | `7960145fb12490699611f7c6d9a021929a42408ecc1127595572233f754d319d` |
-| `protocol/model_g_execution_manifest.json` | `0cc2f07ba314ad41ba62c28ea4915a01486d29c03f958dcf92143a304a5b36ee` |
+| `protocol/gate_b3_resource_feasibility_annotator_amendment.md` | `7eaab180555f94956a4d9737bf98d2fba8477b847c9fd79136ab0e6329b39b40` |
+| `protocol/model_g_execution_manifest.json` | `4fb9cf4be6c878835c059831290c19b9654b9c5222d07ec1eeb33f4e5e51dfba` |
 | `inputs/model_g_t2_input.jsonl` | `85b5c3bf3cccd3cdf1ebab289e6ac6c513387006ce9f04ac2c0c2e33c123dab0` (350 lines) |
 | `inputs/model_g_t3_input.jsonl` | `51a90d81ac2be0370b287c95bcab6e8861a5565e68082958f2229918521e5d55` (350 lines) |
 
 **Manifest Content Verification:**
-- **Manifest file SHA-256:** `0cc2f07ba314ad41ba62c28ea4915a01486d29c03f958dcf92143a304a5b36ee` (actual SHA-256 of execution-manifest file bytes via `sha256sum`)
+- **Manifest file SHA-256:** `4fb9cf4be6c878835c059831290c19b9654b9c5222d07ec1eeb33f4e5e51dfba` (actual SHA-256 of execution-manifest file bytes via `sha256sum`)
 - **Canonical model configuration SHA stored inside manifest:** `d4a359b72779ec15f42ffa0ba72beb57ff20ff765de901783082caee0deda1dd` (verifies canonical model configuration encoded inside manifest; not file byte hash)
 - **Execution isolation class:** `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION`
 - **Initial authorization status:** `benchmark_execution_authorized = false`
@@ -106,10 +106,11 @@ Verify bitwise file integrity inside `gate-b3-model-g-gemini` using `sha256sum`:
 
 **Destination Folder:** `Astra_testing`  
 **Target Model Identity:** `MODEL_A` (GPT-6 Astra, Codex)  
-**Manifest file SHA-256:** `17f30bb2178ceb6eda72c5b713c4c1938d5bf0147642fa931d6491a3a7bdd057`  
+**Historical Authorized Manifest File SHA-256:** `17f30bb2178ceb6eda72c5b713c4c1938d5bf0147642fa931d6491a3a7bdd057`  
+**Current Retired / Revoked Manifest File SHA-256:** `e838082ee386d4ac4c2840ea2f7daf3dfda5c71f54ff21ac68b5a16c4c520db7` (operator must copy to `Astra_testing` for fail-closed state)  
 **Canonical model configuration SHA stored inside manifest:** `5db1c4aeae9e8cabb98a5b20637488c6812a826d27cbf4ed4cd578d28038fe5c`  
 **Inputs:** `model_a_t2_input.jsonl` (`85b5c3bf3cccd3cdf1ebab289e6ac6c513387006ce9f04ac2c0c2e33c123dab0`), `model_a_t3_input.jsonl` (`51a90d81ac2be0370b287c95bcab6e8861a5565e68082958f2229918521e5d55`)  
-**Execution Status:** Aborted after 23 items due to provider rate/quota limits. Excluded from primary Gate B.3 analysis.
+**Execution Status:** Aborted after 23 items due to provider rate/quota limits. Excluded from primary Gate B.3 analysis. Authorization revoked (`benchmark_execution_authorized = false`).
 
 ---
 
@@ -120,10 +121,11 @@ Verify bitwise file integrity inside `gate-b3-model-g-gemini` using `sha256sum`:
 
 **Destination Folder:** `gate-b3-model-b-claude`  
 **Target Model Identity:** `MODEL_B` (Claude Opus 4.6, Antigravity)  
-**Manifest file SHA-256:** `607df806d33fb77194d64b741ed424697f05d0d64c9188512eebd8104930627a`  
+**Historical Authorized Manifest File SHA-256:** `607df806d33fb77194d64b741ed424697f05d0d64c9188512eebd8104930627a`  
+**Current Retired / Revoked Manifest File SHA-256:** `1837a6854cb3c1d60c2b4fd910ba160c8807505e49b1fb5b9e0e517d4d835573` (operator must copy to `gate-b3-model-b-claude` for fail-closed state)  
 **Canonical model configuration SHA stored inside manifest:** `3d9264b1172878ed07080d1ca4e087170aa83fd366f8695effbf32297318020c`  
 **Inputs:** `model_b_t2_input.jsonl` (`85b5c3bf3cccd3cdf1ebab289e6ac6c513387006ce9f04ac2c0c2e33c123dab0`), `model_b_t3_input.jsonl` (`51a90d81ac2be0370b287c95bcab6e8861a5565e68082958f2229918521e5d55`)  
-**Execution Status:** Retired pre-completion due to provider quota feasibility. Zero benchmark runs executed. Excluded from primary Gate B.3 analysis.
+**Execution Status:** Retired pre-completion due to provider quota feasibility. Zero benchmark runs executed. Excluded from primary Gate B.3 analysis. Authorization revoked (`benchmark_execution_authorized = false`).
 
 ---
 

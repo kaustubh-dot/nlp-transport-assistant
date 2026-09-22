@@ -12,7 +12,7 @@
   "protocol_sha256": {
     "annotation_output_schema.json": "0fb81d7cfb9520f19e87797ad774e6f9cd8d8dbe1946cb3dab0f7b7c201954a4",
     "gate_b3_execution_isolation_amendment.md": "a48b732a9373a8e2d65ab3963b1920a658ada1e3c703687b8d2d072f46e87f19",
-    "gate_b3_resource_feasibility_annotator_amendment.md": "7960145fb12490699611f7c6d9a021929a42408ecc1127595572233f754d319d",
+    "gate_b3_resource_feasibility_annotator_amendment.md": "7eaab180555f94956a4d9737bf98d2fba8477b847c9fd79136ab0e6329b39b40",
     "model_annotator_prompt_template.md": "6d37c2646de761c0530f6fe99403e6e1f12a56880da66c8406b8b63ca828da57",
     "t2_annotation_guide.md": "f1b538c0c141738ada760f52ea93640c9ae91fa9c9e6d7ac13089559d9f3cfac",
     "t3_annotation_guide.md": "0256b4b27b02e04c6948e85d0c33e81e75c8f38b090d1ac37770bcb0ad57599d"
@@ -29,8 +29,16 @@
   "actual_tool_use_allowed": false,
   "zero_tool_use_audit_required": true,
   "tool_violation_retry_attempts": 0,
+  "retry_policy": {
+    "semantic_retries": 0,
+    "format_repair_attempts": 1,
+    "transport_retry_policy": "PERMITTED_FOR_EXECUTION_FAILURE_ONLY",
+    "semantic_retry_mode": "FORBIDDEN",
+    "tool_violation_retry_attempts": 0,
+    "tool_violation_mode": "HARD_FAIL_BATCH"
+  },
   "execution_isolation_amendment_sha256": "a48b732a9373a8e2d65ab3963b1920a658ada1e3c703687b8d2d072f46e87f19",
-  "resource_feasibility_amendment_sha256": "7960145fb12490699611f7c6d9a021929a42408ecc1127595572233f754d319d",
+  "resource_feasibility_amendment_sha256": "7eaab180555f94956a4d9737bf98d2fba8477b847c9fd79136ab0e6329b39b40",
   "fresh_context_per_item_verified": false,
   "empty_workdir_verified": false,
   "zero_tool_use_audit_verified": false,

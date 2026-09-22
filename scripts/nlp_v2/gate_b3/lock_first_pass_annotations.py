@@ -4,17 +4,15 @@
 Hardens Sections 1-6 requirements:
 1. Exact Frozen ID Set:
    Loads EXPECTED_ANNOTATION_IDS from data/nlp_v2/gate_b2/human_annotation_blind.csv.
-   Requires seen_ids == EXPECTED_ANNOTATION_IDS for all six outputs.
+   Requires seen_ids == EXPECTED_ANNOTATION_IDS for all four active primary outputs.
    Hard-fails on missing, unexpected, or duplicate IDs.
 2. Exact Record Count:
    Requires exactly 350 non-empty records per file (record_count == 350 and unique_id_count == 350).
 3. Validate Source Identity per File:
    - student_t2_annotations.jsonl: source_id = STUDENT_R1, source_type = student, taxonomy_version = T2
    - student_t3_annotations.jsonl: source_id = STUDENT_R1, source_type = student, taxonomy_version = T3
-   - model_a_t2_annotations.jsonl: source_id = MODEL_A, source_type = model, taxonomy_version = T2
-   - model_a_t3_annotations.jsonl: source_id = MODEL_A, source_type = model, taxonomy_version = T3
-   - model_b_t2_annotations.jsonl: source_id = MODEL_B, source_type = model, taxonomy_version = T2
-   - model_b_t3_annotations.jsonl: source_id = MODEL_B, source_type = model, taxonomy_version = T3
+   - model_g_t2_annotations.jsonl: source_id = MODEL_G, source_type = model, taxonomy_version = T2
+   - model_g_t3_annotations.jsonl: source_id = MODEL_G, source_type = model, taxonomy_version = T3
 4. Authoritative JSON Schema Validation:
    Validates every record against docs/nlp_v2/gate_b3/annotation_output_schema.json using Draft7Validator.
 5. Semantic Validation Beyond Schema:
@@ -316,7 +314,7 @@ def attempt_lock() -> bool:
         with open(MANIFEST_PATH, "w", encoding="utf-8") as f:
             json.dump(manifest, f, indent=2)
 
-    print("ALL 6 ANNOTATOR PACKAGES VALIDATED AND LOCKED SUCCESSFULLY.")
+    print("ALL 4 PRIMARY ANNOTATOR PACKAGES VALIDATED AND LOCKED SUCCESSFULLY.")
     print(f"Complete lock manifest written to: {LOCK_MANIFEST_PATH}")
     return True
 

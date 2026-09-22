@@ -91,7 +91,9 @@ Gemini  = 700
 Total   = 1,400 judgments
 ```
 
-Following first-pass locking of these 1,400 judgments, an automated post-lock reference/gold boundary audit is conducted against frozen Gate B.2 reference truth.
+Following first-pass locking of these 1,400 judgments and explicit reference-join authorization:
+1. **Post-lock reference concordance:** computed programmatically after lock and explicit reference-join authorization.
+2. **All-item gold-boundary audit:** author-led reconciliation by the student author over all 350 items.
 
 ---
 

@@ -150,14 +150,35 @@ def is_first_pass_locked() -> bool:
         return False
 
 
-def load_gold_key() -> Dict[str, Any]:
-    """Guarded gold key loader. Refuses access if lock integrity fails."""
+def load_gold_key(
+    manifest_path: str = MANIFEST_PATH,
+    gold_key_path: str = GOLD_KEY_PATH,
+) -> Dict[str, Any]:
+    """Guarded gold key loader.
+
+    Requires BOTH:
+    1. Cryptographically valid first-pass lock.
+    2. Explicit authorization via reference_join_enabled == True in gate_b3_annotation_manifest.json.
+    """
     if not verify_first_pass_lock_integrity():
         raise PermissionError(
             "HARD GUARDRAIL VIOLATION: Reference key access refused! "
             "First-pass annotations are not locked or lock integrity is compromised."
         )
-    with open(GOLD_KEY_PATH, "r", encoding="utf-8") as f:
+    if not os.path.exists(manifest_path):
+        raise PermissionError(
+            "REFERENCE_JOIN_DISABLED: Annotation manifest not found."
+        )
+    with open(manifest_path, "r", encoding="utf-8") as f:
+        manifest = json.load(f)
+    if not manifest.get("reference_join_enabled", False):
+        raise PermissionError(
+            "REFERENCE_JOIN_DISABLED: Reference key join is explicitly disabled in gate_b3_annotation_manifest.json. "
+            "Post-lock reference concordance requires explicit reference_join_enabled authorization."
+        )
+    if not os.path.exists(gold_key_path):
+        raise FileNotFoundError(f"Reference key missing at {gold_key_path}")
+    with open(gold_key_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -627,35 +648,21 @@ def run_full_analysis_pipeline() -> Dict[str, Any]:
     print("Executing Gate B.3 Annotation-Stability and Semantic-Boundary Audit")
     print("=" * 70)
 
-    # 1. Load Primary Annotation Files
+    # 1. Load Primary Annotation Files (STUDENT_R1 and MODEL_G only)
     student_t2 = load_annotations_file(os.path.join(GATE_B3_DIR, "student_t2_annotations.jsonl"))
     student_t3 = load_annotations_file(os.path.join(GATE_B3_DIR, "student_t3_annotations.jsonl"))
     model_g_t2 = load_annotations_file(os.path.join(GATE_B3_DIR, "model_g_t2_annotations.jsonl"))
     model_g_t3 = load_annotations_file(os.path.join(GATE_B3_DIR, "model_g_t3_annotations.jsonl"))
 
-    # Historical files (if present)
-    model_a_t2 = load_annotations_file(os.path.join(GATE_B3_DIR, "model_a_t2_annotations.jsonl"))
-    model_a_t3 = load_annotations_file(os.path.join(GATE_B3_DIR, "model_a_t3_annotations.jsonl"))
-    model_b_t2 = load_annotations_file(os.path.join(GATE_B3_DIR, "model_b_t2_annotations.jsonl"))
-    model_b_t3 = load_annotations_file(os.path.join(GATE_B3_DIR, "model_b_t3_annotations.jsonl"))
-
-    # 2. Pairwise Stability for T2 (Primary: STUDENT ↔ MODEL_G)
+    # 2. Pairwise Stability for T2 (Primary: STUDENT ↔ MODEL_G only)
     pairwise_t2 = {
         "STUDENT_vs_MODEL_G": compute_pairwise_stability_suite("STUDENT_R1", "MODEL_G", student_t2, model_g_t2, "T2"),
     }
-    if model_a_t2 and model_b_t2:
-        pairwise_t2["HISTORICAL_STUDENT_vs_MODEL_A"] = compute_pairwise_stability_suite("STUDENT_R1", "MODEL_A", student_t2, model_a_t2, "T2")
-        pairwise_t2["HISTORICAL_STUDENT_vs_MODEL_B"] = compute_pairwise_stability_suite("STUDENT_R1", "MODEL_B", student_t2, model_b_t2, "T2")
-        pairwise_t2["HISTORICAL_MODEL_A_vs_MODEL_B"] = compute_pairwise_stability_suite("MODEL_A", "MODEL_B", model_a_t2, model_b_t2, "T2")
 
-    # 3. Pairwise Stability for T3 (Primary: STUDENT ↔ MODEL_G)
+    # 3. Pairwise Stability for T3 (Primary: STUDENT ↔ MODEL_G only)
     pairwise_t3 = {
         "STUDENT_vs_MODEL_G": compute_pairwise_stability_suite("STUDENT_R1", "MODEL_G", student_t3, model_g_t3, "T3"),
     }
-    if model_a_t3 and model_b_t3:
-        pairwise_t3["HISTORICAL_STUDENT_vs_MODEL_A"] = compute_pairwise_stability_suite("STUDENT_R1", "MODEL_A", student_t3, model_a_t3, "T3")
-        pairwise_t3["HISTORICAL_STUDENT_vs_MODEL_B"] = compute_pairwise_stability_suite("STUDENT_R1", "MODEL_B", student_t3, model_b_t3, "T3")
-        pairwise_t3["HISTORICAL_MODEL_A_vs_MODEL_B"] = compute_pairwise_stability_suite("MODEL_A", "MODEL_B", model_a_t3, model_b_t3, "T3")
 
     # 4. Load Reference Key
     gold_key = load_gold_key()

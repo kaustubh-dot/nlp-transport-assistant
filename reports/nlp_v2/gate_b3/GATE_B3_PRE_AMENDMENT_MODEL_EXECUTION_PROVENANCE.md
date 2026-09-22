@@ -25,8 +25,9 @@ Authorized benchmark execution was halted following provider rate and usage limi
 | :--- | :--- | :--- |
 | **Model Source ID** | `MODEL_A` | OpenAI / GPT-6 Astra |
 | **Execution Environment** | `Codex` | Sterile workspace `Astra_testing` |
-| **Authorized Manifest File SHA-256** | `17f30bb2178ceb6eda72c5b713c4c1938d5bf0147642fa931d6491a3a7bdd057` | Bitwise match to authorization commit |
-| **Canonical Configuration SHA-256** | `5db1c4aeae9e8cabb98a5b20637488c6812a826d27cbf4ed4cd578d28038fe5c` | Frozen config specification |
+| **Historical Authorized Manifest SHA-256** | `17f30bb2178ceb6eda72c5b713c4c1938d5bf0147642fa931d6491a3a7bdd057` | Bitwise match to authorization commit `2a2228d` |
+| **Current Retired / Revoked Manifest SHA-256** | `e838082ee386d4ac4c2840ea2f7daf3dfda5c71f54ff21ac68b5a16c4c520db7` | Post-revocation manifest (`benchmark_execution_authorized = false`) |
+| **Canonical Configuration SHA-256** | `5db1c4aeae9e8cabb98a5b20637488c6812a826d27cbf4ed4cd578d28038fe5c` | Frozen config specification (unchanged) |
 | **Isolation Class** | `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION` | Fresh context per item |
 | **T2 Accepted Annotations** | `23 / 350` | `ANN_B2_001` through `ANN_B2_023` |
 | **T3 Accepted Annotations** | `0 / 350` | Not started |
@@ -51,8 +52,9 @@ Authorized benchmark execution was halted following provider rate and usage limi
 | :--- | :--- | :--- |
 | **Model Source ID** | `MODEL_B` | Anthropic / Claude Opus 4.6 |
 | **Execution Environment** | `Antigravity / isolated Claude backend` | Sterile workspace `gate-b3-model-b-claude` |
-| **Authorized Manifest File SHA-256** | `607df806d33fb77194d64b741ed424697f05d0d64c9188512eebd8104930627a` | Bitwise match to authorization commit |
-| **Canonical Configuration SHA-256** | `3d9264b1172878ed07080d1ca4e087170aa83fd366f8695effbf32297318020c` | Frozen config specification |
+| **Historical Authorized Manifest SHA-256** | `607df806d33fb77194d64b741ed424697f05d0d64c9188512eebd8104930627a` | Bitwise match to authorization commit `2a2228d` |
+| **Current Retired / Revoked Manifest SHA-256** | `1837a6854cb3c1d60c2b4fd910ba160c8807505e49b1fb5b9e0e517d4d835573` | Post-revocation manifest (`benchmark_execution_authorized = false`) |
+| **Canonical Configuration SHA-256** | `3d9264b1172878ed07080d1ca4e087170aa83fd366f8695effbf32297318020c` | Frozen config specification (unchanged) |
 | **Real Benchmark Execution** | `NOT COMPLETED / NONE RECORDED` | Execution not commenced |
 | **Real Benchmark Output** | `NONE` | No benchmark outputs generated |
 | **T2 Accepted Annotations** | `0 / 350` | None |
