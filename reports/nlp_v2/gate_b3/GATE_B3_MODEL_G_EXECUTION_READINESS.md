@@ -10,7 +10,7 @@ This report documents verified external evidence for **MODEL_G** (`Gemini 3.8 Fl
 > - **Real Benchmark Invocations:** **0**.
 > - **Real Benchmark Outputs Created:** **NONE**.
 > - **Architectural Web / Tool Disablement Claimed:** **NO**. Hard architectural/config-level tool disablement was NOT verified. The supported web isolation claim is strictly `ZERO_CALL_AUDITED`.
-> - **Execution Isolation Class:** `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION`. Compliance is enforced by spawning fresh child processes in brand-new empty temporary working directories with zero semantic-child tool access.
+> - **Execution Isolation Class:** `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION`. Compliance is enforced by spawning fresh child processes in brand-new empty temporary working directories with zero observed semantic-child tool use, audited from execution telemetry.
 
 ---
 
@@ -133,7 +133,7 @@ Invocation logs from the sterile preflight and hardening phase were reconciled i
 | :--- | :--- | :--- |
 | **Probe Invocations** | 8 | Antigravity CLI flags, model selector discovery (`gemini-3.8-flash-high`), stream-json format verification, raw telemetry parsing validation |
 | **Formal / Synthetic Smoke Invocations** | 6 | Three rounds of 2 synthetic queries (T2 + T3): Round 1 (`ANN_B2_998`/`ANN_B2_999`), Round 2 (`ANN_B2_996`/`ANN_B2_997`), and Final Smoke (`ANN_B2_994`/`ANN_B2_995`) |
-| **Benchmark Invocations** | **0** | Zero benchmark queries submitted, inspected, or executed |
+| **Benchmark Invocations** | **0** | Zero benchmark queries submitted to MODEL_G or executed as semantic annotation prompts.<br>Benchmark files were accessed only for byte-level hash verification and structural annotation-ID validation; query text/semantic contents were not inspected for meaning. |
 
 **Critical Invariant:**
 ```text

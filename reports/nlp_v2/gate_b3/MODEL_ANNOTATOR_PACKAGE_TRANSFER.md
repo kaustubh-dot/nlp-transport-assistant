@@ -139,15 +139,22 @@ Verify bitwise file integrity inside `gate-b3-model-g-gemini` using `sha256sum`:
 
 ---
 
-## 5. Next Steps: Sterile Preflight and Smoke Testing for MODEL_G
+## 5. Next Step: Explicit MODEL_G Benchmark Authorization
 
-Before `MODEL_G` benchmark annotation can be authorized:
-1. Populate sterile workspace `gate-b3-model-g-gemini` with the 9 files mapped in Section 2.
-2. Verify all file byte SHA-256 digests match the table in Section 2 using `sha256sum`.
-3. Conduct synthetic smoke testing under `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION`.
-4. Conduct zero-tool-use auditing under behavioral tool restriction:
-   - Tool calls observed = 0
-   - Web calls observed = 0
-   - External file reads observed = 0
-   - Command executions observed = 0
-5. Only upon successful smoke test verification may benchmark execution be authorized.
+MODEL_G sterile preflight, synthetic smoke testing, and zero-tool-use auditing are complete and externally reviewed under `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION`:
+- tool calls observed = 0
+- web calls observed = 0
+- external file reads observed = 0
+- command executions observed = 0
+
+Current state:
+- execution ready: YES
+- benchmark authorized: NO
+- real benchmark invocations: 0
+
+Before benchmark execution:
+1. create and externally verify a separate canonical authorization commit;
+2. copy ONLY the newly authorized MODEL_G execution manifest into the sterile MODEL_G workspace;
+3. verify the authorized manifest file SHA;
+4. run annotation-start QA;
+5. only then execute the frozen benchmark through the canonical hardened runner.
