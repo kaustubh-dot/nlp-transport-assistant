@@ -149,7 +149,7 @@
     "execution_isolation_verified": true,
     "synthetic_smoke_test_passed": true,
     "benchmark_execution_authorized": true,
-    "execution_timestamp": null,
+    "execution_timestamp": "2026-09-22T17:27:56Z",
     "configuration_sha256": "128e0736aa4a259d48b0c078d242212b71932a73f0af726fa2a14e0ad2f08d9c",
     "historical_preflight_configuration_sha256": "d4a359b72779ec15f42ffa0ba72beb57ff20ff765de901783082caee0deda1dd",
     "provenance_notes": "Model identity frozen from Antigravity execution environment. Exact immutable provider checkpoint not exposed. Active primary model annotator replacing retired MODEL_A / MODEL_B bulk design under Gate B.3 Resource-Feasibility Amendment. Must execute under EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION with fresh context per item.",

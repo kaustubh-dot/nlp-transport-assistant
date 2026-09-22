@@ -10,7 +10,7 @@
   "sampling_limitation": "Purposive/enriched challenge sample from Gate B.2 stress-eval. Not a representative random sample; does not guarantee complete minimal-pair or contrast-group coverage.",
   "model_configuration_status": "FROZEN",
   "model_g_execution_ready": true,
-  "annotation_started": false,
+  "annotation_started": true,
   "taxonomy_decision_status": "PENDING",
   "student_source_id": "STUDENT_R1",
   "primary_model_source_id": "MODEL_G",
