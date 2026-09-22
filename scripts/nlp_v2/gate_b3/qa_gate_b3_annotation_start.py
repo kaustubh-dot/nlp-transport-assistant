@@ -73,6 +73,7 @@ CANONICAL_MODEL_FIELDS = (
     "version",
     "exact_version_or_revision",
     "execution_environment",
+    "execution_model_selector",
     "execution_isolation_class",
     "fresh_context_per_item_required",
     "empty_workdir_required",
@@ -223,6 +224,8 @@ def evaluate_annotation_start_readiness(
             reasons_blocked.append(f"{m_name} model remains PENDING or empty")
         if version == "PENDING" or not version:
             reasons_blocked.append(f"{m_name} version remains PENDING or empty")
+        if m.get("execution_model_selector") in (None, "", "PENDING"):
+            reasons_blocked.append(f"{m_name} execution_model_selector remains PENDING or empty")
         if not is_frozen:
             reasons_blocked.append(f"{m_name} configuration_frozen is False")
         else:
@@ -342,7 +345,10 @@ def check_annotation_start_readiness():
         print(f"\nReason(s) Blocked ({len(reasons_blocked)}):")
         for r in reasons_blocked:
             print(f"  - {r}")
-        print("\n(This block is EXPECTED prior to sterile workspace execution readiness verification.)")
+        if reasons_blocked == ["MODEL_G benchmark execution not authorized"]:
+            print("\n(This block is EXPECTED: MODEL_G is execution-ready but benchmark execution is NOT authorized.)")
+        else:
+            print("\n(This block is EXPECTED prior to sterile workspace execution readiness verification.)")
         print("=" * 70)
         sys.exit(1)
     else:

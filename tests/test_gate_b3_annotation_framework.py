@@ -384,8 +384,8 @@ def test_analysis_orchestration_fails_before_lock():
         run_full_analysis_pipeline()
 
 
-def test_annotation_start_qa_status_blocked_prior_to_model_g_readiness():
-    """Verify qa_gate_b3_annotation_start returns BLOCKED / NOT READY for MODEL_G readiness blockers."""
+def test_annotation_start_qa_status_blocked_only_for_benchmark_authorization():
+    """Verify qa_gate_b3_annotation_start returns BLOCKED / NOT READY solely for benchmark authorization."""
     import subprocess
     proc = subprocess.run(
         [sys.executable, "scripts/nlp_v2/gate_b3/qa_gate_b3_annotation_start.py"],
@@ -394,12 +394,12 @@ def test_annotation_start_qa_status_blocked_prior_to_model_g_readiness():
     )
     assert proc.returncode == 1
     assert "STATUS: BLOCKED / NOT READY" in proc.stdout
-    assert "MODEL_G fresh context per item not verified" in proc.stdout
-    assert "MODEL_G empty workdir not verified" in proc.stdout
-    assert "MODEL_G zero-tool-use audit not verified" in proc.stdout
-    assert "MODEL_G behavioral execution isolation not verified" in proc.stdout
-    assert "MODEL_G synthetic smoke test not passed" in proc.stdout
     assert "MODEL_G benchmark execution not authorized" in proc.stdout
+    assert "MODEL_G fresh context per item not verified" not in proc.stdout
+    assert "MODEL_G empty workdir not verified" not in proc.stdout
+    assert "MODEL_G zero-tool-use audit not verified" not in proc.stdout
+    assert "MODEL_G behavioral execution isolation not verified" not in proc.stdout
+    assert "MODEL_G synthetic smoke test not passed" not in proc.stdout
     assert "MODEL_A" not in proc.stdout
     assert "MODEL_B" not in proc.stdout
 
@@ -449,10 +449,11 @@ def test_model_annotator_configs_frozen_and_amendment_status():
     assert m_g["source_id"] == "MODEL_G"
     assert m_g["provider"] == "Google"
     assert m_g["model"] == "Gemini 3.8 Flash"
-    assert m_g["version"] == "Gemini 3.8 Flash"
+    assert m_g["version"] == "Gemini 3.8 Flash (High)"
+    assert m_g["execution_model_selector"] == "gemini-3.8-flash-high"
     assert m_g["exact_version_or_revision"] == "NOT_EXPOSED_BY_PROVIDER"
     assert m_g["execution_environment"] == "Antigravity"
-    assert m_g["status"] == "FROZEN_NOT_EXECUTION_READY"
+    assert m_g["status"] == "FROZEN_EXECUTION_READY_NOT_AUTHORIZED"
     assert m_g["configuration_frozen"] is True
     assert m_g["primary_analysis_included"] is True
     assert m_g["execution_isolation_class"] == "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION"
@@ -461,12 +462,17 @@ def test_model_annotator_configs_frozen_and_amendment_status():
     assert m_g["actual_tool_use_allowed"] is False
     assert m_g["zero_tool_use_audit_required"] is True
     assert m_g["tool_violation_retry_attempts"] == 0
-    assert m_g["reasoning_configuration"]["mode"] == "standard"
-    assert m_g["fresh_context_per_item_verified"] is False
-    assert m_g["empty_workdir_verified"] is False
-    assert m_g["zero_tool_use_audit_verified"] is False
-    assert m_g["execution_isolation_verified"] is False
-    assert m_g["synthetic_smoke_test_passed"] is False
+    assert m_g["reasoning_configuration"]["mode"] == "high"
+    assert m_g["reasoning_configuration"]["selection_mechanism"] == "gemini-3.8-flash-high selector"
+    assert m_g["reasoning_configuration"]["effort_control_exposed"] is True
+    assert m_g["tool_policy"]["web"] == "BEHAVIORALLY_FORBIDDEN"
+    assert m_g["tool_policy"]["external_retrieval"] == "BEHAVIORALLY_FORBIDDEN"
+    assert m_g["tool_policy"]["web_isolation"] == "ZERO_CALL_AUDITED"
+    assert m_g["fresh_context_per_item_verified"] is True
+    assert m_g["empty_workdir_verified"] is True
+    assert m_g["zero_tool_use_audit_verified"] is True
+    assert m_g["execution_isolation_verified"] is True
+    assert m_g["synthetic_smoke_test_passed"] is True
     assert m_g["benchmark_execution_authorized"] is False
     assert m_g["execution_timestamp"] is None
     assert m_g["retry_policy"] == expected_retry_policy
@@ -536,7 +542,8 @@ def _create_valid_frozen_mock_config() -> dict:
         "source_id": "MODEL_G",
         "provider": "Google",
         "model": "Gemini 3.8 Flash",
-        "version": "Gemini 3.8 Flash",
+        "version": "Gemini 3.8 Flash (High)",
+        "execution_model_selector": "gemini-3.8-flash-high",
         "exact_version_or_revision": "NOT_EXPOSED_BY_PROVIDER",
         "execution_environment": "Antigravity",
         "status": "FROZEN_EXECUTION_AUTHORIZED",
@@ -550,14 +557,18 @@ def _create_valid_frozen_mock_config() -> dict:
         "actual_tool_use_allowed": False,
         "zero_tool_use_audit_required": True,
         "tool_violation_retry_attempts": 0,
-        "reasoning_configuration": {"mode": "standard"},
+        "reasoning_configuration": {
+            "mode": "high",
+            "selection_mechanism": "gemini-3.8-flash-high selector",
+            "effort_control_exposed": True,
+        },
         "tool_policy": {
-            "web": "DISABLED_REQUIRED",
-            "external_retrieval": "DISABLED_REQUIRED",
+            "web": "BEHAVIORALLY_FORBIDDEN",
+            "external_retrieval": "BEHAVIORALLY_FORBIDDEN",
             "original_repository_access": "FORBIDDEN",
             "other_annotator_access": "FORBIDDEN",
             "filesystem_isolation": "BEHAVIORAL_NO_USE_WITH_EMPTY_WORKDIR",
-            "web_isolation": "CONFIG_DISABLED_AND_ZERO_CALL_AUDITED",
+            "web_isolation": "ZERO_CALL_AUDITED",
         },
         "request_isolation": "ONE_QUERY_ONE_FRESH_CONTEXT_REQUIRED",
         "retry_policy": {
@@ -677,6 +688,16 @@ def test_annotation_start_qa_model_version_checks(tmp_path):
     assert is_ready is True, f"NOT_EXPOSED_BY_PROVIDER was rejected: {reasons}"
     assert len(reasons) == 0
 
+    # 5. frozen model with execution_model_selector in (None, "", "PENDING") is rejected
+    for invalid_sel in [None, "", "PENDING"]:
+        cfg5 = _create_valid_frozen_mock_config()
+        cfg5["MODEL_G"]["execution_model_selector"] = invalid_sel
+        with open(cfg_file, "w", encoding="utf-8") as f:
+            json.dump(cfg5, f)
+        is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+        assert is_ready is False
+        assert any("MODEL_G execution_model_selector remains PENDING or empty" in r for r in reasons)
+
 
 def test_annotation_start_qa_methodology_hash_drift(tmp_path):
     """Verify stored methodology hash matches pass and mismatches trigger FROZEN_ANNOTATION_CONFIGURATION_DRIFT."""
@@ -780,6 +801,8 @@ def test_canonical_configuration_hash_recomputation():
     recomputed_global = compute_global_config_hash(cfg, recomputed_g)
     assert recomputed_global == cfg["configuration_sha256"], f"Global config hash mismatch: {recomputed_global}"
     assert cfg["historical_configuration_sha256"] == "2a7c82b9297f65f750f5f72685d329d2e65e40c0691b09546802d8cd727afc8e"
+    assert cfg["historical_pre_readiness_configuration_sha256"] == "b2aac9ceec68c906387a1e8521bf8538e5fd23f36b1c4e65a2f75f3a74e638df"
+    assert cfg["MODEL_G"]["historical_preflight_configuration_sha256"] == "d4a359b72779ec15f42ffa0ba72beb57ff20ff765de901783082caee0deda1dd"
 
 
 def test_mutation_of_frozen_model_field_triggers_drift(tmp_path):
@@ -797,7 +820,16 @@ def test_mutation_of_frozen_model_field_triggers_drift(tmp_path):
     assert is_ready is False
     assert any("FROZEN_MODEL_CONFIGURATION_DRIFT: MODEL_G configuration drifted!" in r for r in reasons)
 
-    # 2. Mutate reasoning_configuration in MODEL_G
+    # 2. Mutate execution_model_selector in MODEL_G
+    cfg_sel = _create_valid_frozen_mock_config()
+    cfg_sel["MODEL_G"]["execution_model_selector"] = "gemini-3.8-flash-low"
+    with open(cfg_file, "w", encoding="utf-8") as f:
+        json.dump(cfg_sel, f)
+    is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+    assert is_ready is False
+    assert any("FROZEN_MODEL_CONFIGURATION_DRIFT: MODEL_G configuration drifted!" in r for r in reasons)
+
+    # 3. Mutate reasoning_configuration in MODEL_G
     cfg2 = _create_valid_frozen_mock_config()
     cfg2["MODEL_G"]["reasoning_configuration"] = {"mode": "unfrozen_altered_mode"}
     with open(cfg_file, "w", encoding="utf-8") as f:
@@ -1095,14 +1127,14 @@ def test_execution_isolation_amendment_19_requirements(tmp_path):
     assert cfg["MODEL_G"]["tool_violation_retry_attempts"] == 0, "Requirement 10: tool_violation_retry_attempts != 0"
     assert cfg["MODEL_G"]["retry_policy"]["tool_violation_retry_attempts"] == 0, "Requirement 10: retry_policy.tool_violation_retry_attempts != 0"
 
-    # 11. execution readiness reset before smoke test under amended design
-    assert cfg["MODEL_G"]["execution_isolation_verified"] is False, "Requirement 11: execution_isolation_verified != False"
-    assert cfg["MODEL_G"]["fresh_context_per_item_verified"] is False, "Requirement 11: fresh_context_per_item_verified != False"
-    assert cfg["MODEL_G"]["empty_workdir_verified"] is False, "Requirement 11: empty_workdir_verified != False"
-    assert cfg["MODEL_G"]["zero_tool_use_audit_verified"] is False, "Requirement 11: zero_tool_use_audit_verified != False"
+    # 11. execution readiness verified under amended design
+    assert cfg["MODEL_G"]["execution_isolation_verified"] is True, "Requirement 11: execution_isolation_verified != True"
+    assert cfg["MODEL_G"]["fresh_context_per_item_verified"] is True, "Requirement 11: fresh_context_per_item_verified != True"
+    assert cfg["MODEL_G"]["empty_workdir_verified"] is True, "Requirement 11: empty_workdir_verified != True"
+    assert cfg["MODEL_G"]["zero_tool_use_audit_verified"] is True, "Requirement 11: zero_tool_use_audit_verified != True"
 
-    # 12. smoke test initially false
-    assert cfg["MODEL_G"]["synthetic_smoke_test_passed"] is False, "Requirement 12: synthetic_smoke_test_passed != False"
+    # 12. smoke test verified passed
+    assert cfg["MODEL_G"]["synthetic_smoke_test_passed"] is True, "Requirement 12: synthetic_smoke_test_passed != True"
 
     # 13. benchmark authorization initially false
     assert cfg["MODEL_G"]["benchmark_execution_authorized"] is False, "Requirement 13: benchmark_execution_authorized != False"
@@ -1181,7 +1213,7 @@ def test_model_execution_readiness_recorded():
         ann_m = json.load(f)
 
     assert ann_m["primary_model_source_id"] == "MODEL_G"
-    assert ann_m["model_g_execution_ready"] is False
+    assert ann_m["model_g_execution_ready"] is True
     assert ann_m["annotation_started"] is False
     assert ann_m["reference_join_enabled"] is False
     assert ann_m["first_pass_locked"] is False
@@ -1193,11 +1225,11 @@ def test_model_execution_readiness_recorded():
     man_g_path = os.path.join(GATE_B3_DIR, "model_g_execution_manifest.json")
     with open(man_g_path, "r", encoding="utf-8") as f:
         m_data = json.load(f)
-    assert m_data["fresh_context_per_item_verified"] is False
-    assert m_data["empty_workdir_verified"] is False
-    assert m_data["zero_tool_use_audit_verified"] is False
-    assert m_data["execution_isolation_verified"] is False
-    assert m_data["synthetic_smoke_test_passed"] is False
+    assert m_data["fresh_context_per_item_verified"] is True
+    assert m_data["empty_workdir_verified"] is True
+    assert m_data["zero_tool_use_audit_verified"] is True
+    assert m_data["execution_isolation_verified"] is True
+    assert m_data["synthetic_smoke_test_passed"] is True
     assert m_data["benchmark_execution_authorized"] is False
 
 
@@ -1222,16 +1254,18 @@ def test_gate_b3_benchmark_execution_authorization_recorded():
 
     assert cfg["MODEL_A"]["status"] == "ABORTED_PRE_AMENDMENT_EXECUTION"
     assert cfg["MODEL_B"]["status"] == "RETIRED_PRE_COMPLETION"
-    assert cfg["MODEL_G"]["status"] == "FROZEN_NOT_EXECUTION_READY"
+    assert cfg["MODEL_G"]["status"] == "FROZEN_EXECUTION_READY_NOT_AUTHORIZED"
     assert cfg["MODEL_A"]["benchmark_execution_authorized"] is False
     assert cfg["MODEL_B"]["benchmark_execution_authorized"] is False
     assert cfg["MODEL_G"]["benchmark_execution_authorized"] is False
     assert cfg["MODEL_G"]["execution_timestamp"] is None
 
-    assert cfg["MODEL_G"]["configuration_sha256"] == "d4a359b72779ec15f42ffa0ba72beb57ff20ff765de901783082caee0deda1dd"
+    assert cfg["MODEL_G"]["configuration_sha256"] == "128e0736aa4a259d48b0c078d242212b71932a73f0af726fa2a14e0ad2f08d9c"
+    assert cfg["MODEL_G"]["historical_preflight_configuration_sha256"] == "d4a359b72779ec15f42ffa0ba72beb57ff20ff765de901783082caee0deda1dd"
     assert cfg["MODEL_A"]["configuration_sha256"] == "5db1c4aeae9e8cabb98a5b20637488c6812a826d27cbf4ed4cd578d28038fe5c"
     assert cfg["MODEL_B"]["configuration_sha256"] == "3d9264b1172878ed07080d1ca4e087170aa83fd366f8695effbf32297318020c"
-    assert cfg["configuration_sha256"] == "b2aac9ceec68c906387a1e8521bf8538e5fd23f36b1c4e65a2f75f3a74e638df"
+    assert cfg["configuration_sha256"] == "564501dc456ecb25ce661a439de68b2a31924844be3f19037afb130992fa0490"
+    assert cfg["historical_pre_readiness_configuration_sha256"] == "b2aac9ceec68c906387a1e8521bf8538e5fd23f36b1c4e65a2f75f3a74e638df"
     assert cfg["historical_configuration_sha256"] == "2a7c82b9297f65f750f5f72685d329d2e65e40c0691b09546802d8cd727afc8e"
     assert cfg["execution_isolation_amendment_sha256"] == "a48b732a9373a8e2d65ab3963b1920a658ada1e3c703687b8d2d072f46e87f19"
     assert cfg["resource_feasibility_amendment_sha256"] == "7eaab180555f94956a4d9737bf98d2fba8477b847c9fd79136ab0e6329b39b40"
@@ -1386,13 +1420,13 @@ def test_resource_feasibility_amendment_all_30_requirements():
     assert cfg["MODEL_G"]["tool_violation_retry_attempts"] == 0, "Req 20: tool_violation_retry_attempts != 0 top-level config"
     assert man_g["tool_violation_retry_attempts"] == 0, "Req 20: tool_violation_retry_attempts != 0 in manifest"
 
-    # 21. MODEL_G smoke test initially false
-    assert cfg["MODEL_G"]["synthetic_smoke_test_passed"] is False, "Req 21: synthetic_smoke_test_passed != False in config"
-    assert man_g["synthetic_smoke_test_passed"] is False, "Req 21: synthetic_smoke_test_passed != False in manifest"
+    # 21. MODEL_G smoke test verified
+    assert cfg["MODEL_G"]["synthetic_smoke_test_passed"] is True, "Req 21: synthetic_smoke_test_passed != True in config"
+    assert man_g["synthetic_smoke_test_passed"] is True, "Req 21: synthetic_smoke_test_passed != True in manifest"
 
-    # 22. MODEL_G execution isolation initially false
-    assert cfg["MODEL_G"]["execution_isolation_verified"] is False, "Req 22: execution_isolation_verified != False in config"
-    assert man_g["execution_isolation_verified"] is False, "Req 22: execution_isolation_verified != False in manifest"
+    # 22. MODEL_G execution isolation verified
+    assert cfg["MODEL_G"]["execution_isolation_verified"] is True, "Req 22: execution_isolation_verified != True in config"
+    assert man_g["execution_isolation_verified"] is True, "Req 22: execution_isolation_verified != True in manifest"
 
     # 23. MODEL_G benchmark authorization initially false
     assert cfg["MODEL_G"]["benchmark_execution_authorized"] is False, "Req 23: benchmark_execution_authorized != False in config"
@@ -1581,17 +1615,17 @@ def test_amended_design_hardening_all_22_requirements(tmp_path, monkeypatch):
     assert "All-item gold-boundary audit:" in amendment_text, "Req 16: Missing gold-boundary audit section"
     assert "author-led" in amendment_text.lower(), "Req 16: Missing author-led gold-boundary audit"
 
-    # 17. MODEL_G readiness flags remain false
-    assert cfg["MODEL_G"]["fresh_context_per_item_verified"] is False, "Req 17: fresh_context_per_item_verified != False"
-    assert cfg["MODEL_G"]["empty_workdir_verified"] is False, "Req 17: empty_workdir_verified != False"
-    assert cfg["MODEL_G"]["zero_tool_use_audit_verified"] is False, "Req 17: zero_tool_use_audit_verified != False"
-    assert cfg["MODEL_G"]["execution_isolation_verified"] is False, "Req 17: execution_isolation_verified != False"
-    assert cfg["MODEL_G"]["synthetic_smoke_test_passed"] is False, "Req 17: synthetic_smoke_test_passed != False"
+    # 17. MODEL_G readiness flags verified
+    assert cfg["MODEL_G"]["fresh_context_per_item_verified"] is True, "Req 17: fresh_context_per_item_verified != True"
+    assert cfg["MODEL_G"]["empty_workdir_verified"] is True, "Req 17: empty_workdir_verified != True"
+    assert cfg["MODEL_G"]["zero_tool_use_audit_verified"] is True, "Req 17: zero_tool_use_audit_verified != True"
+    assert cfg["MODEL_G"]["execution_isolation_verified"] is True, "Req 17: execution_isolation_verified != True"
+    assert cfg["MODEL_G"]["synthetic_smoke_test_passed"] is True, "Req 17: synthetic_smoke_test_passed != True"
 
-    # 18. MODEL_G benchmark authorization remains false
+    # 18. MODEL_G benchmark authorization remains false while execution readiness is true
     assert cfg["MODEL_G"]["benchmark_execution_authorized"] is False, "Req 18: cfg benchmark_execution_authorized != False"
     assert man_g["benchmark_execution_authorized"] is False, "Req 18: manifest benchmark_execution_authorized != False"
-    assert ann_m["model_g_execution_ready"] is False, "Req 18: ann_m model_g_execution_ready != False"
+    assert ann_m["model_g_execution_ready"] is True, "Req 18: ann_m model_g_execution_ready != True"
 
     # 19. no MODEL_G annotations exist
     g_anns = glob.glob(os.path.join(GATE_B3_DIR, "model_g_*_annotations.jsonl"))
@@ -1733,22 +1767,22 @@ def test_lock_first_pass_separate_from_reference_join_authorization(tmp_path, mo
     gold_key = stab.load_gold_key(manifest_path=str(mock_manifest_path))
     assert len(gold_key) == 350, f"Expected 350 gold records, got {len(gold_key)}"
 
-    # 8. Verify MODEL_G readiness and authorization remain false
+    # 8. Verify MODEL_G readiness verified and benchmark authorization remains false
     cfg_path = os.path.join(GATE_B3_DIR, "model_annotator_configs.json")
     with open(cfg_path, "r", encoding="utf-8") as f:
         cfg = json.load(f)
-    assert cfg["MODEL_G"]["fresh_context_per_item_verified"] is False
-    assert cfg["MODEL_G"]["empty_workdir_verified"] is False
-    assert cfg["MODEL_G"]["zero_tool_use_audit_verified"] is False
-    assert cfg["MODEL_G"]["execution_isolation_verified"] is False
-    assert cfg["MODEL_G"]["synthetic_smoke_test_passed"] is False
+    assert cfg["MODEL_G"]["fresh_context_per_item_verified"] is True
+    assert cfg["MODEL_G"]["empty_workdir_verified"] is True
+    assert cfg["MODEL_G"]["zero_tool_use_audit_verified"] is True
+    assert cfg["MODEL_G"]["execution_isolation_verified"] is True
+    assert cfg["MODEL_G"]["synthetic_smoke_test_passed"] is True
     assert cfg["MODEL_G"]["benchmark_execution_authorized"] is False
 
     # 9. Verify frozen hashes remain unchanged
-    expected_model_g_cfg_sha = "d4a359b72779ec15f42ffa0ba72beb57ff20ff765de901783082caee0deda1dd"
-    expected_active_global_sha = "b2aac9ceec68c906387a1e8521bf8538e5fd23f36b1c4e65a2f75f3a74e638df"
+    expected_model_g_cfg_sha = "128e0736aa4a259d48b0c078d242212b71932a73f0af726fa2a14e0ad2f08d9c"
+    expected_active_global_sha = "564501dc456ecb25ce661a439de68b2a31924844be3f19037afb130992fa0490"
     expected_amendment_sha = "7eaab180555f94956a4d9737bf98d2fba8477b847c9fd79136ab0e6329b39b40"
-    expected_man_g_file_sha = "4fb9cf4be6c878835c059831290c19b9654b9c5222d07ec1eeb33f4e5e51dfba"
+    expected_man_g_file_sha = "54420aef23e895afb38528411d05c204338d43f81b6c9009a672a82dffd06707"
 
     amendment_doc = os.path.join(DOCS_B3_DIR, "gate_b3_resource_feasibility_annotator_amendment.md")
     man_g_file = os.path.join(GATE_B3_DIR, "model_g_execution_manifest.json")

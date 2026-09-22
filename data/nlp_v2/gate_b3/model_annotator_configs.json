@@ -8,7 +8,8 @@
     "MODEL_A",
     "MODEL_B"
   ],
-  "configuration_sha256": "b2aac9ceec68c906387a1e8521bf8538e5fd23f36b1c4e65a2f75f3a74e638df",
+  "configuration_sha256": "564501dc456ecb25ce661a439de68b2a31924844be3f19037afb130992fa0490",
+  "historical_pre_readiness_configuration_sha256": "b2aac9ceec68c906387a1e8521bf8538e5fd23f36b1c4e65a2f75f3a74e638df",
   "historical_configuration_sha256": "2a7c82b9297f65f750f5f72685d329d2e65e40c0691b09546802d8cd727afc8e",
   "prompt_sha256": "6d37c2646de761c0530f6fe99403e6e1f12a56880da66c8406b8b63ca828da57",
   "t2_guide_sha256": "f1b538c0c141738ada760f52ea93640c9ae91fa9c9e6d7ac13089559d9f3cfac",
@@ -116,22 +117,25 @@
     "source_id": "MODEL_G",
     "provider": "Google",
     "model": "Gemini 3.8 Flash",
-    "version": "Gemini 3.8 Flash",
+    "version": "Gemini 3.8 Flash (High)",
+    "execution_model_selector": "gemini-3.8-flash-high",
     "exact_version_or_revision": "NOT_EXPOSED_BY_PROVIDER",
     "execution_environment": "Antigravity",
-    "status": "FROZEN_NOT_EXECUTION_READY",
+    "status": "FROZEN_EXECUTION_READY_NOT_AUTHORIZED",
     "primary_analysis_included": true,
     "configuration_frozen": true,
     "reasoning_configuration": {
-      "mode": "standard"
+      "mode": "high",
+      "selection_mechanism": "gemini-3.8-flash-high selector",
+      "effort_control_exposed": true
     },
     "tool_policy": {
-      "web": "DISABLED_REQUIRED",
-      "external_retrieval": "DISABLED_REQUIRED",
+      "web": "BEHAVIORALLY_FORBIDDEN",
+      "external_retrieval": "BEHAVIORALLY_FORBIDDEN",
       "original_repository_access": "FORBIDDEN",
       "other_annotator_access": "FORBIDDEN",
       "filesystem_isolation": "BEHAVIORAL_NO_USE_WITH_EMPTY_WORKDIR",
-      "web_isolation": "CONFIG_DISABLED_AND_ZERO_CALL_AUDITED"
+      "web_isolation": "ZERO_CALL_AUDITED"
     },
     "request_isolation": "ONE_QUERY_ONE_FRESH_CONTEXT_REQUIRED",
     "retry_policy": {
@@ -142,11 +146,12 @@
       "tool_violation_retry_attempts": 0,
       "tool_violation_mode": "HARD_FAIL_BATCH"
     },
-    "execution_isolation_verified": false,
-    "synthetic_smoke_test_passed": false,
+    "execution_isolation_verified": true,
+    "synthetic_smoke_test_passed": true,
     "benchmark_execution_authorized": false,
     "execution_timestamp": null,
-    "configuration_sha256": "d4a359b72779ec15f42ffa0ba72beb57ff20ff765de901783082caee0deda1dd",
+    "configuration_sha256": "128e0736aa4a259d48b0c078d242212b71932a73f0af726fa2a14e0ad2f08d9c",
+    "historical_preflight_configuration_sha256": "d4a359b72779ec15f42ffa0ba72beb57ff20ff765de901783082caee0deda1dd",
     "provenance_notes": "Model identity frozen from Antigravity execution environment. Exact immutable provider checkpoint not exposed. Active primary model annotator replacing retired MODEL_A / MODEL_B bulk design under Gate B.3 Resource-Feasibility Amendment. Must execute under EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION with fresh context per item.",
     "execution_isolation_class": "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION",
     "fresh_context_per_item_required": true,
@@ -156,8 +161,8 @@
     "actual_tool_use_allowed": false,
     "zero_tool_use_audit_required": true,
     "tool_violation_retry_attempts": 0,
-    "fresh_context_per_item_verified": false,
-    "empty_workdir_verified": false,
-    "zero_tool_use_audit_verified": false
+    "fresh_context_per_item_verified": true,
+    "empty_workdir_verified": true,
+    "zero_tool_use_audit_verified": true
   }
 }
