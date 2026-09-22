@@ -98,7 +98,7 @@ def verify_first_pass_lock_integrity() -> bool:
     Checks:
     1. Main manifest exists and has first_pass_locked == True.
     2. first_pass_lock_manifest.json exists and has lock_status == 'LOCKED'.
-    3. All 6 output files exist and match the exact SHA-256 digests in lock manifest.
+    3. All 4 primary output files exist and match the exact SHA-256 digests in lock manifest.
     4. Record counts and unique ID counts equal 350.
     """
     if not os.path.exists(MANIFEST_PATH):

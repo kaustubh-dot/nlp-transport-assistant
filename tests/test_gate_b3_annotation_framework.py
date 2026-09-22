@@ -1615,5 +1615,149 @@ def test_amended_design_hardening_all_22_requirements(tmp_path, monkeypatch):
     assert stops_cnt > 0, "Req 22: canonical stops table empty"
 
 
+def test_lock_first_pass_separate_from_reference_join_authorization(tmp_path, monkeypatch):
+    """Verify first-pass lock does NOT automatically enable reference join or gold audit."""
+    import scripts.nlp_v2.gate_b3.compute_annotation_stability as stab
+    from scripts.nlp_v2.gate_b3.lock_first_pass_annotations import (
+        attempt_lock,
+        load_expected_annotation_ids,
+        EXPECTED_OUTPUT_SPECS,
+    )
+
+    # 1. Verify canonical pre-annotation manifest remains locked=False and reference_join=False
+    ann_manifest_path = os.path.join(GATE_B3_DIR, "gate_b3_annotation_manifest.json")
+    with open(ann_manifest_path, "r", encoding="utf-8") as f:
+        canonical_m = json.load(f)
+    assert canonical_m["first_pass_locked"] is False
+    assert canonical_m["reference_join_enabled"] is False
+    assert canonical_m["gold_boundary_audit_started"] is False
+
+    # 2. Setup synthetic valid annotation files in tmp_path
+    mock_b3_dir = tmp_path / "mock_gate_b3"
+    mock_b3_dir.mkdir(parents=True, exist_ok=True)
+
+    expected_ids, _ = load_expected_annotation_ids()
+    sorted_ids = sorted(list(expected_ids))
+
+    for fname, spec in EXPECTED_OUTPUT_SPECS.items():
+        fpath = mock_b3_dir / fname
+        tax = spec["taxonomy_version"]
+        src_id = spec["source_id"]
+        src_type = spec["source_type"]
+        prim_cls = "route_query" if tax == "T2" else "point_to_point_route"
+
+        with open(fpath, "w", encoding="utf-8") as fp:
+            for aid in sorted_ids:
+                if src_type == "student":
+                    rec = {
+                        "annotation_id": aid,
+                        "source_id": src_id,
+                        "source_type": "student",
+                        "taxonomy_version": tax,
+                        "run_id": f"RUN_{tax}",
+                        "primary_label": prim_cls,
+                        "acceptable_labels": [prim_cls],
+                        "clarification_required": False,
+                        "clarification_reasons": [],
+                        "brief_justification": "Clear syntax.",
+                        "recognized_from_prior_work": "false",
+                        "active_time_seconds": 12.0,
+                        "rule_difficulty": "easy",
+                        "response_status": "VALID",
+                    }
+                else:
+                    rec = {
+                        "annotation_id": aid,
+                        "source_id": src_id,
+                        "source_type": "model",
+                        "taxonomy_version": tax,
+                        "run_id": f"RUN_{tax}",
+                        "primary_label": prim_cls,
+                        "acceptable_labels": [prim_cls],
+                        "clarification_required": False,
+                        "clarification_reasons": [],
+                        "brief_justification": "Clear syntax.",
+                        "recognized_from_prior_work": "not_applicable",
+                        "active_time_seconds": None,
+                        "rule_difficulty": "not_applicable",
+                        "response_status": "VALID",
+                    }
+                fp.write(json.dumps(rec, ensure_ascii=False) + "\n")
+
+    mock_manifest_path = mock_b3_dir / "gate_b3_annotation_manifest.json"
+    mock_lock_manifest_path = mock_b3_dir / "first_pass_lock_manifest.json"
+
+    with open(mock_manifest_path, "w", encoding="utf-8") as f:
+        json.dump({
+            "study_name": "Mock Gate B.3 Lock Test",
+            "first_pass_locked": False,
+            "reference_join_enabled": False,
+            "gold_boundary_audit_started": False,
+        }, f, indent=2)
+
+    # 3. Execute attempt_lock on synthetic packages
+    success = attempt_lock(
+        gate_b3_dir=str(mock_b3_dir),
+        manifest_path=str(mock_manifest_path),
+        lock_manifest_path=str(mock_lock_manifest_path),
+    )
+    assert success is True, "attempt_lock failed on valid synthetic annotations"
+
+    # 4. Verify post-lock manifest states
+    with open(mock_manifest_path, "r", encoding="utf-8") as f:
+        post_lock_m = json.load(f)
+    assert post_lock_m["first_pass_locked"] is True, "first_pass_locked was not set to True"
+    assert post_lock_m["reference_join_enabled"] is False, "reference_join_enabled was prematurely set to True"
+    assert post_lock_m["gold_boundary_audit_started"] is False, "gold_boundary_audit_started was prematurely set to True"
+
+    # 5. Verify lock manifest guardrails structure
+    with open(mock_lock_manifest_path, "r", encoding="utf-8") as f:
+        lock_man = json.load(f)
+    assert lock_man["lock_status"] == "LOCKED"
+    guardrails = lock_man["guardrails"]
+    assert guardrails["annotation_modification_forbidden"] is True
+    assert guardrails["reference_join_requires_explicit_authorization"] is True
+    assert guardrails["reference_join_enabled_at_lock"] is False
+    assert guardrails["gold_boundary_audit_enabled_at_lock"] is False
+
+    # 6. Verify gold loader fails immediately after lock
+    monkeypatch.setattr(stab, "verify_first_pass_lock_integrity", lambda: True)
+    with pytest.raises(PermissionError, match="^REFERENCE_JOIN_DISABLED:"):
+        stab.load_gold_key(manifest_path=str(mock_manifest_path))
+
+    # 7. Verify gold loader succeeds only after separate explicit authorization
+    post_lock_m["reference_join_enabled"] = True
+    with open(mock_manifest_path, "w", encoding="utf-8") as f:
+        json.dump(post_lock_m, f, indent=2)
+
+    gold_key = stab.load_gold_key(manifest_path=str(mock_manifest_path))
+    assert len(gold_key) == 350, f"Expected 350 gold records, got {len(gold_key)}"
+
+    # 8. Verify MODEL_G readiness and authorization remain false
+    cfg_path = os.path.join(GATE_B3_DIR, "model_annotator_configs.json")
+    with open(cfg_path, "r", encoding="utf-8") as f:
+        cfg = json.load(f)
+    assert cfg["MODEL_G"]["fresh_context_per_item_verified"] is False
+    assert cfg["MODEL_G"]["empty_workdir_verified"] is False
+    assert cfg["MODEL_G"]["zero_tool_use_audit_verified"] is False
+    assert cfg["MODEL_G"]["execution_isolation_verified"] is False
+    assert cfg["MODEL_G"]["synthetic_smoke_test_passed"] is False
+    assert cfg["MODEL_G"]["benchmark_execution_authorized"] is False
+
+    # 9. Verify frozen hashes remain unchanged
+    expected_model_g_cfg_sha = "d4a359b72779ec15f42ffa0ba72beb57ff20ff765de901783082caee0deda1dd"
+    expected_active_global_sha = "b2aac9ceec68c906387a1e8521bf8538e5fd23f36b1c4e65a2f75f3a74e638df"
+    expected_amendment_sha = "7eaab180555f94956a4d9737bf98d2fba8477b847c9fd79136ab0e6329b39b40"
+    expected_man_g_file_sha = "4fb9cf4be6c878835c059831290c19b9654b9c5222d07ec1eeb33f4e5e51dfba"
+
+    amendment_doc = os.path.join(DOCS_B3_DIR, "gate_b3_resource_feasibility_annotator_amendment.md")
+    man_g_file = os.path.join(GATE_B3_DIR, "model_g_execution_manifest.json")
+
+    assert cfg["MODEL_G"]["configuration_sha256"] == expected_model_g_cfg_sha
+    assert cfg["configuration_sha256"] == expected_active_global_sha
+    assert compute_sha256(amendment_doc) == expected_amendment_sha
+    assert compute_sha256(man_g_file) == expected_man_g_file_sha
+
+
 
 

@@ -199,7 +199,11 @@ def validate_record_semantics(rec: Dict[str, Any], spec: Dict[str, str], idx: in
             )
 
 
-def attempt_lock() -> bool:
+def attempt_lock(
+    gate_b3_dir: str = GATE_B3_DIR,
+    manifest_path: str = MANIFEST_PATH,
+    lock_manifest_path: str = LOCK_MANIFEST_PATH,
+) -> bool:
     print("=" * 70)
     print("NLP v2 Gate B.3 Hardened First-Pass Annotation Lock Attempt")
     print("=" * 70)
@@ -211,7 +215,7 @@ def attempt_lock() -> bool:
     # 2. Check File Existence
     missing_files = []
     for fname in EXPECTED_OUTPUT_SPECS:
-        fpath = os.path.join(GATE_B3_DIR, fname)
+        fpath = os.path.join(gate_b3_dir, fname)
         if not os.path.exists(fpath):
             missing_files.append(fname)
 
@@ -227,7 +231,7 @@ def attempt_lock() -> bool:
 
     # 3. Validate Each File Strictly
     for fname, spec in EXPECTED_OUTPUT_SPECS.items():
-        fpath = os.path.join(GATE_B3_DIR, fname)
+        fpath = os.path.join(gate_b3_dir, fname)
         seen_ids = set()
         record_count = 0
 
@@ -277,7 +281,7 @@ def attempt_lock() -> bool:
 
         sha256 = compute_sha256(fpath)
         file_metadata[fname] = {
-            "path": os.path.relpath(fpath, BASE_DIR),
+            "path": os.path.relpath(fpath, BASE_DIR) if fpath.startswith(BASE_DIR) else fpath,
             "sha256": sha256,
             "record_count": record_count,
             "unique_id_count": len(seen_ids),
@@ -295,27 +299,30 @@ def attempt_lock() -> bool:
         "frozen_source_blind_sha256": source_sha,
         "files": file_metadata,
         "guardrails": {
-            "reference_join_now_permitted": True,
-            "gold_boundary_audit_now_permitted": True,
-            "annotation_modification_forbidden": True
+            "annotation_modification_forbidden": True,
+            "reference_join_requires_explicit_authorization": True,
+            "reference_join_enabled_at_lock": False,
+            "gold_boundary_audit_enabled_at_lock": False
         }
     }
 
-    with open(LOCK_MANIFEST_PATH, "w", encoding="utf-8") as f:
+    with open(lock_manifest_path, "w", encoding="utf-8") as f:
         json.dump(lock_manifest_data, f, indent=2)
 
-    # 5. Update Main Gate B.3 Manifest
-    if os.path.exists(MANIFEST_PATH):
-        with open(MANIFEST_PATH, "r", encoding="utf-8") as f:
+    # 5. Update Main Gate B.3 Manifest (Preserve reference_join_enabled = False)
+    if os.path.exists(manifest_path):
+        with open(manifest_path, "r", encoding="utf-8") as f:
             manifest = json.load(f)
         manifest["first_pass_locked"] = True
-        manifest["reference_join_enabled"] = True
-        manifest["first_pass_lock_manifest"] = "data/nlp_v2/gate_b3/first_pass_lock_manifest.json"
-        with open(MANIFEST_PATH, "w", encoding="utf-8") as f:
+        manifest["reference_join_enabled"] = False
+        manifest["gold_boundary_audit_started"] = False
+        manifest["first_pass_lock_manifest"] = os.path.relpath(lock_manifest_path, BASE_DIR) if lock_manifest_path.startswith(BASE_DIR) else lock_manifest_path
+        with open(manifest_path, "w", encoding="utf-8") as f:
             json.dump(manifest, f, indent=2)
 
     print("ALL 4 PRIMARY ANNOTATOR PACKAGES VALIDATED AND LOCKED SUCCESSFULLY.")
-    print(f"Complete lock manifest written to: {LOCK_MANIFEST_PATH}")
+    print(f"Complete lock manifest written to: {lock_manifest_path}")
+    print("NOTE: reference_join_enabled remains False until separate explicit authorization.")
     return True
 
 
