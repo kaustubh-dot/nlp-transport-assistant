@@ -232,8 +232,12 @@ def validate_all():
         raise AssertionError(f"MODEL_G status must be one of {ALLOWED_STATUSES} (got '{g_status}')")
     if cfg["MODEL_G"]["execution_timestamp"] is not None:
         raise AssertionError("MODEL_G execution_timestamp must be null prior to execution!")
-    if cfg["MODEL_G"].get("benchmark_execution_authorized") is not False:
-        raise AssertionError("MODEL_G benchmark_execution_authorized must be false prior to sterile preflight and smoke test!")
+    if g_status == "FROZEN_EXECUTION_AUTHORIZED":
+        if cfg["MODEL_G"].get("benchmark_execution_authorized") is not True:
+            raise AssertionError("MODEL_G benchmark_execution_authorized must be true when status is FROZEN_EXECUTION_AUTHORIZED!")
+    else:
+        if cfg["MODEL_G"].get("benchmark_execution_authorized") is not False:
+            raise AssertionError("MODEL_G benchmark_execution_authorized must be false prior to benchmark authorization!")
 
     # Verify Retired Models
     for m in ["MODEL_A", "MODEL_B"]:

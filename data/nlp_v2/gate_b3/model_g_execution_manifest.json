@@ -49,5 +49,8 @@
   "zero_tool_use_audit_verified": true,
   "execution_isolation_verified": true,
   "synthetic_smoke_test_passed": true,
-  "benchmark_execution_authorized": false
+  "benchmark_execution_authorized": true,
+  "authorization_basis_commit": "57265b25af04d9b608e5070237867d4ebfe5f9c8",
+  "authorization_scope": "Gate B.3 frozen MODEL_G T2 + T3 benchmark inputs only",
+  "pre_authorization_manifest_sha256": "54420aef23e895afb38528411d05c204338d43f81b6c9009a672a82dffd06707"
 }

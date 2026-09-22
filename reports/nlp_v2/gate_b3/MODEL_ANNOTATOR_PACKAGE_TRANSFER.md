@@ -91,12 +91,13 @@ Verify bitwise file integrity inside `gate-b3-model-g-gemini` using `sha256sum`:
 | `protocol/annotation_output_schema.json` | `0fb81d7cfb9520f19e87797ad774e6f9cd8d8dbe1946cb3dab0f7b7c201954a4` |
 | `protocol/gate_b3_execution_isolation_amendment.md` | `a48b732a9373a8e2d65ab3963b1920a658ada1e3c703687b8d2d072f46e87f19` |
 | `protocol/gate_b3_resource_feasibility_annotator_amendment.md` | `7eaab180555f94956a4d9737bf98d2fba8477b847c9fd79136ab0e6329b39b40` |
-| `protocol/model_g_execution_manifest.json` | `54420aef23e895afb38528411d05c204338d43f81b6c9009a672a82dffd06707` |
+| `protocol/model_g_execution_manifest.json` | `f0ea0535164e2a06db1c357d68b7ec3624b11815e78da1c5b06bc749f5472609` |
 | `inputs/model_g_t2_input.jsonl` | `85b5c3bf3cccd3cdf1ebab289e6ac6c513387006ce9f04ac2c0c2e33c123dab0` (350 lines) |
 | `inputs/model_g_t3_input.jsonl` | `51a90d81ac2be0370b287c95bcab6e8861a5565e68082958f2229918521e5d55` (350 lines) |
 
 **Manifest Content Verification:**
-- **Manifest file SHA-256:** `54420aef23e895afb38528411d05c204338d43f81b6c9009a672a82dffd06707` (actual SHA-256 of execution-manifest file bytes via `sha256sum`)
+- **Manifest file SHA-256:** `f0ea0535164e2a06db1c357d68b7ec3624b11815e78da1c5b06bc749f5472609` (actual SHA-256 of authorized execution-manifest file bytes via `sha256sum`)
+- **Pre-authorization manifest file SHA-256:** `54420aef23e895afb38528411d05c204338d43f81b6c9009a672a82dffd06707`
 - **Canonical model configuration SHA stored inside manifest:** `128e0736aa4a259d48b0c078d242212b71932a73f0af726fa2a14e0ad2f08d9c` (verifies canonical model configuration encoded inside manifest; not file byte hash)
 - **Active global configuration SHA:** `564501dc456ecb25ce661a439de68b2a31924844be3f19037afb130992fa0490`
 - **Historical preflight MODEL_G config SHA:** `d4a359b72779ec15f42ffa0ba72beb57ff20ff765de901783082caee0deda1dd`
@@ -104,8 +105,8 @@ Verify bitwise file integrity inside `gate-b3-model-g-gemini` using `sha256sum`:
 - **Canonical runner SHA-256:** `932c567790f94b3b69a866520071c75174e35de0f59007d9a54ea603ddc5be4c`
 - **Canonical validator SHA-256:** `7b50f7b505338097107db9c8704ecc286f65680ed8721113c8555cea9f92d4dc`
 - **Execution isolation class:** `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION`
-- **Initial authorization status:** `benchmark_execution_authorized = false`
-- **Post-Readiness Transfer Note:** The next transfer to the sterile workspace will involve the updated sanitized manifest only after this commit is externally verified.
+- **Authorization status:** `benchmark_execution_authorized = true`
+- **Post-Authorization Transfer Requirement:** The newly authorized manifest (`f0ea0535...`), canonical runner, and validator must be transferred to the sterile workspace after external commit verification.
 
 ---
 
@@ -139,7 +140,7 @@ Verify bitwise file integrity inside `gate-b3-model-g-gemini` using `sha256sum`:
 
 ---
 
-## 5. Next Step: Explicit MODEL_G Benchmark Authorization
+## 5. Next Step: Sterile Workspace Transfer After External Verification
 
 MODEL_G sterile preflight, synthetic smoke testing, and zero-tool-use auditing are complete and externally reviewed under `EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION`:
 - tool calls observed = 0
@@ -149,12 +150,28 @@ MODEL_G sterile preflight, synthetic smoke testing, and zero-tool-use auditing a
 
 Current state:
 - execution ready: YES
-- benchmark authorized: NO
+- benchmark authorized: YES
 - real benchmark invocations: 0
 
-Before benchmark execution:
-1. create and externally verify a separate canonical authorization commit;
-2. copy ONLY the newly authorized MODEL_G execution manifest into the sterile MODEL_G workspace;
-3. verify the authorized manifest file SHA;
-4. run annotation-start QA;
-5. only then execute the frozen benchmark through the canonical hardened runner.
+**Authorized Manifest SHA:** `f0ea0535164e2a06db1c357d68b7ec3624b11815e78da1c5b06bc749f5472609`
+
+After external verification of this authorization commit, the operator must copy into `/home/kaustubh/gate-b3-model-g-gemini`:
+
+```text
+data/nlp_v2/gate_b3/model_g_execution_manifest.json
+→ protocol/model_g_execution_manifest.json
+
+scripts/nlp_v2/gate_b3/model_g/run_model_g_gemini.py
+→ scripts/run_model_g_gemini.py
+
+scripts/nlp_v2/gate_b3/model_g/validate_model_g_outputs.py
+→ scripts/validate_model_g_outputs.py
+```
+
+Then verify exact SHAs inside `/home/kaustubh/gate-b3-model-g-gemini`:
+- `protocol/model_g_execution_manifest.json`: `f0ea0535164e2a06db1c357d68b7ec3624b11815e78da1c5b06bc749f5472609`
+- `scripts/run_model_g_gemini.py`: `932c567790f94b3b69a866520071c75174e35de0f59007d9a54ea603ddc5be4c`
+- `scripts/validate_model_g_outputs.py`: `7b50f7b505338097107db9c8704ecc286f65680ed8721113c8555cea9f92d4dc`
+
+> [!WARNING]
+> Do NOT perform this transfer during this commit. External verification must happen first before file transfer or execution commencement.

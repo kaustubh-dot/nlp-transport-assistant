@@ -117,8 +117,12 @@ def run_qa_checks():
                 failures.append(f"MODEL_G status must be one of {ALLOWED_STATUSES} (got '{g_status}')")
             if cfg["MODEL_G"].get("execution_timestamp") is not None:
                 failures.append("MODEL_G execution_timestamp must be null")
-            if cfg["MODEL_G"].get("benchmark_execution_authorized") is not False:
-                failures.append("MODEL_G benchmark_execution_authorized must be false prior to sterile preflight and smoke test")
+            if g_status == "FROZEN_EXECUTION_AUTHORIZED":
+                if cfg["MODEL_G"].get("benchmark_execution_authorized") is not True:
+                    failures.append("MODEL_G benchmark_execution_authorized must be true when status is FROZEN_EXECUTION_AUTHORIZED")
+            else:
+                if cfg["MODEL_G"].get("benchmark_execution_authorized") is not False:
+                    failures.append("MODEL_G benchmark_execution_authorized must be false prior to benchmark authorization")
 
         # Check Historical Retired Models
         for m in ["MODEL_A", "MODEL_B"]:

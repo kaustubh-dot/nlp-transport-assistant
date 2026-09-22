@@ -121,7 +121,7 @@
     "execution_model_selector": "gemini-3.8-flash-high",
     "exact_version_or_revision": "NOT_EXPOSED_BY_PROVIDER",
     "execution_environment": "Antigravity",
-    "status": "FROZEN_EXECUTION_READY_NOT_AUTHORIZED",
+    "status": "FROZEN_EXECUTION_AUTHORIZED",
     "primary_analysis_included": true,
     "configuration_frozen": true,
     "reasoning_configuration": {
@@ -148,7 +148,7 @@
     },
     "execution_isolation_verified": true,
     "synthetic_smoke_test_passed": true,
-    "benchmark_execution_authorized": false,
+    "benchmark_execution_authorized": true,
     "execution_timestamp": null,
     "configuration_sha256": "128e0736aa4a259d48b0c078d242212b71932a73f0af726fa2a14e0ad2f08d9c",
     "historical_preflight_configuration_sha256": "d4a359b72779ec15f42ffa0ba72beb57ff20ff765de901783082caee0deda1dd",

@@ -384,24 +384,18 @@ def test_analysis_orchestration_fails_before_lock():
         run_full_analysis_pipeline()
 
 
-def test_annotation_start_qa_status_blocked_only_for_benchmark_authorization():
-    """Verify qa_gate_b3_annotation_start returns BLOCKED / NOT READY solely for benchmark authorization."""
+def test_annotation_start_qa_status_ready_for_execution():
+    """Verify qa_gate_b3_annotation_start returns READY FOR ANNOTATION EXECUTION when MODEL_G is authorized."""
     import subprocess
     proc = subprocess.run(
         [sys.executable, "scripts/nlp_v2/gate_b3/qa_gate_b3_annotation_start.py"],
         capture_output=True,
         text=True
     )
-    assert proc.returncode == 1
-    assert "STATUS: BLOCKED / NOT READY" in proc.stdout
-    assert "MODEL_G benchmark execution not authorized" in proc.stdout
-    assert "MODEL_G fresh context per item not verified" not in proc.stdout
-    assert "MODEL_G empty workdir not verified" not in proc.stdout
-    assert "MODEL_G zero-tool-use audit not verified" not in proc.stdout
-    assert "MODEL_G behavioral execution isolation not verified" not in proc.stdout
-    assert "MODEL_G synthetic smoke test not passed" not in proc.stdout
-    assert "MODEL_A" not in proc.stdout
-    assert "MODEL_B" not in proc.stdout
+    assert proc.returncode == 0
+    assert "STATUS: READY FOR ANNOTATION EXECUTION" in proc.stdout
+    assert "Reason(s) Blocked" not in proc.stdout
+    assert "All model configurations and prompt hashes verified frozen." in proc.stdout
 
 
 def test_guide_examples_zero_overlap_with_blind_set():
@@ -453,7 +447,7 @@ def test_model_annotator_configs_frozen_and_amendment_status():
     assert m_g["execution_model_selector"] == "gemini-3.8-flash-high"
     assert m_g["exact_version_or_revision"] == "NOT_EXPOSED_BY_PROVIDER"
     assert m_g["execution_environment"] == "Antigravity"
-    assert m_g["status"] == "FROZEN_EXECUTION_READY_NOT_AUTHORIZED"
+    assert m_g["status"] == "FROZEN_EXECUTION_AUTHORIZED"
     assert m_g["configuration_frozen"] is True
     assert m_g["primary_analysis_included"] is True
     assert m_g["execution_isolation_class"] == "EMPTY_WORKDIR_BEHAVIORAL_TOOL_RESTRICTION"
@@ -473,7 +467,7 @@ def test_model_annotator_configs_frozen_and_amendment_status():
     assert m_g["zero_tool_use_audit_verified"] is True
     assert m_g["execution_isolation_verified"] is True
     assert m_g["synthetic_smoke_test_passed"] is True
-    assert m_g["benchmark_execution_authorized"] is False
+    assert m_g["benchmark_execution_authorized"] is True
     assert m_g["execution_timestamp"] is None
     assert m_g["retry_policy"] == expected_retry_policy
 
@@ -1136,8 +1130,8 @@ def test_execution_isolation_amendment_19_requirements(tmp_path):
     # 12. smoke test verified passed
     assert cfg["MODEL_G"]["synthetic_smoke_test_passed"] is True, "Requirement 12: synthetic_smoke_test_passed != True"
 
-    # 13. benchmark authorization initially false
-    assert cfg["MODEL_G"]["benchmark_execution_authorized"] is False, "Requirement 13: benchmark_execution_authorized != False"
+    # 13. benchmark authorization verified True
+    assert cfg["MODEL_G"]["benchmark_execution_authorized"] is True, "Requirement 13: benchmark_execution_authorized != True"
 
     # 14. no annotation output files
     ann_files = glob.glob(os.path.join(GATE_B3_DIR, "*_annotations.jsonl"))
@@ -1230,7 +1224,7 @@ def test_model_execution_readiness_recorded():
     assert m_data["zero_tool_use_audit_verified"] is True
     assert m_data["execution_isolation_verified"] is True
     assert m_data["synthetic_smoke_test_passed"] is True
-    assert m_data["benchmark_execution_authorized"] is False
+    assert m_data["benchmark_execution_authorized"] is True
 
 
 def test_gate_b3_benchmark_execution_authorization_recorded():
@@ -1247,6 +1241,14 @@ def test_gate_b3_benchmark_execution_authorization_recorded():
     assert "real benchmark invocations" in text.lower() and "= 0" in text
     assert "Hard architectural tool isolation is not claimed" in text
 
+    # Verify MODEL_G formal authorization report exists
+    model_g_auth_report = os.path.join(REPORTS_B3_DIR, "GATE_B3_MODEL_G_BENCHMARK_EXECUTION_AUTHORIZATION.md")
+    assert os.path.exists(model_g_auth_report), "Missing GATE_B3_MODEL_G_BENCHMARK_EXECUTION_AUTHORIZATION.md"
+    with open(model_g_auth_report, "r", encoding="utf-8") as f:
+        g_text = f.read()
+    assert "MODEL_G Benchmark Execution Authorization" in g_text
+    assert "benchmark authorization:\nYES" in g_text
+
     # Canonical config sha invariants
     cfg_path = os.path.join(GATE_B3_DIR, "model_annotator_configs.json")
     with open(cfg_path, "r", encoding="utf-8") as f:
@@ -1254,10 +1256,10 @@ def test_gate_b3_benchmark_execution_authorization_recorded():
 
     assert cfg["MODEL_A"]["status"] == "ABORTED_PRE_AMENDMENT_EXECUTION"
     assert cfg["MODEL_B"]["status"] == "RETIRED_PRE_COMPLETION"
-    assert cfg["MODEL_G"]["status"] == "FROZEN_EXECUTION_READY_NOT_AUTHORIZED"
+    assert cfg["MODEL_G"]["status"] == "FROZEN_EXECUTION_AUTHORIZED"
     assert cfg["MODEL_A"]["benchmark_execution_authorized"] is False
     assert cfg["MODEL_B"]["benchmark_execution_authorized"] is False
-    assert cfg["MODEL_G"]["benchmark_execution_authorized"] is False
+    assert cfg["MODEL_G"]["benchmark_execution_authorized"] is True
     assert cfg["MODEL_G"]["execution_timestamp"] is None
 
     assert cfg["MODEL_G"]["configuration_sha256"] == "128e0736aa4a259d48b0c078d242212b71932a73f0af726fa2a14e0ad2f08d9c"
@@ -1428,9 +1430,9 @@ def test_resource_feasibility_amendment_all_30_requirements():
     assert cfg["MODEL_G"]["execution_isolation_verified"] is True, "Req 22: execution_isolation_verified != True in config"
     assert man_g["execution_isolation_verified"] is True, "Req 22: execution_isolation_verified != True in manifest"
 
-    # 23. MODEL_G benchmark authorization initially false
-    assert cfg["MODEL_G"]["benchmark_execution_authorized"] is False, "Req 23: benchmark_execution_authorized != False in config"
-    assert man_g["benchmark_execution_authorized"] is False, "Req 23: benchmark_execution_authorized != False in manifest"
+    # 23. MODEL_G benchmark authorization verified True
+    assert cfg["MODEL_G"]["benchmark_execution_authorized"] is True, "Req 23: benchmark_execution_authorized != True in config"
+    assert man_g["benchmark_execution_authorized"] is True, "Req 23: benchmark_execution_authorized != True in manifest"
 
     # 24. annotation_started=false
     assert ann_m["annotation_started"] is False, "Req 24: annotation_started != False"
@@ -1622,9 +1624,9 @@ def test_amended_design_hardening_all_22_requirements(tmp_path, monkeypatch):
     assert cfg["MODEL_G"]["execution_isolation_verified"] is True, "Req 17: execution_isolation_verified != True"
     assert cfg["MODEL_G"]["synthetic_smoke_test_passed"] is True, "Req 17: synthetic_smoke_test_passed != True"
 
-    # 18. MODEL_G benchmark authorization remains false while execution readiness is true
-    assert cfg["MODEL_G"]["benchmark_execution_authorized"] is False, "Req 18: cfg benchmark_execution_authorized != False"
-    assert man_g["benchmark_execution_authorized"] is False, "Req 18: manifest benchmark_execution_authorized != False"
+    # 18. MODEL_G benchmark authorization verified True while execution readiness is true
+    assert cfg["MODEL_G"]["benchmark_execution_authorized"] is True, "Req 18: cfg benchmark_execution_authorized != True"
+    assert man_g["benchmark_execution_authorized"] is True, "Req 18: manifest benchmark_execution_authorized != True"
     assert ann_m["model_g_execution_ready"] is True, "Req 18: ann_m model_g_execution_ready != True"
 
     # 19. no MODEL_G annotations exist
@@ -1767,7 +1769,7 @@ def test_lock_first_pass_separate_from_reference_join_authorization(tmp_path, mo
     gold_key = stab.load_gold_key(manifest_path=str(mock_manifest_path))
     assert len(gold_key) == 350, f"Expected 350 gold records, got {len(gold_key)}"
 
-    # 8. Verify MODEL_G readiness verified and benchmark authorization remains false
+    # 8. Verify MODEL_G readiness verified and benchmark authorization is true
     cfg_path = os.path.join(GATE_B3_DIR, "model_annotator_configs.json")
     with open(cfg_path, "r", encoding="utf-8") as f:
         cfg = json.load(f)
@@ -1776,13 +1778,13 @@ def test_lock_first_pass_separate_from_reference_join_authorization(tmp_path, mo
     assert cfg["MODEL_G"]["zero_tool_use_audit_verified"] is True
     assert cfg["MODEL_G"]["execution_isolation_verified"] is True
     assert cfg["MODEL_G"]["synthetic_smoke_test_passed"] is True
-    assert cfg["MODEL_G"]["benchmark_execution_authorized"] is False
+    assert cfg["MODEL_G"]["benchmark_execution_authorized"] is True
 
     # 9. Verify frozen hashes remain unchanged
     expected_model_g_cfg_sha = "128e0736aa4a259d48b0c078d242212b71932a73f0af726fa2a14e0ad2f08d9c"
     expected_active_global_sha = "564501dc456ecb25ce661a439de68b2a31924844be3f19037afb130992fa0490"
     expected_amendment_sha = "7eaab180555f94956a4d9737bf98d2fba8477b847c9fd79136ab0e6329b39b40"
-    expected_man_g_file_sha = "54420aef23e895afb38528411d05c204338d43f81b6c9009a672a82dffd06707"
+    expected_man_g_file_sha = "f0ea0535164e2a06db1c357d68b7ec3624b11815e78da1c5b06bc749f5472609"
 
     amendment_doc = os.path.join(DOCS_B3_DIR, "gate_b3_resource_feasibility_annotator_amendment.md")
     man_g_file = os.path.join(GATE_B3_DIR, "model_g_execution_manifest.json")
