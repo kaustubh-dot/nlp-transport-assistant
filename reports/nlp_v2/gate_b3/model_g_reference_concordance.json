@@ -1,0 +1,309 @@
+{
+  "T2": {
+    "taxonomy": "T2",
+    "total_evaluated": 350,
+    "primary_exact_matches": 275,
+    "primary_exact_match_rate": 0.7857142857142857,
+    "model_primary_in_reference_acceptable_rate": 0.7942857142857143,
+    "reference_primary_in_model_acceptable_rate": 0.9971428571428571,
+    "exact_acceptable_set_match_rate": 0.5657142857142857,
+    "mean_acceptable_set_jaccard": 0.7764285714285715,
+    "clarification_agreement_rate": 0.8057142857142857,
+    "model_null_primary_count": 62,
+    "model_multi_label_count": 130,
+    "primary_mismatch_count": 75,
+    "per_class": {
+      "route_query": {
+        "reference_primary_n": 59,
+        "model_primary_n": 51,
+        "primary_exact_n": 44,
+        "primary_exact_rate_within_reference_class": 0.7457627118644068
+      },
+      "route_stops": {
+        "reference_primary_n": 80,
+        "model_primary_n": 55,
+        "primary_exact_n": 55,
+        "primary_exact_rate_within_reference_class": 0.6875
+      },
+      "service_timing": {
+        "reference_primary_n": 106,
+        "model_primary_n": 84,
+        "primary_exact_n": 83,
+        "primary_exact_rate_within_reference_class": 0.7830188679245284
+      },
+      "service_availability": {
+        "reference_primary_n": 21,
+        "model_primary_n": 19,
+        "primary_exact_n": 17,
+        "primary_exact_rate_within_reference_class": 0.8095238095238095
+      },
+      "fare_query": {
+        "reference_primary_n": 12,
+        "model_primary_n": 12,
+        "primary_exact_n": 12,
+        "primary_exact_rate_within_reference_class": 1.0
+      },
+      "ticketing_rules": {
+        "reference_primary_n": 12,
+        "model_primary_n": 12,
+        "primary_exact_n": 12,
+        "primary_exact_rate_within_reference_class": 1.0
+      },
+      "station_facilities": {
+        "reference_primary_n": 9,
+        "model_primary_n": 9,
+        "primary_exact_n": 9,
+        "primary_exact_rate_within_reference_class": 1.0
+      },
+      "accessibility": {
+        "reference_primary_n": 7,
+        "model_primary_n": 7,
+        "primary_exact_n": 7,
+        "primary_exact_rate_within_reference_class": 1.0
+      },
+      "interchange_query": {
+        "reference_primary_n": 15,
+        "model_primary_n": 7,
+        "primary_exact_n": 7,
+        "primary_exact_rate_within_reference_class": 0.4666666666666667
+      },
+      "nearest_transport": {
+        "reference_primary_n": 5,
+        "model_primary_n": 5,
+        "primary_exact_n": 5,
+        "primary_exact_rate_within_reference_class": 1.0
+      },
+      "realtime_status_query": {
+        "reference_primary_n": 12,
+        "model_primary_n": 15,
+        "primary_exact_n": 12,
+        "primary_exact_rate_within_reference_class": 1.0
+      },
+      "out_of_scope": {
+        "reference_primary_n": 12,
+        "model_primary_n": 12,
+        "primary_exact_n": 12,
+        "primary_exact_rate_within_reference_class": 1.0
+      }
+    },
+    "confusion_matrix": {
+      "fare_query": {
+        "fare_query": 12
+      },
+      "service_availability": {
+        "service_availability": 17,
+        "realtime_status_query": 3,
+        "service_timing": 1
+      },
+      "realtime_status_query": {
+        "realtime_status_query": 12
+      },
+      "route_stops": {
+        "route_stops": 55,
+        "None": 25
+      },
+      "service_timing": {
+        "service_timing": 83,
+        "None": 23
+      },
+      "route_query": {
+        "route_query": 44,
+        "service_availability": 2,
+        "None": 13
+      },
+      "interchange_query": {
+        "route_query": 7,
+        "interchange_query": 7,
+        "None": 1
+      },
+      "ticketing_rules": {
+        "ticketing_rules": 12
+      },
+      "out_of_scope": {
+        "out_of_scope": 12
+      },
+      "station_facilities": {
+        "station_facilities": 9
+      },
+      "nearest_transport": {
+        "nearest_transport": 5
+      },
+      "accessibility": {
+        "accessibility": 7
+      }
+    },
+    "design_note": "Descriptive MODEL_G-reference concordance on the fixed purposive Gate B.3 challenge sample. No population confidence intervals or significance tests are reported."
+  },
+  "T3": {
+    "taxonomy": "T3",
+    "total_evaluated": 350,
+    "primary_exact_matches": 284,
+    "primary_exact_match_rate": 0.8114285714285714,
+    "model_primary_in_reference_acceptable_rate": 0.8428571428571429,
+    "reference_primary_in_model_acceptable_rate": 0.9714285714285714,
+    "exact_acceptable_set_match_rate": 0.6685714285714286,
+    "mean_acceptable_set_jaccard": 0.8152380952380952,
+    "clarification_agreement_rate": 0.8285714285714286,
+    "model_null_primary_count": 55,
+    "model_multi_label_count": 99,
+    "primary_mismatch_count": 66,
+    "per_class": {
+      "point_to_point_route": {
+        "reference_primary_n": 54,
+        "model_primary_n": 38,
+        "primary_exact_n": 38,
+        "primary_exact_rate_within_reference_class": 0.7037037037037037
+      },
+      "multimodal_route": {
+        "reference_primary_n": 5,
+        "model_primary_n": 5,
+        "primary_exact_n": 5,
+        "primary_exact_rate_within_reference_class": 1.0
+      },
+      "route_stop_sequence": {
+        "reference_primary_n": 26,
+        "model_primary_n": 19,
+        "primary_exact_n": 19,
+        "primary_exact_rate_within_reference_class": 0.7307692307692307
+      },
+      "route_stop_membership": {
+        "reference_primary_n": 54,
+        "model_primary_n": 44,
+        "primary_exact_n": 44,
+        "primary_exact_rate_within_reference_class": 0.8148148148148148
+      },
+      "first_and_last_service": {
+        "reference_primary_n": 27,
+        "model_primary_n": 34,
+        "primary_exact_n": 25,
+        "primary_exact_rate_within_reference_class": 0.9259259259259259
+      },
+      "service_frequency": {
+        "reference_primary_n": 21,
+        "model_primary_n": 21,
+        "primary_exact_n": 21,
+        "primary_exact_rate_within_reference_class": 1.0
+      },
+      "scheduled_departure": {
+        "reference_primary_n": 58,
+        "model_primary_n": 38,
+        "primary_exact_n": 38,
+        "primary_exact_rate_within_reference_class": 0.6551724137931034
+      },
+      "mode_availability": {
+        "reference_primary_n": 21,
+        "model_primary_n": 13,
+        "primary_exact_n": 11,
+        "primary_exact_rate_within_reference_class": 0.5238095238095238
+      },
+      "fare_calculation": {
+        "reference_primary_n": 12,
+        "model_primary_n": 12,
+        "primary_exact_n": 12,
+        "primary_exact_rate_within_reference_class": 1.0
+      },
+      "ticketing_and_passes": {
+        "reference_primary_n": 12,
+        "model_primary_n": 12,
+        "primary_exact_n": 12,
+        "primary_exact_rate_within_reference_class": 1.0
+      },
+      "station_facilities": {
+        "reference_primary_n": 9,
+        "model_primary_n": 9,
+        "primary_exact_n": 9,
+        "primary_exact_rate_within_reference_class": 1.0
+      },
+      "station_accessibility": {
+        "reference_primary_n": 7,
+        "model_primary_n": 7,
+        "primary_exact_n": 7,
+        "primary_exact_rate_within_reference_class": 1.0
+      },
+      "interchange_transfer": {
+        "reference_primary_n": 15,
+        "model_primary_n": 14,
+        "primary_exact_n": 14,
+        "primary_exact_rate_within_reference_class": 0.9333333333333333
+      },
+      "nearest_transport": {
+        "reference_primary_n": 5,
+        "model_primary_n": 5,
+        "primary_exact_n": 5,
+        "primary_exact_rate_within_reference_class": 1.0
+      },
+      "realtime_status_query": {
+        "reference_primary_n": 12,
+        "model_primary_n": 12,
+        "primary_exact_n": 12,
+        "primary_exact_rate_within_reference_class": 1.0
+      },
+      "out_of_scope": {
+        "reference_primary_n": 12,
+        "model_primary_n": 12,
+        "primary_exact_n": 12,
+        "primary_exact_rate_within_reference_class": 1.0
+      }
+    },
+    "confusion_matrix": {
+      "fare_calculation": {
+        "fare_calculation": 12
+      },
+      "mode_availability": {
+        "None": 1,
+        "first_and_last_service": 9,
+        "mode_availability": 11
+      },
+      "realtime_status_query": {
+        "realtime_status_query": 12
+      },
+      "route_stop_membership": {
+        "route_stop_membership": 44,
+        "None": 10
+      },
+      "route_stop_sequence": {
+        "route_stop_sequence": 19,
+        "None": 7
+      },
+      "scheduled_departure": {
+        "scheduled_departure": 38,
+        "None": 20
+      },
+      "point_to_point_route": {
+        "point_to_point_route": 38,
+        "mode_availability": 2,
+        "None": 14
+      },
+      "interchange_transfer": {
+        "interchange_transfer": 14,
+        "None": 1
+      },
+      "service_frequency": {
+        "service_frequency": 21
+      },
+      "ticketing_and_passes": {
+        "ticketing_and_passes": 12
+      },
+      "out_of_scope": {
+        "out_of_scope": 12
+      },
+      "station_facilities": {
+        "station_facilities": 9
+      },
+      "nearest_transport": {
+        "nearest_transport": 5
+      },
+      "first_and_last_service": {
+        "first_and_last_service": 25,
+        "None": 2
+      },
+      "station_accessibility": {
+        "station_accessibility": 7
+      },
+      "multimodal_route": {
+        "multimodal_route": 5
+      }
+    },
+    "design_note": "Descriptive MODEL_G-reference concordance on the fixed purposive Gate B.3 challenge sample. No population confidence intervals or significance tests are reported."
+  }
+}
