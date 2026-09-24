@@ -4,13 +4,11 @@
 Hardens Sections 1-6 requirements:
 1. Exact Frozen ID Set:
    Loads EXPECTED_ANNOTATION_IDS from data/nlp_v2/gate_b2/human_annotation_blind.csv.
-   Requires seen_ids == EXPECTED_ANNOTATION_IDS for all four active primary outputs.
+   Requires seen_ids == EXPECTED_ANNOTATION_IDS for both active MODEL_G outputs.
    Hard-fails on missing, unexpected, or duplicate IDs.
 2. Exact Record Count:
    Requires exactly 350 non-empty records per file (record_count == 350 and unique_id_count == 350).
 3. Validate Source Identity per File:
-   - student_t2_annotations.jsonl: source_id = STUDENT_R1, source_type = student, taxonomy_version = T2
-   - student_t3_annotations.jsonl: source_id = STUDENT_R1, source_type = student, taxonomy_version = T3
    - model_g_t2_annotations.jsonl: source_id = MODEL_G, source_type = model, taxonomy_version = T2
    - model_g_t3_annotations.jsonl: source_id = MODEL_G, source_type = model, taxonomy_version = T3
 4. Authoritative JSON Schema Validation:
@@ -48,16 +46,6 @@ LOCK_MANIFEST_PATH = os.path.join(GATE_B3_DIR, "first_pass_lock_manifest.json")
 SCHEMA_PATH = os.path.join(DOCS_B3_DIR, "annotation_output_schema.json")
 
 EXPECTED_OUTPUT_SPECS = {
-    "student_t2_annotations.jsonl": {
-        "source_id": "STUDENT_R1",
-        "source_type": "student",
-        "taxonomy_version": "T2",
-    },
-    "student_t3_annotations.jsonl": {
-        "source_id": "STUDENT_R1",
-        "source_type": "student",
-        "taxonomy_version": "T3",
-    },
     "model_g_t2_annotations.jsonl": {
         "source_id": "MODEL_G",
         "source_type": "model",
@@ -223,7 +211,7 @@ def attempt_lock(
         print("LOCK REFUSED: Required annotation output files are missing:")
         for mf in missing_files:
             print(f"  - {mf}")
-        print("All 4 annotator output files must exist before locking.")
+        print("Both MODEL_G output files must exist before locking.")
         return False
 
     validator = load_validator()
@@ -320,7 +308,7 @@ def attempt_lock(
         with open(manifest_path, "w", encoding="utf-8") as f:
             json.dump(manifest, f, indent=2)
 
-    print("ALL 4 PRIMARY ANNOTATOR PACKAGES VALIDATED AND LOCKED SUCCESSFULLY.")
+    print("BOTH MODEL_G FIRST-PASS OUTPUTS VALIDATED AND LOCKED SUCCESSFULLY.")
     print(f"Complete lock manifest written to: {lock_manifest_path}")
     print("NOTE: reference_join_enabled remains False until separate explicit authorization.")
     return True

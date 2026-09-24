@@ -1,0 +1,32 @@
+{
+  "lock_status": "LOCKED",
+  "lock_timestamp": "2026-09-24T11:25:46.306950",
+  "expected_annotation_id_count": 350,
+  "frozen_source_blind_sha256": "94fd8bb3e7f2e3bdaf274c4ee5bcf7e083e9ef2a66322fbcf7bee2cadf231999",
+  "files": {
+    "model_g_t2_annotations.jsonl": {
+      "path": "data/nlp_v2/gate_b3/model_g_t2_annotations.jsonl",
+      "sha256": "9cb74d035e225e9eee111c6b6ca3e8b00235eadf4416b72ba07cb4e637951b85",
+      "record_count": 350,
+      "unique_id_count": 350,
+      "source_id": "MODEL_G",
+      "source_type": "model",
+      "taxonomy_version": "T2"
+    },
+    "model_g_t3_annotations.jsonl": {
+      "path": "data/nlp_v2/gate_b3/model_g_t3_annotations.jsonl",
+      "sha256": "d70055aa78b4decce9705f028e3009fd3b037061d9bfdc9e5d69984dbc26a427",
+      "record_count": 350,
+      "unique_id_count": 350,
+      "source_id": "MODEL_G",
+      "source_type": "model",
+      "taxonomy_version": "T3"
+    }
+  },
+  "guardrails": {
+    "annotation_modification_forbidden": true,
+    "reference_join_requires_explicit_authorization": true,
+    "reference_join_enabled_at_lock": false,
+    "gold_boundary_audit_enabled_at_lock": false
+  }
+}

@@ -1,6 +1,6 @@
 {
   "study_name": "Gate B.3 Annotation-Stability and Semantic-Boundary Audit",
-  "study_version": "v3.1-amended-design",
+  "study_version": "v3.2-model-g-only-postexecution-amendment",
   "base_commit": "2a2228d1762768af5994fc112710681a808262c6",
   "active_kb": "chennai_multimodal_v1.2.2",
   "source_blind_file": "data/nlp_v2/gate_b2/human_annotation_blind.csv",
@@ -12,7 +12,7 @@
   "model_g_execution_ready": true,
   "annotation_started": true,
   "taxonomy_decision_status": "PENDING",
-  "student_source_id": "STUDENT_R1",
+  "student_source_id": null,
   "primary_model_source_id": "MODEL_G",
   "retired_primary_model_sources": [
     "MODEL_A",
@@ -29,7 +29,7 @@
   "predictions_hidden_during_first_pass": true,
   "other_annotators_hidden_during_first_pass": true,
   "reference_join_enabled": false,
-  "first_pass_locked": false,
+  "first_pass_locked": true,
   "gold_boundary_audit_started": false,
   "methodology_amendment_path": "docs/nlp_v2/gate_b3/gate_b3_annotation_methodology_amendment.md",
   "resource_feasibility_amendment_path": "docs/nlp_v2/gate_b3/gate_b3_resource_feasibility_annotator_amendment.md",
@@ -52,5 +52,12 @@
     "t2_annotation_guide": "docs/nlp_v2/gate_b3/t2_annotation_guide.md",
     "t3_annotation_guide": "docs/nlp_v2/gate_b3/t3_annotation_guide.md",
     "model_prompt_template": "docs/nlp_v2/gate_b3/model_annotator_prompt_template.md"
-  }
+  },
+  "first_pass_lock_manifest": "data/nlp_v2/gate_b3/first_pass_lock_manifest.json",
+  "student_arm_status": "RETIRED_BEFORE_COMPLETION",
+  "student_annotation_outputs_included": false,
+  "primary_annotation_sources": [
+    "MODEL_G"
+  ],
+  "student_arm_retirement_amendment_path": "docs/nlp_v2/gate_b3/gate_b3_student_arm_retirement_amendment.md"
 }
