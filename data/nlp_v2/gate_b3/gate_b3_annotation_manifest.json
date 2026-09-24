@@ -11,7 +11,11 @@
   "model_configuration_status": "FROZEN",
   "model_g_execution_ready": true,
   "annotation_started": true,
-  "taxonomy_decision_status": "PENDING",
+  "gate_b3_status": "CLOSED",
+  "taxonomy_decision_status": "FROZEN",
+  "selected_taxonomy": "T3",
+  "selected_taxonomy_class_count": 16,
+  "decision_report_path": "reports/nlp_v2/gate_b3/GATE_B3_TAXONOMY_DECISION.md",
   "student_source_id": null,
   "primary_model_source_id": "MODEL_G",
   "retired_primary_model_sources": [

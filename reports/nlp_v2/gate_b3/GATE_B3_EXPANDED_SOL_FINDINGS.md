@@ -2,7 +2,7 @@
 
 **Document Status:** Complete Evidence Summary  
 **Audit Scope:** 128 Purposively Selected Frozen Challenge Queries (256 Sol Judgments: 128 T2, 128 T3)  
-**Primary Evaluators:** GPT-5.6 Sol (Audit Arm, Blind-to-Label), MODEL_G (Gemini 2.5 Pro First Pass, Frozen)  
+**Primary Evaluators:** GPT-5.6 Sol (Secondary Masked Blind-to-Label Model Audit), MODEL_G (Google Gemini 3.8 Flash / Gemini 3.8 Flash (High), First Pass, Frozen)
 **Reference Benchmark:** Gate B.2 Human Reference Key (`human_annotation_key.json`)  
 **Decision Policy:** This document reports descriptive audit evidence only. It does **NOT** make the final T2-vs-T3 gate decision.
 
@@ -11,10 +11,10 @@
 ## 1. Executive Summary & Purpose
 
 Following the retirement of the student annotator arm, Gate B.3 evaluates taxonomy robustness across two active evidence streams:
-1. **MODEL_G / Gemini:** The complete, frozen 350-query T2 and T3 first-pass annotations.
+1. **MODEL_G (Google Gemini 3.8 Flash / Gemini 3.8 Flash (High)):** The complete, frozen 350-query T2 and T3 first-pass annotations.
 2. **GPT-5.6 Sol:** An expanded masked blind-to-label audit across 128 purposively selected challenge queries evaluated under both T2 and T3 (256 total judgments).
 
-The purpose of this audit is to stress-test whether transitioning from T2 (coarse 10-class taxonomy) to T3 (fine-grained 16-class taxonomy) introduces systematic regressions in challenging linguistic contexts (Hindi, Hinglish, code-switching, noise types, and ambiguous queries).
+The purpose of this audit is to stress-test whether transitioning from T2 (medium/coarse 12-class taxonomy) to T3 (fine-grained 16-class taxonomy) introduces systematic regressions in challenging linguistic contexts (Hindi, Hinglish, code-switching, noise types, and ambiguous queries).
 
 ---
 
@@ -23,7 +23,7 @@ The purpose of this audit is to stress-test whether transitioning from T2 (coars
 The following methodological constraints apply to all findings in this document:
 * **Purposive Fixed Challenge Subset:** The 128 queries were selected via a frozen deterministic seed (`GATE_B3_SOL_EXPANDED_256_V1`) without access to MODEL_G predictions or reference gold labels. They deliberately over-represent stress phenomena (code-switching, noise, ambiguity).
 * **Descriptive Analysis Only:** Results are presented as empirical counts, percentages, and percentage-point (pp) deltas. No population confidence intervals, standard errors, or hypothesis significance tests are asserted.
-* **Audit Nature:** GPT-5.6 Sol is an independent, masked, blind-to-label model auditor. Its judgments provide high-capability secondary evaluation, not human inter-annotator agreement (IAA).
+* **Audit Nature:** GPT-5.6 Sol is a secondary masked blind-to-label model audit (not fully context-isolated, though item-level MODEL_G and reference labels were hidden during review). Its judgments provide high-capability secondary audit evidence, not human inter-annotator agreement (IAA).
 * **Complementary Evidence:** This 128-query audit complements, and does not replace or supersede, the primary 350-query MODEL_G Gate B.3 baseline.
 * **No Premature Taxonomy Selection:** Final adoption between T2 and T3 requires holistic gate review; no decision is made here.
 
