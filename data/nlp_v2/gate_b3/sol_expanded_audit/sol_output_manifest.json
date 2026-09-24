@@ -1,0 +1,15 @@
+{
+  "source_id": "GPT_5_6_SOL",
+  "audit_type": "expanded_masked_blind_to_label_review",
+  "total_judgments": 256,
+  "files": {
+    "sol_expanded_t2_annotations.jsonl": {
+      "records": 128,
+      "sha256": "968b52e385a832662a32907688f16ac94dcb98dfb3347b8e715a3b79f4bad78f"
+    },
+    "sol_expanded_t3_annotations.jsonl": {
+      "records": 128,
+      "sha256": "ac73f8c6ae5fef3bc29835185e02252cb6aba662532954d9743169aa40fac173"
+    }
+  }
+}
