@@ -28,7 +28,7 @@
   "gold_hidden_during_first_pass": true,
   "predictions_hidden_during_first_pass": true,
   "other_annotators_hidden_during_first_pass": true,
-  "reference_join_enabled": false,
+  "reference_join_enabled": true,
   "first_pass_locked": true,
   "gold_boundary_audit_started": false,
   "methodology_amendment_path": "docs/nlp_v2/gate_b3/gate_b3_annotation_methodology_amendment.md",
@@ -59,5 +59,6 @@
   "primary_annotation_sources": [
     "MODEL_G"
   ],
-  "student_arm_retirement_amendment_path": "docs/nlp_v2/gate_b3/gate_b3_student_arm_retirement_amendment.md"
+  "student_arm_retirement_amendment_path": "docs/nlp_v2/gate_b3/gate_b3_student_arm_retirement_amendment.md",
+  "reference_join_authorized_at": "2026-09-24T05:58:25.009867+00:00"
 }
