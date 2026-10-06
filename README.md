@@ -1,42 +1,58 @@
-# Hindi Transport Assistant for Chennai
+# NLP v2 Multimodal Transport Assistant
 
-A local Hindi/Hinglish text prototype using intent classification, gazetteer slot extraction, SQLite lookups and deterministic Hindi responses.
+A local Chennai transport assistant using the frozen **T3 Direct Dispatch taxonomy (16 intents)**, a selected MuRIL checkpoint, a read-only canonical SQLite snapshot, a JSON API, and a Streamlit chat interface. It accepts English, Hindi, Roman Hindi, Hinglish, and mixed-script text.
 
-**Current status: unverified demonstration data.** The bundled transport records are hardcoded fixtures, not an imported official feed. Do not use them as current travel guidance. Deterministic templates do not guarantee factual accuracy.
+Published bus route sequences, directional route candidates, timetable records, dated fare records, and geometric nearest stops are connected. Verified multimodal transfers, current operating status, ticket/pass policy, and many accessibility/facility facts are unavailable in the snapshot. Responses expose these limits and request clarification when needed. This is a local demonstration; published records require operator verification for travel.
 
-See [PRD.md](PRD.md) for MVP boundaries and measurable release gates, [ARCHITECTURE.md](ARCHITECTURE.md) for the implemented contract, [ROADMAP.md](ROADMAP.md) for sequencing, and [DATA_SOURCES.md](DATA_SOURCES.md) for outstanding source verification.
+## Setup and run
 
-## Scope
-The first verified release targets selected Metro routes and individual facilities. Current demo fixtures also include bus/suburban examples. Lookup covers only stored pairs, not arbitrary routing. Timetables, fares, ticket rules and live status return an explicit limitation. Speech and translation are deferred. Each question must be self-contained.
+Use Python 3.12 from the repository root:
 
-## Local setup (Python 3.12)
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
-python -m scripts.build_transport_db
-python -m scripts.generate_intent_dataset
-python scripts/train_baseline.py
-python scripts/evaluate.py --acceptance
-python -m pytest -v
-streamlit run app/streamlit_app.py
+pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+pip install -r requirements-nlp-v2.txt
+export HF_HOME="$PWD/.cache/huggingface"
 ```
 
-Database generation replaces `data/processed/transport.db` with demo fixtures. Training replaces `models/baseline/model.pkl`. Synthetic rows carry template-family splits; slot columns are unreviewed hints, not gold labels. The evaluator reports intent metrics only and refuses heuristic fallback. The UI can still run without weights using explicitly identified heuristic predictions.
+**Required model assets:** the selected checkpoint is approximately 950 MB and is intentionally excluded from Git. Supply the original `t3_muril_seed42_best.pt` at `experiments/nlp_v2/gate_b2/t3_muril_seed42_best.pt`, then prepare the pinned MuRIL tokenizer/config cache. Follow the [asset preparation steps](docs/nlp_v2/production_runbook.md#required-assets) before starting. The canonical database is already tracked; the prototype DB builder is not part of T3 setup.
 
-## Examples
-- `चेन्नई सेंट्रल से एयरपोर्ट कैसे जाऊँ?`: returns a stored demo route, without estimating fare.
-- `कोयम्बेडु पर व्हीलचेयर उपलब्ध है?`: reads the wheelchair field only, with a demo warning.
-- `आखिरी मेट्रो कब छूटती है?`: explains that verified timetables are unavailable.
-- `central se airport kaise jaye`: accepts Roman Hindi.
+Run the API:
 
-## Benchmarks & Model Evaluation
+```bash
+python -m app.api
+```
 
-- **[Current Official Benchmark (5 Seeds, Early Stopping)](docs/benchmarks/current_multi_seed_5seed_benchmark.md)**: Rigorous evaluation across 5 random seeds (`[42, 101, 777, 1337, 2026]`) with 15 max epochs and early stopping.
-  - **Champion:** Google MuRIL (Test Macro-F1: `0.8927 ± 0.0226`, 100% Gold Acceptance).
-- **[Earlier Preliminary Benchmark (Single Seed, 3 Epochs)](docs/benchmarks/earlier_single_seed_3epoch_benchmark.md)**: Archived exploratory 3-epoch trial on Seed 42.
-- **[Benchmark Guide & Rationale (docs/benchmarks/README.md)](docs/benchmarks/README.md)**: Detailed breakdown explaining the differences between earlier and current runs, why rankings changed, and physical GPU latency methodology.
+In another terminal, activate the same environment and set the same cache path:
 
-## Dependencies and license
-Core dependencies are pinned in requirements.txt; the lightweight baseline does not require PyTorch. Transformer training and its environment remain a later milestone. Code is MIT licensed. External data/model licensing must be verified per artifact before distribution; no blanket license claim applies to the demonstration records.
+```bash
+source .venv/bin/activate
+export HF_HOME="$PWD/.cache/huggingface"
+streamlit run app/streamlit_app.py --server.address=127.0.0.1
+```
 
+Open `http://127.0.0.1:8501`. The API defaults to `http://127.0.0.1:8765`. Each clarification asks for a revised complete question.
+
+## Verification and results
+
+```bash
+python -m pytest -q
+python -m pip check
+```
+
+The verified local environment passes **368 tests**. No lint/type checker is configured. Tests include strict real-checkpoint inference, synthetic contract/integration/UI cases, and frozen research integrity checks; they do not establish factual travel-answer accuracy.
+
+- [Architecture and the 16 operation behaviors](ARCHITECTURE.md)
+- [Setup, inference, optional training, evaluation and demo runbook](docs/nlp_v2/production_runbook.md)
+- [Model manifest](models/nlp_v2_t3_manifest.json) and [phase progress](docs/nlp_v2/production_progress.md)
+- [Frozen model evaluation](reports/nlp_v2/production_eval/production_t3_evaluation.md): stress intent accuracy **0.8300**, Macro-F1 **0.7918**.
+- [Frozen complete-assistant evaluation](reports/nlp_v2/assistant_eval/assistant_evaluation.md): on 706 stress queries, **520 clarifications, 150 unavailable, 22 ok, 14 out of scope**; terminal dispatch accuracy **0.2323**, including correct unavailable/rejection operations. These are contract metrics, not factual-answer metrics. The frozen stress/reference sets contain training-family overlap, so full scores are descriptive rather than independent family-held-out estimates. No tuning followed final evaluation.
+
+## Research and preserved prototype
+
+T3 is final. [Gate B.3 decision](reports/nlp_v2/gate_b3/GATE_B3_TAXONOMY_DECISION.md), Gate B.2/B.3 experiments, annotations, and human reference labels remain frozen. T2 is a historical comparator. Consult the [handoff](docs/nlp_v2/NLP_V2_HANDOFF.md) and [split policy](docs/nlp_v2/split_and_leakage_policy.md) before new model work; the runbook records discovered overlap and safe replacement-training behavior.
+
+The earlier seven-label UI is preserved at `app/legacy_streamlit_app.py`; `src/pipeline.py`, [PRD](PRD.md), [roadmap](ROADMAP.md), and earlier benchmark documents describe that prototype. They are not the default T3 application path.
+
+Code is MIT licensed. External model/data licensing must be checked per artifact before redistribution.

@@ -54,6 +54,7 @@ models/*/
 
 # pytest / coverage
 .pytest_cache/
+.cache/
 .coverage
 htmlcov/
 
@@ -72,4 +73,3 @@ models/baseline/*.pkl
 # Staging & Runtime Logs
 data/staging/
 logs/
-

@@ -1,0 +1,644 @@
+{
+  "evaluation_type": "frozen_complete_assistant_contracts",
+  "assistant_freeze_commit": "b9b2271b1761d08752786f22b558862f45ed1dac",
+  "checkpoint_sha256": "abac66fc9fa29212c7565117ae326e34f02b64e76dbb177c61e9661517803196",
+  "input_hashes": {
+    "train_sha256": "d92801006ecb96fd64d01e6a602697e2e8749494627964f82d002566e3d0ba94",
+    "stress_sha256": "26cbf6517e25511d19d67051f500459ef7d78d87e5fbd1eb6d21849842242a1c",
+    "reference_sha256": "8fb55e863cfbdd1bbc2cf068050757d4d6bd58092fb6c3aea1f389c5c520e1c6",
+    "manifest_sha256": "447a120090c33ba1259cad06ce9f216d80832d2540727c3330f14be3ec04dc39"
+  },
+  "canonical_database_sha256": "583fd400bb3ee0d5af312e03ec78116de88ce162d6c33c2b87fd93df4da48791",
+  "temporal_reference_date": "2026-10-06",
+  "stress": {
+    "count": 706,
+    "strict_intent_accuracy": 0.8271954674220963,
+    "selected_operation_accuracy": 0.5042492917847026,
+    "terminal_dispatch_accuracy": 0.23229461756373937,
+    "status_counts": {
+      "clarification": 520,
+      "ok": 22,
+      "out_of_scope": 14,
+      "unavailable": 150
+    },
+    "clarification": {
+      "true_positive": 87,
+      "false_positive": 433,
+      "false_negative": 11,
+      "true_negative": 175,
+      "precision": 0.1673076923076923,
+      "recall": 0.8877551020408163
+    },
+    "strata": {
+      "gold": {
+        "fare_calculation": {
+          "count": 33,
+          "terminal_dispatch_accuracy": 0.030303030303030304,
+          "status_counts": {
+            "clarification": 32,
+            "unavailable": 1
+          }
+        },
+        "first_and_last_service": {
+          "count": 49,
+          "terminal_dispatch_accuracy": 0.6122448979591837,
+          "status_counts": {
+            "clarification": 19,
+            "unavailable": 30
+          }
+        },
+        "interchange_transfer": {
+          "count": 54,
+          "terminal_dispatch_accuracy": 0.05555555555555555,
+          "status_counts": {
+            "clarification": 47,
+            "unavailable": 7
+          }
+        },
+        "mode_availability": {
+          "count": 35,
+          "terminal_dispatch_accuracy": 0.02857142857142857,
+          "status_counts": {
+            "clarification": 32,
+            "unavailable": 3
+          }
+        },
+        "multimodal_route": {
+          "count": 16,
+          "terminal_dispatch_accuracy": 0.0,
+          "status_counts": {
+            "clarification": 15,
+            "unavailable": 1
+          }
+        },
+        "nearest_transport": {
+          "count": 27,
+          "terminal_dispatch_accuracy": 0.0,
+          "status_counts": {
+            "clarification": 27
+          }
+        },
+        "out_of_scope": {
+          "count": 46,
+          "terminal_dispatch_accuracy": 0.30434782608695654,
+          "status_counts": {
+            "clarification": 27,
+            "ok": 1,
+            "out_of_scope": 14,
+            "unavailable": 4
+          }
+        },
+        "point_to_point_route": {
+          "count": 79,
+          "terminal_dispatch_accuracy": 0.02531645569620253,
+          "status_counts": {
+            "clarification": 76,
+            "unavailable": 3
+          }
+        },
+        "realtime_status_query": {
+          "count": 40,
+          "terminal_dispatch_accuracy": 0.925,
+          "status_counts": {
+            "clarification": 1,
+            "unavailable": 39
+          }
+        },
+        "route_stop_membership": {
+          "count": 109,
+          "terminal_dispatch_accuracy": 0.09174311926605505,
+          "status_counts": {
+            "clarification": 98,
+            "ok": 9,
+            "unavailable": 2
+          }
+        },
+        "route_stop_sequence": {
+          "count": 42,
+          "terminal_dispatch_accuracy": 0.5238095238095238,
+          "status_counts": {
+            "clarification": 20,
+            "ok": 12,
+            "unavailable": 10
+          }
+        },
+        "scheduled_departure": {
+          "count": 85,
+          "terminal_dispatch_accuracy": 0.16470588235294117,
+          "status_counts": {
+            "clarification": 67,
+            "unavailable": 18
+          }
+        },
+        "service_frequency": {
+          "count": 37,
+          "terminal_dispatch_accuracy": 0.4594594594594595,
+          "status_counts": {
+            "clarification": 20,
+            "unavailable": 17
+          }
+        },
+        "station_accessibility": {
+          "count": 15,
+          "terminal_dispatch_accuracy": 0.0,
+          "status_counts": {
+            "clarification": 14,
+            "unavailable": 1
+          }
+        },
+        "station_facilities": {
+          "count": 26,
+          "terminal_dispatch_accuracy": 0.19230769230769232,
+          "status_counts": {
+            "clarification": 20,
+            "unavailable": 6
+          }
+        },
+        "ticketing_and_passes": {
+          "count": 13,
+          "terminal_dispatch_accuracy": 0.6153846153846154,
+          "status_counts": {
+            "clarification": 5,
+            "unavailable": 8
+          }
+        }
+      },
+      "language_class": {
+        "EN": {
+          "count": 215,
+          "terminal_dispatch_accuracy": 0.22790697674418606,
+          "status_counts": {
+            "clarification": 162,
+            "ok": 9,
+            "out_of_scope": 14,
+            "unavailable": 30
+          }
+        },
+        "HINGLISH_LATN": {
+          "count": 164,
+          "terminal_dispatch_accuracy": 0.2865853658536585,
+          "status_counts": {
+            "clarification": 117,
+            "ok": 1,
+            "unavailable": 46
+          }
+        },
+        "HI_DEVA": {
+          "count": 202,
+          "terminal_dispatch_accuracy": 0.18316831683168316,
+          "status_counts": {
+            "clarification": 152,
+            "ok": 8,
+            "unavailable": 42
+          }
+        },
+        "HI_LATN": {
+          "count": 72,
+          "terminal_dispatch_accuracy": 0.2638888888888889,
+          "status_counts": {
+            "clarification": 53,
+            "ok": 4,
+            "unavailable": 15
+          }
+        },
+        "MIXED_SCRIPT_CS": {
+          "count": 53,
+          "terminal_dispatch_accuracy": 0.22641509433962265,
+          "status_counts": {
+            "clarification": 36,
+            "unavailable": 17
+          }
+        }
+      },
+      "code_switch_level": {
+        "CS0": {
+          "count": 327,
+          "terminal_dispatch_accuracy": 0.18042813455657492,
+          "status_counts": {
+            "clarification": 260,
+            "ok": 9,
+            "out_of_scope": 14,
+            "unavailable": 44
+          }
+        },
+        "CS1": {
+          "count": 90,
+          "terminal_dispatch_accuracy": 0.3,
+          "status_counts": {
+            "clarification": 54,
+            "ok": 8,
+            "unavailable": 28
+          }
+        },
+        "CS2": {
+          "count": 74,
+          "terminal_dispatch_accuracy": 0.2702702702702703,
+          "status_counts": {
+            "clarification": 54,
+            "ok": 5,
+            "unavailable": 15
+          }
+        },
+        "CS3": {
+          "count": 162,
+          "terminal_dispatch_accuracy": 0.2839506172839506,
+          "status_counts": {
+            "clarification": 116,
+            "unavailable": 46
+          }
+        },
+        "CS4": {
+          "count": 53,
+          "terminal_dispatch_accuracy": 0.22641509433962265,
+          "status_counts": {
+            "clarification": 36,
+            "unavailable": 17
+          }
+        }
+      },
+      "noise_level": {
+        "N0": {
+          "count": 330,
+          "terminal_dispatch_accuracy": 0.24848484848484848,
+          "status_counts": {
+            "clarification": 242,
+            "ok": 12,
+            "out_of_scope": 5,
+            "unavailable": 71
+          }
+        },
+        "N1": {
+          "count": 101,
+          "terminal_dispatch_accuracy": 0.26732673267326734,
+          "status_counts": {
+            "clarification": 71,
+            "ok": 5,
+            "out_of_scope": 5,
+            "unavailable": 20
+          }
+        },
+        "N2": {
+          "count": 91,
+          "terminal_dispatch_accuracy": 0.2087912087912088,
+          "status_counts": {
+            "clarification": 71,
+            "ok": 1,
+            "out_of_scope": 3,
+            "unavailable": 16
+          }
+        },
+        "N3": {
+          "count": 58,
+          "terminal_dispatch_accuracy": 0.22413793103448276,
+          "status_counts": {
+            "clarification": 42,
+            "ok": 4,
+            "out_of_scope": 1,
+            "unavailable": 11
+          }
+        },
+        "N4": {
+          "count": 71,
+          "terminal_dispatch_accuracy": 0.15492957746478872,
+          "status_counts": {
+            "clarification": 57,
+            "unavailable": 14
+          }
+        },
+        "N5": {
+          "count": 55,
+          "terminal_dispatch_accuracy": 0.21818181818181817,
+          "status_counts": {
+            "clarification": 37,
+            "unavailable": 18
+          }
+        }
+      }
+    }
+  },
+  "human_reference_subset": {
+    "count": 350,
+    "strict_intent_accuracy": 0.8371428571428572,
+    "selected_operation_accuracy": 0.5314285714285715,
+    "terminal_dispatch_accuracy": 0.2571428571428571,
+    "status_counts": {
+      "clarification": 251,
+      "ok": 12,
+      "out_of_scope": 5,
+      "unavailable": 82
+    },
+    "clarification": {
+      "true_positive": 67,
+      "false_positive": 184,
+      "false_negative": 9,
+      "true_negative": 90,
+      "precision": 0.26693227091633465,
+      "recall": 0.881578947368421
+    },
+    "strata": {
+      "gold": {
+        "fare_calculation": {
+          "count": 12,
+          "terminal_dispatch_accuracy": 0.08333333333333333,
+          "status_counts": {
+            "clarification": 11,
+            "unavailable": 1
+          }
+        },
+        "first_and_last_service": {
+          "count": 27,
+          "terminal_dispatch_accuracy": 0.7037037037037037,
+          "status_counts": {
+            "clarification": 8,
+            "unavailable": 19
+          }
+        },
+        "interchange_transfer": {
+          "count": 15,
+          "terminal_dispatch_accuracy": 0.06666666666666667,
+          "status_counts": {
+            "clarification": 14,
+            "unavailable": 1
+          }
+        },
+        "mode_availability": {
+          "count": 21,
+          "terminal_dispatch_accuracy": 0.047619047619047616,
+          "status_counts": {
+            "clarification": 18,
+            "unavailable": 3
+          }
+        },
+        "multimodal_route": {
+          "count": 5,
+          "terminal_dispatch_accuracy": 0.0,
+          "status_counts": {
+            "clarification": 5
+          }
+        },
+        "nearest_transport": {
+          "count": 5,
+          "terminal_dispatch_accuracy": 0.0,
+          "status_counts": {
+            "clarification": 5
+          }
+        },
+        "out_of_scope": {
+          "count": 12,
+          "terminal_dispatch_accuracy": 0.4166666666666667,
+          "status_counts": {
+            "clarification": 5,
+            "ok": 1,
+            "out_of_scope": 5,
+            "unavailable": 1
+          }
+        },
+        "point_to_point_route": {
+          "count": 54,
+          "terminal_dispatch_accuracy": 0.037037037037037035,
+          "status_counts": {
+            "clarification": 52,
+            "unavailable": 2
+          }
+        },
+        "realtime_status_query": {
+          "count": 12,
+          "terminal_dispatch_accuracy": 0.9166666666666666,
+          "status_counts": {
+            "unavailable": 12
+          }
+        },
+        "route_stop_membership": {
+          "count": 54,
+          "terminal_dispatch_accuracy": 0.09259259259259259,
+          "status_counts": {
+            "clarification": 49,
+            "ok": 5
+          }
+        },
+        "route_stop_sequence": {
+          "count": 26,
+          "terminal_dispatch_accuracy": 0.38461538461538464,
+          "status_counts": {
+            "clarification": 16,
+            "ok": 6,
+            "unavailable": 4
+          }
+        },
+        "scheduled_departure": {
+          "count": 58,
+          "terminal_dispatch_accuracy": 0.20689655172413793,
+          "status_counts": {
+            "clarification": 43,
+            "unavailable": 15
+          }
+        },
+        "service_frequency": {
+          "count": 21,
+          "terminal_dispatch_accuracy": 0.7142857142857143,
+          "status_counts": {
+            "clarification": 6,
+            "unavailable": 15
+          }
+        },
+        "station_accessibility": {
+          "count": 7,
+          "terminal_dispatch_accuracy": 0.0,
+          "status_counts": {
+            "clarification": 6,
+            "unavailable": 1
+          }
+        },
+        "station_facilities": {
+          "count": 9,
+          "terminal_dispatch_accuracy": 0.1111111111111111,
+          "status_counts": {
+            "clarification": 8,
+            "unavailable": 1
+          }
+        },
+        "ticketing_and_passes": {
+          "count": 12,
+          "terminal_dispatch_accuracy": 0.5833333333333334,
+          "status_counts": {
+            "clarification": 5,
+            "unavailable": 7
+          }
+        }
+      },
+      "language_class": {
+        "EN": {
+          "count": 119,
+          "terminal_dispatch_accuracy": 0.2184873949579832,
+          "status_counts": {
+            "clarification": 90,
+            "ok": 7,
+            "out_of_scope": 5,
+            "unavailable": 17
+          }
+        },
+        "HINGLISH_LATN": {
+          "count": 93,
+          "terminal_dispatch_accuracy": 0.40860215053763443,
+          "status_counts": {
+            "clarification": 55,
+            "ok": 1,
+            "unavailable": 37
+          }
+        },
+        "HI_DEVA": {
+          "count": 88,
+          "terminal_dispatch_accuracy": 0.1590909090909091,
+          "status_counts": {
+            "clarification": 70,
+            "ok": 4,
+            "unavailable": 14
+          }
+        },
+        "HI_LATN": {
+          "count": 37,
+          "terminal_dispatch_accuracy": 0.2702702702702703,
+          "status_counts": {
+            "clarification": 27,
+            "unavailable": 10
+          }
+        },
+        "MIXED_SCRIPT_CS": {
+          "count": 13,
+          "terminal_dispatch_accuracy": 0.15384615384615385,
+          "status_counts": {
+            "clarification": 9,
+            "unavailable": 4
+          }
+        }
+      },
+      "code_switch_level": {
+        "CS0": {
+          "count": 180,
+          "terminal_dispatch_accuracy": 0.19444444444444445,
+          "status_counts": {
+            "clarification": 140,
+            "ok": 7,
+            "out_of_scope": 5,
+            "unavailable": 28
+          }
+        },
+        "CS1": {
+          "count": 27,
+          "terminal_dispatch_accuracy": 0.18518518518518517,
+          "status_counts": {
+            "clarification": 20,
+            "ok": 4,
+            "unavailable": 3
+          }
+        },
+        "CS2": {
+          "count": 39,
+          "terminal_dispatch_accuracy": 0.28205128205128205,
+          "status_counts": {
+            "clarification": 28,
+            "ok": 1,
+            "unavailable": 10
+          }
+        },
+        "CS3": {
+          "count": 91,
+          "terminal_dispatch_accuracy": 0.4065934065934066,
+          "status_counts": {
+            "clarification": 54,
+            "unavailable": 37
+          }
+        },
+        "CS4": {
+          "count": 13,
+          "terminal_dispatch_accuracy": 0.15384615384615385,
+          "status_counts": {
+            "clarification": 9,
+            "unavailable": 4
+          }
+        }
+      },
+      "noise_level": {
+        "N0": {
+          "count": 172,
+          "terminal_dispatch_accuracy": 0.27325581395348836,
+          "status_counts": {
+            "clarification": 121,
+            "ok": 7,
+            "out_of_scope": 2,
+            "unavailable": 42
+          }
+        },
+        "N1": {
+          "count": 47,
+          "terminal_dispatch_accuracy": 0.2765957446808511,
+          "status_counts": {
+            "clarification": 32,
+            "ok": 3,
+            "out_of_scope": 2,
+            "unavailable": 10
+          }
+        },
+        "N2": {
+          "count": 37,
+          "terminal_dispatch_accuracy": 0.2972972972972973,
+          "status_counts": {
+            "clarification": 26,
+            "ok": 1,
+            "out_of_scope": 1,
+            "unavailable": 9
+          }
+        },
+        "N3": {
+          "count": 34,
+          "terminal_dispatch_accuracy": 0.11764705882352941,
+          "status_counts": {
+            "clarification": 30,
+            "ok": 1,
+            "unavailable": 3
+          }
+        },
+        "N4": {
+          "count": 33,
+          "terminal_dispatch_accuracy": 0.24242424242424243,
+          "status_counts": {
+            "clarification": 23,
+            "unavailable": 10
+          }
+        },
+        "N5": {
+          "count": 27,
+          "terminal_dispatch_accuracy": 0.25925925925925924,
+          "status_counts": {
+            "clarification": 19,
+            "unavailable": 8
+          }
+        }
+      }
+    }
+  },
+  "split_integrity": {
+    "stress_vs_train": {
+      "total_rows": 706,
+      "family_overlap_rows": 150,
+      "semantic_family_overlap_rows": 187,
+      "exact_query_overlap_rows": 0,
+      "any_overlap_rows": 187
+    },
+    "human_reference_vs_train": {
+      "total_rows": 350,
+      "family_overlap_rows": 129,
+      "semantic_family_overlap_rows": 160,
+      "exact_query_overlap_rows": 0,
+      "any_overlap_rows": 160
+    }
+  },
+  "limitations": [
+    "Terminal dispatch accuracy counts correct operation with ok, unavailable, or out_of_scope; it does not establish a correct transport answer.",
+    "Selected operation accuracy includes missing-slot clarifications carrying an operation; entity clarifications may carry no operation.",
+    "Clarification gold is the frozen query annotation. Canonical entity ambiguity, missing KB coverage, and conservative runtime requirements can cause additional clarifications.",
+    "The 350-row human subset is nested in stress. Both sets have train-family overlap; full scores are descriptive, not independent family-held-out estimates.",
+    "No gold domain answers or aligned canonical slot IDs are supplied by this evaluator; slot accuracy and factual answer accuracy are not claimed.",
+    "No model, extractor, dispatcher, or service tuning is permitted from this final evaluation."
+  ]
+}

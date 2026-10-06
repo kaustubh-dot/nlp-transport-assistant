@@ -1,34 +1,67 @@
-# Architecture and implemented contract
+# Production T3 architecture
 
-## Pipeline
-`normalize → classify → extract slots → SQLite lookup → Hindi response`
+The default application uses T3 Direct Dispatch with the 16 frozen labels. The earlier seven-label pipeline and T2 research code remain historical entry points.
 
-Keep the existing modules. The baseline uses word/character TF-IDF and logistic regression; the UI falls back to heuristics if weights are absent. Evaluation requires actual trained weights. MuRIL loading exists but training/comparison are deferred.
+```mermaid
+flowchart TD
+    UI[Streamlit chat] --> API[Local JSON API]
+    API --> A[T3 assistant]
+    A --> M[Frozen MuRIL inference on raw query]
+    M --> G[Clarification guard for explicit multiple goals]
+    G --> S[Canonical slot and entity extraction]
+    S --> V[Contract validation and clarification]
+    V --> D[Direct T3 operation dispatch]
+    D --> KB[Read-only canonical SQLite service]
+    KB --> R[Structured result and response text]
+    R --> API
+    API --> UI
+```
 
-## SQLite tables
-- `stations`: canonical ID, English/Hindi/Tamil names, type, coordinates.
-- `station_aliases`: alias and language/script mapped to a station.
-- `connections`: origin, destination, mode, display line description, optional travel time/distance, direct flag. Each row describes a stored journey, not a graph edge for general routing.
-- `facilities`: station and nullable 0/1 attributes for wheelchair assistance, lift, tactile paths, accessible toilet and parking.
-- `service_info`: legacy demo line-level hours/fare ranges. Retained for development; these fields cannot answer station/day/direction-specific questions and are not used to state passenger timetable or fare answers.
+## Modules and boundaries
 
-There is no separate ROUTES table, fare table, service calendar or transfer planner. Do not infer exact fares from distance or infer journeys from nearby stops. Split conflated station/terminal identities when verifying the Metro dataset.
+| Layer | Source | Contract |
+|---|---|---|
+| Model | `src/nlp_v2/model.py`, `models/nlp_v2_t3_manifest.json` | Strict checkpoint SHA, pinned MuRIL revision, fixed index order, raw query, length 64, CPU inference. Missing assets fail startup; no alternate model fallback. |
+| Extraction | `src/nlp_v2/entities.py`, `src/nlp_v2/slots.py` | Exact canonical names/curated multilingual aliases, explicit directional and temporal cues, bounded frozen enums; unknown aliases are unresolved. |
+| Validation | `src/nlp_v2/contracts.py`, `src/nlp_v2/dispatch.py` | Intent-specific slot allowlists/requirements and separate intent, entity, temporal, missing-slot and multiple-goal clarification reasons. |
+| Domain | `src/nlp_v2/domain.py` | Parameterized, read-only queries against `data/canonical/transit/canonical_transport.db`; source/provisional metadata and explicit unavailable states. |
+| Assistant | `src/nlp_v2/assistant.py` | One utterance-to-reply path. Normalized text supports extraction; model inference preserves raw multilingual input. The explicit-conjunction guard requests clarification only and never chooses a successful operation. |
+| API | `app/api.py` | `GET /health`, `POST /api/v2/query`; localhost by default, 8 KiB request bound, finite socket timeout, safe errors, no raw text/confidence/exception internals in replies. |
+| UI | `app/frontend_contract.py`, `app/streamlit_app.py` | HTTP client, reply-shape validation and structured panels; no transport computation. A clarification requires a revised full query. |
 
-## Query contract
-Intents: route_query, service_availability, service_timing, station_information, accessibility, ticketing, out_of_scope.
+The API is a single-threaded local demo server. Authentication, public hosting, conversational slot memory, speech, and translation are outside this implementation. API/model/database startup errors are visible; per-query execution failures return safe error objects.
 
-Slots: origin, destination and station use canonical IDs; transport_mode is metro/bus/suburban_rail/railway; information_type identifies the requested facility. Route/availability queries need both endpoints. Facility questions need a station and a recognized facility; unknown facilities receive an unknown response.
+## Frozen intent-to-operation behavior
 
-Normalization uses NFC and Roman case folding. Gazetteer matching uses longest aliases and fuzzy matching with cutoff 85. Two station names without directional cues use mention order. These are prototype heuristics; validate reversed phrasing, ambiguous aliases and typos on the independent acceptance set.
+| T3 intent | Operation | Current snapshot behavior |
+|---|---|---|
+| `point_to_point_route` | `PLAN_ROUTE` | Directional published stop-sequence candidates, with optional via/route/mode filters; no verified optimal-trip claim. |
+| `multimodal_route` | `PLAN_MULTIMODAL_ROUTE` | Unavailable: confirmed cross-mode transfer graph absent. |
+| `route_stop_sequence` | `LIST_ROUTE_STOPS` | Published, mode-consistent directional stop lists using route number or line name. |
+| `route_stop_membership` | `CHECK_STOP_ON_ROUTE` | Positive/negative membership in a published sequence; ambiguous physical stops require clarification. |
+| `first_and_last_service` | `GET_FIRST_LAST_SERVICE` | Published schedule bounds with station, destination, route/mode and calendar constraints. |
+| `service_frequency` | `GET_SERVICE_FREQUENCY` | Median published headway for a specific route/line; requested clock uses a two-hour window. |
+| `scheduled_departure` | `GET_SCHEDULED_DEPARTURES` | Up to five published departures at/after the requested clock, preserving destination/calendar constraints. |
+| `mode_availability` | `CHECK_SERVICE_AVAILABILITY` | Current operation unavailable; published candidate count may be supplied. |
+| `fare_calculation` | `CALCULATE_FARE` | Dated metro station-pair token records or bus stage/service-class records. Unsupported concession/ticket rules are unavailable. |
+| `ticketing_and_passes` | `GET_TICKETING_POLICY` | Unavailable: authoritative policy table absent. |
+| `station_facilities` | `GET_STATION_FACILITY` | Unavailable: facility availability is unverified in the current snapshot. |
+| `station_accessibility` | `GET_ACCESSIBILITY_INFO` | Nullable feature records; current snapshot has no affirmative verified coverage. |
+| `interchange_transfer` | `GET_INTERCHANGE_DETAILS` | Only confirmed transfer rows; current interchanges are unconfirmed. |
+| `nearest_transport` | `FIND_NEAREST_STATION` | Mode-specific geometric distance from a recognized place. MRTS and suburban rail remain distinct; walking access/current operation are unverified. |
+| `realtime_status_query` | `REJECT_UNSUPPORTED_REALTIME` | Explicit live-data unavailable response. |
+| `out_of_scope` | `REJECT_OUT_OF_SCOPE` | Explicit rejection without domain lookup. |
 
-## Response rules
-- Demo responses about records carry an unverified-data warning, including old/custom databases until a verified-data release is implemented.
-- Route lookup uses stored pairs only. Missing pair means no recorded answer, never proof of no service.
-- Availability distinguishes direct records from recorded journeys requiring changes.
-- Facilities check only the requested column: 1, 0, or unknown. A wheelchair does not imply a ramp; a lift does not imply an escalator. No live working-status claim.
-- Station information returns recorded identity only; it does not invent amenities.
-- Timetables and ticketing remain unsupported even when legacy line-level demo rows exist.
-- Clarification is single-turn: users resubmit a complete question. Live status is unsupported.
+## Temporal and entity semantics
 
-## Evaluation
-Authored template-family IDs keep related Hindi/Hinglish patterns in one split. Fractions are approximate for small inventories. Deduplicate query text; verify family/query disjointness before training/evaluation. Synthetic slot hints are not benchmark gold. Report intent classification and language breakdown on held-out families; independent reviewed cases are required for factual end-to-end results. See PRD.md for release targets.
+Canonical IDs pass between backend layers. Explicit source prepositions/postpositions determine journey direction; otherwise mention order is used. Mode and route context can disambiguate matching nodes, but cannot remove an explicitly identified incompatible/off-route stop and silently widen the query. The snapshot has duplicate Central hubs and unverified hub memberships, which can cause conservative clarifications or provisional route candidates.
+
+`08:00`, `08:00:30`, and explicit AM/PM clocks normalize deterministically. Bare `8 baje`/`8:00 baje` retain AM/PM alternatives. Invalid parsed clocks/dates request clarification. Unresolved `kal`/`परसों` also request clarification. Scheduling resolves today/tomorrow/yesterday using Chennai's Asia/Kolkata date per request, or an injected fixed reference date in evaluation. GTFS output can exceed 24:00; this is service-day notation.
+
+## Evaluation and governance
+
+Model selection used validation only. Existing frozen train/validation data share families; the replacement trainer excludes overlapping validation rows without altering source CSVs. Frozen stress/reference sets also share train families, and the human subset is nested in stress. Reports disclose those integrity limitations.
+
+The selected model was frozen before model-only evaluation. The complete assistant was frozen at `b9b2271b1761d08752786f22b558862f45ed1dac` before the final aggregate assistant run. Reports distinguish model accuracy, selected operation, actual terminal dispatch, status counts, and clarification behavior. They do not claim slot or factual-answer accuracy. The final assistant run did not trigger product/model tuning.
+
+Use the [runbook](docs/nlp_v2/production_runbook.md) for asset preparation, startup, tests, safe training, and demo steps. Historical evidence remains in the existing Gate B.2/B.3 directories.
