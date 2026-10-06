@@ -17,8 +17,8 @@ Verifies Section 56 and Pre-Annotation Hardening requirements:
 14. End-to-end analysis orchestration blocked before lock
 15. Annotation-start QA gatekeeper logic (blocked when PENDING, passes when frozen)
 16. Guide examples have zero overlap with blind set
-17. Model annotator configs remain PENDING
-18. Taxonomy decision remains PENDING
+17. Frozen model annotator configuration and historical authorization evidence
+18. Closed T3 taxonomy decision and locked MODEL_G outputs
 19. Bootstrap interpretation note exists with clarified wording
 20. Annotation-start QA model version and revision provenance enforcement
 21. Annotation-start QA methodology artifact hash drift detection
@@ -70,6 +70,44 @@ def test_source_350_file_unchanged():
     with open(SOURCE_BLIND_CSV, "r", encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
     assert len(rows) == 350, f"Source blind row count != 350: {len(rows)}"
+
+
+def assert_closed_manifest(manifest):
+    """Current lifecycle contract after the MODEL_G-only study was completed."""
+    assert manifest["gate_b3_status"] == "CLOSED"
+    assert manifest["taxonomy_decision_status"] == "FROZEN"
+    assert manifest["selected_taxonomy"] == "T3"
+    assert manifest["selected_taxonomy_class_count"] == 16
+    assert manifest["annotation_started"] is True
+    assert manifest["first_pass_locked"] is True
+    assert manifest["reference_join_enabled"] is True
+    assert manifest["gold_boundary_audit_started"] is False
+    assert manifest["student_annotation_outputs_included"] is False
+
+
+def assert_locked_model_outputs():
+    """Revalidate frozen output bytes without rerunning the annotation campaign."""
+    with open(os.path.join(GATE_B3_DIR, "first_pass_lock_manifest.json"), encoding="utf-8") as stream:
+        lock = json.load(stream)
+    assert lock["lock_status"] == "LOCKED"
+    expected = {"model_g_t2_annotations.jsonl", "model_g_t3_annotations.jsonl"}
+    assert set(lock["files"]) == expected
+    assert {os.path.basename(path) for path in glob.glob(os.path.join(GATE_B3_DIR, "*_annotations.jsonl"))} == expected
+    for name, entry in lock["files"].items():
+        assert compute_sha256(os.path.join(GATE_B3_DIR, name)) == entry["sha256"]
+        assert entry["record_count"] == entry["unique_id_count"] == 350
+
+
+@pytest.fixture
+def preexecution_manifest(tmp_path):
+    """Synthetic lifecycle input for gatekeeper unit tests; never edit the real manifest."""
+    path = tmp_path / "preexecution_manifest.json"
+    path.write_text(json.dumps({
+        "annotation_started": False,
+        "first_pass_locked": False,
+        "reference_join_enabled": False,
+    }), encoding="utf-8")
+    return str(path)
 
 
 def test_student_order_assignment_deterministic_and_half_split():
@@ -230,7 +268,8 @@ def test_semantic_validation_student_burden_and_invariants():
     """Verify semantic validation rules in lock_first_pass_annotations."""
     from scripts.nlp_v2.gate_b3.lock_first_pass_annotations import validate_record_semantics, EXPECTED_OUTPUT_SPECS
 
-    student_spec = EXPECTED_OUTPUT_SPECS["student_t2_annotations.jsonl"]
+    # Student validation remains supported, although its campaign arm is retired.
+    student_spec = {"source_id": "STUDENT_R1", "source_type": "student", "taxonomy_version": "T2"}
     model_spec = EXPECTED_OUTPUT_SPECS["model_g_t2_annotations.jsonl"]
 
     base_rec = {
@@ -384,18 +423,18 @@ def test_analysis_orchestration_fails_before_lock():
         run_full_analysis_pipeline()
 
 
-def test_annotation_start_qa_status_ready_for_execution():
-    """Verify qa_gate_b3_annotation_start returns READY FOR ANNOTATION EXECUTION when MODEL_G is authorized."""
+def test_annotation_start_qa_blocks_reexecution_of_closed_study():
+    """The pre-execution gate must refuse the completed canonical study."""
     import subprocess
     proc = subprocess.run(
         [sys.executable, "scripts/nlp_v2/gate_b3/qa_gate_b3_annotation_start.py"],
         capture_output=True,
         text=True
     )
-    assert proc.returncode == 0
-    assert "STATUS: READY FOR ANNOTATION EXECUTION" in proc.stdout
-    assert "Reason(s) Blocked" not in proc.stdout
-    assert "All model configurations and prompt hashes verified frozen." in proc.stdout
+    assert proc.returncode == 1
+    assert "annotation_started must be false before official start" in proc.stdout
+    assert "first_pass_locked must be false before annotation start" in proc.stdout
+    assert "reference_join_enabled must be false before annotation start" in proc.stdout
 
 
 def test_guide_examples_zero_overlap_with_blind_set():
@@ -468,7 +507,7 @@ def test_model_annotator_configs_frozen_and_amendment_status():
     assert m_g["execution_isolation_verified"] is True
     assert m_g["synthetic_smoke_test_passed"] is True
     assert m_g["benchmark_execution_authorized"] is True
-    assert m_g["execution_timestamp"] is None
+    assert m_g["execution_timestamp"] == "2026-09-22T17:27:56Z"
     assert m_g["retry_policy"] == expected_retry_policy
 
     # MODEL_A checks (Historical aborted execution)
@@ -490,19 +529,17 @@ def test_model_annotator_configs_frozen_and_amendment_status():
     assert m_b["benchmark_execution_authorized"] is False
 
 
-def test_taxonomy_decision_remains_pending():
-    """Verify taxonomy decision remains PENDING in manifest and report."""
+def test_taxonomy_decision_is_closed_and_frozen():
+    """Verify the current manifest records the frozen 16-class T3 decision."""
     manifest_path = os.path.join(GATE_B3_DIR, "gate_b3_annotation_manifest.json")
     with open(manifest_path, "r", encoding="utf-8") as f:
         m = json.load(f)
-    assert m["taxonomy_decision_status"] == "PENDING"
-    assert m["annotation_started"] is False
-    assert m["first_pass_locked"] is False
+    assert_closed_manifest(m)
 
-    doc_path = os.path.join(REPORTS_B3_DIR, "TAXONOMY_B3_DECISION_REQUIRED.md")
+    doc_path = os.path.join(BASE_DIR, m["decision_report_path"])
     with open(doc_path, "r", encoding="utf-8") as f:
         content = f.read()
-    assert "GATE B.3 TAXONOMY DECISION: PENDING" in content
+    assert "T3" in content and "16" in content
 
 
 def test_bootstrap_interpretation_note_exists():
@@ -623,7 +660,7 @@ def _create_valid_frozen_mock_config() -> dict:
     return cfg
 
 
-def test_annotation_start_qa_model_version_checks(tmp_path):
+def test_annotation_start_qa_model_version_checks(tmp_path, preexecution_manifest):
     """Verify version enforcement and exact revision provenance checks for frozen models."""
     from scripts.nlp_v2.gate_b3.qa_gate_b3_annotation_start import evaluate_annotation_start_readiness
 
@@ -633,7 +670,7 @@ def test_annotation_start_qa_model_version_checks(tmp_path):
     # Baseline: valid mock configuration passes
     with open(cfg_file, "w", encoding="utf-8") as f:
         json.dump(cfg, f)
-    is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+    is_ready, reasons = evaluate_annotation_start_readiness(manifest_path=preexecution_manifest, configs_path=str(cfg_file))
     assert is_ready is True, f"Valid baseline unexpectedly failed: {reasons}"
     assert len(reasons) == 0
 
@@ -642,7 +679,7 @@ def test_annotation_start_qa_model_version_checks(tmp_path):
     cfg1["MODEL_G"]["version"] = "PENDING"
     with open(cfg_file, "w", encoding="utf-8") as f:
         json.dump(cfg1, f)
-    is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+    is_ready, reasons = evaluate_annotation_start_readiness(manifest_path=preexecution_manifest, configs_path=str(cfg_file))
     assert is_ready is False
     assert any("MODEL_G version remains PENDING" in r for r in reasons)
 
@@ -651,7 +688,7 @@ def test_annotation_start_qa_model_version_checks(tmp_path):
     cfg2["MODEL_G"]["version"] = ""
     with open(cfg_file, "w", encoding="utf-8") as f:
         json.dump(cfg2, f)
-    is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+    is_ready, reasons = evaluate_annotation_start_readiness(manifest_path=preexecution_manifest, configs_path=str(cfg_file))
     assert is_ready is False
     assert any("MODEL_G version remains PENDING or empty" in r for r in reasons)
 
@@ -661,7 +698,7 @@ def test_annotation_start_qa_model_version_checks(tmp_path):
         cfg3["MODEL_G"]["exact_version_or_revision"] = invalid_rev
         with open(cfg_file, "w", encoding="utf-8") as f:
             json.dump(cfg3, f)
-        is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+        is_ready, reasons = evaluate_annotation_start_readiness(manifest_path=preexecution_manifest, configs_path=str(cfg_file))
         assert is_ready is False
         assert any("MODEL_G exact_version_or_revision must be provided when frozen" in r for r in reasons)
 
@@ -678,7 +715,7 @@ def test_annotation_start_qa_model_version_checks(tmp_path):
     )
     with open(cfg_file, "w", encoding="utf-8") as f:
         json.dump(cfg4, f)
-    is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+    is_ready, reasons = evaluate_annotation_start_readiness(manifest_path=preexecution_manifest, configs_path=str(cfg_file))
     assert is_ready is True, f"NOT_EXPOSED_BY_PROVIDER was rejected: {reasons}"
     assert len(reasons) == 0
 
@@ -688,12 +725,12 @@ def test_annotation_start_qa_model_version_checks(tmp_path):
         cfg5["MODEL_G"]["execution_model_selector"] = invalid_sel
         with open(cfg_file, "w", encoding="utf-8") as f:
             json.dump(cfg5, f)
-        is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+        is_ready, reasons = evaluate_annotation_start_readiness(manifest_path=preexecution_manifest, configs_path=str(cfg_file))
         assert is_ready is False
         assert any("MODEL_G execution_model_selector remains PENDING or empty" in r for r in reasons)
 
 
-def test_annotation_start_qa_methodology_hash_drift(tmp_path):
+def test_annotation_start_qa_methodology_hash_drift(tmp_path, preexecution_manifest):
     """Verify stored methodology hash matches pass and mismatches trigger FROZEN_ANNOTATION_CONFIGURATION_DRIFT."""
     from scripts.nlp_v2.gate_b3.qa_gate_b3_annotation_start import evaluate_annotation_start_readiness
 
@@ -703,7 +740,7 @@ def test_annotation_start_qa_methodology_hash_drift(tmp_path):
     cfg = _create_valid_frozen_mock_config()
     with open(cfg_file, "w", encoding="utf-8") as f:
         json.dump(cfg, f)
-    is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+    is_ready, reasons = evaluate_annotation_start_readiness(manifest_path=preexecution_manifest, configs_path=str(cfg_file))
     assert is_ready is True
 
     # Test drift for all methodology artifacts
@@ -722,7 +759,7 @@ def test_annotation_start_qa_methodology_hash_drift(tmp_path):
         with open(cfg_file, "w", encoding="utf-8") as f:
             json.dump(corrupted_cfg, f)
 
-        is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+        is_ready, reasons = evaluate_annotation_start_readiness(manifest_path=preexecution_manifest, configs_path=str(cfg_file))
         assert is_ready is False
         assert any(
             f"FROZEN_ANNOTATION_CONFIGURATION_DRIFT: {artifact_filename} drifted!" in r
@@ -730,7 +767,7 @@ def test_annotation_start_qa_methodology_hash_drift(tmp_path):
         ), f"Failed to report drift for {artifact_filename} in reasons: {reasons}"
 
 
-def test_annotation_start_qa_configuration_sha_requirement(tmp_path):
+def test_annotation_start_qa_configuration_sha_requirement(tmp_path, preexecution_manifest):
     """Verify configuration_sha256 is required when configuration_frozen is True."""
     from scripts.nlp_v2.gate_b3.qa_gate_b3_annotation_start import evaluate_annotation_start_readiness
 
@@ -741,7 +778,7 @@ def test_annotation_start_qa_configuration_sha_requirement(tmp_path):
     del cfg_global_missing["configuration_sha256"]
     with open(cfg_file, "w", encoding="utf-8") as f:
         json.dump(cfg_global_missing, f)
-    is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+    is_ready, reasons = evaluate_annotation_start_readiness(manifest_path=preexecution_manifest, configs_path=str(cfg_file))
     assert is_ready is False
     assert any("Global configuration_sha256 missing while configuration_frozen is True" in r for r in reasons)
 
@@ -750,7 +787,7 @@ def test_annotation_start_qa_configuration_sha_requirement(tmp_path):
     del cfg_model_missing["MODEL_G"]["configuration_sha256"]
     with open(cfg_file, "w", encoding="utf-8") as f:
         json.dump(cfg_model_missing, f)
-    is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+    is_ready, reasons = evaluate_annotation_start_readiness(manifest_path=preexecution_manifest, configs_path=str(cfg_file))
     assert is_ready is False
     assert any("MODEL_G configuration_sha256 missing while configuration_frozen is True" in r for r in reasons)
 
@@ -799,7 +836,7 @@ def test_canonical_configuration_hash_recomputation():
     assert cfg["MODEL_G"]["historical_preflight_configuration_sha256"] == "d4a359b72779ec15f42ffa0ba72beb57ff20ff765de901783082caee0deda1dd"
 
 
-def test_mutation_of_frozen_model_field_triggers_drift(tmp_path):
+def test_mutation_of_frozen_model_field_triggers_drift(tmp_path, preexecution_manifest):
     """Verify modifying any frozen semantic field triggers FROZEN_MODEL_CONFIGURATION_DRIFT."""
     from scripts.nlp_v2.gate_b3.qa_gate_b3_annotation_start import evaluate_annotation_start_readiness
 
@@ -810,7 +847,7 @@ def test_mutation_of_frozen_model_field_triggers_drift(tmp_path):
     cfg1["MODEL_G"]["model"] = "Gemini-altered"
     with open(cfg_file, "w", encoding="utf-8") as f:
         json.dump(cfg1, f)
-    is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+    is_ready, reasons = evaluate_annotation_start_readiness(manifest_path=preexecution_manifest, configs_path=str(cfg_file))
     assert is_ready is False
     assert any("FROZEN_MODEL_CONFIGURATION_DRIFT: MODEL_G configuration drifted!" in r for r in reasons)
 
@@ -819,7 +856,7 @@ def test_mutation_of_frozen_model_field_triggers_drift(tmp_path):
     cfg_sel["MODEL_G"]["execution_model_selector"] = "gemini-3.8-flash-low"
     with open(cfg_file, "w", encoding="utf-8") as f:
         json.dump(cfg_sel, f)
-    is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+    is_ready, reasons = evaluate_annotation_start_readiness(manifest_path=preexecution_manifest, configs_path=str(cfg_file))
     assert is_ready is False
     assert any("FROZEN_MODEL_CONFIGURATION_DRIFT: MODEL_G configuration drifted!" in r for r in reasons)
 
@@ -828,7 +865,7 @@ def test_mutation_of_frozen_model_field_triggers_drift(tmp_path):
     cfg2["MODEL_G"]["reasoning_configuration"] = {"mode": "unfrozen_altered_mode"}
     with open(cfg_file, "w", encoding="utf-8") as f:
         json.dump(cfg2, f)
-    is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+    is_ready, reasons = evaluate_annotation_start_readiness(manifest_path=preexecution_manifest, configs_path=str(cfg_file))
     assert is_ready is False
     assert any("FROZEN_MODEL_CONFIGURATION_DRIFT: MODEL_G configuration drifted!" in r for r in reasons)
 
@@ -837,7 +874,7 @@ def test_mutation_of_frozen_model_field_triggers_drift(tmp_path):
     cfg3["configuration_sha256"] = "bad0000000000000000000000000000000000000000000000000000000000bad"
     with open(cfg_file, "w", encoding="utf-8") as f:
         json.dump(cfg3, f)
-    is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+    is_ready, reasons = evaluate_annotation_start_readiness(manifest_path=preexecution_manifest, configs_path=str(cfg_file))
     assert is_ready is False
     assert any("FROZEN_MODEL_CONFIGURATION_DRIFT: Global configuration drifted!" in r for r in reasons)
 
@@ -854,7 +891,7 @@ def test_mutation_of_frozen_model_field_triggers_drift(tmp_path):
         cfg_r["MODEL_G"]["retry_policy"][field_name] = bad_value
         with open(cfg_file, "w", encoding="utf-8") as f:
             json.dump(cfg_r, f)
-        is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(cfg_file))
+        is_ready, reasons = evaluate_annotation_start_readiness(manifest_path=preexecution_manifest, configs_path=str(cfg_file))
         assert is_ready is False
         assert any("FROZEN_MODEL_CONFIGURATION_DRIFT: MODEL_G configuration drifted!" in r for r in reasons)
 
@@ -985,11 +1022,9 @@ def test_sanitized_execution_manifests_contain_no_prohibited_content():
     assert "OpenAI" not in text_b
 
 
-def test_no_annotation_result_files_exist():
-    """Verify zero annotation result files exist before authorized execution."""
-    import glob
-    ann_files = glob.glob(os.path.join(GATE_B3_DIR, "*_annotations.jsonl"))
-    assert len(ann_files) == 0, f"Annotation output files found before execution: {ann_files}"
+def test_completed_annotation_result_files_match_lock():
+    """Verify the completed MODEL_G-only campaign remains bitwise locked."""
+    assert_locked_model_outputs()
 
 
 def test_frozen_b2_and_v1_artifacts_unchanged():
@@ -1065,7 +1100,7 @@ def test_transfer_guide_manifest_checksum_separation():
     assert "command executions observed = 0" in guide_text.lower()
 
 
-def test_execution_isolation_amendment_19_requirements(tmp_path):
+def test_execution_isolation_amendment_19_requirements(tmp_path, preexecution_manifest):
     """Explicit automated coverage for all 19 Gate B.3 execution-isolation amendment requirements."""
     from scripts.nlp_v2.gate_b3.qa_gate_b3_annotation_start import (
         evaluate_annotation_start_readiness,
@@ -1098,7 +1133,7 @@ def test_execution_isolation_amendment_19_requirements(tmp_path):
     drift_file = tmp_path / "drift_test.json"
     with open(drift_file, "w", encoding="utf-8") as f:
         json.dump(cfg_drift, f)
-    is_ready, reasons = evaluate_annotation_start_readiness(configs_path=str(drift_file))
+    is_ready, reasons = evaluate_annotation_start_readiness(manifest_path=preexecution_manifest, configs_path=str(drift_file))
     assert is_ready is False, "Requirement 4: mutation must trigger failure"
     assert any("FROZEN_ANNOTATION_CONFIGURATION_DRIFT" in r or "FROZEN_MODEL_CONFIGURATION_DRIFT" in r for r in reasons)
 
@@ -1133,9 +1168,8 @@ def test_execution_isolation_amendment_19_requirements(tmp_path):
     # 13. benchmark authorization verified True
     assert cfg["MODEL_G"]["benchmark_execution_authorized"] is True, "Requirement 13: benchmark_execution_authorized != True"
 
-    # 14. no annotation output files
-    ann_files = glob.glob(os.path.join(GATE_B3_DIR, "*_annotations.jsonl"))
-    assert len(ann_files) == 0, f"Requirement 14: annotation output files found: {ann_files}"
+    # 14. Completed outputs match the post-execution lock.
+    assert_locked_model_outputs()
 
     # 15. source blind unchanged
     assert compute_sha256(SOURCE_BLIND_CSV) == EXPECTED_SOURCE_SHA256, "Requirement 15: source blind hash changed"
@@ -1208,11 +1242,7 @@ def test_model_execution_readiness_recorded():
 
     assert ann_m["primary_model_source_id"] == "MODEL_G"
     assert ann_m["model_g_execution_ready"] is True
-    assert ann_m["annotation_started"] is False
-    assert ann_m["reference_join_enabled"] is False
-    assert ann_m["first_pass_locked"] is False
-    assert ann_m["gold_boundary_audit_started"] is False
-    assert ann_m["taxonomy_decision_status"] == "PENDING"
+    assert_closed_manifest(ann_m)
     assert ann_m["retired_primary_model_sources"] == ["MODEL_A", "MODEL_B"]
 
     # Execution manifest for MODEL_G
@@ -1260,7 +1290,7 @@ def test_gate_b3_benchmark_execution_authorization_recorded():
     assert cfg["MODEL_A"]["benchmark_execution_authorized"] is False
     assert cfg["MODEL_B"]["benchmark_execution_authorized"] is False
     assert cfg["MODEL_G"]["benchmark_execution_authorized"] is True
-    assert cfg["MODEL_G"]["execution_timestamp"] is None
+    assert cfg["MODEL_G"]["execution_timestamp"] == "2026-09-22T17:27:56Z"
 
     assert cfg["MODEL_G"]["configuration_sha256"] == "128e0736aa4a259d48b0c078d242212b71932a73f0af726fa2a14e0ad2f08d9c"
     assert cfg["MODEL_G"]["historical_preflight_configuration_sha256"] == "d4a359b72779ec15f42ffa0ba72beb57ff20ff765de901783082caee0deda1dd"
@@ -1276,15 +1306,10 @@ def test_gate_b3_benchmark_execution_authorization_recorded():
     ann_manifest_path = os.path.join(GATE_B3_DIR, "gate_b3_annotation_manifest.json")
     with open(ann_manifest_path, "r", encoding="utf-8") as f:
         ann_m = json.load(f)
-    assert ann_m["annotation_started"] is False
-    assert ann_m["reference_join_enabled"] is False
-    assert ann_m["first_pass_locked"] is False
-    assert ann_m["gold_boundary_audit_started"] is False
-    assert ann_m["taxonomy_decision_status"] == "PENDING"
+    assert_closed_manifest(ann_m)
 
-    # Annotation output files count == 0
-    ann_files = glob.glob(os.path.join(GATE_B3_DIR, "*_annotations.jsonl"))
-    assert len(ann_files) == 0, f"Annotation output files found: {ann_files}"
+    # Current annotation outputs remain locked.
+    assert_locked_model_outputs()
 
 
 def test_resource_feasibility_amendment_all_30_requirements():
@@ -1434,24 +1459,9 @@ def test_resource_feasibility_amendment_all_30_requirements():
     assert cfg["MODEL_G"]["benchmark_execution_authorized"] is True, "Req 23: benchmark_execution_authorized != True in config"
     assert man_g["benchmark_execution_authorized"] is True, "Req 23: benchmark_execution_authorized != True in manifest"
 
-    # 24. annotation_started=false
-    assert ann_m["annotation_started"] is False, "Req 24: annotation_started != False"
-
-    # 25. first_pass_locked=false
-    assert ann_m["first_pass_locked"] is False, "Req 25: first_pass_locked != False"
-
-    # 26. reference_join_enabled=false
-    assert ann_m["reference_join_enabled"] is False, "Req 26: reference_join_enabled != False"
-
-    # 27. gold audit not started
-    assert ann_m["gold_boundary_audit_started"] is False, "Req 27: gold_boundary_audit_started != False"
-
-    # 28. taxonomy decision=PENDING
-    assert ann_m["taxonomy_decision_status"] == "PENDING", "Req 28: taxonomy_decision_status != PENDING"
-
-    # 29. no final MODEL_G annotation outputs exist
-    g_out_files = glob.glob(os.path.join(GATE_B3_DIR, "model_g_*_annotations.jsonl"))
-    assert len(g_out_files) == 0, f"Req 29: Final MODEL_G annotation outputs exist: {g_out_files}"
+    # 24–29. The later post-execution amendment closed and locked the study.
+    assert_closed_manifest(ann_m)
+    assert_locked_model_outputs()
 
     # 30. partial Astra annotations are not referenced as active primary input
     assert cfg["MODEL_A"]["primary_analysis_included"] is False, "Req 30: MODEL_A marked included in primary analysis"
@@ -1598,15 +1608,13 @@ def test_amended_design_hardening_all_22_requirements(tmp_path, monkeypatch):
     }
     assert man_g.get("retry_policy") == expected_retry_policy, "Req 14: MODEL_G manifest retry_policy mismatch"
 
-    # 15. lock script documents four active outputs
+    # 15. Post-execution retirement leaves only two active MODEL_G outputs.
     lock_script_path = os.path.join(BASE_DIR, "scripts", "nlp_v2", "gate_b3", "lock_first_pass_annotations.py")
     with open(lock_script_path, "r", encoding="utf-8") as f:
         lock_code = f.read()
     assert "all six outputs" not in lock_code, "Req 15: Stale 'six outputs' found in lock script"
-    assert "all four active primary outputs" in lock_code, "Req 15: Missing 'four active primary outputs' in lock docstring"
+    assert "both active MODEL_G outputs" in lock_code
     assert set(EXPECTED_OUTPUT_SPECS.keys()) == {
-        "student_t2_annotations.jsonl",
-        "student_t3_annotations.jsonl",
         "model_g_t2_annotations.jsonl",
         "model_g_t3_annotations.jsonl",
     }, "Req 15: EXPECTED_OUTPUT_SPECS keys mismatch"
@@ -1629,9 +1637,8 @@ def test_amended_design_hardening_all_22_requirements(tmp_path, monkeypatch):
     assert man_g["benchmark_execution_authorized"] is True, "Req 18: manifest benchmark_execution_authorized != True"
     assert ann_m["model_g_execution_ready"] is True, "Req 18: ann_m model_g_execution_ready != True"
 
-    # 19. no MODEL_G annotations exist
-    g_anns = glob.glob(os.path.join(GATE_B3_DIR, "model_g_*_annotations.jsonl"))
-    assert len(g_anns) == 0, f"Req 19: Unexpected MODEL_G annotation files found: {g_anns}"
+    # 19. Completed MODEL_G annotations remain frozen.
+    assert_locked_model_outputs()
 
     # 20. source blind SHA unchanged
     assert compute_sha256(SOURCE_BLIND_CSV) == "94fd8bb3e7f2e3bdaf274c4ee5bcf7e083e9ef2a66322fbcf7bee2cadf231999", "Req 20: source blind SHA changed"
@@ -1660,13 +1667,11 @@ def test_lock_first_pass_separate_from_reference_join_authorization(tmp_path, mo
         EXPECTED_OUTPUT_SPECS,
     )
 
-    # 1. Verify canonical pre-annotation manifest remains locked=False and reference_join=False
+    # 1. Verify the canonical completed study; use a separate mock for locking.
     ann_manifest_path = os.path.join(GATE_B3_DIR, "gate_b3_annotation_manifest.json")
     with open(ann_manifest_path, "r", encoding="utf-8") as f:
         canonical_m = json.load(f)
-    assert canonical_m["first_pass_locked"] is False
-    assert canonical_m["reference_join_enabled"] is False
-    assert canonical_m["gold_boundary_audit_started"] is False
+    assert_closed_manifest(canonical_m)
 
     # 2. Setup synthetic valid annotation files in tmp_path
     mock_b3_dir = tmp_path / "mock_gate_b3"
@@ -1793,7 +1798,6 @@ def test_lock_first_pass_separate_from_reference_join_authorization(tmp_path, mo
     assert cfg["configuration_sha256"] == expected_active_global_sha
     assert compute_sha256(amendment_doc) == expected_amendment_sha
     assert compute_sha256(man_g_file) == expected_man_g_file_sha
-
 
 
 

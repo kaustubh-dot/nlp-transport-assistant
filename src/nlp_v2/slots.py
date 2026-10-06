@@ -49,6 +49,19 @@ PREFERENCES = {
     "direct_only": ("direct only", "सीधा"),
 }
 LINE_NAMES = ("Blue Line", "Green Line", "Corridor 1", "Corridor 2", "MRTS", "North Line", "South Line", "West Line")
+SERVICE_TYPES = {
+    "Ordinary Services": ("ordinary", "साधारण"),
+    "Express Services": ("express", "एक्सप्रेस"),
+    "Deluxe Services": ("deluxe", "डीलक्स"),
+    "Night Services": ("night service", "night bus", "रात्रि बस"),
+    "Air Conditioned Services": ("air conditioned", "ac bus", "एसी बस", "वातानुकूलित"),
+}
+FARE_TYPES = {
+    "concession": ("concession", "concessional", "रियायती", "रियायत"),
+    "pass_fare": ("pass fare", "पास किराया"),
+    "stage_fare": ("stage fare", "स्टेज किराया"),
+    "distance_fare": ("distance fare", "दूरी किराया"),
+}
 
 
 @dataclass(frozen=True)
@@ -67,9 +80,19 @@ def _has(text: str, phrase: str) -> bool:
 
 def _enum(text: str, vocabulary: dict[str, tuple[str, ...]]) -> str | None:
     for value, aliases in vocabulary.items():
-        if any(_has(text, alias) for alias in aliases):
+        if any(_has(text, alias) for alias in (value, *aliases)):
             return value
     return None
+
+
+def _endpoints(text: str, spans: list[EntitySpan]) -> tuple[EntitySpan, EntitySpan]:
+    """Use explicit source prepositions/postpositions before mention order."""
+    first, last = spans[0], spans[-1]
+    source_before = r"(?:from|से|se)\s*$"
+    source_after = r"\s*(?:से|se)(?!\w)"
+    first_source = bool(re.search(source_before, text[:first.start]) or re.match(source_after, text[first.end:last.start]))
+    last_source = bool(re.search(source_before, text[first.end:last.start]) or re.match(source_after, text[last.end:]))
+    return (last, first) if last_source and not first_source else (first, last)
 
 
 def _route_number(query: str) -> str | None:
@@ -90,34 +113,43 @@ def _route_number(query: str) -> str | None:
 
 def _time(query: str) -> str | list[str] | None:
     text = unicodedata.normalize("NFKC", query).lower()
-    explicit = re.search(r"(?<!\d)(\d{1,2})(?::(\d{2}))?\s*(am|pm)(?!\w)", text)
+    explicit = re.search(r"(?<![\d:.])(\d{1,2})(?:[:.](\d{2})(?::(\d{2}))?)?\s*(am|pm)(?!\w)", text)
     if explicit:
         hour, minute = int(explicit.group(1)), int(explicit.group(2) or 0)
-        if 1 <= hour <= 12 and minute < 60:
-            return f"{hour % 12 + (12 if explicit.group(3) == 'pm' else 0):02d}:{minute:02d}:00"
-    twenty_four = re.search(r"(?<!\d)(\d{1,2}):(\d{2})(?!\d)", text)
-    if twenty_four:
-        hour, minute = int(twenty_four.group(1)), int(twenty_four.group(2))
-        if hour < 24 and minute < 60:
-            return f"{hour:02d}:{minute:02d}:00"
-    colloquial = re.search(r"(?<!\d)(\d{1,2})\s*(?:baje|बजे|o['’]?clock)(?!\w)", text)
+        second = int(explicit.group(3) or 0)
+        if 1 <= hour <= 12 and minute < 60 and second < 60:
+            return f"{hour % 12 + (12 if explicit.group(4) == 'pm' else 0):02d}:{minute:02d}:{second:02d}"
+        return None
+    colloquial = re.search(r"(?<![\d:.])(\d{1,2})(?:[:.](\d{2})(?::(\d{2}))?)?\s*(?:baje|बजे|o['’]?clock)(?!\w)", text)
     if colloquial:
         hour = int(colloquial.group(1))
-        if not 1 <= hour <= 12:
+        minute = int(colloquial.group(2) or 0)
+        second = int(colloquial.group(3) or 0)
+        if minute >= 60 or second >= 60 or not 1 <= hour <= 23:
             return None
+        def stamp(value: int) -> str:
+            return f"{value:02d}:{minute:02d}:{second:02d}"
+        if hour > 12:
+            return stamp(hour)
         if re.search(r"raat|रात", text):
             if hour == 12:
-                return "00:00:00"
+                return stamp(0)
             if hour <= 4:
-                return f"{hour:02d}:00:00"
+                return stamp(hour)
             if hour <= 7:
-                return [f"{hour:02d}:00:00", f"{hour + 12:02d}:00:00"]
-            return f"{hour + 12:02d}:00:00"
+                return [stamp(hour), stamp(hour + 12)]
+            return stamp(hour + 12)
         if re.search(r"shaam|शाम|dopahar|दोपहर", text):
-            return f"{hour % 12 + 12:02d}:00:00"
+            return stamp(hour % 12 + 12)
         if re.search(r"subah|सुबह", text):
-            return f"{hour % 12:02d}:00:00"
-        return [f"{hour % 12:02d}:00:00", f"{hour % 12 + 12:02d}:00:00"]
+            return stamp(hour % 12)
+        return [stamp(hour % 12), stamp(hour % 12 + 12)]
+    twenty_four = re.search(r"(?<![\d:.])(\d{1,2}):(\d{2})(?::(\d{2}))?(?![\d:])", text)
+    if twenty_four:
+        hour, minute = int(twenty_four.group(1)), int(twenty_four.group(2))
+        second = int(twenty_four.group(3) or 0)
+        if hour < 24 and minute < 60 and second < 60:
+            return f"{hour:02d}:{minute:02d}:{second:02d}"
     return None
 
 
@@ -133,6 +165,7 @@ class T3SlotExtractor:
         slots: dict[str, object] = {}
         spans = self.resolver.find_spans(query)
         unresolved: list[Resolution] = []
+        invalid_temporal = False
 
         mode_hits = []
         for mode, pattern in MODE_PATTERNS.items():
@@ -178,6 +211,10 @@ class T3SlotExtractor:
             if ticket:
                 slots["ticket_type"] = ticket
         if intent == "fare_calculation":
+            for name, vocabulary in (("service_type", SERVICE_TYPES), ("fare_type", FARE_TYPES)):
+                value = _enum(normalized, vocabulary)
+                if value:
+                    slots[name] = value
             stage = re.search(r"(?<!\w)(?:stage|स्टेज)\s*(\d{1,2})(?!\w)", normalized)
             if stage and 1 <= int(stage.group(1)) <= 30:
                 slots["stage_number"] = int(stage.group(1))
@@ -186,6 +223,8 @@ class T3SlotExtractor:
             clock = _time(query)
             if clock:
                 slots["time"] = clock
+            elif re.search(r"\d{1,2}[:.]\d{2}|\d{1,2}\s*(?:am|pm|baje|बजे)", query, re.IGNORECASE):
+                invalid_temporal = True
         if intent in {"first_and_last_service", "service_frequency", "scheduled_departure", "point_to_point_route", "multimodal_route", "mode_availability", "realtime_status_query"}:
             date_match = re.search(r"(?<!\d)\d{4}-\d{2}-\d{2}(?!\d)", query)
             if date_match:
@@ -193,8 +232,8 @@ class T3SlotExtractor:
                     calendar_date.fromisoformat(date_match.group())
                     slots["date"] = date_match.group()
                 except ValueError:
-                    pass
-            for marker in ("kal", "कल", "tomorrow", "today", "yesterday", "aaj", "आज"):
+                    invalid_temporal = True
+            for marker in ("kal", "कल", "parso", "परसों", "tomorrow", "today", "yesterday", "aaj", "आज"):
                 if _has(normalized, marker):
                     slots["temporal_relative"] = marker
                     break
@@ -216,11 +255,9 @@ class T3SlotExtractor:
             else:
                 endpoints = list(spans)
             if len(endpoints) >= 2:
-                before_first = normalized[:endpoints[0].start]
-                between = normalized[endpoints[0].end:endpoints[-1].start]
-                reverse = re.search(r"(?:to|तक|को)\s*$", before_first) and re.search(r"(?:from)\s*$", between)
-                assign(endpoints[0], "destination" if reverse else "origin")
-                assign(endpoints[-1], "origin" if reverse else "destination")
+                origin, destination = _endpoints(normalized, endpoints)
+                assign(origin, "origin")
+                assign(destination, "destination")
             elif len(endpoints) == 1:
                 span = endpoints[0]
                 before = normalized[:span.start]
@@ -231,12 +268,16 @@ class T3SlotExtractor:
             assign(spans[0], "stop")
         elif intent == "nearest_transport" and spans:
             assign(spans[0], "landmark")
+        elif intent in {"scheduled_departure", "first_and_last_service", "service_frequency"} and len(spans) >= 2:
+            origin, destination = _endpoints(normalized, list(spans))
+            assign(origin, "station")
+            assign(destination, "destination")
         elif intent in {"station_facilities", "station_accessibility", "scheduled_departure", "first_and_last_service", "service_frequency", "ticketing_and_passes", "interchange_transfer"} and spans:
             assign(spans[0], "station")
 
         reason = None
         if unresolved:
             reason = "entity_ambiguity"
-        elif isinstance(slots.get("time"), list) or (slots.get("temporal_relative") in {"kal", "कल"} and not slots.get("date")):
+        elif invalid_temporal or isinstance(slots.get("time"), list) or (slots.get("temporal_relative") in {"kal", "कल", "parso", "परसों"} and not slots.get("date")):
             reason = "temporal_ambiguity"
         return ExtractionResult(slots, spans, tuple(unresolved), reason, requested_modes, normalized)

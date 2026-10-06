@@ -63,6 +63,13 @@ def test_existing_t3_checkpoint_loads_strictly_and_predicts_synthetic_query():
     assert result.primary_label in T3_INTENTS
     assert result.acceptable_labels == ("nearest_transport",)
     assert 0 < result.confidence <= 1
+    from src.nlp_v2.assistant import T3Assistant
+    reply = T3Assistant(classifier=classifier).process_query(
+        "What is the bus fare for stage 4 and when is the last bus from Poonamallee Bus Terminus?"
+    )
+    assert reply.status == "clarification"
+    assert reply.clarification_reason == "multiple_goals"
+    assert set(reply.candidate_intents) == {"fare_calculation", "first_and_last_service"}
 
 
 def test_training_loader_reads_only_train_and_validation_and_rejects_overlap(tmp_path):

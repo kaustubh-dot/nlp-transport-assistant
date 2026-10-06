@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
-from datetime import date
+from datetime import date, datetime, timedelta
 from math import asin, cos, radians, sin, sqrt
 from pathlib import Path
 import sqlite3
 from statistics import median
 from typing import Any, Mapping
+from zoneinfo import ZoneInfo
 
 from .dispatch import OPERATIONS, ServiceResult
 
@@ -52,12 +53,17 @@ class CanonicalTransitService:
         "REJECT_OUT_OF_SCOPE": "_out_of_scope",
     }
 
-    def __init__(self, db_path: str | Path = DEFAULT_DB):
+    def __init__(self, db_path: str | Path = DEFAULT_DB, *, reference_date: date | None = None):
         self.db_path = Path(db_path).resolve()
+        self._reference_date = reference_date
         if not self.db_path.is_file():
             raise FileNotFoundError(f"Canonical transit database missing: {self.db_path}")
         if set(self.handlers) != set(OPERATIONS.values()):
             raise RuntimeError("T3 operation coverage is incomplete")
+
+    @property
+    def reference_date(self) -> date:
+        return self._reference_date or datetime.now(ZoneInfo("Asia/Kolkata")).date()
 
     def execute(self, operation: str, slots: Mapping[str, Any]) -> ServiceResult:
         if operation not in self.handlers:
@@ -84,7 +90,7 @@ class CanonicalTransitService:
     @staticmethod
     def _mode(slots: Mapping[str, Any]) -> str | None:
         mode = slots.get("transport_mode")
-        return None if mode in (None, "any") else ("suburban_rail" if mode == "mrts" else mode)
+        return None if mode in (None, "any") else mode
 
     @staticmethod
     def _route_ids(conn: sqlite3.Connection, slots: Mapping[str, Any]) -> list[sqlite3.Row]:
@@ -248,8 +254,14 @@ class CanonicalTransitService:
         if route_name:
             sql += " AND REPLACE(REPLACE(UPPER(r.route_short_name), ' ', ''), '-', '') = REPLACE(REPLACE(UPPER(?), ' ', ''), '-', '')"
             params.append(route_name)
-        if slots.get("date"):
-            chosen = date.fromisoformat(slots["date"])
+        chosen = date.fromisoformat(slots["date"]) if slots.get("date") else None
+        relative = slots.get("temporal_relative")
+        if relative and chosen is None:
+            offsets = {"today": 0, "aaj": 0, "आज": 0, "tomorrow": 1, "yesterday": -1}
+            if relative not in offsets:
+                return []
+            chosen = self.reference_date + timedelta(days=offsets[relative])
+        if chosen is not None:
             weekday = ("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday")[chosen.weekday()]
             sql += f""" AND EXISTS (
                 SELECT 1 FROM service_calendars cal WHERE cal.service_id = tr.service_id

@@ -33,7 +33,7 @@ def _api_ready() -> bool:
     try:
         response = requests.get(API_URL + "/health", timeout=2)
         body = response.json()
-        return response.status_code == 200 and body.get("taxonomy") == "T3"
+        return response.status_code == 200 and isinstance(body, dict) and body.get("taxonomy") == "T3"
     except (requests.RequestException, ValueError, TypeError):
         return False
 
@@ -103,6 +103,8 @@ def _render_panel(reply: dict) -> None:
             st.caption("Times are schedule records, not live predictions.")
         elif kind == "fare":
             st.metric("Published fare", f"{data.get('currency', 'INR')} {data['amount']:g}")
+            if data.get("service_type"):
+                st.caption("Service class: " + data["service_type"])
             st.caption(f"Effective date: {data.get('effective_date', 'unknown')} · Source: {data.get('source', 'unknown')}")
         elif kind == "nearest":
             st.subheader("Nearest by straight line")

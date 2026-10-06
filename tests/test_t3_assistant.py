@@ -37,7 +37,10 @@ def test_multilingual_queries_follow_one_t3_path(resolver, query):
     reply = assistant.process_query(query)
     assert classifier.queries == [query]
     assert reply.intent == "route_stop_membership"
-    assert reply.operation == "CHECK_STOP_ON_ROUTE"
+    if reply.clarification_reason == "entity_ambiguity":
+        assert reply.operation is None and reply.candidate_entities
+    else:
+        assert reply.operation == "CHECK_STOP_ON_ROUTE"
     assert reply.status in {"ok", "clarification", "unavailable"}
     assert reply.response_text
 
@@ -79,6 +82,63 @@ def test_empty_query_is_structured_error(resolver):
     reply = T3Assistant(classifier=FixedClassifier("out_of_scope"), resolver=resolver).process_query("  ")
     assert reply.status == "error"
     assert reply.intent is None
+
+
+def test_deluxe_fare_is_not_silently_ordinary(resolver):
+    from src.nlp_v2.assistant import T3Assistant
+
+    reply = T3Assistant(classifier=FixedClassifier("fare_calculation"), resolver=resolver).process_query("What is the deluxe bus fare for stage 4?")
+    assert reply.status == "ok"
+    assert reply.data["service_type"] == "Deluxe Services"
+    assert reply.data["amount"] == 17
+
+
+def test_timing_incompatible_destination_is_not_ignored(resolver):
+    from src.nlp_v2.assistant import T3Assistant
+
+    reply = T3Assistant(classifier=FixedClassifier("first_and_last_service"), resolver=resolver).process_query("Last bus from Poonamallee Bus Terminus to Chennai Beach?")
+    assert reply.slots["destination"] == "RAIL_CHENNAI_BEACH"
+    assert reply.status == "unavailable"
+
+
+def test_explicit_off_route_stop_reaches_negative_membership(resolver):
+    from src.nlp_v2.assistant import T3Assistant
+
+    reply = T3Assistant(classifier=FixedClassifier("route_stop_membership"), resolver=resolver).process_query("Does bus 102 stop at Poonamallee Bus Terminus?")
+    assert reply.status == "ok"
+    assert reply.data["on_route"] is False
+
+
+@pytest.mark.parametrize("query", [
+    "What is the bus fare for stage 4 and when is the last bus from Poonamallee Bus Terminus?",
+    "बस का किराया और आखिरी बस कब है?",
+    "bus kiraya aur last bus kab hai?",
+])
+def test_explicit_conjoined_transport_goals_require_choice(resolver, query):
+    from src.nlp_v2.assistant import T3Assistant
+
+    reply = T3Assistant(classifier=FixedClassifier("fare_calculation"), resolver=resolver).process_query(query)
+    assert reply.status == "clarification"
+    assert reply.clarification_reason == "multiple_goals"
+    assert set(reply.candidate_intents) == {"fare_calculation", "first_and_last_service"}
+
+
+def test_coordinated_location_names_do_not_create_multiple_goals(resolver):
+    from src.nlp_v2.assistant import T3Assistant
+
+    reply = T3Assistant(classifier=FixedClassifier("fare_calculation"), resolver=resolver).process_query("What is the metro fare between Guindy and Central?")
+    assert reply.clarification_reason != "multiple_goals"
+
+
+@pytest.mark.parametrize("query", [
+    "List all stops on bus route 102 and indicate the first and last stops.",
+    "List stops on bus route 102 and show the first bus stop.",
+])
+def test_route_endpoint_qualifiers_are_not_service_time_goals(resolver, query):
+    from src.nlp_v2.assistant import T3Assistant
+    reply = T3Assistant(classifier=FixedClassifier("route_stop_sequence"), resolver=resolver).process_query(query)
+    assert reply.status == "ok"
+    assert reply.operation == "LIST_ROUTE_STOPS"
 
 
 def test_relative_day_ambiguity_is_kept_separate_from_missing_slots(resolver):

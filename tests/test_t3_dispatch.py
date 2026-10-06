@@ -3,6 +3,15 @@
 import pytest
 
 
+@pytest.mark.parametrize("intent,slots", [
+    ("route_stop_sequence", {"line_name": "Blue Line"}),
+    ("route_stop_membership", {"line_name": "Blue Line", "stop": "METRO_1"}),
+])
+def test_line_name_satisfies_route_identifier_requirement(intent, slots):
+    from src.nlp_v2.contracts import missing_slots
+    assert missing_slots(intent, slots) == ()
+
+
 CASES = [
     ("point_to_point_route", "PLAN_ROUTE", {"origin": "HUB_A", "destination": "HUB_B"}),
     ("multimodal_route", "PLAN_MULTIMODAL_ROUTE", {"origin": "HUB_A", "destination": "HUB_B"}),

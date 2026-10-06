@@ -344,3 +344,88 @@ def test_shipped_kb_place_with_city_suffix_matches_common_name():
     place_span = next(span for span in spans if span.surface == "marina beach")
     result = resolver.resolve(place_span, "landmark", "nearest_transport")
     assert result.entity_id == "OSM_POI_12137617372"
+
+
+@pytest.mark.parametrize("query,service_type", [
+    ("deluxe bus fare stage 4", "Deluxe Services"),
+    ("express bus fare stage 4", "Express Services"),
+    ("night services bus fare stage 4", "Night Services"),
+    ("एसी बस का स्टेज 4 किराया", "Air Conditioned Services"),
+])
+def test_fare_modifiers_are_preserved(canonical_db, query, service_type):
+    from src.nlp_v2.entities import CanonicalResolver
+    from src.nlp_v2.slots import T3SlotExtractor
+
+    result = T3SlotExtractor(CanonicalResolver(canonical_db)).extract(query, "fare_calculation")
+    assert result.slots["service_type"] == service_type
+    concession = T3SlotExtractor(CanonicalResolver(canonical_db)).extract("metro concession fare from Central to Guindy", "fare_calculation")
+    assert concession.slots["fare_type"] == "concession"
+
+
+@pytest.mark.parametrize("query", ["Last metro from Central to Guindy?", "Last metro to Guindy from Central?"])
+def test_timing_preserves_destination(canonical_db, query):
+    from src.nlp_v2.entities import CanonicalResolver
+    from src.nlp_v2.slots import T3SlotExtractor
+
+    result = T3SlotExtractor(CanonicalResolver(canonical_db)).extract(query, "first_and_last_service")
+    assert result.slots["station"] == "METRO_CENTRAL"
+    assert result.slots["destination"] == "METRO_GUINDY"
+
+
+def test_membership_keeps_unique_known_stop_outside_route(canonical_db):
+    from src.nlp_v2.entities import CanonicalResolver
+    from src.nlp_v2.slots import T3SlotExtractor
+
+    with sqlite3.connect(canonical_db) as conn:
+        conn.execute("INSERT INTO transport_stops VALUES ('BUS_OTHER', 'Other Terminus', 'bus')")
+    result = T3SlotExtractor(CanonicalResolver(canonical_db)).extract("Does bus 29C stop at Other Terminus?", "route_stop_membership")
+    assert result.slots["stop"] == "BUS_OTHER"
+
+
+@pytest.mark.parametrize("query", ["Guindy metro 8:00 baje departure", "Guindy metro on 2026-02-30"])
+def test_unresolved_temporal_input_does_not_become_unrestricted_schedule(canonical_db, query):
+    from src.nlp_v2.entities import CanonicalResolver
+    from src.nlp_v2.slots import T3SlotExtractor
+
+    result = T3SlotExtractor(CanonicalResolver(canonical_db)).extract(query, "scheduled_departure")
+    assert result.clarification_reason == "temporal_ambiguity"
+
+
+def test_dot_clock_with_explicit_pm_is_preserved(canonical_db):
+    from src.nlp_v2.entities import CanonicalResolver
+    from src.nlp_v2.slots import T3SlotExtractor
+
+    result = T3SlotExtractor(CanonicalResolver(canonical_db)).extract("Guindy metro 8.30 pm departure", "scheduled_departure")
+    assert result.slots["time"] == "20:30:00"
+
+
+def test_full_clock_seconds_are_preserved_and_invalid_seconds_clarify(canonical_db):
+    from src.nlp_v2.entities import CanonicalResolver
+    from src.nlp_v2.slots import T3SlotExtractor
+    extractor = T3SlotExtractor(CanonicalResolver(canonical_db))
+    valid = extractor.extract("Guindy metro at 08:00:30 departure", "scheduled_departure")
+    assert valid.slots["time"] == "08:00:30"
+    invalid = extractor.extract("Guindy metro at 08:00:99 departure", "scheduled_departure")
+    assert invalid.clarification_reason == "temporal_ambiguity"
+
+
+@pytest.mark.parametrize("query", [
+    "Guindy jana hai Central se metro", "Guindy तक Central से metro",
+])
+def test_reversed_hindi_postpositions_preserve_direction(canonical_db, query):
+    from src.nlp_v2.entities import CanonicalResolver
+    from src.nlp_v2.slots import T3SlotExtractor
+
+    for intent in ("point_to_point_route", "scheduled_departure"):
+        result = T3SlotExtractor(CanonicalResolver(canonical_db)).extract(query, intent)
+        assert result.slots["origin" if intent == "point_to_point_route" else "station"] == "METRO_CENTRAL"
+        assert result.slots["destination"] == "METRO_GUINDY"
+
+
+@pytest.mark.parametrize("marker", ["parso", "परसों"])
+def test_ambiguous_two_day_relative_marker_requires_clarification(canonical_db, marker):
+    from src.nlp_v2.entities import CanonicalResolver
+    from src.nlp_v2.slots import T3SlotExtractor
+    result = T3SlotExtractor(CanonicalResolver(canonical_db)).extract(f"Guindy metro {marker} schedule", "scheduled_departure")
+    assert result.slots["temporal_relative"] == marker
+    assert result.clarification_reason == "temporal_ambiguity"

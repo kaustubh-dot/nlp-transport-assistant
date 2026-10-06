@@ -135,7 +135,9 @@ class CanonicalResolver:
 
         if mode and mode != "any" and role not in {"landmark", "locality"}:
             mode_stops = [candidate for candidate in candidates if candidate.kind == "stop" and candidate.mode == mode]
-            candidates = mode_stops or [candidate for candidate in candidates if candidate.kind == "place"]
+            # Preserve explicit known entities when their mode is incompatible;
+            # downstream services must reject them rather than lose the constraint.
+            candidates = mode_stops or [candidate for candidate in candidates if candidate.kind == "place"] or candidates
         elif role in {"origin", "destination", "via"} and intent in {"point_to_point_route", "multimodal_route", "mode_availability"}:
             hubs = [candidate for candidate in candidates if candidate.kind == "hub"]
             if hubs:
@@ -143,7 +145,9 @@ class CanonicalResolver:
 
         if role == "stop" and route_number:
             on_route = self.route_stops.get(route_number.upper(), set())
-            candidates = [candidate for candidate in candidates if candidate.entity_id in on_route]
+            on_route_candidates = [candidate for candidate in candidates if candidate.entity_id in on_route]
+            if on_route_candidates:
+                candidates = on_route_candidates
 
         unique = tuple(sorted(candidates, key=lambda candidate: candidate.entity_id))
         return Resolution(unique[0].entity_id if len(unique) == 1 else None, unique, len(unique) > 1)

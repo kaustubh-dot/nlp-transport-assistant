@@ -73,6 +73,42 @@ def test_frequency_needs_specific_route_or_line(service):
     assert result.status == "unavailable"
 
 
+def test_relative_day_schedule_uses_chennai_reference_date():
+    from datetime import date
+    from src.nlp_v2.domain import CanonicalTransitService
+
+    service = CanonicalTransitService(reference_date=date(2026, 10, 6))
+    today = service.execute("GET_FIRST_LAST_SERVICE", {"station": "BUS_5821", "temporal_relative": "today"})
+    explicit = service.execute("GET_FIRST_LAST_SERVICE", {"station": "BUS_5821", "date": "2026-10-06"})
+    assert today == explicit
+    unknown = service.execute("GET_FIRST_LAST_SERVICE", {"station": "BUS_5821", "temporal_relative": "kal"})
+    assert unknown.status == "unavailable"
+    future = CanonicalTransitService(reference_date=date(2040, 1, 1))
+    assert future.execute("GET_FIRST_LAST_SERVICE", {"station": "BUS_5821", "temporal_relative": "tomorrow"}).status == "unavailable"
+
+
+def test_default_chennai_reference_date_advances_across_midnight(monkeypatch):
+    from datetime import datetime
+    import src.nlp_v2.domain as domain
+
+    dates = iter((datetime(2026, 10, 6, 23, 59), datetime(2026, 10, 7, 0, 1)))
+    class Clock:
+        @staticmethod
+        def now(zone):
+            assert str(zone) == "Asia/Kolkata"
+            return next(dates)
+    monkeypatch.setattr(domain, "datetime", Clock)
+    service = domain.CanonicalTransitService()
+    assert service.reference_date.isoformat() == "2026-10-06"
+    assert service.reference_date.isoformat() == "2026-10-07"
+
+
+def test_nearest_mrts_does_not_return_suburban_rail(service):
+    result = service.execute("FIND_NEAREST_STATION", {"landmark": "OSM_POI_12137617372", "transport_mode": "mrts"})
+    assert result.status == "ok"
+    assert all(row["mode"] == "mrts" for row in result.data["stops"])
+
+
 def test_normalized_route_code_matches_spaced_canonical_code(service):
     result = service.execute("GET_SERVICE_FREQUENCY", {"station": "BUS_10235", "route_number": "25R"})
     assert result.status == "ok"

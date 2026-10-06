@@ -45,6 +45,29 @@ def test_api_client_reports_offline_and_malformed_response():
     assert malformed["status"] == "error"
 
 
+@pytest.mark.parametrize("body", [
+    {"status": "unavailable", "response_text": "Unavailable", "data": []},
+    {"status": "clarification", "response_text": "Choose", "candidate_entities": [None]},
+    {"status": "ok", "response_text": "Fare", "operation": "CALCULATE_FARE", "data": {"amount": "bad"}},
+    {"status": "ok", "response_text": "Stops", "operation": "LIST_ROUTE_STOPS", "data": {"sequences": [None]}},
+])
+def test_api_client_rejects_reply_shapes_that_would_crash_rendering(body):
+    from app.frontend_contract import ask_api
+
+    assert ask_api("question", session=FakeSession(FakeResponse(200, body)))["status"] == "error"
+
+
+@pytest.mark.parametrize("health_body", [[], None, "unavailable"])
+def test_streamlit_malformed_health_response_degrades_to_offline(monkeypatch, health_body):
+    import requests
+    from streamlit.testing.v1 import AppTest
+
+    monkeypatch.setattr(requests, "get", lambda *a, **k: FakeResponse(200, health_body))
+    app = AppTest.from_file("app/streamlit_app.py").run(timeout=10)
+    assert not app.exception
+    assert any("API is offline" in warning.value for warning in app.warning)
+
+
 @pytest.mark.parametrize("operation,data,expected_kind", [
     ("PLAN_ROUTE", {"routes": [{"route_name": "102", "mode": "bus"}]}, "routes"),
     ("LIST_ROUTE_STOPS", {"sequences": [{"stops": []}]}, "stops"),

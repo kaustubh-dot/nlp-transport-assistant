@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+import re
 from typing import Any
 
 from src.normalization import normalize_text
@@ -13,6 +14,43 @@ from .domain import CanonicalTransitService
 from .entities import CanonicalResolver
 from .model import T3IntentClassifier
 from .slots import T3SlotExtractor
+
+
+# This guard only requests clarification for independently expressed conjoined
+# goals. It never chooses an operation or substitutes a rule-based classifier.
+GOAL_CUES = (
+    ("first_and_last_service", r"(?:first|last|पहली|पहला|आखिरी|pehli|pehla|aakhiri)\s+(?:buses|bus|trains?|metro|service|departure|timing|time|बस|ट्रेन|मेट्रो|सेवा)(?!\w)(?!\s+(?:stops?|station|स्टॉप|स्टेशन))"),
+    ("service_frequency", r"frequency|headway|how often|kitni der|कितनी देर"),
+    ("scheduled_departure", r"departures?|schedule|timetable|छूटे|chhut|schedule"),
+    ("fare_calculation", r"fare|cost|price|किराया|kiraya"),
+    ("station_accessibility", r"wheelchair|ramp|lift|escalator|व्हीलचेयर|लिफ्ट|रैंप"),
+    ("station_facilities", r"parking|toilet|restroom|wifi|atm|पार्किंग|शौचालय"),
+    ("ticketing_and_passes", r"pass|ticket rules|smart card|टिकट|पास"),
+    ("route_stop_sequence", r"all stops|list stops|stop sequence|सभी स्टॉप"),
+    ("route_stop_membership", r"stop at|stops at|रुकती|rukti"),
+    ("nearest_transport", r"nearest|closest|nazdik|नजदीक"),
+    ("interchange_transfer", r"transfer|interchange|बदलना|badalna"),
+    ("realtime_status_query", r"live|realtime|delay|अभी कहाँ"),
+    ("point_to_point_route", r"route|how to get|kaise|कैसे"),
+    ("mode_availability", r"available|availability|चलती|chalti"),
+)
+
+
+def explicit_multiple_goals(query: str) -> tuple[str, ...]:
+    text = normalize_text(query)
+    # Coordinated endpoint/time modifiers describe one request, not two clauses.
+    text = re.sub(r"(?<!\w)(first|पहली|पहला|pehli|pehla)\s+(?:and|aur|और)\s+(last|आखिरी|aakhiri)(?!\w)", r"\1 \2", text)
+    clauses = re.split(r"(?<!\w)(?:and|also|aur|और|साथ ही)(?!\w)", text)
+    if len(clauses) < 2:
+        return ()
+    goals = []
+    for clause in clauses:
+        for intent, pattern in GOAL_CUES:
+            if re.search(r"(?<!\w)(?:" + pattern + r")(?!\w)", clause):
+                if intent not in goals:
+                    goals.append(intent)
+                break
+    return tuple(goals) if len(goals) > 1 else ()
 
 
 @dataclass(frozen=True)
@@ -70,7 +108,8 @@ def _answer(result: DispatchResult) -> str:
         )
         detail = f"Published departures: {departures} (service-day time). "
     elif operation == "CALCULATE_FARE":
-        detail = f"Published fare: {data['currency']} {data['amount']:g} (record effective {data['effective_date']}). "
+        service = f" ({data['service_type']})" if data.get("service_type") else ""
+        detail = f"Published fare{service}: {data['currency']} {data['amount']:g} (record effective {data['effective_date']}). "
     elif operation == "GET_ACCESSIBILITY_INFO":
         value = "recorded as available" if data.get("available") else "recorded as unavailable"
         detail = f"{data.get('feature', 'Feature')} is {value}. "
@@ -98,6 +137,10 @@ class T3Assistant:
             validate_prediction(prediction)
             if prediction.clarification_reason or prediction.primary_label is None:
                 return self._reply(query, normalized, dispatch(prediction, {}, self.service))
+            goals = explicit_multiple_goals(query)
+            if goals:
+                clarification = IntentPrediction(None, goals, prediction.confidence, "multiple_goals")
+                return self._reply(query, normalized, dispatch(clarification, {}, self.service))
             intent = prediction.primary_label
             if intent in {"out_of_scope", "realtime_status_query"}:
                 result = dispatch(prediction, {}, self.service)

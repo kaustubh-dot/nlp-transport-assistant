@@ -1,0 +1,10 @@
+# Production T3 runtime tested with Python 3.12.
+# torch 2.6.0 supports CPU inference; choose the official wheel index for your GPU
+# when training. The observed local build is 2.6.0+cu124 with no available GPU.
+-r requirements.txt
+torch==2.6.0
+transformers==5.17.0
+tokenizers==0.23.2
+huggingface-hub==1.32.0
+safetensors==0.8.0
+sentencepiece==0.2.2

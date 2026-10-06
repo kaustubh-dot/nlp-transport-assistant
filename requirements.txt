@@ -1,5 +1,5 @@
 # Tested local Python 3.12 baseline/UI environment, including transitive dependencies.
-# Transformer training dependencies are deferred.
+# For the production T3 transformer runtime, install requirements-nlp-v2.txt.
 altair==5.5.0
 attrs==26.1.0
 blinker==1.9.0
