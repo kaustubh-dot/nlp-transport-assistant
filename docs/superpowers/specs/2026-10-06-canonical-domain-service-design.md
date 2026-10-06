@@ -1,0 +1,7 @@
+# Canonical transit domain service design
+
+The existing seven-label retriever uses a tiny prototype SQLite database and cannot serve T3. Add a read-only `CanonicalTransitService` behind the Phase 1 `DomainService` protocol. It queries the canonical SQLite snapshot with parameterized SQL and returns `ServiceResult(status, data, message)` with source/date/provisional fields. Keep the old retriever isolated for historical prototype tests.
+
+Use published route-stop sequences for direct route candidates, route sequences, and membership; verify route/stop mode agreement and direction/sequence order. Expand hub members only as provisional because every hub membership in this snapshot is unverified. Use trip/stop times as provisional schedules, never live times; use fares with their source and effective date. Nearest stops are geometric by coordinates, not walkable-distance claims. The snapshot has no ticket policy table, all 45 interchanges unconfirmed, and all 41 accessibility feature rows null. These operations must return explicit unavailable or provisional states instead of invented affirmative answers. Realtime always returns unavailable.
+
+The service covers all 16 dispatch operations explicitly. It handles unknown IDs, missing data, and SQL errors with structured unavailable/error states. Tests exercise real canonical records and mock missing/realtime paths. No canonical database mutation or external network call is allowed.

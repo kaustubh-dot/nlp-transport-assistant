@@ -47,7 +47,17 @@
 - **Split integrity:** metadata-only audit found 187 of 706 stress rows and 160 of 350 human-reference rows sharing a training family or semantic family, with zero exact query duplicates. These are frozen-data limitations; the files remain untouched. Full-set metrics are descriptive stress performance, not independent family-held-out generalization estimates. Among 73 observed human-subset contrast groups, 17 are partial; the report discloses this.
 - **Astra Low review:** checked hashes, reference/gold alignment, per-class metric reconstruction, operation mapping, and aggregate-only claims. It requested clearer subset contrast semantics and stronger evaluator guard tests; both were added. A focused re-review follows before commit.
 - **Known limitations:** the classifier emits a single label; its ambiguity-aware score is retrospective acceptance, not clarification behavior. Domain answer quality and end-to-end operational behavior are assessed only after integration. The stress set was not used for model selection or any checkpoint change.
-- **Commit:** see the Phase 4 `eval(nlp_v2): report frozen production T3 model` commit.
+- **Commit:** `dde96d9`.
+
+## Phase 5 — canonical transport domain service
+
+- **Objective:** back the T3 dispatcher with read-only canonical SQLite operations and explicit unavailability where the snapshot cannot support a verified answer.
+- **Files changed:** `src/nlp_v2/domain.py`, `tests/test_t3_domain_service.py`, focused design and plan, and this progress record.
+- **Behavior:** all 16 T3 operations have explicit handlers. Mode-consistent published bus stop sequences, direct route candidates, stop membership, provisional timetable bounds/departures/frequency, dated official fare records, and straight-line nearest stops use canonical source rows. Current availability, ticket policy, accessibility with null records, unconfirmed interchange/multimodal transfer, and realtime return structured unavailable states. The service uses read-only SQLite and never emits a live-data claim.
+- **Verification:** 20 focused tests pass, including canonical route/fare/schedule/nearest records and missing-schema/unavailable cases. The full suite has 272 passes and the same 13 stale Gate B.3 lifecycle failures as baseline. No frozen data or evaluation result was changed.
+- **Astra Low review:** identified destination-blind schedules, time-blind frequency, and cross-mode fare substitution. All were reproduced with failing tests and fixed. Focused re-review confirmed the fixes and compatible bus fares/daytime frequency.
+- **Known limitations:** canonical hub memberships are all unverified, all 45 interchanges unconfirmed, accessibility fields null, and ticket policy absent; verified multimodal routing and affirmative accessibility/ticket answers cannot be produced from this snapshot. Schedule and fare records are historical/provisional and require operator verification. Direct route planning is based on published stop sequence, not confirmed trip availability.
+- **Commit:** see the Phase 5 `feat(nlp_v2): integrate canonical transit service` commit.
 
 ## Focused phase sequence
 
