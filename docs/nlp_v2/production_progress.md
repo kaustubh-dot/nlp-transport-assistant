@@ -9,7 +9,16 @@
 - **Environment:** `.venv` is Python 3.12 with PyTorch 2.6.0 and Transformers; `torch.cuda.is_available()` is false, and `nvidia-smi` cannot access an NVIDIA driver. Full GPU training is unavailable here.
 - **Baseline verification:** `.venv/bin/python -m pytest -q` produced 148 passes and 13 failures. All failures are in `tests/test_gate_b3_annotation_framework.py`; they expect the historical pre-execution/pending lifecycle while the canonical manifest correctly records Gate B.3 as closed and T3 frozen. Frozen records must not be changed to satisfy those expectations.
 - **Independent Astra Low review:** corrected the legacy label count, identified the Gate B.2 trainer's held-out-data and overwrite risk, and recommended delaying final end-to-end held-out evaluation until the full assistant is frozen. No code changes were made after review.
-- **Files changed:** this audit record. **Known limitations:** T3 inference and operations are not yet connected; no GPU is available; the baseline historical test failures remain. **Commit:** recorded by the Phase 0 commit.
+- **Files changed:** this audit record. **Known limitations:** T3 inference and operations are not yet connected; no GPU is available; the baseline historical test failures remain. **Commit:** `3c01fd3`.
+
+## Phase 1 — T3 backend contract and dispatch
+
+- **Objective:** make each of the 16 frozen intents map to one explicit production operation, with structured clarification and unavailable states.
+- **Files changed:** `src/nlp_v2/{contracts,dispatch}.py`, package initializer, `tests/test_t3_dispatch.py`, focused design and implementation plan, and this progress record.
+- **Verification:** 56 focused contract tests pass. The mapping equals the canonical semantic mapping, all 16 allowlists are present, and Python compilation passes. The full suite has 204 passes and the same 13 historical Gate B.3 lifecycle failures seen at baseline.
+- **Astra Low review:** found unresolved temporal inputs reaching services, weak slot types, and forbidden intent-slot pairs. All were fixed with failing tests first. Focused re-review then found terminal intent precedence and route locality allowance; both were fixed with failing tests first.
+- **Known limitations:** default domain service returns explicit `unavailable`; canonical KB integration, entity extraction, and production inference follow in later phases. The legacy seven-label prototype remains separate until orchestration is connected.
+- **Commit:** see the Phase 1 `feat(nlp_v2): add frozen T3 dispatch contract` commit in Git history; its hash is added to this record with the next phase.
 
 ## Focused phase sequence
 
