@@ -18,7 +18,16 @@
 - **Verification:** 56 focused contract tests pass. The mapping equals the canonical semantic mapping, all 16 allowlists are present, and Python compilation passes. The full suite has 204 passes and the same 13 historical Gate B.3 lifecycle failures seen at baseline.
 - **Astra Low review:** found unresolved temporal inputs reaching services, weak slot types, and forbidden intent-slot pairs. All were fixed with failing tests first. Focused re-review then found terminal intent precedence and route locality allowance; both were fixed with failing tests first.
 - **Known limitations:** default domain service returns explicit `unavailable`; canonical KB integration, entity extraction, and production inference follow in later phases. The legacy seven-label prototype remains separate until orchestration is connected.
-- **Commit:** see the Phase 1 `feat(nlp_v2): add frozen T3 dispatch contract` commit in Git history; its hash is added to this record with the next phase.
+- **Commit:** `56d5a20`.
+
+## Phase 2 — canonical slot extraction and entity resolution
+
+- **Objective:** extract explicit T3 slots from multilingual commuter text and resolve recognized names to the current canonical database while preserving entity and time ambiguity.
+- **Files changed:** `src/nlp_v2/{entities,slots}.py`, `tests/test_t3_slots.py`, focused design and plan, and this progress record.
+- **Verification:** 36 synthetic and canonical DB slot tests pass. The full repository suite, run sequentially after avoiding concurrent legacy DB rebuilds, has 240 passes and the same 13 historical Gate B.3 lifecycle failures as baseline. Excluding that stale lifecycle test module yields 219 passes. Python compilation and whitespace checks pass.
+- **Astra Low review:** found route numbers absorbing ordinary words, via destinations being misassigned, missing first/last timing type, incorrect overnight times, and missing English bare-clock ambiguity. Failing tests preceded all fixes. Focused re-review found trailing-via ordering and spaced route suffix regressions; failing tests preceded those fixes too.
+- **Known limitations:** exact-name matching plus a curated Hindi/Roman alias set covers known canonical names; unknown aliases remain unresolved. The shipped KB contains two distinct Central hub IDs, so a generic Central journey currently asks for entity clarification rather than picking one. The extractor does not infer realtime facts or unsupported entities.
+- **Commit:** see the Phase 2 `feat(nlp_v2): add canonical T3 slot extraction` commit; its hash is added with the next phase.
 
 ## Focused phase sequence
 
