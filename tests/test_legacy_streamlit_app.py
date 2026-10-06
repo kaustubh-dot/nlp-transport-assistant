@@ -1,4 +1,4 @@
-"""Automated tests for Streamlit application UI/UX.
+"""Automated tests for the preserved seven-label legacy Streamlit UI/UX.
 
 Uses streamlit.testing.v1.AppTest to verify initial rendering, quick suggestions,
 manual input processing, model switching, NLU breakdown diagnostics, Hallmark design tokens,
@@ -12,7 +12,7 @@ from streamlit.testing.v1 import AppTest
 APP_PATH = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
     "app",
-    "streamlit_app.py"
+    "legacy_streamlit_app.py"
 )
 
 

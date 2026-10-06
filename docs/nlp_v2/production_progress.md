@@ -76,7 +76,17 @@
 - **Verification:** 9 in-process API contract tests pass. A local-only HTTP smoke verified health/query responses, lowercase headers returning 200, a truncated body timing out with 408, and health remaining responsive afterward. The full suite has 295 passes and the same 13 stale Gate B.3 lifecycle failures. No new web dependency was needed.
 - **Astra Low review:** found case-sensitive header lookup after adapter conversion and an unbounded blocking body read. Added red tests, case-normalized headers, a finite socket timeout, and safe 408 handling. Focused re-review confirmed both fixes.
 - **Known limitations:** the endpoint is a local demo server, single threaded and without public deployment/authentication. The Streamlit frontend has not yet been switched to this API.
-- **Commit:** see the Phase 7 `feat(nlp_v2): expose local T3 JSON API` commit.
+- **Commit:** `e607d46`.
+
+## Phase 8 — T3 Streamlit frontend
+
+- **Objective:** route the default Streamlit page through the local T3 API and present structured answers, clarifications, provenance, and unavailable states.
+- **Files changed:** `app/streamlit_app.py`, `app/frontend_contract.py`, preserved `app/legacy_streamlit_app.py`, retargeted legacy UI tests, `tests/test_t3_frontend.py`, focused design and plan, and this progress record.
+- **Behavior:** the default page uses the API only, with 16-intent-compatible answer panels, source metadata where available, suggested clarification choices, explicit snapshot caveats, and no seven-label fallback. The prior prototype remains accessible as `app/legacy_streamlit_app.py` for historical tests.
+- **Verification:** 37 focused frontend and preserved-legacy tests pass. The full suite has 315 passes and the same 13 stale Gate B.3 lifecycle failures. A live localhost Streamlit/API browser smoke rendered a nearest metro answer with canonical source rows at desktop width; narrow-width DOM geometry stayed within a 390-pixel viewport.
+- **Astra Low review:** found undisplayed entity clarification choices and source fields missing from stop, timetable, and frequency panels. Both were fixed with failing tests first; focused re-review confirmed the fixes.
+- **Known limitations:** the UI depends on a separately running local API. It does not infer live service or verified walking access. The browser's narrow-width screenshot was visually scaled by the test browser, so responsive layout was checked using DOM element bounds in addition to the desktop screenshot.
+- **Commit:** see the Phase 8 commit.
 
 ## Focused phase sequence
 

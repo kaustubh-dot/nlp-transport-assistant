@@ -1,0 +1,7 @@
+# T3 Streamlit frontend design
+
+The existing 2,100-line Streamlit page is coupled to the seven-label prototype and prototype database. Preserve it as `app/legacy_streamlit_app.py`, and make `app/streamlit_app.py` the concise production T3 UI. The new page calls `POST /api/v2/query` with `requests`; it contains no intent/transport logic and never constructs an assistant or opens SQLite. Default API URL is `http://127.0.0.1:8765`, configurable with `NLP_V2_API_URL`.
+
+Provide a responsive chat layout with sample prompts, loading, API offline/error states, and a visible revision form when the response requests clarification. Structured panels cover journey candidates, stop sequences/membership, scheduled times and frequency, fares, facilities/accessibility, nearest stops, interchange, and unavailable/realtime results. Display provisional/source/effective-date caveats from the backend. Use Streamlit text/data APIs so query or database strings are escaped instead of interpolating them into unsafe HTML. Keep CSS short and scoped to layout/colors; support mobile widths. The existing demo's voice/translation/developer features remain in the preserved legacy file and are not presented as part of the T3 UI.
+
+Extract pure API-client and panel-selection helpers for unit tests. Smoke the Streamlit page with AppTest if supported by the installed version. Do not hard-code successful transport answers.
