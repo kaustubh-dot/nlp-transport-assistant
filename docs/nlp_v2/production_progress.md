@@ -57,7 +57,16 @@
 - **Verification:** 20 focused tests pass, including canonical route/fare/schedule/nearest records and missing-schema/unavailable cases. The full suite has 272 passes and the same 13 stale Gate B.3 lifecycle failures as baseline. No frozen data or evaluation result was changed.
 - **Astra Low review:** identified destination-blind schedules, time-blind frequency, and cross-mode fare substitution. All were reproduced with failing tests and fixed. Focused re-review confirmed the fixes and compatible bus fares/daytime frequency.
 - **Known limitations:** canonical hub memberships are all unverified, all 45 interchanges unconfirmed, accessibility fields null, and ticket policy absent; verified multimodal routing and affirmative accessibility/ticket answers cannot be produced from this snapshot. Schedule and fare records are historical/provisional and require operator verification. Direct route planning is based on published stop sequence, not confirmed trip availability.
-- **Commit:** see the Phase 5 `feat(nlp_v2): integrate canonical transit service` commit.
+- **Commit:** `23190b0`.
+
+## Phase 6 — single T3 assistant path
+
+- **Objective:** connect raw-query MuRIL T3 inference, canonical slot/entity extraction, clarification, operation dispatch, canonical SQLite service, and user-facing response formatting without a legacy taxonomy fallback.
+- **Files changed:** `src/nlp_v2/assistant.py`, `tests/test_t3_assistant.py`, focused design and plan, and this progress record.
+- **Verification:** 14 synthetic English/Hindi/Roman/mixed/noisy contract tests pass. A manual run using the real frozen checkpoint reached `nearest_transport` and the canonical nearest-stop service for a Marina Beach query; live status returned explicit unavailable. The full suite has 286 passes and the same 13 stale historical Gate B.3 failures. Python compilation and whitespace checks pass.
+- **Astra Low review:** found classifier-supplied multi-goal clarification could be overwritten by entity ambiguity and mixed-route departure times lost their route names. Both were reproduced with failing tests and fixed; focused re-review found no remaining issue. Candidate intent alternatives were added to clarification replies.
+- **Known limitations:** the classifier emits one T3 label in normal inference, so multi-goal clarification currently requires an upstream structured prediction. Conservative entity resolution can ask for a stop when a named location has no route-constrained physical match. Replies use English templates while preserving the original multilingual query and canonical slots.
+- **Commit:** see the Phase 6 `feat(nlp_v2): connect T3 assistant path` commit.
 
 ## Focused phase sequence
 

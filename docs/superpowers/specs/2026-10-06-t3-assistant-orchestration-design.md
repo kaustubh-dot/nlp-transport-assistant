@@ -1,0 +1,5 @@
+# T3 assistant orchestration design
+
+Add `src/nlp_v2/assistant.py` as the single production query path. It calls the frozen classifier on raw text, extracts canonical slots with the Phase 2 resolver, handles explicit ambiguity before execution, dispatches through the Phase 1 contract to the Phase 5 canonical service, and formats a structured reply. Do not call legacy seven-label `src/pipeline.py` from this path. Keep dependencies injectable for deterministic contract tests; default construction loads the pinned T3 checkpoint and canonical SQLite data.
+
+`AssistantReply` carries status (`ok`, `clarification`, `unavailable`, `out_of_scope`, `error`), user text, T3 intent, operation, slots, optional missing slots/clarification reason/candidate entities, and operation data. The formatter only uses fields returned by the domain service. Provisional schedule/route/fare outputs retain the service's verification message. Empty or invalid input yields a helpful error. Realtime and out-of-scope behavior is handled before entity uncertainty. A classifier-generated multi-goal clarification is preserved. No held-out examples or test-specific intent rules are added.
