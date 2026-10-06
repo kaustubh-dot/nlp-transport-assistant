@@ -1,0 +1,428 @@
+{
+  "evaluation_type": "frozen_production_model_only",
+  "checkpoint_sha256": "abac66fc9fa29212c7565117ae326e34f02b64e76dbb177c61e9661517803196",
+  "input_hashes": {
+    "train_sha256": "d92801006ecb96fd64d01e6a602697e2e8749494627964f82d002566e3d0ba94",
+    "stress_sha256": "26cbf6517e25511d19d67051f500459ef7d78d87e5fbd1eb6d21849842242a1c",
+    "human_reference_sha256": "8fb55e863cfbdd1bbc2cf068050757d4d6bd58092fb6c3aea1f389c5c520e1c6",
+    "manifest_sha256": "447a120090c33ba1259cad06ce9f216d80832d2540727c3330f14be3ec04dc39"
+  },
+  "split_integrity": {
+    "stress_vs_train": {
+      "total_rows": 706,
+      "family_overlap_rows": 150,
+      "semantic_family_overlap_rows": 187,
+      "exact_query_overlap_rows": 0,
+      "any_overlap_rows": 187
+    },
+    "human_reference_vs_train": {
+      "total_rows": 350,
+      "family_overlap_rows": 129,
+      "semantic_family_overlap_rows": 160,
+      "exact_query_overlap_rows": 0,
+      "any_overlap_rows": 160
+    },
+    "human_reference_contrast_coverage": {
+      "observed_groups": 73,
+      "complete_groups": 56,
+      "partial_groups": 17
+    }
+  },
+  "stress": {
+    "count": 706,
+    "strict_intent_accuracy": 0.830028328611898,
+    "strict_intent_macro_f1": 0.7917697549339832,
+    "ambiguity_aware_accuracy": 0.839943342776204,
+    "operation_accuracy": 0.830028328611898,
+    "contrast_group_count": 76,
+    "contrast_group_exact_accuracy": 0.9473684210526315,
+    "per_class": {
+      "point_to_point_route": {
+        "support": 79,
+        "precision": 0.9871794871794872,
+        "recall": 0.9746835443037974,
+        "f1": 0.9808917197452229
+      },
+      "multimodal_route": {
+        "support": 16,
+        "precision": 0.8823529411764706,
+        "recall": 0.9375,
+        "f1": 0.9090909090909091
+      },
+      "first_and_last_service": {
+        "support": 49,
+        "precision": 0.8571428571428571,
+        "recall": 0.9795918367346939,
+        "f1": 0.9142857142857143
+      },
+      "service_frequency": {
+        "support": 37,
+        "precision": 0.9354838709677419,
+        "recall": 0.7837837837837838,
+        "f1": 0.8529411764705882
+      },
+      "scheduled_departure": {
+        "support": 85,
+        "precision": 0.9113924050632911,
+        "recall": 0.8470588235294118,
+        "f1": 0.8780487804878049
+      },
+      "route_stop_sequence": {
+        "support": 42,
+        "precision": 0.8823529411764706,
+        "recall": 0.7142857142857143,
+        "f1": 0.7894736842105263
+      },
+      "route_stop_membership": {
+        "support": 109,
+        "precision": 0.8852459016393442,
+        "recall": 0.9908256880733946,
+        "f1": 0.935064935064935
+      },
+      "mode_availability": {
+        "support": 35,
+        "precision": 0.7692307692307693,
+        "recall": 0.5714285714285714,
+        "f1": 0.6557377049180327
+      },
+      "fare_calculation": {
+        "support": 33,
+        "precision": 0.9375,
+        "recall": 0.9090909090909091,
+        "f1": 0.9230769230769231
+      },
+      "ticketing_and_passes": {
+        "support": 13,
+        "precision": 0.46153846153846156,
+        "recall": 0.9230769230769231,
+        "f1": 0.6153846153846154
+      },
+      "station_facilities": {
+        "support": 26,
+        "precision": 0.9523809523809523,
+        "recall": 0.7692307692307693,
+        "f1": 0.851063829787234
+      },
+      "station_accessibility": {
+        "support": 15,
+        "precision": 0.52,
+        "recall": 0.8666666666666667,
+        "f1": 0.65
+      },
+      "interchange_transfer": {
+        "support": 54,
+        "precision": 0.6545454545454545,
+        "recall": 0.6666666666666666,
+        "f1": 0.6605504587155964
+      },
+      "nearest_transport": {
+        "support": 27,
+        "precision": 0.4716981132075472,
+        "recall": 0.9259259259259259,
+        "f1": 0.625
+      },
+      "realtime_status_query": {
+        "support": 40,
+        "precision": 1.0,
+        "recall": 0.925,
+        "f1": 0.961038961038961
+      },
+      "out_of_scope": {
+        "support": 46,
+        "precision": 1.0,
+        "recall": 0.30434782608695654,
+        "f1": 0.4666666666666667
+      }
+    },
+    "strata": {
+      "language_class": {
+        "EN": {
+          "count": 215,
+          "strict_intent_accuracy": 0.7627906976744186,
+          "ambiguity_aware_accuracy": 0.7674418604651163
+        },
+        "HINGLISH_LATN": {
+          "count": 164,
+          "strict_intent_accuracy": 0.8658536585365854,
+          "ambiguity_aware_accuracy": 0.8658536585365854
+        },
+        "HI_DEVA": {
+          "count": 202,
+          "strict_intent_accuracy": 0.8514851485148515,
+          "ambiguity_aware_accuracy": 0.8514851485148515
+        },
+        "HI_LATN": {
+          "count": 72,
+          "strict_intent_accuracy": 0.9722222222222222,
+          "ambiguity_aware_accuracy": 0.9722222222222222
+        },
+        "MIXED_SCRIPT_CS": {
+          "count": 53,
+          "strict_intent_accuracy": 0.7169811320754716,
+          "ambiguity_aware_accuracy": 0.8301886792452831
+        }
+      },
+      "code_switch_level": {
+        "CS0": {
+          "count": 327,
+          "strict_intent_accuracy": 0.7981651376146789,
+          "ambiguity_aware_accuracy": 0.8012232415902141
+        },
+        "CS1": {
+          "count": 90,
+          "strict_intent_accuracy": 0.8333333333333334,
+          "ambiguity_aware_accuracy": 0.8333333333333334
+        },
+        "CS2": {
+          "count": 74,
+          "strict_intent_accuracy": 0.972972972972973,
+          "ambiguity_aware_accuracy": 0.972972972972973
+        },
+        "CS3": {
+          "count": 162,
+          "strict_intent_accuracy": 0.8641975308641975,
+          "ambiguity_aware_accuracy": 0.8641975308641975
+        },
+        "CS4": {
+          "count": 53,
+          "strict_intent_accuracy": 0.7169811320754716,
+          "ambiguity_aware_accuracy": 0.8301886792452831
+        }
+      },
+      "noise_level": {
+        "N0": {
+          "count": 330,
+          "strict_intent_accuracy": 0.8545454545454545,
+          "ambiguity_aware_accuracy": 0.8636363636363636
+        },
+        "N1": {
+          "count": 101,
+          "strict_intent_accuracy": 0.8910891089108911,
+          "ambiguity_aware_accuracy": 0.900990099009901
+        },
+        "N2": {
+          "count": 91,
+          "strict_intent_accuracy": 0.8131868131868132,
+          "ambiguity_aware_accuracy": 0.8241758241758241
+        },
+        "N3": {
+          "count": 58,
+          "strict_intent_accuracy": 0.8448275862068966,
+          "ambiguity_aware_accuracy": 0.8793103448275862
+        },
+        "N4": {
+          "count": 71,
+          "strict_intent_accuracy": 0.7887323943661971,
+          "ambiguity_aware_accuracy": 0.7887323943661971
+        },
+        "N5": {
+          "count": 55,
+          "strict_intent_accuracy": 0.6363636363636364,
+          "ambiguity_aware_accuracy": 0.6363636363636364
+        }
+      }
+    }
+  },
+  "human_reference_subset": {
+    "count": 350,
+    "strict_intent_accuracy": 0.84,
+    "strict_intent_macro_f1": 0.7777413889051458,
+    "ambiguity_aware_accuracy": 0.8542857142857143,
+    "operation_accuracy": 0.84,
+    "contrast_group_count": 73,
+    "contrast_group_exact_accuracy": 0.9452054794520548,
+    "per_class": {
+      "point_to_point_route": {
+        "support": 54,
+        "precision": 0.9818181818181818,
+        "recall": 1.0,
+        "f1": 0.9908256880733946
+      },
+      "multimodal_route": {
+        "support": 5,
+        "precision": 0.7142857142857143,
+        "recall": 1.0,
+        "f1": 0.8333333333333334
+      },
+      "first_and_last_service": {
+        "support": 27,
+        "precision": 0.8125,
+        "recall": 0.9629629629629629,
+        "f1": 0.8813559322033898
+      },
+      "service_frequency": {
+        "support": 21,
+        "precision": 0.9473684210526315,
+        "recall": 0.8571428571428571,
+        "f1": 0.9
+      },
+      "scheduled_departure": {
+        "support": 58,
+        "precision": 0.94,
+        "recall": 0.8103448275862069,
+        "f1": 0.8703703703703703
+      },
+      "route_stop_sequence": {
+        "support": 26,
+        "precision": 1.0,
+        "recall": 0.6153846153846154,
+        "f1": 0.7619047619047619
+      },
+      "route_stop_membership": {
+        "support": 54,
+        "precision": 0.84375,
+        "recall": 1.0,
+        "f1": 0.9152542372881356
+      },
+      "mode_availability": {
+        "support": 21,
+        "precision": 0.75,
+        "recall": 0.42857142857142855,
+        "f1": 0.5454545454545454
+      },
+      "fare_calculation": {
+        "support": 12,
+        "precision": 0.8461538461538461,
+        "recall": 0.9166666666666666,
+        "f1": 0.88
+      },
+      "ticketing_and_passes": {
+        "support": 12,
+        "precision": 0.7333333333333333,
+        "recall": 0.9166666666666666,
+        "f1": 0.8148148148148148
+      },
+      "station_facilities": {
+        "support": 9,
+        "precision": 1.0,
+        "recall": 0.5555555555555556,
+        "f1": 0.7142857142857143
+      },
+      "station_accessibility": {
+        "support": 7,
+        "precision": 0.625,
+        "recall": 0.7142857142857143,
+        "f1": 0.6666666666666666
+      },
+      "interchange_transfer": {
+        "support": 15,
+        "precision": 0.5454545454545454,
+        "recall": 0.8,
+        "f1": 0.6486486486486487
+      },
+      "nearest_transport": {
+        "support": 5,
+        "precision": 0.3125,
+        "recall": 1.0,
+        "f1": 0.47619047619047616
+      },
+      "realtime_status_query": {
+        "support": 12,
+        "precision": 1.0,
+        "recall": 0.9166666666666666,
+        "f1": 0.9565217391304348
+      },
+      "out_of_scope": {
+        "support": 12,
+        "precision": 1.0,
+        "recall": 0.4166666666666667,
+        "f1": 0.5882352941176471
+      }
+    },
+    "strata": {
+      "language_class": {
+        "EN": {
+          "count": 119,
+          "strict_intent_accuracy": 0.773109243697479,
+          "ambiguity_aware_accuracy": 0.7815126050420168
+        },
+        "HINGLISH_LATN": {
+          "count": 93,
+          "strict_intent_accuracy": 0.9247311827956989,
+          "ambiguity_aware_accuracy": 0.9247311827956989
+        },
+        "HI_DEVA": {
+          "count": 88,
+          "strict_intent_accuracy": 0.875,
+          "ambiguity_aware_accuracy": 0.875
+        },
+        "HI_LATN": {
+          "count": 37,
+          "strict_intent_accuracy": 0.972972972972973,
+          "ambiguity_aware_accuracy": 0.972972972972973
+        },
+        "MIXED_SCRIPT_CS": {
+          "count": 13,
+          "strict_intent_accuracy": 0.23076923076923078,
+          "ambiguity_aware_accuracy": 0.5384615384615384
+        }
+      },
+      "code_switch_level": {
+        "CS0": {
+          "count": 180,
+          "strict_intent_accuracy": 0.8111111111111111,
+          "ambiguity_aware_accuracy": 0.8166666666666667
+        },
+        "CS1": {
+          "count": 27,
+          "strict_intent_accuracy": 0.8518518518518519,
+          "ambiguity_aware_accuracy": 0.8518518518518519
+        },
+        "CS2": {
+          "count": 39,
+          "strict_intent_accuracy": 0.9743589743589743,
+          "ambiguity_aware_accuracy": 0.9743589743589743
+        },
+        "CS3": {
+          "count": 91,
+          "strict_intent_accuracy": 0.9230769230769231,
+          "ambiguity_aware_accuracy": 0.9230769230769231
+        },
+        "CS4": {
+          "count": 13,
+          "strict_intent_accuracy": 0.23076923076923078,
+          "ambiguity_aware_accuracy": 0.5384615384615384
+        }
+      },
+      "noise_level": {
+        "N0": {
+          "count": 172,
+          "strict_intent_accuracy": 0.8546511627906976,
+          "ambiguity_aware_accuracy": 0.8662790697674418
+        },
+        "N1": {
+          "count": 47,
+          "strict_intent_accuracy": 0.851063829787234,
+          "ambiguity_aware_accuracy": 0.8723404255319149
+        },
+        "N2": {
+          "count": 37,
+          "strict_intent_accuracy": 0.8648648648648649,
+          "ambiguity_aware_accuracy": 0.8918918918918919
+        },
+        "N3": {
+          "count": 34,
+          "strict_intent_accuracy": 0.9117647058823529,
+          "ambiguity_aware_accuracy": 0.9411764705882353
+        },
+        "N4": {
+          "count": 33,
+          "strict_intent_accuracy": 0.7272727272727273,
+          "ambiguity_aware_accuracy": 0.7272727272727273
+        },
+        "N5": {
+          "count": 27,
+          "strict_intent_accuracy": 0.7407407407407407,
+          "ambiguity_aware_accuracy": 0.7407407407407407
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Scores measure T3 intent and mapped operation selection only; domain execution is not included.",
+    "The classifier emits one label, so ambiguity-aware acceptance is retrospective; clarification behavior requires end-to-end evaluation.",
+    "The human reference subset is 350 of the 706 stress examples, not an independent set.",
+    "Contrast-group exact accuracy on the human subset is calculated only among subset members of each group; 17 of 73 observed groups are partial.",
+    "The frozen stress and human-reference sets include rows sharing train families; their full-set scores are not independent family-held-out estimates."
+  ]
+}

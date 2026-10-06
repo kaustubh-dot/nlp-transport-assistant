@@ -37,7 +37,17 @@
 - **Verification:** 7 focused tests pass, including real checkpoint inference and a CPU smoke training run. CLI smoke training completed under `/tmp/nlp_v2_t3_smoke_20261006`; its random-small-model metadata says `production_eligible: false`. The full suite has 247 passes and the same 13 historical Gate B.3 lifecycle failures as baseline. No CUDA device is available, so no new full MuRIL training was run; the pre-existing selected checkpoint supplies production inference.
 - **Astra Low review:** found that trainer metadata omitted configurable hyperparameters. Added the effective configuration, optimizer settings, device, package versions, corresponding CLI flags, and a nondefault-parameter smoke assertion. Focused re-review confirmed the fix.
 - **Known limitations:** the 950 MB checkpoint is ignored by Git and must be supplied locally for a fresh clone; the pinned MuRIL tokenizer/base files must be cached or explicitly installed. Family-disjoint validation has small counts for several classes. Full replacement training requires suitable GPU compute. Held-out evaluation follows the model freeze in Phase 4; no stress/test data has been read for model selection.
-- **Commit:** see the Phase 3 `feat(nlp_v2): package production T3 model` commit.
+- **Commit:** `1f31956`.
+
+## Phase 4 — frozen production T3 model evaluation
+
+- **Objective:** evaluate the Phase 3 frozen seed-42 checkpoint once on the authorized stress set and human-reference subset, with aggregate-only reports separate from historical Gate B.2 research outputs.
+- **Files changed:** `scripts/nlp_v2/evaluate_production_t3.py`, `tests/test_t3_production_evaluation.py`, `reports/nlp_v2/production_eval/production_t3_evaluation.{json,md}`, focused design and plan, and this progress record.
+- **Verification:** 5 synthetic evaluator tests pass. The checkpoint and frozen input hashes were checked before inference. On 706 stress rows, strict intent accuracy is 0.8300, Macro-F1 0.7918, ambiguity-aware acceptance 0.8399, mapped operation accuracy 0.8300. On the nested 350-row human-reference subset, strict accuracy is 0.8400 and Macro-F1 0.7777. Per-class and language/code-switch/noise aggregates are in the JSON report. No model or prompt change followed evaluation.
+- **Split integrity:** metadata-only audit found 187 of 706 stress rows and 160 of 350 human-reference rows sharing a training family or semantic family, with zero exact query duplicates. These are frozen-data limitations; the files remain untouched. Full-set metrics are descriptive stress performance, not independent family-held-out generalization estimates. Among 73 observed human-subset contrast groups, 17 are partial; the report discloses this.
+- **Astra Low review:** checked hashes, reference/gold alignment, per-class metric reconstruction, operation mapping, and aggregate-only claims. It requested clearer subset contrast semantics and stronger evaluator guard tests; both were added. A focused re-review follows before commit.
+- **Known limitations:** the classifier emits a single label; its ambiguity-aware score is retrospective acceptance, not clarification behavior. Domain answer quality and end-to-end operational behavior are assessed only after integration. The stress set was not used for model selection or any checkpoint change.
+- **Commit:** see the Phase 4 `eval(nlp_v2): report frozen production T3 model` commit.
 
 ## Focused phase sequence
 
