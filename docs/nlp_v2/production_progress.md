@@ -27,7 +27,17 @@
 - **Verification:** 36 synthetic and canonical DB slot tests pass. The full repository suite, run sequentially after avoiding concurrent legacy DB rebuilds, has 240 passes and the same 13 historical Gate B.3 lifecycle failures as baseline. Excluding that stale lifecycle test module yields 219 passes. Python compilation and whitespace checks pass.
 - **Astra Low review:** found route numbers absorbing ordinary words, via destinations being misassigned, missing first/last timing type, incorrect overnight times, and missing English bare-clock ambiguity. Failing tests preceded all fixes. Focused re-review found trailing-via ordering and spaced route suffix regressions; failing tests preceded those fixes too.
 - **Known limitations:** exact-name matching plus a curated Hindi/Roman alias set covers known canonical names; unknown aliases remain unresolved. The shipped KB contains two distinct Central hub IDs, so a generic Central journey currently asks for entity clarification rather than picking one. The extractor does not infer realtime facts or unsupported entities.
-- **Commit:** see the Phase 2 `feat(nlp_v2): add canonical T3 slot extraction` commit; its hash is added with the next phase.
+- **Commit:** `596e856`.
+
+## Phase 3 — production T3 model and safe trainer
+
+- **Objective:** package the existing 16-class MuRIL checkpoint for strict production inference and provide a separate train/validation-only replacement training path.
+- **Files changed:** `models/nlp_v2_t3_manifest.json`, `src/nlp_v2/model.py`, `scripts/nlp_v2/train_production_t3.py`, `tests/test_t3_model.py`, focused design and plan, and this progress record.
+- **Model selection:** seed 42 checkpoint loaded strictly on CPU, with pinned MuRIL revision, raw-query tokenization, max length 64, and verified SHA-256. The frozen training and validation CSVs unexpectedly share 39 family IDs and 35 semantic family IDs, affecting 78 of 410 validation rows. Without editing them, we compared all three existing checkpoints on 332 disjoint validation rows: Macro-F1 0.85122 (42), 0.84260 (101), 0.82535 (777). The original published seed-42 validation score of 0.91555 is retained with this leakage caveat. Selection used validation only, never stress/test/reference.
+- **Verification:** 7 focused tests pass, including real checkpoint inference and a CPU smoke training run. CLI smoke training completed under `/tmp/nlp_v2_t3_smoke_20261006`; its random-small-model metadata says `production_eligible: false`. The full suite has 247 passes and the same 13 historical Gate B.3 lifecycle failures as baseline. No CUDA device is available, so no new full MuRIL training was run; the pre-existing selected checkpoint supplies production inference.
+- **Astra Low review:** found that trainer metadata omitted configurable hyperparameters. Added the effective configuration, optimizer settings, device, package versions, corresponding CLI flags, and a nondefault-parameter smoke assertion. Focused re-review confirmed the fix.
+- **Known limitations:** the 950 MB checkpoint is ignored by Git and must be supplied locally for a fresh clone; the pinned MuRIL tokenizer/base files must be cached or explicitly installed. Family-disjoint validation has small counts for several classes. Full replacement training requires suitable GPU compute. Held-out evaluation follows the model freeze in Phase 4; no stress/test data has been read for model selection.
+- **Commit:** see the Phase 3 `feat(nlp_v2): package production T3 model` commit.
 
 ## Focused phase sequence
 

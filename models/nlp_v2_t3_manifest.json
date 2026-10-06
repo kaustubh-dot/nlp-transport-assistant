@@ -1,0 +1,35 @@
+{
+  "taxonomy": "T3",
+  "model_name": "google/muril-base-cased",
+  "model_revision": "afd9f36c7923d54e97903922ff1b260d091d202f",
+  "label_order": [
+    "point_to_point_route", "multimodal_route", "first_and_last_service",
+    "service_frequency", "scheduled_departure", "route_stop_sequence",
+    "route_stop_membership", "mode_availability", "fare_calculation",
+    "ticketing_and_passes", "station_facilities", "station_accessibility",
+    "interchange_transfer", "nearest_transport", "realtime_status_query",
+    "out_of_scope"
+  ],
+  "preprocessing": "raw_query",
+  "max_length": 64,
+  "checkpoint_path": "../experiments/nlp_v2/gate_b2/t3_muril_seed42_best.pt",
+  "checkpoint_sha256": "abac66fc9fa29212c7565117ae326e34f02b64e76dbb177c61e9661517803196",
+  "selection": {
+    "criterion": "validation_macro_f1_only",
+    "seed": 42,
+    "validation_macro_f1": 0.9155490971463621,
+    "validation_macro_f1_caveat": "Original Gate B.2 validation has train-family overlap; this score is not family-disjoint.",
+    "disjoint_validation_rows": 332,
+    "disjoint_validation_macro_f1": 0.8512157222506684,
+    "disjoint_validation_seed_comparison": {
+      "42": 0.8512157222506684,
+      "101": 0.8425958994448063,
+      "777": 0.8253504382580544
+    },
+    "best_epoch": 22
+  },
+  "training_data": {
+    "train_sha256": "d92801006ecb96fd64d01e6a602697e2e8749494627964f82d002566e3d0ba94",
+    "validation_sha256": "a870aea04006da25bde896f216c07313772603559cb794ad26f56eb0d8277415"
+  }
+}
