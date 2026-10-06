@@ -66,7 +66,17 @@
 - **Verification:** 14 synthetic English/Hindi/Roman/mixed/noisy contract tests pass. A manual run using the real frozen checkpoint reached `nearest_transport` and the canonical nearest-stop service for a Marina Beach query; live status returned explicit unavailable. The full suite has 286 passes and the same 13 stale historical Gate B.3 failures. Python compilation and whitespace checks pass.
 - **Astra Low review:** found classifier-supplied multi-goal clarification could be overwritten by entity ambiguity and mixed-route departure times lost their route names. Both were reproduced with failing tests and fixed; focused re-review found no remaining issue. Candidate intent alternatives were added to clarification replies.
 - **Known limitations:** the classifier emits one T3 label in normal inference, so multi-goal clarification currently requires an upstream structured prediction. Conservative entity resolution can ask for a stop when a named location has no route-constrained physical match. Replies use English templates while preserving the original multilingual query and canonical slots.
-- **Commit:** see the Phase 6 `feat(nlp_v2): connect T3 assistant path` commit.
+- **Commit:** `dbc76d1`.
+
+## Phase 7 — local JSON application API
+
+- **Objective:** expose the completed T3 assistant through a stable localhost request/response contract for the existing frontend.
+- **Files changed:** `app/api.py`, `tests/test_t3_api.py`, focused design and plan, and this progress record.
+- **Behavior:** `POST /api/v2/query` accepts a bounded JSON query and returns status, response text, T3 intent/operation, slots, operation data, and clarification alternatives. `GET /health` reports the loaded T3 service. Raw/normalized query, confidence, and exception details are excluded. The standard-library server binds to `127.0.0.1` by default.
+- **Verification:** 9 in-process API contract tests pass. A local-only HTTP smoke verified health/query responses, lowercase headers returning 200, a truncated body timing out with 408, and health remaining responsive afterward. The full suite has 295 passes and the same 13 stale Gate B.3 lifecycle failures. No new web dependency was needed.
+- **Astra Low review:** found case-sensitive header lookup after adapter conversion and an unbounded blocking body read. Added red tests, case-normalized headers, a finite socket timeout, and safe 408 handling. Focused re-review confirmed both fixes.
+- **Known limitations:** the endpoint is a local demo server, single threaded and without public deployment/authentication. The Streamlit frontend has not yet been switched to this API.
+- **Commit:** see the Phase 7 `feat(nlp_v2): expose local T3 JSON API` commit.
 
 ## Focused phase sequence
 

@@ -1,0 +1,5 @@
+# T3 application API design
+
+No HTTP API framework is installed; the repository's existing application is Streamlit. Add a small localhost JSON service using Python's standard-library `HTTPServer`, with one loaded `T3Assistant` instance. `POST /api/v2/query` accepts `{"query": "..."}` (UTF-8 JSON, 8 KiB limit) and returns a stable JSON object with `status`, `response_text`, `intent`, `operation`, `slots`, `data`, `missing_slots`, `clarification_reason`, `candidate_entities`, and `candidate_intents`. It omits raw/normalized text, model confidence, stack traces, and internal file paths. `GET /health` returns readiness and T3 taxonomy. Invalid requests receive 400/413/415/422, assistant errors 503, and unknown paths 404. Default bind is `127.0.0.1` only; the frontend calls it server-side.
+
+Keep the handler factory injectable for tests, and launch with `python -m app.api`. A process starts only if the pinned checkpoint and canonical DB load. No external service, credential, or CORS behavior is needed for this local demo. The existing Streamlit UI will be adapted in Phase 8 rather than duplicated here.
