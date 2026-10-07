@@ -78,6 +78,7 @@ class ExtractionResult:
     missing_execution_slots: tuple[str, ...] = ()
     multiple_execution_scopes: bool = False
     unsupported_temporal_scope: bool = False
+    unsupported_timetable_waypoint: bool = False
 
 
 def _has(text: str, phrase: str) -> bool:
@@ -379,6 +380,7 @@ class T3SlotExtractor:
                 unresolved.append(resolution)
 
         journey_intents = {"point_to_point_route", "multimodal_route", "mode_availability", "fare_calculation"}
+        unsupported_timetable_waypoint = False
         if intent in journey_intents:
             via_marker = re.search(r'(?<!\w)(?:via|होते हुए|hote hue)(?!\w)', normalized)
             via_index = next((index for index, span in enumerate(spans)
@@ -408,11 +410,33 @@ class T3SlotExtractor:
             assign(spans[0], "stop")
         elif intent == "nearest_transport" and spans:
             assign(spans[0], "landmark")
-        elif intent in {"scheduled_departure", "first_and_last_service", "service_frequency"} and len(spans) >= 2:
-            origin, destination = _endpoints(normalized, list(spans))
-            assign(origin, "station")
-            assign(destination, "destination")
-        elif intent in {"station_facilities", "station_accessibility", "scheduled_departure", "first_and_last_service", "service_frequency", "ticketing_and_passes", "interchange_transfer"} and spans:
+        elif intent in {"scheduled_departure", "first_and_last_service", "service_frequency"}:
+            unsupported_timetable_waypoint = bool(re.search(
+                r'(?<!\w)(?:via|होते हुए|hote hue)(?!\w)', normalized))
+            if unsupported_timetable_waypoint:
+                # Timetable contracts cannot execute a waypoint filter. Retain
+                # explicit endpoint roles only; mention order must not turn a
+                # waypoint into a destination. All mentions remain in spans.
+                sources = [span for span in spans if
+                           re.search(r'(?<!\w)from\s*$', normalized[:span.start])
+                           or re.match(r'\s*(?:से|se)(?!\w)', normalized[span.end:])]
+                destinations = [span for span in spans if
+                                re.search(r'(?<!\w)to\s*$', normalized[:span.start])
+                                or re.match(r'\s*(?:तक|tak)(?!\w)', normalized[span.end:])]
+                multiple_locations = len(sources) > 1 or len(destinations) > 1
+                if len(sources) == 1:
+                    assign(sources[0], 'station')
+                if len(destinations) == 1:
+                    assign(destinations[0], 'destination')
+            else:
+                multiple_locations = len(spans) > 2
+                if len(spans) >= 2:
+                    origin, destination = _endpoints(normalized, list(spans))
+                    assign(origin, "station")
+                    assign(destination, "destination")
+                elif spans:
+                    assign(spans[0], 'station')
+        elif intent in {"station_facilities", "station_accessibility", "ticketing_and_passes", "interchange_transfer"} and spans:
             assign(spans[0], "station")
 
         reason = None
@@ -425,4 +449,5 @@ class T3SlotExtractor:
             slots.get('time') or invalid_temporal) and bool(re.search(
                 r'(?<!\w)(?:before|between|pehle|pahle|पहले|बीच)(?!\w)', normalized))
         return ExtractionResult(slots, spans, tuple(unresolved), reason, requested_modes, normalized,
-                                missing_execution, multiple_locations or _multiple_scopes(query, intent, spans), unsupported_temporal)
+                                missing_execution, multiple_locations or _multiple_scopes(query, intent, spans),
+                                unsupported_temporal, unsupported_timetable_waypoint)

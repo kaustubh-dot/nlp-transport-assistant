@@ -226,6 +226,12 @@ class T3Assistant:
                 return AssistantReply('clarification', 'Please ask about one route, stop, fare stage or time at a time.',
                                       query, extraction.normalized_query, intent, None, prediction.confidence,
                                       clarification_reason='multiple_goals', candidate_intents=prediction.acceptable_labels)
+            if getattr(extraction, 'unsupported_timetable_waypoint', False):
+                result = DispatchResult(intent, OPERATIONS[intent], 'unavailable', dict(extraction.slots),
+                                        prediction.acceptable_labels, prediction.confidence,
+                                        message='Waypoint-filtered timetable requests are unsupported. Ask for a boarding stop and destination without a waypoint.',
+                                        data={'reason': 'timetable_waypoint_scope_unsupported'})
+                return self._reply(query, extraction.normalized_query, result)
             if extraction.unsupported_temporal_scope:
                 result = DispatchResult(intent, OPERATIONS[intent], 'unavailable', dict(extraction.slots),
                                         prediction.acceptable_labels, prediction.confidence,
