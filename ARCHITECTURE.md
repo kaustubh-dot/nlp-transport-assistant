@@ -8,7 +8,8 @@ flowchart TD
     API --> A[T3 assistant]
     A --> M[Frozen MuRIL inference on raw query]
     M --> G[Clarification guard for explicit multiple goals]
-    G --> S[Canonical slot and entity extraction]
+    G --> C[Source capability preflight]
+    C --> S[Canonical slot and entity extraction]
     S --> V[Contract validation and clarification]
     V --> D[Direct T3 operation dispatch]
     D --> KB[Read-only canonical SQLite service]
@@ -38,17 +39,17 @@ The API is a single-threaded local demo server. Authentication, public hosting, 
 | `point_to_point_route` | `PLAN_ROUTE` | Directional published stop-sequence candidates, with optional via/route/mode filters; no verified optimal-trip claim. |
 | `multimodal_route` | `PLAN_MULTIMODAL_ROUTE` | Unavailable: confirmed cross-mode transfer graph absent. |
 | `route_stop_sequence` | `LIST_ROUTE_STOPS` | Published, mode-consistent directional stop lists using route number or line name. |
-| `route_stop_membership` | `CHECK_STOP_ON_ROUTE` | Positive/negative membership in a published sequence; ambiguous physical stops require clarification. |
+| `route_stop_membership` | `CHECK_STOP_ON_ROUTE` | Bounded positive membership; negative membership requires complete mode-consistent topology across all candidate variants. Ambiguous physical stops remain candidates. |
 | `first_and_last_service` | `GET_FIRST_LAST_SERVICE` | Published schedule bounds with station, destination, route/mode and calendar constraints. |
-| `service_frequency` | `GET_SERVICE_FREQUENCY` | Median published headway for a specific route/line; requested clock uses a two-hour window. |
+| `service_frequency` | `GET_SERVICE_FREQUENCY` | Median interval for one published route/direction/physical-stop group; requested clock uses a two-hour window. Unresolved direction ambiguity is not merged. |
 | `scheduled_departure` | `GET_SCHEDULED_DEPARTURES` | Up to five published departures at/after the requested clock, preserving destination/calendar constraints. |
-| `mode_availability` | `CHECK_SERVICE_AVAILABILITY` | Current operation unavailable; published candidate count may be supplied. |
+| `mode_availability` | `CHECK_SERVICE_AVAILABILITY` | Positive ordered published connectivity with sources; current or dated/timed operation is unconfirmed and refused. |
 | `fare_calculation` | `CALCULATE_FARE` | Dated metro station-pair token records or bus stage/service-class records. Unsupported concession/ticket rules are unavailable. |
 | `ticketing_and_passes` | `GET_TICKETING_POLICY` | Unavailable: authoritative policy table absent. |
 | `station_facilities` | `GET_STATION_FACILITY` | Unavailable: facility availability is unverified in the current snapshot. |
 | `station_accessibility` | `GET_ACCESSIBILITY_INFO` | Nullable feature records; current snapshot has no affirmative verified coverage. |
 | `interchange_transfer` | `GET_INTERCHANGE_DETAILS` | Only confirmed transfer rows; current interchanges are unconfirmed. |
-| `nearest_transport` | `FIND_NEAREST_STATION` | Mode-specific geometric distance from a recognized place. MRTS and suburban rail remain distinct; walking access/current operation are unverified. |
+| `nearest_transport` | `FIND_NEAREST_STATION` | Mode-specific straight-line distance from exact canonical place/stop/hub coordinates. MRTS and suburban rail remain distinct; walking access/current operation are unverified. |
 | `realtime_status_query` | `REJECT_UNSUPPORTED_REALTIME` | Explicit live-data unavailable response. |
 | `out_of_scope` | `REJECT_OUT_OF_SCOPE` | Explicit rejection without domain lookup. |
 
@@ -62,6 +63,10 @@ Canonical IDs pass between backend layers. Explicit source prepositions/postposi
 
 Model selection used validation only. Existing frozen train/validation data share families; the replacement trainer excludes overlapping validation rows without altering source CSVs. Frozen stress/reference sets also share train families, and the human subset is nested in stress. Reports disclose those integrity limitations.
 
-The selected model was frozen before model-only evaluation. The complete assistant was frozen at `b9b2271b1761d08752786f22b558862f45ed1dac` before the final aggregate assistant run. Reports distinguish model accuracy, selected operation, actual terminal dispatch, status counts, and clarification behavior. They do not claim slot or factual-answer accuracy. The final assistant run did not trigger product/model tuning.
+The selected model was frozen before model-only evaluation. The complete assistant was frozen at `b9b2271b1761d08752786f22b558862f45ed1dac` before the final aggregate assistant run. Reports distinguish model accuracy, selected operation, actual terminal dispatch, status counts, and clarification behavior. They do not claim slot or factual-answer accuracy. That historical report is the baseline. Phases11–20 improve only against a separately frozen development suite and allowed validation, without individual held-out inspection. Phase17 ran one full GPU candidate selected on disjoint validation; it failed the comparison and the original model remains selected. The next source-frozen run is post-development descriptive regression evaluation, not an untouched estimate; its results cannot drive further backend tuning.
 
 Use the [runbook](docs/nlp_v2/production_runbook.md) for asset preparation, startup, tests, safe training, and demo steps. Historical evidence remains in the existing Gate B.2/B.3 directories.
+
+## Operational outcomes and artifacts
+
+Optional capability preflight avoids questions that cannot change source answerability; extended handlers retain authority. Replies expose `outcome_reason` separately from status/intent/operation for actionable missing inputs, ambiguity, unsupported source, external realtime, malformed requests and temporary failures. Exact extraction normalization stays separate from raw inference. The selected weights remain ignored and are supplied through the [validated artifact workflow](docs/nlp_v2/model_artifact_workflow.md); no automatic fallback or upload occurs. The [development matrix](docs/nlp_v2/development_acceptance.md) distinguishes actual coverage from intended-intent downstream reachability.

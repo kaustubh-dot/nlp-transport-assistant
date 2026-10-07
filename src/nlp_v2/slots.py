@@ -64,6 +64,9 @@ FARE_TYPES = {
 }
 
 
+COORDINATION = r'(?<!\w)(?:and|also|aur|और|or|ya|या)(?!\w)'
+CLOCK_TOKEN = r'(?<![\d:.])\d{1,2}(?:[:.]\d{2}(?::\d{2})?)?\s*(?:am|pm|baje|बजे|o[\x27’]?clock)(?!\w)|(?<![\d:.])\d{1,2}:\d{2}(?::\d{2})?(?![\d:])'
+
 @dataclass(frozen=True)
 class ExtractionResult:
     slots: dict[str, object]
@@ -73,6 +76,8 @@ class ExtractionResult:
     requested_modes: tuple[str, ...]
     normalized_query: str
     missing_execution_slots: tuple[str, ...] = ()
+    multiple_execution_scopes: bool = False
+    unsupported_temporal_scope: bool = False
 
 
 def _has(text: str, phrase: str) -> bool:
@@ -116,6 +121,8 @@ def _endpoints(text: str, spans: list[EntitySpan]) -> tuple[EntitySpan, EntitySp
 
 def _route_number(query: str) -> str | None:
     # Unicode decimal digits include Hindi numerals; preserve operational suffixes.
+    query = re.sub(CLOCK_TOKEN, '', query, flags=re.IGNORECASE)
+    query = re.sub(r'(?<!\d)\d{4}-\d{2}-\d{2}(?!\d)', '', query)
     ascii_digits = "".join(str(unicodedata.digit(char)) if char.isdecimal() else char
                            for char in unicodedata.normalize('NFC', query))
     suffixes = {'आर': 'R', 'जी': 'G', 'बी': 'B', 'सी': 'C', 'डी': 'D', 'ए': 'A', 'ई': 'E'}
@@ -205,6 +212,65 @@ def _time(query: str) -> str | list[str] | None:
     return None
 
 
+
+
+
+def _multiple_scopes(text: str, intent: str, spans: tuple[EntitySpan, ...]) -> bool:
+    """Reject cardinality that a single-operation slot schema cannot represent."""
+    # Keep punctuation for clocks, ISO dates and complete route suffixes.
+    text = unicodedata.normalize('NFC', text).lower()
+    clauses = re.split(COORDINATION, text)
+    lines = {line for line in LINE_NAMES if _has(normalize_text(text), line)}
+    if len(lines) > 1 or (lines and _route_number(text)):
+        return True
+    if len(clauses) > 1:
+        route_codes = {_route_number(clause) for clause in clauses}
+        route_codes.discard(None)
+        # A coordinated bare code inherits the first clause's explicit route cue.
+        if route_codes:
+            for clause in clauses[1:]:
+                bare = re.fullmatch(r'\s*([a-z]{0,3}\d{1,4}(?:[a-z]{0,3}|आर|जी|बी|सी|डी|ए|ई)?)\s*[?.!]?\s*', clause)
+                if bare:
+                    route_codes.add(_route_number('bus ' + bare.group(1)))
+        if len(route_codes - {None}) > 1:
+            return True
+        if sum(_explicit_route_marker(clause) for clause in clauses) > 1 and any(
+                _explicit_route_marker(clause) and _route_number(clause) is None for clause in clauses):
+            return True
+    if intent == 'fare_calculation':
+        stages = {int(m.group(1)) for m in re.finditer(r'(?<!\w)(?:stage|स्टेज)\s*(\d{1,2})(?!\w)', text)}
+        for match in re.finditer(r'(?:stage|स्टेज)\s*\d{1,2}\s*' + COORDINATION + r'\s*(\d{1,2})(?!\w)', text):
+            stages.add(int(match.group(1)))
+        if len(stages) > 1:
+            return True
+    if intent in {'route_stop_membership', 'nearest_transport'}:
+        identities = {tuple(sorted(c.entity_id for c in span.candidates)) for span in spans}
+        if len(identities) > 1:
+            return True
+    temporal_intents = {'first_and_last_service', 'service_frequency', 'scheduled_departure',
+                        'point_to_point_route', 'multimodal_route', 'mode_availability'}
+    if intent in temporal_intents:
+        clocks = {match.group().strip() for match in re.finditer(CLOCK_TOKEN, text)}
+        inherited_clock = re.search(r'\d{1,2}\s*' + COORDINATION + r'\s*\d{1,2}\s*(?:am|pm|baje|बजे)(?!\w)', text)
+        dates = set(re.findall(r'(?<!\d)\d{4}-\d{2}-\d{2}(?!\d)', text))
+        relative_days = {value for value, words in {
+            'today': ('today', 'aaj', 'आज'), 'tomorrow': ('tomorrow',),
+            'yesterday': ('yesterday',), 'kal': ('kal', 'कल'), 'parso': ('parso', 'परसों')}.items()
+            if any(_has(normalize_text(text), word) for word in words)}
+        if len(clocks) > 1 or inherited_clock or len(dates) + len(relative_days) > 1:
+            return True
+    return False
+
+
+def _explicit_route_marker(text: str) -> bool:
+    """Detect an explicit numeric route even when its suffix is unsupported."""
+    text = re.sub(CLOCK_TOKEN, '', text)
+    text = re.sub(r'(?<!\d)\d{4}-\d{2}-\d{2}(?!\d)', '', text)
+    marker = r'(?:\bbus\b|\bbs\b|\broute\b|बस|रूट)'
+    return bool(re.search(marker + r'\s*(?:(?:route|रूट|no\.?|number|नंबर)\s*)?(?:[a-z]{1,3})?\d', text)
+                or re.search(r'(?<!\w)(?:[a-z]{1,3})?\d[^\s?.,!:;()]*(?:\s+[^\s?.,!:;()]+)?\s*' + marker, text))
+
+
 class T3SlotExtractor:
     def __init__(self, resolver: CanonicalResolver):
         self.resolver = resolver
@@ -219,6 +285,7 @@ class T3SlotExtractor:
         unresolved: list[Resolution] = []
         invalid_temporal = False
         missing_execution = ()
+        multiple_locations = False
 
         mode_hits = []
         for mode, pattern in MODE_PATTERNS.items():
@@ -240,6 +307,11 @@ class T3SlotExtractor:
         code = _route_number(query)
         if code and intent in {"route_stop_sequence", "route_stop_membership", "first_and_last_service", "service_frequency", "scheduled_departure", "fare_calculation", "realtime_status_query", "point_to_point_route", "multimodal_route", "mode_availability", "interchange_transfer"}:
             slots["route_number"] = code
+        elif not code and intent in {'point_to_point_route', 'mode_availability', 'multimodal_route',
+                                    'scheduled_departure', 'first_and_last_service', 'service_frequency',
+                                    'route_stop_sequence', 'route_stop_membership', 'fare_calculation',
+                                    'interchange_transfer'} and _explicit_route_marker(query.lower()):
+            missing_execution = ('route_number',)
 
         if intent == "first_and_last_service":
             first = any(_has(normalized, word) for word in ("first", "पहली", "पहला", "pehli", "pehla"))
@@ -278,7 +350,7 @@ class T3SlotExtractor:
                 slots["stage_number"] = int(stage.group(1))
             if _uncertain_service_class(normalized):
                 slots.pop('service_type', None)
-                missing_execution = ('service_type',)
+                missing_execution += ('service_type',)
 
         if intent in {"first_and_last_service", "service_frequency", "scheduled_departure", "point_to_point_route", "multimodal_route", "mode_availability"}:
             clock = _time(query)
@@ -308,13 +380,20 @@ class T3SlotExtractor:
 
         journey_intents = {"point_to_point_route", "multimodal_route", "mode_availability", "fare_calculation"}
         if intent in journey_intents:
-            via_index = next((index for index in range(1, len(spans))
-                              if re.search(r"(?:\bvia\b|होते हुए|hote hue)\s*$", normalized[spans[index - 1].end:spans[index].start])), None)
+            via_marker = re.search(r'(?<!\w)(?:via|होते हुए|hote hue)(?!\w)', normalized)
+            via_index = next((index for index, span in enumerate(spans)
+                              if via_marker and re.fullmatch(r'\s*', normalized[via_marker.end():span.start])
+                              and span.start >= via_marker.end()), None)
             if via_index is not None and intent in {"point_to_point_route", "multimodal_route", "mode_availability"}:
                 assign(spans[via_index], "via")
                 endpoints = [span for index, span in enumerate(spans) if index != via_index]
             else:
                 endpoints = list(spans)
+                if via_marker and intent != 'fare_calculation':
+                    missing_execution += ('via',)
+                    # A later known name cannot substitute for an unknown waypoint.
+                    endpoints = [span for span in endpoints if span.end <= via_marker.start()]
+            multiple_locations = len(endpoints) > 2
             if len(endpoints) >= 2:
                 origin, destination = _endpoints(normalized, endpoints)
                 assign(origin, "origin")
@@ -341,4 +420,9 @@ class T3SlotExtractor:
             reason = "entity_ambiguity"
         elif invalid_temporal or isinstance(slots.get("time"), list) or (slots.get("temporal_relative") in {"kal", "कल", "parso", "परसों"} and not slots.get("date")):
             reason = "temporal_ambiguity"
-        return ExtractionResult(slots, spans, tuple(unresolved), reason, requested_modes, normalized, missing_execution)
+        unsupported_temporal = intent in {'scheduled_departure', 'service_frequency', 'first_and_last_service',
+                                           'point_to_point_route', 'multimodal_route', 'mode_availability'} and bool(
+            slots.get('time') or invalid_temporal) and bool(re.search(
+                r'(?<!\w)(?:before|between|pehle|pahle|पहले|बीच)(?!\w)', normalized))
+        return ExtractionResult(slots, spans, tuple(unresolved), reason, requested_modes, normalized,
+                                missing_execution, multiple_locations or _multiple_scopes(query, intent, spans), unsupported_temporal)

@@ -13,7 +13,7 @@ from .dispatch import DispatchResult, ServiceResult, OPERATIONS, dispatch
 from .domain import CanonicalTransitService
 from .entities import CanonicalResolver
 from .model import T3IntentClassifier
-from .slots import T3SlotExtractor
+from .slots import T3SlotExtractor, _route_number
 
 
 # This guard only requests clarification for independently expressed conjoined
@@ -26,7 +26,7 @@ GOAL_CUES = (
     ("station_accessibility", r"wheelchair|ramp|lift|escalator|व्हीलचेयर|लिफ्ट|रैंप"),
     ("station_facilities", r"parking|toilet|restroom|wifi|atm|पार्किंग|शौचालय"),
     ("ticketing_and_passes", r"pass|ticket rules|smart card|टिकट|पास"),
-    ("route_stop_sequence", r"all stops|list stops|stop sequence|सभी स्टॉप"),
+    ("route_stop_sequence", r"all stops|(?:list|show)\s+stops|stop sequence|सभी स्टॉप"),
     ("route_stop_membership", r"stop at|stops at|रुकती|rukti"),
     ("nearest_transport", r"nearest|closest|nazdik|नजदीक"),
     ("interchange_transfer", r"transfer|interchange|बदलना|badalna"),
@@ -44,13 +44,20 @@ def explicit_multiple_goals(query: str) -> tuple[str, ...]:
     if len(clauses) < 2:
         return ()
     goals = []
+    asked_clauses = 0
     for clause in clauses:
         for intent, pattern in GOAL_CUES:
             if re.search(r"(?<!\w)(?:" + pattern + r")(?!\w)", clause):
+                if re.search(r'(?<!\w)(?:list|show|find|tell|give|what|when|how|which|बताइए|बताओ|दिखाओ|batao|dikhao)(?!\w)', clause):
+                    asked_clauses += 1
                 if intent not in goals:
                     goals.append(intent)
                 break
-    return tuple(goals) if len(goals) > 1 else ()
+    bare_route_list = (goals == ['route_stop_sequence']
+                       and any(_route_number(clause) for clause in clauses)
+                       and any(re.fullmatch(r'\s*(?:[a-z]{0,3})?\d{1,4}(?:[a-z]{0,3}|आर|जी|बी|सी|डी|ए|ई)?\s*', clause)
+                               for clause in clauses))
+    return tuple(goals) if len(goals) > 1 or asked_clauses > 1 or bare_route_list else ()
 
 
 @dataclass(frozen=True)
@@ -94,6 +101,8 @@ def _missing_prompt(names: tuple[str, ...]) -> str:
         'station_or_mode_pair': 'the transfer station or the two transport modes',
         'transport_mode': 'one transport mode',
         'service_type': 'the bus service class (Ordinary, Express, Deluxe, Night or Air Conditioned)',
+        'route_number': 'a supported route number including its complete suffix',
+        'via': 'a recognized waypoint after “via”',
     }
     return 'Please provide ' + ', '.join(descriptions.get(name, name.replace('_', ' ')) for name in names) + '.'
 
@@ -183,6 +192,12 @@ class T3Assistant:
                 return self._reply(query, normalized, dispatch(prediction, {}, self.service))
             goals = explicit_multiple_goals(query)
             if goals:
+                if len(goals) == 1:
+                    # Two separately asked scopes can share one T3 intent.
+                    # This is a request guard, not an ambiguous model prediction.
+                    return AssistantReply('clarification', 'Please ask one transport question at a time.',
+                                          query, normalized, None, None, prediction.confidence,
+                                          clarification_reason='multiple_goals', candidate_intents=goals)
                 clarification = IntentPrediction(None, goals, prediction.confidence, "multiple_goals")
                 return self._reply(query, normalized, dispatch(clarification, {}, self.service))
             intent = prediction.primary_label
@@ -207,8 +222,26 @@ class T3Assistant:
                     missing_slots=('transport_mode',), clarification_reason='missing_slot',
                     candidate_intents=prediction.acceptable_labels,
                 )
+            if extraction.multiple_execution_scopes:
+                return AssistantReply('clarification', 'Please ask about one route, stop, fare stage or time at a time.',
+                                      query, extraction.normalized_query, intent, None, prediction.confidence,
+                                      clarification_reason='multiple_goals', candidate_intents=prediction.acceptable_labels)
+            if extraction.unsupported_temporal_scope:
+                result = DispatchResult(intent, OPERATIONS[intent], 'unavailable', dict(extraction.slots),
+                                        prediction.acceptable_labels, prediction.confidence,
+                                        message='Before-time and time-range requests are not supported by this operation.',
+                                        data={'reason': 'unsupported temporal scope'})
+                return self._reply(query, extraction.normalized_query, result)
+            capability = _capability_check(getattr(self.service, 'preflight_mode', None),
+                                           OPERATIONS[intent], extraction.slots.get('transport_mode'))
+            if capability is not None:
+                result = DispatchResult(intent, OPERATIONS[intent], capability.status, dict(extraction.slots),
+                                        prediction.acceptable_labels, prediction.confidence,
+                                        message=capability.message, data=capability.data)
+                return self._reply(query, extraction.normalized_query, result)
             if extraction.missing_execution_slots:
-                refusal = _capability_check(getattr(self.service, 'preflight_fare_class', None), extraction.slots)
+                refusal = (_capability_check(getattr(self.service, 'preflight_fare_class', None), extraction.slots)
+                           if intent == 'fare_calculation' else None)
                 if refusal is not None:
                     result = DispatchResult(intent, OPERATIONS[intent], refusal.status, dict(extraction.slots),
                                             prediction.acceptable_labels, prediction.confidence,
@@ -217,13 +250,6 @@ class T3Assistant:
                     result = DispatchResult(intent, OPERATIONS[intent], 'clarification', dict(extraction.slots),
                                             prediction.acceptable_labels, prediction.confidence,
                                             missing_slots=extraction.missing_execution_slots, reason='missing_slot')
-                return self._reply(query, extraction.normalized_query, result)
-            capability = _capability_check(getattr(self.service, 'preflight_mode', None),
-                                           OPERATIONS[intent], extraction.slots.get('transport_mode'))
-            if capability is not None:
-                result = DispatchResult(intent, OPERATIONS[intent], capability.status, dict(extraction.slots),
-                                        prediction.acceptable_labels, prediction.confidence,
-                                        message=capability.message, data=capability.data)
                 return self._reply(query, extraction.normalized_query, result)
             if extraction.clarification_reason:
                 candidates = tuple(sorted({candidate.entity_id for unresolved in extraction.unresolved

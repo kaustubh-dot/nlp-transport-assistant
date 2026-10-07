@@ -81,7 +81,7 @@ curl --fail --silent http://127.0.0.1:8765/api/v2/query \
   --data '{"query":"Where is the nearest metro station to Marina Beach?"}'
 ```
 
-`POST /api/v2/query` accepts one nonempty `query` string inside an at-most-8192-byte JSON body. The response contains `status`, `response_text`, `intent`, `operation`, `slots`, `data`, `missing_slots`, `clarification_reason`, `candidate_entities`, and `candidate_intents`. Safe API validation/availability errors contain `status` and `response_text`. Valid assistant statuses are `ok`, `clarification`, `unavailable`, `out_of_scope`, and `error`. Raw/normalized queries, classifier confidence and exception details are not returned.
+`POST /api/v2/query` accepts one nonempty `query` string inside an at-most-8192-byte JSON body. The response contains `status`, `outcome_reason`, `response_text`, `intent`, `operation`, `slots`, `data`, `missing_slots`, `clarification_reason`, `candidate_entities`, and `candidate_intents`. Safe API validation/availability errors contain `status`, `outcome_reason` and `response_text`. Valid assistant statuses are `ok`, `clarification`, `unavailable`, `out_of_scope`, and `error`. Raw/normalized queries, classifier confidence and exception details are not returned.
 
 Direct inference:
 
@@ -104,7 +104,7 @@ python -m pip check
 git diff --check
 ```
 
-The verified suite has 368 passes, including real-checkpoint inference, synthetic multilingual/slot/dispatch/service/API/UI cases, trainer smoke, evaluator guards, and frozen annotation/hash checks. The 34 Gate B.3 framework tests retain pre-execution checks using temporary synthetic manifests and validate the real closed state. No lint/type checker is configured. Run tests sequentially; legacy tests rebuild shared prototype SQLite fixtures.
+The verified suite has 602 passes, including real-checkpoint inference, synthetic multilingual/slot/dispatch/service/API/UI cases, trainer smoke, evaluator guards, and frozen annotation/hash checks. The 34 Gate B.3 framework tests retain pre-execution checks using temporary synthetic manifests and validate the real closed state. No lint/type checker is configured. Run tests sequentially; legacy tests rebuild shared prototype SQLite fixtures.
 
 Frozen Git boundary check:
 
@@ -160,7 +160,7 @@ The [model report](../../reports/nlp_v2/production_eval/production_t3_evaluation
 
 On 706 stress queries the assistant returned 520 clarifications, 150 unavailable, 22 ok, and 14 out of scope, with no error status. Strict reply-intent accuracy is 0.8272, selected-operation accuracy 0.5042, and terminal-dispatch accuracy 0.2323. Terminal dispatch includes correct unavailable/rejection operations; these scores do not establish factual travel-answer correctness. The 350-row human subset is nested in stress. Frozen train-family overlap affects 187 stress rows and 160 human-subset rows, so full scores are descriptive rather than independent family-held-out estimates. Additional runtime clarifications reflect alias/entity ambiguity, required inputs, and limited canonical coverage. There are no aligned gold factual answers or canonical slot IDs in this evaluator.
 
-The following commands are for an explicitly authorized reproducibility run using the unchanged frozen source/assets and a **new** output directory. Existing reports are never overwritten; repeated runs are not a model-selection loop. They were not rerun during documentation verification:
+The following commands are for an explicitly authorized reproducibility run using the unchanged frozen source/assets and a **new** output directory. Existing reports are never overwritten; repeated runs are not a model-selection loop. They were not rerun during earlier documentation verification. After phases11–20, use a new source freeze and label any authorized rerun post-development descriptive regression evaluation:
 
 ```bash
 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 python -m scripts.nlp_v2.evaluate_production_t3 \
@@ -171,7 +171,7 @@ OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 python -m scripts.nlp_v2.evaluate_assistant 
   --output-dir /tmp/nlp_v2-assistant-eval-reproduction
 ```
 
-The assistant evaluator refuses changed/uncommitted freeze paths. It records source commit, model/input/DB hashes, and the fixed reference date, with per-class and language/code-switch/noise aggregates. Model-only mapped-operation accuracy differs from actual assistant dispatch after extraction/clarification. No code, model, prompt, or parameter tuning followed final assistant evaluation.
+The assistant evaluator refuses changed/uncommitted freeze paths. It records source commit, model/input/DB hashes, and the fixed reference date, with per-class and language/code-switch/noise aggregates. Model-only mapped-operation accuracy differs from actual assistant dispatch after extraction/clarification. The historical baseline is preserved. Phases 11–20 develop against the separate development contracts and allowed validation without inspecting individual held-out failures. The new post-development evaluation is one-way: no subsequent backend tuning follows it.
 
 ## Demo workflow and limitations
 

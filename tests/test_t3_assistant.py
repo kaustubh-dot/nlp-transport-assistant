@@ -142,6 +142,29 @@ def test_route_endpoint_qualifiers_are_not_service_time_goals(resolver, query):
     assert reply.operation == "LIST_ROUTE_STOPS"
 
 
+@pytest.mark.parametrize('query', [
+    'List stops on bus route 102 and list stops on bus route 25R',
+    'List stops on bus route 102 and show stops on bus route 25R',
+    'बस रूट १०२ के सभी स्टॉप बताइए और बस रूट २५आर के सभी स्टॉप बताइए',
+    'list stops bs 102 aur list stops bs 25R',
+    'List stops on bus route 102 and 25R',
+    'बस रूट १०२ के सभी स्टॉप बताइए और २५आर',
+])
+def test_repeated_explicit_same_operation_requests_cannot_drop_second_goal(resolver, query):
+    from src.nlp_v2.assistant import T3Assistant
+    r=T3Assistant(classifier=FixedClassifier('route_stop_sequence'),resolver=resolver).process_query(query)
+    assert r.status=='clarification' and r.clarification_reason=='multiple_goals'
+    assert r.intent is None and r.operation is None and not r.data
+    assert r.candidate_intents==('route_stop_sequence',)
+
+
+def test_single_request_with_repeated_fare_noun_is_not_two_explicit_questions(resolver):
+    from src.nlp_v2.assistant import T3Assistant
+    r=T3Assistant(classifier=FixedClassifier('fare_calculation'),resolver=resolver).process_query(
+        'What is the ordinary bus stage 7 fare and the fare class?')
+    assert r.clarification_reason!='multiple_goals'
+
+
 def test_relative_day_ambiguity_is_kept_separate_from_missing_slots(resolver):
     from src.nlp_v2.assistant import T3Assistant
 
@@ -343,3 +366,101 @@ def test_availability_via_does_not_replace_destination(resolver):
     assert reply.slots.get('destination') == 'BUS_11192'
     assert reply.slots.get('via') == 'BUS_6099'
     assert reply.status == 'unavailable'
+
+
+@pytest.mark.parametrize('intent,query', [
+    ('route_stop_sequence', 'List stops on bus route 102 and bus 25R'),
+    ('fare_calculation', 'What is the ordinary bus fare for stage 4 and stage 7?'),
+    ('fare_calculation', 'Ordinary bus fare for stage 4 and 7?'),
+    ('route_stop_membership', 'Does bus 102 stop at Island ground Terminus and Annasquare?'),
+    ('scheduled_departure', 'Show bus departures at 8 AM and 9 AM from Poonamallee Bus Terminus'),
+    ('scheduled_departure', 'Show bus departures at 8 and 9 AM from Poonamallee Bus Terminus'),
+    ('scheduled_departure', 'बस पूनमल्ली बस टर्मिनस से सुबह ८ बजे और ९ बजे कब छूटेगी?'),
+    ('scheduled_departure', 'Show bus departures at 08:00 and 09:00 from Poonamallee Bus Terminus'),
+    ('scheduled_departure', 'Show bus departures on 2026-10-06 and 2026-10-07 from Poonamallee Bus Terminus'),
+    ('route_stop_sequence', 'List stops on bus 102 and bus २५क्यू'),
+    ('scheduled_departure', 'Show bus departures today and tomorrow from Poonamallee Bus Terminus'),
+    ('scheduled_departure', 'Show bus departures आज और कल from Poonamallee Bus Terminus'),
+    ('route_stop_sequence', 'List stops on bus 102 and Blue Line'),
+    ('route_stop_sequence', 'List stops on Blue Line and Green Line'),
+    ('fare_calculation', 'Ordinary bus fare for stage 4 or stage 7?'),
+    ('nearest_transport', 'Where is the nearest metro station to Marina Beach and Poonamallee Bus Terminus?'),
+])
+def test_single_operation_never_drops_coordinated_scopes(resolver, intent, query):
+    from src.nlp_v2.assistant import T3Assistant
+    reply = T3Assistant(classifier=FixedClassifier(intent), resolver=resolver).process_query(query)
+    assert reply.status == 'clarification'
+    assert reply.clarification_reason == 'multiple_goals'
+    assert not reply.data.get('amount') and not reply.data.get('departures')
+
+
+@pytest.mark.parametrize('marker', ['via', 'होते हुए', 'hote hue'])
+def test_unknown_explicit_waypoint_is_required_not_dropped(resolver, marker):
+    from src.nlp_v2.assistant import T3Assistant
+    reply = T3Assistant(classifier=FixedClassifier('point_to_point_route'), resolver=resolver).process_query(
+        f'Bus route from Island ground Terminus to Annasquare {marker} Unknownville?')
+    assert reply.status == 'clarification'
+    assert reply.missing_slots == ('via',)
+    assert 'waypoint' in reply.response_text
+    assert reply.slots['destination'] == 'BUS_11192'
+
+
+@pytest.mark.parametrize('intent', ['point_to_point_route', 'mode_availability', 'scheduled_departure', 'first_and_last_service'])
+@pytest.mark.parametrize('code', ['१०२ क्यू', '१०२क्यू', '102 Rजी', '102#Q'])
+def test_unparseable_explicit_optional_route_cannot_widen_results(resolver, intent, code):
+    from src.nlp_v2.assistant import T3Assistant
+    query = (f'Is bus {code} available from Island ground Terminus to Annasquare?' if intent in {'point_to_point_route', 'mode_availability'}
+             else f'Last bus {code} departures from Poonamallee Bus Terminus?')
+    reply = T3Assistant(classifier=FixedClassifier(intent), resolver=resolver).process_query(query)
+    assert reply.status == 'clarification'
+    assert reply.missing_slots == ('route_number',)
+    assert 'route number' in reply.response_text
+    assert not reply.data.get('routes')
+
+
+@pytest.mark.parametrize('scope', ['before 8 AM', 'between 8 AM and 9 AM', '8 बजे से पहले', '8 baje se pehle'])
+def test_unsupported_temporal_comparator_cannot_become_after_departures(resolver, scope):
+    from src.nlp_v2.assistant import T3Assistant
+    reply = T3Assistant(classifier=FixedClassifier('scheduled_departure'), resolver=resolver).process_query(
+        f'Show bus departures {scope} from Poonamallee Bus Terminus')
+    assert reply.status in {'unavailable', 'clarification'}
+    assert not reply.data.get('departures')
+
+
+def test_unknown_waypoint_does_not_prompt_for_absent_metro_topology(resolver):
+    from src.nlp_v2.assistant import T3Assistant
+    reply = T3Assistant(classifier=FixedClassifier('point_to_point_route'), resolver=resolver).process_query(
+        'Metro route from Central to Airport via Unknownville?')
+    assert reply.status == 'unavailable'
+
+
+def test_repeated_scope_value_still_answers_one_stage(resolver):
+    from src.nlp_v2.assistant import T3Assistant
+    reply = T3Assistant(classifier=FixedClassifier('fare_calculation'), resolver=resolver).process_query(
+        'What is the ordinary bus fare for stage 4 (stage 4)?')
+    assert reply.status == 'ok' and reply.data['amount'] == 8
+
+
+@pytest.mark.parametrize('code', ['१०२क्यू bus', '१०२ क्यू बस'])
+def test_rejected_route_before_mode_preserves_unicode_suffix(resolver, code):
+    from src.nlp_v2.assistant import T3Assistant
+    reply = T3Assistant(classifier=FixedClassifier('mode_availability'), resolver=resolver).process_query(
+        f'{code} available from Island ground Terminus to Annasquare?')
+    assert reply.status == 'clarification' and reply.missing_slots == ('route_number',)
+
+
+@pytest.mark.parametrize('scope', ['2026-10-06', '08:00'])
+def test_temporal_number_before_bus_is_not_a_route_code(resolver, scope):
+    from src.nlp_v2.assistant import T3Assistant
+    reply = T3Assistant(classifier=FixedClassifier('scheduled_departure'), resolver=resolver).process_query(
+        f'Show departures at {scope} bus from Poonamallee Bus Terminus')
+    assert reply.status == 'ok'
+    assert 'route_number' not in reply.slots
+
+
+def test_repeated_aliases_of_one_nearest_anchor_are_one_scope(resolver):
+    from src.nlp_v2.assistant import T3Assistant
+    reply = T3Assistant(classifier=FixedClassifier('nearest_transport'), resolver=resolver).process_query(
+        'Nearest metro station to Marina Beach (मरीना बीच)?')
+    assert reply.status == 'ok'
+    assert reply.data['anchor'] == 'OSM_POI_12137617372'

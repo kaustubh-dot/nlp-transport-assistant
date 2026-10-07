@@ -47,13 +47,13 @@ python -m pytest -q
 python -m pip check
 ```
 
-The verified local environment passes **368 tests**. No lint/type checker is configured. Tests include strict real-checkpoint inference, synthetic contract/integration/UI cases, and frozen research integrity checks; they do not establish factual travel-answer accuracy.
+The verified local environment passes **602 tests**. No lint/type checker is configured. Tests include strict real-checkpoint inference, synthetic contract/integration/UI cases, and frozen research integrity checks; they do not establish factual travel-answer accuracy.
 
 - [Architecture and the 16 operation behaviors](ARCHITECTURE.md)
 - [Setup, inference, optional training, evaluation and demo runbook](docs/nlp_v2/production_runbook.md)
 - [Model manifest](models/nlp_v2_t3_manifest.json) and [phase progress](docs/nlp_v2/production_progress.md)
 - [Frozen model evaluation](reports/nlp_v2/production_eval/production_t3_evaluation.md): stress intent accuracy **0.8300**, Macro-F1 **0.7918**.
-- [Frozen complete-assistant evaluation](reports/nlp_v2/assistant_eval/assistant_evaluation.md): on 706 stress queries, **520 clarifications, 150 unavailable, 22 ok, 14 out of scope**; terminal dispatch accuracy **0.2323**, including correct unavailable/rejection operations. These are contract metrics, not factual-answer metrics. The frozen stress/reference sets contain training-family overlap, so full scores are descriptive rather than independent family-held-out estimates. No tuning followed final evaluation.
+- [Frozen complete-assistant evaluation](reports/nlp_v2/assistant_eval/assistant_evaluation.md): on 706 stress queries, **520 clarifications, 150 unavailable, 22 ok, 14 out of scope**; terminal dispatch accuracy **0.2323**, including correct unavailable/rejection operations. These are contract metrics, not factual-answer metrics. The frozen stress/reference sets contain training-family overlap, so full scores are descriptive rather than independent family-held-out estimates. These are the historical baseline reports. Subsequent phases use only the separate development suite and allowed validation; a post-development descriptive regression evaluation follows a new source freeze.
 
 ## Research and preserved prototype
 
