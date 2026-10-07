@@ -15,6 +15,7 @@ Check the selected artifact:
 
 ```bash
 sha256sum experiments/nlp_v2/gate_b2/t3_muril_seed42_best.pt
+python -m scripts.nlp_v2.validate_model_artifact
 ```
 
 Expected SHA-256:
@@ -24,6 +25,8 @@ abac66fc9fa29212c7565117ae326e34f02b64e76dbb177c61e9661517803196
 ```
 
 Do not recreate the closed Gate B.2 benchmark to obtain weights. Without this artifact, the selected production model cannot start. The optional replacement trainer below supplies a separate development path, with a new checkpoint/manifest selection requiring its own development freeze and evaluation.
+
+The [artifact workflow](model_artifact_workflow.md) specifies exact bytes, provenance, authorized manual transfer, actionable validation failures and `--load-model` strict offline loading. No external upload or huge Git binary is required.
 
 ## Install and cache preparation
 

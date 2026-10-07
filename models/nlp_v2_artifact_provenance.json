@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "role": "selected_production_checkpoint",
+  "model_manifest": "models/nlp_v2_t3_manifest.json",
+  "model_manifest_sha256": "447a120090c33ba1259cad06ce9f216d80832d2540727c3330f14be3ec04dc39",
+  "checkpoint_path": "experiments/nlp_v2/gate_b2/t3_muril_seed42_best.pt",
+  "checkpoint_sha256": "abac66fc9fa29212c7565117ae326e34f02b64e76dbb177c61e9661517803196",
+  "checkpoint_bytes": 950358409,
+  "origin": "Preserved Gate B.2 MuRIL T3 seed42 best epoch22 artifact",
+  "original_selection": "Validation Macro-F1 only; original validation had train-family overlap",
+  "disjoint_validation_rows": 332,
+  "disjoint_validation_macro_f1": 0.8512157222506684,
+  "current_selection_decision": "Phase17 single disjoint-validation candidate failed to exceed baseline; original retained",
+  "decision_report": "reports/nlp_v2/training_decision/phase17/candidate_comparison.json",
+  "supply_method": "Exact bytes from project/run owner via authorized local/private transfer",
+  "public_download_url": null,
+  "tracked_weights": false
+}

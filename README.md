@@ -18,6 +18,12 @@ export HF_HOME="$PWD/.cache/huggingface"
 
 **Required model assets:** the selected checkpoint is approximately 950 MB and is intentionally excluded from Git. Supply the original `t3_muril_seed42_best.pt` at `experiments/nlp_v2/gate_b2/t3_muril_seed42_best.pt`, then prepare the pinned MuRIL tokenizer/config cache. Follow the [asset preparation steps](docs/nlp_v2/production_runbook.md#required-assets) before starting. The canonical database is already tracked; the prototype DB builder is not part of T3 setup.
 
+Use the [artifact transfer and validation workflow](docs/nlp_v2/model_artifact_workflow.md) to check supplied bytes before startup:
+
+```bash
+.venv/bin/python -m scripts.nlp_v2.validate_model_artifact
+```
+
 Run the API:
 
 ```bash

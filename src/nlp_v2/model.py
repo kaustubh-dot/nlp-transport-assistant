@@ -33,6 +33,8 @@ def sha256_file(path: Path) -> str:
 def load_manifest(path: str | Path = DEFAULT_MANIFEST) -> dict:
     """Validate the immutable class and preprocessing contract before weight loading."""
     data = json.loads(Path(path).read_text(encoding="utf-8"))
+    if not isinstance(data, dict):
+        raise ContractError("T3 manifest must be a JSON object")
     if data.get("taxonomy") != "T3":
         raise ContractError("Production intent model must use T3 taxonomy")
     if data.get("label_order") != list(LABEL_ORDER) or set(LABEL_ORDER) != T3_INTENTS:
