@@ -14,17 +14,22 @@ from app.frontend_contract import DEFAULT_API_URL, ask_api, result_panel  # noqa
 
 
 API_URL = (os.environ.get("NLP_V2_API_URL") or DEFAULT_API_URL).rstrip("/")
+STATUS_LABELS = {
+    'ok': 'Published information', 'clarification': 'More information needed',
+    'unavailable': 'Information unavailable', 'out_of_scope': 'Outside transport scope',
+    'error': 'Request could not be completed',
+}
 
 st.set_page_config(page_title="Chennai Transit Assistant", page_icon="🚇", layout="centered")
 st.markdown("""
 <style>
-  .block-container { max-width: 900px; padding-top: 2rem; padding-bottom: 5rem; }
+  .block-container { max-width: 900px; padding-top: 4.5rem; padding-bottom: 5rem; }
   [data-testid="stAppViewContainer"] { background: #f7f9fc; color: #17314b; }
   [data-testid="stChatMessage"] { border: 1px solid #d9e3ee; border-radius: 14px; background: white; }
   h1, h2, h3 { color: #143654; }
   .transit-kicker { color: #236b82; font-weight: 700; letter-spacing: .12em; font-size: .76rem; text-transform: uppercase; }
   .transit-subtitle { color: #53677b; margin: -.4rem 0 1.2rem; }
-  @media (max-width: 640px) { .block-container { padding: 1rem .8rem 5rem; } }
+  @media (max-width: 640px) { .block-container { padding: 4.5rem .8rem 5rem; } }
 </style>
 """, unsafe_allow_html=True)
 
@@ -73,18 +78,20 @@ def _render_panel(reply: dict) -> None:
     kind, data = panel["kind"], panel["data"]
     with st.container(border=True):
         if kind == "routes":
-            st.subheader("Journey candidates")
-            _table(data.get("routes", []), ["route_name", "mode", "origin_stop_id", "destination_stop_id", "source"])
+            st.subheader("Published route candidates")
+            _table(data.get("routes", []), ["route_name", "mode", "source"])
+            st.caption('Stop-sequence connectivity only. A current trip or transfer plan is not confirmed.')
         elif kind == "stops":
             st.subheader("Route stops")
-            for sequence in data.get("sequences", []):
-                with st.expander(f"{sequence.get('route_name', 'Route')} · direction {sequence.get('direction_id', '?')}", expanded=False):
-                    _table(sequence.get("stops", []), ["sequence", "name", "stop_id"])
+            for index, sequence in enumerate(data.get("sequences", []), 1):
+                with st.expander(f"{sequence.get('route_name', 'Route')} · published sequence {index}", expanded=False):
+                    _table(sequence.get("stops", []), ["sequence", "name"])
                     _show_source(sequence.get("source"))
             if data.get("truncated"):
                 st.caption("Additional published sequences are not shown here.")
         elif kind == "membership":
             st.metric("On published route sequence", "Yes" if data["on_route"] else "No")
+            _show_source(data.get('source'))
         elif kind == "service_bounds":
             st.subheader("Published service times")
             first, last = st.columns(2)
@@ -117,13 +124,28 @@ def _render_panel(reply: dict) -> None:
             st.metric(data.get("feature", "Accessibility"), "Recorded available" if data.get("available") else "Recorded unavailable")
         elif kind in {"facility", "ticketing"}:
             st.subheader("Published information")
-            st.write(data)
+            st.write(data.get('policy') if kind == 'ticketing' else data.get('facility'))
+            _show_source(data.get('source'))
+        routes = data.get('routes')
+        partial = data.get('partial_topology') is True or (isinstance(routes, list) and any(
+            isinstance(row, dict) and row.get('partial_topology') is True for row in routes))
+        if partial:
+            st.caption('Partial published coverage: some links or route variants cannot be verified.')
+            excluded = data.get('excluded_unusable_rows')
+            excluded = excluded if type(excluded) is int and excluded >= 0 else 0
+            uncovered = data.get('uncovered_route_ids')
+            variant_count = len(uncovered) if isinstance(uncovered, list) else 0
+            if excluded or variant_count:
+                st.caption(f'Omitted: {excluded} unusable links and {variant_count} route variant(s).')
+        if data.get('hub_membership_unverified'):
+            st.caption('Hub-to-stop membership is provisional; the exact boarding location needs verification.')
         if data.get("provisional"):
             st.caption("Snapshot-derived information. Verify current service and conditions with the operator.")
 
 
 def _render_reply(reply: dict) -> None:
     status = reply.get("status", "error")
+    st.caption(STATUS_LABELS.get(status, STATUS_LABELS['error']))
     message = reply.get("response_text", "The assistant returned no response.")
     if status == "error":
         st.error(message)
@@ -142,13 +164,15 @@ def _render_reply(reply: dict) -> None:
             st.caption("Question types: " + ", ".join(item.replace("_", " ") for item in choices))
         entities = reply.get("candidate_entities") or []
         if entities:
-            st.caption("Possible canonical locations: " + ", ".join(entities) + ". Use a specific stop name in the revised question.")
+            st.caption('More than one stop or location matches. Include the route number, transport mode '
+                       'or precise stop name in your revised full question.')
     _render_panel(reply)
 
 
 st.markdown('<div class="transit-kicker">Chennai · Public transport</div>', unsafe_allow_html=True)
 st.title("Transit Assistant")
 st.markdown('<div class="transit-subtitle">Ask about routes, stops, schedules, fares, or nearby transit.</div>', unsafe_allow_html=True)
+st.caption('Published snapshot · No live updates · Verify current service with the operator')
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -163,7 +187,7 @@ if not st.session_state.messages:
     examples = [
         ("Nearby metro", "Where is the nearest metro station to Marina Beach?"),
         ("Bus route stops", "List stops on bus route 102"),
-        ("Published fare", "What is the metro fare from Central to Airport?"),
+        ("Published fare", "What is the deluxe bus fare for stage 4?"),
     ]
     columns = st.columns(3)
     for column, (label, query) in zip(columns, examples):

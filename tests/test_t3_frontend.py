@@ -134,7 +134,7 @@ def test_streamlit_chat_shows_api_clarification_and_revision_form(monkeypatch):
     assert any("Please provide origin" in info.value for info in app.info)
 
 
-def test_entity_clarification_displays_candidate_locations(monkeypatch):
+def test_entity_clarification_explains_choice_without_internal_ids(monkeypatch):
     import requests
     from streamlit.testing.v1 import AppTest
 
@@ -149,7 +149,71 @@ def test_entity_clarification_displays_candidate_locations(monkeypatch):
     app = AppTest.from_file("app/streamlit_app.py").run(timeout=10)
     app.button[0].click().run(timeout=10)
     assert not app.exception
-    assert any("HUB_CENTRAL" in caption.value and "METRO_CENTRAL" in caption.value for caption in app.caption)
+    captions = ' '.join(caption.value for caption in app.caption)
+    assert 'More than one stop' in captions
+    assert 'transport mode' in captions
+    assert 'HUB_CENTRAL' not in captions and 'METRO_CENTRAL' not in captions
+
+
+@pytest.mark.parametrize('status,label', [
+    ('ok','Published information'), ('clarification','More information needed'),
+    ('unavailable','Information unavailable'), ('out_of_scope','Outside transport scope'),
+    ('error','Request could not be completed'),
+])
+def test_chat_labels_all_statuses_and_retains_snapshot_limit(monkeypatch, status, label):
+    import requests
+    from streamlit.testing.v1 import AppTest
+    monkeypatch.setattr(requests, 'get', lambda *a, **k: FakeResponse(200, {'status':'ok','taxonomy':'T3'}))
+    monkeypatch.setattr(requests, 'post', lambda *a, **k: FakeResponse(200, {
+        'status':status,'response_text':'Test message.', 'data':{}, 'slots':{},
+    }))
+    app = AppTest.from_file('app/streamlit_app.py').run(timeout=10)
+    app.button[0].click().run(timeout=10)
+    assert not app.exception
+    captions=' '.join(c.value for c in app.caption)
+    assert label in captions
+    assert 'No live updates' in captions
+    assert not app.metric
+    if status in {'unavailable','error'}:
+        assert any(e.value=='Test message.' for e in (app.warning if status=='unavailable' else app.error))
+
+
+def test_partial_route_panel_discloses_omissions_without_internal_ids(monkeypatch):
+    import requests
+    from streamlit.testing.v1 import AppTest
+    monkeypatch.setattr(requests, 'get', lambda *a, **k: FakeResponse(200, {'status':'ok','taxonomy':'T3'}))
+    monkeypatch.setattr(requests, 'post', lambda *a, **k: FakeResponse(200, {
+        'status':'ok','response_text':'Published sequence.', 'operation':'LIST_ROUTE_STOPS',
+        'data':{'partial_topology':True,'excluded_unusable_rows':2,'uncovered_route_ids':['PRIVATE_VARIANT'],
+                'provisional':True,'sequences':[{'route_name':'102','source':'SCHEDULE_SOURCE',
+                'stops':[{'sequence':1,'name':'Example stop','stop_id':'PRIVATE_STOP'}]}]},
+    }))
+    app=AppTest.from_file('app/streamlit_app.py').run(timeout=10)
+    app.button[0].click().run(timeout=10)
+    assert not app.exception
+    captions=' '.join(c.value for c in app.caption)
+    assert 'Partial published coverage' in captions
+    assert '2 unusable links' in captions and '1 route variant' in captions
+    assert 'PRIVATE_VARIANT' not in captions
+    assert 'stop_id' not in list(app.dataframe[0].value.columns)
+
+
+@pytest.mark.parametrize('operation,data', [
+    ('CALCULATE_FARE', {'amount':17,'routes':None}),
+    ('CALCULATE_FARE', {'amount':17,'routes':[None]}),
+    ('LIST_ROUTE_STOPS', {'sequences':[{'stops':[]}], 'partial_topology':True,
+                          'excluded_unusable_rows':2,'uncovered_route_ids':None}),
+])
+def test_optional_coverage_metadata_never_exposes_renderer_exception(monkeypatch, operation, data):
+    import requests
+    from streamlit.testing.v1 import AppTest
+    monkeypatch.setattr(requests, 'get', lambda *a, **k: FakeResponse(200, {'status':'ok','taxonomy':'T3'}))
+    monkeypatch.setattr(requests, 'post', lambda *a, **k: FakeResponse(200, {
+        'status':'ok','response_text':'Published information.', 'operation':operation,'data':data,
+    }))
+    app=AppTest.from_file('app/streamlit_app.py').run(timeout=10)
+    app.button[0].click().run(timeout=10)
+    assert not app.exception
 
 
 @pytest.mark.parametrize("operation,data,expected", [
