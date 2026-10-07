@@ -20,18 +20,11 @@ STATUS_LABELS = {
     'error': 'Request could not be completed',
 }
 
-st.set_page_config(page_title="Chennai Transit Assistant", page_icon="🚇", layout="centered")
-st.markdown("""
-<style>
-  .block-container { max-width: 900px; padding-top: 4.5rem; padding-bottom: 5rem; }
-  [data-testid="stAppViewContainer"] { background: #f7f9fc; color: #17314b; }
-  [data-testid="stChatMessage"] { border: 1px solid #d9e3ee; border-radius: 14px; background: white; }
-  h1, h2, h3 { color: #143654; }
-  .transit-kicker { color: #236b82; font-weight: 700; letter-spacing: .12em; font-size: .76rem; text-transform: uppercase; }
-  .transit-subtitle { color: #53677b; margin: -.4rem 0 1.2rem; }
-  @media (max-width: 640px) { .block-container { padding: 4.5rem .8rem 5rem; } }
-</style>
-""", unsafe_allow_html=True)
+st.set_page_config(page_title="Chennai Transit Assistant", page_icon="🚆", layout="wide")
+# Restore the original MandiPulse / Quiet Exchange visual language, preserved in
+# legacy_streamlit_app.py. Presentation remains independent of the T3 API.
+st.markdown((Path(__file__).with_name("transit_theme.html")).read_text(encoding="utf-8"),
+            unsafe_allow_html=True)
 
 
 def _api_ready() -> bool:
@@ -169,9 +162,34 @@ def _render_reply(reply: dict) -> None:
     _render_panel(reply)
 
 
-st.markdown('<div class="transit-kicker">Chennai · Public transport</div>', unsafe_allow_html=True)
-st.title("Transit Assistant")
-st.markdown('<div class="transit-subtitle">Ask about routes, stops, schedules, fares, or nearby transit.</div>', unsafe_allow_html=True)
+with st.sidebar:
+    st.markdown("""
+    <div class="rail-brand">
+        <h2 class="rail-brand-title">Chennai Transit</h2>
+        <p class="rail-brand-sub">चेन्नई परिवहन सहायक<br>Multilingual transport assistant</p>
+    </div>
+    """, unsafe_allow_html=True)
+    st.subheader("Ask in your own words")
+    st.caption("English · हिन्दी · Hinglish")
+    st.write("Routes, stops, published schedules, fares and nearby transport.")
+    st.divider()
+    st.subheader("Published snapshot")
+    st.caption("No live updates. Confirm current service and fares with the operator.")
+    st.caption("Transfer, accessibility and facility information is shown only when supported by the source.")
+    st.markdown('<div class="snapshot-evidence">Chennai · Public transport</div>', unsafe_allow_html=True)
+
+st.markdown("""
+<header class="mp-masthead">
+    <h1 class="mp-title">Chennai Multimodal Transit Assistant</h1>
+    <p class="mp-subtitle">चेन्नई परिवहन सहायक · Ask about routes, stops, schedules, fares, or nearby transit.</p>
+    <div class="mp-pill-row">
+        <span class="mp-pill mp-pill-blue">Bus</span>
+        <span class="mp-pill mp-pill-green">Metro</span>
+        <span class="mp-pill mp-pill-accent">Rail</span>
+        <span class="mp-pill">Published records</span>
+    </div>
+</header>
+""", unsafe_allow_html=True)
 st.caption('Published snapshot · No live updates · Verify current service with the operator')
 
 if "messages" not in st.session_state:

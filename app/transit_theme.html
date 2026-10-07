@@ -1,0 +1,348 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* MandiPulse / Quiet Exchange tokens recovered from the original UI. */
+
+:root {
+    color-scheme: light;
+
+    /* MandiPulse Light Mode Surfaces */
+    --mp-paper: oklch(96% 0.012 75);           /* #f7f1e9 warm parchment linen */
+    --mp-paper-2: oklch(92% 0.016 75);         /* #ebe3d9 deeper linen sidebar/panel */
+    --mp-surface: oklch(98% 0.008 75);         /* #fcf8f3 crisp warm off-white */
+    --mp-surface-raised: oklch(99% 0.006 75);  /* #fefbf7 elevated card surface */
+
+    /* Universal Hallmark Token Aliases (Gate 48 Compliance) */
+    --color-paper: var(--mp-paper);
+    --color-paper-2: var(--mp-paper-2);
+    --color-paper-3: oklch(89% 0.016 75);
+    --color-paper-elevated: var(--mp-surface-raised);
+
+    /* MandiPulse Inks */
+    --mp-ink: oklch(20% 0.012 55);             /* #1a1511 deep bistre espresso */
+    --mp-ink-2: oklch(38% 0.012 55);           /* #48413c charcoal / dark umber */
+    --mp-muted: oklch(45% 0.012 55);           /* #5b544f muted warm grey */
+
+    --color-ink: var(--mp-ink);
+    --color-ink-2: var(--mp-ink-2);
+    --color-muted: var(--mp-muted);
+
+    /* MandiPulse Rules & Dividers */
+    --mp-rule: oklch(82% 0.012 70);            /* #c9c3bc hairline rule */
+    --mp-rule-strong: oklch(68% 0.018 70);     /* #a0978d structural border */
+
+    --color-rule: var(--mp-rule);
+    --color-rule-2: oklch(88% 0.010 70);
+
+    /* MandiPulse Accents & Status */
+    --mp-accent: oklch(38% 0.13 18);           /* #781827 rich oxblood / burgundy */
+    --mp-accent-soft: oklch(91% 0.03 18);      /* #f5dada soft rose tint */
+    --mp-accent-ink: oklch(96% 0.012 75);      /* #f7f1e9 */
+    --mp-focus: oklch(48% 0.15 18);            /* #a12e3c */
+    --mp-success: oklch(45% 0.13 145);         /* #146720 deep forest green */
+    --mp-warning: oklch(48% 0.13 70);          /* #855000 ochre amber */
+    --mp-danger: oklch(48% 0.15 18);           /* #a12e3c */
+    --mp-info: oklch(45% 0.06 235);            /* #315b72 slate blue */
+
+    --color-accent: var(--mp-accent);
+    --color-accent-ink: var(--mp-accent-ink);
+    --color-focus: var(--mp-focus);
+    --color-verified: var(--mp-success);
+    --color-verified-surface: oklch(95% 0.025 145);
+    --color-scope-notice: var(--mp-warning);
+    --color-scope-surface: oklch(94% 0.030 70);
+
+    /* Transit Functional Line Tokens */
+    --color-blue-line: oklch(45% 0.06 235);    /* Slate transit blue */
+    --color-blue-line-surface: oklch(95% 0.015 235);
+    --color-green-line: oklch(45% 0.13 145);   /* Forest transit green */
+    --color-green-line-surface: oklch(95% 0.025 145);
+    --color-interchange: oklch(38% 0.13 18);   /* Oxblood interchange */
+    --color-interchange-surface: var(--mp-accent-soft);
+
+    /* Typography */
+    --font-display: 'Cormorant Garamond', 'Noto Serif Devanagari', Georgia, serif;
+    --font-body: 'Manrope', 'Noto Sans Tamil', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-tamil: 'Noto Sans Tamil', 'Manrope', sans-serif;
+    --font-outlier: 'IBM Plex Mono', 'Cascadia Mono', ui-monospace, monospace;
+    --font-numeric: var(--font-outlier);
+
+    /* Spacing 4-pt Scale */
+    --space-3xs: 2px;
+    --space-2xs: 4px;
+    --space-xs: 8px;
+    --space-sm: 12px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+
+    /* Geometry (MandiPulse Architecture) */
+    --radius-control: 4px;
+    --radius-panel: 2px;
+    --radius-sm: 4px;
+    --radius-md: 4px;
+    --radius-lg: 6px;
+    --radius-full: 9999px;
+    --radius-pill: 999px;
+
+    /* Elevation Shadow */
+    --shadow-whisper: 0 1px 2px oklch(20% 0.02 248 / 0.06);
+    --shadow-subtle: var(--shadow-whisper);
+    --shadow-card: 0 2px 6px oklch(20% 0.012 55 / 0.08);
+}
+
+/* Editorial Headings Discipline (Gate 38a: Roman Always) */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display) !important;
+    font-style: normal !important;
+    color: var(--mp-ink) !important;
+    font-weight: 600 !important;
+    overflow-wrap: anywhere !important;
+    min-width: 0 !important;
+    letter-spacing: -0.01em !important;
+}
+
+/* Inline Code Elements Harmonization */
+code {
+    background-color: var(--mp-paper-2) !important;
+    color: var(--mp-ink) !important;
+    border: 1px solid var(--mp-rule) !important;
+    font-family: var(--font-numeric) !important;
+    font-size: 0.85em !important;
+    padding: 2px 6px !important;
+    border-radius: var(--radius-control) !important;
+}
+
+
+/* Sidebar: MandiPulse N3 Side-Rail Styling */
+[data-testid="stSidebar"] {
+    background-color: var(--mp-paper-2) !important;
+    border-right: 1px solid var(--mp-rule) !important;
+    padding-top: var(--space-md) !important;
+}
+
+[data-testid="stSidebar"] h1, [data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3 {
+    font-family: var(--font-display) !important;
+    color: var(--mp-ink) !important;
+}
+
+/* Side-Rail Brand Header */
+.rail-brand {
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--mp-rule);
+    margin-bottom: var(--space-md);
+}
+
+.rail-brand-title {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--mp-ink);
+    margin: 0;
+}
+
+.rail-brand-sub {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--mp-muted);
+    margin-top: 4px;
+    margin-bottom: 0;
+    line-height: 1.3;
+}
+
+/* Snapshot Evidence Box */
+.snapshot-evidence {
+    border-top: 1px solid var(--mp-rule);
+    padding-top: var(--space-md);
+    margin-top: var(--space-md);
+    font-size: 0.775rem;
+    color: var(--mp-muted);
+}
+
+.numeric {
+    font-family: var(--font-numeric) !important;
+    font-variant-numeric: tabular-nums !important;
+    font-weight: 500 !important;
+}
+
+
+/* MandiPulse Primary & Secondary Buttons (Gate 26, Gate 39) */
+.stButton > button {
+    font-family: var(--font-body) !important;
+    font-weight: 600 !important;
+    font-size: 0.825rem !important;
+    line-height: 1.25 !important;
+    min-height: 44px !important;
+    border: 1px solid var(--mp-rule-strong) !important;
+    background-color: var(--mp-surface) !important;
+    color: var(--mp-ink) !important;
+    border-radius: var(--radius-control) !important;
+    padding: var(--space-2xs) var(--space-sm) !important;
+    white-space: normal !important;
+    text-align: center !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: var(--space-2xs) !important;
+    outline: 2px solid transparent !important;
+    outline-offset: 1px !important;
+    box-shadow: var(--shadow-whisper) !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.1s ease !important;
+}
+
+.stButton > button:hover {
+    background-color: var(--mp-paper-2) !important;
+    border-color: var(--mp-ink) !important;
+    color: var(--mp-ink) !important;
+}
+
+.stButton > button:active {
+    transform: translateY(1px) !important;
+    background-color: var(--mp-paper) !important;
+}
+
+.stButton > button:focus-visible {
+    outline: 2px solid var(--mp-focus) !important;
+    outline-offset: 1px !important;
+}
+
+.stButton > button:disabled, .stButton > button[disabled] {
+    opacity: 0.55 !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+}
+
+/* Primary Button: MandiPulse buttonClass.primary (Solid Deep Bistre Ink) */
+.stButton > button[kind="primary"] {
+    background-color: var(--mp-ink) !important;
+    border-color: var(--mp-ink) !important;
+    color: var(--mp-paper) !important;
+    font-weight: 700 !important;
+}
+
+.stButton > button[kind="primary"]:hover {
+    background-color: var(--mp-accent) !important;
+    border-color: var(--mp-accent) !important;
+    color: var(--mp-accent-ink) !important;
+}
+
+
+/* Masthead Header Container */
+.mp-masthead {
+    border-bottom: 1px solid var(--mp-rule);
+    padding-bottom: var(--space-lg);
+    margin-bottom: var(--space-lg);
+}
+
+h1.mp-title {
+    font-family: var(--font-display);
+    font-size: 2.25rem !important;
+    font-weight: 600;
+    color: var(--mp-ink);
+    line-height: 1.15;
+    margin: 0;
+    letter-spacing: -0.015em;
+}
+
+.mp-subtitle {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--mp-ink-2);
+    margin-top: 6px;
+    margin-bottom: var(--space-sm);
+    max-width: 75ch;
+    line-height: 1.5;
+}
+
+.mp-pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    align-items: center;
+    margin-top: var(--space-xs);
+}
+
+.mp-pill {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-numeric);
+    font-size: 0.775rem;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: var(--radius-panel);
+    white-space: nowrap;
+    border: 1px solid var(--mp-rule);
+    background-color: var(--mp-surface);
+    color: var(--mp-ink-2);
+}
+
+.mp-pill-blue {
+    border-color: var(--color-blue-line);
+    color: var(--color-blue-line);
+    background-color: var(--mp-surface-raised);
+}
+
+.mp-pill-green {
+    border-color: var(--color-green-line);
+    color: var(--color-green-line);
+    background-color: var(--mp-surface-raised);
+}
+
+.mp-pill-accent {
+    border-color: var(--mp-accent);
+    color: var(--mp-accent);
+    background-color: var(--mp-accent-soft);
+}
+
+
+html, body, [data-testid="stAppViewContainer"] {
+    font-family: var(--font-body); color: var(--mp-ink); background: var(--mp-paper);
+    color-scheme: light; line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+[data-testid="stHeader"] { background: var(--mp-paper); border-bottom: 1px solid var(--mp-rule); }
+[data-testid="stAppDeployButton"], [data-testid="stDecoration"] { display: none; }
+.block-container { max-width: 1180px; padding: 4.5rem 2.5rem 6rem; }
+[data-testid="stMarkdownContainer"] p, [data-testid="stCaptionContainer"] { font-family: var(--font-body); }
+[data-testid="stCaptionContainer"] { color: var(--mp-muted); opacity: 1 !important; }
+[data-testid="stChatMessage"] {
+    background: var(--mp-surface); border: 1px solid var(--mp-rule);
+    border-left: 2px solid var(--mp-accent); border-radius: var(--radius-control);
+    padding: 1rem; color: var(--mp-ink);
+}
+[data-testid="stChatMessageAvatarUser"], [data-testid="stChatMessageAvatarAssistant"] {
+    color: var(--mp-paper); background: var(--mp-accent); border-radius: var(--radius-control);
+}
+[data-testid="stVerticalBlockBorderWrapper"] > div { border-color: var(--mp-rule); border-radius: var(--radius-control); }
+[data-testid="stMetricValue"] { font-family: var(--font-numeric); color: var(--mp-ink); }
+[data-testid="stBottom"], [data-testid="stBottomBlockContainer"] { background: var(--mp-paper); }
+[data-testid="stChatInput"], [data-testid="stTextInput"] input {
+    background: var(--mp-surface); color: var(--mp-ink);
+    border: 1px solid var(--mp-rule-strong); border-radius: var(--radius-control);
+}
+[data-testid="stChatInput"] textarea { font-family: var(--font-body); color: var(--mp-ink); }
+[data-testid="stChatInput"] textarea::placeholder { color: var(--mp-muted); }
+[data-testid="stChatInput"]:focus-within { border-color: var(--mp-accent); outline: 2px solid var(--mp-focus); outline-offset: 1px; }
+[data-testid="stTextInput"] input:focus-visible, [data-testid="stFormSubmitButton"] button:focus-visible {
+    outline: 2px solid var(--mp-focus); outline-offset: 1px;
+}
+[data-testid="stFormSubmitButton"] button {
+    font-family: var(--font-body); background: var(--mp-surface); color: var(--mp-ink);
+    border: 1px solid var(--mp-rule-strong); border-radius: var(--radius-control); min-height: 44px;
+}
+[data-testid="stAlert"] { border-radius: var(--radius-control); }
+@media (max-width: 768px) {
+    .block-container { padding: 4.5rem 1rem 6rem; }
+    h1.mp-title { font-size: 1.75rem !important; line-height: 1.25 !important; }
+    .mp-subtitle { font-size: .875rem; }
+    .mp-pill-row { gap: 6px; }
+}
+@media (max-width: 480px) {
+    .block-container { padding-left: .8rem; padding-right: .8rem; }
+    [data-testid="stHorizontalBlock"] { flex-wrap: wrap; gap: .5rem; }
+    [data-testid="stColumn"] { min-width: 100%; flex: 1 1 100%; }
+}
+</style>
