@@ -104,7 +104,7 @@ python -m pip check
 git diff --check
 ```
 
-The verified suite has 677 passes, including real-checkpoint inference, synthetic multilingual/slot/dispatch/service/API/UI cases, trainer smoke, evaluator guards, and frozen annotation/hash checks. The 34 Gate B.3 framework tests retain pre-execution checks using temporary synthetic manifests and validate the real closed state. No lint/type checker is configured. Run tests sequentially; legacy tests rebuild shared prototype SQLite fixtures.
+The verified suite has 878 passes, including real-checkpoint inference, synthetic multilingual/slot/dispatch/service/API/UI cases, trainer smoke, evaluator guards, and frozen annotation/hash checks. The 34 Gate B.3 framework tests retain pre-execution checks using temporary synthetic manifests and validate the real closed state. No lint/type checker is configured. Run tests sequentially; legacy tests rebuild shared prototype SQLite fixtures.
 
 Frozen Git boundary check:
 
@@ -173,7 +173,7 @@ OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 python -m scripts.nlp_v2.evaluate_assistant 
   --output-dir /tmp/nlp_v2-assistant-eval-reproduction
 ```
 
-The assistant evaluator refuses changed/uncommitted freeze paths. It records source commit, model/input/DB hashes, and the fixed reference date, with per-class and language/code-switch/noise aggregates. Model-only mapped-operation accuracy differs from actual assistant dispatch after extraction/clarification. The historical baseline is preserved. Phases 11–20 develop against the separate development contracts and allowed validation without inspecting individual held-out failures. Phase21 was followed by a separately authorized correctness exception, not metric-driven tuning. The post-review Phase23 backend freeze is `e008c0474c1301a3b442b31761f31c79e7dec446`. Its complete-assistant evaluator ran exactly once at the same reference date2026-10-06 into a new Phase23 post-fix descriptive directory. No model-only rerun, individual failure inspection or subsequent tuning follows. Historical reports remain unchanged.
+The assistant evaluator refuses changed/uncommitted freeze paths. It records source commit, model/input/DB hashes, and the fixed reference date, with per-class and language/code-switch/noise aggregates. Model-only mapped-operation accuracy differs from actual assistant dispatch after extraction/clarification. The historical baseline is preserved. Phases 11–20 develop against the separate development contracts and allowed validation without inspecting individual held-out failures. Phase21 was followed by a separately authorized correctness exception, not metric-driven tuning. The post-review Phase23 backend freeze is `e008c0474c1301a3b442b31761f31c79e7dec446`. Its complete-assistant evaluator ran exactly once at the same reference date2026-10-06 into a new Phase23 post-fix descriptive directory. No model-only rerun, individual failure inspection or metric-driven tuning follows. Historical reports remain unchanged.
 
 ## Demo workflow and limitations
 
@@ -190,7 +190,7 @@ The canonical database's hub memberships are unverified and its 45 interchange r
 
 The final evaluation's high clarification rate and limited successful-response count are recorded coverage limits. Expanding the system requires new development data and verified transport sources under the frozen governance policy. It must not use held-out labels/queries to train, augment, patch predictions, or tune parameters.
 
-See [supported scope and known limitations](known_limitations.md) for the complete supported/partial/unsupported matrix, retained classifier limit, artifact availability and evaluation caveats. Current desktop/narrow visual QA and code/status rendering pass with677 tests; see [QA evidence](../../reports/nlp_v2/frontend_qa/qa.md).
+See [supported scope and known limitations](known_limitations.md) for the complete supported/partial/unsupported matrix, retained classifier limit, artifact availability and evaluation caveats. Current desktop/narrow visual QA and code/status rendering pass with878 tests; see [QA evidence](../../reports/nlp_v2/frontend_qa/qa.md).
 
 Timetable waypoint filtering is unsupported by the canonical operation contract.
 For a complete request with a waypoint, the assistant explicitly returns
@@ -199,9 +199,12 @@ journey. Synthetic regressions across departures, first/last and frequency prove
 scope preservation and ordinary-query compatibility. [Scoped review](../../reports/nlp_v2/final_review/timetable_scope_review.md)
 records red/green verification and the fresh review gate.
 
-The fresh final whole-project review found one residual medium: an unrecognized
-coordinated third timetable stop can still be dropped. The existing677 tests pass,
-but this case was independently reproduced using new synthetic queries. Both
-Phase21 and the single Phase23 post-fix run remain valid and preserved for their
-recorded freezes. Final implementation acceptance is withheld pending the scoped
-follow-up/governance decision; see the final review and known limitations.
+The subsequent final review found an unknown coordinated third-stop defect.
+The user's “Fix it” authorized its narrow correction, now frozen at `1bf748c9e4cc35e75b1db004f5b74c9dad1eeb1b`.
+Unknown extra timetable locations clarify before partial execution; supported
+modifier clauses and ordinary requests retain their behavior. [Follow-up review](../../reports/nlp_v2/final_review/unknown_stop_scope_review.md)
+records 201 additional synthetic cases and zero unresolved scoped findings.
+Both earlier descriptive runs and contexts remain unchanged for their recorded
+sources. No additional evaluator ran; final corrected-source aggregate performance
+has not been measured. [Final source provenance](../../reports/nlp_v2/final_review/final_source_context.json)
+records the separate freeze and preserved historical hashes.

@@ -20,8 +20,15 @@ the existing multiple_goals clarification before domain execution.
 - [x] Focused and complete verification, compile/pip/diff and preserved hashes.
 - [x] Fresh GPT-6.1 Sol xhigh scoped review, resolve all material findings.
   267 independent tests and300 synthetic probes; zero unresolved findings.
-- [ ] Commit behavioral correction separately and record full final freeze.
-- [ ] Update limitations/sequence/acceptance docs, preserving both evaluations
+- [x] Commit behavioral correction separately and record full final freeze:
+  `1bf748c9e4cc35e75b1db004f5b74c9dad1eeb1b`, pushed main.
+- [x] Update limitations/sequence/acceptance docs, preserving both evaluations
   as historical for their recorded sources. No evaluator rerun or metric tuning.
-- [ ] Fresh final whole-project Sol xhigh review, final verification, commit/push
+- [x] Fresh final whole-project Sol xhigh review, final verification, commit/push
   clean main. Report any remaining original acceptance condition honestly.
+
+Final whole-project Sol xhigh review approved0critical/0high/0medium/0low;
+independent878 pass27.61s and strict model/source/report/runtime checks pass.
+Documentation-only close follows; post-commit final task checks enforce clean
+pushed main/remote equality and unchanged reviewed source/historical measurements.
+No new development phase or evaluation is authorized or performed.

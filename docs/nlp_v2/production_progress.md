@@ -319,7 +319,7 @@ Each implementation phase receives tests, verification, independent review, fixe
   10OK/5OOS/0error; precision0.2527473/recall0.6052632. All metrics and every
   intent/language/code-switch/noise stratum exactly equal Phase21. This is a
   descriptive observation, not proof of scope semantics or a promotion target.
-  No tuning follows. [Context/comparison](../../reports/nlp_v2/phase23_post_fix_descriptive/comparison.md).
+  No metric-driven tuning follows. [Context/comparison](../../reports/nlp_v2/phase23_post_fix_descriptive/comparison.md).
 
 - **Final primary audit/runtime:** frozen research/Phase21 diffs empty, five
   Phase21 report hashes/context preserved, Phase23 evaluated source/report hashes
@@ -343,3 +343,44 @@ Each implementation phase receives tests, verification, independent review, fixe
   freeze and any additional descriptive measurement. Final implementation is
   not COMPLETE while the medium remains. Report/document commits preserve the
   actual sequence and do not grant acceptance.
+
+## Phase23 — user-authorized residual unknown-stop closure
+
+- **Authorization and governance:** after the one authorized descriptive run and
+  residual review, the user instructed “Fix it.” This supersedes the earlier
+  behavioral blocker for the narrow third-stop correctness defect. Both valid
+  completed evaluations and contexts remain unchanged. No additional run is
+  authorized or performed; final-source aggregate performance is unmeasured.
+- **Production scope:** only slots.py changes since0501fab. Timetable-only
+  component/cardinality checks preserve unknown coordinated location scope,
+  decline repeated endpoint roles, preserve recognized names and supported
+  modifiers, and avoid numeric backtracking. No aliases, model, inference,
+  schema/data, domain, API or public reply contract changes.
+- **TDD:**201 additional synthetic cases:84 unknown structures,114 compatibility/
+  temporal controls,3 bounded numeric-tail regressions across3 intents. Frozen
+  e008 restoration yields87 failures/114 passes/66 deselected in9.18s. Draft
+  modifier/grammar/latency regressions reproduced before correction; no draft
+  committed or evaluated. All267 timetable tests pass11.86s.
+- **Verification:**663 focused pass17.25s; full878 pass32.49s; compile/pip/diff,
+  selected model artifact/hash, canonical/manifest/development hashes, frozen
+  research and both unchanged report directories/context checks pass.
+- **Fresh scoped GPT-6.1 Sol xhigh review:**267 independent passes12.18s and300
+  synthetic compatibility/scope/latency probes pass. All review findings resolved;
+  final0critical/0high/0medium/0low. [Evidence](../../reports/nlp_v2/final_review/unknown_stop_scope_review.md).
+- **Separate final behavioral freeze:**`1bf748c9e4cc35e75b1db004f5b74c9dad1eeb1b`
+  (`fix(nlp_v2): reject unresolved timetable location scopes`), pushed main.
+  No evaluation outputs are included. [Separate final source context](../../reports/nlp_v2/final_review/final_source_context.json)
+  records current source/assets and preserved historical report/context hashes.
+- **Fresh final whole-project GPT-6.1 Sol xhigh signoff:**0critical/0high/0medium/
+  0low unresolved. Independent full878 pass27.61s; strict offline model/asset,
+  compile/pip/staged checks pass.20 source,10 historical report/context,4 opaque
+  input hashes and devsuiteSHA verify. Aggregate/stratum reconstruction,16-op
+  contracts/source grounding, current docs/setup/governance, unchanged UI and
+  desktop/mobile evidence pass. Independent real HTTP timetable/fare/realtime/
+  health probes pass. One low stale current runbook suite count corrected/reread.
+  No reviewer edits, evaluator/training or held-out item inspection.
+- **Closing Git gate:**documentation/source-context-only close is committed and
+  pushed after signoff. Final task checks enforce clean main/remote HEAD equality,
+  diff check and unchanged reviewed production/assets/historical evaluations.
+  **NLP v2 implementation COMPLETE** once these mechanical checks pass.
+  No new development phase or evaluator run follows.

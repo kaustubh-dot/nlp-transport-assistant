@@ -106,7 +106,7 @@ fixture tests remain separate from real-model capability evidence. No classifier
 changes or tuning followed this observation. Both localhost demo services remain
 available for the open UI; temporary QA tabs and viewports were cleared.
 
-## Fresh final whole-project review — one residual medium
+## Historical final whole-project review — residual medium before follow-up
 
 Fresh **GPT-6.1 Sol xhigh** final review: **0 critical, 0 high, 1 medium,
 0 low unresolved**. Independently full677 passed18.06s; compile/pip/diff, strict
@@ -142,5 +142,65 @@ The concrete recommended exception is the narrow residual correctness repair
 and one additional separately labeled descriptive run, preserving both earlier
 runs, inspecting aggregates only and doing no subsequent tuning. Alternatively,
 authorize the correction with no further evaluation and disclose that the final
-source has no matching aggregate measurement. No such further action has occurred.
-Project implementation is **not COMPLETE** while this medium remains unresolved.
+source has no matching aggregate measurement. At that review, no such further action had occurred and project acceptance was
+withheld. The subsequent user instruction and correction below supersede that
+blocker; the review history is preserved.
+
+## User-authorized residual correction and final source
+
+The user subsequently instructed **“Fix it.”** The primary corrected only the
+unknown coordinated timetable stop boundary and regressions introduced by its
+new helper. Both completed descriptive runs and their contexts are preserved
+unchanged. No additional evaluator invocation occurs. This is a synthetic review-
+driven correctness repair, not metric-driven tuning; final corrected-source
+aggregate performance remains unmeasured. Historical e008 metrics cannot be
+attributed to the final freeze.
+
+The [follow-up scoped review](unknown_stop_scope_review.md) records201 additional
+synthetic cases, frozen e008 reds87/114 controls, all267 timetable cases passing,
+663 focused passes17.25s and878 full passes32.49s. Draft modifier/grammar and
+numeric-backtracking findings were reproduced, corrected and re-reviewed before
+commit; no draft was committed or evaluated. Fresh independent **GPT-6.1 Sol
+xhigh** scoped signoff has **0critical/0high/0medium/0low unresolved**, with267
+independent passes12.18s and300 further synthetic probes. Unknown locations are
+never resolved or added as aliases. Only slots.py changes production since0501fab.
+
+Separate behavioral freeze: **`1bf748c9e4cc35e75b1db004f5b74c9dad1eeb1b`**, pushed main.
+[Final source context](final_source_context.json) records reviewed code hashes,
+unchanged assets/input hashes and both preserved historical report/context hashes.
+It explicitly records no matching final-source aggregate measurement. Compileall,
+pip/diff, selected artifact and frozen research/report checks pass.
+
+The task-owned API8875 is refreshed from this freeze. Real selected-model HTTP
+checks now return clarification/multiple_goals/no operation for the reported
+unknown-third-stop request; the ordinary two-stop request still returns OK.
+Trailing waypoint returns unavailable with BUS_11192 retained as destination.
+The existing Deluxe stage4 fare still answers. UI8601 health is OK; the restored
+MandiPulse theme/renderer are unchanged. These are runtime contract checks,
+separate from aggregate classifier evaluation. Local demo services remain open.
+
+## Final whole-project closure gate
+
+Fresh **GPT-6.1 Sol xhigh whole-project signoff: 0 critical, 0 high, 0 medium,
+0 low unresolved**. Independent full **878 pass in27.61s**; compile/pip/staged
+checks and strict offline selected-model/artifact loading pass. All20 source
+hashes,10 preserved historical report/context hashes,4 opaque evaluation-input
+hashes and development suite SHA match. Historical aggregate equality, status/
+clarification counts and every stratum reconstruct. The reviewer inspected all
+actual production modules,16-operation contracts/reachability/source grounding,
+architecture/setup/claims/governance/history and the staged closing records.
+The sole low stale runbook suite count was corrected to878 and reread.
+
+Independent localhost HTTP checks pass for T3 health, unknown-third-stop
+clarification/no operation, ordinary two-stop OK, waypoint refusal with correct
+destination, dated sourced Deluxe stage4 fare, realtime refusal and UI health.
+Restored theme/renderer remain unchanged; desktop/mobile evidence was inspected.
+No evaluator/development evaluator/training, held-out item inspection or reviewer
+edit occurred. Final corrected-source aggregate performance remains unmeasured.
+
+The closing commit contains documentation/source provenance only. Final Git
+acceptance requires diff check, empty porcelain status and local HEAD equal to
+remote main after this commit is pushed; these are enforced in the final task
+verification. The reviewed source and both historical measurements stay unchanged.
+With those mechanical checks satisfied, **NLP v2 project implementation COMPLETE**.
+No new development phase or evaluator run follows.

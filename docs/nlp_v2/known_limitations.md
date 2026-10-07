@@ -56,22 +56,24 @@ The separate post-review freeze is `e008c0474c1301a3b442b31761f31c79e7dec446`.
 The correction is synthetic-contract driven; no held-out item inspection,
 alias/domain/model changes or general clarification development occurred.
 
-## Residual medium blocking final acceptance
+## Unknown-stop follow-up and remaining parsing limit
 
-The fresh final whole-project review after the single post-fix run found that an
-**unknown coordinated third stop** can still be dropped: only canonical spans
-are counted. Two known endpoints plus “and Unlisted Cedar Terminal” can execute
-the two-stop timetable instead of clarifying. This is directly part of the
-third-stop preservation defect. The primary independently reproduced failing
-synthetic intended-intent cases across all three timetable intents. Recognized
-third stops and unknown waypoints are guarded, but this remaining explicit scope
-is not safe. Full677 existing tests pass; they did not cover this unknown-stop
-case. See [final review and concrete proposal](../../reports/nlp_v2/final_review/review.md).
+The fresh final review after the single post-fix run found that unknown coordinated
+third-stop text could disappear because only canonical spans were counted.
+The user subsequently instructed “Fix it.” The narrow follow-up is frozen at
+`1bf748c9e4cc35e75b1db004f5b74c9dad1eeb1b` and adds 201 synthetic regressions. It clarifies unresolved extra
+location scopes before execution, preserving canonical names with punctuation
+and complete supported timetable parameter/courtesy clauses. Numeric modifier
+matching avoids exponential backtracking. The fresh scoped Sol xhigh review has
+zero unresolved findings; full878 tests pass. See [follow-up evidence](../../reports/nlp_v2/final_review/unknown_stop_scope_review.md).
 
-The completed Phase23 descriptive run is valid for e008c047 and remains preserved
-alongside Phase21. No further behavior change or evaluator run has occurred.
-The exactly-one/no-following-tuning governance requires explicit reconciliation
-before a follow-up freeze. Final acceptance is withheld, not claimed complete.
+This is bounded parsing for canonical aliases and supported coordination/endpoint
+syntax. It does not resolve arbitrary unknown names or prove all possible grammar
+forms. Classifier/source limitations below remain. Both earlier evaluations and
+contexts are preserved unchanged. Final corrected-source aggregate performance
+has not been remeasured; no additional evaluator was invoked. Historical metrics
+must not be attributed to this freeze. [Final source context](../../reports/nlp_v2/final_review/final_source_context.json)
+records that distinction and the reviewed source hashes.
 
 ## Unsupported or requiring external verification
 
@@ -100,7 +102,7 @@ subset is nested. Phase21 is **post-development descriptive regression** for its
 It improves terminal dispatch chiefly alongside more unavailable responses,
 while clarification precision/recall and historical OK count decline. No aligned
 gold transport facts or canonical slot IDs exist in that evaluator, so factual
-answer and slot accuracy are not measured. The later user-authorized correctness exception is disclosed above; its separate **Phase23 post-fix descriptive regression** uses the already observed set once. No model-only rerun or tuning follows that measurement.
+answer and slot accuracy are not measured. The later user-authorized correctness exception is disclosed above; its separate **Phase23 post-fix descriptive regression** uses the already observed set once. No model-only rerun or metric-driven tuning follows that measurement. The later residual correctness repair is disclosed above and was not evaluated again.
 
 ## Setup and deployment limits
 

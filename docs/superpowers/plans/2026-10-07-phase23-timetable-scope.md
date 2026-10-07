@@ -24,16 +24,24 @@ waypoint structures. Extra unrepresentable locations clarify before execution.
 - [x] Preserve Phase21 unchanged. Run assistant evaluator exactly once after
   freeze with fixed reference date2026-10-06 into a NEW Phase23 post-fix descriptive
   directory. No model-only rerun, individual held-out inspection or metric tuning.
-- [ ] Record hashes, aggregate metrics/strata and Phase21 comparison, update docs
+- [x] Record hashes, aggregate metrics/strata and Phase21 comparison, update docs
   to disclose the authorized sequence, obtain fresh final whole-project review.
-- [ ] Final verification, focused documentation/report commit/push, clean main,
+- [x] Final verification, focused documentation/report commit/push, clean main,
   retain the refreshed localhost demo for the user's open UI, complete the original objective. No new phase.
 
 The user's separate original-style UI restoration is reviewed and committed as
 `7cac770` before this correction. Final frontend semantics remain T3/API backed.
 
-Fresh final review and independent677-pass verification completed; signoff is
-withheld for one medium unknown-coordinated-third-stop gap. Both descriptive
-runs remain valid unchanged. No further production/evaluation changes occur
-before reconciling the user's exactly-one/no-following-tuning restriction. The
-concrete follow-up proposal is in reports/nlp_v2/final_review/review.md.
+The historical final review withheld signoff for an unknown-third-stop medium.
+The later user instruction “Fix it” authorized the residual correction; both
+completed evaluations remain unchanged and no additional evaluator runs.
+Follow-up freeze `1bf748c9e4cc35e75b1db004f5b74c9dad1eeb1b` is reviewed/pushed:201 new cases,878 full passes,
+663 focused passes and zero scoped Sol xhigh findings. Final whole-project gate
+and clean pushed documentation close follow; see the separate follow-up plan
+and final source context. Final-source aggregate performance is unmeasured.
+
+Final whole-project Sol xhigh review approved0critical/0high/0medium/0low;
+independent878 pass27.61s and strict model/source/report/runtime checks pass.
+Documentation-only close follows; post-commit final task checks enforce clean
+pushed main/remote equality and unchanged reviewed source/historical measurements.
+No new development phase or evaluation is authorized or performed.

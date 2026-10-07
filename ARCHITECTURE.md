@@ -104,12 +104,15 @@ Post-review backend freeze: `e008c0474c1301a3b442b31761f31c79e7dec446`. After th
 commit, one [Phase23 post-fix descriptive regression](reports/nlp_v2/phase23_post_fix_descriptive/comparison.md)
 uses the unchanged complete-assistant evaluator and fixed date2026-10-06. It is
 an observed-set measurement, not an independent test or a replacement Phase21.
-No model-only rerun or subsequent tuning occurs. [The acceptance audit](docs/nlp_v2/final_acceptance_audit.md)
+No model-only rerun or metric-driven tuning occurs. [The acceptance audit](docs/nlp_v2/final_acceptance_audit.md)
 and [scope limits](docs/nlp_v2/known_limitations.md) record evidence and limitations.
 
-The fresh final whole-project review found one residual medium: an unrecognized
-coordinated third timetable stop can still be dropped. The existing677 tests pass,
-but this case was independently reproduced using new synthetic queries. Both
-Phase21 and the single Phase23 post-fix run remain valid and preserved for their
-recorded freezes. Final implementation acceptance is withheld pending the scoped
-follow-up/governance decision; see the final review and known limitations.
+The subsequent final review found an unknown coordinated third-stop defect.
+The user's “Fix it” authorized its narrow correction, now frozen at `1bf748c9e4cc35e75b1db004f5b74c9dad1eeb1b`.
+Unknown extra timetable locations clarify before partial execution; supported
+modifier clauses and ordinary requests retain their behavior. [Follow-up review](reports/nlp_v2/final_review/unknown_stop_scope_review.md)
+records 201 additional synthetic cases and zero unresolved scoped findings.
+Both earlier descriptive runs and contexts remain unchanged for their recorded
+sources. No additional evaluator ran; final corrected-source aggregate performance
+has not been measured. [Final source provenance](reports/nlp_v2/final_review/final_source_context.json)
+records the separate freeze and preserved historical hashes.
