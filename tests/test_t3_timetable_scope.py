@@ -1,6 +1,10 @@
 """Synthetic timetable contracts; no historical evaluation examples or labels."""
 
+import json
+from pathlib import Path
 import sqlite3
+import subprocess
+import sys
 
 import pytest
 
@@ -160,3 +164,148 @@ def test_previous_extractor_metadata_shape_keeps_ordinary_dispatch(resolver, int
                             'bus route 25R schedule from Alpha Terminal to Charlie Terminal')
     assert reply.status == 'ok'
     assert len(service.calls) == 1
+
+
+@pytest.mark.parametrize('intent', INTENTS)
+@pytest.mark.parametrize('structure', [
+    'from Alpha Terminal to Charlie Terminal and Unlisted Cedar Terminal',
+    'from Alpha Terminal to Unlisted Cedar Terminal and Charlie Terminal',
+    'from Alpha Terminal and Unlisted Cedar Terminal to Charlie Terminal',
+    'from Unlisted Cedar Terminal and Alpha Terminal to Charlie Terminal',
+    'to Charlie Terminal and Unlisted Cedar Terminal from Alpha Terminal',
+    'from Alpha Terminal to Charlie Terminal or Unlisted Cedar Terminal',
+    'from Alpha Terminal to Charlie Terminal aur Unlisted Cedar Terminal',
+    'अल्फा स्टॉप से चार्ली स्टॉप और अनजान देवदार स्टॉप तक',
+    'FROM Alpha Terminal; TO Charlie Terminal, AND Unlisted Cedar Terminal!',
+    'from Alpha Terminal to Charlie Terminal, Unlisted Cedar Terminal',
+    'Alpha Terminal, Charlie Terminal, Unlisted Cedar Terminal',
+    'from Alpha Terminal to Charlie Terminal and Cedar',
+    'from Alpha Terminal to Charlie Terminal & Unlisted Cedar Terminal',
+    'from Alpha Terminal to Charlie Terminal，Unlisted Cedar Terminal',
+    'from Alpha Terminal to Charlie Terminal today and Unlisted Cedar Terminal',
+    'from Alpha Terminal to Charlie Terminal at 8 am and Unlisted Cedar Terminal',
+    'from Alpha Terminal to Charlie Terminal at 8 pm and Unlisted Cedar Terminal',
+    'from Alpha Terminal to Charlie Terminal by bus and Unlisted Cedar Terminal',
+    'अल्फा स्टॉप से चार्ली स्टॉप तक आज और अनजान देवदार स्टॉप',
+    'from Alpha Terminal to Charlie Terminal and Today Junction',
+    'from Alpha Terminal to Charlie Terminal at 08:00 and Unlisted Cedar Terminal',
+    'from Alpha Terminal to Charlie Terminal on 2026-10-06 and Unlisted Cedar Terminal',
+    'from Alpha Terminal to Charlie Terminal and to Unlisted Cedar Terminal',
+    'from Alpha Terminal to Charlie Terminal to Unlisted Cedar Terminal',
+    'from Alpha Terminal to Charlie Terminal and Bus Depot',
+    'from Alpha Terminal to Charlie Terminal and Service Road',
+    'from Alpha Terminal to Charlie Terminal and at Unlisted Cedar Terminal',
+    'from Unlisted Cedar Terminal to Charlie Terminal from Alpha Terminal',
+])
+def test_unknown_coordinated_location_never_executes_reduced_timetable(resolver, intent, structure):
+    query = f'bus route 25R schedule {structure}'
+    extraction = T3SlotExtractor(resolver).extract(query, intent)
+    assert extraction.multiple_execution_scopes
+    service, classifier = Service(), Classifier(intent)
+    reply = T3Assistant(classifier=classifier, resolver=resolver, service=service).process_query(query)
+    assert reply.status == 'clarification'
+    assert reply.clarification_reason == 'multiple_goals'
+    assert not service.calls
+    assert classifier.raw_queries == [query]
+
+
+@pytest.mark.parametrize('intent', INTENTS)
+@pytest.mark.parametrize('structure', [
+    'first and last service from Alpha Terminal to Charlie Terminal',
+    'from Alpha Terminal to Charlie Terminal first and last service',
+    'from Alpha Terminal to Charlie Terminal first and last services',
+    'from Alpha Terminal to Charlie Terminal, first and last departure times',
+    'from Alpha Terminal to Charlie Terminal, first and last bus timings',
+    'from Alpha Terminal to Charlie Terminal, first departure time and last departure time',
+    'from Alpha Terminal to Charlie Terminal first bus and last bus',
+    'पहली बस और आखिरी बस अल्फा स्टॉप से चार्ली स्टॉप तक',
+    'from Alpha Terminal to Charlie Terminal, first bus and last bus',
+    'from Alpha Terminal to Charlie Terminal, and at8am',
+    'from Alpha Terminal to Charlie Terminal, route २५आर',
+    'from Alpha Terminal to Charlie Terminal, route 25आर',
+    'from Alpha Terminal to Charlie Terminal and 8 am',
+    'from Alpha Terminal to Charlie Terminal, 8 am',
+    'from Alpha Terminal to Charlie Terminal and for tomorrow',
+    'from Alpha Terminal to Charlie Terminal, for 2026-10-06',
+    'from Alpha Terminal to Charlie Terminal, 2026-10-06',
+    "from Alpha Terminal to Charlie Terminal and at 20 o'clock",
+    'from Alpha Terminal to Charlie Terminal and subah 8 baje',
+    'बस की पहली और आखिरी सेवा अल्फा स्टॉप से चार्ली स्टॉप तक',
+    'from Alpha Terminal to Charlie Terminal, please',
+    'from Alpha Terminal to Charlie Terminal, departing at 08:00',
+    'from Alpha Terminal to Charlie Terminal, and at 08:00',
+    'from Alpha Terminal to Charlie Terminal, and on 2026-10-06',
+    'from Alpha Terminal to Charlie Terminal, and tomorrow',
+    'from Alpha Terminal to Charlie Terminal, and route 25R',
+    'from Alpha Terminal to Charlie Terminal and at 08:00',
+    'from Alpha Terminal to Charlie Terminal and on 2026-10-06',
+    'from Alpha Terminal to Charlie Terminal, at 08:00 on 2026-10-06',
+    'from Alpha Terminal to Charlie Terminal, route 25R',
+    'from Alpha Terminal to Order and Progress Terminal',
+    'from Alpha Terminal to Order, Progress Terminal',
+    'from Alpha Terminal to Order & Progress Terminal',
+    'from Alpha Terminal to Order，Progress Terminal',
+    'Alpha Terminal and Charlie Terminal',
+])
+def test_non_location_conjunctions_and_alias_punctuation_keep_ordinary_dispatch(resolver, intent, structure):
+    with sqlite3.connect(resolver.db_path) as conn:
+        conn.executemany('INSERT INTO stop_names VALUES (?,?)', [
+            ('BUS_C', 'Order and Progress Terminal'), ('BUS_C', 'Order, Progress Terminal'),
+            ('BUS_C', 'Order & Progress Terminal'), ('BUS_C', 'Order，Progress Terminal')])
+    # Recreate the resolver to load the fixture-only aliases.
+    resolver = CanonicalResolver(resolver.db_path)
+    query = f'bus route 25R {structure}'
+    service = Service()
+    reply = T3Assistant(classifier=Classifier(intent), resolver=resolver, service=service).process_query(query)
+    assert reply.status == 'ok'
+    assert len(service.calls) == 1
+    assert reply.slots['station'] == 'BUS_A'
+    assert reply.slots['destination'] == 'BUS_C'
+
+
+@pytest.mark.parametrize('intent', INTENTS)
+@pytest.mark.parametrize('structure', [
+    'first and last service at Alpha Terminal',
+    'पहली और आखिरी सेवा अल्फा स्टॉप से',
+])
+def test_first_last_modifier_keeps_single_station_dispatch(resolver, intent, structure):
+    service = Service()
+    reply = T3Assistant(classifier=Classifier(intent), resolver=resolver, service=service).process_query(
+        f'bus route 25R schedule {structure}')
+    assert reply.status == 'ok'
+    assert reply.slots['station'] == 'BUS_A'
+    assert 'destination' not in reply.slots
+    assert len(service.calls) == 1
+
+
+@pytest.mark.parametrize('intent', INTENTS)
+def test_ambiguous_clock_component_keeps_temporal_clarification(resolver, intent):
+    service = Service()
+    reply = T3Assistant(classifier=Classifier(intent), resolver=resolver, service=service).process_query(
+        "bus route 25R schedule from Alpha Terminal to Charlie Terminal, at 8 o'clock")
+    assert reply.status == 'clarification'
+    assert reply.clarification_reason == 'temporal_ambiguity'
+    assert not service.calls
+
+
+@pytest.mark.parametrize('intent', INTENTS)
+def test_numeric_unknown_location_tail_finishes_without_domain_execution(resolver, intent):
+    # Run separately so a parser regression cannot hang the test process.
+    query = ('bus route 25R from Alpha Terminal to Charlie Terminal and '
+             + '12 ' * 48 + 'Unknown')
+    script = '''
+import json, sys
+sys.path.insert(0, 'tests')
+from test_t3_timetable_scope import Classifier, Service
+from src.nlp_v2.assistant import T3Assistant
+from src.nlp_v2.entities import CanonicalResolver
+service = Service()
+reply = T3Assistant(classifier=Classifier(sys.argv[3]),
+                    resolver=CanonicalResolver(sys.argv[1]),
+                    service=service).process_query(sys.argv[2])
+print(json.dumps([reply.status, reply.clarification_reason, len(service.calls)]))
+'''
+    result = subprocess.run([sys.executable, '-c', script, str(resolver.db_path), query, intent],
+                            cwd=Path(__file__).resolve().parents[1], capture_output=True,
+                            text=True, check=True, timeout=3)
+    assert json.loads(result.stdout) == ['clarification', 'multiple_goals', 0]

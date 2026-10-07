@@ -120,6 +120,77 @@ def _endpoints(text: str, spans: list[EntitySpan]) -> tuple[EntitySpan, EntitySp
     return (last, first) if last_source and not first_source else (first, last)
 
 
+def _timetable_modifier_component(text: str) -> bool:
+    """Recognize complete parameter/courtesy clauses, never name prefixes."""
+    clock = r'\d{1,2}(?:\s+\d{2}){0,2}(?:\s*(?:am|pm|baje|बजे|o\s*clock))?'
+    period = r'(?:subah|सुबह|shaam|शाम|dopahar|दोपहर|raat|रात)'
+    day = r'(?:\d{4}\s+\d{2}\s+\d{2}|today|tomorrow|yesterday|aaj|आज|kal|कल|parso|परसों)'
+    code = r'(?:[a-z]{0,3}\d{1,4}(?:[a-z]{0,3}|\s+[a-z]|\s*(?:आर|जी|बी|सी|डी|ए|ई))#?)'
+    unit = r'(?:services?|departures?|bus(?:es)?|trains?|timings?|times?|सेवा|बस|ट्रेन)'
+    atom = (r'(?:please|thanks|thank you|प्लीज|'
+            r'(?:(?:departing|leaving|arriving)\s*)?(?:(?:at|after|before)\s*)?'
+            r'(?:' + period + r'\s*)?' + clock + r'(?:\s*' + period + r')?|'
+            r'(?:(?:on|for)\s+)?' + day + r'|'
+            r'(?:(?:for|on)\s+)?(?:(?:bus|bs|बस)\s+)?'
+            r'(?:route|रूट|bus|bs|बस)\s*(?:(?:no|number|नंबर)\s+)?' + code + r'|'
+            r'(?:by|using)\s+(?:bus|metro|mrts|suburban rail)|'
+            r'(?:first|पहली|पहला|pehli|pehla)(?:\s+' + unit + r')*\s+'
+            r'(?:last|आखिरी|aakhiri)(?:\s+' + unit + r')*)')
+    # Commit only complete atoms: numeric runs must not be repartitioned
+    # exponentially on a later unknown word. The boundary stays inside the
+    # atomic choice so a date can still win over its shorter clock prefix.
+    component = r'(?>' + atom + r'(?=\s|$))'
+    return bool(re.fullmatch(component + r'(?:\s+' + component + r')*', text))
+
+
+def _unknown_timetable_coordination(query: str, spans: tuple[EntitySpan, ...]) -> bool:
+    """Do not reduce a location list merely because one name is unknown."""
+    text = normalize_text(query)
+    marker = '__timetable_location__'
+    replacements = [(span.start, span.end, f' {marker} ') for span in spans]
+    # Preserve list punctuation outside names, including removed ASCII commas.
+    for separator in re.finditer(r'[,，&]', query):
+        position = len(normalize_text(query[:separator.start()]))
+        if not any(span.start <= position < span.end for span in spans):
+            replacements.append((position, position + len(normalize_text(separator.group())), ' and '))
+    pieces, cursor = [], 0
+    for start, end, replacement in sorted(replacements):
+        pieces.extend((text[cursor:start], replacement))
+        cursor = end
+    pieces.append(text[cursor:])
+    masked = ''.join(pieces)
+    # This supported modifier is one request, including Hindi/postfix grammar.
+    masked = re.sub(
+        r'(?<!\w)((?:first|पहली|पहला|pehli|pehla)'
+        r'(?:\s+(?:services?|departures?|bus(?:es)?|trains?|timings?|times?|सेवा|बस|ट्रेन))*)'
+        r'\s+(?:and|aur|और)\s+'
+        r'(last|आखिरी|aakhiri)(?!\w)', r'\1 \2', masked)
+    # Count explicit roles independently of whether their names were resolved.
+    roles = r'(?<!\w)(?:from|to|से|se|तक|tak)(?!\w)'
+    if any(len(re.findall(r'(?<!\w)' + role + r'(?!\w)', masked)) > 1
+           for role in ('from', 'to', 'से', 'se', 'तक', 'tak')):
+        return True
+    coordination = list(re.finditer(COORDINATION, masked))
+    for index, separator in enumerate(coordination):
+        previous_roles = list(re.finditer(roles, masked[:separator.start()]))
+        left_start = max(previous_roles[-1].end() if previous_roles else 0,
+                         coordination[index - 1].end() if index else 0)
+        right_start = separator.end()
+        direction = re.match(r'\s*(?:from|to)(?!\w)\s*', masked[right_start:])
+        if direction:
+            right_start += direction.end()
+        following_role = re.search(roles, masked[right_start:])
+        right_end = min(right_start + following_role.start() if following_role else len(masked),
+                        coordination[index + 1].start() if index + 1 < len(coordination) else len(masked))
+        left, right = masked[left_start:separator.start()].strip(), masked[right_start:right_end].strip()
+        context = marker in left + right or previous_roles or (
+            len(spans) >= 2 and marker in masked[:separator.start()])
+        if context and any(marker not in part and re.search(r'[^\W\d_]', part)
+                           and not _timetable_modifier_component(part) for part in (left, right)):
+            return True
+    return False
+
+
 def _route_number(query: str) -> str | None:
     # Unicode decimal digits include Hindi numerals; preserve operational suffixes.
     query = re.sub(CLOCK_TOKEN, '', query, flags=re.IGNORECASE)
@@ -429,7 +500,7 @@ class T3SlotExtractor:
                 if len(destinations) == 1:
                     assign(destinations[0], 'destination')
             else:
-                multiple_locations = len(spans) > 2
+                multiple_locations = len(spans) > 2 or _unknown_timetable_coordination(query, spans)
                 if len(spans) >= 2:
                     origin, destination = _endpoints(normalized, list(spans))
                     assign(origin, "station")
