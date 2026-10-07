@@ -47,13 +47,17 @@ python -m pytest -q
 python -m pip check
 ```
 
-The verified local environment passes **602 tests**. No lint/type checker is configured. Tests include strict real-checkpoint inference, synthetic contract/integration/UI cases, and frozen research integrity checks; they do not establish factual travel-answer accuracy.
+The verified local environment passes **677 tests**. Frontend code review and current desktop/narrow visual QA pass; [QA evidence](reports/nlp_v2/frontend_qa/qa.md) records all five real API states. No lint/type checker is configured. Tests include strict real-checkpoint inference, synthetic contract/integration/UI cases, and frozen research integrity checks; they do not establish factual travel-answer accuracy.
 
+- [Supported scope and known limitations](docs/nlp_v2/known_limitations.md)
+- [Development acceptance](docs/nlp_v2/development_acceptance.md): answerable coverage **24/50→42/50**, false-positive clarification **30/104→3/104** on the observed frozen development suite.
 - [Architecture and the 16 operation behaviors](ARCHITECTURE.md)
 - [Setup, inference, optional training, evaluation and demo runbook](docs/nlp_v2/production_runbook.md)
 - [Model manifest](models/nlp_v2_t3_manifest.json) and [phase progress](docs/nlp_v2/production_progress.md)
 - [Frozen model evaluation](reports/nlp_v2/production_eval/production_t3_evaluation.md): stress intent accuracy **0.8300**, Macro-F1 **0.7918**.
-- [Frozen complete-assistant evaluation](reports/nlp_v2/assistant_eval/assistant_evaluation.md): on 706 stress queries, **520 clarifications, 150 unavailable, 22 ok, 14 out of scope**; terminal dispatch accuracy **0.2323**, including correct unavailable/rejection operations. These are contract metrics, not factual-answer metrics. The frozen stress/reference sets contain training-family overlap, so full scores are descriptive rather than independent family-held-out estimates. These are the historical baseline reports. Subsequent phases use only the separate development suite and allowed validation; the new [post-development descriptive regression evaluation](reports/nlp_v2/post_development_regression/comparison.md) ran once from freeze `8ee8917`. Terminal dispatch improves 0.2323→0.4037, chiefly alongside more unavailable responses; historical OK answers and clarification precision/recall decline. No backend tuning follows the rerun.
+- [Frozen complete-assistant evaluation](reports/nlp_v2/assistant_eval/assistant_evaluation.md): on 706 stress queries, **520 clarifications, 150 unavailable, 22 ok, 14 out of scope**; terminal dispatch accuracy **0.2323**, including correct unavailable/rejection operations. These are contract metrics, not factual-answer metrics. The frozen stress/reference sets contain training-family overlap, so full scores are descriptive rather than independent family-held-out estimates. These are the historical baseline reports. Subsequent phases use only the separate development suite and allowed validation; the new [post-development descriptive regression evaluation](reports/nlp_v2/post_development_regression/comparison.md) ran once from freeze `8ee8917`. Terminal dispatch improves 0.2323→0.4037, chiefly alongside more unavailable responses; historical OK answers and clarification precision/recall decline. Phase21 remains a valid unchanged historical result. The final independent review subsequently found a timetable scope defect, corrected under an explicit user-authorized exception with synthetic tests and a fresh review. The post-review backend freeze is `e008c0474c1301a3b442b31761f31c79e7dec446`; the separate [Phase23 post-fix descriptive regression](reports/nlp_v2/phase23_post_fix_descriptive/comparison.md) measures that correction once on the already observed set. No tuning follows this post-fix run.
+
+The original MandiPulse parchment/oxblood style was restored from the preserved UI history while retaining the T3 API and five response states. [Restoration evidence](reports/nlp_v2/restored_ui_qa/qa.md) includes desktop/mobile screenshots and independent review. Timetable waypoints are explicitly unsupported; extra or conflicting stops clarify before partial execution. [Final acceptance audit](docs/nlp_v2/final_acceptance_audit.md) records the complete closure gates.
 
 ## Research and preserved prototype
 
@@ -62,3 +66,10 @@ T3 is final. [Gate B.3 decision](reports/nlp_v2/gate_b3/GATE_B3_TAXONOMY_DECISIO
 The earlier seven-label UI is preserved at `app/legacy_streamlit_app.py`; `src/pipeline.py`, [PRD](PRD.md), [roadmap](ROADMAP.md), and earlier benchmark documents describe that prototype. They are not the default T3 application path.
 
 Code is MIT licensed. External model/data licensing must be checked per artifact before redistribution.
+
+The fresh final whole-project review found one residual medium: an unrecognized
+coordinated third timetable stop can still be dropped. The existing677 tests pass,
+but this case was independently reproduced using new synthetic queries. Both
+Phase21 and the single Phase23 post-fix run remain valid and preserved for their
+recorded freezes. Final implementation acceptance is withheld pending the scoped
+follow-up/governance decision; see the final review and known limitations.

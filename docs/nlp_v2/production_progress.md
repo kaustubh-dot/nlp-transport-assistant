@@ -255,3 +255,91 @@ Each implementation phase receives tests, verification, independent review, fixe
 - **GPT-6.1 Sol xhigh review:** one medium optional-metadata crash and one low raw-direction-code usability finding fixed; independent seven real replies plus five malformed variants render safely. Unresolved critical/high/medium/low code findings = 0. Current post-CSS visual confirmation passed; reviewer inspected all eight current screenshots and granted final Phase22 signoff with0critical/high/medium/low.
 - **Visual QA:** browser access temporarily disappeared, then returned. Current1280×900 and390×844 layouts verified for all five real API statuses. Header clears toolbar; fare/source/date/caveats wrap; clarification revision controls usable; no success panels for non-OK replies. Body/document widths equal viewport widths, temporary viewport reset. Current screenshots in frontend QA record.
 - **Commit:** `feat(nlp_v2): clarify demo statuses and source limits` (hash recorded next phase). Phase21 commit: `fa4aaf7`.
+
+## Phase 23 — first final review and historical governance block
+
+- README, architecture, runbook/demo instructions and supported/partial/unsupported limitations have prepared updates, with611 verification and honest observed-development/descriptive-evaluation claims. Artifact/setup instructions and preserved reports remain linked.
+- **Fresh GPT-6.1 Sol xhigh complete-project review:** 0 critical, 0 high, 1 medium unresolved. Reviewer independently passed443 focused tests in7.42seconds, verified frozen source/report/assets and reproduced timetable location-scope loss with the real selected model. Three named locations select first/last and drop the middle; a timetable via can replace the destination. The shared extractor also serves first/last and frequency. Primary independently reproduced using new synthetic intended-intent contract probes; no held-out item inspection or evaluator rerun. [Evidence and scoped proposal](../../reports/nlp_v2/final_review/review.md).
+- **Documentation corrections:** stale future Phase21 wording now describes the completed valid run. Fare scope discloses the existing omitted-class Ordinary default. Overbroad timetable-scope preservation claims replaced with the confirmed limitation. Both low findings resolved by focused document re-review; current unresolved counts0critical/0high/1medium/0low.
+- **Governance blocker:** Phase21 remains valid, so fixing the newly found backend defect conflicts with the user's “Otherwise, evaluation ends development” instruction. Backend remains unchanged at8ee8917; user decision requested to authorize a scoped new development iteration and separately labeled descriptive run, or retain the freeze with acceptance incomplete. Documentation cannot clear the medium gate.
+- **Continuation audit:** prior turn made progress by completing/reviewing/committing/pushing Phase22. Fresh source/report/asset hashes, Git inventory and bounded secret-prefix checks pass; remote main equals localb0b3139. [Read-only evidence](../../reports/nlp_v2/final_review/preparation_audit.md). Remaining changes are documentation only. No explicit governance answer has arrived, and continuation alone does not override the post-evaluation freeze.
+- Current desktop/narrow visual QA is complete. Medium governance resolution, requirement audit, final verification, clean focused Phase23 commit/push and project closure remain required. The full objective remains incomplete; this preparation is not final acceptance. Phase22 completed and pushed as `b0b3139`; Phase23 remains uncommitted pending governance resolution.
+
+- **Blocked audit:** the same frozen-governance conflict persisted across three consecutive goal turns. The prior turn completed a reviewed read-only preservation audit; current revalidation confirms unchanged backend and one unresolved medium finding. No explicit authorization arrived, and no meaningful authorized work remains that can clear final acceptance. Goal is being marked blocked pending the user decision; scope is unchanged.
+
+## Original UI restoration — separately requested
+
+- The user requested the original style from old logs. The preserved pre-T3
+  MandiPulse workbench provided the parchment/linen, oxblood, small-radius rules,
+  Cormorant/Manrope/IBM typography and masthead/sidebar language.
+- `app/transit_theme.html` and static Streamlit framing restore that style;
+  six API/render function bodies remain identical. No old prototype/model/debug
+  workflow returns. All five T3 statuses, caveats and clarification resubmission
+  remain. Desktop1440×1000/mobile390×844, focus and no-overflow QA passed.
+- 37 frontend passes; fresh GPT-6.1 Sol xhigh signoff zero findings. Commit
+  `7cac770` pushed. [Evidence](../../reports/nlp_v2/restored_ui_qa/qa.md).
+
+## Phase23 — explicitly authorized timetable correctness exception
+
+- **Authorization:** the user accepted Phases11–22 and explicitly superseded the
+  evaluation-ends-development restriction only for the independent review's
+  timetable route-scope defect. The old blocked audit above records the prior
+  state; it is superseded by this authorization, not erased.
+- **Scope:** slots.py/assistant.py only: explicit origin/destination roles cannot
+  be overwritten by waypoint ordering. All recognized spans remain ordered;
+  route/time/date constraints persist. Extra/conflicting stops clarify; waypoint
+  requests explicitly return unavailable before execution because no canonical
+  waypoint filter exists. Ordinary two-stop behavior stays unchanged. No aliases,
+  domain/model/schema/taxonomy/preprocessing/research changes.
+- **TDD:** 63 new fixture-only synthetic cases produced51 failures/12 controls
+  passing on the frozen implementation. Three review-driven old-extractor
+  metadata cases failed before the optional-field compatibility correction.
+  Final66 regressions cover all three timetable intents, English/Hindi/Roman/
+  mixed/noisy/reordered/unknown waypoint and third-stop structure.
+- **Verification:** 454 focused passed7.89s, full677 passed18.12s; compileall/pip/
+  diff pass. Selected artifact validator and frozen Git/data/report hashes pass.
+- **Scoped GPT-6.1 Sol xhigh:** independent39 public-contract probes and27 frozen
+  ordinary extraction comparisons pass. One low metadata compatibility finding
+  reproduced/fixed/reviewed. Final unresolved critical/high/medium/low=0.
+- **Separate behavioral commit/new freeze:** `e008c0474c1301a3b442b31761f31c79e7dec446`
+  (`fix(nlp_v2): preserve timetable route scope`), pushed to main before evaluation.
+- **Historical preservation:** original validPhase21 freeze8ee8917 and all reports
+  remain byte-for-byte unchanged. Independent synthetic review evidence caused
+  the correction, never individual held-out failures or aggregate targeting.
+- **Post-fix measurement:** exactly one unchanged complete-assistant evaluator
+  invocation, reference date2026-10-06, new Phase23 post-fix descriptive directory.
+  It measures the already observed set; no untouched/independent/replacement claim.
+  Model/checkpoint unchanged, so no model-only rerun. Aggregate context/comparison
+  and final whole-project signoff are recorded below when verified.
+
+- **Verified post-fix aggregates:** stress706 intent0.8271955, selected431/706,
+  terminal285/706; statuses367 clarification/306 unavailable/19OK/14OOS/0error.
+  Clarification TP55/FP312/FN43/TN296, precision0.1498638/recall0.5612245.
+  Human350 selected222/350, terminal143/350;182clarification/153unavailable/
+  10OK/5OOS/0error; precision0.2527473/recall0.6052632. All metrics and every
+  intent/language/code-switch/noise stratum exactly equal Phase21. This is a
+  descriptive observation, not proof of scope semantics or a promotion target.
+  No tuning follows. [Context/comparison](../../reports/nlp_v2/phase23_post_fix_descriptive/comparison.md).
+
+- **Final primary audit/runtime:** frozen research/Phase21 diffs empty, five
+  Phase21 report hashes/context preserved, Phase23 evaluated source/report hashes
+  verified, artifact validator exact bytes/16T3/raw64/revision passes. Inventory,
+  bounded credential-prefix and final document-link checks pass. Refreshed local
+  API verifies real-model three-stop clarification, trailing-waypoint explicit
+  refusal with correct destination, and existing fare OK; no tuning. Restored
+  UI/local API remain available for the user's open demo.
+
+- **Fresh final whole-project GPT-6.1 Sol xhigh review:** independent677 passes
+  in18.06s and all artifact/source/report/research/renderer audits pass. Final
+  gate0critical/0high/1medium/0low: unknown coordinated third timetable stop is
+  dropped because the new guard counts canonical spans only. Primary reproduced
+  three new fixture-only reds outside the repository suite. This remains the
+  authorized defect; no unrelated issue or held-out targeting. [Evidence and
+  concrete proposal](../../reports/nlp_v2/final_review/review.md).
+- **Governance/remaining acceptance:** the exactly-one Phase23 post-fix run has
+  completed and remains valid for e008c047, just as original Phase21 is valid
+  for8ee8917. No further behavioral change or evaluator invocation has occurred.
+  An explicit reconciliation is required for a follow-up narrow correctness
+  freeze and any additional descriptive measurement. Final implementation is
+  not COMPLETE while the medium remains. Report/document commits preserve the
+  actual sequence and do not grant acceptance.

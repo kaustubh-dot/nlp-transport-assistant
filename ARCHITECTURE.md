@@ -63,10 +63,53 @@ Canonical IDs pass between backend layers. Explicit source prepositions/postposi
 
 Model selection used validation only. Existing frozen train/validation data share families; the replacement trainer excludes overlapping validation rows without altering source CSVs. Frozen stress/reference sets also share train families, and the human subset is nested in stress. Reports disclose those integrity limitations.
 
-The selected model was frozen before model-only evaluation. The complete assistant was frozen at `b9b2271b1761d08752786f22b558862f45ed1dac` before the final aggregate assistant run. Reports distinguish model accuracy, selected operation, actual terminal dispatch, status counts, and clarification behavior. They do not claim slot or factual-answer accuracy. That historical report is the baseline. Phases11–20 improve only against a separately frozen development suite and allowed validation, without individual held-out inspection. Phase17 ran one full GPU candidate selected on disjoint validation; it failed the comparison and the original model remains selected. The next source-frozen run is post-development descriptive regression evaluation, not an untouched estimate; its results cannot drive further backend tuning.
+The selected model was frozen before model-only evaluation. The complete assistant was frozen at `b9b2271b1761d08752786f22b558862f45ed1dac` before the historical aggregate assistant run. Reports distinguish model accuracy, selected operation, actual terminal dispatch, status counts, and clarification behavior. They do not claim slot or factual-answer accuracy. That historical report is the baseline. Phases11–20 improve only against a separately frozen development suite and allowed validation, without individual held-out inspection. Phase17 ran one full GPU candidate selected on disjoint validation; it failed the comparison and the original model remains selected. Phase21 completed post-development descriptive regression evaluation from source freeze `8ee8917`, not an untouched estimate; its results cannot drive metric-based backend tuning. A later independent final review found a timetable scope-loss defect; the user explicitly authorized only its bounded correction and a separate descriptive measurement. Phase21 reports remain unchanged and valid for their original freeze.
 
 Use the [runbook](docs/nlp_v2/production_runbook.md) for asset preparation, startup, tests, safe training, and demo steps. Historical evidence remains in the existing Gate B.2/B.3 directories.
 
 ## Operational outcomes and artifacts
 
 Optional capability preflight avoids questions that cannot change source answerability; extended handlers retain authority. Replies expose `outcome_reason` separately from status/intent/operation for actionable missing inputs, ambiguity, unsupported source, external realtime, malformed requests and temporary failures. Exact extraction normalization stays separate from raw inference. The selected weights remain ignored and are supplied through the [validated artifact workflow](docs/nlp_v2/model_artifact_workflow.md); no automatic fallback or upload occurs. The [development matrix](docs/nlp_v2/development_acceptance.md) distinguishes actual coverage from intended-intent downstream reachability.
+
+## Presentation after the backend freeze
+
+The Phase22 Streamlit changes are presentation-only. Status labels distinguish
+answered published information, clarification, unavailable, out-of-scope and
+errors. Persistent snapshot/no-live notice, effective dates, provenance, partial
+coverage and provisional hub caveats remain visible. Non-OK replies render no
+successful metric/table panel. Clarification guidance requests a full revised
+question without displaying canonical candidate IDs; tables omit private/debug
+identifiers. Optional presentation metadata is type-checked before captioning,
+so malformed nullable coverage fields cannot expose a Streamlit stacktrace.
+Phase22 froze backend/API/model/evaluators and canonical data at `8ee8917` while
+changing presentation. The subsequent user-requested restoration of the original
+MandiPulse parchment/oxblood theme is committed as `7cac770`, retaining all API
+and renderer behavior; [restored UI QA](reports/nlp_v2/restored_ui_qa/qa.md) records
+desktop/mobile layouts, keyboard focus and the five public statuses.
+
+## Authorized Phase23 correctness exception
+
+The independent final review found that a third timetable stop could be dropped
+and a waypoint could replace the destination. The user explicitly authorized a
+narrow correction based on synthetic regressions, preserving Phase21 unchanged.
+The shared branch for departures, first/last and frequency now retains explicit
+endpoint roles independently of waypoint order and preserves ordered recognized
+spans. Extra/conflicting endpoint scopes clarify. Timetable operations do not
+have a waypoint filter; those requests return explicit unavailable before domain
+execution instead of answering a reduced journey. Route/time/date extraction and
+ordinary one/two-point behavior remain unchanged. No aliases, canonical schema,
+domain handlers, classifier, preprocessing or weights changed.
+
+Post-review backend freeze: `e008c0474c1301a3b442b31761f31c79e7dec446`. After that
+commit, one [Phase23 post-fix descriptive regression](reports/nlp_v2/phase23_post_fix_descriptive/comparison.md)
+uses the unchanged complete-assistant evaluator and fixed date2026-10-06. It is
+an observed-set measurement, not an independent test or a replacement Phase21.
+No model-only rerun or subsequent tuning occurs. [The acceptance audit](docs/nlp_v2/final_acceptance_audit.md)
+and [scope limits](docs/nlp_v2/known_limitations.md) record evidence and limitations.
+
+The fresh final whole-project review found one residual medium: an unrecognized
+coordinated third timetable stop can still be dropped. The existing677 tests pass,
+but this case was independently reproduced using new synthetic queries. Both
+Phase21 and the single Phase23 post-fix run remain valid and preserved for their
+recorded freezes. Final implementation acceptance is withheld pending the scoped
+follow-up/governance decision; see the final review and known limitations.

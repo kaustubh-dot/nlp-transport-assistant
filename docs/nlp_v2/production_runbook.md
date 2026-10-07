@@ -104,7 +104,7 @@ python -m pip check
 git diff --check
 ```
 
-The verified suite has 602 passes, including real-checkpoint inference, synthetic multilingual/slot/dispatch/service/API/UI cases, trainer smoke, evaluator guards, and frozen annotation/hash checks. The 34 Gate B.3 framework tests retain pre-execution checks using temporary synthetic manifests and validate the real closed state. No lint/type checker is configured. Run tests sequentially; legacy tests rebuild shared prototype SQLite fixtures.
+The verified suite has 677 passes, including real-checkpoint inference, synthetic multilingual/slot/dispatch/service/API/UI cases, trainer smoke, evaluator guards, and frozen annotation/hash checks. The 34 Gate B.3 framework tests retain pre-execution checks using temporary synthetic manifests and validate the real closed state. No lint/type checker is configured. Run tests sequentially; legacy tests rebuild shared prototype SQLite fixtures.
 
 Frozen Git boundary check:
 
@@ -156,7 +156,7 @@ The trainer refuses full non-smoke execution without a usable CUDA device and co
 
 ## Evaluation records and reproduction
 
-The completed [post-development descriptive regression comparison](../../reports/nlp_v2/post_development_regression/comparison.md) ran the unchanged evaluators once from source freeze `8ee8917`, matching baseline date 2026-10-06. Model metrics match exactly; assistant selected operation356→431/706 and terminal164→285/706. Historical OK22→19, clarification precision0.1673→0.1499 and recall0.8878→0.5612 decline; unavailable150→306 rises. These are observed contract results, not travel-fact correctness or untouched test estimates. No backend tuning follows this run.
+The completed [post-development descriptive regression comparison](../../reports/nlp_v2/post_development_regression/comparison.md) ran the unchanged evaluators once from source freeze `8ee8917`, matching baseline date 2026-10-06. Model metrics match exactly; assistant selected operation 356→431/706 and terminal 164→285/706. Historical OK 22→19, clarification precision 0.1673→0.1499 and recall 0.8878→0.5612 decline; unavailable 150→306 rises. These are observed contract results, not travel-fact correctness or untouched test estimates. Phase21 remains unchanged and valid. A later independent review found a timetable correctness defect, corrected under an explicitly authorized narrow exception; see the separate [Phase23 post-fix descriptive comparison](../../reports/nlp_v2/phase23_post_fix_descriptive/comparison.md). No metrics guided that correction.
 
 The [model report](../../reports/nlp_v2/production_eval/production_t3_evaluation.md) uses the selected manifest/checkpoint frozen before held-out inference. Stress accuracy is 0.8300 and Macro-F1 0.7918. The [complete-assistant report](../../reports/nlp_v2/assistant_eval/assistant_evaluation.md) was run once from source freeze `b9b2271b1761d08752786f22b558862f45ed1dac`, with Chennai reference date `2026-10-06`.
 
@@ -173,7 +173,7 @@ OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 python -m scripts.nlp_v2.evaluate_assistant 
   --output-dir /tmp/nlp_v2-assistant-eval-reproduction
 ```
 
-The assistant evaluator refuses changed/uncommitted freeze paths. It records source commit, model/input/DB hashes, and the fixed reference date, with per-class and language/code-switch/noise aggregates. Model-only mapped-operation accuracy differs from actual assistant dispatch after extraction/clarification. The historical baseline is preserved. Phases 11–20 develop against the separate development contracts and allowed validation without inspecting individual held-out failures. The new post-development evaluation is one-way: no subsequent backend tuning follows it.
+The assistant evaluator refuses changed/uncommitted freeze paths. It records source commit, model/input/DB hashes, and the fixed reference date, with per-class and language/code-switch/noise aggregates. Model-only mapped-operation accuracy differs from actual assistant dispatch after extraction/clarification. The historical baseline is preserved. Phases 11–20 develop against the separate development contracts and allowed validation without inspecting individual held-out failures. Phase21 was followed by a separately authorized correctness exception, not metric-driven tuning. The post-review Phase23 backend freeze is `e008c0474c1301a3b442b31761f31c79e7dec446`. Its complete-assistant evaluator ran exactly once at the same reference date2026-10-06 into a new Phase23 post-fix descriptive directory. No model-only rerun, individual failure inspection or subsequent tuning follows. Historical reports remain unchanged.
 
 ## Demo workflow and limitations
 
@@ -181,8 +181,27 @@ The assistant evaluator refuses changed/uncommitted freeze paths. It records sou
 2. Ask “List stops on bus route 102” and expand the published directional sequences.
 3. Ask “What is the deluxe bus fare for stage 4?” and inspect the recorded service class, amount, effective date and source.
 4. Ask “Departures from Poonamallee Bus Terminus at 8:00 baje” to demonstrate temporal clarification; revise the complete question with explicit AM/PM.
-5. Ask a live-status question to demonstrate unavailable information. Try Hindi/Roman/mixed questions and inspect missing/ambiguous entity prompts; aliases have limited coverage.
+5. Ask “Where is bus route 25R on live GPS right now?” to demonstrate unavailable realtime information.
+6. Ask “What is the ordinary bus fare for stage 4 and stage 7?” for the single-scope clarification, or “Suggest a chocolate dessert recipe for dinner.” for out-of-scope. A punctuation-only “?” demonstrates the safe malformed-request error.
+
+These exact demo queries were checked through the real selected-model local API. Try Hindi/Roman/mixed questions and inspect missing/ambiguous entity prompts; aliases have limited coverage.
 
 The canonical database's hub memberships are unverified and its 45 interchange rows are unconfirmed. Accessibility values are null, authoritative ticket/pass policy is absent, and facility availability is unverified. Published timetables/fare records are dated/provisional; no realtime source is configured. Directional bus candidates are stop-sequence evidence, not confirmed trip availability or multimodal optimization. Nearest-stop distances are geometric rather than walking routes.
 
 The final evaluation's high clarification rate and limited successful-response count are recorded coverage limits. Expanding the system requires new development data and verified transport sources under the frozen governance policy. It must not use held-out labels/queries to train, augment, patch predictions, or tune parameters.
+
+See [supported scope and known limitations](known_limitations.md) for the complete supported/partial/unsupported matrix, retained classifier limit, artifact availability and evaluation caveats. Current desktop/narrow visual QA and code/status rendering pass with677 tests; see [QA evidence](../../reports/nlp_v2/frontend_qa/qa.md).
+
+Timetable waypoint filtering is unsupported by the canonical operation contract.
+For a complete request with a waypoint, the assistant explicitly returns
+unavailable; extra/conflicting stops clarify. It does not answer a partial
+journey. Synthetic regressions across departures, first/last and frequency prove
+scope preservation and ordinary-query compatibility. [Scoped review](../../reports/nlp_v2/final_review/timetable_scope_review.md)
+records red/green verification and the fresh review gate.
+
+The fresh final whole-project review found one residual medium: an unrecognized
+coordinated third timetable stop can still be dropped. The existing677 tests pass,
+but this case was independently reproduced using new synthetic queries. Both
+Phase21 and the single Phase23 post-fix run remain valid and preserved for their
+recorded freezes. Final implementation acceptance is withheld pending the scoped
+follow-up/governance decision; see the final review and known limitations.

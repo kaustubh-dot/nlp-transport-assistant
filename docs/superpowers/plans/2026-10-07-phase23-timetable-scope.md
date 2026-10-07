@@ -20,14 +20,20 @@ waypoint structures. Extra unrepresentable locations clarify before execution.
 - [x] Run new regressions plus slot/entity/domain/assistant/API/frontend tests;
   then full suite, compileall/pip/diff and frozen/report/asset checks.
 - [x] Fresh GPT-6.1 Sol xhigh scoped review; resolve all critical/high/medium.
-- [ ] Commit fix separately and record exact full post-review backend freeze SHA.
-- [ ] Preserve Phase21 unchanged. Run assistant evaluator exactly once after
+- [x] Commit fix separately and record exact full post-review backend freeze SHA.
+- [x] Preserve Phase21 unchanged. Run assistant evaluator exactly once after
   freeze with fixed reference date2026-10-06 into a NEW Phase23 post-fix descriptive
   directory. No model-only rerun, individual held-out inspection or metric tuning.
 - [ ] Record hashes, aggregate metrics/strata and Phase21 comparison, update docs
   to disclose the authorized sequence, obtain fresh final whole-project review.
 - [ ] Final verification, focused documentation/report commit/push, clean main,
-  stop task-owned QA servers, complete the original objective. No new phase.
+  retain the refreshed localhost demo for the user's open UI, complete the original objective. No new phase.
 
 The user's separate original-style UI restoration is reviewed and committed as
 `7cac770` before this correction. Final frontend semantics remain T3/API backed.
+
+Fresh final review and independent677-pass verification completed; signoff is
+withheld for one medium unknown-coordinated-third-stop gap. Both descriptive
+runs remain valid unchanged. No further production/evaluation changes occur
+before reconciling the user's exactly-one/no-following-tuning restriction. The
+concrete follow-up proposal is in reports/nlp_v2/final_review/review.md.
