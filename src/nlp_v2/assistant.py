@@ -164,6 +164,14 @@ class T3Assistant:
                 return self._reply(query, normalized, result)
 
             extraction = self.extractor.extract(query, intent)
+            if len(extraction.requested_modes) > 1 and intent not in {'multimodal_route', 'interchange_transfer'}:
+                return AssistantReply(
+                    'clarification', 'Please choose one transport mode for this question.',
+                    query, extraction.normalized_query, intent, None, prediction.confidence,
+                    dict(extraction.slots), {'requested_modes': list(extraction.requested_modes)},
+                    missing_slots=('transport_mode',), clarification_reason='missing_slot',
+                    candidate_intents=prediction.acceptable_labels,
+                )
             if extraction.clarification_reason:
                 candidates = tuple(sorted({candidate.entity_id for unresolved in extraction.unresolved
                                            for candidate in unresolved.candidates}))

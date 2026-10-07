@@ -101,12 +101,13 @@ def test_timing_incompatible_destination_is_not_ignored(resolver):
     assert reply.status == "unavailable"
 
 
-def test_explicit_off_route_stop_reaches_negative_membership(resolver):
+def test_explicit_off_route_stop_is_preserved_with_incomplete_variant(resolver):
     from src.nlp_v2.assistant import T3Assistant
 
     reply = T3Assistant(classifier=FixedClassifier("route_stop_membership"), resolver=resolver).process_query("Does bus 102 stop at Poonamallee Bus Terminus?")
-    assert reply.status == "ok"
-    assert reply.data["on_route"] is False
+    assert reply.slots['stop'] == 'BUS_5821'
+    assert reply.status == 'unavailable'
+    assert reply.data['reason'] == 'membership_topology_incomplete'
 
 
 @pytest.mark.parametrize("query", [
@@ -283,3 +284,62 @@ def test_malformed_preflight_message_is_safe_error(resolver, message):
     assert isinstance(reply.response_text, str)
     assert reply.intent == 'ticketing_and_passes'
     assert reply.operation == 'GET_TICKETING_POLICY'
+
+
+@pytest.mark.parametrize('intent,query', [
+    ('point_to_point_route', 'Bus and metro route from Island ground Terminus to Annasquare?'),
+    ('nearest_transport', 'Nearest bus and metro station to Marina Beach?'),
+    ('mode_availability', 'Are bus and metro available from Island ground Terminus to Annasquare?'),
+])
+def test_atomic_operation_preserves_multiple_requested_modes(resolver, intent, query):
+    from src.nlp_v2.assistant import T3Assistant
+    reply = T3Assistant(classifier=FixedClassifier(intent), resolver=resolver).process_query(query)
+    assert reply.status == 'clarification'
+    assert 'transport_mode' in reply.missing_slots
+    assert set(reply.data['requested_modes']) == {'bus', 'metro'}
+
+
+def test_exact_stop_name_is_a_nearest_anchor_not_a_target_mode_filter(resolver):
+    from src.nlp_v2.assistant import T3Assistant
+    reply = T3Assistant(classifier=FixedClassifier('nearest_transport'), resolver=resolver).process_query(
+        'Nearest metro station to Poonamallee Bus Terminus?')
+    assert reply.status == 'ok'
+    assert reply.slots['landmark'] == 'BUS_5821'
+    assert all(row['mode'] == 'metro' for row in reply.data['stops'])
+
+
+@pytest.mark.parametrize('clock', ['10 pm', '22:00'])
+def test_availability_preserves_requested_clock_scope(resolver, clock):
+    from src.nlp_v2.assistant import T3Assistant
+    reply = T3Assistant(classifier=FixedClassifier('mode_availability'), resolver=resolver).process_query(
+        f'Is bus available from Island ground Terminus to Annasquare at {clock}?')
+    assert reply.status == 'unavailable'
+    assert reply.slots['time'] == '22:00:00'
+
+
+def test_invalid_availability_clock_cannot_become_static_success(resolver):
+    from src.nlp_v2.assistant import T3Assistant
+    reply = T3Assistant(classifier=FixedClassifier('mode_availability'), resolver=resolver).process_query(
+        'Is bus available from Island ground Terminus to Annasquare at 25:30 AM?')
+    assert reply.status == 'clarification'
+    assert reply.clarification_reason == 'temporal_ambiguity'
+
+
+@pytest.mark.parametrize('route,status', [('999', 'unavailable'), ('102', 'ok')])
+def test_availability_preserves_explicit_route_constraint(resolver, route, status):
+    from src.nlp_v2.assistant import T3Assistant
+    reply = T3Assistant(classifier=FixedClassifier('mode_availability'), resolver=resolver).process_query(
+        f'Is bus {route} available from Island ground Terminus to Annasquare?')
+    assert reply.slots.get('route_number') == route
+    assert reply.status == status
+    if status == 'ok':
+        assert all(r['route_name'].replace(' ', '') == route for r in reply.data['routes'])
+
+
+def test_availability_via_does_not_replace_destination(resolver):
+    from src.nlp_v2.assistant import T3Assistant
+    reply = T3Assistant(classifier=FixedClassifier('mode_availability'), resolver=resolver).process_query(
+        'Is bus available from Island ground Terminus to Annasquare via Kelambakkam Bus Terminal?')
+    assert reply.slots.get('destination') == 'BUS_11192'
+    assert reply.slots.get('via') == 'BUS_6099'
+    assert reply.status == 'unavailable'

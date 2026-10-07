@@ -171,3 +171,118 @@ def test_missing_schema_degrades_to_error(tmp_path):
 ])
 def test_unverified_or_absent_facts_are_unavailable(service, operation, slots):
     assert service.execute(operation, slots).status == "unavailable"
+
+
+def test_positive_availability_is_sourced_published_connectivity(service):
+    result = service.execute('CHECK_SERVICE_AVAILABILITY', {
+        'origin': 'BUS_11159', 'destination': 'BUS_11192', 'transport_mode': 'bus'})
+    assert result.status == 'ok'
+    assert result.data['scope'] == 'published_connectivity_not_current_operation'
+    assert result.data['current_operation_confirmed'] is False
+    assert result.data['provisional'] is True
+    assert all(row['source'] and row['origin_sequence'] < row['destination_sequence']
+               for row in result.data['routes'])
+
+
+def test_availability_does_not_infer_negative_or_ignore_date(service):
+    for slots in (
+        {'origin': 'BUS_11159', 'destination': 'METRO_EGMORE'},
+        {'origin': 'BUS_11159', 'destination': 'BUS_11192', 'date': '2040-01-01'},
+        {'origin': 'BUS_11159', 'destination': 'BUS_11192', 'time': '22:00:00'},
+    ):
+        assert service.execute('CHECK_SERVICE_AVAILABILITY', slots).status == 'unavailable'
+
+
+@pytest.mark.parametrize('constraint', [{'date': '2040-01-01'}, {'time': '22:00:00'}, {'temporal_relative': 'tomorrow'}])
+def test_static_route_does_not_ignore_temporal_constraint(service, constraint):
+    result = service.execute('PLAN_ROUTE', {'origin': 'BUS_11159', 'destination': 'BUS_11192', **constraint})
+    assert result.status == 'unavailable'
+    assert result.data['reason'] == 'route_temporal_scope_unsupported'
+
+
+def test_night_tariff_uses_exact_category_with_case_normalization(service):
+    result = service.execute('CALCULATE_FARE', {
+        'stage_number': 7, 'transport_mode': 'bus', 'service_type': 'Night Services'})
+    assert result.status == 'ok'
+    assert result.data['service_type'] == 'Night Services'
+    assert result.data['source'] and result.data['effective_date']
+    assert service.execute('CALCULATE_FARE', {
+        'stage_number': 7, 'service_type': 'Air Conditioned Services'}).status == 'unavailable'
+
+
+def test_stop_coordinates_can_anchor_another_mode_without_access_claim(service):
+    result = service.execute('FIND_NEAREST_STATION', {'landmark': 'BUS_5821', 'transport_mode': 'metro'})
+    assert result.status == 'ok'
+    assert result.data['anchor'] == 'BUS_5821'
+    assert all(row['mode'] == 'metro' for row in result.data['stops'])
+    assert result.data['distance_type'] == 'straight_line'
+
+
+def test_membership_preserves_canonical_provenance(service):
+    result = service.execute('CHECK_STOP_ON_ROUTE', {'route_number': '25R', 'stop': 'BUS_10235'})
+    assert result.status == 'ok'
+    assert result.data['source']
+
+
+def test_frequency_does_not_merge_opposing_directions(service, monkeypatch):
+    rows = [dict(departure_time=t, route_id='R', direction_id=d, canonical_stop_id='S', source_id='test')
+            for d, t in [(0, '08:00:00'), (1, '08:10:00'), (0, '08:20:00'), (1, '08:30:00')]]
+    monkeypatch.setattr(service, '_scheduled_rows', lambda conn, slots: rows)
+    result = service.execute('GET_SERVICE_FREQUENCY', {'station': 'S', 'route_number': 'R'})
+    assert result.status == 'unavailable'
+    assert result.data['reason'] == 'frequency_direction_or_stop_ambiguous'
+
+
+def test_incomplete_topology_is_disclosed_and_cannot_prove_absence(service):
+    import sqlite3
+    conn = sqlite3.connect(':memory:')
+    conn.row_factory = sqlite3.Row
+    conn.executescript('''
+        CREATE TABLE transport_routes(route_id,route_short_name,mode,source_id,status);
+        CREATE TABLE transport_stops(stop_id,canonical_name,mode);
+        CREATE TABLE route_stops(route_id,direction_id,stop_sequence,canonical_stop_id);
+        INSERT INTO transport_routes VALUES('R','88','bus','synthetic','operational');
+        INSERT INTO transport_stops VALUES('BUS_A','A','bus'),('BUS_B','B','bus'),
+            ('METRO_C','C','metro'),('BUS_OTHER','Other','bus');
+        INSERT INTO route_stops VALUES('R',0,1,'BUS_A'),('R',0,2,'METRO_C'),('R',0,3,'BUS_B');
+    ''')
+    sequence = service._list_route_stops(conn, {'route_number': '88'})
+    assert sequence.status == 'ok'
+    assert sequence.data['partial_topology'] is True
+    assert sequence.data['excluded_unusable_rows'] == 1
+    negative = service._check_stop_on_route(conn, {'route_number': '88', 'stop': 'BUS_OTHER'})
+    assert negative.status == 'unavailable'
+    positive = service._check_stop_on_route(conn, {'route_number': '88', 'stop': 'BUS_A'})
+    assert positive.status == 'ok' and positive.data['on_route'] is True
+    via = service._plan_route(conn, {'origin': 'BUS_A', 'destination': 'BUS_B', 'via': 'METRO_C'})
+    assert via.status == 'unavailable'
+    for handler in (service._plan_route, service._availability):
+        result = handler(conn, {'origin': 'BUS_A', 'destination': 'BUS_B'})
+        assert result.status == 'ok'
+        assert 'partial' in result.message.lower()
+    conn.close()
+
+
+def test_empty_same_code_variant_prevents_negative_membership(service):
+    import sqlite3
+    conn = sqlite3.connect(':memory:')
+    conn.row_factory = sqlite3.Row
+    conn.executescript('''
+        CREATE TABLE transport_routes(route_id,route_short_name,mode,source_id,status);
+        CREATE TABLE transport_stops(stop_id,canonical_name,mode);
+        CREATE TABLE route_stops(route_id,direction_id,stop_sequence,canonical_stop_id);
+        INSERT INTO transport_routes VALUES('R_FULL','88','bus','synthetic','operational'),
+            ('R_EMPTY','88','bus','synthetic','operational');
+        INSERT INTO transport_stops VALUES('BUS_A','A','bus'),('BUS_B','B','bus'),('BUS_OTHER','Other','bus');
+        INSERT INTO route_stops VALUES('R_FULL',0,1,'BUS_A'),('R_FULL',0,2,'BUS_B');
+    ''')
+    result = service._check_stop_on_route(conn, {'route_number': '88', 'stop': 'BUS_OTHER'})
+    assert result.status == 'unavailable'
+    positive = service._check_stop_on_route(conn, {'route_number': '88', 'stop': 'BUS_A'})
+    assert positive.status == 'ok'
+    assert positive.data['partial_topology'] is True
+    assert positive.data['matched_route_ids'] == ['R_FULL']
+    sequence = service._list_route_stops(conn, {'route_number': '88'})
+    assert sequence.data['partial_topology'] is True
+    assert sequence.data['uncovered_route_ids'] == ['R_EMPTY']
+    conn.close()

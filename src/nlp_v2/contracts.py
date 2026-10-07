@@ -48,7 +48,7 @@ ALLOWED_SLOTS = {
     "first_and_last_service": {"origin", "destination", "station", "route_number", "line_name", "transport_mode", "timing_type", "time", "temporal_relative", "date"},
     "service_frequency": {"origin", "destination", "station", "route_number", "line_name", "transport_mode", "timing_type", "time", "temporal_relative", "date"},
     "scheduled_departure": {"origin", "destination", "station", "stop", "route_number", "line_name", "transport_mode", "timing_type", "time", "temporal_relative", "date"},
-    "mode_availability": {"origin", "destination", "line_name", "transport_mode", "temporal_relative", "date"},
+    "mode_availability": {"origin", "destination", "via", "route_number", "line_name", "transport_mode", "time", "temporal_relative", "date"},
     "fare_calculation": {"origin", "destination", "route_number", "transport_mode", "ticket_type", "fare_type", "stage_number", "service_type"},
     "ticketing_and_passes": {"station", "transport_mode", "ticket_type"},
     "station_facilities": {"station", "transport_mode", "facility_type"},

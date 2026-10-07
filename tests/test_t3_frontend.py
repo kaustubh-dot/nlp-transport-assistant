@@ -95,6 +95,16 @@ def test_unavailable_and_error_do_not_render_success_panels():
     assert result_panel({"status": "error", "operation": "CALCULATE_FARE", "data": {"amount": 40}}) is None
 
 
+def test_published_connectivity_has_candidate_source_panel():
+    from app.frontend_contract import result_panel
+    data = {'routes': [{'route_name': '88', 'mode': 'bus', 'source': 'synthetic'}],
+            'scope': 'published_connectivity_not_current_operation', 'provisional': True}
+    panel = result_panel({'status': 'ok', 'operation': 'CHECK_SERVICE_AVAILABILITY', 'data': data})
+    assert panel is not None
+    assert panel['kind'] == 'routes'
+    assert panel['data']['routes'][0]['source'] == 'synthetic'
+
+
 def test_streamlit_chat_shows_api_clarification_and_revision_form(monkeypatch):
     import requests
     from streamlit.testing.v1 import AppTest

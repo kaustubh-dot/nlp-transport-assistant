@@ -169,7 +169,12 @@ class T3SlotExtractor:
 
         mode_hits = []
         for mode, pattern in MODE_PATTERNS.items():
-            match = re.search(pattern, normalized)
+            # In nearest queries, mode words in the anchor name describe its
+            # location, not the requested target mode. Other intents retain
+            # mode-qualified station resolution (e.g. Guindy metro).
+            match = next((m for m in re.finditer(pattern, normalized)
+                          if intent != 'nearest_transport'
+                          or not any(span.start <= m.start() < span.end for span in spans)), None)
             if match:
                 mode_hits.append((match.start(), mode))
         requested_modes = tuple(mode for _, mode in sorted(mode_hits))
@@ -180,7 +185,7 @@ class T3SlotExtractor:
             slots["mode_from"], slots["mode_to"] = requested_modes
 
         code = _route_number(query)
-        if code and intent in {"route_stop_sequence", "route_stop_membership", "first_and_last_service", "service_frequency", "scheduled_departure", "fare_calculation", "realtime_status_query", "point_to_point_route", "multimodal_route", "interchange_transfer"}:
+        if code and intent in {"route_stop_sequence", "route_stop_membership", "first_and_last_service", "service_frequency", "scheduled_departure", "fare_calculation", "realtime_status_query", "point_to_point_route", "multimodal_route", "mode_availability", "interchange_transfer"}:
             slots["route_number"] = code
 
         if intent == "first_and_last_service":
@@ -219,7 +224,7 @@ class T3SlotExtractor:
             if stage and 1 <= int(stage.group(1)) <= 30:
                 slots["stage_number"] = int(stage.group(1))
 
-        if intent in {"first_and_last_service", "service_frequency", "scheduled_departure", "point_to_point_route", "multimodal_route"}:
+        if intent in {"first_and_last_service", "service_frequency", "scheduled_departure", "point_to_point_route", "multimodal_route", "mode_availability"}:
             clock = _time(query)
             if clock:
                 slots["time"] = clock
@@ -249,7 +254,7 @@ class T3SlotExtractor:
         if intent in journey_intents:
             via_index = next((index for index in range(1, len(spans))
                               if re.search(r"(?:\bvia\b|होते हुए|hote hue)\s*$", normalized[spans[index - 1].end:spans[index].start])), None)
-            if via_index is not None and intent in {"point_to_point_route", "multimodal_route"}:
+            if via_index is not None and intent in {"point_to_point_route", "multimodal_route", "mode_availability"}:
                 assign(spans[via_index], "via")
                 endpoints = [span for index, span in enumerate(spans) if index != via_index]
             else:

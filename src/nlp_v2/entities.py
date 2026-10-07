@@ -135,7 +135,8 @@ class CanonicalResolver:
         """Apply role, explicit mode, and route context to exact candidates."""
         candidates = list(span.candidates)
         if role in {"landmark", "locality"}:
-            candidates = [candidate for candidate in candidates if candidate.kind == "place"]
+            places = [candidate for candidate in candidates if candidate.kind == "place"]
+            candidates = places or [candidate for candidate in candidates if candidate.kind in {'stop', 'hub'}]
         elif role in {"station", "stop"}:
             candidates = [candidate for candidate in candidates if candidate.kind == "stop"]
         elif role in {"origin", "destination", "via"}:

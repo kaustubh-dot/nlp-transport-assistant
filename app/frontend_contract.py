@@ -30,6 +30,7 @@ def ask_api(query: str, *, base_url: str | None = None, session=None) -> dict:
 PANEL_KINDS = {
     "PLAN_ROUTE": ("routes", "routes"),
     "PLAN_MULTIMODAL_ROUTE": ("routes", "routes"),
+    "CHECK_SERVICE_AVAILABILITY": ("routes", "routes"),
     "LIST_ROUTE_STOPS": ("sequences", "stops"),
     "CHECK_STOP_ON_ROUTE": ("on_route", "membership"),
     "GET_FIRST_LAST_SERVICE": ("first_departure", "service_bounds"),
