@@ -212,3 +212,15 @@ Each implementation phase receives tests, verification, independent review, fixe
 - **GPT-6.1 Sol xhigh review:** independent 14 focused passes; basic Python -S validation succeeds without site packages. Invalid JSON/root/missing metadata/corrupt bytes return status1 without traceback; provenance/links/ignore rules and frozen boundaries checked. Unresolved critical/high/medium = 0.
 - **Limitations:** complete fresh dependency installation and owner-to-new-machine transfer not executed. Exact trusted bytes and strict local loading verified; no public artifact download exists. The model is 906.33 MiB, intentionally ignored.
 - **Commit:** `feat(nlp_v2): validate portable selected model artifacts` (hash recorded next phase). Phase 17 commit:`f36e70b`.
+
+
+## Phase 19 — development acceptance matrix
+
+- **Objective:** report practical bounded coverage and remaining failure taxonomy without an unsafe metric target.
+- **Files changed:** acceptance matrix, refreshed real/gold-intent development reports and this record; production code and suite unchanged.
+- **Evidence:** terminal contracts 64/120 → 93/120; answerable 24/50 → 42/50; false-positive clarification 30/104 → 3/104. Status counts alone are not accepted as coverage. Gold-intent answerable 50/50, terminal 119/120 with the unchanged v1-098 policy divergence. Raw traces observe all 16 labels and contract tests exercise all 16 operations; source answerability remains bounded.
+- **Taxonomy:** 25 wrong-raw-intent terminal failures corrected by intended intent, one structured ambiguity, one residual policy/gold divergence. Downstream slot/entity/domain-code flags zero on this suite. Under intended intent, 48/48 gold-unavailable contracts are correct data/scope or external refusals; production achieves 38/48, with ten wrong-intent terminal failures. Source limitations remain distinct from classifier failures. The negative validation-only candidate remains unselected; no further implementation defect or defensible suite-specific tuning was identified.
+- **Verification:** both new empty-directory evaluators ran on current source, fixed date and frozen hashes; matrix sums/counts and answerable totals checked; diff check passes. Prior Phase 18 full 549 verification still applies because this phase changes only documents/reports. No historical evaluator/item inspection.
+- **GPT-6.1 Sol xhigh review:** all 17 rows/120 cases, metrics, raw attribution, reachability and frozen/source hashes reconstructed. One low conditional-versus-production refusal-count wording fixed (48/48 intended versus38/48 actual). Final re-review unresolved critical/high/medium/low = 0.
+- **Limitations:** development is observed, small/noise-skewed; conditional downstream success is not classifier capability or travel-fact accuracy. Remaining raw errors and genuine source/verified-scope limits remain explicit.
+- **Commit:** `docs(nlp_v2): record development acceptance and coverage` (hash recorded next phase). Phase 18 commit:`393cdce`.
