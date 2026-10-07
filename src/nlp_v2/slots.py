@@ -12,7 +12,7 @@ from src.nlp_v2.entities import CanonicalResolver, EntitySpan, Resolution
 
 MODE_PATTERNS = {
     "metro": r"(?<!\w)(?:metro|मेट्रो)(?!\w)",
-    "bus": r"(?<!\w)(?:bus|बस)(?!\w)",
+    "bus": r"(?<!\w)(?:bus|bs|बस)(?!\w)",
     "suburban_rail": r"(?<!\w)(?:suburban(?:\s+rail)?|local\s+train|लोकल\s+ट्रेन)(?!\w)",
     "mrts": r"(?<!\w)(?:mrts|एमआरटीएस)(?!\w)",
 }
@@ -37,7 +37,7 @@ TICKETS = {
     "smart_card": ("smart card", "स्मार्ट कार्ड"),
     "ncmc_card": ("ncmc", "एनसीएमसी"),
     "qr_ticket": ("qr ticket", "क्यूआर टिकट"),
-    "monthly_pass": ("monthly pass", "मासिक पास"),
+    "monthly_pass": ("monthly pass", 'mnthly pass', "मासिक पास"),
     "tourist_pass": ("tourist pass", "पर्यटक पास"),
     "season_pass": ("season pass", "सीजन पास"),
     "token": ("token", "टोकन"),
@@ -52,7 +52,7 @@ LINE_NAMES = ("Blue Line", "Green Line", "Corridor 1", "Corridor 2", "MRTS", "No
 SERVICE_TYPES = {
     "Ordinary Services": ("ordinary", "साधारण"),
     "Express Services": ("express", "एक्सप्रेस"),
-    "Deluxe Services": ("deluxe", "डीलक्स"),
+    "Deluxe Services": ("deluxe", 'deluxw', "डीलक्स"),
     "Night Services": ("night service", "night bus", "रात्रि बस"),
     "Air Conditioned Services": ("air conditioned", "ac bus", "एसी बस", "वातानुकूलित"),
 }
@@ -72,6 +72,7 @@ class ExtractionResult:
     clarification_reason: str | None
     requested_modes: tuple[str, ...]
     normalized_query: str
+    missing_execution_slots: tuple[str, ...] = ()
 
 
 def _has(text: str, phrase: str) -> bool:
@@ -83,6 +84,24 @@ def _enum(text: str, vocabulary: dict[str, tuple[str, ...]]) -> str | None:
         if any(_has(text, alias) for alias in (value, *aliases)):
             return value
     return None
+
+
+def _uncertain_service_class(text: str) -> bool:
+    hits = [value for value, aliases in SERVICE_TYPES.items()
+            if any(_has(text, alias) for alias in (value, *aliases))]
+    if len(hits) > 1:
+        return True
+    known = {normalize_text(alias) for aliases in SERVICE_TYPES.values() for alias in aliases if ' ' not in alias}
+    def one_edit(a: str, b: str) -> bool:
+        if len(a) == len(b):
+            return sum(x != y for x, y in zip(a, b)) == 1
+        short, long = sorted((a, b), key=len)
+        return len(long) == len(short) + 1 and any(long[:i] + long[i+1:] == short for i in range(len(long)))
+    # Similarity only stops execution; it never chooses a service class.
+    unrelated_words = {'deluge', 'delude', 'empress'}
+    return any(word not in known | unrelated_words
+               and any(one_edit(word, root) for root in ('ordinary', 'express', 'deluxe'))
+               for word in re.findall(r'(?<!\w)[a-z]{4,}(?!\w)', text))
 
 
 def _endpoints(text: str, spans: list[EntitySpan]) -> tuple[EntitySpan, EntitySpan]:
@@ -97,16 +116,49 @@ def _endpoints(text: str, spans: list[EntitySpan]) -> tuple[EntitySpan, EntitySp
 
 def _route_number(query: str) -> str | None:
     # Unicode decimal digits include Hindi numerals; preserve operational suffixes.
-    ascii_digits = "".join(str(unicodedata.digit(char)) if char.isdecimal() else char for char in query)
-    ascii_digits = re.sub(r"(?<=\d)जी(?=\W|$)", "G", ascii_digits)
+    ascii_digits = "".join(str(unicodedata.digit(char)) if char.isdecimal() else char
+                           for char in unicodedata.normalize('NFC', query))
+    suffixes = {'आर': 'R', 'जी': 'G', 'बी': 'B', 'सी': 'C', 'डी': 'D', 'ए': 'A', 'ई': 'E'}
+    def word_character(char: str) -> bool:
+        return unicodedata.category(char)[0] in 'LNM' or char == '_'
+    def translate_suffix(match: re.Match) -> str:
+        # Marks belong to the suffix; punctuation such as danda ends it.
+        if match.end() < len(ascii_digits) and word_character(ascii_digits[match.end()]):
+            return match.group(0)
+        return suffixes[match.group(1)]
+    ascii_digits = re.sub(r'(?<=\d)\s*(' + '|'.join(suffixes) + r')',
+                          translate_suffix, ascii_digits)
     ascii_digits = re.sub(r"(?<=\d)\s*-\s*(?=[A-Za-z](?![A-Za-z]))", "-", ascii_digits)
     code = r"(?:[A-Za-z]{1,3})?\d{1,4}(?:[A-Za-z]{1,3})?(?:-[A-Za-z]{1,3})?#?"
-    terminal = r"(?![A-Za-z0-9#-])"
-    prefix = re.search(r"(?i)(?:\bbus\b|\broute\b|बस|रूट)\s*(?:(?:no\.?|number|नंबर)\s*)?(" + code + r")" + terminal + r"(?:\s+([A-Za-z])(?![A-Za-z]))?", ascii_digits)
-    suffix = re.search(r"(?i)(" + code + r")" + terminal + r"(?:\s+([A-Za-z])(?![A-Za-z]))?\s*(?:\bbus\b|\broute\b|बस|रूट)", ascii_digits)
+    terminal = r"(?![\w#-])"
+    spaced_suffix = r'(?:\s+([A-Za-z]#?)' + terminal + r')?'
+    prefix = re.search(r"(?i)(?:\bbus\b|\bbs\b|\broute\b|बस|रूट)\s*(?:(?:no\.?|number|नंबर)\s*)?(" + code + r")" + terminal + spaced_suffix, ascii_digits)
+    suffix = re.search(r"(?i)(" + code + r")" + terminal + spaced_suffix + r"\s*(?:\bbus\b|\bbs\b|\broute\b|बस|रूट)", ascii_digits)
     match = prefix or suffix
     if not match:
         return None
+    end = match.end(2) if match.group(2) else match.end(1)
+    if end < len(ascii_digits) and word_character(ascii_digits[end]):
+        return None
+    if prefix and not match.group(2):
+        following = re.match(r'\s+(.+)', ascii_digits[match.end(1):])
+        if following:
+            # Consume letters/marks and route symbols, stopping at punctuation.
+            token = []
+            for char in following.group(1):
+                if not word_character(char) and char not in '#-':
+                    break
+                token.append(char)
+            word = ''.join(token).rstrip('#-_')
+            hindi_segment = re.split(r'[#_-]', word, maxsplit=1)[0]
+            unsupported_names = {'एफ', 'एच', 'जे', 'एल', 'एम', 'एन', 'ओ', 'पी', 'क्यू',
+                                 'एस', 'टी', 'यू', 'वी', 'डब्ल्यू', 'एक्स', 'वाई', 'ज़ेड', 'जेड'}
+            letter_names = set(suffixes) | unsupported_names | {'के'}
+            plausible_suffix = hindi_segment != 'के' and re.fullmatch(
+                '(?:' + '|'.join(sorted(letter_names, key=len, reverse=True)) + r')+[\u093a-\u094f\u0951-\u0957]*', hindi_segment)
+            if (plausible_suffix
+                    or re.match(r'[A-Za-z][\d\u0900-\u097f#-]', word)):
+                return None
     value = (match.group(1) + (match.group(2) or "")).upper()
     return re.sub(r"(?<=\d)-(?=[A-Z](?:#|$))", "", value)
 
@@ -166,6 +218,7 @@ class T3SlotExtractor:
         spans = self.resolver.find_spans(query)
         unresolved: list[Resolution] = []
         invalid_temporal = False
+        missing_execution = ()
 
         mode_hits = []
         for mode, pattern in MODE_PATTERNS.items():
@@ -223,6 +276,9 @@ class T3SlotExtractor:
             stage = re.search(r"(?<!\w)(?:stage|स्टेज)\s*(\d{1,2})(?!\w)", normalized)
             if stage and 1 <= int(stage.group(1)) <= 30:
                 slots["stage_number"] = int(stage.group(1))
+            if _uncertain_service_class(normalized):
+                slots.pop('service_type', None)
+                missing_execution = ('service_type',)
 
         if intent in {"first_and_last_service", "service_frequency", "scheduled_departure", "point_to_point_route", "multimodal_route", "mode_availability"}:
             clock = _time(query)
@@ -285,4 +341,4 @@ class T3SlotExtractor:
             reason = "entity_ambiguity"
         elif invalid_temporal or isinstance(slots.get("time"), list) or (slots.get("temporal_relative") in {"kal", "कल", "parso", "परसों"} and not slots.get("date")):
             reason = "temporal_ambiguity"
-        return ExtractionResult(slots, spans, tuple(unresolved), reason, requested_modes, normalized)
+        return ExtractionResult(slots, spans, tuple(unresolved), reason, requested_modes, normalized, missing_execution)

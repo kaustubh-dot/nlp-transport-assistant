@@ -468,16 +468,38 @@ class CanonicalTransitService:
             'hub_membership_unverified': hub_provisional,
         })
 
-    def _fare(self, conn: sqlite3.Connection, slots: Mapping[str, Any]) -> ServiceResult:
+    @staticmethod
+    def _fare_scope(slots: Mapping[str, Any], *, service_class_requested: bool = False) -> ServiceResult | None:
         if slots.get("ticket_type") not in (None, "token"):
             return _unavailable("The snapshot does not verify fare rules for that ticket type.")
-        mode = self._mode(slots)
+        mode = CanonicalTransitService._mode(slots)
+        if (service_class_requested or slots.get('service_type')) and mode in {'metro', 'mrts', 'suburban_rail'}:
+            return _unavailable('Bus service-class tariffs are unavailable for the requested mode.')
         origin, destination = slots.get("origin"), slots.get("destination")
         if origin and destination:
             if mode not in (None, "metro"):
                 return _unavailable("The canonical origin-destination fare table covers metro journeys only.")
-            if slots.get("fare_type") not in (None, "distance_fare") or slots.get("service_type"):
+            if slots.get("fare_type") not in (None, "distance_fare") or slots.get("service_type") or service_class_requested:
                 return _unavailable("The requested fare type is not verified for a metro origin-destination fare.")
+        if slots.get('stage_number'):
+            if mode not in (None, 'bus'):
+                return _unavailable('The canonical stage fare table covers bus journeys only.')
+            if slots.get('fare_type') not in (None, 'stage_fare') or slots.get('ticket_type'):
+                return _unavailable('The requested fare or ticket type is not verified for a bus stage fare.')
+        return None
+
+    def preflight_fare_class(self, slots: Mapping[str, Any]) -> ServiceResult | None:
+        """Avoid a class question when known fare scope already rules out answers."""
+        if not self._base_handler_unchanged('CALCULATE_FARE'):
+            return None
+        return self._fare_scope(slots, service_class_requested=True)
+
+    def _fare(self, conn: sqlite3.Connection, slots: Mapping[str, Any]) -> ServiceResult:
+        refusal = self._fare_scope(slots)
+        if refusal is not None:
+            return refusal
+        origin, destination = slots.get('origin'), slots.get('destination')
+        if origin and destination:
             row = conn.execute("""
                 SELECT token_fare, discounted_fare, currency, effective_date, source_id
                 FROM cmrl_station_fares WHERE origin_stop_id = ? AND destination_stop_id = ?
@@ -491,10 +513,6 @@ class CanonicalTransitService:
                 })
         stage = slots.get("stage_number")
         if stage:
-            if mode not in (None, "bus"):
-                return _unavailable("The canonical stage fare table covers bus journeys only.")
-            if slots.get("fare_type") not in (None, "stage_fare") or slots.get("ticket_type"):
-                return _unavailable("The requested fare or ticket type is not verified for a bus stage fare.")
             service = slots.get("service_type") or "Ordinary Services"
             row = conn.execute("""
                 SELECT fare_amount, currency, effective_date, government_order, source_id

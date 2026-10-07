@@ -93,15 +93,16 @@ def _missing_prompt(names: tuple[str, ...]) -> str:
         'landmark_or_locality': 'a nearby landmark or locality',
         'station_or_mode_pair': 'the transfer station or the two transport modes',
         'transport_mode': 'one transport mode',
+        'service_type': 'the bus service class (Ordinary, Express, Deluxe, Night or Air Conditioned)',
     }
     return 'Please provide ' + ', '.join(descriptions.get(name, name.replace('_', ' ')) for name in names) + '.'
 
 
-def _capability_check(method, operation: str, *args) -> ServiceResult | None:
+def _capability_check(method, *args) -> ServiceResult | None:
     if not callable(method):
         return None
     try:
-        capability = method(operation, *args)
+        capability = method(*args)
         if capability is not None and (
                 not isinstance(capability, ServiceResult)
                 or capability.status not in {'unavailable', 'error'}
@@ -206,6 +207,17 @@ class T3Assistant:
                     missing_slots=('transport_mode',), clarification_reason='missing_slot',
                     candidate_intents=prediction.acceptable_labels,
                 )
+            if extraction.missing_execution_slots:
+                refusal = _capability_check(getattr(self.service, 'preflight_fare_class', None), extraction.slots)
+                if refusal is not None:
+                    result = DispatchResult(intent, OPERATIONS[intent], refusal.status, dict(extraction.slots),
+                                            prediction.acceptable_labels, prediction.confidence,
+                                            message=refusal.message, data=refusal.data)
+                else:
+                    result = DispatchResult(intent, OPERATIONS[intent], 'clarification', dict(extraction.slots),
+                                            prediction.acceptable_labels, prediction.confidence,
+                                            missing_slots=extraction.missing_execution_slots, reason='missing_slot')
+                return self._reply(query, extraction.normalized_query, result)
             capability = _capability_check(getattr(self.service, 'preflight_mode', None),
                                            OPERATIONS[intent], extraction.slots.get('transport_mode'))
             if capability is not None:

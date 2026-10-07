@@ -11,6 +11,13 @@ from src.entity_extractor import DEFAULT_GAZETTEER
 
 DEFAULT_DB = Path(__file__).resolve().parents[2] / "data/canonical/transit/canonical_transport.db"
 EXTRA_ROMAN_ALIASES = {"gindi": "Guindy", "guindi": "Guindy", "gindy": "Guindy"}
+# Independently authored development/synthetic name translations, resolved
+# through current canonical names; duplicate physical IDs remain separate.
+EXACT_NAME_ALIASES = {
+    'Alwar Thirunagar': ('अलवर तिरुनगर',),
+    'Poonamallee Bus Terminus': ('पूनमल्ली बस टर्मिनस', 'पूनमल्ली bus terminus'),
+    'Marina Beach': ('मरीना बीच', 'मरीना beach', 'marina बीच'),
+}
 
 
 def _route_key(value: str) -> str:
@@ -107,6 +114,11 @@ class CanonicalResolver:
         for alias, current_name in EXTRA_ROMAN_ALIASES.items():
             for candidate in self.aliases.get(normalize_text(current_name), {}).values():
                 self._add(alias, candidate)
+        for current_name, aliases in EXACT_NAME_ALIASES.items():
+            candidates = tuple(self.aliases.get(normalize_text(current_name), {}).values())
+            for alias in aliases:
+                for candidate in candidates:
+                    self._add(alias, candidate)
 
     def find_spans(self, text: str) -> tuple[EntitySpan, ...]:
         """Find longest non-overlapping exact names in normalized input."""
