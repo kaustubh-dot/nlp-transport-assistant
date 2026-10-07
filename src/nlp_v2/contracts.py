@@ -143,8 +143,10 @@ def missing_slots(intent: str, slots: Mapping[str, Any]) -> tuple[str, ...]:
     missing = [name for name in required if not slots.get(name)]
     if intent in {"route_stop_sequence", "route_stop_membership"} and not (slots.get("route_number") or slots.get("line_name")):
         missing.append("route_number_or_line_name")
-    if intent == "scheduled_departure" and not (slots.get("station") or slots.get("stop")):
+    if intent in {"scheduled_departure", "first_and_last_service", "service_frequency"} and not (slots.get("station") or slots.get("stop") or slots.get("origin")):
         missing.append("station_or_stop")
+    if intent == "service_frequency" and not (slots.get("route_number") or slots.get("line_name")):
+        missing.append("route_number_or_line_name")
     if intent == "fare_calculation" and not slots.get("stage_number"):
         if not slots.get("origin"):
             missing.append("origin_or_stage_number")

@@ -214,3 +214,72 @@ def test_departure_text_preserves_route_time_associations():
     assert "70G at 02:47:00" in text
     assert "11G R at 04:35:00" in text
     assert "verify with operator" in text
+
+
+@pytest.mark.parametrize('intent,query,operation',[
+    ('ticketing_and_passes','Monthly bus pass renewal rules at Guindy?', 'GET_TICKETING_POLICY'),
+    ('station_facilities','Where are the metro cloak rooms?', 'GET_STATION_FACILITY'),
+    ('station_accessibility','Which metro stations have verified lifts?', 'GET_ACCESSIBILITY_INFO'),
+    ('interchange_transfer','Verified metro to suburban transfer at Guindy?', 'GET_INTERCHANGE_DETAILS'),
+    ('multimodal_route','Bus plus metro from Guindy to Chennai Beach?', 'PLAN_MULTIMODAL_ROUTE'),
+])
+def test_absent_capability_does_not_ask_for_non_actionable_entities(resolver,intent,query,operation):
+    from src.nlp_v2.assistant import T3Assistant
+    r=T3Assistant(classifier=FixedClassifier(intent),resolver=resolver).process_query(query)
+    assert r.status == 'unavailable'
+    assert r.operation == operation
+    assert not r.missing_slots and not r.candidate_entities
+    assert r.data.get('reason')
+
+
+def test_capability_preflight_preserves_explicit_multiple_goals(resolver):
+    from src.nlp_v2.assistant import T3Assistant
+    r=T3Assistant(classifier=FixedClassifier('ticketing_and_passes'),resolver=resolver).process_query(
+        'Monthly pass rules and the bus fare for stage 7 please')
+    assert r.status == 'clarification' and r.clarification_reason == 'multiple_goals'
+
+
+def test_capability_database_failure_returns_safe_error(tmp_path,resolver):
+    from src.nlp_v2.assistant import T3Assistant
+    from src.nlp_v2.domain import CanonicalTransitService
+    import sqlite3
+    p=tmp_path/'empty.db'; sqlite3.connect(p).close()
+    r=T3Assistant(classifier=FixedClassifier('station_accessibility'),resolver=resolver,
+                  service=CanonicalTransitService(p)).process_query('Lift at Guindy?')
+    assert r.status == 'error'
+    assert 'sqlite' not in r.response_text.lower() and str(p) not in r.response_text
+
+
+@pytest.mark.parametrize('override', ['handler', 'execute'])
+def test_extended_canonical_service_is_not_vetoed_by_base_preflight(resolver, override):
+    from src.nlp_v2.assistant import T3Assistant
+    from src.nlp_v2.domain import CanonicalTransitService
+    from src.nlp_v2.dispatch import ServiceResult
+
+    class ExtendedService(CanonicalTransitService):
+        pass
+
+    def supported(*args):
+        return ServiceResult('ok', {'policy': 'Synthetic test policy', 'source': 'test'}, 'Policy found.')
+    setattr(ExtendedService, '_ticketing' if override == 'handler' else 'execute', supported)
+    reply = T3Assistant(classifier=FixedClassifier('ticketing_and_passes'), resolver=resolver,
+                        service=ExtendedService()).process_query('Monthly bus pass rules?')
+    assert reply.status == 'ok'
+    assert reply.data['source'] == 'test'
+
+
+@pytest.mark.parametrize('message', [{'unexpected': 'dictionary'}, None, 42])
+def test_malformed_preflight_message_is_safe_error(resolver, message):
+    from src.nlp_v2.assistant import T3Assistant
+    from src.nlp_v2.dispatch import ServiceResult
+
+    class MalformedService:
+        def preflight(self, operation):
+            return ServiceResult('unavailable', {}, message)
+
+    reply = T3Assistant(classifier=FixedClassifier('ticketing_and_passes'), resolver=resolver,
+                        service=MalformedService()).process_query('Monthly bus pass rules?')
+    assert reply.status == 'error'
+    assert isinstance(reply.response_text, str)
+    assert reply.intent == 'ticketing_and_passes'
+    assert reply.operation == 'GET_TICKETING_POLICY'

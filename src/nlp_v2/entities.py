@@ -13,6 +13,10 @@ DEFAULT_DB = Path(__file__).resolve().parents[2] / "data/canonical/transit/canon
 EXTRA_ROMAN_ALIASES = {"gindi": "Guindy", "guindi": "Guindy", "gindy": "Guindy"}
 
 
+def _route_key(value: str) -> str:
+    return value.upper().replace(" ", "").replace("-", "")
+
+
 @dataclass(frozen=True)
 class EntityCandidate:
     entity_id: str
@@ -79,11 +83,15 @@ class CanonicalResolver:
                     self._add(name, places[place_id])
 
             route_ids: dict[str, set[str]] = {}
-            for route_id, short_name in conn.execute("SELECT route_id, route_short_name FROM transport_routes"):
+            for route_id, short_name in conn.execute("SELECT route_id, route_short_name FROM transport_routes WHERE status = 'operational'"):
                 if short_name:
-                    route_ids.setdefault(short_name.upper(), set()).add(route_id)
+                    route_ids.setdefault(_route_key(short_name), set()).add(route_id)
             stops_by_route: dict[str, set[str]] = {}
-            for route_id, stop_id in conn.execute("SELECT route_id, canonical_stop_id FROM route_stops"):
+            for route_id, stop_id in conn.execute("""
+                SELECT rs.route_id, rs.canonical_stop_id FROM route_stops rs
+                JOIN transport_routes r ON r.route_id = rs.route_id AND r.status = 'operational'
+                JOIN transport_stops s ON s.stop_id = rs.canonical_stop_id AND s.mode = r.mode
+            """):
                 stops_by_route.setdefault(route_id, set()).add(stop_id)
             self.route_stops = {code: set().union(*(stops_by_route.get(route_id, set()) for route_id in ids))
                                 for code, ids in route_ids.items()}
@@ -143,8 +151,8 @@ class CanonicalResolver:
             if hubs:
                 candidates = hubs
 
-        if role == "stop" and route_number:
-            on_route = self.route_stops.get(route_number.upper(), set())
+        if role in {"stop", "station"} and route_number:
+            on_route = self.route_stops.get(_route_key(route_number), set())
             on_route_candidates = [candidate for candidate in candidates if candidate.entity_id in on_route]
             if on_route_candidates:
                 candidates = on_route_candidates

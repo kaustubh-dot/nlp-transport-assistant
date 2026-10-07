@@ -75,6 +75,44 @@ class CanonicalTransitService:
         except sqlite3.Error:
             return ServiceResult("error", {}, "The canonical transit database could not complete the request.")
 
+    def preflight(self, operation: str) -> ServiceResult | None:
+        """Identify scopes that no additional execution input can make answerable."""
+        # A service extension owns its capabilities. Base snapshot assumptions
+        # must not veto an overridden dispatcher or operation handler.
+        handler_name = CanonicalTransitService.handlers.get(operation)
+        if (getattr(self.execute, '__func__', None) is not CanonicalTransitService.execute
+                or handler_name is None or self.handlers.get(operation) != handler_name
+                or getattr(getattr(self, handler_name), '__func__', None)
+                is not getattr(CanonicalTransitService, handler_name)):
+            return None
+        fixed = {
+            "GET_TICKETING_POLICY": ("ticket_policy_absent", "This snapshot contains no authoritative ticket or pass policy table."),
+            "GET_STATION_FACILITY": ("facility_verification_absent", "Facility availability is not verified in this snapshot."),
+            "PLAN_MULTIMODAL_ROUTE": ("confirmed_multimodal_graph_absent", "No confirmed cross-mode transfer graph is available in this snapshot."),
+        }
+        if operation in fixed:
+            reason, message = fixed[operation]
+            return _unavailable(message, {"reason": reason})
+        if operation not in {"GET_ACCESSIBILITY_INFO", "GET_INTERCHANGE_DETAILS"}:
+            return None
+        try:
+            with sqlite3.connect(self.db_path.as_uri() + "?mode=ro", uri=True, timeout=5) as conn:
+                if operation == "GET_INTERCHANGE_DETAILS":
+                    covered = conn.execute("SELECT 1 FROM interchanges WHERE confirmed = 1 LIMIT 1").fetchone()
+                    message = "The snapshot has no confirmed interchange records."
+                    reason = "confirmed_interchanges_absent"
+                else:
+                    covered = conn.execute("""SELECT 1 FROM accessibility WHERE
+                        wheelchair_available IS NOT NULL OR lift_available IS NOT NULL OR
+                        escalator_available IS NOT NULL OR ramp_available IS NOT NULL OR
+                        accessible_toilet IS NOT NULL OR tactile_paths IS NOT NULL LIMIT 1
+                    """).fetchone()
+                    message = "The snapshot contains no verified accessibility feature values."
+                    reason = "accessibility_values_absent"
+                return None if covered else _unavailable(message, {"reason": reason})
+        except sqlite3.Error:
+            return ServiceResult("error", {}, "The canonical transit database could not complete the request.")
+
     @staticmethod
     def _physical_stops(conn: sqlite3.Connection, entity_id: str | None) -> tuple[list[str], bool]:
         if not entity_id:

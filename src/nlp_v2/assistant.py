@@ -9,7 +9,7 @@ from typing import Any
 from src.normalization import normalize_text
 
 from .contracts import IntentPrediction, validate_prediction
-from .dispatch import DispatchResult, dispatch
+from .dispatch import DispatchResult, ServiceResult, OPERATIONS, dispatch
 from .domain import CanonicalTransitService
 from .entities import CanonicalResolver
 from .model import T3IntentClassifier
@@ -144,6 +144,23 @@ class T3Assistant:
             intent = prediction.primary_label
             if intent in {"out_of_scope", "realtime_status_query"}:
                 result = dispatch(prediction, {}, self.service)
+                return self._reply(query, normalized, result)
+
+            preflight = getattr(self.service, "preflight", None)
+            try:
+                capability = preflight(OPERATIONS[intent]) if callable(preflight) else None
+                if capability is not None and (
+                        not isinstance(capability, ServiceResult)
+                        or capability.status not in {"unavailable", "error"}
+                        or not isinstance(capability.data, dict)
+                        or not isinstance(capability.message, str)):
+                    raise ValueError("Invalid capability preflight state")
+            except Exception:
+                capability = ServiceResult("error", {}, "The transport service could not complete the request.")
+            if capability is not None:
+                result = DispatchResult(intent, OPERATIONS[intent], capability.status, {},
+                                        prediction.acceptable_labels, prediction.confidence,
+                                        message=capability.message, data=capability.data)
                 return self._reply(query, normalized, result)
 
             extraction = self.extractor.extract(query, intent)

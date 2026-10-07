@@ -17,8 +17,8 @@ CASES = [
     ("multimodal_route", "PLAN_MULTIMODAL_ROUTE", {"origin": "HUB_A", "destination": "HUB_B"}),
     ("route_stop_sequence", "LIST_ROUTE_STOPS", {"route_number": "29C"}),
     ("route_stop_membership", "CHECK_STOP_ON_ROUTE", {"route_number": "29C", "stop": "BUS_1"}),
-    ("first_and_last_service", "GET_FIRST_LAST_SERVICE", {}),
-    ("service_frequency", "GET_SERVICE_FREQUENCY", {}),
+    ("first_and_last_service", "GET_FIRST_LAST_SERVICE", {"station": "BUS_1"}),
+    ("service_frequency", "GET_SERVICE_FREQUENCY", {"station": "BUS_1", "route_number": "29C"}),
     ("scheduled_departure", "GET_SCHEDULED_DEPARTURES", {"station": "METRO_1"}),
     ("mode_availability", "CHECK_SERVICE_AVAILABILITY", {"origin": "HUB_A", "destination": "HUB_B"}),
     ("fare_calculation", "CALCULATE_FARE", {"origin": "METRO_1", "destination": "METRO_2"}),
@@ -263,3 +263,14 @@ def test_route_intents_accept_canonical_locality(intent):
                       {"origin": "HUB_A", "destination": "HUB_B", "locality": "PLACE_1"}, service)
     assert result.status == "ok"
     assert service.calls[0][1]["locality"] == "PLACE_1"
+
+
+@pytest.mark.parametrize('intent,slots,want',[
+    ('first_and_last_service',{'route_number':'25R'},('station_or_stop',)),
+    ('service_frequency',{'route_number':'25R'},('station_or_stop',)),
+    ('service_frequency',{'station':'BUS_A'},('route_number_or_line_name',)),
+    ('scheduled_departure',{'origin':'BUS_A'},()),
+])
+def test_schedule_requirements_match_the_information_consumed(intent,slots,want):
+    from src.nlp_v2.contracts import missing_slots
+    assert missing_slots(intent,slots) == want

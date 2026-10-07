@@ -15,7 +15,7 @@ def canonical_db(tmp_path):
             CREATE TABLE stop_names (stop_id TEXT, name TEXT);
             CREATE TABLE places (place_id TEXT, canonical_name TEXT);
             CREATE TABLE place_names (place_id TEXT, name TEXT);
-            CREATE TABLE transport_routes (route_id TEXT, route_short_name TEXT, mode TEXT);
+            CREATE TABLE transport_routes (route_id TEXT, route_short_name TEXT, mode TEXT, status TEXT);
             CREATE TABLE route_stops (route_id TEXT, canonical_stop_id TEXT);
             INSERT INTO transport_hubs VALUES ('HUB_GUINDY','Guindy'),('HUB_CENTRAL','Chennai Central'),('HUB_TAMBARAM','Tambaram');
             INSERT INTO transport_stops VALUES
@@ -27,7 +27,7 @@ def canonical_db(tmp_path):
                 ('RAIL_GUINDY','Guindy Railway Station');
             INSERT INTO places VALUES ('PLACE_MARINA','Marina Beach');
             INSERT INTO place_names VALUES ('PLACE_MARINA','Marina Beach');
-            INSERT INTO transport_routes VALUES ('ROUTE_29C','29C','bus');
+            INSERT INTO transport_routes VALUES ('ROUTE_29C','29C','bus','operational');
             INSERT INTO route_stops VALUES ('ROUTE_29C','BUS_GUINDY_1');
         """)
     return str(path)
@@ -429,3 +429,46 @@ def test_ambiguous_two_day_relative_marker_requires_clarification(canonical_db, 
     result = T3SlotExtractor(CanonicalResolver(canonical_db)).extract(f"Guindy metro {marker} schedule", "scheduled_departure")
     assert result.slots["temporal_relative"] == marker
     assert result.clarification_reason == "temporal_ambiguity"
+
+
+@pytest.mark.parametrize('intent,role',[
+    ('route_stop_membership','stop'),('service_frequency','station'),
+    ('first_and_last_service','station'),('scheduled_departure','station'),
+])
+def test_normalized_operational_route_context_disambiguates_exact_candidates(canonical_db,intent,role):
+    from src.nlp_v2.entities import CanonicalResolver
+    with sqlite3.connect(canonical_db) as c:
+        c.execute("UPDATE transport_routes SET route_short_name='29 C'")
+    r=CanonicalResolver(canonical_db)
+    span=r.find_spans('Guindy')[0]
+    result=r.resolve(span,role,intent,mode='bus',route_number='29C')
+    assert result.entity_id == 'BUS_GUINDY_1'
+    assert not result.ambiguous
+
+
+def test_route_context_never_guesses_between_two_real_candidates(canonical_db):
+    from src.nlp_v2.entities import CanonicalResolver
+    with sqlite3.connect(canonical_db) as c:
+        c.execute("INSERT INTO route_stops VALUES ('ROUTE_29C','BUS_GUINDY_2')")
+    r=CanonicalResolver(canonical_db)
+    result=r.resolve(r.find_spans('Guindy')[0],'station','service_frequency',mode='bus',route_number='29C')
+    assert result.entity_id is None and result.ambiguous
+
+
+def test_route_context_does_not_replace_an_explicit_off_route_station(canonical_db):
+    from src.nlp_v2.entities import CanonicalResolver
+    r=CanonicalResolver(canonical_db)
+    result=r.resolve(r.find_spans('Central Metro')[0],'station','scheduled_departure',mode='bus',route_number='29C')
+    assert result.entity_id == 'METRO_CENTRAL'
+
+
+@pytest.mark.parametrize('mutation',[
+    "UPDATE transport_routes SET status='under_construction'",
+    "UPDATE transport_routes SET mode='metro'",
+])
+def test_unusable_route_links_do_not_resolve_ambiguous_stops(canonical_db,mutation):
+    from src.nlp_v2.entities import CanonicalResolver
+    with sqlite3.connect(canonical_db) as c: c.execute(mutation)
+    r=CanonicalResolver(canonical_db)
+    result=r.resolve(r.find_spans('Guindy')[0],'stop','route_stop_membership',mode='bus',route_number='29C')
+    assert result.entity_id is None and result.ambiguous
