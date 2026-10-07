@@ -121,3 +121,14 @@ Each implementation phase receives tests, verification, independent review, fixe
 - **GPT-6.1 Sol xhigh review:** found that the documented standalone CUDA assertion did not prevent a subsequently pasted Bash training command from running on CPU. The GPU example now invokes training only after CUDA verification and cache preparation succeed. All runbook Bash blocks pass syntax checks; a simulated prerequisite failure skips training. Focused re-review confirmed the fix and closed with no unresolved high/medium findings. Documentation/source contracts, links, aggregate report counts and frozen boundaries were independently checked; held-out evaluation was not rerun.
 - **Remaining limitations:** a fresh clone requires the original ignored 950 MB checkpoint from the project/run owner or an authorized archive; no public artifact URL is available. The high clarification rate and limited successful responses reflect alias/KB/verified-service coverage limits. Live status, confirmed multimodal transfer planning, policy, facility and accessibility coverage remain unavailable as described in the runbook.
 - **Commit:** `84dc5e5`.
+
+## Phase 11 — current-state reconfirmation and coverage diagnosis
+
+- **Objective:** establish the actual baseline and identify structural coverage limits without targeting held-out examples.
+- **Baseline:** clean `main`; local HEAD, cached `origin/main`, and live remote main all `9c9f707199ad210878baa08ff536358da9386c03`. Checkpoint and DB SHA-256 verified; frozen research Git boundary unchanged from `c7576a9`.
+- **Files changed:** `docs/nlp_v2/coverage_diagnosis.md` and this record. Production code unchanged.
+- **Diagnosis:** inconsistent schedule execution requirements; exact-name ambiguity and limited route-context resolution; unnecessary entity questions for absent policy/source capability; underexposed positive static connectivity; exact tariff-category casing mismatch; genuine mode-inconsistent metro links, null accessibility, and unconfirmed transfers. Older specification claims exceed actual snapshot evidence.
+- **Verification:** baseline full suite 368 passed in 13.18 s; read-only schema/count/provenance audit and new synthetic slot probes. No historical evaluator run or item-level held-out inspection.
+- **GPT-6.1 Sol xhigh review:** two medium omissions (discarded multiple-mode/date/time constraints and place/stop execution-kind mismatch) and one low count precision issue fixed in the diagnosis after independent reproduction. Focused re-review passed: unresolved critical/high/medium/low = 0.
+- **Limitations:** this audit cannot quantify causes from aggregate historical metrics; development reachability and improvement require the new suite. No new training justified yet.
+- **Commit:** `docs(nlp_v2): diagnose operational coverage from canonical evidence` (hash recorded in the next phase).
