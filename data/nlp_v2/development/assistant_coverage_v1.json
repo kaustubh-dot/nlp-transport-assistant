@@ -1,0 +1,1859 @@
+[
+  {
+    "id": "dev-v1-001",
+    "query": "Help plan a bus journey from Island ground Terminus to Annasquare.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "point_to_point_route",
+    "operation": "PLAN_ROUTE",
+    "status": "ok",
+    "slots": {
+      "origin": "BUS_11159",
+      "destination": "BUS_11192",
+      "transport_mode": "bus"
+    },
+    "evidence": "routes"
+  },
+  {
+    "id": "dev-v1-002",
+    "query": "गिंडी से एयरपोर्ट मेट्रो द्वारा जाने का रास्ता समझाइए।",
+    "language": "HI_DEVA",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "point_to_point_route",
+    "operation": "PLAN_ROUTE",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-003",
+    "query": "Island ground Terminus se Annasquare tak bus se jaane ka raasta samjhaiye.",
+    "language": "HI_LATN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "point_to_point_route",
+    "operation": "PLAN_ROUTE",
+    "status": "ok",
+    "slots": {
+      "origin": "BUS_11159",
+      "destination": "BUS_11192",
+      "transport_mode": "bus"
+    },
+    "evidence": "routes"
+  },
+  {
+    "id": "dev-v1-004",
+    "query": "Please bus journey bataiye Island ground Terminus se Annasquare tak.",
+    "language": "HINGLISH_LATN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "point_to_point_route",
+    "operation": "PLAN_ROUTE",
+    "status": "ok",
+    "slots": {
+      "origin": "BUS_11159",
+      "destination": "BUS_11192",
+      "transport_mode": "bus"
+    },
+    "evidence": "routes"
+  },
+  {
+    "id": "dev-v1-005",
+    "query": "Island ground Terminus से Annasquare तक bus का रास्ता बताइए।",
+    "language": "MIXED_SCRIPT_CS",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "point_to_point_route",
+    "operation": "PLAN_ROUTE",
+    "status": "ok",
+    "slots": {
+      "origin": "BUS_11159",
+      "destination": "BUS_11192",
+      "transport_mode": "bus"
+    },
+    "evidence": "routes"
+  },
+  {
+    "id": "dev-v1-006",
+    "query": "Plan a combined bus plus metro journey from Guindy to Chennai Beach.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "multimodal_route",
+    "operation": "PLAN_MULTIMODAL_ROUTE",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-007",
+    "query": "गिंडी से चेन्नई बीच तक बस और मेट्रो मिलाकर यात्रा बताइए।",
+    "language": "HI_DEVA",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "multimodal_route",
+    "operation": "PLAN_MULTIMODAL_ROUTE",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-008",
+    "query": "Guindy se Chennai Beach tak bus aur metro dono milaakar kaise jaayen?",
+    "language": "HI_LATN",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "multimodal_route",
+    "operation": "PLAN_MULTIMODAL_ROUTE",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-009",
+    "query": "Combined journey chahiye Guindy se Chennai Beach tak bus plus metro.",
+    "language": "HINGLISH_LATN",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "multimodal_route",
+    "operation": "PLAN_MULTIMODAL_ROUTE",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-010",
+    "query": "Guindy से Chennai Beach तक bus और metro दोनों वाला सफर बताइए।",
+    "language": "MIXED_SCRIPT_CS",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "multimodal_route",
+    "operation": "PLAN_MULTIMODAL_ROUTE",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-011",
+    "query": "Give the complete ordered stop list for bus route 25R.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "route_stop_sequence",
+    "operation": "LIST_ROUTE_STOPS",
+    "status": "ok",
+    "slots": {
+      "route_number": "25R",
+      "transport_mode": "bus"
+    },
+    "evidence": "sequences"
+  },
+  {
+    "id": "dev-v1-012",
+    "query": "बस रूट २५आर के सारे पड़ाव क्रम से लिखिए।",
+    "language": "HI_DEVA",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "route_stop_sequence",
+    "operation": "LIST_ROUTE_STOPS",
+    "status": "ok",
+    "slots": {
+      "route_number": "25R",
+      "transport_mode": "bus"
+    },
+    "evidence": "sequences"
+  },
+  {
+    "id": "dev-v1-013",
+    "query": "Bus route 25R ke sabhi padaav kram se likhiye.",
+    "language": "HI_LATN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "route_stop_sequence",
+    "operation": "LIST_ROUTE_STOPS",
+    "status": "ok",
+    "slots": {
+      "route_number": "25R",
+      "transport_mode": "bus"
+    },
+    "evidence": "sequences"
+  },
+  {
+    "id": "dev-v1-014",
+    "query": "Bus route 25R ki complete ordered stops list chahiye.",
+    "language": "HINGLISH_LATN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "route_stop_sequence",
+    "operation": "LIST_ROUTE_STOPS",
+    "status": "ok",
+    "slots": {
+      "route_number": "25R",
+      "transport_mode": "bus"
+    },
+    "evidence": "sequences"
+  },
+  {
+    "id": "dev-v1-015",
+    "query": "Bus route 25R के सभी stops क्रम से दिखाइए।",
+    "language": "MIXED_SCRIPT_CS",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "route_stop_sequence",
+    "operation": "LIST_ROUTE_STOPS",
+    "status": "ok",
+    "slots": {
+      "route_number": "25R",
+      "transport_mode": "bus"
+    },
+    "evidence": "sequences"
+  },
+  {
+    "id": "dev-v1-016",
+    "query": "Check whether bus route 25R includes Alwar Thirunagar as a stop.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "route_stop_membership",
+    "operation": "CHECK_STOP_ON_ROUTE",
+    "status": "ok",
+    "slots": {
+      "route_number": "25R",
+      "stop": "BUS_10235",
+      "transport_mode": "bus"
+    },
+    "evidence": "membership",
+    "expected_data": {
+      "on_route": true
+    }
+  },
+  {
+    "id": "dev-v1-017",
+    "query": "क्या बस रूट २५आर अलवर तिरुनगर पर रुकती है?",
+    "language": "HI_DEVA",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "route_stop_membership",
+    "operation": "CHECK_STOP_ON_ROUTE",
+    "status": "ok",
+    "slots": {
+      "route_number": "25R",
+      "stop": "BUS_10235",
+      "transport_mode": "bus"
+    },
+    "evidence": "membership",
+    "expected_data": {
+      "on_route": true
+    }
+  },
+  {
+    "id": "dev-v1-018",
+    "query": "Kya bus route 25R Alwar Thirunagar par rukti hai?",
+    "language": "HI_LATN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "route_stop_membership",
+    "operation": "CHECK_STOP_ON_ROUTE",
+    "status": "ok",
+    "slots": {
+      "route_number": "25R",
+      "stop": "BUS_10235",
+      "transport_mode": "bus"
+    },
+    "evidence": "membership",
+    "expected_data": {
+      "on_route": true
+    }
+  },
+  {
+    "id": "dev-v1-019",
+    "query": "Bus route 25R Alwar Thirunagar pe stop karti hai kya?",
+    "language": "HINGLISH_LATN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "route_stop_membership",
+    "operation": "CHECK_STOP_ON_ROUTE",
+    "status": "ok",
+    "slots": {
+      "route_number": "25R",
+      "stop": "BUS_10235",
+      "transport_mode": "bus"
+    },
+    "evidence": "membership",
+    "expected_data": {
+      "on_route": true
+    }
+  },
+  {
+    "id": "dev-v1-020",
+    "query": "Bus route 25R क्या Alwar Thirunagar पर रुकती है?",
+    "language": "MIXED_SCRIPT_CS",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "route_stop_membership",
+    "operation": "CHECK_STOP_ON_ROUTE",
+    "status": "ok",
+    "slots": {
+      "route_number": "25R",
+      "stop": "BUS_10235",
+      "transport_mode": "bus"
+    },
+    "evidence": "membership",
+    "expected_data": {
+      "on_route": true
+    }
+  },
+  {
+    "id": "dev-v1-021",
+    "query": "Show first and last published bus departures at Poonamallee Bus Terminus.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "first_and_last_service",
+    "operation": "GET_FIRST_LAST_SERVICE",
+    "status": "ok",
+    "slots": {
+      "station": "BUS_5821",
+      "transport_mode": "bus"
+    },
+    "evidence": "bounds"
+  },
+  {
+    "id": "dev-v1-022",
+    "query": "पूनमल्ली बस टर्मिनस से पहली और आखिरी बस का प्रकाशित समय बताइए।",
+    "language": "HI_DEVA",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "first_and_last_service",
+    "operation": "GET_FIRST_LAST_SERVICE",
+    "status": "ok",
+    "slots": {
+      "station": "BUS_5821",
+      "transport_mode": "bus"
+    },
+    "evidence": "bounds"
+  },
+  {
+    "id": "dev-v1-023",
+    "query": "Poonamallee Bus Terminus se pehli aur aakhiri bus ka prakashit samay bataiye.",
+    "language": "HI_LATN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "first_and_last_service",
+    "operation": "GET_FIRST_LAST_SERVICE",
+    "status": "ok",
+    "slots": {
+      "station": "BUS_5821",
+      "transport_mode": "bus"
+    },
+    "evidence": "bounds"
+  },
+  {
+    "id": "dev-v1-024",
+    "query": "Poonamallee Bus Terminus ka first aur last published bus departure batao.",
+    "language": "HINGLISH_LATN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "first_and_last_service",
+    "operation": "GET_FIRST_LAST_SERVICE",
+    "status": "ok",
+    "slots": {
+      "station": "BUS_5821",
+      "transport_mode": "bus"
+    },
+    "evidence": "bounds"
+  },
+  {
+    "id": "dev-v1-025",
+    "query": "Poonamallee Bus Terminus से पहली और आखिरी bus departure बताइए।",
+    "language": "MIXED_SCRIPT_CS",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "first_and_last_service",
+    "operation": "GET_FIRST_LAST_SERVICE",
+    "status": "ok",
+    "slots": {
+      "station": "BUS_5821",
+      "transport_mode": "bus"
+    },
+    "evidence": "bounds"
+  },
+  {
+    "id": "dev-v1-026",
+    "query": "Estimate the published bus route 25R interval at Alwar Thirunagar.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "service_frequency",
+    "operation": "GET_SERVICE_FREQUENCY",
+    "status": "ok",
+    "slots": {
+      "station": "BUS_10235",
+      "route_number": "25R",
+      "transport_mode": "bus"
+    },
+    "evidence": "frequency"
+  },
+  {
+    "id": "dev-v1-027",
+    "query": "अलवर तिरुनगर पर बस रूट २५आर कितनी देर के अंतराल से आती है?",
+    "language": "HI_DEVA",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "service_frequency",
+    "operation": "GET_SERVICE_FREQUENCY",
+    "status": "ok",
+    "slots": {
+      "station": "BUS_10235",
+      "route_number": "25R",
+      "transport_mode": "bus"
+    },
+    "evidence": "frequency"
+  },
+  {
+    "id": "dev-v1-028",
+    "query": "Alwar Thirunagar par bus route 25R kitni der ke antaraal se aati hai?",
+    "language": "HI_LATN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "service_frequency",
+    "operation": "GET_SERVICE_FREQUENCY",
+    "status": "ok",
+    "slots": {
+      "station": "BUS_10235",
+      "route_number": "25R",
+      "transport_mode": "bus"
+    },
+    "evidence": "frequency"
+  },
+  {
+    "id": "dev-v1-029",
+    "query": "Alwar Thirunagar pe bus route 25R ka published headway kitna hai?",
+    "language": "HINGLISH_LATN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "service_frequency",
+    "operation": "GET_SERVICE_FREQUENCY",
+    "status": "ok",
+    "slots": {
+      "station": "BUS_10235",
+      "route_number": "25R",
+      "transport_mode": "bus"
+    },
+    "evidence": "frequency"
+  },
+  {
+    "id": "dev-v1-030",
+    "query": "Alwar Thirunagar पर bus route 25R की frequency बताइए।",
+    "language": "MIXED_SCRIPT_CS",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "service_frequency",
+    "operation": "GET_SERVICE_FREQUENCY",
+    "status": "ok",
+    "slots": {
+      "station": "BUS_10235",
+      "route_number": "25R",
+      "transport_mode": "bus"
+    },
+    "evidence": "frequency"
+  },
+  {
+    "id": "dev-v1-031",
+    "query": "Show published bus departures from Poonamallee Bus Terminus after 09:10 AM.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "scheduled_departure",
+    "operation": "GET_SCHEDULED_DEPARTURES",
+    "status": "ok",
+    "slots": {
+      "station": "BUS_5821",
+      "time": "09:10:00",
+      "transport_mode": "bus"
+    },
+    "evidence": "departures"
+  },
+  {
+    "id": "dev-v1-032",
+    "query": "पूनमल्ली बस टर्मिनस से सुबह ९:१० बजे के बाद बस का समय बताइए।",
+    "language": "HI_DEVA",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "scheduled_departure",
+    "operation": "GET_SCHEDULED_DEPARTURES",
+    "status": "ok",
+    "slots": {
+      "station": "BUS_5821",
+      "time": "09:10:00",
+      "transport_mode": "bus"
+    },
+    "evidence": "departures"
+  },
+  {
+    "id": "dev-v1-033",
+    "query": "Poonamallee Bus Terminus se subah 9:10 baje ke baad bus ka samay bataiye.",
+    "language": "HI_LATN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "scheduled_departure",
+    "operation": "GET_SCHEDULED_DEPARTURES",
+    "status": "ok",
+    "slots": {
+      "station": "BUS_5821",
+      "time": "09:10:00",
+      "transport_mode": "bus"
+    },
+    "evidence": "departures"
+  },
+  {
+    "id": "dev-v1-034",
+    "query": "Poonamallee Bus Terminus se 09:10 AM ke baad scheduled bus departures dikhao.",
+    "language": "HINGLISH_LATN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "scheduled_departure",
+    "operation": "GET_SCHEDULED_DEPARTURES",
+    "status": "ok",
+    "slots": {
+      "station": "BUS_5821",
+      "time": "09:10:00",
+      "transport_mode": "bus"
+    },
+    "evidence": "departures"
+  },
+  {
+    "id": "dev-v1-035",
+    "query": "Poonamallee Bus Terminus से 09:10 AM के बाद bus timetable दिखाइए।",
+    "language": "MIXED_SCRIPT_CS",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "scheduled_departure",
+    "operation": "GET_SCHEDULED_DEPARTURES",
+    "status": "ok",
+    "slots": {
+      "station": "BUS_5821",
+      "time": "09:10:00",
+      "transport_mode": "bus"
+    },
+    "evidence": "departures"
+  },
+  {
+    "id": "dev-v1-036",
+    "query": "Does the published network connect Island ground Terminus to Annasquare by bus?",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "mode_availability",
+    "operation": "CHECK_SERVICE_AVAILABILITY",
+    "status": "ok",
+    "slots": {
+      "origin": "BUS_11159",
+      "destination": "BUS_11192",
+      "transport_mode": "bus"
+    },
+    "evidence": "connectivity"
+  },
+  {
+    "id": "dev-v1-037",
+    "query": "क्या गिंडी से एयरपोर्ट तक मेट्रो चलती है?",
+    "language": "HI_DEVA",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "mode_availability",
+    "operation": "CHECK_SERVICE_AVAILABILITY",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-038",
+    "query": "Island ground Terminus se Annasquare tak bus ka prakashit sambandh hai kya?",
+    "language": "HI_LATN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "mode_availability",
+    "operation": "CHECK_SERVICE_AVAILABILITY",
+    "status": "ok",
+    "slots": {
+      "origin": "BUS_11159",
+      "destination": "BUS_11192",
+      "transport_mode": "bus"
+    },
+    "evidence": "connectivity"
+  },
+  {
+    "id": "dev-v1-039",
+    "query": "Island ground Terminus se Annasquare tak bus connectivity recorded hai kya?",
+    "language": "HINGLISH_LATN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "mode_availability",
+    "operation": "CHECK_SERVICE_AVAILABILITY",
+    "status": "ok",
+    "slots": {
+      "origin": "BUS_11159",
+      "destination": "BUS_11192",
+      "transport_mode": "bus"
+    },
+    "evidence": "connectivity"
+  },
+  {
+    "id": "dev-v1-040",
+    "query": "Island ground Terminus से Annasquare तक bus connection दर्ज है क्या?",
+    "language": "MIXED_SCRIPT_CS",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "mode_availability",
+    "operation": "CHECK_SERVICE_AVAILABILITY",
+    "status": "ok",
+    "slots": {
+      "origin": "BUS_11159",
+      "destination": "BUS_11192",
+      "transport_mode": "bus"
+    },
+    "evidence": "connectivity"
+  },
+  {
+    "id": "dev-v1-041",
+    "query": "Give the published deluxe bus tariff for stage 7.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "fare_calculation",
+    "operation": "CALCULATE_FARE",
+    "status": "ok",
+    "slots": {
+      "stage_number": 7,
+      "service_type": "Deluxe Services",
+      "transport_mode": "bus"
+    },
+    "evidence": "fare"
+  },
+  {
+    "id": "dev-v1-042",
+    "query": "डीलक्स बस में स्टेज ७ का किराया कितना है?",
+    "language": "HI_DEVA",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "fare_calculation",
+    "operation": "CALCULATE_FARE",
+    "status": "ok",
+    "slots": {
+      "stage_number": 7,
+      "service_type": "Deluxe Services",
+      "transport_mode": "bus"
+    },
+    "evidence": "fare"
+  },
+  {
+    "id": "dev-v1-043",
+    "query": "Deluxe bus mein stage 7 ka kiraya kitna hai?",
+    "language": "HI_LATN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "fare_calculation",
+    "operation": "CALCULATE_FARE",
+    "status": "ok",
+    "slots": {
+      "stage_number": 7,
+      "service_type": "Deluxe Services",
+      "transport_mode": "bus"
+    },
+    "evidence": "fare"
+  },
+  {
+    "id": "dev-v1-044",
+    "query": "Deluxe bus ke stage 7 ka published fare bataiye.",
+    "language": "HINGLISH_LATN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "fare_calculation",
+    "operation": "CALCULATE_FARE",
+    "status": "ok",
+    "slots": {
+      "stage_number": 7,
+      "service_type": "Deluxe Services",
+      "transport_mode": "bus"
+    },
+    "evidence": "fare"
+  },
+  {
+    "id": "dev-v1-045",
+    "query": "Deluxe bus के stage 7 का किराया बताइए।",
+    "language": "MIXED_SCRIPT_CS",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "fare_calculation",
+    "operation": "CALCULATE_FARE",
+    "status": "ok",
+    "slots": {
+      "stage_number": 7,
+      "service_type": "Deluxe Services",
+      "transport_mode": "bus"
+    },
+    "evidence": "fare"
+  },
+  {
+    "id": "dev-v1-046",
+    "query": "Explain monthly bus pass renewal rules at Guindy.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "ticketing_and_passes",
+    "operation": "GET_TICKETING_POLICY",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-047",
+    "query": "गिंडी में मासिक बस पास नवीनीकरण के नियम बताइए।",
+    "language": "HI_DEVA",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "ticketing_and_passes",
+    "operation": "GET_TICKETING_POLICY",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-048",
+    "query": "Guindy mein maasik bus pass navinikaran ke niyam bataiye.",
+    "language": "HI_LATN",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "ticketing_and_passes",
+    "operation": "GET_TICKETING_POLICY",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-049",
+    "query": "Guindy pe monthly bus pass renewal rules bataiye.",
+    "language": "HINGLISH_LATN",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "ticketing_and_passes",
+    "operation": "GET_TICKETING_POLICY",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-050",
+    "query": "Guindy में monthly bus pass के renewal नियम बताइए।",
+    "language": "MIXED_SCRIPT_CS",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "ticketing_and_passes",
+    "operation": "GET_TICKETING_POLICY",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-051",
+    "query": "Is parking recorded at Guindy metro station?",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "station_facilities",
+    "operation": "GET_STATION_FACILITY",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-052",
+    "query": "गिंडी मेट्रो स्टेशन में पार्किंग की जानकारी है क्या?",
+    "language": "HI_DEVA",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "station_facilities",
+    "operation": "GET_STATION_FACILITY",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-053",
+    "query": "Guindy metro station mein parking ki jaankaari hai kya?",
+    "language": "HI_LATN",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "station_facilities",
+    "operation": "GET_STATION_FACILITY",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-054",
+    "query": "Guindy metro pe parking facility recorded hai kya?",
+    "language": "HINGLISH_LATN",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "station_facilities",
+    "operation": "GET_STATION_FACILITY",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-055",
+    "query": "Guindy metro स्टेशन पर parking दर्ज है क्या?",
+    "language": "MIXED_SCRIPT_CS",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "station_facilities",
+    "operation": "GET_STATION_FACILITY",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-056",
+    "query": "Is a wheelchair ramp recorded for Guindy metro station?",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "station_accessibility",
+    "operation": "GET_ACCESSIBILITY_INFO",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-057",
+    "query": "गिंडी मेट्रो स्टेशन में व्हीलचेयर रैंप की जानकारी बताइए।",
+    "language": "HI_DEVA",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "station_accessibility",
+    "operation": "GET_ACCESSIBILITY_INFO",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-058",
+    "query": "Guindy metro station mein wheelchair ramp ki jaankaari bataiye.",
+    "language": "HI_LATN",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "station_accessibility",
+    "operation": "GET_ACCESSIBILITY_INFO",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-059",
+    "query": "Guindy metro pe wheelchair ramp ka record hai kya?",
+    "language": "HINGLISH_LATN",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "station_accessibility",
+    "operation": "GET_ACCESSIBILITY_INFO",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-060",
+    "query": "Guindy metro स्टेशन पर wheelchair ramp का record बताइए।",
+    "language": "MIXED_SCRIPT_CS",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "station_accessibility",
+    "operation": "GET_ACCESSIBILITY_INFO",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-061",
+    "query": "Explain a verified metro to suburban rail transfer at Guindy.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "interchange_transfer",
+    "operation": "GET_INTERCHANGE_DETAILS",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-062",
+    "query": "गिंडी पर मेट्रो से लोकल ट्रेन में बदलने का रास्ता बताइए।",
+    "language": "HI_DEVA",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "interchange_transfer",
+    "operation": "GET_INTERCHANGE_DETAILS",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-063",
+    "query": "Guindy par metro se local train mein badalne ka raasta bataiye.",
+    "language": "HI_LATN",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "interchange_transfer",
+    "operation": "GET_INTERCHANGE_DETAILS",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-064",
+    "query": "Guindy pe metro to local train transfer walkway batao.",
+    "language": "HINGLISH_LATN",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "interchange_transfer",
+    "operation": "GET_INTERCHANGE_DETAILS",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-065",
+    "query": "Guindy पर metro से local train का transfer रास्ता बताइए।",
+    "language": "MIXED_SCRIPT_CS",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "interchange_transfer",
+    "operation": "GET_INTERCHANGE_DETAILS",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-066",
+    "query": "Locate the closest metro station by straight-line distance from Marina Beach.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "nearest_transport",
+    "operation": "FIND_NEAREST_STATION",
+    "status": "ok",
+    "slots": {
+      "landmark": "OSM_POI_12137617372",
+      "transport_mode": "metro"
+    },
+    "evidence": "nearest"
+  },
+  {
+    "id": "dev-v1-067",
+    "query": "मरीना बीच के सबसे नजदीक कौन सा मेट्रो स्टेशन है?",
+    "language": "HI_DEVA",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "nearest_transport",
+    "operation": "FIND_NEAREST_STATION",
+    "status": "ok",
+    "slots": {
+      "landmark": "OSM_POI_12137617372",
+      "transport_mode": "metro"
+    },
+    "evidence": "nearest"
+  },
+  {
+    "id": "dev-v1-068",
+    "query": "Marina Beach ke sabse nazdik kaun sa metro station hai?",
+    "language": "HI_LATN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "nearest_transport",
+    "operation": "FIND_NEAREST_STATION",
+    "status": "ok",
+    "slots": {
+      "landmark": "OSM_POI_12137617372",
+      "transport_mode": "metro"
+    },
+    "evidence": "nearest"
+  },
+  {
+    "id": "dev-v1-069",
+    "query": "Marina Beach ke paas closest metro station find karo.",
+    "language": "HINGLISH_LATN",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "nearest_transport",
+    "operation": "FIND_NEAREST_STATION",
+    "status": "ok",
+    "slots": {
+      "landmark": "OSM_POI_12137617372",
+      "transport_mode": "metro"
+    },
+    "evidence": "nearest"
+  },
+  {
+    "id": "dev-v1-070",
+    "query": "Marina Beach के सबसे पास metro station कौन सा है?",
+    "language": "MIXED_SCRIPT_CS",
+    "noise": "clean",
+    "scenario": "answerable",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "nearest_transport",
+    "operation": "FIND_NEAREST_STATION",
+    "status": "ok",
+    "slots": {
+      "landmark": "OSM_POI_12137617372",
+      "transport_mode": "metro"
+    },
+    "evidence": "nearest"
+  },
+  {
+    "id": "dev-v1-071",
+    "query": "Where is bus route 25R on live GPS right now?",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "realtime_status_query",
+    "operation": "REJECT_UNSUPPORTED_REALTIME",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-072",
+    "query": "बस रूट २५आर अभी कहाँ है, लाइव स्थिति बताइए।",
+    "language": "HI_DEVA",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "realtime_status_query",
+    "operation": "REJECT_UNSUPPORTED_REALTIME",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-073",
+    "query": "Bus route 25R abhi kahaan hai, seedhi live jaankaari chahiye.",
+    "language": "HI_LATN",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "realtime_status_query",
+    "operation": "REJECT_UNSUPPORTED_REALTIME",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-074",
+    "query": "Bus route 25R ka live GPS location abhi batao.",
+    "language": "HINGLISH_LATN",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "realtime_status_query",
+    "operation": "REJECT_UNSUPPORTED_REALTIME",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-075",
+    "query": "Bus route 25R अभी कहाँ है, live GPS बताइए।",
+    "language": "MIXED_SCRIPT_CS",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "realtime_status_query",
+    "operation": "REJECT_UNSUPPORTED_REALTIME",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-076",
+    "query": "Suggest a chocolate dessert recipe for dinner.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "out_of_scope",
+    "operation": "REJECT_OUT_OF_SCOPE",
+    "status": "out_of_scope",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-077",
+    "query": "रात के खाने के लिए चॉकलेट मिठाई की विधि बताइए।",
+    "language": "HI_DEVA",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "out_of_scope",
+    "operation": "REJECT_OUT_OF_SCOPE",
+    "status": "out_of_scope",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-078",
+    "query": "Raat ke khaane ke liye chocolate mithaai ki vidhi bataiye.",
+    "language": "HI_LATN",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "out_of_scope",
+    "operation": "REJECT_OUT_OF_SCOPE",
+    "status": "out_of_scope",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-079",
+    "query": "Dinner ke liye chocolate dessert recipe suggest karo.",
+    "language": "HINGLISH_LATN",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "out_of_scope",
+    "operation": "REJECT_OUT_OF_SCOPE",
+    "status": "out_of_scope",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-080",
+    "query": "Dinner के लिए chocolate मिठाई की recipe बताइए।",
+    "language": "MIXED_SCRIPT_CS",
+    "noise": "clean",
+    "scenario": "absent_or_unverified_source",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "out_of_scope",
+    "operation": "REJECT_OUT_OF_SCOPE",
+    "status": "out_of_scope",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-081",
+    "query": "Please plan a bus journey to Annasquare.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "point_to_point_route",
+    "operation": "PLAN_ROUTE",
+    "status": "clarification",
+    "slots": {
+      "destination": "BUS_11192"
+    },
+    "evidence": null,
+    "clarification_reason": "missing_slot",
+    "missing_slots": [
+      "origin"
+    ]
+  },
+  {
+    "id": "dev-v1-082",
+    "query": "Plan a bus journey from Island ground Terminus.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "point_to_point_route",
+    "operation": "PLAN_ROUTE",
+    "status": "clarification",
+    "slots": {
+      "origin": "BUS_11159"
+    },
+    "evidence": null,
+    "clarification_reason": "missing_slot",
+    "missing_slots": [
+      "destination"
+    ]
+  },
+  {
+    "id": "dev-v1-083",
+    "query": "Give a bus route from Island ground Terminus to Annasquare at 10 PM on 2040-01-01.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "point_to_point_route",
+    "operation": "PLAN_ROUTE",
+    "status": "unavailable",
+    "slots": {
+      "time": "22:00:00",
+      "date": "2040-01-01"
+    },
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-084",
+    "query": "Give a bus route from shri maruthi multi speciality hospital to Poonamallee Bus Terminus.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "point_to_point_route",
+    "operation": "PLAN_ROUTE",
+    "status": "unavailable",
+    "slots": {
+      "origin": "OSM_POI_7820652140",
+      "destination": "BUS_5821"
+    },
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-085",
+    "query": "Plan travel from Island ground Terminus to Annasquare using metro plus bus together.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "multimodal_route",
+    "operation": "PLAN_MULTIMODAL_ROUTE",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-086",
+    "query": "Please provide a bus route stop sequence, without a route number yet.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "route_stop_sequence",
+    "operation": "LIST_ROUTE_STOPS",
+    "status": "clarification",
+    "slots": {},
+    "evidence": null,
+    "clarification_reason": "missing_slot",
+    "missing_slots": [
+      "route_number_or_line_name"
+    ]
+  },
+  {
+    "id": "dev-v1-087",
+    "query": "Please list bus route 9999ZZ stops in order.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "route_stop_sequence",
+    "operation": "LIST_ROUTE_STOPS",
+    "status": "unavailable",
+    "slots": {
+      "route_number": "9999ZZ"
+    },
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-088",
+    "query": "Show every stop in order on the metro Blue Line.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "route_stop_sequence",
+    "operation": "LIST_ROUTE_STOPS",
+    "status": "unavailable",
+    "slots": {
+      "line_name": "Blue Line",
+      "transport_mode": "metro"
+    },
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-089",
+    "query": "Check the stop membership of bus route 25R, but I have not named a stop.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "route_stop_membership",
+    "operation": "CHECK_STOP_ON_ROUTE",
+    "status": "clarification",
+    "slots": {
+      "route_number": "25R"
+    },
+    "evidence": null,
+    "clarification_reason": "missing_slot",
+    "missing_slots": [
+      "stop"
+    ]
+  },
+  {
+    "id": "dev-v1-090",
+    "query": "Does bus route 25R include Poonamallee Bus Terminus?",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "route_stop_membership",
+    "operation": "CHECK_STOP_ON_ROUTE",
+    "status": "ok",
+    "slots": {
+      "route_number": "25R",
+      "stop": "BUS_5821"
+    },
+    "evidence": "membership",
+    "expected_data": {
+      "on_route": false
+    }
+  },
+  {
+    "id": "dev-v1-091",
+    "query": "Please give the first departure of bus route 25R; station unspecified.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "first_and_last_service",
+    "operation": "GET_FIRST_LAST_SERVICE",
+    "status": "clarification",
+    "slots": {
+      "route_number": "25R"
+    },
+    "evidence": null,
+    "clarification_reason": "missing_slot",
+    "missing_slots": [
+      "station_or_stop"
+    ]
+  },
+  {
+    "id": "dev-v1-092",
+    "query": "Please estimate bus headway at Poonamallee Bus Terminus; route unspecified.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "service_frequency",
+    "operation": "GET_SERVICE_FREQUENCY",
+    "status": "clarification",
+    "slots": {
+      "station": "BUS_5821"
+    },
+    "evidence": null,
+    "clarification_reason": "missing_slot",
+    "missing_slots": [
+      "route_number_or_line_name"
+    ]
+  },
+  {
+    "id": "dev-v1-093",
+    "query": "Please give the frequency for bus route 25R; station unspecified.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "service_frequency",
+    "operation": "GET_SERVICE_FREQUENCY",
+    "status": "clarification",
+    "slots": {
+      "route_number": "25R"
+    },
+    "evidence": null,
+    "clarification_reason": "missing_slot",
+    "missing_slots": [
+      "station_or_stop"
+    ]
+  },
+  {
+    "id": "dev-v1-094",
+    "query": "Show departures from Poonamallee Bus Terminus at 9 baje.",
+    "language": "HINGLISH_LATN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "scheduled_departure",
+    "operation": "GET_SCHEDULED_DEPARTURES",
+    "status": "clarification",
+    "slots": {
+      "station": "BUS_5821",
+      "time": [
+        "09:00:00",
+        "21:00:00"
+      ]
+    },
+    "evidence": null,
+    "clarification_reason": "temporal_ambiguity"
+  },
+  {
+    "id": "dev-v1-095",
+    "query": "Poonamallee Bus Terminus se kal ka bus timetable dikhao.",
+    "language": "HINGLISH_LATN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "scheduled_departure",
+    "operation": "GET_SCHEDULED_DEPARTURES",
+    "status": "clarification",
+    "slots": {
+      "station": "BUS_5821",
+      "temporal_relative": "kal"
+    },
+    "evidence": null,
+    "clarification_reason": "temporal_ambiguity"
+  },
+  {
+    "id": "dev-v1-096",
+    "query": "Show bus departures from Poonamallee Bus Terminus on 2040-01-01.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "scheduled_departure",
+    "operation": "GET_SCHEDULED_DEPARTURES",
+    "status": "unavailable",
+    "slots": {
+      "station": "BUS_5821",
+      "date": "2040-01-01"
+    },
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-097",
+    "query": "Show bus departures from Poonamallee Bus Terminus at 25:30 AM.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "scheduled_departure",
+    "operation": "GET_SCHEDULED_DEPARTURES",
+    "status": "clarification",
+    "slots": {
+      "station": "BUS_5821"
+    },
+    "evidence": null,
+    "clarification_reason": "temporal_ambiguity"
+  },
+  {
+    "id": "dev-v1-098",
+    "query": "Give metro departures from Anna Nagar East.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "scheduled_departure",
+    "operation": "GET_SCHEDULED_DEPARTURES",
+    "status": "clarification",
+    "slots": {},
+    "evidence": null,
+    "clarification_reason": "entity_ambiguity",
+    "require_candidates": true
+  },
+  {
+    "id": "dev-v1-099",
+    "query": "Give the recorded night bus tariff for stage 7.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "fare_calculation",
+    "operation": "CALCULATE_FARE",
+    "status": "ok",
+    "slots": {
+      "stage_number": 7,
+      "service_type": "Night Services"
+    },
+    "evidence": "fare"
+  },
+  {
+    "id": "dev-v1-100",
+    "query": "Give the air conditioned bus stage 7 fare.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "fare_calculation",
+    "operation": "CALCULATE_FARE",
+    "status": "unavailable",
+    "slots": {
+      "stage_number": 7,
+      "service_type": "Air Conditioned Services"
+    },
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-101",
+    "query": "How much is a bus concession fare for stage 7?",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "fare_calculation",
+    "operation": "CALCULATE_FARE",
+    "status": "unavailable",
+    "slots": {
+      "stage_number": 7,
+      "fare_type": "concession"
+    },
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-102",
+    "query": "Give the deluxe bus tariff; I have not specified a stage or endpoints.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "fare_calculation",
+    "operation": "CALCULATE_FARE",
+    "status": "clarification",
+    "slots": {
+      "service_type": "Deluxe Services"
+    },
+    "evidence": null,
+    "clarification_reason": "missing_slot",
+    "missing_slots": [
+      "origin_or_stage_number",
+      "destination_or_stage_number"
+    ]
+  },
+  {
+    "id": "dev-v1-103",
+    "query": "Explain smart card policy at Anna Nagar East metro.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "ticketing_and_passes",
+    "operation": "GET_TICKETING_POLICY",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-104",
+    "query": "Where are the metro cloak rooms?",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "station_facilities",
+    "operation": "GET_STATION_FACILITY",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-105",
+    "query": "Which metro stations have verified lifts?",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "station_accessibility",
+    "operation": "GET_ACCESSIBILITY_INFO",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-106",
+    "query": "Explain verified train to bus walking connections, location unspecified.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "interchange_transfer",
+    "operation": "GET_INTERCHANGE_DETAILS",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-107",
+    "query": "Please locate the nearest metro station; location not supplied.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "nearest_transport",
+    "operation": "FIND_NEAREST_STATION",
+    "status": "clarification",
+    "slots": {},
+    "evidence": null,
+    "clarification_reason": "missing_slot",
+    "missing_slots": [
+      "landmark_or_locality"
+    ]
+  },
+  {
+    "id": "dev-v1-108",
+    "query": "Find nearby metro stops by straight-line distance from Poonamallee Bus Terminus.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "nearest_transport",
+    "operation": "FIND_NEAREST_STATION",
+    "status": "ok",
+    "slots": {
+      "landmark": "BUS_5821",
+      "transport_mode": "metro"
+    },
+    "evidence": "nearest"
+  },
+  {
+    "id": "dev-v1-109",
+    "query": "Please find the nearest metro for UnknownSyntheticLocality123.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "nearest_transport",
+    "operation": "FIND_NEAREST_STATION",
+    "status": "clarification",
+    "slots": {},
+    "evidence": null,
+    "clarification_reason": "missing_slot",
+    "missing_slots": [
+      "landmark_or_locality"
+    ]
+  },
+  {
+    "id": "dev-v1-110",
+    "query": "Is a bus connection recorded from Island ground Terminus to Annasquare on 2040-01-01?",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "mode_availability",
+    "operation": "CHECK_SERVICE_AVAILABILITY",
+    "status": "unavailable",
+    "slots": {
+      "date": "2040-01-01"
+    },
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-111",
+    "query": "Tell me the live crowd level on the nearest metro now.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "realtime_status_query",
+    "operation": "REJECT_UNSUPPORTED_REALTIME",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-112",
+    "query": "Please book a taxi from Guindy to the airport.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "contract_contrast",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "out_of_scope",
+    "operation": "REJECT_OUT_OF_SCOPE",
+    "status": "out_of_scope",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-113",
+    "query": "Give the bus fare for stage 7 and the last bus departure at Poonamallee Bus Terminus.",
+    "language": "EN",
+    "noise": "clean",
+    "scenario": "multiple_goals",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": null,
+    "operation": null,
+    "status": "clarification",
+    "slots": {},
+    "evidence": null,
+    "clarification_reason": "multiple_goals",
+    "candidate_intents": [
+      "fare_calculation",
+      "first_and_last_service"
+    ]
+  },
+  {
+    "id": "dev-v1-114",
+    "query": "8 baje train?",
+    "language": "HINGLISH_LATN",
+    "noise": "clean",
+    "scenario": "semantic_ambiguity",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": null,
+    "operation": null,
+    "status": "clarification",
+    "slots": {},
+    "evidence": null,
+    "clarification_reason": "intent_ambiguity",
+    "candidate_intents": [
+      "scheduled_departure",
+      "mode_availability",
+      "point_to_point_route"
+    ]
+  },
+  {
+    "id": "dev-v1-115",
+    "query": "Pls list all BUS route 25-R stops!!!",
+    "language": "EN",
+    "noise": "punctuation",
+    "scenario": "noise",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "route_stop_sequence",
+    "operation": "LIST_ROUTE_STOPS",
+    "status": "ok",
+    "slots": {
+      "route_number": "25R"
+    },
+    "evidence": "sequences"
+  },
+  {
+    "id": "dev-v1-116",
+    "query": "bus route 25 r ke sare stops pls",
+    "language": "HINGLISH_LATN",
+    "noise": "sms",
+    "scenario": "noise",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "route_stop_sequence",
+    "operation": "LIST_ROUTE_STOPS",
+    "status": "ok",
+    "slots": {
+      "route_number": "25R"
+    },
+    "evidence": "sequences"
+  },
+  {
+    "id": "dev-v1-117",
+    "query": "Deluxw bus stage 7 fare pls",
+    "language": "EN",
+    "noise": "adjacent_key_typo",
+    "scenario": "noise",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "fare_calculation",
+    "operation": "CALCULATE_FARE",
+    "status": "ok",
+    "slots": {
+      "stage_number": 7,
+      "service_type": "Deluxe Services"
+    },
+    "evidence": "fare"
+  },
+  {
+    "id": "dev-v1-118",
+    "query": "MNTHLY PASS renewal rules Guindy metro pls",
+    "language": "EN",
+    "noise": "vowel_omission",
+    "scenario": "noise",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "ticketing_and_passes",
+    "operation": "GET_TICKETING_POLICY",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-119",
+    "query": "GuIndY METRO me PARKING hai???",
+    "language": "HINGLISH_LATN",
+    "noise": "casing",
+    "scenario": "noise",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "station_facilities",
+    "operation": "GET_STATION_FACILITY",
+    "status": "unavailable",
+    "slots": {},
+    "evidence": null
+  },
+  {
+    "id": "dev-v1-120",
+    "query": "बस रूट २५R के सभी stops दिखाओ pls",
+    "language": "MIXED_SCRIPT_CS",
+    "noise": "mixed_digits",
+    "scenario": "noise",
+    "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+    "intent": "route_stop_sequence",
+    "operation": "LIST_ROUTE_STOPS",
+    "status": "ok",
+    "slots": {
+      "route_number": "25R"
+    },
+    "evidence": "sequences"
+  }
+]

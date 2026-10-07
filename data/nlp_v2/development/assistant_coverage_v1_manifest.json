@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "suite_sha256": "0de0ce7de1ca933b70321bf15c0d9bbc2d7db0dc694cd046064d28104988ea41",
+  "canonical_database_sha256": "583fd400bb3ee0d5af312e03ec78116de88ce162d6c33c2b87fd93df4da48791",
+  "reference_date": "2026-10-07",
+  "count": 120,
+  "authoring_sources": [
+    "frozen T3 class definitions (illustrative examples not copied)",
+    "production execution contracts",
+    "read-only canonical names, mode-consistent sequences, fares and calendars",
+    "independently authored multilingual transformations and safety contrasts"
+  ],
+  "provenance": "Manually authored 2026-10-07 from T3 contract and canonical snapshot; no stress/reference text or outcomes used.",
+  "limitations": [
+    "Observed development suite, not held-out performance evidence.",
+    "Exact normalized fingerprint separation does not prove semantic independence.",
+    "Case gold is contract behavior; no current operation, walking feasibility or unverified facility facts asserted.",
+    "HI_DEVA base cases use Devanagari prose/names; other cases retain protected canonical Latin names.",
+    "Gold-intent run is a downstream diagnostic, not model accuracy."
+  ],
+  "pre_freeze_review_corrections": [
+    "Expected yes/no membership gold independently checked against mode-consistent route25R; negative BUS_5821 contrast false.",
+    "Stop-anchor nearest gold preserves requested metro mode and evidence validates anchor.",
+    "Roman Hindi baje prompts and English-only noisy prompts retagged accurately.",
+    "Noisy Deluxw uses adjacent W for E; MNTHLY removes only vowel O."
+  ]
+}
