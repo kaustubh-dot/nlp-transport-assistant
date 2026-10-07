@@ -1,0 +1,41 @@
+{
+  "evaluation_context": "post-development descriptive regression evaluation",
+  "untouched_test_estimate": false,
+  "backend_freeze_commit": "8ee8917fef1f3664ec53d25e38dc5b9134aec270",
+  "reference_date": "2026-10-06",
+  "historical_baseline_commit": "b9b2271b1761d08752786f22b558862f45ed1dac",
+  "individual_failures_inspected": false,
+  "backend_tuning_after_evaluation": false,
+  "source_hashes": {
+    "app/api.py": "5c3dd67b933ab2991da777c8a772b2e7d86713dbb1083e8da830d80bbe923b31",
+    "app/frontend_contract.py": "7cc09a5e2a900f942c942a3cd3fefca2edc22222a4703fc51eeb6d3539630f0a",
+    "app/streamlit_app.py": "1ad37ceb87991fd8d00abd7f5de9eb83af4a1af94f148959b3f4fa1599fc89ba",
+    "data/canonical/transit/canonical_transport.db": "583fd400bb3ee0d5af312e03ec78116de88ce162d6c33c2b87fd93df4da48791",
+    "models/nlp_v2_t3_manifest.json": "447a120090c33ba1259cad06ce9f216d80832d2540727c3330f14be3ec04dc39",
+    "requirements-nlp-v2.txt": "319a5d74126ee40b3a43d500f9d6fae5083f846e29dc678ba0bcaec87060569f",
+    "requirements.txt": "12bcd1ef9ca4fe4eff7a2b68733d606d7510a12857c0088e9f297c76980603ba",
+    "scripts/nlp_v2/evaluate_assistant.py": "64ccef4acc374264ac32278d048cc1da55ff60405edbe52a7a3b04f0dbed5607",
+    "scripts/nlp_v2/evaluate_production_t3.py": "46bfec6ac2448d4dd8c206f17322aadcae73ccfcb722a17823cd4749973c33e8",
+    "src/entity_extractor.py": "35d81e65cc94366d02636c1dae1b223f8db04a4fae26e2b2bb47698078eb43ff",
+    "src/nlp_v2/__init__.py": "323d76b4bbd0261f37f693161b103222543acd5aa386cfc50efa7cbdee397c4d",
+    "src/nlp_v2/assistant.py": "0901fbcd588acb4e7c5d452e6dc29ad47c5ac3a37e389fa9a371bfc74b0d142b",
+    "src/nlp_v2/contracts.py": "06e226d21430c93acfe7a1dc91a6672ab48b08a5f0460a530823f6355b73282c",
+    "src/nlp_v2/dispatch.py": "046d740d8fbeb0769c81aaba781daf160c76a700e4b8e4a63e76ae0753f4caf4",
+    "src/nlp_v2/domain.py": "4a9de6879cc1d01adb990c084e89c9a7fcd005e6b3c9d5d2ab1e8fbc43d8fc0d",
+    "src/nlp_v2/entities.py": "a167950e0889542a32e6bb649f84a3adf24441fdb680b7eff4fb8d3d2c56425a",
+    "src/nlp_v2/model.py": "1ca0f3b60a6a65dfd21c766bcfd11f0daf0dcc5e0a89f75785b725e18f04b80a",
+    "src/nlp_v2/slots.py": "838e354198a282c1a83d12c7389ccdf8a7b711cbd7d77d20aaf51537348472c0",
+    "src/normalization.py": "fc36871d67fc04b9e516d5b3af9174f25224302d4a761cf8ed2e02c8bc5ae420"
+  },
+  "commands": [
+    "python -m scripts.nlp_v2.evaluate_production_t3 --output-dir reports/nlp_v2/post_development_regression/model",
+    "python -m scripts.nlp_v2.evaluate_assistant --freeze-commit 8ee8917 --reference-date 2026-10-06 --output-dir reports/nlp_v2/post_development_regression/assistant"
+  ],
+  "report_hashes": {
+    "assistant/assistant_evaluation.json": "7a524525825c7b5ef886e8802600582daaa75644d972bd9b96f6579170f7a642",
+    "assistant/assistant_evaluation.md": "0aac6ee5dfb6c3ebf6301ec076967795cdc78c4d2914592788c977e046003fd8",
+    "comparison.md": "28517f5ed722268dd563c58ff8d07a82e780522fd1370a88a0d5ebf70f2ef617",
+    "model/production_t3_evaluation.json": "5e5108cf119f28f02ba812d5760400ed9ed47073002d5a95a0fe45189b806cd3",
+    "model/production_t3_evaluation.md": "631a6fc6150aa86c5a89db3380a627f5e1a362e1d639e9b9dd8b759da3750287"
+  }
+}

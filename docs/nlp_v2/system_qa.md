@@ -1,6 +1,6 @@
 # Phase 20 whole-system QA and backend freeze
 
-Full verification: **602 tests passed in 16.35 seconds**, compilation passed,
+Full verification: **602 tests passed in 15.61 seconds**, compilation passed,
 `pip check` reported no broken requirements, and `git diff --check` passed.
 Tests run sequentially because prototype tests share a mutable fixture database.
 Production canonical SQLite connections remain read-only.
