@@ -1,0 +1,3701 @@
+{
+  "evaluation_type": "development_only_contracts",
+  "mode": "production_model",
+  "classifier_accuracy_measured": true,
+  "git_commit": "d5cc8ac354f63c0a6fc58746860e8a636fd7ce15",
+  "git_dirty": true,
+  "suite_version": 1,
+  "suite_sha256": "0de0ce7de1ca933b70321bf15c0d9bbc2d7db0dc694cd046064d28104988ea41",
+  "canonical_database_sha256": "583fd400bb3ee0d5af312e03ec78116de88ce162d6c33c2b87fd93df4da48791",
+  "reference_date": "2026-10-07",
+  "model_manifest_sha256": "447a120090c33ba1259cad06ce9f216d80832d2540727c3330f14be3ec04dc39",
+  "checkpoint_sha256": "abac66fc9fa29212c7565117ae326e34f02b64e76dbb177c61e9661517803196",
+  "source_hashes": {
+    "scripts/nlp_v2/evaluate_development_coverage.py": "ad2a9e422fe30143a87165d5a8293483533b363664b661eeb02522574e9ef1ff",
+    "src/entity_extractor.py": "35d81e65cc94366d02636c1dae1b223f8db04a4fae26e2b2bb47698078eb43ff",
+    "src/nlp_v2/__init__.py": "323d76b4bbd0261f37f693161b103222543acd5aa386cfc50efa7cbdee397c4d",
+    "src/nlp_v2/assistant.py": "3478be7cde8fb4cf1e25b754d6437ac85423469210b1040907c26697195d2ffa",
+    "src/nlp_v2/contracts.py": "06e226d21430c93acfe7a1dc91a6672ab48b08a5f0460a530823f6355b73282c",
+    "src/nlp_v2/dispatch.py": "046d740d8fbeb0769c81aaba781daf160c76a700e4b8e4a63e76ae0753f4caf4",
+    "src/nlp_v2/domain.py": "bf7ede38b3fd46196c54e1bf32e716448489e79e135460d257676fc56ca482ad",
+    "src/nlp_v2/entities.py": "c816f7ba77ccc675b288a43d7570b56ccbbfe77ce929829ca4fa3e9fd078f184",
+    "src/nlp_v2/model.py": "bdff479b4212307be4767fee0d9dad5c24036f1bd77da069e1eb4371195ffd21",
+    "src/nlp_v2/slots.py": "2e563ed770a76900e4d69cdbd855aa91622306f9af33b15fe209ab854fd7989d",
+    "src/normalization.py": "fc36871d67fc04b9e516d5b3af9174f25224302d4a761cf8ed2e02c8bc5ae420"
+  },
+  "normalized_heldout_overlap": 0,
+  "limitations": [
+    "Development contracts are an observed optimization suite, not generalization evidence.",
+    "Exact normalized overlap guard does not prove semantic independence.",
+    "Gold-intent diagnostics bypass classifier inference; their intent score is not model accuracy.",
+    "Evidence checks validate shape/source presence, not independent transport fact correctness."
+  ],
+  "scores": {
+    "count": 120,
+    "intent_contract": {
+      "success": 93,
+      "count": 120,
+      "rate": 0.775
+    },
+    "operation_selection": {
+      "success": 91,
+      "count": 120,
+      "rate": 0.7583333333333333
+    },
+    "slot_resolution": {
+      "success": 123,
+      "count": 151,
+      "rate": 0.8145695364238411
+    },
+    "slot_case_success": {
+      "success": 50,
+      "count": 68,
+      "rate": 0.7352941176470589
+    },
+    "terminal_behavior": {
+      "success": 86,
+      "count": 120,
+      "rate": 0.7166666666666667
+    },
+    "answerable_coverage": {
+      "success": 35,
+      "count": 50,
+      "rate": 0.7
+    },
+    "false_positive_clarification": {
+      "success": 8,
+      "count": 104,
+      "rate": 0.07692307692307693
+    },
+    "clarification_rate": 0.15,
+    "unavailable_rate": 0.45,
+    "ok_rate": 0.35833333333333334,
+    "status_counts": {
+      "clarification": 18,
+      "error": 0,
+      "ok": 43,
+      "out_of_scope": 5,
+      "unavailable": 54
+    },
+    "failure_counts": {
+      "clarification_policy_failure": 5,
+      "classifier_failure": 27,
+      "entity_resolution_failure": 5,
+      "evidence_contract_failure": 5,
+      "slot_extraction_failure": 2
+    },
+    "per_intent": {
+      "ambiguous": {
+        "count": 2,
+        "intent_contract": {
+          "success": 1,
+          "count": 2,
+          "rate": 0.5
+        },
+        "operation_selection": {
+          "success": 2,
+          "count": 2,
+          "rate": 1.0
+        },
+        "slot_resolution": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "slot_case_success": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "terminal_behavior": {
+          "success": 1,
+          "count": 2,
+          "rate": 0.5
+        },
+        "answerable_coverage": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "false_positive_clarification": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "clarification_rate": 1.0,
+        "unavailable_rate": 0.0,
+        "ok_rate": 0.0,
+        "status_counts": {
+          "clarification": 2,
+          "error": 0,
+          "ok": 0,
+          "out_of_scope": 0,
+          "unavailable": 0
+        },
+        "failure_counts": {
+          "classifier_failure": 1
+        }
+      },
+      "fare_calculation": {
+        "count": 10,
+        "intent_contract": {
+          "success": 10,
+          "count": 10,
+          "rate": 1.0
+        },
+        "operation_selection": {
+          "success": 10,
+          "count": 10,
+          "rate": 1.0
+        },
+        "slot_resolution": {
+          "success": 23,
+          "count": 24,
+          "rate": 0.9583333333333334
+        },
+        "slot_case_success": {
+          "success": 9,
+          "count": 10,
+          "rate": 0.9
+        },
+        "terminal_behavior": {
+          "success": 9,
+          "count": 10,
+          "rate": 0.9
+        },
+        "answerable_coverage": {
+          "success": 6,
+          "count": 7,
+          "rate": 0.8571428571428571
+        },
+        "false_positive_clarification": {
+          "success": 0,
+          "count": 9,
+          "rate": 0.0
+        },
+        "clarification_rate": 0.1,
+        "unavailable_rate": 0.2,
+        "ok_rate": 0.7,
+        "status_counts": {
+          "clarification": 1,
+          "error": 0,
+          "ok": 7,
+          "out_of_scope": 0,
+          "unavailable": 2
+        },
+        "failure_counts": {
+          "slot_extraction_failure": 1
+        }
+      },
+      "first_and_last_service": {
+        "count": 6,
+        "intent_contract": {
+          "success": 4,
+          "count": 6,
+          "rate": 0.6666666666666666
+        },
+        "operation_selection": {
+          "success": 4,
+          "count": 6,
+          "rate": 0.6666666666666666
+        },
+        "slot_resolution": {
+          "success": 9,
+          "count": 11,
+          "rate": 0.8181818181818182
+        },
+        "slot_case_success": {
+          "success": 4,
+          "count": 6,
+          "rate": 0.6666666666666666
+        },
+        "terminal_behavior": {
+          "success": 3,
+          "count": 6,
+          "rate": 0.5
+        },
+        "answerable_coverage": {
+          "success": 3,
+          "count": 5,
+          "rate": 0.6
+        },
+        "false_positive_clarification": {
+          "success": 2,
+          "count": 5,
+          "rate": 0.4
+        },
+        "clarification_rate": 0.3333333333333333,
+        "unavailable_rate": 0.0,
+        "ok_rate": 0.6666666666666666,
+        "status_counts": {
+          "clarification": 2,
+          "error": 0,
+          "ok": 4,
+          "out_of_scope": 0,
+          "unavailable": 0
+        },
+        "failure_counts": {
+          "clarification_policy_failure": 1,
+          "classifier_failure": 2,
+          "entity_resolution_failure": 1,
+          "evidence_contract_failure": 1
+        }
+      },
+      "interchange_transfer": {
+        "count": 6,
+        "intent_contract": {
+          "success": 1,
+          "count": 6,
+          "rate": 0.16666666666666666
+        },
+        "operation_selection": {
+          "success": 1,
+          "count": 6,
+          "rate": 0.16666666666666666
+        },
+        "slot_resolution": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "slot_case_success": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "terminal_behavior": {
+          "success": 1,
+          "count": 6,
+          "rate": 0.16666666666666666
+        },
+        "answerable_coverage": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "false_positive_clarification": {
+          "success": 0,
+          "count": 6,
+          "rate": 0.0
+        },
+        "clarification_rate": 0.0,
+        "unavailable_rate": 1.0,
+        "ok_rate": 0.0,
+        "status_counts": {
+          "clarification": 0,
+          "error": 0,
+          "ok": 0,
+          "out_of_scope": 0,
+          "unavailable": 6
+        },
+        "failure_counts": {
+          "classifier_failure": 5
+        }
+      },
+      "mode_availability": {
+        "count": 6,
+        "intent_contract": {
+          "success": 5,
+          "count": 6,
+          "rate": 0.8333333333333334
+        },
+        "operation_selection": {
+          "success": 5,
+          "count": 6,
+          "rate": 0.8333333333333334
+        },
+        "slot_resolution": {
+          "success": 13,
+          "count": 13,
+          "rate": 1.0
+        },
+        "slot_case_success": {
+          "success": 5,
+          "count": 5,
+          "rate": 1.0
+        },
+        "terminal_behavior": {
+          "success": 5,
+          "count": 6,
+          "rate": 0.8333333333333334
+        },
+        "answerable_coverage": {
+          "success": 4,
+          "count": 4,
+          "rate": 1.0
+        },
+        "false_positive_clarification": {
+          "success": 0,
+          "count": 6,
+          "rate": 0.0
+        },
+        "clarification_rate": 0.0,
+        "unavailable_rate": 0.3333333333333333,
+        "ok_rate": 0.6666666666666666,
+        "status_counts": {
+          "clarification": 0,
+          "error": 0,
+          "ok": 4,
+          "out_of_scope": 0,
+          "unavailable": 2
+        },
+        "failure_counts": {
+          "classifier_failure": 1
+        }
+      },
+      "multimodal_route": {
+        "count": 6,
+        "intent_contract": {
+          "success": 6,
+          "count": 6,
+          "rate": 1.0
+        },
+        "operation_selection": {
+          "success": 6,
+          "count": 6,
+          "rate": 1.0
+        },
+        "slot_resolution": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "slot_case_success": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "terminal_behavior": {
+          "success": 6,
+          "count": 6,
+          "rate": 1.0
+        },
+        "answerable_coverage": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "false_positive_clarification": {
+          "success": 0,
+          "count": 6,
+          "rate": 0.0
+        },
+        "clarification_rate": 0.0,
+        "unavailable_rate": 1.0,
+        "ok_rate": 0.0,
+        "status_counts": {
+          "clarification": 0,
+          "error": 0,
+          "ok": 0,
+          "out_of_scope": 0,
+          "unavailable": 6
+        },
+        "failure_counts": {}
+      },
+      "nearest_transport": {
+        "count": 8,
+        "intent_contract": {
+          "success": 7,
+          "count": 8,
+          "rate": 0.875
+        },
+        "operation_selection": {
+          "success": 7,
+          "count": 8,
+          "rate": 0.875
+        },
+        "slot_resolution": {
+          "success": 9,
+          "count": 12,
+          "rate": 0.75
+        },
+        "slot_case_success": {
+          "success": 4,
+          "count": 6,
+          "rate": 0.6666666666666666
+        },
+        "terminal_behavior": {
+          "success": 6,
+          "count": 8,
+          "rate": 0.75
+        },
+        "answerable_coverage": {
+          "success": 4,
+          "count": 6,
+          "rate": 0.6666666666666666
+        },
+        "false_positive_clarification": {
+          "success": 2,
+          "count": 6,
+          "rate": 0.3333333333333333
+        },
+        "clarification_rate": 0.5,
+        "unavailable_rate": 0.0,
+        "ok_rate": 0.5,
+        "status_counts": {
+          "clarification": 4,
+          "error": 0,
+          "ok": 4,
+          "out_of_scope": 0,
+          "unavailable": 0
+        },
+        "failure_counts": {
+          "clarification_policy_failure": 1,
+          "classifier_failure": 1,
+          "entity_resolution_failure": 1,
+          "evidence_contract_failure": 1
+        }
+      },
+      "out_of_scope": {
+        "count": 6,
+        "intent_contract": {
+          "success": 5,
+          "count": 6,
+          "rate": 0.8333333333333334
+        },
+        "operation_selection": {
+          "success": 5,
+          "count": 6,
+          "rate": 0.8333333333333334
+        },
+        "slot_resolution": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "slot_case_success": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "terminal_behavior": {
+          "success": 5,
+          "count": 6,
+          "rate": 0.8333333333333334
+        },
+        "answerable_coverage": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "false_positive_clarification": {
+          "success": 1,
+          "count": 6,
+          "rate": 0.16666666666666666
+        },
+        "clarification_rate": 0.16666666666666666,
+        "unavailable_rate": 0.0,
+        "ok_rate": 0.0,
+        "status_counts": {
+          "clarification": 1,
+          "error": 0,
+          "ok": 0,
+          "out_of_scope": 5,
+          "unavailable": 0
+        },
+        "failure_counts": {
+          "classifier_failure": 1
+        }
+      },
+      "point_to_point_route": {
+        "count": 9,
+        "intent_contract": {
+          "success": 2,
+          "count": 9,
+          "rate": 0.2222222222222222
+        },
+        "operation_selection": {
+          "success": 2,
+          "count": 9,
+          "rate": 0.2222222222222222
+        },
+        "slot_resolution": {
+          "success": 5,
+          "count": 18,
+          "rate": 0.2777777777777778
+        },
+        "slot_case_success": {
+          "success": 2,
+          "count": 8,
+          "rate": 0.25
+        },
+        "terminal_behavior": {
+          "success": 2,
+          "count": 9,
+          "rate": 0.2222222222222222
+        },
+        "answerable_coverage": {
+          "success": 1,
+          "count": 4,
+          "rate": 0.25
+        },
+        "false_positive_clarification": {
+          "success": 0,
+          "count": 7,
+          "rate": 0.0
+        },
+        "clarification_rate": 0.0,
+        "unavailable_rate": 0.8888888888888888,
+        "ok_rate": 0.1111111111111111,
+        "status_counts": {
+          "clarification": 0,
+          "error": 0,
+          "ok": 1,
+          "out_of_scope": 0,
+          "unavailable": 8
+        },
+        "failure_counts": {
+          "classifier_failure": 7
+        }
+      },
+      "realtime_status_query": {
+        "count": 6,
+        "intent_contract": {
+          "success": 6,
+          "count": 6,
+          "rate": 1.0
+        },
+        "operation_selection": {
+          "success": 6,
+          "count": 6,
+          "rate": 1.0
+        },
+        "slot_resolution": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "slot_case_success": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "terminal_behavior": {
+          "success": 6,
+          "count": 6,
+          "rate": 1.0
+        },
+        "answerable_coverage": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "false_positive_clarification": {
+          "success": 0,
+          "count": 6,
+          "rate": 0.0
+        },
+        "clarification_rate": 0.0,
+        "unavailable_rate": 1.0,
+        "ok_rate": 0.0,
+        "status_counts": {
+          "clarification": 0,
+          "error": 0,
+          "ok": 0,
+          "out_of_scope": 0,
+          "unavailable": 6
+        },
+        "failure_counts": {}
+      },
+      "route_stop_membership": {
+        "count": 7,
+        "intent_contract": {
+          "success": 6,
+          "count": 7,
+          "rate": 0.8571428571428571
+        },
+        "operation_selection": {
+          "success": 6,
+          "count": 7,
+          "rate": 0.8571428571428571
+        },
+        "slot_resolution": {
+          "success": 16,
+          "count": 18,
+          "rate": 0.8888888888888888
+        },
+        "slot_case_success": {
+          "success": 6,
+          "count": 7,
+          "rate": 0.8571428571428571
+        },
+        "terminal_behavior": {
+          "success": 5,
+          "count": 7,
+          "rate": 0.7142857142857143
+        },
+        "answerable_coverage": {
+          "success": 5,
+          "count": 6,
+          "rate": 0.8333333333333334
+        },
+        "false_positive_clarification": {
+          "success": 1,
+          "count": 6,
+          "rate": 0.16666666666666666
+        },
+        "clarification_rate": 0.14285714285714285,
+        "unavailable_rate": 0.0,
+        "ok_rate": 0.8571428571428571,
+        "status_counts": {
+          "clarification": 1,
+          "error": 0,
+          "ok": 6,
+          "out_of_scope": 0,
+          "unavailable": 0
+        },
+        "failure_counts": {
+          "clarification_policy_failure": 1,
+          "classifier_failure": 1,
+          "entity_resolution_failure": 1,
+          "evidence_contract_failure": 1
+        }
+      },
+      "route_stop_sequence": {
+        "count": 11,
+        "intent_contract": {
+          "success": 11,
+          "count": 11,
+          "rate": 1.0
+        },
+        "operation_selection": {
+          "success": 11,
+          "count": 11,
+          "rate": 1.0
+        },
+        "slot_resolution": {
+          "success": 15,
+          "count": 16,
+          "rate": 0.9375
+        },
+        "slot_case_success": {
+          "success": 9,
+          "count": 10,
+          "rate": 0.9
+        },
+        "terminal_behavior": {
+          "success": 10,
+          "count": 11,
+          "rate": 0.9090909090909091
+        },
+        "answerable_coverage": {
+          "success": 7,
+          "count": 8,
+          "rate": 0.875
+        },
+        "false_positive_clarification": {
+          "success": 0,
+          "count": 10,
+          "rate": 0.0
+        },
+        "clarification_rate": 0.09090909090909091,
+        "unavailable_rate": 0.18181818181818182,
+        "ok_rate": 0.7272727272727273,
+        "status_counts": {
+          "clarification": 1,
+          "error": 0,
+          "ok": 8,
+          "out_of_scope": 0,
+          "unavailable": 2
+        },
+        "failure_counts": {
+          "slot_extraction_failure": 1
+        }
+      },
+      "scheduled_departure": {
+        "count": 10,
+        "intent_contract": {
+          "success": 9,
+          "count": 10,
+          "rate": 0.9
+        },
+        "operation_selection": {
+          "success": 6,
+          "count": 10,
+          "rate": 0.6
+        },
+        "slot_resolution": {
+          "success": 21,
+          "count": 22,
+          "rate": 0.9545454545454546
+        },
+        "slot_case_success": {
+          "success": 8,
+          "count": 9,
+          "rate": 0.8888888888888888
+        },
+        "terminal_behavior": {
+          "success": 8,
+          "count": 10,
+          "rate": 0.8
+        },
+        "answerable_coverage": {
+          "success": 4,
+          "count": 5,
+          "rate": 0.8
+        },
+        "false_positive_clarification": {
+          "success": 1,
+          "count": 6,
+          "rate": 0.16666666666666666
+        },
+        "clarification_rate": 0.4,
+        "unavailable_rate": 0.2,
+        "ok_rate": 0.4,
+        "status_counts": {
+          "clarification": 4,
+          "error": 0,
+          "ok": 4,
+          "out_of_scope": 0,
+          "unavailable": 2
+        },
+        "failure_counts": {
+          "clarification_policy_failure": 1,
+          "classifier_failure": 1,
+          "entity_resolution_failure": 1,
+          "evidence_contract_failure": 1
+        }
+      },
+      "service_frequency": {
+        "count": 7,
+        "intent_contract": {
+          "success": 2,
+          "count": 7,
+          "rate": 0.2857142857142857
+        },
+        "operation_selection": {
+          "success": 2,
+          "count": 7,
+          "rate": 0.2857142857142857
+        },
+        "slot_resolution": {
+          "success": 12,
+          "count": 17,
+          "rate": 0.7058823529411765
+        },
+        "slot_case_success": {
+          "success": 3,
+          "count": 7,
+          "rate": 0.42857142857142855
+        },
+        "terminal_behavior": {
+          "success": 1,
+          "count": 7,
+          "rate": 0.14285714285714285
+        },
+        "answerable_coverage": {
+          "success": 1,
+          "count": 5,
+          "rate": 0.2
+        },
+        "false_positive_clarification": {
+          "success": 1,
+          "count": 5,
+          "rate": 0.2
+        },
+        "clarification_rate": 0.2857142857142857,
+        "unavailable_rate": 0.0,
+        "ok_rate": 0.7142857142857143,
+        "status_counts": {
+          "clarification": 2,
+          "error": 0,
+          "ok": 5,
+          "out_of_scope": 0,
+          "unavailable": 0
+        },
+        "failure_counts": {
+          "clarification_policy_failure": 1,
+          "classifier_failure": 5,
+          "entity_resolution_failure": 1,
+          "evidence_contract_failure": 1
+        }
+      },
+      "station_accessibility": {
+        "count": 6,
+        "intent_contract": {
+          "success": 6,
+          "count": 6,
+          "rate": 1.0
+        },
+        "operation_selection": {
+          "success": 6,
+          "count": 6,
+          "rate": 1.0
+        },
+        "slot_resolution": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "slot_case_success": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "terminal_behavior": {
+          "success": 6,
+          "count": 6,
+          "rate": 1.0
+        },
+        "answerable_coverage": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "false_positive_clarification": {
+          "success": 0,
+          "count": 6,
+          "rate": 0.0
+        },
+        "clarification_rate": 0.0,
+        "unavailable_rate": 1.0,
+        "ok_rate": 0.0,
+        "status_counts": {
+          "clarification": 0,
+          "error": 0,
+          "ok": 0,
+          "out_of_scope": 0,
+          "unavailable": 6
+        },
+        "failure_counts": {}
+      },
+      "station_facilities": {
+        "count": 7,
+        "intent_contract": {
+          "success": 5,
+          "count": 7,
+          "rate": 0.7142857142857143
+        },
+        "operation_selection": {
+          "success": 5,
+          "count": 7,
+          "rate": 0.7142857142857143
+        },
+        "slot_resolution": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "slot_case_success": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "terminal_behavior": {
+          "success": 5,
+          "count": 7,
+          "rate": 0.7142857142857143
+        },
+        "answerable_coverage": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "false_positive_clarification": {
+          "success": 0,
+          "count": 7,
+          "rate": 0.0
+        },
+        "clarification_rate": 0.0,
+        "unavailable_rate": 1.0,
+        "ok_rate": 0.0,
+        "status_counts": {
+          "clarification": 0,
+          "error": 0,
+          "ok": 0,
+          "out_of_scope": 0,
+          "unavailable": 7
+        },
+        "failure_counts": {
+          "classifier_failure": 2
+        }
+      },
+      "ticketing_and_passes": {
+        "count": 7,
+        "intent_contract": {
+          "success": 7,
+          "count": 7,
+          "rate": 1.0
+        },
+        "operation_selection": {
+          "success": 7,
+          "count": 7,
+          "rate": 1.0
+        },
+        "slot_resolution": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "slot_case_success": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "terminal_behavior": {
+          "success": 7,
+          "count": 7,
+          "rate": 1.0
+        },
+        "answerable_coverage": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "false_positive_clarification": {
+          "success": 0,
+          "count": 7,
+          "rate": 0.0
+        },
+        "clarification_rate": 0.0,
+        "unavailable_rate": 1.0,
+        "ok_rate": 0.0,
+        "status_counts": {
+          "clarification": 0,
+          "error": 0,
+          "ok": 0,
+          "out_of_scope": 0,
+          "unavailable": 7
+        },
+        "failure_counts": {}
+      }
+    },
+    "by_language": {
+      "EN": {
+        "count": 50,
+        "intent_contract": {
+          "success": 33,
+          "count": 50,
+          "rate": 0.66
+        },
+        "operation_selection": {
+          "success": 32,
+          "count": 50,
+          "rate": 0.64
+        },
+        "slot_resolution": {
+          "success": 43,
+          "count": 55,
+          "rate": 0.7818181818181819
+        },
+        "slot_case_success": {
+          "success": 22,
+          "count": 30,
+          "rate": 0.7333333333333333
+        },
+        "terminal_behavior": {
+          "success": 32,
+          "count": 50,
+          "rate": 0.64
+        },
+        "answerable_coverage": {
+          "success": 9,
+          "count": 14,
+          "rate": 0.6428571428571429
+        },
+        "false_positive_clarification": {
+          "success": 2,
+          "count": 37,
+          "rate": 0.05405405405405406
+        },
+        "clarification_rate": 0.18,
+        "unavailable_rate": 0.5,
+        "ok_rate": 0.28,
+        "status_counts": {
+          "clarification": 9,
+          "error": 0,
+          "ok": 14,
+          "out_of_scope": 2,
+          "unavailable": 25
+        },
+        "failure_counts": {
+          "classifier_failure": 17,
+          "slot_extraction_failure": 1
+        }
+      },
+      "HINGLISH_LATN": {
+        "count": 21,
+        "intent_contract": {
+          "success": 17,
+          "count": 21,
+          "rate": 0.8095238095238095
+        },
+        "operation_selection": {
+          "success": 16,
+          "count": 21,
+          "rate": 0.7619047619047619
+        },
+        "slot_resolution": {
+          "success": 25,
+          "count": 29,
+          "rate": 0.8620689655172413
+        },
+        "slot_case_success": {
+          "success": 10,
+          "count": 12,
+          "rate": 0.8333333333333334
+        },
+        "terminal_behavior": {
+          "success": 17,
+          "count": 21,
+          "rate": 0.8095238095238095
+        },
+        "answerable_coverage": {
+          "success": 8,
+          "count": 10,
+          "rate": 0.8
+        },
+        "false_positive_clarification": {
+          "success": 0,
+          "count": 18,
+          "rate": 0.0
+        },
+        "clarification_rate": 0.14285714285714285,
+        "unavailable_rate": 0.38095238095238093,
+        "ok_rate": 0.42857142857142855,
+        "status_counts": {
+          "clarification": 3,
+          "error": 0,
+          "ok": 9,
+          "out_of_scope": 1,
+          "unavailable": 8
+        },
+        "failure_counts": {
+          "classifier_failure": 4
+        }
+      },
+      "HI_DEVA": {
+        "count": 16,
+        "intent_contract": {
+          "success": 15,
+          "count": 16,
+          "rate": 0.9375
+        },
+        "operation_selection": {
+          "success": 15,
+          "count": 16,
+          "rate": 0.9375
+        },
+        "slot_resolution": {
+          "success": 10,
+          "count": 18,
+          "rate": 0.5555555555555556
+        },
+        "slot_case_success": {
+          "success": 1,
+          "count": 7,
+          "rate": 0.14285714285714285
+        },
+        "terminal_behavior": {
+          "success": 9,
+          "count": 16,
+          "rate": 0.5625
+        },
+        "answerable_coverage": {
+          "success": 1,
+          "count": 7,
+          "rate": 0.14285714285714285
+        },
+        "false_positive_clarification": {
+          "success": 5,
+          "count": 16,
+          "rate": 0.3125
+        },
+        "clarification_rate": 0.3125,
+        "unavailable_rate": 0.5,
+        "ok_rate": 0.125,
+        "status_counts": {
+          "clarification": 5,
+          "error": 0,
+          "ok": 2,
+          "out_of_scope": 1,
+          "unavailable": 8
+        },
+        "failure_counts": {
+          "clarification_policy_failure": 5,
+          "classifier_failure": 1,
+          "entity_resolution_failure": 5,
+          "evidence_contract_failure": 5,
+          "slot_extraction_failure": 1
+        }
+      },
+      "HI_LATN": {
+        "count": 16,
+        "intent_contract": {
+          "success": 14,
+          "count": 16,
+          "rate": 0.875
+        },
+        "operation_selection": {
+          "success": 14,
+          "count": 16,
+          "rate": 0.875
+        },
+        "slot_resolution": {
+          "success": 24,
+          "count": 24,
+          "rate": 1.0
+        },
+        "slot_case_success": {
+          "success": 9,
+          "count": 9,
+          "rate": 1.0
+        },
+        "terminal_behavior": {
+          "success": 14,
+          "count": 16,
+          "rate": 0.875
+        },
+        "answerable_coverage": {
+          "success": 9,
+          "count": 9,
+          "rate": 1.0
+        },
+        "false_positive_clarification": {
+          "success": 1,
+          "count": 16,
+          "rate": 0.0625
+        },
+        "clarification_rate": 0.0625,
+        "unavailable_rate": 0.375,
+        "ok_rate": 0.5625,
+        "status_counts": {
+          "clarification": 1,
+          "error": 0,
+          "ok": 9,
+          "out_of_scope": 0,
+          "unavailable": 6
+        },
+        "failure_counts": {
+          "classifier_failure": 2
+        }
+      },
+      "MIXED_SCRIPT_CS": {
+        "count": 17,
+        "intent_contract": {
+          "success": 14,
+          "count": 17,
+          "rate": 0.8235294117647058
+        },
+        "operation_selection": {
+          "success": 14,
+          "count": 17,
+          "rate": 0.8235294117647058
+        },
+        "slot_resolution": {
+          "success": 21,
+          "count": 25,
+          "rate": 0.84
+        },
+        "slot_case_success": {
+          "success": 8,
+          "count": 10,
+          "rate": 0.8
+        },
+        "terminal_behavior": {
+          "success": 14,
+          "count": 17,
+          "rate": 0.8235294117647058
+        },
+        "answerable_coverage": {
+          "success": 8,
+          "count": 10,
+          "rate": 0.8
+        },
+        "false_positive_clarification": {
+          "success": 0,
+          "count": 17,
+          "rate": 0.0
+        },
+        "clarification_rate": 0.0,
+        "unavailable_rate": 0.4117647058823529,
+        "ok_rate": 0.5294117647058824,
+        "status_counts": {
+          "clarification": 0,
+          "error": 0,
+          "ok": 9,
+          "out_of_scope": 1,
+          "unavailable": 7
+        },
+        "failure_counts": {
+          "classifier_failure": 3
+        }
+      }
+    },
+    "by_noise": {
+      "adjacent_key_typo": {
+        "count": 1,
+        "intent_contract": {
+          "success": 1,
+          "count": 1,
+          "rate": 1.0
+        },
+        "operation_selection": {
+          "success": 1,
+          "count": 1,
+          "rate": 1.0
+        },
+        "slot_resolution": {
+          "success": 1,
+          "count": 2,
+          "rate": 0.5
+        },
+        "slot_case_success": {
+          "success": 0,
+          "count": 1,
+          "rate": 0.0
+        },
+        "terminal_behavior": {
+          "success": 0,
+          "count": 1,
+          "rate": 0.0
+        },
+        "answerable_coverage": {
+          "success": 0,
+          "count": 1,
+          "rate": 0.0
+        },
+        "false_positive_clarification": {
+          "success": 0,
+          "count": 1,
+          "rate": 0.0
+        },
+        "clarification_rate": 0.0,
+        "unavailable_rate": 0.0,
+        "ok_rate": 1.0,
+        "status_counts": {
+          "clarification": 0,
+          "error": 0,
+          "ok": 1,
+          "out_of_scope": 0,
+          "unavailable": 0
+        },
+        "failure_counts": {
+          "slot_extraction_failure": 1
+        }
+      },
+      "casing": {
+        "count": 1,
+        "intent_contract": {
+          "success": 0,
+          "count": 1,
+          "rate": 0.0
+        },
+        "operation_selection": {
+          "success": 0,
+          "count": 1,
+          "rate": 0.0
+        },
+        "slot_resolution": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "slot_case_success": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "terminal_behavior": {
+          "success": 0,
+          "count": 1,
+          "rate": 0.0
+        },
+        "answerable_coverage": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "false_positive_clarification": {
+          "success": 0,
+          "count": 1,
+          "rate": 0.0
+        },
+        "clarification_rate": 0.0,
+        "unavailable_rate": 1.0,
+        "ok_rate": 0.0,
+        "status_counts": {
+          "clarification": 0,
+          "error": 0,
+          "ok": 0,
+          "out_of_scope": 0,
+          "unavailable": 1
+        },
+        "failure_counts": {
+          "classifier_failure": 1
+        }
+      },
+      "clean": {
+        "count": 114,
+        "intent_contract": {
+          "success": 88,
+          "count": 114,
+          "rate": 0.7719298245614035
+        },
+        "operation_selection": {
+          "success": 86,
+          "count": 114,
+          "rate": 0.7543859649122807
+        },
+        "slot_resolution": {
+          "success": 119,
+          "count": 146,
+          "rate": 0.815068493150685
+        },
+        "slot_case_success": {
+          "success": 47,
+          "count": 64,
+          "rate": 0.734375
+        },
+        "terminal_behavior": {
+          "success": 82,
+          "count": 114,
+          "rate": 0.7192982456140351
+        },
+        "answerable_coverage": {
+          "success": 32,
+          "count": 46,
+          "rate": 0.6956521739130435
+        },
+        "false_positive_clarification": {
+          "success": 8,
+          "count": 98,
+          "rate": 0.08163265306122448
+        },
+        "clarification_rate": 0.15789473684210525,
+        "unavailable_rate": 0.45614035087719296,
+        "ok_rate": 0.34210526315789475,
+        "status_counts": {
+          "clarification": 18,
+          "error": 0,
+          "ok": 39,
+          "out_of_scope": 5,
+          "unavailable": 52
+        },
+        "failure_counts": {
+          "clarification_policy_failure": 5,
+          "classifier_failure": 26,
+          "entity_resolution_failure": 5,
+          "evidence_contract_failure": 5,
+          "slot_extraction_failure": 1
+        }
+      },
+      "mixed_digits": {
+        "count": 1,
+        "intent_contract": {
+          "success": 1,
+          "count": 1,
+          "rate": 1.0
+        },
+        "operation_selection": {
+          "success": 1,
+          "count": 1,
+          "rate": 1.0
+        },
+        "slot_resolution": {
+          "success": 1,
+          "count": 1,
+          "rate": 1.0
+        },
+        "slot_case_success": {
+          "success": 1,
+          "count": 1,
+          "rate": 1.0
+        },
+        "terminal_behavior": {
+          "success": 1,
+          "count": 1,
+          "rate": 1.0
+        },
+        "answerable_coverage": {
+          "success": 1,
+          "count": 1,
+          "rate": 1.0
+        },
+        "false_positive_clarification": {
+          "success": 0,
+          "count": 1,
+          "rate": 0.0
+        },
+        "clarification_rate": 0.0,
+        "unavailable_rate": 0.0,
+        "ok_rate": 1.0,
+        "status_counts": {
+          "clarification": 0,
+          "error": 0,
+          "ok": 1,
+          "out_of_scope": 0,
+          "unavailable": 0
+        },
+        "failure_counts": {}
+      },
+      "punctuation": {
+        "count": 1,
+        "intent_contract": {
+          "success": 1,
+          "count": 1,
+          "rate": 1.0
+        },
+        "operation_selection": {
+          "success": 1,
+          "count": 1,
+          "rate": 1.0
+        },
+        "slot_resolution": {
+          "success": 1,
+          "count": 1,
+          "rate": 1.0
+        },
+        "slot_case_success": {
+          "success": 1,
+          "count": 1,
+          "rate": 1.0
+        },
+        "terminal_behavior": {
+          "success": 1,
+          "count": 1,
+          "rate": 1.0
+        },
+        "answerable_coverage": {
+          "success": 1,
+          "count": 1,
+          "rate": 1.0
+        },
+        "false_positive_clarification": {
+          "success": 0,
+          "count": 1,
+          "rate": 0.0
+        },
+        "clarification_rate": 0.0,
+        "unavailable_rate": 0.0,
+        "ok_rate": 1.0,
+        "status_counts": {
+          "clarification": 0,
+          "error": 0,
+          "ok": 1,
+          "out_of_scope": 0,
+          "unavailable": 0
+        },
+        "failure_counts": {}
+      },
+      "sms": {
+        "count": 1,
+        "intent_contract": {
+          "success": 1,
+          "count": 1,
+          "rate": 1.0
+        },
+        "operation_selection": {
+          "success": 1,
+          "count": 1,
+          "rate": 1.0
+        },
+        "slot_resolution": {
+          "success": 1,
+          "count": 1,
+          "rate": 1.0
+        },
+        "slot_case_success": {
+          "success": 1,
+          "count": 1,
+          "rate": 1.0
+        },
+        "terminal_behavior": {
+          "success": 1,
+          "count": 1,
+          "rate": 1.0
+        },
+        "answerable_coverage": {
+          "success": 1,
+          "count": 1,
+          "rate": 1.0
+        },
+        "false_positive_clarification": {
+          "success": 0,
+          "count": 1,
+          "rate": 0.0
+        },
+        "clarification_rate": 0.0,
+        "unavailable_rate": 0.0,
+        "ok_rate": 1.0,
+        "status_counts": {
+          "clarification": 0,
+          "error": 0,
+          "ok": 1,
+          "out_of_scope": 0,
+          "unavailable": 0
+        },
+        "failure_counts": {}
+      },
+      "vowel_omission": {
+        "count": 1,
+        "intent_contract": {
+          "success": 1,
+          "count": 1,
+          "rate": 1.0
+        },
+        "operation_selection": {
+          "success": 1,
+          "count": 1,
+          "rate": 1.0
+        },
+        "slot_resolution": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "slot_case_success": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "terminal_behavior": {
+          "success": 1,
+          "count": 1,
+          "rate": 1.0
+        },
+        "answerable_coverage": {
+          "success": 0,
+          "count": 0,
+          "rate": null
+        },
+        "false_positive_clarification": {
+          "success": 0,
+          "count": 1,
+          "rate": 0.0
+        },
+        "clarification_rate": 0.0,
+        "unavailable_rate": 1.0,
+        "ok_rate": 0.0,
+        "status_counts": {
+          "clarification": 0,
+          "error": 0,
+          "ok": 0,
+          "out_of_scope": 0,
+          "unavailable": 1
+        },
+        "failure_counts": {}
+      }
+    },
+    "cases": [
+      {
+        "id": "dev-v1-001",
+        "gold_intent": "point_to_point_route",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "unavailable",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": false,
+        "slot_checks": 3,
+        "correct_slots": 0,
+        "evidence_success": false,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-002",
+        "gold_intent": "point_to_point_route",
+        "language": "HI_DEVA",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-003",
+        "gold_intent": "point_to_point_route",
+        "language": "HI_LATN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 3,
+        "correct_slots": 3,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-004",
+        "gold_intent": "point_to_point_route",
+        "language": "HINGLISH_LATN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "unavailable",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": false,
+        "slot_checks": 3,
+        "correct_slots": 0,
+        "evidence_success": false,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-005",
+        "gold_intent": "point_to_point_route",
+        "language": "MIXED_SCRIPT_CS",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "unavailable",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": false,
+        "slot_checks": 3,
+        "correct_slots": 0,
+        "evidence_success": false,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-006",
+        "gold_intent": "multimodal_route",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-007",
+        "gold_intent": "multimodal_route",
+        "language": "HI_DEVA",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-008",
+        "gold_intent": "multimodal_route",
+        "language": "HI_LATN",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-009",
+        "gold_intent": "multimodal_route",
+        "language": "HINGLISH_LATN",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-010",
+        "gold_intent": "multimodal_route",
+        "language": "MIXED_SCRIPT_CS",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-011",
+        "gold_intent": "route_stop_sequence",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 2,
+        "correct_slots": 2,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-012",
+        "gold_intent": "route_stop_sequence",
+        "language": "HI_DEVA",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": false,
+        "slot_checks": 2,
+        "correct_slots": 1,
+        "evidence_success": true,
+        "terminal_success": false,
+        "failures": [
+          "slot_extraction_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-013",
+        "gold_intent": "route_stop_sequence",
+        "language": "HI_LATN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 2,
+        "correct_slots": 2,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-014",
+        "gold_intent": "route_stop_sequence",
+        "language": "HINGLISH_LATN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 2,
+        "correct_slots": 2,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-015",
+        "gold_intent": "route_stop_sequence",
+        "language": "MIXED_SCRIPT_CS",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 2,
+        "correct_slots": 2,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-016",
+        "gold_intent": "route_stop_membership",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 3,
+        "correct_slots": 3,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-017",
+        "gold_intent": "route_stop_membership",
+        "language": "HI_DEVA",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "clarification",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": false,
+        "slot_checks": 3,
+        "correct_slots": 1,
+        "evidence_success": false,
+        "terminal_success": false,
+        "failures": [
+          "entity_resolution_failure",
+          "clarification_policy_failure",
+          "evidence_contract_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-018",
+        "gold_intent": "route_stop_membership",
+        "language": "HI_LATN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 3,
+        "correct_slots": 3,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-019",
+        "gold_intent": "route_stop_membership",
+        "language": "HINGLISH_LATN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 3,
+        "correct_slots": 3,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-020",
+        "gold_intent": "route_stop_membership",
+        "language": "MIXED_SCRIPT_CS",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 3,
+        "correct_slots": 3,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-021",
+        "gold_intent": "first_and_last_service",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "clarification",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": false,
+        "slot_checks": 2,
+        "correct_slots": 1,
+        "evidence_success": false,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-022",
+        "gold_intent": "first_and_last_service",
+        "language": "HI_DEVA",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "clarification",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": false,
+        "slot_checks": 2,
+        "correct_slots": 1,
+        "evidence_success": false,
+        "terminal_success": false,
+        "failures": [
+          "entity_resolution_failure",
+          "clarification_policy_failure",
+          "evidence_contract_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-023",
+        "gold_intent": "first_and_last_service",
+        "language": "HI_LATN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 2,
+        "correct_slots": 2,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-024",
+        "gold_intent": "first_and_last_service",
+        "language": "HINGLISH_LATN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 2,
+        "correct_slots": 2,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-025",
+        "gold_intent": "first_and_last_service",
+        "language": "MIXED_SCRIPT_CS",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 2,
+        "correct_slots": 2,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-026",
+        "gold_intent": "service_frequency",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": true,
+        "slot_checks": 3,
+        "correct_slots": 3,
+        "evidence_success": false,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-027",
+        "gold_intent": "service_frequency",
+        "language": "HI_DEVA",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "clarification",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": false,
+        "slot_checks": 3,
+        "correct_slots": 1,
+        "evidence_success": false,
+        "terminal_success": false,
+        "failures": [
+          "entity_resolution_failure",
+          "clarification_policy_failure",
+          "evidence_contract_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-028",
+        "gold_intent": "service_frequency",
+        "language": "HI_LATN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 3,
+        "correct_slots": 3,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-029",
+        "gold_intent": "service_frequency",
+        "language": "HINGLISH_LATN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": false,
+        "slot_checks": 3,
+        "correct_slots": 2,
+        "evidence_success": false,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-030",
+        "gold_intent": "service_frequency",
+        "language": "MIXED_SCRIPT_CS",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": false,
+        "slot_checks": 3,
+        "correct_slots": 2,
+        "evidence_success": false,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-031",
+        "gold_intent": "scheduled_departure",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 3,
+        "correct_slots": 3,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-032",
+        "gold_intent": "scheduled_departure",
+        "language": "HI_DEVA",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "clarification",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": false,
+        "slot_checks": 3,
+        "correct_slots": 2,
+        "evidence_success": false,
+        "terminal_success": false,
+        "failures": [
+          "entity_resolution_failure",
+          "clarification_policy_failure",
+          "evidence_contract_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-033",
+        "gold_intent": "scheduled_departure",
+        "language": "HI_LATN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 3,
+        "correct_slots": 3,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-034",
+        "gold_intent": "scheduled_departure",
+        "language": "HINGLISH_LATN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 3,
+        "correct_slots": 3,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-035",
+        "gold_intent": "scheduled_departure",
+        "language": "MIXED_SCRIPT_CS",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 3,
+        "correct_slots": 3,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-036",
+        "gold_intent": "mode_availability",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 3,
+        "correct_slots": 3,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-037",
+        "gold_intent": "mode_availability",
+        "language": "HI_DEVA",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-038",
+        "gold_intent": "mode_availability",
+        "language": "HI_LATN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 3,
+        "correct_slots": 3,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-039",
+        "gold_intent": "mode_availability",
+        "language": "HINGLISH_LATN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 3,
+        "correct_slots": 3,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-040",
+        "gold_intent": "mode_availability",
+        "language": "MIXED_SCRIPT_CS",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 3,
+        "correct_slots": 3,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-041",
+        "gold_intent": "fare_calculation",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 3,
+        "correct_slots": 3,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-042",
+        "gold_intent": "fare_calculation",
+        "language": "HI_DEVA",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 3,
+        "correct_slots": 3,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-043",
+        "gold_intent": "fare_calculation",
+        "language": "HI_LATN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 3,
+        "correct_slots": 3,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-044",
+        "gold_intent": "fare_calculation",
+        "language": "HINGLISH_LATN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 3,
+        "correct_slots": 3,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-045",
+        "gold_intent": "fare_calculation",
+        "language": "MIXED_SCRIPT_CS",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 3,
+        "correct_slots": 3,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-046",
+        "gold_intent": "ticketing_and_passes",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-047",
+        "gold_intent": "ticketing_and_passes",
+        "language": "HI_DEVA",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-048",
+        "gold_intent": "ticketing_and_passes",
+        "language": "HI_LATN",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-049",
+        "gold_intent": "ticketing_and_passes",
+        "language": "HINGLISH_LATN",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-050",
+        "gold_intent": "ticketing_and_passes",
+        "language": "MIXED_SCRIPT_CS",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-051",
+        "gold_intent": "station_facilities",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-052",
+        "gold_intent": "station_facilities",
+        "language": "HI_DEVA",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-053",
+        "gold_intent": "station_facilities",
+        "language": "HI_LATN",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-054",
+        "gold_intent": "station_facilities",
+        "language": "HINGLISH_LATN",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-055",
+        "gold_intent": "station_facilities",
+        "language": "MIXED_SCRIPT_CS",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-056",
+        "gold_intent": "station_accessibility",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-057",
+        "gold_intent": "station_accessibility",
+        "language": "HI_DEVA",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-058",
+        "gold_intent": "station_accessibility",
+        "language": "HI_LATN",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-059",
+        "gold_intent": "station_accessibility",
+        "language": "HINGLISH_LATN",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-060",
+        "gold_intent": "station_accessibility",
+        "language": "MIXED_SCRIPT_CS",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-061",
+        "gold_intent": "interchange_transfer",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-062",
+        "gold_intent": "interchange_transfer",
+        "language": "HI_DEVA",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-063",
+        "gold_intent": "interchange_transfer",
+        "language": "HI_LATN",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-064",
+        "gold_intent": "interchange_transfer",
+        "language": "HINGLISH_LATN",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-065",
+        "gold_intent": "interchange_transfer",
+        "language": "MIXED_SCRIPT_CS",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-066",
+        "gold_intent": "nearest_transport",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 2,
+        "correct_slots": 2,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-067",
+        "gold_intent": "nearest_transport",
+        "language": "HI_DEVA",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "clarification",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": false,
+        "slot_checks": 2,
+        "correct_slots": 1,
+        "evidence_success": false,
+        "terminal_success": false,
+        "failures": [
+          "entity_resolution_failure",
+          "clarification_policy_failure",
+          "evidence_contract_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-068",
+        "gold_intent": "nearest_transport",
+        "language": "HI_LATN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 2,
+        "correct_slots": 2,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-069",
+        "gold_intent": "nearest_transport",
+        "language": "HINGLISH_LATN",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 2,
+        "correct_slots": 2,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-070",
+        "gold_intent": "nearest_transport",
+        "language": "MIXED_SCRIPT_CS",
+        "noise": "clean",
+        "scenario": "answerable",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 2,
+        "correct_slots": 2,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-071",
+        "gold_intent": "realtime_status_query",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-072",
+        "gold_intent": "realtime_status_query",
+        "language": "HI_DEVA",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-073",
+        "gold_intent": "realtime_status_query",
+        "language": "HI_LATN",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-074",
+        "gold_intent": "realtime_status_query",
+        "language": "HINGLISH_LATN",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-075",
+        "gold_intent": "realtime_status_query",
+        "language": "MIXED_SCRIPT_CS",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-076",
+        "gold_intent": "out_of_scope",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "out_of_scope",
+        "status": "out_of_scope",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-077",
+        "gold_intent": "out_of_scope",
+        "language": "HI_DEVA",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "out_of_scope",
+        "status": "out_of_scope",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-078",
+        "gold_intent": "out_of_scope",
+        "language": "HI_LATN",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "out_of_scope",
+        "status": "clarification",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-079",
+        "gold_intent": "out_of_scope",
+        "language": "HINGLISH_LATN",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "out_of_scope",
+        "status": "out_of_scope",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-080",
+        "gold_intent": "out_of_scope",
+        "language": "MIXED_SCRIPT_CS",
+        "noise": "clean",
+        "scenario": "absent_or_unverified_source",
+        "gold_status": "out_of_scope",
+        "status": "out_of_scope",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-081",
+        "gold_intent": "point_to_point_route",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "clarification",
+        "status": "unavailable",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": false,
+        "slot_checks": 1,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-082",
+        "gold_intent": "point_to_point_route",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "clarification",
+        "status": "unavailable",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": false,
+        "slot_checks": 1,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-083",
+        "gold_intent": "point_to_point_route",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": true,
+        "slot_checks": 2,
+        "correct_slots": 2,
+        "evidence_success": true,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-084",
+        "gold_intent": "point_to_point_route",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": false,
+        "slot_checks": 2,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-085",
+        "gold_intent": "multimodal_route",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-086",
+        "gold_intent": "route_stop_sequence",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "clarification",
+        "status": "clarification",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-087",
+        "gold_intent": "route_stop_sequence",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 1,
+        "correct_slots": 1,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-088",
+        "gold_intent": "route_stop_sequence",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 2,
+        "correct_slots": 2,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-089",
+        "gold_intent": "route_stop_membership",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "clarification",
+        "status": "ok",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": true,
+        "slot_checks": 1,
+        "correct_slots": 1,
+        "evidence_success": true,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-090",
+        "gold_intent": "route_stop_membership",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 2,
+        "correct_slots": 2,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-091",
+        "gold_intent": "first_and_last_service",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "clarification",
+        "status": "ok",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": true,
+        "slot_checks": 1,
+        "correct_slots": 1,
+        "evidence_success": true,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-092",
+        "gold_intent": "service_frequency",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "clarification",
+        "status": "clarification",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": false,
+        "slot_checks": 1,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-093",
+        "gold_intent": "service_frequency",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "clarification",
+        "status": "ok",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": true,
+        "slot_checks": 1,
+        "correct_slots": 1,
+        "evidence_success": true,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-094",
+        "gold_intent": "scheduled_departure",
+        "language": "HINGLISH_LATN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "clarification",
+        "status": "clarification",
+        "intent_success": true,
+        "operation_success": false,
+        "slot_success": true,
+        "slot_checks": 2,
+        "correct_slots": 2,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-095",
+        "gold_intent": "scheduled_departure",
+        "language": "HINGLISH_LATN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "clarification",
+        "status": "clarification",
+        "intent_success": true,
+        "operation_success": false,
+        "slot_success": true,
+        "slot_checks": 2,
+        "correct_slots": 2,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-096",
+        "gold_intent": "scheduled_departure",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 2,
+        "correct_slots": 2,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-097",
+        "gold_intent": "scheduled_departure",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "clarification",
+        "status": "clarification",
+        "intent_success": true,
+        "operation_success": false,
+        "slot_success": true,
+        "slot_checks": 1,
+        "correct_slots": 1,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-098",
+        "gold_intent": "scheduled_departure",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "clarification",
+        "status": "unavailable",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-099",
+        "gold_intent": "fare_calculation",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 2,
+        "correct_slots": 2,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-100",
+        "gold_intent": "fare_calculation",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 2,
+        "correct_slots": 2,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-101",
+        "gold_intent": "fare_calculation",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 2,
+        "correct_slots": 2,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-102",
+        "gold_intent": "fare_calculation",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "clarification",
+        "status": "clarification",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 1,
+        "correct_slots": 1,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-103",
+        "gold_intent": "ticketing_and_passes",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-104",
+        "gold_intent": "station_facilities",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-105",
+        "gold_intent": "station_accessibility",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-106",
+        "gold_intent": "interchange_transfer",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-107",
+        "gold_intent": "nearest_transport",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "clarification",
+        "status": "clarification",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-108",
+        "gold_intent": "nearest_transport",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "ok",
+        "status": "clarification",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": false,
+        "slot_checks": 2,
+        "correct_slots": 0,
+        "evidence_success": false,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-109",
+        "gold_intent": "nearest_transport",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "clarification",
+        "status": "clarification",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-110",
+        "gold_intent": "mode_availability",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": true,
+        "slot_checks": 1,
+        "correct_slots": 1,
+        "evidence_success": true,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-111",
+        "gold_intent": "realtime_status_query",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-112",
+        "gold_intent": "out_of_scope",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "contract_contrast",
+        "gold_status": "out_of_scope",
+        "status": "out_of_scope",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-113",
+        "gold_intent": "ambiguous",
+        "language": "EN",
+        "noise": "clean",
+        "scenario": "multiple_goals",
+        "gold_status": "clarification",
+        "status": "clarification",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-114",
+        "gold_intent": "ambiguous",
+        "language": "HINGLISH_LATN",
+        "noise": "clean",
+        "scenario": "semantic_ambiguity",
+        "gold_status": "clarification",
+        "status": "clarification",
+        "intent_success": false,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-115",
+        "gold_intent": "route_stop_sequence",
+        "language": "EN",
+        "noise": "punctuation",
+        "scenario": "noise",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 1,
+        "correct_slots": 1,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-116",
+        "gold_intent": "route_stop_sequence",
+        "language": "HINGLISH_LATN",
+        "noise": "sms",
+        "scenario": "noise",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 1,
+        "correct_slots": 1,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-117",
+        "gold_intent": "fare_calculation",
+        "language": "EN",
+        "noise": "adjacent_key_typo",
+        "scenario": "noise",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": false,
+        "slot_checks": 2,
+        "correct_slots": 1,
+        "evidence_success": true,
+        "terminal_success": false,
+        "failures": [
+          "slot_extraction_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-118",
+        "gold_intent": "ticketing_and_passes",
+        "language": "EN",
+        "noise": "vowel_omission",
+        "scenario": "noise",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      },
+      {
+        "id": "dev-v1-119",
+        "gold_intent": "station_facilities",
+        "language": "HINGLISH_LATN",
+        "noise": "casing",
+        "scenario": "noise",
+        "gold_status": "unavailable",
+        "status": "unavailable",
+        "intent_success": false,
+        "operation_success": false,
+        "slot_success": true,
+        "slot_checks": 0,
+        "correct_slots": 0,
+        "evidence_success": true,
+        "terminal_success": false,
+        "failures": [
+          "classifier_failure"
+        ]
+      },
+      {
+        "id": "dev-v1-120",
+        "gold_intent": "route_stop_sequence",
+        "language": "MIXED_SCRIPT_CS",
+        "noise": "mixed_digits",
+        "scenario": "noise",
+        "gold_status": "ok",
+        "status": "ok",
+        "intent_success": true,
+        "operation_success": true,
+        "slot_success": true,
+        "slot_checks": 1,
+        "correct_slots": 1,
+        "evidence_success": true,
+        "terminal_success": true,
+        "failures": []
+      }
+    ]
+  }
+}

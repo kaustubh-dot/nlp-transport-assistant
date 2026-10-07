@@ -82,7 +82,7 @@ def dispatch(prediction: IntentPrediction, slots: Mapping[str, Any], service: Do
         return DispatchResult(status="unavailable", message="Live transport status is unavailable; please verify with the operator.", **base)
 
     time_value = slots.get("time")
-    if (isinstance(time_value, (list, tuple)) and len(time_value) != 1) or (slots.get("temporal_relative") in {"kal", "कल"} and not slots.get("date")):
+    if (isinstance(time_value, (list, tuple)) and len(time_value) != 1) or (slots.get("temporal_relative") in {"kal", "कल", 'parso', 'परसों'} and not slots.get("date")):
         return DispatchResult(status="clarification", reason="temporal_ambiguity", message="Please clarify the intended time or day.", **base)
 
     missing = missing_slots(intent, slots)
@@ -94,6 +94,13 @@ def dispatch(prediction: IntentPrediction, slots: Mapping[str, Any], service: Do
         result = (service or UnavailableService()).execute(operation, dict(slots))
     except Exception:
         return DispatchResult(status="error", message="The transport service could not complete this request.", **base)
-    if not isinstance(result, ServiceResult) or result.status not in {"ok", "unavailable", "error"} or not isinstance(result.data, dict):
+    if (not isinstance(result, ServiceResult) or result.status not in {"ok", "unavailable", "error"}
+            or not isinstance(result.data, dict) or not isinstance(result.message, str)):
         return DispatchResult(status="error", message="The transport service returned an invalid state.", **base)
+    if (operation == 'GET_SERVICE_FREQUENCY' and result.status == 'unavailable'
+            and result.data.get('reason') == 'frequency_direction_or_stop_ambiguous'
+            and not slots.get('destination')):
+        return DispatchResult(status='clarification', reason='missing_slot', missing_slots=('destination',),
+                              message='Please specify the destination to narrow the departure direction.',
+                              data=result.data, **base)
     return DispatchResult(status=result.status, message=result.message, data=result.data, **base)

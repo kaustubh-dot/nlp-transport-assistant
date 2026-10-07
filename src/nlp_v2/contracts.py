@@ -25,6 +25,11 @@ CANONICAL_SLOTS = frozenset({
 
 TRANSPORT_MODES = frozenset({"metro", "bus", "suburban_rail", "mrts", "any"})
 CLARIFICATION_REASONS = frozenset({"intent_ambiguity", "entity_ambiguity", "temporal_ambiguity", "multiple_goals"})
+OUTCOME_REASONS = frozenset({
+    'intent_ambiguity', 'entity_ambiguity', 'temporal_ambiguity', 'multiple_goals',
+    'missing_execution_slot', 'unsupported_source', 'external_source_required',
+    'malformed_request', 'temporary_service_unavailability', 'answered', 'out_of_scope',
+})
 ENUM_SLOTS = {
     "transport_mode": TRANSPORT_MODES,
     "mode_from": TRANSPORT_MODES,

@@ -7,6 +7,8 @@ from math import isfinite
 
 import requests
 
+from src.nlp_v2.contracts import OUTCOME_REASONS
+
 
 DEFAULT_API_URL = "http://127.0.0.1:8765"
 
@@ -81,6 +83,9 @@ def valid_reply(reply) -> bool:
     for field in ("slots", "data"):
         if not isinstance(reply.get(field, {}), dict):
             return False
+    if 'outcome_reason' in reply and (
+            not isinstance(reply['outcome_reason'], str) or reply['outcome_reason'] not in OUTCOME_REASONS):
+        return False
     for field in ("missing_slots", "candidate_entities", "candidate_intents"):
         values = reply.get(field, [])
         if not isinstance(values, list) or any(not isinstance(value, str) for value in values):

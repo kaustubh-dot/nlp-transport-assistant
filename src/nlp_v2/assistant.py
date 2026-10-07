@@ -69,13 +69,55 @@ class AssistantReply:
     candidate_entities: tuple[str, ...] = ()
     candidate_intents: tuple[str, ...] = ()
 
+    @property
+    def outcome_reason(self) -> str:
+        if self.status == 'clarification':
+            return 'missing_execution_slot' if self.clarification_reason == 'missing_slot' else (self.clarification_reason or 'intent_ambiguity')
+        if self.status == 'unavailable':
+            return 'external_source_required' if self.intent == 'realtime_status_query' else 'unsupported_source'
+        if self.status == 'error':
+            return 'malformed_request' if self.data.get('reason') == 'malformed_request' else 'temporary_service_unavailability'
+        return 'answered' if self.status == 'ok' else 'out_of_scope'
+
+
+def _missing_prompt(names: tuple[str, ...]) -> str:
+    if {'origin_or_stage_number', 'destination_or_stage_number'} <= set(names):
+        return 'Please provide a fare stage number, or the starting and destination stops.'
+    descriptions = {
+        'origin': 'the starting stop', 'destination': 'the destination stop',
+        'stop': 'the stop to check', 'station': 'the station',
+        'station_or_stop': 'the boarding stop or station',
+        'route_number_or_line_name': 'the route number or line name',
+        'origin_or_stage_number': 'the starting stop or fare stage number',
+        'destination_or_stage_number': 'the destination stop or fare stage number',
+        'landmark_or_locality': 'a nearby landmark or locality',
+        'station_or_mode_pair': 'the transfer station or the two transport modes',
+        'transport_mode': 'one transport mode',
+    }
+    return 'Please provide ' + ', '.join(descriptions.get(name, name.replace('_', ' ')) for name in names) + '.'
+
+
+def _capability_check(method, operation: str, *args) -> ServiceResult | None:
+    if not callable(method):
+        return None
+    try:
+        capability = method(operation, *args)
+        if capability is not None and (
+                not isinstance(capability, ServiceResult)
+                or capability.status not in {'unavailable', 'error'}
+                or not isinstance(capability.data, dict)
+                or not isinstance(capability.message, str)):
+            raise ValueError('Invalid capability preflight state')
+        return capability
+    except Exception:
+        return ServiceResult('error', {}, 'The transport service could not complete the request.')
+
 
 def _answer(result: DispatchResult) -> str:
     """Render only facts supplied by the canonical service."""
     if result.status == "clarification":
         if result.reason == "missing_slot":
-            names = ", ".join(result.missing_slots).replace("_", " ")
-            return f"Please provide {names} so I can check the transport information."
+            return _missing_prompt(result.missing_slots)
         return {
             "entity_ambiguity": "Please clarify which stop or location you mean.",
             "temporal_ambiguity": "Please clarify the time or day you mean.",
@@ -129,8 +171,9 @@ class T3Assistant:
         self.service = service if service is not None else CanonicalTransitService()
 
     def process_query(self, query: str) -> AssistantReply:
-        if not isinstance(query, str) or not query.strip():
-            return AssistantReply("error", "Please enter a transport question.", query if isinstance(query, str) else "", "", None, None, None)
+        if not isinstance(query, str) or not any(char.isalnum() for char in query):
+            return AssistantReply("error", "Please enter a transport question.", query if isinstance(query, str) else "", "", None, None, None,
+                                  data={'reason': 'malformed_request'})
         normalized = normalize_text(query)
         try:
             prediction: IntentPrediction = self.classifier.predict(query)
@@ -147,16 +190,7 @@ class T3Assistant:
                 return self._reply(query, normalized, result)
 
             preflight = getattr(self.service, "preflight", None)
-            try:
-                capability = preflight(OPERATIONS[intent]) if callable(preflight) else None
-                if capability is not None and (
-                        not isinstance(capability, ServiceResult)
-                        or capability.status not in {"unavailable", "error"}
-                        or not isinstance(capability.data, dict)
-                        or not isinstance(capability.message, str)):
-                    raise ValueError("Invalid capability preflight state")
-            except Exception:
-                capability = ServiceResult("error", {}, "The transport service could not complete the request.")
+            capability = _capability_check(preflight, OPERATIONS[intent])
             if capability is not None:
                 result = DispatchResult(intent, OPERATIONS[intent], capability.status, {},
                                         prediction.acceptable_labels, prediction.confidence,
@@ -172,6 +206,13 @@ class T3Assistant:
                     missing_slots=('transport_mode',), clarification_reason='missing_slot',
                     candidate_intents=prediction.acceptable_labels,
                 )
+            capability = _capability_check(getattr(self.service, 'preflight_mode', None),
+                                           OPERATIONS[intent], extraction.slots.get('transport_mode'))
+            if capability is not None:
+                result = DispatchResult(intent, OPERATIONS[intent], capability.status, dict(extraction.slots),
+                                        prediction.acceptable_labels, prediction.confidence,
+                                        message=capability.message, data=capability.data)
+                return self._reply(query, extraction.normalized_query, result)
             if extraction.clarification_reason:
                 candidates = tuple(sorted({candidate.entity_id for unresolved in extraction.unresolved
                                            for candidate in unresolved.candidates}))

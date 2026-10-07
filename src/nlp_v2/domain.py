@@ -75,15 +75,45 @@ class CanonicalTransitService:
         except sqlite3.Error:
             return ServiceResult("error", {}, "The canonical transit database could not complete the request.")
 
-    def preflight(self, operation: str) -> ServiceResult | None:
-        """Identify scopes that no additional execution input can make answerable."""
+    def _base_handler_unchanged(self, operation: str) -> bool:
         # A service extension owns its capabilities. Base snapshot assumptions
         # must not veto an overridden dispatcher or operation handler.
         handler_name = CanonicalTransitService.handlers.get(operation)
-        if (getattr(self.execute, '__func__', None) is not CanonicalTransitService.execute
+        return not (getattr(self.execute, '__func__', None) is not CanonicalTransitService.execute
                 or handler_name is None or self.handlers.get(operation) != handler_name
                 or getattr(getattr(self, handler_name), '__func__', None)
-                is not getattr(CanonicalTransitService, handler_name)):
+                is not getattr(CanonicalTransitService, handler_name))
+
+    def preflight_mode(self, operation: str, mode: str | None) -> ServiceResult | None:
+        """Refuse a chosen mode whose published source has no usable records."""
+        if not self._base_handler_unchanged(operation) or mode not in {'bus', 'metro', 'mrts', 'suburban_rail'}:
+            return None
+        if operation in {'PLAN_ROUTE', 'LIST_ROUTE_STOPS', 'CHECK_STOP_ON_ROUTE', 'CHECK_SERVICE_AVAILABILITY'}:
+            join = 'JOIN route_stops records ON records.route_id = r.route_id'
+            kind = 'topology'
+            usable = ''
+        elif operation in {'GET_FIRST_LAST_SERVICE', 'GET_SERVICE_FREQUENCY', 'GET_SCHEDULED_DEPARTURES'}:
+            join = 'JOIN trips tr ON tr.route_id = r.route_id JOIN stop_times records ON records.trip_id = tr.trip_id'
+            kind = 'schedule'
+            usable = ' AND records.departure_time IS NOT NULL'
+        else:
+            return None
+        try:
+            with sqlite3.connect(self.db_path.as_uri() + '?mode=ro', uri=True, timeout=5) as conn:
+                covered = conn.execute(f'''
+                    SELECT 1 FROM transport_routes r {join}
+                    JOIN transport_stops s ON s.stop_id = records.canonical_stop_id AND s.mode = r.mode
+                    WHERE r.mode = ? AND r.status = 'operational' {usable} LIMIT 1
+                ''', (mode,)).fetchone()
+            return None if covered else _unavailable('No mode-consistent published ' + kind + ' is available for the requested transport mode.', {
+                'reason': 'published_mode_' + kind + '_absent', 'transport_mode': mode,
+            })
+        except sqlite3.Error:
+            return ServiceResult('error', {}, 'The canonical transit database could not complete the request.')
+
+    def preflight(self, operation: str) -> ServiceResult | None:
+        """Identify scopes that no additional execution input can make answerable."""
+        if not self._base_handler_unchanged(operation):
             return None
         fixed = {
             "GET_TICKETING_POLICY": ("ticket_policy_absent", "This snapshot contains no authoritative ticket or pass policy table."),
@@ -356,6 +386,10 @@ class CanonicalTransitService:
         return None if len(rows) > 10000 else rows
 
     def _first_last(self, conn: sqlite3.Connection, slots: Mapping[str, Any]) -> ServiceResult:
+        if slots.get('time'):
+            return _unavailable('First/last service cannot interpret this clock constraint as before, after or at a time.', {
+                'reason': 'first_last_clock_scope_unsupported',
+            })
         rows = self._scheduled_rows(conn, slots)
         if rows is None:
             return _unavailable("Too many schedule rows to report a reliable first or last time.")

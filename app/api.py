@@ -29,6 +29,7 @@ def public_reply(reply: AssistantReply) -> dict:
     """Expose the stable frontend contract without model or raw-text internals."""
     return {
         "status": reply.status,
+        'outcome_reason': reply.outcome_reason,
         "response_text": reply.response_text,
         "intent": reply.intent,
         "operation": reply.operation,
@@ -44,7 +45,8 @@ def public_reply(reply: AssistantReply) -> dict:
 def handle_request(method: str, path: str, headers: dict, body: bytes, assistant: T3Assistant) -> tuple[int, dict]:
     """Validate one request independently of the socket adapter."""
     def error(status: HTTPStatus, message: str) -> tuple[int, dict]:
-        return status, {"status": "error", "response_text": message}
+        return status, {"status": "error", "response_text": message,
+                        'outcome_reason': 'temporary_service_unavailability' if status == HTTPStatus.SERVICE_UNAVAILABLE else 'malformed_request'}
 
     headers = {key.lower(): value for key, value in headers.items()}
     if method == "GET":
@@ -72,7 +74,9 @@ def handle_request(method: str, path: str, headers: dict, body: bytes, assistant
         return error(HTTPStatus.UNPROCESSABLE_ENTITY, "Provide a nonempty query string.")
     try:
         reply = assistant.process_query(data["query"])
-        status = HTTPStatus.SERVICE_UNAVAILABLE if reply.status == "error" else HTTPStatus.OK
+        status = HTTPStatus.OK
+        if reply.status == 'error':
+            status = HTTPStatus.UNPROCESSABLE_ENTITY if reply.outcome_reason == 'malformed_request' else HTTPStatus.SERVICE_UNAVAILABLE
         return status, public_reply(reply)
     except Exception:
         return error(HTTPStatus.SERVICE_UNAVAILABLE, "The assistant is temporarily unavailable.")
@@ -113,6 +117,7 @@ def make_server(host: str, port: int, assistant: T3Assistant) -> HTTPServer:
                 self.close_connection = True
                 self._json(HTTPStatus.REQUEST_TIMEOUT, {
                     "status": "error", "response_text": "Request body timed out.",
+                    'outcome_reason': 'malformed_request',
                 })
                 return
             status, response = handle_request("POST", self.path, dict(self.headers), body, assistant)
