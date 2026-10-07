@@ -212,7 +212,7 @@ def score_cases(cases: list[dict], replies: list[AssistantReply]) -> dict:
                     and evidence and expected_data and (operation or (c['status'] == 'clarification' and r.operation is None)))
         failures = []
         if not intent:
-            failures.append('classifier_failure')
+            failures.append('reply_intent_contract_failure')
         else:
             if not slots:
                 failures.append('entity_resolution_failure' if any(k in {'origin','destination','station','stop','landmark','locality','via'} and r.slots.get(k) != v for k,v in c['slots'].items()) else 'slot_extraction_failure')
@@ -286,7 +286,8 @@ def evaluate(output_dir: Path, *, gold_intent: bool = False) -> dict:
     report = {
         'evaluation_type': 'development_only_contracts',
         'mode': 'gold_intent_downstream_diagnostic' if gold_intent else 'production_model',
-        'classifier_accuracy_measured': not gold_intent,
+        'classifier_accuracy_measured': False,
+        'reply_intent_contract_measured': True,
         'git_commit': subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
         'git_dirty': bool(subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).strip()),
         'suite_version': 1, 'suite_sha256': sha256_file(SUITE),
@@ -296,6 +297,7 @@ def evaluate(output_dir: Path, *, gold_intent: bool = False) -> dict:
         'source_hashes': {str(p.relative_to(ROOT)): sha256_file(p) for p in sorted(production_files)},
         'normalized_heldout_overlap': 0,
         'limitations': ['Development contracts are an observed optimization suite, not generalization evidence.',
+                        'Intent scores measure reply contracts after guards, not raw classifier accuracy.',
                         'Exact normalized overlap guard does not prove semantic independence.',
                         'Gold-intent diagnostics bypass classifier inference; their intent score is not model accuracy.',
                         'Evidence checks validate shape/source presence, not independent transport fact correctness.'],

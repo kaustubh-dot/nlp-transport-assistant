@@ -45,7 +45,7 @@ PY
 
 The explicit cache preparation requires network access to the public model repository. `.cache/` is ignored. Keep `HF_HOME` set in every API, UI, test, training, or evaluation terminal, or use an already prepared default Hugging Face cache consistently. The inference loader needs tokenizer/config plus the selected checkpoint, so this command does not fetch base-model weights. Full replacement training needs those additional weights.
 
-The verified environment has torch `2.6.0+cu124`, transformers `5.17.0`, and no available GPU. The CPU install commands above select the same torch release's CPU wheel. Exact declared package versions were checked against the current environment and `pip check` passes; a complete clean-environment dependency installation was not executed during final verification.
+The verified environment has torch `2.6.0+cu124` and transformers `5.17.0`. The sandbox cannot see CUDA, but authorized host execution detects a usable RTX 4000 Ada GPU with 20 GB total memory; available memory depends on other workloads. Inference remains CPU-based. The CPU install commands above select the same torch release's CPU wheel. Exact declared package versions were checked against the current environment and `pip check` passes; a complete clean-environment dependency installation was not executed during final verification.
 
 Transformers 5.17 can emit a misleading Mistral-regex warning when loading this pinned MuRIL model. Inspection confirmed `BertTokenizer`, WordPiece, `BertPreTokenizer`, and `BertNormalizer`; the library's large-vocabulary/config check misidentifies this BERT model. Do not apply `fix_mistral_regex=True`: it would replace frozen BERT preprocessing. Cache or checkpoint errors are real startup errors and should be resolved by supplying the correct assets.
 
@@ -116,7 +116,7 @@ No output is expected for the completed production phases. This check and the te
 
 ## Optional replacement training
 
-The existing seed-42 artifact supplies current production inference. Full retraining was not performed because no GPU is available. The separate trainer uses only frozen train/validation CSVs, hash-checks them, excludes overlapping validation families/semantic families/exact queries, and selects by validation Macro-F1. It never reads stress/reference data. Output must be new or empty and outside frozen research/source directories.
+The existing seed-42 artifact supplies current production inference. The Phase 17 disjoint-validation candidate and its selection decision are recorded in [the training decision](training_decision.md); the single full candidate did not exceed the existing disjoint-validation Macro-F1, so the original checkpoint remains selected. No adaptive retry was performed. The separate trainer uses only frozen train/validation CSVs, hash-checks them, excludes overlapping validation families/semantic families/exact queries, and selects by validation Macro-F1. It never reads stress/reference data. Output must be new or empty and outside frozen research/source directories.
 
 CPU pipeline smoke; the resulting small random model is **not production eligible**:
 
@@ -144,10 +144,12 @@ then
     --output-dir experiments/nlp_v2/production_runs/t3-new-seed42 \
     --seed 42 --max-epochs 30 --patience 3 --min-delta 0.001 \
     --batch-size 16 --learning-rate 2e-5
+else
+  exit 1
 fi
 ```
 
-The trainer itself permits CPU execution without `--smoke`; the conditional block starts the planned large run only when CUDA verification and cache preparation succeed. Its metadata records hyperparameters, versions, device, hashes, label order, epoch history and selected checkpoint. Training does not replace the current production manifest automatically. Do not promote a smoke model or select against final evaluation results.
+The trainer refuses full non-smoke execution without a usable CUDA device and confirms allocation in its own process. The conditional block also exits nonzero if CUDA verification or cache preparation fails; full training never silently falls back to CPU. Its metadata records hyperparameters, versions, device, hashes, label order, epoch history and selected checkpoint. Training does not replace the current production manifest automatically. Do not promote a smoke model or select against final evaluation results.
 
 ## Evaluation records and reproduction
 

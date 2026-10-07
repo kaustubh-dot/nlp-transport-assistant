@@ -12,6 +12,7 @@ import csv
 from importlib.metadata import version
 import json
 import random
+import time
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -118,6 +119,13 @@ def train(config: TrainConfig) -> dict:
         raise ValueError(f"Output directory must be new or empty: {output_dir}")
     if config.max_epochs < 1 or config.patience < 1 or config.batch_size < 1:
         raise ValueError("Epochs, patience, and batch size must be positive")
+    if not config.smoke and not torch.cuda.is_available():
+        raise RuntimeError("Full MuRIL training requires a usable GPU; CPU fallback is disabled")
+    device = torch.device("cpu" if config.smoke else "cuda")
+    if not config.smoke:
+        # Confirm access in this process, rather than trust an earlier shell check.
+        torch.empty(1, device=device)
+        torch.cuda.reset_peak_memory_stats(device)
     if sha256_file(TRAIN_PATH) != TRAIN_SHA256 or sha256_file(VALIDATION_PATH) != VALIDATION_SHA256:
         raise ValueError("Train/validation CSV hash mismatch")
     train_rows, validation_rows = load_training_splits(TRAIN_PATH, VALIDATION_PATH, exclude_overlaps=True)
@@ -135,7 +143,6 @@ def train(config: TrainConfig) -> dict:
     tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, revision=MODEL_REVISION, local_files_only=True)
     train_loader = DataLoader(Rows(train_rows, tokenizer), batch_size=min(config.batch_size, len(train_rows)), shuffle=True)
     validation_loader = DataLoader(Rows(validation_rows, tokenizer), batch_size=min(config.batch_size, len(validation_rows)))
-    device = torch.device("cpu" if config.smoke else ("cuda" if torch.cuda.is_available() else "cpu"))
     if config.smoke:
         model_config = AutoConfig.from_pretrained(MODEL_NAME, revision=MODEL_REVISION, local_files_only=True)
         model_config.hidden_size = 64
@@ -158,6 +165,7 @@ def train(config: TrainConfig) -> dict:
     history = []
     output_dir.mkdir(parents=True, exist_ok=True)
     checkpoint = output_dir / "t3_best.pt"
+    started = time.monotonic()
     for epoch in range(1, max_epochs + 1):
         model.train()
         losses = []
@@ -178,6 +186,7 @@ def train(config: TrainConfig) -> dict:
                 gold.extend(labels.tolist())
         macro_f1 = float(f1_score(gold, predicted, average="macro", zero_division=0))
         history.append({"epoch": epoch, "train_loss": sum(losses) / len(losses), "validation_macro_f1": macro_f1})
+        print(json.dumps({**history[-1], "elapsed_seconds": time.monotonic() - started}), flush=True)
         if macro_f1 > best_f1 + config.min_delta:
             best_f1, best_epoch, wait = macro_f1, epoch, 0
             torch.save(model.state_dict(), checkpoint)
@@ -207,6 +216,9 @@ def train(config: TrainConfig) -> dict:
             "weight_decay": 0.01,
             "gradient_clip_norm": 1.0,
             "device": str(device),
+            "device_name": torch.cuda.get_device_name(device) if not config.smoke else "cpu",
+            "elapsed_seconds": time.monotonic() - started,
+            "peak_cuda_allocated_bytes": torch.cuda.max_memory_allocated(device) if not config.smoke else None,
             "torch_version": version("torch"),
             "transformers_version": version("transformers"),
             "numpy_version": version("numpy"),

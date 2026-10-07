@@ -1,0 +1,128 @@
+{
+  "taxonomy": "T3",
+  "label_order": [
+    "point_to_point_route",
+    "multimodal_route",
+    "first_and_last_service",
+    "service_frequency",
+    "scheduled_departure",
+    "route_stop_sequence",
+    "route_stop_membership",
+    "mode_availability",
+    "fare_calculation",
+    "ticketing_and_passes",
+    "station_facilities",
+    "station_accessibility",
+    "interchange_transfer",
+    "nearest_transport",
+    "realtime_status_query",
+    "out_of_scope"
+  ],
+  "model_name": "google/muril-base-cased",
+  "model_revision": "afd9f36c7923d54e97903922ff1b260d091d202f",
+  "preprocessing": "raw_query",
+  "max_length": 64,
+  "seed": 42,
+  "smoke": false,
+  "production_eligible": true,
+  "configuration": {
+    "seed": 42,
+    "max_epochs": 30,
+    "effective_max_epochs": 30,
+    "patience": 3,
+    "min_delta": 0.001,
+    "batch_size": 16,
+    "learning_rate": 2e-05,
+    "optimizer": "AdamW",
+    "weight_decay": 0.01,
+    "gradient_clip_norm": 1.0,
+    "device": "cuda",
+    "device_name": "NVIDIA RTX 4000 Ada Generation",
+    "elapsed_seconds": 316.9393323349941,
+    "peak_cuda_allocated_bytes": 4806520832,
+    "torch_version": "2.6.0+cu124",
+    "transformers_version": "5.17.0",
+    "numpy_version": "2.5.3",
+    "scikit_learn_version": "1.6.1"
+  },
+  "training_data": {
+    "train_sha256": "d92801006ecb96fd64d01e6a602697e2e8749494627964f82d002566e3d0ba94",
+    "validation_sha256": "a870aea04006da25bde896f216c07313772603559cb794ad26f56eb0d8277415"
+  },
+  "validation_rows_used": 332,
+  "validation_filter": "exclude_train_family_semantic_family_and_query_overlap",
+  "selection": {
+    "criterion": "validation_macro_f1_only",
+    "best_epoch": 10,
+    "best_macro_f1": 0.84658250495907
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 2.7551274082877417,
+      "validation_macro_f1": 0.010674931129476584
+    },
+    {
+      "epoch": 2,
+      "train_loss": 2.6871843392198738,
+      "validation_macro_f1": 0.18552405600077995
+    },
+    {
+      "epoch": 3,
+      "train_loss": 2.524808046492663,
+      "validation_macro_f1": 0.3667548367266267
+    },
+    {
+      "epoch": 4,
+      "train_loss": 2.3186803216283973,
+      "validation_macro_f1": 0.40392508066595223
+    },
+    {
+      "epoch": 5,
+      "train_loss": 2.0796572985974224,
+      "validation_macro_f1": 0.45780810712467795
+    },
+    {
+      "epoch": 6,
+      "train_loss": 1.8518064685843207,
+      "validation_macro_f1": 0.5164982981660388
+    },
+    {
+      "epoch": 7,
+      "train_loss": 1.6338169046423652,
+      "validation_macro_f1": 0.8009550520488312
+    },
+    {
+      "epoch": 8,
+      "train_loss": 1.425666249611161,
+      "validation_macro_f1": 0.8180430135471433
+    },
+    {
+      "epoch": 9,
+      "train_loss": 1.2174516313455321,
+      "validation_macro_f1": 0.8255924872861651
+    },
+    {
+      "epoch": 10,
+      "train_loss": 1.019247535954822,
+      "validation_macro_f1": 0.84658250495907
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.8207504132931883,
+      "validation_macro_f1": 0.8261661686955177
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.6471182026646354,
+      "validation_macro_f1": 0.8429576490063473
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.5010783262550831,
+      "validation_macro_f1": 0.833144828544262
+    }
+  ],
+  "checkpoint_path": "t3_best.pt",
+  "checkpoint_sha256": "834d3511eef74a6566cbbcfb3346e617055a01402047be42bd6aa50fc0a8fc34"
+}

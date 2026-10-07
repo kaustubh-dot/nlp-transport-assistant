@@ -73,3 +73,6 @@ models/baseline/*.pkl
 # Staging & Runtime Logs
 data/staging/
 logs/
+
+# Local replacement-training artifacts; reviewed metadata is copied to reports.
+experiments/nlp_v2/production_runs/

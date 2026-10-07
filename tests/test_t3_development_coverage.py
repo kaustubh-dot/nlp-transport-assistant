@@ -157,6 +157,17 @@ def test_gold_intent_diagnostic_handles_ambiguous_intents_without_loading_weight
     assert report['scores']['terminal_behavior']['success'] == 1
 
 
+def test_production_coverage_labels_reply_intent_as_distinct_from_raw_accuracy(tmp_path, monkeypatch):
+    from types import SimpleNamespace
+    from scripts.nlp_v2 import evaluate_development_coverage as evaluator
+    monkeypatch.setattr(evaluator, 'load_suite', lambda: [case()])
+    monkeypatch.setattr(evaluator, 'heldout_fingerprints', lambda *args: set())
+    monkeypatch.setattr(evaluator, 'T3Assistant', lambda **kwargs: SimpleNamespace(process_query=lambda q: reply()))
+    report = evaluator.evaluate(tmp_path/'output')
+    assert report['classifier_accuracy_measured'] is False
+    assert report['reply_intent_contract_measured'] is True
+
+
 def test_membership_requires_source_provenance_not_just_route_ids():
     from scripts.nlp_v2.evaluate_development_coverage import score_cases
 
