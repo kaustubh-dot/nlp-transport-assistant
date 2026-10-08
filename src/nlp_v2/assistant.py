@@ -26,7 +26,7 @@ GOAL_CUES = (
     ("station_accessibility", r"wheelchair|ramp|lift|escalator|व्हीलचेयर|लिफ्ट|रैंप"),
     ("station_facilities", r"parking|toilet|restroom|wifi|atm|पार्किंग|शौचालय"),
     ("ticketing_and_passes", r"pass|ticket rules|smart card|टिकट|पास"),
-    ("route_stop_sequence", r"all stops|(?:list|show)\s+stops|stop sequence|सभी स्टॉप"),
+    ("route_stop_sequence", r"all stops|(?:list|show)\s+stops|route stops|stops? list|stop sequence|सभी स्टॉप"),
     ("route_stop_membership", r"stop at|stops at|रुकती|rukti"),
     ("nearest_transport", r"nearest|closest|nazdik|नजदीक"),
     ("interchange_transfer", r"transfer|interchange|बदलना|badalna"),

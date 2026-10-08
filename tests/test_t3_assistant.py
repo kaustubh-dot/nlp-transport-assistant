@@ -509,3 +509,12 @@ def test_repeated_aliases_of_one_nearest_anchor_are_one_scope(resolver):
 def test_negative_availability_question_is_not_a_negated_user_goal(query):
     from src.nlp_v2.assistant import selected_goal_negated
     assert selected_goal_negated(query, 'mode_availability') is False
+
+
+def test_negated_route_stop_list_cannot_answer_live_location_request(resolver):
+    from src.nlp_v2.assistant import T3Assistant
+    reply = T3Assistant(classifier=FixedClassifier('route_stop_sequence'), resolver=resolver).process_query(
+        '83C ka current location chahiye, route stops mat bhejna')
+    assert reply.status == 'clarification'
+    assert reply.operation is None
+    assert reply.data['reason'] == 'negated_selected_goal'
