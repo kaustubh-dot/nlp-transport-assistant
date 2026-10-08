@@ -130,7 +130,8 @@ def test_streamlit_chat_shows_api_clarification_and_revision_form(monkeypatch):
     app.button[0].click().run(timeout=10)
     assert not app.exception
     assert calls and calls[0][0].endswith("/api/v2/query")
-    assert app.text_input[0].label == "Revise your full question"
+    assert app.text_input[0].label == "Revise / संशोधित करें / Badlein"
+    assert any(item.value == "Revise your full question" for item in app.caption)
     assert any("Please provide origin" in info.value for info in app.info)
 
 
