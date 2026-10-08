@@ -1,0 +1,371 @@
+{
+  "verified_at_utc": "2026-10-08T04:17:47.652503+00:00",
+  "tested_source_commit": "bd9f148456778acb2a0562d8cfcb047783b5be57",
+  "manual_query_scenarios": {
+    "real_backend": 71,
+    "isolated": 25,
+    "total": 96
+  },
+  "source_hashes_verified": {
+    "app/api.py": "5c3dd67b933ab2991da777c8a772b2e7d86713dbb1083e8da830d80bbe923b31",
+    "app/frontend_contract.py": "7cc09a5e2a900f942c942a3cd3fefca2edc22222a4703fc51eeb6d3539630f0a",
+    "app/streamlit_app.py": "311d83bfbfb5eb2edd1841f68d11fb38da16e50ced240a97293272cb3a83466b",
+    "data/canonical/transit/canonical_transport.db": "583fd400bb3ee0d5af312e03ec78116de88ce162d6c33c2b87fd93df4da48791",
+    "models/nlp_v2_t3_manifest.json": "447a120090c33ba1259cad06ce9f216d80832d2540727c3330f14be3ec04dc39",
+    "requirements-nlp-v2.txt": "319a5d74126ee40b3a43d500f9d6fae5083f846e29dc678ba0bcaec87060569f",
+    "requirements.txt": "12bcd1ef9ca4fe4eff7a2b68733d606d7510a12857c0088e9f297c76980603ba",
+    "scripts/nlp_v2/evaluate_assistant.py": "64ccef4acc374264ac32278d048cc1da55ff60405edbe52a7a3b04f0dbed5607",
+    "scripts/nlp_v2/evaluate_production_t3.py": "46bfec6ac2448d4dd8c206f17322aadcae73ccfcb722a17823cd4749973c33e8",
+    "src/entity_extractor.py": "35d81e65cc94366d02636c1dae1b223f8db04a4fae26e2b2bb47698078eb43ff",
+    "src/nlp_v2/__init__.py": "323d76b4bbd0261f37f693161b103222543acd5aa386cfc50efa7cbdee397c4d",
+    "src/nlp_v2/assistant.py": "b5141dd9f65c00810529fd11c792fad797a626e67d2e687994379e3ec49f8062",
+    "src/nlp_v2/contracts.py": "06e226d21430c93acfe7a1dc91a6672ab48b08a5f0460a530823f6355b73282c",
+    "src/nlp_v2/dispatch.py": "046d740d8fbeb0769c81aaba781daf160c76a700e4b8e4a63e76ae0753f4caf4",
+    "src/nlp_v2/domain.py": "4a9de6879cc1d01adb990c084e89c9a7fcd005e6b3c9d5d2ab1e8fbc43d8fc0d",
+    "src/nlp_v2/entities.py": "a167950e0889542a32e6bb649f84a3adf24441fdb680b7eff4fb8d3d2c56425a",
+    "src/nlp_v2/model.py": "1ca0f3b60a6a65dfd21c766bcfd11f0daf0dcc5e0a89f75785b725e18f04b80a",
+    "src/nlp_v2/slots.py": "8fb1f050249eb14c704e4683ab735856d6f99eb562caaa3bab511d9194bd08bc",
+    "src/normalization.py": "fc36871d67fc04b9e516d5b3af9174f25224302d4a761cf8ed2e02c8bc5ae420",
+    "app/transit_theme.html": "0e9652ed540928db0233c971557f537337c5ce3a3410bf7f18493e20ea14fd1f"
+  },
+  "historical_report_hashes_verified": {
+    "reports/nlp_v2/post_development_regression/assistant/assistant_evaluation.json": "7a524525825c7b5ef886e8802600582daaa75644d972bd9b96f6579170f7a642",
+    "reports/nlp_v2/post_development_regression/assistant/assistant_evaluation.md": "0aac6ee5dfb6c3ebf6301ec076967795cdc78c4d2914592788c977e046003fd8",
+    "reports/nlp_v2/post_development_regression/comparison.md": "28517f5ed722268dd563c58ff8d07a82e780522fd1370a88a0d5ebf70f2ef617",
+    "reports/nlp_v2/post_development_regression/evaluation_context.json": "5352b1923561136556084d39ee91250af327c04ba6113361071d1de259653e1b",
+    "reports/nlp_v2/post_development_regression/model/production_t3_evaluation.json": "5e5108cf119f28f02ba812d5760400ed9ed47073002d5a95a0fe45189b806cd3",
+    "reports/nlp_v2/post_development_regression/model/production_t3_evaluation.md": "631a6fc6150aa86c5a89db3380a627f5e1a362e1d639e9b9dd8b759da3750287",
+    "reports/nlp_v2/phase23_post_fix_descriptive/assistant/assistant_evaluation.json": "b6f0109983acbd8e75195f9dac52642ce01c5487223f0c415f613e532eb79624",
+    "reports/nlp_v2/phase23_post_fix_descriptive/assistant/assistant_evaluation.md": "c15f88f52aa244628449dce5e8b407ad94be4c54c1bdb376707c0032a283f428",
+    "reports/nlp_v2/phase23_post_fix_descriptive/comparison.md": "af8776bd5f986303d95c2ebcd7d3e863328d23d5f65f31288f3570da6311a7e8",
+    "reports/nlp_v2/phase23_post_fix_descriptive/evaluation_context.json": "4da1c7d27d73b673fbb16d7df5ba6001b6a9b92c5957681ce5fe9f4fa0afc7f5"
+  },
+  "development_suite_hash_unchanged": true,
+  "checkpoint_hash_unchanged": "abac66fc9fa29212c7565117ae326e34f02b64e76dbb177c61e9661517803196",
+  "checkpoint_bytes": 950358409,
+  "frozen_research_paths_unchanged": true,
+  "changes_outside_qa_directory": [],
+  "csv_exports_verified": {
+    "nearest_marina_beach.csv": {
+      "rows": 5,
+      "columns": [
+        "name",
+        "mode",
+        "distance_m",
+        "source"
+      ],
+      "sha256": "8f5eb539bd73de31dde3bb3b735e7c71b3075caaed5c6b941e859d52f86f6e8e"
+    },
+    "published_departures.csv": {
+      "rows": 5,
+      "columns": [
+        "route_name",
+        "time",
+        "source"
+      ],
+      "sha256": "19e2f10b7ac50f7101eada0528f1dc2b6cc978da3db0a38f3af075ccc014261c"
+    },
+    "nearest_iit_madras.csv": {
+      "rows": 5,
+      "columns": [
+        "name",
+        "mode",
+        "distance_m",
+        "source"
+      ],
+      "sha256": "b163dcbc8ebcb993457b8fdddc426c1b6b4399aae60e5f97803b7b2f50f342b2"
+    }
+  },
+  "tamil_unicode_csv_verified": true,
+  "jpeg_images_verified": {
+    "failure_fresh_reload.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "49fca8673480db1cc8e0d4136dd0b3eb417e3c294e1696978f31edcd5d92154a"
+    },
+    "failure_gtfs24.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "2e6361c39afe4386de42b563d527b6c87f5fe506b4c98ece0d571d4d005c875d"
+    },
+    "failure_malformed_optional.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "0ce69fa2bf65b1a4c75e3bc826b6318e11c2b5beb3cf66c8209a1a62b2dec68e"
+    },
+    "failure_malformed_optional_full.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "3095dd36c5cf10367ae6bff7e06ded2ea8046a6e84908631a6dad2e0869ab8ab"
+    },
+    "failure_malformed_rejected.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "7a45dd3179298580b4fe99ad2f056d48211c3478a7256e435ea88d3538c17ee6"
+    },
+    "failure_metadata_fare.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "0769b39fcaead187ebf48a24c7ba88453b05f6bc2a1548e5018f115a13bc7b37"
+    },
+    "failure_missing_panel_safe.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "2f11889ab689da401e974f16fac4cd59762b4143a0ce76fec75e2f50cc7eacca"
+    },
+    "failure_offline_initial.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "d81e7b0fd4db66e1ab5539eb2d6a2f87303e71bc65bf75bf124e9118d3da625f"
+    },
+    "failure_offline_submit.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "9014059736f64e3481fd263e72735aa0e8bbb723a17e31e2e83d0a0d1515117a"
+    },
+    "failure_online_recovery.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "a3ff5bcac316e40fd09f0d9c966a92bf2713e2bc9bed33ea014bde6aa3f74932"
+    },
+    "failure_panel_accessibility.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "277bb0f868f2a692b840b08f56a905f5ec92f4bf77ce0fe88361fa565d240559"
+    },
+    "failure_panel_facility.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "e07e1a56bd460d8f3869d6b3edb2b078983df79c63351182b4cb3d0cd359fd7a"
+    },
+    "failure_panel_frequency.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "0843664ea2dba0b857342d872df07a3c280ea705c4288dbda2de8a2d62735dbc"
+    },
+    "failure_panel_interchange.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "dc03c469735f91d5c14f2d1adc45f94c61034740d6beb252b9f6899b4f728b62"
+    },
+    "failure_panel_ticketing.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "45c4ac26984900847afc63c192a6b68e6b006c9a82eb5f3476740ef09116ad3b"
+    },
+    "failure_partial_coverage.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "0fe49d2c25a002f04d0847672d7f5cef33cc170ae572b8e3d188575e4ba564da"
+    },
+    "failure_partial_coverage_flags.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "b284d05ecdc26f6f345d0e8351d9b1018d7a30bce4b5745811df14681c3368b3"
+    },
+    "failure_partial_coverage_full.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "0cf11a83330ab229e30754ab351d67ead400e95d32e56ea2c12d56ad8fe4d238"
+    },
+    "failure_status_clarification.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "980d58df3b77593189f0f8692e73d1269b809025d7f50918dd996ed8b8c26c14"
+    },
+    "failure_status_error.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "024de833995cf011fbb16abd04e39bc1bf974807dfd9e270af52e0874c7dccc6"
+    },
+    "failure_status_out_of_scope.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "70d7650cdcb7afb6e144e27c9bb3f63b5995755098ad107531213fb2ee7ca56b"
+    },
+    "failure_status_unavailable.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "db3712179149a83ffef6b9c1612526c7755662b5ca48de28eabc56eeec160df2"
+    },
+    "functional_departures.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "0f19c759d69f2a9380282698f8e7f0c03b7a818a14b957689178a2e0d234fc41"
+    },
+    "functional_hindi_fare.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "0d29ca1d90f113e4ce9d413ad4ad7cded1be90f6223b6c9219a8d55b78569199"
+    },
+    "functional_nearest.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "093bfb8329bb68b1e92d7cfee3cf508edb96b1c68d52c228963dd56339fdceab"
+    },
+    "functional_sequence.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "a0f15aa879b2fcf6111a6ecdac45e0baa5ea57db99c4345abb5aa44ba46d2d5b"
+    },
+    "layout-desktop-history.jpg": {
+      "pixels": [
+        1440,
+        810
+      ],
+      "sha256": "c2310eb0feef989efc30a1fc71e8b42b508768c15ede8e78cc34c9d85ae9f6b2"
+    },
+    "layout-initial.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "49fca8673480db1cc8e0d4136dd0b3eb417e3c294e1696978f31edcd5d92154a"
+    },
+    "layout-nearest-anchor.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "e752b9a2f1113240cd73b41ce7a0a5b58b73144fc72d3c1029d0a82e19aba930"
+    },
+    "layout-revision-focus.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "3cf032e0af5c1725a7cf11e8846f92c33cf83511450c54bae1a3baf5d5b547bd"
+    },
+    "layout-send-focus.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "69e9414a3cf2fd16fc698037fe07c906c1f58351be3a3f4d14cd075d1fa0b321"
+    },
+    "layout-table-fullscreen.jpg": {
+      "pixels": [
+        1440,
+        1000
+      ],
+      "sha256": "e64a449673b0688b7d07017c3b2cf550b0e433df200b33f59ab1ae1adcaf8167"
+    },
+    "layout-tablet-1024.jpg": {
+      "pixels": [
+        1024,
+        576
+      ],
+      "sha256": "ad45e86f97ce153bebdbe04366784fef25a40ab886638b4cb566956f07c15892"
+    },
+    "layout-tablet-768.jpg": {
+      "pixels": [
+        768,
+        576
+      ],
+      "sha256": "9f5b200b87a070cce39cb3fd128f52a60beb691f20943b0b8dc237ab2910d43f"
+    },
+    "scope_classifier_panel.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "1bf431bfecebfad8185b54d040715f024eb22b3ea75c85919487b4ec498a2235"
+    },
+    "scope_hinglish_waypoint.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "94e67fa1778300033b8341d8f474047c034464312193edff2db0c37588ef1ed1"
+    },
+    "scope_timetable_waypoint.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "180dc8383461ac7cbfc4689eecbdef886dc38ad079ddce00d61ca8c6d8fd72cf"
+    },
+    "scope_unicode_body_limit.jpg": {
+      "pixels": [
+        1280,
+        720
+      ],
+      "sha256": "d397c7b8f9c430a9ba0a3c5c6e9d475244d2a80f63961c44dbcd6c89527b2b69"
+    }
+  },
+  "markdown_file_links_resolve": true,
+  "git_diff_check": true,
+  "runtime": {
+    "checked_at_utc": "2026-10-08T04:15:43.466613+00:00",
+    "services": {
+      "ui": {
+        "url": "http://127.0.0.1:8601/_stcore/health",
+        "http_status": 200,
+        "body": "ok"
+      },
+      "api": {
+        "url": "http://127.0.0.1:8875/health",
+        "http_status": 200,
+        "body": "{\"status\":\"ok\",\"taxonomy\":\"T3\"}"
+      }
+    }
+  },
+  "browser_connection_lost": true,
+  "native_download_verified": false,
+  "phone_coverage_verified": false,
+  "primary_viewport_reset_verified": false,
+  "primary_tab_cleanup_verified": false,
+  "new_evaluator_training_or_full_suite_invocations": 0
+}

@@ -1,0 +1,6 @@
+"name","mode","distance_m","source"
+"சென்னை விமான நிலையம்","metro","20925","OSM_OVERPASS"
+"Sholinganallur Metro","metro","12801","OSM_OVERPASS"
+"Chennai International Airport","metro","20929","CMRL_API"
+"Chennai Airport Metro","metro","21047","CHENNAI_COMMUNITY_GTFS"
+"Airport Metro","metro","20875","CHENNAI_COMMUNITY_GTFS"

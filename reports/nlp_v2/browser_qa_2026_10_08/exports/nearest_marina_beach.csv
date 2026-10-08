@@ -1,0 +1,6 @@
+"name","mode","distance_m","source"
+"Lighthouse Metro","metro","1121","OSM_OVERPASS"
+"Royapettah Metro","metro","2072","OSM_OVERPASS"
+"அரசினர் தோட்டம்","metro","2131","OSM_OVERPASS"
+"எல் ஐ சி","metro","2253","OSM_OVERPASS"
+"Government Estate","metro","2287","CMRL_API"

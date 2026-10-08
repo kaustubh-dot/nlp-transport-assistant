@@ -1,0 +1,15 @@
+{
+  "checked_at_utc": "2026-10-08T04:15:43.466613+00:00",
+  "services": {
+    "ui": {
+      "url": "http://127.0.0.1:8601/_stcore/health",
+      "http_status": 200,
+      "body": "ok"
+    },
+    "api": {
+      "url": "http://127.0.0.1:8875/health",
+      "http_status": 200,
+      "body": "{\"status\":\"ok\",\"taxonomy\":\"T3\"}"
+    }
+  }
+}

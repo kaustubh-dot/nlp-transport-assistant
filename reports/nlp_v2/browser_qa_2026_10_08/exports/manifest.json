@@ -1,0 +1,42 @@
+{
+  "exports": [
+    {
+      "file": "nearest_marina_beach.csv",
+      "query": "Where is the nearest metro station to Marina Beach?",
+      "dataRows": 5,
+      "columns": [
+        "name",
+        "mode",
+        "distance_m",
+        "source"
+      ],
+      "method": "UTF-8 CSV from browser-rendered accessible DOM table; native browser download remains unverified"
+    },
+    {
+      "file": "published_departures.csv",
+      "query": "Departures from Poonamallee Bus Terminus at 8:00 am",
+      "dataRows": 5,
+      "columns": [
+        "route_name",
+        "time",
+        "source"
+      ],
+      "method": "UTF-8 CSV from browser-rendered accessible DOM table; native browser download remains unverified"
+    },
+    {
+      "file": "nearest_iit_madras.csv",
+      "query": "Which metro station is nearest to IIT Madras?",
+      "dataRows": 5,
+      "columns": [
+        "name",
+        "mode",
+        "distance_m",
+        "source"
+      ],
+      "method": "UTF-8 CSV from browser-rendered accessible DOM table; native browser download remains unverified"
+    }
+  ],
+  "warning": "IIT Madras answer uses Thaiyur Campus anchor; browser UI omits campus name. These are snapshot QA exports, not verified current travel facts.",
+  "encoding": "UTF-8",
+  "line_endings": "LF (CSV cell values unchanged)"
+}
