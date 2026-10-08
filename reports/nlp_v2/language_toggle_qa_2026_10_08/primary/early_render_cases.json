@@ -1,0 +1,134 @@
+[
+  {
+    "id": "H13",
+    "language": "hi",
+    "query": "पूनमल्ली बस टर्मिनस से सुबह नौ बजे के बाद बसों का प्रस्थान समय बताइए।",
+    "intended_family": "scheduled_departure",
+    "time_utc": "2026-10-08T09:12:01.797Z",
+    "user_messages": 13,
+    "assistant_messages": 13,
+    "render_complete": true,
+    "last_exchange_ax": "container Chat message from user\n\t\t\t\t\t146 text पूनमल्ली बस टर्मिनस से सुबह नौ बजे के बाद बसों का प्रस्थान समय बताइए।\n\t\t\t\t147 container Chat message from assistant\n\t\t\t\t\t148 container\n\t\t\t\t\t\t149 text प्रकाशित जानकारी\n\t\t\t\t\t\t150 container\n\t\t\t\t\t\t\t151 text प्रकाशित पहला प्रस्थान: 00:18 :00 ; अंतिम: 25:16 :00  (सेवा-दिन का समय)। ये प्रकाशित समय-सारणी की सीमाएँ हैं; मौजूदा संचालन की पुष्टि ऑपरेटर से करें।\n\t\t\t\t\t\t152 heading प्रकाशित सेवा समय, Value: 3, ID: bb109715\n\t\t\t\t\t\t\t153 text प्रकाशित सेवा समय\n\t\t\t\t\t\t154 container\n\t\t\t\t\t\t\t155 text पहला प्रस्थान\n\t\t\t\t\t\t\t156 text 00:18:00\n\t\t\t\t\t\t157 container\n\t\t\t\t\t\t\t158 text अंतिम प्रस्थान\n\t\t\t\t\t\t\t159 text 25:16:00\n\t\t\t\t\t\t160 container\n\t\t\t\t\t\t\t161 text GTFS सेवा-दिन का समय 24 :00  के बाद भी जारी हो सकता है।\n\t\t\t\t\t\t162 text स्रोत: CHENNAI_COMMUNITY_GTFS\n\t\t\t\t\t\t163 text यह जानकारी रिकॉर्ड के संकलन से मिली है। मौजूदा सेवा और स्थितियों की पुष्टि ऑपरेटर से करें।\n\t\t\t\t43 container\n\t\t\t\t\t44 text entry area (settable) Ask / पूछें / Poochhein…\n\nThe focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…"
+  },
+  {
+    "id": "H14",
+    "language": "hi",
+    "query": "आइलैंड ग्राउंड टर्मिनस से १०२ बस के निर्धारित प्रस्थान 09:30 AM के बाद दिखाइए।",
+    "intended_family": "scheduled_departure",
+    "time_utc": "2026-10-08T09:12:02.183Z",
+    "user_messages": 14,
+    "assistant_messages": 14,
+    "render_complete": true,
+    "last_exchange_ax": "container Chat message from user\n\t\t\t\t\t165 container\n\t\t\t\t\t\t166 text आइलैंड ग्राउंड टर्मिनस से १०२ बस के निर्धारित प्रस्थान 09 :30  AM के बाद दिखाइए।\n\t\t\t\t167 container Chat message from assistant\n\t\t\t\t\t168 container\n\t\t\t\t\t\t169 text अधिक जानकारी चाहिए\n\t\t\t\t\t\t170 text कृपया चढ़ने का स्टॉप या स्टेशन बताएं।\n\t\t\t\t\t\t171 text जरूरी जानकारी: चढ़ने का स्टॉप या स्टेशन\n\t\t\t\t172 container\n\t\t\t\t\t173 text अपना पूरा प्रश्न संशोधित करें\n\t\t\t\t\t174 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: आइलैंड ग्राउंड टर्मिनस से १०२ बस के निर्धारित प्रस्थान 09:30 AM के बाद दिखाइए।, ID: text_input_11\n\t\t\t\t\t175 button संशोधित प्रश्न पूछें\n\t\t\t\t\t\t176 text संशोधित प्रश्न पूछें\n\t\t\t\t43 container\n\t\t\t\t\t44 text entry area (settable) Ask / पूछें / Poochhein…\n\nThe focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…"
+  },
+  {
+    "id": "H15",
+    "language": "hi",
+    "query": "गिंडी और चेन्नई सेंट्रल के बीच मेट्रो सेवा मिलती है क्या?",
+    "intended_family": "mode_availability",
+    "time_utc": "2026-10-08T09:12:02.642Z",
+    "user_messages": 15,
+    "assistant_messages": 15,
+    "render_complete": true,
+    "last_exchange_ax": "container Chat message from user\n\t\t\t\t\t173 text गिंडी और चेन्नई सेंट्रल के बीच मेट्रो सेवा मिलती है क्या?\n\t\t\t\t174 container Chat message from assistant\n\t\t\t\t\t175 container\n\t\t\t\t\t\t176 text जानकारी अनुपलब्ध है\n\t\t\t\t\t\t177 text माँगे गए परिवहन माध्यम से मेल खाता प्रकाशित रूट ढाँचा उपलब्ध नहीं है।\n\t\t\t\t43 container\n\t\t\t\t\t44 text entry area (settable) Ask / पूछें / Poochhein…\n\nThe focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…"
+  },
+  {
+    "id": "H16",
+    "language": "hi",
+    "query": "अड्यार से ब्रॉडवे तक सीधी बस सेवा उपलब्ध है क्या?",
+    "intended_family": "mode_availability",
+    "time_utc": "2026-10-08T09:12:03.097Z",
+    "user_messages": 16,
+    "assistant_messages": 16,
+    "render_complete": true,
+    "last_exchange_ax": "container Chat message from user\n\t\t\t\t\t179 text अड्यार से ब्रॉडवे तक सीधी बस सेवा उपलब्ध है क्या?\n\t\t\t\t180 container Chat message from assistant\n\t\t\t\t\t181 container\n\t\t\t\t\t\t182 text अधिक जानकारी चाहिए\n\t\t\t\t\t\t183 text कृपया शुरुआती स्टॉप, गंतव्य स्टॉप बताएं।\n\t\t\t\t\t\t184 text जरूरी जानकारी: शुरुआती स्टॉप, गंतव्य स्टॉप\n\t\t\t\t185 container\n\t\t\t\t\t186 text अपना पूरा प्रश्न संशोधित करें\n\t\t\t\t\t187 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: अड्यार से ब्रॉडवे तक सीधी बस सेवा उपलब्ध है क्या?, ID: text_input_12\n\t\t\t\t\t188 button संशोधित प्रश्न पूछें\n\t\t\t\t\t\t189 text संशोधित प्रश्न पूछें\n\t\t\t\t43 container\n\t\t\t\t\t44 text entry area (settable) Ask / पूछें / Poochhein…\n\nThe focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…"
+  },
+  {
+    "id": "H17",
+    "language": "hi",
+    "query": "साधारण बस में स्टेज ८ के लिए कितना किराया लगता है?",
+    "intended_family": "fare_calculation",
+    "time_utc": "2026-10-08T09:12:03.500Z",
+    "user_messages": 17,
+    "assistant_messages": 17,
+    "render_complete": true,
+    "last_exchange_ax": "container Chat message from user\n\t\t\t\t\t186 text साधारण बस में स्टेज ८ के लिए कितना किराया लगता है?\n\t\t\t\t187 container Chat message from assistant\n\t\t\t\t\t188 container\n\t\t\t\t\t\t189 text प्रकाशित जानकारी\n\t\t\t\t\t\t190 text प्रकाशित किराया (साधारण सेवाएँ): INR 12 (रिकॉर्ड की प्रभावी तारीख 2018-01-29)। प्रकाशित स्टेज किराया मिला है; यात्रा से पहले मौजूदा किराए की पुष्टि करें।\n\t\t\t\t\t\t191 container\n\t\t\t\t\t\t\t192 text प्रकाशित किराया\n\t\t\t\t\t\t\t193 text INR 12\n\t\t\t\t\t\t194 text सेवा श्रेणी: साधारण सेवाएँ\n\t\t\t\t\t\t195 text प्रभावी तारीख: 2018-01-29 · स्रोत: MTC_OFFICIAL\n\t\t\t\t\t\t196 text यह जानकारी रिकॉर्ड के संकलन से मिली है। मौजूदा सेवा और स्थितियों की पुष्टि ऑपरेटर से करें।\n\t\t\t\t43 container\n\t\t\t\t\t44 text entry area (settable) Ask / पूछें / Poochhein…\n\nThe focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…"
+  },
+  {
+    "id": "H18",
+    "language": "hi",
+    "query": "डीलक्स बस का स्टेज ६ वाला किराया रुपये में बताइए।",
+    "intended_family": "fare_calculation",
+    "time_utc": "2026-10-08T09:12:03.882Z",
+    "user_messages": 18,
+    "assistant_messages": 18,
+    "render_complete": true,
+    "last_exchange_ax": "container Chat message from user\n\t\t\t\t\t198 text डीलक्स बस का स्टेज ६ वाला किराया रुपये में बताइए।\n\t\t\t\t199 container Chat message from assistant\n\t\t\t\t\t200 container\n\t\t\t\t\t\t201 text प्रकाशित जानकारी\n\t\t\t\t\t\t202 text प्रकाशित किराया (डीलक्स सेवाएँ): INR 21 (रिकॉर्ड की प्रभावी तारीख 2018-01-29)। प्रकाशित स्टेज किराया मिला है; यात्रा से पहले मौजूदा किराए की पुष्टि करें।\n\t\t\t\t\t\t203 container\n\t\t\t\t\t\t\t204 text प्रकाशित किराया\n\t\t\t\t\t\t\t205 text INR 21\n\t\t\t\t\t\t206 text सेवा श्रेणी: डीलक्स सेवाएँ\n\t\t\t\t\t\t207 text प्रभावी तारीख: 2018-01-29 · स्रोत: MTC_OFFICIAL\n\t\t\t\t\t\t208 text यह जानकारी रिकॉर्ड के संकलन से मिली है। मौजूदा सेवा और स्थितियों की पुष्टि ऑपरेटर से करें।\n\t\t\t\t43 container\n\t\t\t\t\t44 text entry area (settable) Ask / पूछें / Poochhein…\n\nThe focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…"
+  },
+  {
+    "id": "H19",
+    "language": "hi",
+    "query": "मेट्रो के मासिक पास को खरीदने का नियम बताइए।",
+    "intended_family": "ticketing_and_passes",
+    "time_utc": "2026-10-08T09:12:04.355Z",
+    "user_messages": 19,
+    "assistant_messages": 19,
+    "render_complete": true,
+    "last_exchange_ax": "container Chat message from user\n\t\t\t\t\t210 text मेट्रो के मासिक पास को खरीदने का नियम बताइए।\n\t\t\t\t211 container Chat message from assistant\n\t\t\t\t\t212 container\n\t\t\t\t\t\t213 text जानकारी अनुपलब्ध है\n\t\t\t\t\t\t214 text इस रिकॉर्ड संकलन में टिकट या पास नीति की कोई आधिकारिक तालिका नहीं है।\n\t\t\t\t43 container\n\t\t\t\t\t44 text entry area (settable) Ask / पूछें / Poochhein…\n\nThe focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…"
+  },
+  {
+    "id": "H20",
+    "language": "hi",
+    "query": "चेन्नई मेट्रो में एनसीएमसी कार्ड को रिचार्ज कैसे करते हैं?",
+    "intended_family": "ticketing_and_passes",
+    "time_utc": "2026-10-08T09:12:04.813Z",
+    "user_messages": 20,
+    "assistant_messages": 20,
+    "render_complete": true,
+    "last_exchange_ax": "container Chat message from user\n\t\t\t\t\t216 text चेन्नई मेट्रो में एनसीएमसी कार्ड को रिचार्ज कैसे करते हैं?\n\t\t\t\t217 container Chat message from assistant\n\t\t\t\t\t218 container\n\t\t\t\t\t\t219 text जानकारी अनुपलब्ध है\n\t\t\t\t\t\t220 text इस रिकॉर्ड संकलन में टिकट या पास नीति की कोई आधिकारिक तालिका नहीं है।\n\t\t\t\t43 container\n\t\t\t\t\t44 text entry area (settable) Ask / पूछें / Poochhein…\n\nThe focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…"
+  },
+  {
+    "id": "H21",
+    "language": "hi",
+    "query": "एयरपोर्ट मेट्रो स्टेशन में शौचालय की सुविधा है क्या?",
+    "intended_family": "station_facilities",
+    "time_utc": "2026-10-08T09:12:05.168Z",
+    "user_messages": 21,
+    "assistant_messages": 21,
+    "render_complete": true,
+    "last_exchange_ax": "container Chat message from user\n\t\t\t\t\t223 text एयरपोर्ट मेट्रो स्टेशन में शौचालय की सुविधा है क्या?\n\t\t\t\t224 container Chat message from assistant\n\t\t\t\t\t225 container\n\t\t\t\t\t\t226 text जानकारी अनुपलब्ध है\n\t\t\t\t\t\t227 text इस रिकॉर्ड संकलन में सुविधा की उपलब्धता सत्यापित नहीं है।\n\t\t\t\t43 container\n\t\t\t\t\t44 text entry area (settable) Ask / पूछें / Poochhein…\n\nThe focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…"
+  },
+  {
+    "id": "H22",
+    "language": "hi",
+    "query": "गिंडी मेट्रो स्टेशन पर गाड़ी पार्क करने की जगह उपलब्ध है?",
+    "intended_family": "station_facilities",
+    "time_utc": "2026-10-08T09:12:05.728Z",
+    "user_messages": 22,
+    "assistant_messages": 22,
+    "render_complete": true,
+    "last_exchange_ax": "container Chat message from user\n\t\t\t\t\t229 text गिंडी मेट्रो स्टेशन पर गाड़ी पार्क करने की जगह उपलब्ध है?\n\t\t\t\t230 container Chat message from assistant\n\t\t\t\t\t231 container\n\t\t\t\t\t\t232 text जानकारी अनुपलब्ध है\n\t\t\t\t\t\t233 text इस रिकॉर्ड संकलन में सुविधा की उपलब्धता सत्यापित नहीं है।\n\t\t\t\t43 container\n\t\t\t\t\t44 text entry area (settable) Ask / पूछें / Poochhein…\n\nThe focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…"
+  },
+  {
+    "id": "H23",
+    "language": "hi",
+    "query": "गिंडी मेट्रो में व्हीलचेयर के लिए रैंप मौजूद है क्या?",
+    "intended_family": "station_accessibility",
+    "time_utc": "2026-10-08T09:12:06.103Z",
+    "user_messages": 23,
+    "assistant_messages": 23,
+    "render_complete": true,
+    "last_exchange_ax": "container Chat message from user\n\t\t\t\t235 container Chat message from assistant\n\t\t\t\t43 container\n\t\t\t\t\t44 text entry area (settable) Ask / पूछें / Poochhein…\n\nThe focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…"
+  },
+  {
+    "id": "H24",
+    "language": "hi",
+    "query": "चेन्नई सेंट्रल मेट्रो स्टेशन में दृष्टिबाधित यात्रियों के लिए स्पर्श पथ हैं क्या?",
+    "intended_family": "station_accessibility",
+    "time_utc": "2026-10-08T09:12:06.600Z",
+    "user_messages": 24,
+    "assistant_messages": 24,
+    "render_complete": true,
+    "last_exchange_ax": "container Chat message from user\n\t\t\t\t\t241 text चेन्नई सेंट्रल मेट्रो स्टेशन में दृष्टिबाधित यात्रियों के लिए स्पर्श पथ हैं क्या?\n\t\t\t\t242 container Chat message from assistant\n\t\t\t\t\t243 container\n\t\t\t\t\t\t244 text जानकारी अनुपलब्ध है\n\t\t\t\t\t\t245 text इस रिकॉर्ड संकलन में सुगम्यता सुविधाओं की सत्यापित जानकारी नहीं है।\n\t\t\t\t43 container\n\t\t\t\t\t44 text entry area (settable) Ask / पूछें / Poochhein…\n\nThe focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…"
+  }
+]

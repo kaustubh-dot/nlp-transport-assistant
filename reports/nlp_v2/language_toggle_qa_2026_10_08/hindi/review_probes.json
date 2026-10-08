@@ -1,0 +1,255 @@
+{
+  "kind": "independent focused source and pure presentation probes; no AppTest/shared pytest/full suite/browser/API submissions",
+  "verified_at_utc": "2026-10-08T09:31:56.898035+00:00",
+  "source_sha256": {
+    "app/streamlit_app.py": "91f86a39e35e4cbadfa6a954cb1accab776b085596a360d9ab620855f67c0047",
+    "app/frontend_language.py": "5c13b2593cc604aff60c215fba8b0249b66f98edade024f2fc05651cbd8a4ca8",
+    "app/transit_theme.html": "e1d383ebf592c99efa40617cb7f3f6eebe51a267584283bcb4195af6f5445b8c",
+    "tests/test_t3_language_catalog.py": "375135c65e5e572d83df9c722c721f71111a990b0120662ad848e92d878f8ace",
+    "tests/test_t3_language_ui.py": "18d8a7ea85c7f3f67ff0d9cbbb2a872efb5e9c24ca59659ad90d6f59e36ae23b",
+    "tests/test_t3_frontend.py": "0d3c5027856f43e3fad6b25f79814ce66e634c7ef6c9ba92be3f45c5c3c91e31"
+  },
+  "records": [
+    {
+      "check": "R01 literal opaque UI labels",
+      "variants": 3,
+      "passed": true,
+      "language": "en"
+    },
+    {
+      "check": "R02 non-string enum fallback",
+      "variants": 3,
+      "passed": true,
+      "language": "en"
+    },
+    {
+      "check": "R03 valid route payload unsupported mode fallback",
+      "variants": 6,
+      "passed": true,
+      "language": "en"
+    },
+    {
+      "check": "R04 matching factual opaque braces",
+      "variants": 2,
+      "passed": true,
+      "language": "en"
+    },
+    {
+      "check": "R05 exact date/source interpolation",
+      "variants": 1,
+      "passed": true,
+      "language": "en"
+    },
+    {
+      "check": "R01 literal opaque UI labels",
+      "variants": 3,
+      "passed": true,
+      "language": "hi"
+    },
+    {
+      "check": "R02 non-string enum fallback",
+      "variants": 3,
+      "passed": true,
+      "language": "hi"
+    },
+    {
+      "check": "R03 valid route payload unsupported mode fallback",
+      "variants": 6,
+      "passed": true,
+      "language": "hi"
+    },
+    {
+      "check": "R04 matching factual opaque braces",
+      "variants": 2,
+      "passed": true,
+      "language": "hi"
+    },
+    {
+      "check": "R05 exact date/source interpolation",
+      "variants": 1,
+      "passed": true,
+      "language": "hi"
+    },
+    {
+      "check": "R01 literal opaque UI labels",
+      "variants": 3,
+      "passed": true,
+      "language": "hinglish"
+    },
+    {
+      "check": "R02 non-string enum fallback",
+      "variants": 3,
+      "passed": true,
+      "language": "hinglish"
+    },
+    {
+      "check": "R03 valid route payload unsupported mode fallback",
+      "variants": 6,
+      "passed": true,
+      "language": "hinglish"
+    },
+    {
+      "check": "R04 matching factual opaque braces",
+      "variants": 2,
+      "passed": true,
+      "language": "hinglish"
+    },
+    {
+      "check": "R05 exact date/source interpolation",
+      "variants": 1,
+      "passed": true,
+      "language": "hinglish"
+    },
+    {
+      "check": "R06 baseline48 Hindi rendering/English equality/nonmutation",
+      "variants": 48,
+      "passed": true
+    },
+    {
+      "check": "R07 actual _table header/mode-only presentation",
+      "variants": 1,
+      "passed": true,
+      "language": "en"
+    },
+    {
+      "check": "R08 actual _submit raw query/API/history preservation",
+      "variants": 1,
+      "passed": true,
+      "language": "en"
+    },
+    {
+      "check": "R07 actual _table header/mode-only presentation",
+      "variants": 1,
+      "passed": true,
+      "language": "hi"
+    },
+    {
+      "check": "R08 actual _submit raw query/API/history preservation",
+      "variants": 1,
+      "passed": true,
+      "language": "hi"
+    },
+    {
+      "check": "R07 actual _table header/mode-only presentation",
+      "variants": 1,
+      "passed": true,
+      "language": "hinglish"
+    },
+    {
+      "check": "R08 actual _submit raw query/API/history preservation",
+      "variants": 1,
+      "passed": true,
+      "language": "hinglish"
+    },
+    {
+      "check": "R09 actual revision block identity/default/no-submission contract",
+      "variants": 4,
+      "passed": true,
+      "language": "en",
+      "details": [
+        {
+          "case": "same clarification",
+          "key": "revision_text_2",
+          "label": "Revise / संशोधित करें / Badlein",
+          "default": "Guindy से Central कैसे जाऊँ?"
+        },
+        {
+          "case": "new clarification",
+          "key": "revision_text_4",
+          "label": "Revise / संशोधित करें / Badlein",
+          "default": "Central से airport कैसे जाऊँ?"
+        },
+        {
+          "case": "repeated identical query",
+          "key": "revision_text_4",
+          "label": "Revise / संशोधित करें / Badlein",
+          "default": "Guindy से Central कैसे जाऊँ?"
+        },
+        {
+          "case": "no pending clarification",
+          "rendered": false
+        }
+      ]
+    },
+    {
+      "check": "R09 actual revision block identity/default/no-submission contract",
+      "variants": 4,
+      "passed": true,
+      "language": "hi",
+      "details": [
+        {
+          "case": "same clarification",
+          "key": "revision_text_2",
+          "label": "Revise / संशोधित करें / Badlein",
+          "default": "Guindy से Central कैसे जाऊँ?"
+        },
+        {
+          "case": "new clarification",
+          "key": "revision_text_4",
+          "label": "Revise / संशोधित करें / Badlein",
+          "default": "Central से airport कैसे जाऊँ?"
+        },
+        {
+          "case": "repeated identical query",
+          "key": "revision_text_4",
+          "label": "Revise / संशोधित करें / Badlein",
+          "default": "Guindy से Central कैसे जाऊँ?"
+        },
+        {
+          "case": "no pending clarification",
+          "rendered": false
+        }
+      ]
+    },
+    {
+      "check": "R09 actual revision block identity/default/no-submission contract",
+      "variants": 4,
+      "passed": true,
+      "language": "hinglish",
+      "details": [
+        {
+          "case": "same clarification",
+          "key": "revision_text_2",
+          "label": "Revise / संशोधित करें / Badlein",
+          "default": "Guindy से Central कैसे जाऊँ?"
+        },
+        {
+          "case": "new clarification",
+          "key": "revision_text_4",
+          "label": "Revise / संशोधित करें / Badlein",
+          "default": "Central से airport कैसे जाऊँ?"
+        },
+        {
+          "case": "repeated identical query",
+          "key": "revision_text_4",
+          "label": "Revise / संशोधित करें / Badlein",
+          "default": "Guindy से Central कैसे जाऊँ?"
+        },
+        {
+          "case": "no pending clarification",
+          "rendered": false
+        }
+      ]
+    },
+    {
+      "check": "R10 actual composer placeholder identity across languages",
+      "variants": 1,
+      "passed": true,
+      "details": {
+        "languages": [
+          "en",
+          "hi",
+          "hinglish"
+        ],
+        "placeholder": "Ask / पूछें / Pooch"
+      }
+    }
+  ],
+  "variant_checks": 112,
+  "check_groups": 26,
+  "all_passed": true,
+  "limits": [
+    "Widget argument/identity probes do not emulate a browser-only unsent draft. Native-browser retention evidence is primary-owned.",
+    "No shared tests or fresh query scenarios were executed. Baseline48 was reused only for presentation checks."
+  ]
+}

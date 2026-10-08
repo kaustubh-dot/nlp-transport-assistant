@@ -1,0 +1,1961 @@
+{
+  "kind": "fresh manually scoped Hindi product QA; not representative accuracy or frozen evaluation",
+  "endpoint": "http://127.0.0.1:8875/api/v2/query",
+  "collected_at_utc": "2026-10-08T04:37:39.861474+00:00",
+  "source_commit": "490ba62b65f7bd3b223f66eaa1ac3c6335800006",
+  "health": {
+    "http_status": 200,
+    "body": {
+      "status": "ok",
+      "taxonomy": "T3"
+    }
+  },
+  "query_count": 48,
+  "cases": [
+    {
+      "id": "H01",
+      "intended_family": "point_to_point_route",
+      "scenario": "family_pair",
+      "query": "बस से चेन्नई सेंट्रल से एयरपोर्ट तक जाने का रास्ता बताइए।",
+      "http_status": 200,
+      "elapsed_ms": 52.6,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "entity_ambiguity",
+        "response_text": "Please clarify which stop or location you mean.",
+        "intent": "point_to_point_route",
+        "operation": null,
+        "slots": {
+          "transport_mode": "bus"
+        },
+        "data": {},
+        "missing_slots": [],
+        "clarification_reason": "entity_ambiguity",
+        "candidate_entities": [
+          "HUB_PURATCHI_THALAIVAR_DR__M_G_RAMACHANDRAN_CENTRAL",
+          "HUB_PURATCHI_THALAIVAR_DR__M__G__RAMACHANDRAN_CENTRAL",
+          "RAIL_CHENNAI_CENTRAL"
+        ],
+        "candidate_intents": [
+          "point_to_point_route"
+        ]
+      },
+      "category": "legitimate ambiguity",
+      "assessment": "The route family is selected; Central resolves to three candidates. Entity clarification is conservative."
+    },
+    {
+      "id": "H02",
+      "intended_family": "point_to_point_route",
+      "scenario": "family_pair",
+      "query": "सचिवालय से वॉर मेमोरियल तक बस से कैसे पहुँचूँ?",
+      "http_status": 200,
+      "elapsed_ms": 54.3,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "missing_execution_slot",
+        "response_text": "Please provide the starting stop, the destination stop.",
+        "intent": "point_to_point_route",
+        "operation": "PLAN_ROUTE",
+        "slots": {
+          "transport_mode": "bus"
+        },
+        "data": {},
+        "missing_slots": [
+          "origin",
+          "destination"
+        ],
+        "clarification_reason": "missing_slot",
+        "candidate_entities": [],
+        "candidate_intents": [
+          "point_to_point_route"
+        ]
+      },
+      "category": "recognition mismatch",
+      "assessment": "Route family matches but both Hindi endpoint names were lost; asks for supplied start/end. Alias/extraction coverage gap, not a routing answer."
+    },
+    {
+      "id": "H03",
+      "intended_family": "multimodal_route",
+      "scenario": "family_pair",
+      "query": "गिंडी से चेन्नई एयरपोर्ट जाने के लिए बस और मेट्रो जोड़कर यात्रा बताइए।",
+      "http_status": 200,
+      "elapsed_ms": 59.8,
+      "response": {
+        "status": "unavailable",
+        "outcome_reason": "unsupported_source",
+        "response_text": "No confirmed cross-mode transfer graph is available in this snapshot.",
+        "intent": "multimodal_route",
+        "operation": "PLAN_MULTIMODAL_ROUTE",
+        "slots": {},
+        "data": {
+          "reason": "confirmed_multimodal_graph_absent"
+        },
+        "missing_slots": [],
+        "clarification_reason": null,
+        "candidate_entities": [],
+        "candidate_intents": [
+          "multimodal_route"
+        ]
+      },
+      "category": "unsupported source",
+      "assessment": "Multimodal family and explicit missing confirmed transfer graph match the goal. No factual trip plan."
+    },
+    {
+      "id": "H04",
+      "intended_family": "multimodal_route",
+      "scenario": "family_pair",
+      "query": "तांबरम से अन्ना नगर तक लोकल ट्रेन और मेट्रो से यात्रा कैसे करूँ?",
+      "http_status": 200,
+      "elapsed_ms": 56.5,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "missing_execution_slot",
+        "response_text": "Please choose one transport mode for this question.",
+        "intent": "point_to_point_route",
+        "operation": null,
+        "slots": {
+          "temporal_relative": "कल"
+        },
+        "data": {
+          "requested_modes": [
+            "suburban_rail",
+            "metro"
+          ]
+        },
+        "missing_slots": [
+          "transport_mode"
+        ],
+        "clarification_reason": "missing_slot",
+        "candidate_entities": [],
+        "candidate_intents": [
+          "point_to_point_route"
+        ]
+      },
+      "category": "recognition mismatch",
+      "assessment": "Two-mode journey is selected as point-to-point and asks to choose one mode. Slots also contain कल although user wrote लोकल, not a relative day; attribution not repaired."
+    },
+    {
+      "id": "H05",
+      "intended_family": "route_stop_sequence",
+      "scenario": "family_pair",
+      "query": "बस संख्या १०२ किन-किन स्टॉप पर जाती है, क्रम में नाम बताइए।",
+      "http_status": 200,
+      "elapsed_ms": 54.9,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "missing_execution_slot",
+        "response_text": "Please provide the route number or line name.",
+        "intent": "route_stop_sequence",
+        "operation": "LIST_ROUTE_STOPS",
+        "slots": {
+          "transport_mode": "bus"
+        },
+        "data": {},
+        "missing_slots": [
+          "route_number_or_line_name"
+        ],
+        "clarification_reason": "missing_slot",
+        "candidate_entities": [],
+        "candidate_intents": [
+          "route_stop_sequence"
+        ]
+      },
+      "category": "recognition mismatch",
+      "assessment": "Stop-list intent matches, but explicit बस संख्या १०२ is not retained as route_number; asks for route."
+    },
+    {
+      "id": "H06",
+      "intended_family": "route_stop_sequence",
+      "scenario": "family_pair",
+      "query": "रूट २५आर की बस के पूरे स्टॉपों की सूची दिखाइए।",
+      "http_status": 200,
+      "elapsed_ms": 54.7,
+      "response": {
+        "status": "ok",
+        "outcome_reason": "answered",
+        "response_text": "25 R stops: Anna Square Bus Terminus one, Madras University, Marina Beach, Kannagi Statue Or Presidency College, Vivekananda House, Ice House Police Station, Meersahibpet Market, New College, …. Published stop sequences found. Service operation is not confirmed.",
+        "intent": "route_stop_sequence",
+        "operation": "LIST_ROUTE_STOPS",
+        "slots": {
+          "transport_mode": "bus",
+          "route_number": "25R"
+        },
+        "data": {
+          "sequences": [
+            {
+              "route_id": "GTFS_ROUTE_20163",
+              "route_name": "25 R",
+              "mode": "bus",
+              "direction_id": 0,
+              "stops": [
+                {
+                  "sequence": 1,
+                  "stop_id": "BUS_495",
+                  "name": "Anna Square Bus Terminus one"
+                },
+                {
+                  "sequence": 2,
+                  "stop_id": "BUS_2413",
+                  "name": "Madras University"
+                },
+                {
+                  "sequence": 3,
+                  "stop_id": "BUS_2601",
+                  "name": "Marina Beach"
+                },
+                {
+                  "sequence": 4,
+                  "stop_id": "BUS_5918",
+                  "name": "Kannagi Statue Or Presidency College"
+                },
+                {
+                  "sequence": 5,
+                  "stop_id": "BUS_5916",
+                  "name": "Vivekananda House"
+                },
+                {
+                  "sequence": 6,
+                  "stop_id": "BUS_9449",
+                  "name": "Ice House Police Station"
+                },
+                {
+                  "sequence": 7,
+                  "stop_id": "BUS_9455",
+                  "name": "Meersahibpet Market"
+                },
+                {
+                  "sequence": 8,
+                  "stop_id": "BUS_9464",
+                  "name": "New College"
+                },
+                {
+                  "sequence": 9,
+                  "stop_id": "BUS_154",
+                  "name": "Thousand Light Or Us Embassy"
+                },
+                {
+                  "sequence": 10,
+                  "stop_id": "BUS_5560",
+                  "name": "M.G.R Salai Nungambakkam Or Palm Grove"
+                },
+                {
+                  "sequence": 11,
+                  "stop_id": "BUS_156",
+                  "name": "Vetnary Hospital"
+                },
+                {
+                  "sequence": 12,
+                  "stop_id": "BUS_104",
+                  "name": "Periyar Salai"
+                },
+                {
+                  "sequence": 13,
+                  "stop_id": "BUS_63",
+                  "name": "Liberty"
+                },
+                {
+                  "sequence": 14,
+                  "stop_id": "BUS_138",
+                  "name": "Trustpuram"
+                },
+                {
+                  "sequence": 15,
+                  "stop_id": "BUS_111",
+                  "name": "Power House Kodambakkam"
+                },
+                {
+                  "sequence": 16,
+                  "stop_id": "BUS_120",
+                  "name": "Saamiyar Madam"
+                },
+                {
+                  "sequence": 17,
+                  "stop_id": "BUS_90",
+                  "name": "Nagathamman Koil"
+                },
+                {
+                  "sequence": 18,
+                  "stop_id": "BUS_9393",
+                  "name": "Virugambakkam"
+                },
+                {
+                  "sequence": 19,
+                  "stop_id": "BUS_10235",
+                  "name": "Alwar Thirunagar"
+                },
+                {
+                  "sequence": 20,
+                  "stop_id": "BUS_9359",
+                  "name": "Kesavardhini"
+                },
+                {
+                  "sequence": 21,
+                  "stop_id": "BUS_9351",
+                  "name": "Valasaravakkam"
+                },
+                {
+                  "sequence": 22,
+                  "stop_id": "BUS_9326",
+                  "name": "Jai Garden"
+                },
+                {
+                  "sequence": 23,
+                  "stop_id": "BUS_9269",
+                  "name": "Gopala Krishna Theatre"
+                },
+                {
+                  "sequence": 24,
+                  "stop_id": "BUS_5774",
+                  "name": "Porur"
+                },
+                {
+                  "sequence": 25,
+                  "stop_id": "BUS_5775",
+                  "name": "Ramachandra Hospital"
+                },
+                {
+                  "sequence": 26,
+                  "stop_id": "BUS_5776",
+                  "name": "Iyappanthangal"
+                },
+                {
+                  "sequence": 27,
+                  "stop_id": "BUS_5926",
+                  "name": "Iyyappanthangal Bus Depot"
+                },
+                {
+                  "sequence": 28,
+                  "stop_id": "BUS_5778",
+                  "name": "Kattupakkam"
+                },
+                {
+                  "sequence": 29,
+                  "stop_id": "BUS_5642",
+                  "name": "Poonamallee Municipality Or Kumananchavadi"
+                },
+                {
+                  "sequence": 30,
+                  "stop_id": "BUS_5780",
+                  "name": "Karayanchavadi"
+                },
+                {
+                  "sequence": 31,
+                  "stop_id": "BUS_5781",
+                  "name": "Kallarai"
+                },
+                {
+                  "sequence": 32,
+                  "stop_id": "BUS_5782",
+                  "name": "Poonamallee Government Hospital"
+                },
+                {
+                  "sequence": 33,
+                  "stop_id": "BUS_9440",
+                  "name": "Poonamallee"
+                }
+              ],
+              "source": "CHENNAI_COMMUNITY_GTFS"
+            }
+          ],
+          "truncated": false,
+          "provisional": true,
+          "partial_topology": false,
+          "excluded_unusable_rows": 0,
+          "uncovered_route_ids": []
+        },
+        "missing_slots": [],
+        "clarification_reason": null,
+        "candidate_entities": [],
+        "candidate_intents": [
+          "route_stop_sequence"
+        ]
+      },
+      "category": "successful bounded answer",
+      "assessment": "Hindi suffix २५आर resolves to 25R; published 25 R stop sequence with source/provisional caveat. Not live operation."
+    },
+    {
+      "id": "H07",
+      "intended_family": "route_stop_membership",
+      "scenario": "family_pair",
+      "query": "क्या १०२ नंबर बस मरिना बीच स्टॉप पर रुकती है?",
+      "http_status": 200,
+      "elapsed_ms": 53.6,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "missing_execution_slot",
+        "response_text": "Please provide a supported route number including its complete suffix.",
+        "intent": "route_stop_membership",
+        "operation": "CHECK_STOP_ON_ROUTE",
+        "slots": {
+          "transport_mode": "bus"
+        },
+        "data": {},
+        "missing_slots": [
+          "route_number"
+        ],
+        "clarification_reason": "missing_slot",
+        "candidate_entities": [],
+        "candidate_intents": [
+          "route_stop_membership"
+        ]
+      },
+      "category": "recognition mismatch",
+      "assessment": "Membership family matches but explicit १०२ नंबर बस is rejected as requiring a supported complete route suffix."
+    },
+    {
+      "id": "H08",
+      "intended_family": "route_stop_membership",
+      "scenario": "family_pair",
+      "query": "क्या २१जी बस गिंडी स्टॉप पर ठहरती है?",
+      "http_status": 200,
+      "elapsed_ms": 53.1,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "entity_ambiguity",
+        "response_text": "Please clarify which stop or location you mean.",
+        "intent": "route_stop_membership",
+        "operation": null,
+        "slots": {
+          "transport_mode": "bus",
+          "route_number": "21G"
+        },
+        "data": {},
+        "missing_slots": [],
+        "clarification_reason": "entity_ambiguity",
+        "candidate_entities": [
+          "BUS_1007625852",
+          "BUS_10167",
+          "BUS_11200",
+          "BUS_11203",
+          "BUS_2241055785",
+          "BUS_256039818",
+          "BUS_3264712327",
+          "BUS_3264712469",
+          "BUS_5631301427",
+          "BUS_CMRL_22"
+        ],
+        "candidate_intents": [
+          "route_stop_membership"
+        ]
+      },
+      "category": "legitimate ambiguity",
+      "assessment": "Membership route21G is preserved; गिंडी has ten bus-stop candidates. No arbitrary stop chosen."
+    },
+    {
+      "id": "H09",
+      "intended_family": "first_and_last_service",
+      "scenario": "family_pair",
+      "query": "आइलैंड ग्राउंड टर्मिनस से १०२ बस की पहली और आखिरी सेवा के समय बताइए।",
+      "http_status": 200,
+      "elapsed_ms": 53.6,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "missing_execution_slot",
+        "response_text": "Please provide the boarding stop or station.",
+        "intent": "first_and_last_service",
+        "operation": "GET_FIRST_LAST_SERVICE",
+        "slots": {
+          "transport_mode": "bus",
+          "route_number": "102"
+        },
+        "data": {},
+        "missing_slots": [
+          "station_or_stop"
+        ],
+        "clarification_reason": "missing_slot",
+        "candidate_entities": [],
+        "candidate_intents": [
+          "first_and_last_service"
+        ]
+      },
+      "category": "recognition mismatch",
+      "assessment": "First/last family and route102 match; Hindi Island ground Terminus is not retained as a boarding stop."
+    },
+    {
+      "id": "H10",
+      "intended_family": "first_and_last_service",
+      "scenario": "family_pair",
+      "query": "पूनमल्ली बस टर्मिनस से रूट ६२ की आखिरी बस का निर्धारित समय क्या है?",
+      "http_status": 200,
+      "elapsed_ms": 52.4,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "multiple_goals",
+        "response_text": "Please ask about one route, stop, fare stage or time at a time.",
+        "intent": "scheduled_departure",
+        "operation": null,
+        "slots": {},
+        "data": {},
+        "missing_slots": [],
+        "clarification_reason": "multiple_goals",
+        "candidate_entities": [],
+        "candidate_intents": [
+          "scheduled_departure"
+        ]
+      },
+      "category": "recognition mismatch",
+      "assessment": "Last-service goal becomes scheduled_departure and a multiple-scope clarification despite one stop/route."
+    },
+    {
+      "id": "H11",
+      "intended_family": "service_frequency",
+      "scenario": "family_pair",
+      "query": "आइलैंड ग्राउंड टर्मिनस से रूट १०२ की बस कितने मिनट के अंतराल से चलती है?",
+      "http_status": 200,
+      "elapsed_ms": 53.2,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "multiple_goals",
+        "response_text": "Please ask about one route, stop, fare stage or time at a time.",
+        "intent": "service_frequency",
+        "operation": null,
+        "slots": {},
+        "data": {},
+        "missing_slots": [],
+        "clarification_reason": "multiple_goals",
+        "candidate_entities": [],
+        "candidate_intents": [
+          "service_frequency"
+        ]
+      },
+      "category": "recognition mismatch",
+      "assessment": "Frequency intent matches but single route/stop question triggers multiple_goals; no headway answer."
+    },
+    {
+      "id": "H12",
+      "intended_family": "service_frequency",
+      "scenario": "family_pair",
+      "query": "पूनमल्ली बस टर्मिनस पर ६२ बस की निर्धारित आवृत्ति क्या है?",
+      "http_status": 200,
+      "elapsed_ms": 52.1,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "multiple_goals",
+        "response_text": "Please ask about one route, stop, fare stage or time at a time.",
+        "intent": "scheduled_departure",
+        "operation": null,
+        "slots": {},
+        "data": {},
+        "missing_slots": [],
+        "clarification_reason": "multiple_goals",
+        "candidate_entities": [],
+        "candidate_intents": [
+          "scheduled_departure"
+        ]
+      },
+      "category": "recognition mismatch",
+      "assessment": "Frequency goal becomes scheduled_departure with multiple_goals on a single route/stop question."
+    },
+    {
+      "id": "H13",
+      "intended_family": "scheduled_departure",
+      "scenario": "family_pair",
+      "query": "पूनमल्ली बस टर्मिनस से सुबह नौ बजे के बाद बसों का प्रस्थान समय बताइए।",
+      "http_status": 200,
+      "elapsed_ms": 95.9,
+      "response": {
+        "status": "ok",
+        "outcome_reason": "answered",
+        "response_text": "Published first departure: 00:18:00; last: 25:16:00 (service-day time). Published schedule bounds; verify current operation with the operator.",
+        "intent": "first_and_last_service",
+        "operation": "GET_FIRST_LAST_SERVICE",
+        "slots": {
+          "transport_mode": "bus",
+          "station": "BUS_5821"
+        },
+        "data": {
+          "first_departure": "00:18:00",
+          "last_departure": "25:16:00",
+          "timing_type": null,
+          "source": [
+            "CHENNAI_COMMUNITY_GTFS"
+          ],
+          "time_format": "gtfs_service_day",
+          "provisional": true
+        },
+        "missing_slots": [],
+        "clarification_reason": null,
+        "candidate_entities": [],
+        "candidate_intents": [
+          "first_and_last_service"
+        ]
+      },
+      "category": "recognition mismatch",
+      "assessment": "After-morning-nine departures request receives first/last bounds00:18:00/25:16:00; requested departure scope is not answered."
+    },
+    {
+      "id": "H14",
+      "intended_family": "scheduled_departure",
+      "scenario": "family_pair",
+      "query": "आइलैंड ग्राउंड टर्मिनस से १०२ बस के निर्धारित प्रस्थान 09:30 AM के बाद दिखाइए।",
+      "http_status": 200,
+      "elapsed_ms": 52.3,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "missing_execution_slot",
+        "response_text": "Please provide the boarding stop or station.",
+        "intent": "scheduled_departure",
+        "operation": "GET_SCHEDULED_DEPARTURES",
+        "slots": {
+          "transport_mode": "bus",
+          "route_number": "102",
+          "time": "09:30:00"
+        },
+        "data": {},
+        "missing_slots": [
+          "station_or_stop"
+        ],
+        "clarification_reason": "missing_slot",
+        "candidate_entities": [],
+        "candidate_intents": [
+          "scheduled_departure"
+        ]
+      },
+      "category": "recognition mismatch",
+      "assessment": "Departure family/time09:30AM/route102 retained, but supplied Hindi boarding stop is missing."
+    },
+    {
+      "id": "H15",
+      "intended_family": "mode_availability",
+      "scenario": "family_pair",
+      "query": "गिंडी और चेन्नई सेंट्रल के बीच मेट्रो सेवा मिलती है क्या?",
+      "http_status": 200,
+      "elapsed_ms": 53.5,
+      "response": {
+        "status": "unavailable",
+        "outcome_reason": "unsupported_source",
+        "response_text": "No mode-consistent published topology is available for the requested transport mode.",
+        "intent": "mode_availability",
+        "operation": "CHECK_SERVICE_AVAILABILITY",
+        "slots": {
+          "transport_mode": "metro",
+          "origin": "METRO_GUINDY"
+        },
+        "data": {
+          "reason": "published_mode_topology_absent",
+          "transport_mode": "metro"
+        },
+        "missing_slots": [],
+        "clarification_reason": null,
+        "candidate_entities": [],
+        "candidate_intents": [
+          "mode_availability"
+        ]
+      },
+      "category": "unsupported source",
+      "assessment": "Mode-availability family matches; metro topology source is absent. No claim that the real metro does not run."
+    },
+    {
+      "id": "H16",
+      "intended_family": "mode_availability",
+      "scenario": "family_pair",
+      "query": "अड्यार से ब्रॉडवे तक सीधी बस सेवा उपलब्ध है क्या?",
+      "http_status": 200,
+      "elapsed_ms": 52.7,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "missing_execution_slot",
+        "response_text": "Please provide the starting stop, the destination stop.",
+        "intent": "mode_availability",
+        "operation": "CHECK_SERVICE_AVAILABILITY",
+        "slots": {
+          "transport_mode": "bus"
+        },
+        "data": {},
+        "missing_slots": [
+          "origin",
+          "destination"
+        ],
+        "clarification_reason": "missing_slot",
+        "candidate_entities": [],
+        "candidate_intents": [
+          "mode_availability"
+        ]
+      },
+      "category": "recognition mismatch",
+      "assessment": "Availability family matches but Hindi Adyar/Broadway endpoints are missing from slots."
+    },
+    {
+      "id": "H17",
+      "intended_family": "fare_calculation",
+      "scenario": "family_pair",
+      "query": "साधारण बस में स्टेज ८ के लिए कितना किराया लगता है?",
+      "http_status": 200,
+      "elapsed_ms": 52.4,
+      "response": {
+        "status": "ok",
+        "outcome_reason": "answered",
+        "response_text": "Published fare (Ordinary Services): INR 12 (record effective 2018-01-29). Published stage fare found; confirm the current fare before travel.",
+        "intent": "fare_calculation",
+        "operation": "CALCULATE_FARE",
+        "slots": {
+          "transport_mode": "bus",
+          "service_type": "Ordinary Services",
+          "stage_number": 8
+        },
+        "data": {
+          "amount": 12.0,
+          "currency": "INR",
+          "stage_number": 8,
+          "service_type": "Ordinary Services",
+          "effective_date": "2018-01-29",
+          "source": "MTC_OFFICIAL",
+          "government_order": "G.O (Ms.) No.48 Dated 28.01.2018",
+          "provisional": true
+        },
+        "missing_slots": [],
+        "clarification_reason": null,
+        "candidate_entities": [],
+        "candidate_intents": [
+          "fare_calculation"
+        ]
+      },
+      "category": "successful bounded answer",
+      "assessment": "Explicit ordinary stage8 yields INR12, MTC_OFFICIAL, effective2018-01-29, provisional/current-fare caveats."
+    },
+    {
+      "id": "H18",
+      "intended_family": "fare_calculation",
+      "scenario": "family_pair",
+      "query": "डीलक्स बस का स्टेज ६ वाला किराया रुपये में बताइए।",
+      "http_status": 200,
+      "elapsed_ms": 54.7,
+      "response": {
+        "status": "ok",
+        "outcome_reason": "answered",
+        "response_text": "Published fare (Deluxe Services): INR 21 (record effective 2018-01-29). Published stage fare found; confirm the current fare before travel.",
+        "intent": "fare_calculation",
+        "operation": "CALCULATE_FARE",
+        "slots": {
+          "transport_mode": "bus",
+          "service_type": "Deluxe Services",
+          "stage_number": 6
+        },
+        "data": {
+          "amount": 21.0,
+          "currency": "INR",
+          "stage_number": 6,
+          "service_type": "Deluxe Services",
+          "effective_date": "2018-01-29",
+          "source": "MTC_OFFICIAL",
+          "government_order": "G.O (Ms.) No.48 Dated 28.01.2018",
+          "provisional": true
+        },
+        "missing_slots": [],
+        "clarification_reason": null,
+        "candidate_entities": [],
+        "candidate_intents": [
+          "fare_calculation"
+        ]
+      },
+      "category": "successful bounded answer",
+      "assessment": "Explicit deluxe stage6 yields INR21 with the dated official source and caveats."
+    },
+    {
+      "id": "H19",
+      "intended_family": "ticketing_and_passes",
+      "scenario": "family_pair",
+      "query": "मेट्रो के मासिक पास को खरीदने का नियम बताइए।",
+      "http_status": 200,
+      "elapsed_ms": 52.2,
+      "response": {
+        "status": "unavailable",
+        "outcome_reason": "unsupported_source",
+        "response_text": "This snapshot contains no authoritative ticket or pass policy table.",
+        "intent": "ticketing_and_passes",
+        "operation": "GET_TICKETING_POLICY",
+        "slots": {},
+        "data": {
+          "reason": "ticket_policy_absent"
+        },
+        "missing_slots": [],
+        "clarification_reason": null,
+        "candidate_entities": [],
+        "candidate_intents": [
+          "ticketing_and_passes"
+        ]
+      },
+      "category": "unsupported source",
+      "assessment": "Ticket/pass family matches; no authoritative policy table."
+    },
+    {
+      "id": "H20",
+      "intended_family": "ticketing_and_passes",
+      "scenario": "family_pair",
+      "query": "चेन्नई मेट्रो में एनसीएमसी कार्ड को रिचार्ज कैसे करते हैं?",
+      "http_status": 200,
+      "elapsed_ms": 52.1,
+      "response": {
+        "status": "unavailable",
+        "outcome_reason": "unsupported_source",
+        "response_text": "This snapshot contains no authoritative ticket or pass policy table.",
+        "intent": "ticketing_and_passes",
+        "operation": "GET_TICKETING_POLICY",
+        "slots": {},
+        "data": {
+          "reason": "ticket_policy_absent"
+        },
+        "missing_slots": [],
+        "clarification_reason": null,
+        "candidate_entities": [],
+        "candidate_intents": [
+          "ticketing_and_passes"
+        ]
+      },
+      "category": "unsupported source",
+      "assessment": "Ticket/pass family matches; policy preflight refuses before extraction. Does not prove NCMC slot recognition."
+    },
+    {
+      "id": "H21",
+      "intended_family": "station_facilities",
+      "scenario": "family_pair",
+      "query": "एयरपोर्ट मेट्रो स्टेशन में शौचालय की सुविधा है क्या?",
+      "http_status": 200,
+      "elapsed_ms": 51.9,
+      "response": {
+        "status": "unavailable",
+        "outcome_reason": "unsupported_source",
+        "response_text": "Facility availability is not verified in this snapshot.",
+        "intent": "station_facilities",
+        "operation": "GET_STATION_FACILITY",
+        "slots": {},
+        "data": {
+          "reason": "facility_verification_absent"
+        },
+        "missing_slots": [],
+        "clarification_reason": null,
+        "candidate_entities": [],
+        "candidate_intents": [
+          "station_facilities"
+        ]
+      },
+      "category": "unsupported source",
+      "assessment": "Facility family matches; availability is unverified. Preflight does not prove per-station/facility extraction."
+    },
+    {
+      "id": "H22",
+      "intended_family": "station_facilities",
+      "scenario": "family_pair",
+      "query": "गिंडी मेट्रो स्टेशन पर गाड़ी पार्क करने की जगह उपलब्ध है?",
+      "http_status": 200,
+      "elapsed_ms": 52.3,
+      "response": {
+        "status": "unavailable",
+        "outcome_reason": "unsupported_source",
+        "response_text": "Facility availability is not verified in this snapshot.",
+        "intent": "station_facilities",
+        "operation": "GET_STATION_FACILITY",
+        "slots": {},
+        "data": {
+          "reason": "facility_verification_absent"
+        },
+        "missing_slots": [],
+        "clarification_reason": null,
+        "candidate_entities": [],
+        "candidate_intents": [
+          "station_facilities"
+        ]
+      },
+      "category": "unsupported source",
+      "assessment": "Facility family matches; no verified facility answer."
+    },
+    {
+      "id": "H23",
+      "intended_family": "station_accessibility",
+      "scenario": "family_pair",
+      "query": "गिंडी मेट्रो में व्हीलचेयर के लिए रैंप मौजूद है क्या?",
+      "http_status": 200,
+      "elapsed_ms": 53.7,
+      "response": {
+        "status": "unavailable",
+        "outcome_reason": "unsupported_source",
+        "response_text": "The snapshot contains no verified accessibility feature values.",
+        "intent": "station_accessibility",
+        "operation": "GET_ACCESSIBILITY_INFO",
+        "slots": {},
+        "data": {
+          "reason": "accessibility_values_absent"
+        },
+        "missing_slots": [],
+        "clarification_reason": null,
+        "candidate_entities": [],
+        "candidate_intents": [
+          "station_accessibility"
+        ]
+      },
+      "category": "unsupported source",
+      "assessment": "Accessibility family matches; no verified values. Preflight does not prove feature-slot parsing."
+    },
+    {
+      "id": "H24",
+      "intended_family": "station_accessibility",
+      "scenario": "family_pair",
+      "query": "चेन्नई सेंट्रल मेट्रो स्टेशन में दृष्टिबाधित यात्रियों के लिए स्पर्श पथ हैं क्या?",
+      "http_status": 200,
+      "elapsed_ms": 56.9,
+      "response": {
+        "status": "unavailable",
+        "outcome_reason": "unsupported_source",
+        "response_text": "The snapshot contains no verified accessibility feature values.",
+        "intent": "station_accessibility",
+        "operation": "GET_ACCESSIBILITY_INFO",
+        "slots": {},
+        "data": {
+          "reason": "accessibility_values_absent"
+        },
+        "missing_slots": [],
+        "clarification_reason": null,
+        "candidate_entities": [],
+        "candidate_intents": [
+          "station_accessibility"
+        ]
+      },
+      "category": "unsupported source",
+      "assessment": "Accessibility family matches; no verified values for a tactile-path request."
+    },
+    {
+      "id": "H25",
+      "intended_family": "interchange_transfer",
+      "scenario": "family_pair",
+      "query": "चेन्नई सेंट्रल पर मेट्रो से उपनगरीय ट्रेन में बदलने की जानकारी दीजिए।",
+      "http_status": 200,
+      "elapsed_ms": 58.0,
+      "response": {
+        "status": "unavailable",
+        "outcome_reason": "unsupported_source",
+        "response_text": "This snapshot contains no authoritative ticket or pass policy table.",
+        "intent": "ticketing_and_passes",
+        "operation": "GET_TICKETING_POLICY",
+        "slots": {},
+        "data": {
+          "reason": "ticket_policy_absent"
+        },
+        "missing_slots": [],
+        "clarification_reason": null,
+        "candidate_entities": [],
+        "candidate_intents": [
+          "ticketing_and_passes"
+        ]
+      },
+      "category": "recognition mismatch",
+      "assessment": "Metro-to-suburban transfer goal selects ticketing_and_passes and an unrelated policy-source refusal."
+    },
+    {
+      "id": "H26",
+      "intended_family": "interchange_transfer",
+      "scenario": "family_pair",
+      "query": "गिंडी में बस और मेट्रो के बीच इंटरचेंज कहाँ करना होता है?",
+      "http_status": 200,
+      "elapsed_ms": 53.1,
+      "response": {
+        "status": "unavailable",
+        "outcome_reason": "unsupported_source",
+        "response_text": "The snapshot has no confirmed interchange records.",
+        "intent": "interchange_transfer",
+        "operation": "GET_INTERCHANGE_DETAILS",
+        "slots": {},
+        "data": {
+          "reason": "confirmed_interchanges_absent"
+        },
+        "missing_slots": [],
+        "clarification_reason": null,
+        "candidate_entities": [],
+        "candidate_intents": [
+          "interchange_transfer"
+        ]
+      },
+      "category": "unsupported source",
+      "assessment": "Interchange family matches; no confirmed interchange records. No transfer instructions invented."
+    },
+    {
+      "id": "H27",
+      "intended_family": "nearest_transport",
+      "scenario": "family_pair",
+      "query": "मरिना बीच के सबसे निकट कौन सा मेट्रो स्टेशन पड़ता है?",
+      "http_status": 200,
+      "elapsed_ms": 53.9,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "missing_execution_slot",
+        "response_text": "Please provide a nearby landmark or locality.",
+        "intent": "nearest_transport",
+        "operation": "FIND_NEAREST_STATION",
+        "slots": {
+          "transport_mode": "metro"
+        },
+        "data": {},
+        "missing_slots": [
+          "landmark_or_locality"
+        ],
+        "clarification_reason": "missing_slot",
+        "candidate_entities": [],
+        "candidate_intents": [
+          "nearest_transport"
+        ]
+      },
+      "category": "recognition mismatch",
+      "assessment": "Nearest family matches; supplied Hindi Marina Beach name is not retained as anchor."
+    },
+    {
+      "id": "H28",
+      "intended_family": "nearest_transport",
+      "scenario": "family_pair",
+      "query": "आईआईटी मद्रास के पास का निकटतम बस स्टॉप बताइए।",
+      "http_status": 200,
+      "elapsed_ms": 53.4,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "missing_execution_slot",
+        "response_text": "Please provide a nearby landmark or locality.",
+        "intent": "nearest_transport",
+        "operation": "FIND_NEAREST_STATION",
+        "slots": {
+          "transport_mode": "bus"
+        },
+        "data": {},
+        "missing_slots": [
+          "landmark_or_locality"
+        ],
+        "clarification_reason": "missing_slot",
+        "candidate_entities": [],
+        "candidate_intents": [
+          "nearest_transport"
+        ]
+      },
+      "category": "recognition mismatch",
+      "assessment": "Nearest family matches; supplied Hindi IIT Madras name is not retained as anchor. No campus inferred in this case."
+    },
+    {
+      "id": "H29",
+      "intended_family": "realtime_status_query",
+      "scenario": "family_pair",
+      "query": "रूट २५आर की बस का लाइव जीपीएस अभी दिखा सकते हैं?",
+      "http_status": 200,
+      "elapsed_ms": 53.6,
+      "response": {
+        "status": "unavailable",
+        "outcome_reason": "external_source_required",
+        "response_text": "Live transport status is unavailable; please verify with the operator.",
+        "intent": "realtime_status_query",
+        "operation": "REJECT_UNSUPPORTED_REALTIME",
+        "slots": {},
+        "data": {},
+        "missing_slots": [],
+        "clarification_reason": null,
+        "candidate_entities": [],
+        "candidate_intents": [
+          "realtime_status_query"
+        ]
+      },
+      "category": "unsupported source",
+      "assessment": "Realtime family selects REJECT_UNSUPPORTED_REALTIME; external_source_required, no live coordinates."
+    },
+    {
+      "id": "H30",
+      "intended_family": "realtime_status_query",
+      "scenario": "family_pair",
+      "query": "इस समय एयरपोर्ट मेट्रो ट्रेन में भीड़ कितनी है?",
+      "http_status": 200,
+      "elapsed_ms": 352.1,
+      "response": {
+        "status": "unavailable",
+        "outcome_reason": "unsupported_source",
+        "response_text": "No mode-consistent published schedule is available for the requested transport mode.",
+        "intent": "service_frequency",
+        "operation": "GET_SERVICE_FREQUENCY",
+        "slots": {
+          "transport_mode": "metro"
+        },
+        "data": {
+          "reason": "published_mode_schedule_absent",
+          "transport_mode": "metro"
+        },
+        "missing_slots": [],
+        "clarification_reason": null,
+        "candidate_entities": [],
+        "candidate_intents": [
+          "service_frequency"
+        ]
+      },
+      "category": "recognition mismatch",
+      "assessment": "Current crowd question selects service_frequency with metro schedule-source refusal, not realtime refusal."
+    },
+    {
+      "id": "H31",
+      "intended_family": "out_of_scope",
+      "scenario": "family_pair",
+      "query": "आज रात के खाने के लिए पनीर की कोई नई रेसिपी सुझाओ।",
+      "http_status": 200,
+      "elapsed_ms": 51.6,
+      "response": {
+        "status": "out_of_scope",
+        "outcome_reason": "out_of_scope",
+        "response_text": "I can help with Chennai public transport questions.",
+        "intent": "out_of_scope",
+        "operation": "REJECT_OUT_OF_SCOPE",
+        "slots": {},
+        "data": {},
+        "missing_slots": [],
+        "clarification_reason": null,
+        "candidate_entities": [],
+        "candidate_intents": [
+          "out_of_scope"
+        ]
+      },
+      "category": "safe guard",
+      "assessment": "Unrelated recipe correctly selects REJECT_OUT_OF_SCOPE; no transit facts."
+    },
+    {
+      "id": "H32",
+      "intended_family": "out_of_scope",
+      "scenario": "family_pair",
+      "query": "मुंबई के कल के मौसम का पूर्वानुमान क्या है?",
+      "http_status": 200,
+      "elapsed_ms": 52.4,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "temporal_ambiguity",
+        "response_text": "Please clarify the time or day you mean.",
+        "intent": "first_and_last_service",
+        "operation": null,
+        "slots": {
+          "temporal_relative": "कल"
+        },
+        "data": {},
+        "missing_slots": [],
+        "clarification_reason": "temporal_ambiguity",
+        "candidate_entities": [],
+        "candidate_intents": [
+          "first_and_last_service"
+        ]
+      },
+      "category": "recognition mismatch",
+      "assessment": "Mumbai weather goal selects first_and_last_service and कल temporal ambiguity, not outside-scope rejection."
+    },
+    {
+      "id": "H33",
+      "intended_family": "fare_calculation",
+      "scenario": "missing_service_class",
+      "query": "बस के स्टेज ८ का किराया कितना है?",
+      "http_status": 200,
+      "elapsed_ms": 52.9,
+      "response": {
+        "status": "ok",
+        "outcome_reason": "answered",
+        "response_text": "Published fare (Ordinary Services): INR 12 (record effective 2018-01-29). Published stage fare found; confirm the current fare before travel.",
+        "intent": "fare_calculation",
+        "operation": "CALCULATE_FARE",
+        "slots": {
+          "transport_mode": "bus",
+          "stage_number": 8
+        },
+        "data": {
+          "amount": 12.0,
+          "currency": "INR",
+          "stage_number": 8,
+          "service_type": "Ordinary Services",
+          "effective_date": "2018-01-29",
+          "source": "MTC_OFFICIAL",
+          "government_order": "G.O (Ms.) No.48 Dated 28.01.2018",
+          "provisional": true
+        },
+        "missing_slots": [],
+        "clarification_reason": null,
+        "candidate_entities": [],
+        "candidate_intents": [
+          "fare_calculation"
+        ]
+      },
+      "category": "successful bounded answer",
+      "assessment": "No class supplied; API defaults to Ordinary Services for stage8 and explicitly reports that class/source. This is observed default behavior, not a missing-class pass/fail assumption."
+    },
+    {
+      "id": "H34",
+      "intended_family": "route_stop_sequence",
+      "scenario": "missing_route",
+      "query": "बस के सभी स्टॉप क्रम से लिख दीजिए।",
+      "http_status": 200,
+      "elapsed_ms": 52.0,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "missing_execution_slot",
+        "response_text": "Please provide the route number or line name.",
+        "intent": "route_stop_sequence",
+        "operation": "LIST_ROUTE_STOPS",
+        "slots": {
+          "transport_mode": "bus"
+        },
+        "data": {},
+        "missing_slots": [
+          "route_number_or_line_name"
+        ],
+        "clarification_reason": "missing_slot",
+        "candidate_entities": [],
+        "candidate_intents": [
+          "route_stop_sequence"
+        ]
+      },
+      "category": "legitimate ambiguity",
+      "assessment": "No route/line supplied; stop-list intent asks for the required route/line."
+    },
+    {
+      "id": "H35",
+      "intended_family": "nearest_transport",
+      "scenario": "missing_anchor",
+      "query": "निकटतम मेट्रो स्टेशन का नाम बताइए।",
+      "http_status": 200,
+      "elapsed_ms": 53.1,
+      "response": {
+        "status": "unavailable",
+        "outcome_reason": "unsupported_source",
+        "response_text": "No mode-consistent published topology is available for the requested transport mode.",
+        "intent": "route_stop_sequence",
+        "operation": "LIST_ROUTE_STOPS",
+        "slots": {
+          "transport_mode": "metro"
+        },
+        "data": {
+          "reason": "published_mode_topology_absent",
+          "transport_mode": "metro"
+        },
+        "missing_slots": [],
+        "clarification_reason": null,
+        "candidate_entities": [],
+        "candidate_intents": [
+          "route_stop_sequence"
+        ]
+      },
+      "category": "recognition mismatch",
+      "assessment": "Anchorless nearest request becomes route_stop_sequence and metro topology refusal rather than anchor clarification."
+    },
+    {
+      "id": "H36",
+      "intended_family": "fare_calculation",
+      "scenario": "spelled_ordinal",
+      "query": "साधारण बस में आठवें स्टेज का किराया बताइए।",
+      "http_status": 200,
+      "elapsed_ms": 52.0,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "missing_execution_slot",
+        "response_text": "Please provide a fare stage number, or the starting and destination stops.",
+        "intent": "fare_calculation",
+        "operation": "CALCULATE_FARE",
+        "slots": {
+          "transport_mode": "bus",
+          "service_type": "Ordinary Services"
+        },
+        "data": {},
+        "missing_slots": [
+          "origin_or_stage_number",
+          "destination_or_stage_number"
+        ],
+        "clarification_reason": "missing_slot",
+        "candidate_entities": [],
+        "candidate_intents": [
+          "fare_calculation"
+        ]
+      },
+      "category": "recognition mismatch",
+      "assessment": "Fare intent/class match but spelled ordinal आठवें is not accepted as stage8; no fare guessed."
+    },
+    {
+      "id": "H37",
+      "intended_family": "nearest_transport",
+      "scenario": "unknown_anchor",
+      "query": "कल्पित नीलकमल चौराहे के पास कौन सा बस स्टॉप है?",
+      "http_status": 200,
+      "elapsed_ms": 52.0,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "missing_execution_slot",
+        "response_text": "Please provide a nearby landmark or locality.",
+        "intent": "nearest_transport",
+        "operation": "FIND_NEAREST_STATION",
+        "slots": {
+          "transport_mode": "bus"
+        },
+        "data": {},
+        "missing_slots": [
+          "landmark_or_locality"
+        ],
+        "clarification_reason": "missing_slot",
+        "candidate_entities": [],
+        "candidate_intents": [
+          "nearest_transport"
+        ]
+      },
+      "category": "safe guard",
+      "assessment": "Unknown invented landmark yields missing anchor; no location is fabricated."
+    },
+    {
+      "id": "H38",
+      "intended_family": "nearest_transport",
+      "scenario": "entity_ambiguity",
+      "query": "सेंट्रल के नजदीक मेट्रो स्टेशन कौन सा है?",
+      "http_status": 200,
+      "elapsed_ms": 51.4,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "entity_ambiguity",
+        "response_text": "Please clarify which stop or location you mean.",
+        "intent": "nearest_transport",
+        "operation": null,
+        "slots": {
+          "transport_mode": "metro"
+        },
+        "data": {},
+        "missing_slots": [],
+        "clarification_reason": "entity_ambiguity",
+        "candidate_entities": [
+          "HUB_PURATCHI_THALAIVAR_DR__M_G_RAMACHANDRAN_CENTRAL",
+          "HUB_PURATCHI_THALAIVAR_DR__M__G__RAMACHANDRAN_CENTRAL",
+          "RAIL_CHENNAI_CENTRAL"
+        ],
+        "candidate_intents": [
+          "nearest_transport"
+        ]
+      },
+      "category": "legitimate ambiguity",
+      "assessment": "Central has three canonical candidates; nearest intent clarifies location."
+    },
+    {
+      "id": "H39",
+      "intended_family": "scheduled_departure",
+      "scenario": "clock_ambiguity",
+      "query": "Poonamallee Bus Terminus से ८ बजे की निर्धारित बसें दिखाइए।",
+      "http_status": 200,
+      "elapsed_ms": 51.9,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "missing_execution_slot",
+        "response_text": "Please provide the route number or line name.",
+        "intent": "route_stop_sequence",
+        "operation": "LIST_ROUTE_STOPS",
+        "slots": {
+          "transport_mode": "bus"
+        },
+        "data": {},
+        "missing_slots": [
+          "route_number_or_line_name"
+        ],
+        "clarification_reason": "missing_slot",
+        "candidate_entities": [],
+        "candidate_intents": [
+          "route_stop_sequence"
+        ]
+      },
+      "category": "recognition mismatch",
+      "assessment": "Bare-eight scheduled departure goal becomes stop-list intent. Intended clock-ambiguity guard not reached."
+    },
+    {
+      "id": "H40",
+      "intended_family": "scheduled_departure",
+      "scenario": "explicit_morning_clock",
+      "query": "Poonamallee Bus Terminus से सुबह ८ बजे के बाद की निर्धारित बसें दिखाइए।",
+      "http_status": 200,
+      "elapsed_ms": 99.7,
+      "response": {
+        "status": "ok",
+        "outcome_reason": "answered",
+        "response_text": "Published departures: 154 R at 08:00:00, 62 at 08:00:00, 597A R at 08:00:00, 591 at 08:00:00, 49X at 08:00:00 (service-day time). Published departures only; times are not live predictions.",
+        "intent": "scheduled_departure",
+        "operation": "GET_SCHEDULED_DEPARTURES",
+        "slots": {
+          "transport_mode": "bus",
+          "time": "08:00:00",
+          "station": "BUS_5821"
+        },
+        "data": {
+          "departures": [
+            {
+              "time": "08:00:00",
+              "route_id": "GTFS_ROUTE_23733",
+              "route_name": "154 R",
+              "source": "CHENNAI_COMMUNITY_GTFS"
+            },
+            {
+              "time": "08:00:00",
+              "route_id": "GTFS_ROUTE_20088",
+              "route_name": "62",
+              "source": "CHENNAI_COMMUNITY_GTFS"
+            },
+            {
+              "time": "08:00:00",
+              "route_id": "GTFS_ROUTE_22780",
+              "route_name": "597A R",
+              "source": "CHENNAI_COMMUNITY_GTFS"
+            },
+            {
+              "time": "08:00:00",
+              "route_id": "GTFS_ROUTE_12362",
+              "route_name": "591",
+              "source": "CHENNAI_COMMUNITY_GTFS"
+            },
+            {
+              "time": "08:00:00",
+              "route_id": "GTFS_ROUTE_20338",
+              "route_name": "49X",
+              "source": "CHENNAI_COMMUNITY_GTFS"
+            }
+          ],
+          "time_format": "gtfs_service_day",
+          "provisional": true
+        },
+        "missing_slots": [],
+        "clarification_reason": null,
+        "candidate_entities": [],
+        "candidate_intents": [
+          "scheduled_departure"
+        ]
+      },
+      "category": "successful bounded answer",
+      "assessment": "Explicit Hindi सुबह ८ resolves to08:00:00, stationBUS_5821; five published08:00 departures with schedule caveats."
+    },
+    {
+      "id": "H41",
+      "intended_family": "first_and_last_service",
+      "scenario": "relative_day_ambiguity",
+      "query": "कल पूनमल्ली बस टर्मिनस से ६२ बस की पहली सेवा कब है?",
+      "http_status": 200,
+      "elapsed_ms": 58.2,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "temporal_ambiguity",
+        "response_text": "Please clarify the time or day you mean.",
+        "intent": "first_and_last_service",
+        "operation": null,
+        "slots": {
+          "transport_mode": "bus",
+          "route_number": "62",
+          "timing_type": "first",
+          "temporal_relative": "कल",
+          "station": "BUS_5821"
+        },
+        "data": {},
+        "missing_slots": [],
+        "clarification_reason": "temporal_ambiguity",
+        "candidate_entities": [],
+        "candidate_intents": [
+          "first_and_last_service"
+        ]
+      },
+      "category": "legitimate ambiguity",
+      "assessment": "Bare कल is temporally ambiguous; first-service route62/station preserved, temporal clarification is appropriate."
+    },
+    {
+      "id": "H42",
+      "intended_family": "scheduled_departure",
+      "scenario": "invalid_date_time",
+      "query": "रूट १०२ के प्रस्थान 2026-02-31 को 27:80 बजे दिखाइए।",
+      "http_status": 200,
+      "elapsed_ms": 53.4,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "temporal_ambiguity",
+        "response_text": "Please clarify the time or day you mean.",
+        "intent": "scheduled_departure",
+        "operation": null,
+        "slots": {
+          "route_number": "102"
+        },
+        "data": {},
+        "missing_slots": [],
+        "clarification_reason": "temporal_ambiguity",
+        "candidate_entities": [],
+        "candidate_intents": [
+          "scheduled_departure"
+        ]
+      },
+      "category": "safe guard",
+      "assessment": "Invalid date2026-02-31/time27:80 yield temporal ambiguity; no malformed schedule answered."
+    },
+    {
+      "id": "H43",
+      "intended_family": "route_stop_sequence",
+      "scenario": "multiple_route_scope",
+      "query": "१०२ और २१जी दोनों बसों के सभी स्टॉप बताओ।",
+      "http_status": 200,
+      "elapsed_ms": 53.5,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "missing_execution_slot",
+        "response_text": "Please provide a supported route number including its complete suffix.",
+        "intent": "route_stop_sequence",
+        "operation": "LIST_ROUTE_STOPS",
+        "slots": {
+          "transport_mode": "bus"
+        },
+        "data": {},
+        "missing_slots": [
+          "route_number"
+        ],
+        "clarification_reason": "missing_slot",
+        "candidate_entities": [],
+        "candidate_intents": [
+          "route_stop_sequence"
+        ]
+      },
+      "category": "recognition mismatch",
+      "assessment": "Two explicit route scopes return unsupported complete-suffix clarification; requested multi-route guard not established. No stop list silently chooses one."
+    },
+    {
+      "id": "H44",
+      "intended_family": "multiple_goals",
+      "scenario": "fare_and_departure",
+      "query": "साधारण बस के स्टेज ८ का किराया बताओ और पूनमल्ली से बस के प्रस्थान दिखाओ।",
+      "http_status": 200,
+      "elapsed_ms": 54.0,
+      "response": {
+        "status": "ok",
+        "outcome_reason": "answered",
+        "response_text": "Published fare (Ordinary Services): INR 12 (record effective 2018-01-29). Published stage fare found; confirm the current fare before travel.",
+        "intent": "fare_calculation",
+        "operation": "CALCULATE_FARE",
+        "slots": {
+          "transport_mode": "bus",
+          "service_type": "Ordinary Services",
+          "stage_number": 8
+        },
+        "data": {
+          "amount": 12.0,
+          "currency": "INR",
+          "stage_number": 8,
+          "service_type": "Ordinary Services",
+          "effective_date": "2018-01-29",
+          "source": "MTC_OFFICIAL",
+          "government_order": "G.O (Ms.) No.48 Dated 28.01.2018",
+          "provisional": true
+        },
+        "missing_slots": [],
+        "clarification_reason": null,
+        "candidate_entities": [],
+        "candidate_intents": [
+          "fare_calculation"
+        ]
+      },
+      "category": "recognition mismatch",
+      "assessment": "Explicit fare plus departure goals return only an OK fare; the second goal is dropped without clarification."
+    },
+    {
+      "id": "H45",
+      "intended_family": "scheduled_departure",
+      "scenario": "known_waypoint",
+      "query": "चेन्नई सेंट्रल से तांबरम तक गिंडी के रास्ते निर्धारित प्रस्थान बताओ।",
+      "http_status": 200,
+      "elapsed_ms": 53.3,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "entity_ambiguity",
+        "response_text": "Please clarify which stop or location you mean.",
+        "intent": "scheduled_departure",
+        "operation": null,
+        "slots": {
+          "station": "RAIL_CHENNAI_CENTRAL"
+        },
+        "data": {},
+        "missing_slots": [],
+        "clarification_reason": "entity_ambiguity",
+        "candidate_entities": [
+          "BUS_1007625852",
+          "BUS_10167",
+          "BUS_11200",
+          "BUS_11203",
+          "BUS_2241055785",
+          "BUS_256039818",
+          "BUS_3264712327",
+          "BUS_3264712469",
+          "BUS_5631301427",
+          "BUS_CMRL_22",
+          "HUB_GUINDY",
+          "METRO_GUINDY",
+          "RAIL_GUINDY"
+        ],
+        "candidate_intents": [
+          "scheduled_departure"
+        ]
+      },
+      "category": "legitimate ambiguity",
+      "assessment": "Known waypoint query stops at genuine Guindy entity ambiguity. No successful constraint drop. This does not establish Hindi waypoint recognition/refusal coverage."
+    },
+    {
+      "id": "H46",
+      "intended_family": "service_frequency",
+      "scenario": "unknown_waypoint",
+      "query": "चेन्नई सेंट्रल से तांबरम तक काल्पनिक सूरज चौक होकर ट्रेन कितनी देर में चलती है?",
+      "http_status": 200,
+      "elapsed_ms": 52.9,
+      "response": {
+        "status": "clarification",
+        "outcome_reason": "missing_execution_slot",
+        "response_text": "Please provide the route number or line name.",
+        "intent": "service_frequency",
+        "operation": "GET_SERVICE_FREQUENCY",
+        "slots": {
+          "station": "RAIL_CHENNAI_CENTRAL"
+        },
+        "data": {},
+        "missing_slots": [
+          "route_number_or_line_name"
+        ],
+        "clarification_reason": "missing_slot",
+        "candidate_entities": [],
+        "candidate_intents": [
+          "service_frequency"
+        ]
+      },
+      "category": "legitimate ambiguity",
+      "assessment": "Frequency contract needs route/line not supplied, so missing-route clarification is legitimate. Unknown Hindi waypoint was not exposed in slots; waypoint guard coverage remains unestablished."
+    },
+    {
+      "id": "H47",
+      "intended_family": "route_stop_sequence",
+      "scenario": "punctuation_whitespace_noise",
+      "query": "  बस १०२... के स्टॉप???\nकृपया क्रम से बताओ!!  ",
+      "http_status": 200,
+      "elapsed_ms": 54.3,
+      "response": {
+        "status": "ok",
+        "outcome_reason": "answered",
+        "response_text": "102 stops: Island ground Terminus, High Court, Parrys Corner, Secretariat, War Memorial, Annasquare, Kannagi Statue Shelter 1, Marina Beach, …. Partial published stop coverage found; unusable links or uncovered route variants are omitted. Service operation is not confirmed.",
+        "intent": "route_stop_sequence",
+        "operation": "LIST_ROUTE_STOPS",
+        "slots": {
+          "transport_mode": "bus",
+          "route_number": "102"
+        },
+        "data": {
+          "sequences": [
+            {
+              "route_id": "GTFS_ROUTE_24079",
+              "route_name": "102",
+              "mode": "bus",
+              "direction_id": 0,
+              "stops": [
+                {
+                  "sequence": 1,
+                  "stop_id": "BUS_11159",
+                  "name": "Island ground Terminus"
+                },
+                {
+                  "sequence": 2,
+                  "stop_id": "BUS_9782",
+                  "name": "High Court"
+                },
+                {
+                  "sequence": 3,
+                  "stop_id": "BUS_9783",
+                  "name": "Parrys Corner"
+                },
+                {
+                  "sequence": 4,
+                  "stop_id": "BUS_5814",
+                  "name": "Secretariat"
+                },
+                {
+                  "sequence": 5,
+                  "stop_id": "BUS_5932",
+                  "name": "War Memorial"
+                },
+                {
+                  "sequence": 6,
+                  "stop_id": "BUS_11192",
+                  "name": "Annasquare"
+                },
+                {
+                  "sequence": 7,
+                  "stop_id": "BUS_10941",
+                  "name": "Kannagi Statue Shelter 1"
+                },
+                {
+                  "sequence": 8,
+                  "stop_id": "BUS_2601",
+                  "name": "Marina Beach"
+                },
+                {
+                  "sequence": 9,
+                  "stop_id": "BUS_5916",
+                  "name": "Vivekananda House"
+                },
+                {
+                  "sequence": 10,
+                  "stop_id": "BUS_5917",
+                  "name": "Queen Marys College"
+                },
+                {
+                  "sequence": 11,
+                  "stop_id": "BUS_9318",
+                  "name": "Nochikuppam"
+                },
+                {
+                  "sequence": 12,
+                  "stop_id": "BUS_9262",
+                  "name": "Santhome Church"
+                },
+                {
+                  "sequence": 13,
+                  "stop_id": "BUS_247677936",
+                  "name": "Foreshore Estate Bus Terminus"
+                },
+                {
+                  "sequence": 14,
+                  "stop_id": "BUS_9128",
+                  "name": "Mrc Nagar"
+                },
+                {
+                  "sequence": 15,
+                  "stop_id": "BUS_10814",
+                  "name": "Music College Annamalai Puram"
+                },
+                {
+                  "sequence": 16,
+                  "stop_id": "BUS_5758",
+                  "name": "M.G.R Janaki College Or Sathya Studio"
+                },
+                {
+                  "sequence": 17,
+                  "stop_id": "BUS_5760",
+                  "name": "Adyar Signal"
+                },
+                {
+                  "sequence": 18,
+                  "stop_id": "BUS_5441",
+                  "name": "Kamarajar Avenue 2nd Street"
+                },
+                {
+                  "sequence": 19,
+                  "stop_id": "BUS_8924",
+                  "name": "Shasthri Nagar"
+                },
+                {
+                  "sequence": 20,
+                  "stop_id": "BUS_5914",
+                  "name": "Jayanthi Theatre"
+                },
+                {
+                  "sequence": 21,
+                  "stop_id": "BUS_11149",
+                  "name": "Thiruvanmiyur Ration Shop"
+                },
+                {
+                  "sequence": 22,
+                  "stop_id": "BUS_8693",
+                  "name": "Srp Tools"
+                },
+                {
+                  "sequence": 23,
+                  "stop_id": "BUS_8624",
+                  "name": "I G P"
+                },
+                {
+                  "sequence": 24,
+                  "stop_id": "BUS_8542",
+                  "name": "Kandanchavadi"
+                },
+                {
+                  "sequence": 25,
+                  "stop_id": "BUS_8481",
+                  "name": "Perungudi"
+                },
+                {
+                  "sequence": 26,
+                  "stop_id": "BUS_8425",
+                  "name": "Seevaram"
+                },
+                {
+                  "sequence": 27,
+                  "stop_id": "BUS_8379",
+                  "name": "D B Jain College"
+                },
+                {
+                  "sequence": 28,
+                  "stop_id": "BUS_8323",
+                  "name": "Mettukuppam"
+                },
+                {
+                  "sequence": 29,
+                  "stop_id": "BUS_10066",
+                  "name": "Ptc Quarters Or Mootakaran Chavadi"
+                },
+                {
+                  "sequence": 30,
+                  "stop_id": "BUS_6686",
+                  "name": "Okkiyampet"
+                },
+                {
+                  "sequence": 31,
+                  "stop_id": "BUS_6622",
+                  "name": "Kcg College"
+                },
+                {
+                  "sequence": 32,
+                  "stop_id": "BUS_6579",
+                  "name": "Karapakkam"
+                },
+                {
+                  "sequence": 33,
+                  "stop_id": "BUS_10031",
+                  "name": "Dollar Or Accenture"
+                },
+                {
+                  "sequence": 34,
+                  "stop_id": "BUS_10022",
+                  "name": "Shozhinganallur"
+                },
+                {
+                  "sequence": 35,
+                  "stop_id": "BUS_10012",
+                  "name": "Government School Shozhinganallur"
+                },
+                {
+                  "sequence": 36,
+                  "stop_id": "BUS_6454",
+                  "name": "Ponniamman Kovil"
+                },
+                {
+                  "sequence": 37,
+                  "stop_id": "BUS_6420",
+                  "name": "Kumaran Nagar"
+                },
+                {
+                  "sequence": 38,
+                  "stop_id": "BUS_6403",
+                  "name": "Satyabhama University"
+                },
+                {
+                  "sequence": 39,
+                  "stop_id": "BUS_6358",
+                  "name": "Semmancheri"
+                },
+                {
+                  "sequence": 40,
+                  "stop_id": "BUS_6314",
+                  "name": "Ags Complex Navalur"
+                },
+                {
+                  "sequence": 41,
+                  "stop_id": "BUS_9974",
+                  "name": "Navalur"
+                },
+                {
+                  "sequence": 42,
+                  "stop_id": "BUS_6269",
+                  "name": "Egattur"
+                },
+                {
+                  "sequence": 43,
+                  "stop_id": "BUS_9966",
+                  "name": "It Park Siruseri Or Muttukadu"
+                },
+                {
+                  "sequence": 44,
+                  "stop_id": "BUS_6225",
+                  "name": "Vaniyanchavadi Padma Adarsh School"
+                },
+                {
+                  "sequence": 45,
+                  "stop_id": "BUS_6198",
+                  "name": "Kazhipattur"
+                },
+                {
+                  "sequence": 46,
+                  "stop_id": "BUS_6179",
+                  "name": "Akshaya Padur"
+                },
+                {
+                  "sequence": 47,
+                  "stop_id": "BUS_6157",
+                  "name": "Padur"
+                },
+                {
+                  "sequence": 48,
+                  "stop_id": "BUS_6150",
+                  "name": "Hindustan College"
+                },
+                {
+                  "sequence": 49,
+                  "stop_id": "BUS_6132",
+                  "name": "Chettinad Hospital"
+                },
+                {
+                  "sequence": 50,
+                  "stop_id": "BUS_6125",
+                  "name": "Kelambakkam V A O Office"
+                },
+                {
+                  "sequence": 51,
+                  "stop_id": "BUS_6099",
+                  "name": "Kelambakkam Bus Terminal"
+                }
+              ],
+              "source": "CHENNAI_COMMUNITY_GTFS"
+            }
+          ],
+          "truncated": false,
+          "provisional": true,
+          "partial_topology": true,
+          "excluded_unusable_rows": 0,
+          "uncovered_route_ids": [
+            "GTFS_ROUTE_16861"
+          ]
+        },
+        "missing_slots": [],
+        "clarification_reason": null,
+        "candidate_entities": [],
+        "candidate_intents": [
+          "route_stop_sequence"
+        ]
+      },
+      "category": "successful bounded answer",
+      "assessment": "Whitespace, newline, punctuation and Hindi102 numeral preserved; route102 stops with partial/provisional caveats."
+    },
+    {
+      "id": "H48",
+      "intended_family": "out_of_scope",
+      "scenario": "transit_entity_out_of_scope",
+      "query": "गिंडी मेट्रो स्टेशन के पास एक जन्मदिन की कविता लिखो।",
+      "http_status": 200,
+      "elapsed_ms": 52.5,
+      "response": {
+        "status": "unavailable",
+        "outcome_reason": "unsupported_source",
+        "response_text": "This snapshot contains no authoritative ticket or pass policy table.",
+        "intent": "ticketing_and_passes",
+        "operation": "GET_TICKETING_POLICY",
+        "slots": {},
+        "data": {
+          "reason": "ticket_policy_absent"
+        },
+        "missing_slots": [],
+        "clarification_reason": null,
+        "candidate_entities": [],
+        "candidate_intents": [
+          "ticketing_and_passes"
+        ]
+      },
+      "category": "recognition mismatch",
+      "assessment": "Poem request mentioning Guindy metro selects ticketing/pass policy. Transit entity does not make the requested action in scope."
+    }
+  ],
+  "categories": {
+    "legitimate ambiguity": 7,
+    "recognition mismatch": 22,
+    "unsupported source": 10,
+    "successful bounded answer": 6,
+    "safe guard": 3
+  },
+  "statuses": {
+    "clarification": 25,
+    "unavailable": 14,
+    "ok": 8,
+    "out_of_scope": 1
+  },
+  "coverage": {
+    "family_pairs": 32,
+    "intended_t3_families": 16,
+    "additional_contrasts": 16,
+    "raw_model_confidence_exposed": false,
+    "representative_accuracy_claim": false,
+    "ui_coverage": "pending toggle-ready follow-up"
+  }
+}

@@ -40,6 +40,8 @@ streamlit run app/streamlit_app.py --server.address=127.0.0.1
 
 Open `http://127.0.0.1:8501`. The API defaults to `http://127.0.0.1:8765`. Each clarification asks for a revised complete question.
 
+The **English / हिंदी / Hinglish** selector changes the website's main text and curated assistant replies, including saved replies. Type questions in any supported language; the original question reaches the API unchanged. Language changes preserve history and unsubmitted drafts. Canonical stop names, route codes, amounts, dates and source identifiers stay unchanged. Unmapped explanations remain verbatim with a localized label; some built-in Streamlit controls remain English.
+
 ## Verification and results
 
 ```bash
@@ -47,7 +49,7 @@ python -m pytest -q
 python -m pip check
 ```
 
-The verified local environment passes **878 tests**. Frontend code review and current desktop/narrow visual QA pass; [QA evidence](reports/nlp_v2/frontend_qa/qa.md) records all five real API states. No lint/type checker is configured. Tests include strict real-checkpoint inference, synthetic contract/integration/UI cases, and frozen research integrity checks; they do not establish factual travel-answer accuracy.
+The verified local environment passes **1,147 tests**. [Language-selector QA](reports/nlp_v2/language_toggle_qa_2026_10_08/summary.md) includes 48 Hindi and 48 Hinglish questions checked through the actual API and replayed in the browser, plus independent frontend review. These checks confirm remaining recognition/input-extraction gaps; translation does not improve the frozen model. Earlier [frontend QA](reports/nlp_v2/frontend_qa/qa.md) records all five real API states. No lint/type checker is configured. Tests include strict real-checkpoint inference, synthetic contract/integration/UI cases, and frozen research integrity checks; they do not establish factual travel-answer accuracy.
 
 - [Supported scope and known limitations](docs/nlp_v2/known_limitations.md)
 - [Development acceptance](docs/nlp_v2/development_acceptance.md): answerable coverage **24/50→42/50**, false-positive clarification **30/104→3/104** on the observed frozen development suite.

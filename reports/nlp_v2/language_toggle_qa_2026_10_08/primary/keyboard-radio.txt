@@ -1,0 +1,47 @@
+Browser tab: 2, Title: "Chennai Transit Assistant", URL: "http://127.0.0.1:8601/".
+0 AXWebArea Chennai Transit Assistant, URL: 127.0.0.1:8601/
+	1 container root
+		2 container
+			3 button
+			4 button
+			5 container
+				6 container
+					7 heading चेन्नई परिवहन, Value: 2
+						8 text चेन्नई परिवहन
+					9 text बहुभाषी परिवहन सहायक
+					10 heading अपने शब्दों में पूछें, Value: 3
+						11 text अपने शब्दों में पूछें
+					12 text English · हिन्दी · Hinglish
+					13 text रूट, स्टॉप, प्रकाशित समय-सारणी, किराए और नजदीकी परिवहन।
+					14 heading प्रकाशित रिकॉर्ड का संकलन, Value: 3
+						15 text प्रकाशित रिकॉर्ड का संकलन
+					16 text लाइव अपडेट नहीं हैं। मौजूदा सेवा और किराए की पुष्टि ऑपरेटर से करें।
+					17 text बदलाव, सुगम्यता और सुविधाओं की जानकारी केवल स्रोत से समर्थित होने पर दिखाई जाती है।
+					18 text चेन्नई · सार्वजनिक परिवहन
+			19 container
+				26 Language / भाषा
+					27 container
+						28 radio button (settable, integer) Description: English, Value: 0
+						29 text English
+					30 container
+						31 radio button (settable, integer) Description: हिंदी, Value: 1
+						32 text हिंदी
+					33 container
+						34 radio button (settable, integer) Description: Hinglish, Value: 0
+						35 text Hinglish
+				20 container
+					21 heading चेन्नई बहु-माध्यम परिवहन सहायक, Value: 1, ID: chennai-multimodal-transit-assistant
+						22 text चेन्नई बहु-माध्यम परिवहन सहायक
+					23 text रूट, स्टॉप, समय-सारणी, किराए या नजदीकी परिवहन के बारे में पूछें। बस मेट्रो रेल प्रकाशित रिकॉर्ड
+				24 text प्रकाशित रिकॉर्ड का संकलन · लाइव अपडेट नहीं · मौजूदा सेवा की पुष्टि ऑपरेटर से करें
+				25 text पूरा प्रश्न पूछें। रूट और किराए के जवाब प्रकाशित रिकॉर्ड पर आधारित हैं; लाइव स्थिति अनुपलब्ध है।
+				44 button नजदीकी मेट्रो
+					45 text नजदीकी मेट्रो
+				46 button बस रूट के स्टॉप
+					47 text बस रूट के स्टॉप
+				48 button प्रकाशित किराया
+					49 text प्रकाशित किराया
+				42 container
+					43 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 31 radio button (settable, integer) Description: हिंदी, Value: 1

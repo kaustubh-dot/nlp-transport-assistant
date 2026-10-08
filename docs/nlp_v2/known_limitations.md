@@ -3,9 +3,20 @@
 “Supported” describes an operation with the required canonical evidence and
 unambiguous execution inputs. It does not mean the retained classifier always
 selects it correctly, or that a published snapshot confirms travel conditions
-today. English response templates accept bounded English/Hindi/Roman/Hinglish/
-mixed-script inputs; broad transliteration, spelling repair and context memory
+today. The backend's English response templates accept bounded English/Hindi/Roman/Hinglish/
+mixed-script inputs. The frontend English / हिंदी / Hinglish selector localizes
+curated replies and main website text while preserving factual values and raw
+questions. Unknown explanations and some built-in Streamlit controls remain
+English. Broad transliteration, spelling repair and context memory
 are not implemented. Each clarification resubmits a complete question.
+
+Fresh [Hindi/Hinglish product QA](../../reports/nlp_v2/language_toggle_qa_2026_10_08/summary.md)
+confirms incomplete language understanding: some Hindi number/name forms miss
+supplied inputs, and some conversational Hinglish frequency, delay and unrelated
+questions select the wrong family. Source-unavailable and legitimate ambiguity
+responses are recorded separately. These 96 manually scoped questions are not a
+representative accuracy estimate; no model/alias/DB change or evaluator run
+accompanied the frontend language extension.
 
 ## Fully supported within the stated scope
 

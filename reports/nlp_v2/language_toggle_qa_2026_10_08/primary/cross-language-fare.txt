@@ -1,0 +1,17 @@
+Browser tab: 1, Title: "Chennai Transit Assistant", URL: "http://127.0.0.1:8601/".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 57
++				64 container Chat message from user
++					65 text स्टेज 4 का डीलक्स बस किराया कितना है?
++				66 container Chat message from assistant
++					67 container
++						68 text Prakashit jaankari
++						69 text Prakashit kiraya (Deluxe services): INR 17 (record ki lagu tareekh 2018-01-29). Published stage kiraya mila hai; travel se pehle current kiraya confirm karein.
++						70 container
++							71 text Prakashit kiraya
++							72 text INR 17
++						73 text Service ki class: Deluxe services
++						74 text Lagu tareekh: 2018-01-29 · Source: MTC_OFFICIAL
++						75 text Snapshot se mili jaankari. Current service aur conditions operator se confirm karein.
+~					44 text entry area (settable) Ask / पूछें / Poochhein…
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…

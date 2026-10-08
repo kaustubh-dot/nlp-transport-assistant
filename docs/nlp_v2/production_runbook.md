@@ -72,6 +72,8 @@ streamlit run app/streamlit_app.py --server.address=127.0.0.1 --server.port=8501
 
 Open `http://127.0.0.1:8501`. Use Ctrl-C in each terminal to stop. The UI calls `http://127.0.0.1:8765` by default; `NLP_V2_API_URL` can point it to another already authorized local API port. The API is a single-threaded demonstration server, with no public-deployment/authentication configuration. Keep the services bound to localhost.
 
+Use the English / हिंदी / Hinglish selector for main website text and curated replies. Saved replies re-render; history and unsubmitted drafts survive language changes. Questions reach the API exactly as typed, regardless of selected display language. Backend JSON stays English. Canonical names, source IDs, dates, amounts and times are preserved; unmapped explanations and some Streamlit controls remain English. See the [language QA report](../../reports/nlp_v2/language_toggle_qa_2026_10_08/summary.md) for the observed Hindi/Hinglish limitations.
+
 HTTP smoke:
 
 ```bash
@@ -104,7 +106,7 @@ python -m pip check
 git diff --check
 ```
 
-The verified suite has 878 passes, including real-checkpoint inference, synthetic multilingual/slot/dispatch/service/API/UI cases, trainer smoke, evaluator guards, and frozen annotation/hash checks. The 34 Gate B.3 framework tests retain pre-execution checks using temporary synthetic manifests and validate the real closed state. No lint/type checker is configured. Run tests sequentially; legacy tests rebuild shared prototype SQLite fixtures.
+The verified suite has 1,147 passes, including real-checkpoint inference, synthetic multilingual/slot/dispatch/service/API/UI cases, trainer smoke, evaluator guards, and frozen annotation/hash checks. The 34 Gate B.3 framework tests retain pre-execution checks using temporary synthetic manifests and validate the real closed state. No lint/type checker is configured. Run tests sequentially; legacy tests rebuild shared prototype SQLite fixtures.
 
 Frozen Git boundary check:
 
@@ -190,7 +192,7 @@ The canonical database's hub memberships are unverified and its 45 interchange r
 
 The final evaluation's high clarification rate and limited successful-response count are recorded coverage limits. Expanding the system requires new development data and verified transport sources under the frozen governance policy. It must not use held-out labels/queries to train, augment, patch predictions, or tune parameters.
 
-See [supported scope and known limitations](known_limitations.md) for the complete supported/partial/unsupported matrix, retained classifier limit, artifact availability and evaluation caveats. Current desktop/narrow visual QA and code/status rendering pass with878 tests; see [QA evidence](../../reports/nlp_v2/frontend_qa/qa.md).
+See [supported scope and known limitations](known_limitations.md) for the complete supported/partial/unsupported matrix, retained classifier limit, artifact availability and evaluation caveats. Earlier desktop/narrow visual QA and code/status evidence is preserved in [frontend QA](../../reports/nlp_v2/frontend_qa/qa.md). The current language-selector extension has 1,147 passing tests and separate [Hindi/Hinglish QA](../../reports/nlp_v2/language_toggle_qa_2026_10_08/summary.md), including remaining understanding gaps.
 
 Timetable waypoint filtering is unsupported by the canonical operation contract.
 For a complete request with a waypoint, the assistant explicitly returns

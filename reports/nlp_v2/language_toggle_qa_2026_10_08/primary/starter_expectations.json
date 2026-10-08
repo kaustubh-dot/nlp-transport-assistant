@@ -1,0 +1,828 @@
+[
+  {
+    "id": "S-HG-1",
+    "language": "hinglish",
+    "query": "Marina Beach ke sabse nazdeek metro station kaunsa hai?",
+    "intended_family": "nearest_transport",
+    "http_status": 200,
+    "elapsed_ms": 62.08,
+    "actual_json": {
+      "status": "ok",
+      "outcome_reason": "answered",
+      "response_text": "Nearest by straight line: Lighthouse Metro (1121 m). Nearest by straight-line distance only; walking access is not verified.",
+      "intent": "nearest_transport",
+      "operation": "FIND_NEAREST_STATION",
+      "slots": {
+        "transport_mode": "metro",
+        "landmark": "OSM_POI_12137617372"
+      },
+      "data": {
+        "anchor": "OSM_POI_12137617372",
+        "anchor_name": "Marina Beach,Chennai",
+        "stops": [
+          {
+            "stop_id": "METRO_LIGHTHOUSE",
+            "name": "Lighthouse Metro",
+            "mode": "metro",
+            "distance_m": 1121,
+            "source": "OSM_OVERPASS"
+          },
+          {
+            "stop_id": "METRO_ROYAPETTAH",
+            "name": "Royapettah Metro",
+            "mode": "metro",
+            "distance_m": 2072,
+            "source": "OSM_OVERPASS"
+          },
+          {
+            "stop_id": "METRO_OSM_RAIL_603015278",
+            "name": "அரசினர் தோட்டம்",
+            "mode": "metro",
+            "distance_m": 2131,
+            "source": "OSM_OVERPASS"
+          },
+          {
+            "stop_id": "METRO_OSM_RAIL_5337407350",
+            "name": "எல் ஐ சி",
+            "mode": "metro",
+            "distance_m": 2253,
+            "source": "OSM_OVERPASS"
+          },
+          {
+            "stop_id": "METRO_GOVERNMENT_ESTATE",
+            "name": "Government Estate",
+            "mode": "metro",
+            "distance_m": 2287,
+            "source": "CMRL_API"
+          }
+        ],
+        "distance_type": "straight_line",
+        "provisional": true
+      },
+      "missing_slots": [],
+      "clarification_reason": null,
+      "candidate_entities": [],
+      "candidate_intents": [
+        "nearest_transport"
+      ]
+    },
+    "category": "successful bounded answer",
+    "expected_text": "Seedhi doori se sabse nazdeek: Lighthouse Metro (1121 m). Nearest sirf straight-line distance se hai; walking access verify nahi hai.",
+    "button_label": "Nazdeeki metro"
+  },
+  {
+    "id": "S-HG-2",
+    "language": "hinglish",
+    "query": "Bus route 102 ke stops batao",
+    "intended_family": "route_stop_sequence",
+    "http_status": 200,
+    "elapsed_ms": 52.27,
+    "actual_json": {
+      "status": "ok",
+      "outcome_reason": "answered",
+      "response_text": "102 stops: Island ground Terminus, High Court, Parrys Corner, Secretariat, War Memorial, Annasquare, Kannagi Statue Shelter 1, Marina Beach, …. Partial published stop coverage found; unusable links or uncovered route variants are omitted. Service operation is not confirmed.",
+      "intent": "route_stop_sequence",
+      "operation": "LIST_ROUTE_STOPS",
+      "slots": {
+        "transport_mode": "bus",
+        "route_number": "102"
+      },
+      "data": {
+        "sequences": [
+          {
+            "route_id": "GTFS_ROUTE_24079",
+            "route_name": "102",
+            "mode": "bus",
+            "direction_id": 0,
+            "stops": [
+              {
+                "sequence": 1,
+                "stop_id": "BUS_11159",
+                "name": "Island ground Terminus"
+              },
+              {
+                "sequence": 2,
+                "stop_id": "BUS_9782",
+                "name": "High Court"
+              },
+              {
+                "sequence": 3,
+                "stop_id": "BUS_9783",
+                "name": "Parrys Corner"
+              },
+              {
+                "sequence": 4,
+                "stop_id": "BUS_5814",
+                "name": "Secretariat"
+              },
+              {
+                "sequence": 5,
+                "stop_id": "BUS_5932",
+                "name": "War Memorial"
+              },
+              {
+                "sequence": 6,
+                "stop_id": "BUS_11192",
+                "name": "Annasquare"
+              },
+              {
+                "sequence": 7,
+                "stop_id": "BUS_10941",
+                "name": "Kannagi Statue Shelter 1"
+              },
+              {
+                "sequence": 8,
+                "stop_id": "BUS_2601",
+                "name": "Marina Beach"
+              },
+              {
+                "sequence": 9,
+                "stop_id": "BUS_5916",
+                "name": "Vivekananda House"
+              },
+              {
+                "sequence": 10,
+                "stop_id": "BUS_5917",
+                "name": "Queen Marys College"
+              },
+              {
+                "sequence": 11,
+                "stop_id": "BUS_9318",
+                "name": "Nochikuppam"
+              },
+              {
+                "sequence": 12,
+                "stop_id": "BUS_9262",
+                "name": "Santhome Church"
+              },
+              {
+                "sequence": 13,
+                "stop_id": "BUS_247677936",
+                "name": "Foreshore Estate Bus Terminus"
+              },
+              {
+                "sequence": 14,
+                "stop_id": "BUS_9128",
+                "name": "Mrc Nagar"
+              },
+              {
+                "sequence": 15,
+                "stop_id": "BUS_10814",
+                "name": "Music College Annamalai Puram"
+              },
+              {
+                "sequence": 16,
+                "stop_id": "BUS_5758",
+                "name": "M.G.R Janaki College Or Sathya Studio"
+              },
+              {
+                "sequence": 17,
+                "stop_id": "BUS_5760",
+                "name": "Adyar Signal"
+              },
+              {
+                "sequence": 18,
+                "stop_id": "BUS_5441",
+                "name": "Kamarajar Avenue 2nd Street"
+              },
+              {
+                "sequence": 19,
+                "stop_id": "BUS_8924",
+                "name": "Shasthri Nagar"
+              },
+              {
+                "sequence": 20,
+                "stop_id": "BUS_5914",
+                "name": "Jayanthi Theatre"
+              },
+              {
+                "sequence": 21,
+                "stop_id": "BUS_11149",
+                "name": "Thiruvanmiyur Ration Shop"
+              },
+              {
+                "sequence": 22,
+                "stop_id": "BUS_8693",
+                "name": "Srp Tools"
+              },
+              {
+                "sequence": 23,
+                "stop_id": "BUS_8624",
+                "name": "I G P"
+              },
+              {
+                "sequence": 24,
+                "stop_id": "BUS_8542",
+                "name": "Kandanchavadi"
+              },
+              {
+                "sequence": 25,
+                "stop_id": "BUS_8481",
+                "name": "Perungudi"
+              },
+              {
+                "sequence": 26,
+                "stop_id": "BUS_8425",
+                "name": "Seevaram"
+              },
+              {
+                "sequence": 27,
+                "stop_id": "BUS_8379",
+                "name": "D B Jain College"
+              },
+              {
+                "sequence": 28,
+                "stop_id": "BUS_8323",
+                "name": "Mettukuppam"
+              },
+              {
+                "sequence": 29,
+                "stop_id": "BUS_10066",
+                "name": "Ptc Quarters Or Mootakaran Chavadi"
+              },
+              {
+                "sequence": 30,
+                "stop_id": "BUS_6686",
+                "name": "Okkiyampet"
+              },
+              {
+                "sequence": 31,
+                "stop_id": "BUS_6622",
+                "name": "Kcg College"
+              },
+              {
+                "sequence": 32,
+                "stop_id": "BUS_6579",
+                "name": "Karapakkam"
+              },
+              {
+                "sequence": 33,
+                "stop_id": "BUS_10031",
+                "name": "Dollar Or Accenture"
+              },
+              {
+                "sequence": 34,
+                "stop_id": "BUS_10022",
+                "name": "Shozhinganallur"
+              },
+              {
+                "sequence": 35,
+                "stop_id": "BUS_10012",
+                "name": "Government School Shozhinganallur"
+              },
+              {
+                "sequence": 36,
+                "stop_id": "BUS_6454",
+                "name": "Ponniamman Kovil"
+              },
+              {
+                "sequence": 37,
+                "stop_id": "BUS_6420",
+                "name": "Kumaran Nagar"
+              },
+              {
+                "sequence": 38,
+                "stop_id": "BUS_6403",
+                "name": "Satyabhama University"
+              },
+              {
+                "sequence": 39,
+                "stop_id": "BUS_6358",
+                "name": "Semmancheri"
+              },
+              {
+                "sequence": 40,
+                "stop_id": "BUS_6314",
+                "name": "Ags Complex Navalur"
+              },
+              {
+                "sequence": 41,
+                "stop_id": "BUS_9974",
+                "name": "Navalur"
+              },
+              {
+                "sequence": 42,
+                "stop_id": "BUS_6269",
+                "name": "Egattur"
+              },
+              {
+                "sequence": 43,
+                "stop_id": "BUS_9966",
+                "name": "It Park Siruseri Or Muttukadu"
+              },
+              {
+                "sequence": 44,
+                "stop_id": "BUS_6225",
+                "name": "Vaniyanchavadi Padma Adarsh School"
+              },
+              {
+                "sequence": 45,
+                "stop_id": "BUS_6198",
+                "name": "Kazhipattur"
+              },
+              {
+                "sequence": 46,
+                "stop_id": "BUS_6179",
+                "name": "Akshaya Padur"
+              },
+              {
+                "sequence": 47,
+                "stop_id": "BUS_6157",
+                "name": "Padur"
+              },
+              {
+                "sequence": 48,
+                "stop_id": "BUS_6150",
+                "name": "Hindustan College"
+              },
+              {
+                "sequence": 49,
+                "stop_id": "BUS_6132",
+                "name": "Chettinad Hospital"
+              },
+              {
+                "sequence": 50,
+                "stop_id": "BUS_6125",
+                "name": "Kelambakkam V A O Office"
+              },
+              {
+                "sequence": 51,
+                "stop_id": "BUS_6099",
+                "name": "Kelambakkam Bus Terminal"
+              }
+            ],
+            "source": "CHENNAI_COMMUNITY_GTFS"
+          }
+        ],
+        "truncated": false,
+        "provisional": true,
+        "partial_topology": true,
+        "excluded_unusable_rows": 0,
+        "uncovered_route_ids": [
+          "GTFS_ROUTE_16861"
+        ]
+      },
+      "missing_slots": [],
+      "clarification_reason": null,
+      "candidate_entities": [],
+      "candidate_intents": [
+        "route_stop_sequence"
+      ]
+    },
+    "category": "successful bounded answer",
+    "expected_text": "102 ke stops: Island ground Terminus, High Court, Parrys Corner, Secretariat, War Memorial, Annasquare, Kannagi Statue Shelter 1, Marina Beach, …. Published stop coverage partial hai; unusable links ya uncovered route variants chhode gaye hain. Service operation confirm nahi hai.",
+    "button_label": "Bus route ke stops"
+  },
+  {
+    "id": "S-HG-3",
+    "language": "hinglish",
+    "query": "Stage 4 ka deluxe bus kiraya kitna hai?",
+    "intended_family": "fare_calculation",
+    "http_status": 200,
+    "elapsed_ms": 51.15,
+    "actual_json": {
+      "status": "ok",
+      "outcome_reason": "answered",
+      "response_text": "Published fare (Deluxe Services): INR 17 (record effective 2018-01-29). Published stage fare found; confirm the current fare before travel.",
+      "intent": "fare_calculation",
+      "operation": "CALCULATE_FARE",
+      "slots": {
+        "transport_mode": "bus",
+        "service_type": "Deluxe Services",
+        "stage_number": 4
+      },
+      "data": {
+        "amount": 17.0,
+        "currency": "INR",
+        "stage_number": 4,
+        "service_type": "Deluxe Services",
+        "effective_date": "2018-01-29",
+        "source": "MTC_OFFICIAL",
+        "government_order": "G.O (Ms.) No.48 Dated 28.01.2018",
+        "provisional": true
+      },
+      "missing_slots": [],
+      "clarification_reason": null,
+      "candidate_entities": [],
+      "candidate_intents": [
+        "fare_calculation"
+      ]
+    },
+    "category": "successful bounded answer",
+    "expected_text": "Prakashit kiraya (Deluxe services): INR 17 (record ki lagu tareekh 2018-01-29). Published stage kiraya mila hai; travel se pehle current kiraya confirm karein.",
+    "button_label": "Prakashit kiraya"
+  },
+  {
+    "id": "S-HI-1",
+    "language": "hi",
+    "query": "Marina Beach के सबसे नजदीक मेट्रो स्टेशन कौन सा है?",
+    "intended_family": "nearest_transport",
+    "http_status": 200,
+    "elapsed_ms": 53.34,
+    "actual_json": {
+      "status": "ok",
+      "outcome_reason": "answered",
+      "response_text": "Nearest by straight line: Lighthouse Metro (1121 m). Nearest by straight-line distance only; walking access is not verified.",
+      "intent": "nearest_transport",
+      "operation": "FIND_NEAREST_STATION",
+      "slots": {
+        "transport_mode": "metro",
+        "landmark": "OSM_POI_12137617372"
+      },
+      "data": {
+        "anchor": "OSM_POI_12137617372",
+        "anchor_name": "Marina Beach,Chennai",
+        "stops": [
+          {
+            "stop_id": "METRO_LIGHTHOUSE",
+            "name": "Lighthouse Metro",
+            "mode": "metro",
+            "distance_m": 1121,
+            "source": "OSM_OVERPASS"
+          },
+          {
+            "stop_id": "METRO_ROYAPETTAH",
+            "name": "Royapettah Metro",
+            "mode": "metro",
+            "distance_m": 2072,
+            "source": "OSM_OVERPASS"
+          },
+          {
+            "stop_id": "METRO_OSM_RAIL_603015278",
+            "name": "அரசினர் தோட்டம்",
+            "mode": "metro",
+            "distance_m": 2131,
+            "source": "OSM_OVERPASS"
+          },
+          {
+            "stop_id": "METRO_OSM_RAIL_5337407350",
+            "name": "எல் ஐ சி",
+            "mode": "metro",
+            "distance_m": 2253,
+            "source": "OSM_OVERPASS"
+          },
+          {
+            "stop_id": "METRO_GOVERNMENT_ESTATE",
+            "name": "Government Estate",
+            "mode": "metro",
+            "distance_m": 2287,
+            "source": "CMRL_API"
+          }
+        ],
+        "distance_type": "straight_line",
+        "provisional": true
+      },
+      "missing_slots": [],
+      "clarification_reason": null,
+      "candidate_entities": [],
+      "candidate_intents": [
+        "nearest_transport"
+      ]
+    },
+    "category": "successful bounded answer",
+    "expected_text": "सीधी दूरी से निकटतम: Lighthouse Metro (1121 m)। निकटतम केवल सीधी दूरी के आधार पर है; पैदल पहुँच सत्यापित नहीं है।",
+    "button_label": "नजदीकी मेट्रो"
+  },
+  {
+    "id": "S-HI-2",
+    "language": "hi",
+    "query": "बस रूट 102 के स्टॉप बताएं",
+    "intended_family": "route_stop_sequence",
+    "http_status": 200,
+    "elapsed_ms": 54.58,
+    "actual_json": {
+      "status": "ok",
+      "outcome_reason": "answered",
+      "response_text": "102 stops: Island ground Terminus, High Court, Parrys Corner, Secretariat, War Memorial, Annasquare, Kannagi Statue Shelter 1, Marina Beach, …. Partial published stop coverage found; unusable links or uncovered route variants are omitted. Service operation is not confirmed.",
+      "intent": "route_stop_sequence",
+      "operation": "LIST_ROUTE_STOPS",
+      "slots": {
+        "transport_mode": "bus",
+        "route_number": "102"
+      },
+      "data": {
+        "sequences": [
+          {
+            "route_id": "GTFS_ROUTE_24079",
+            "route_name": "102",
+            "mode": "bus",
+            "direction_id": 0,
+            "stops": [
+              {
+                "sequence": 1,
+                "stop_id": "BUS_11159",
+                "name": "Island ground Terminus"
+              },
+              {
+                "sequence": 2,
+                "stop_id": "BUS_9782",
+                "name": "High Court"
+              },
+              {
+                "sequence": 3,
+                "stop_id": "BUS_9783",
+                "name": "Parrys Corner"
+              },
+              {
+                "sequence": 4,
+                "stop_id": "BUS_5814",
+                "name": "Secretariat"
+              },
+              {
+                "sequence": 5,
+                "stop_id": "BUS_5932",
+                "name": "War Memorial"
+              },
+              {
+                "sequence": 6,
+                "stop_id": "BUS_11192",
+                "name": "Annasquare"
+              },
+              {
+                "sequence": 7,
+                "stop_id": "BUS_10941",
+                "name": "Kannagi Statue Shelter 1"
+              },
+              {
+                "sequence": 8,
+                "stop_id": "BUS_2601",
+                "name": "Marina Beach"
+              },
+              {
+                "sequence": 9,
+                "stop_id": "BUS_5916",
+                "name": "Vivekananda House"
+              },
+              {
+                "sequence": 10,
+                "stop_id": "BUS_5917",
+                "name": "Queen Marys College"
+              },
+              {
+                "sequence": 11,
+                "stop_id": "BUS_9318",
+                "name": "Nochikuppam"
+              },
+              {
+                "sequence": 12,
+                "stop_id": "BUS_9262",
+                "name": "Santhome Church"
+              },
+              {
+                "sequence": 13,
+                "stop_id": "BUS_247677936",
+                "name": "Foreshore Estate Bus Terminus"
+              },
+              {
+                "sequence": 14,
+                "stop_id": "BUS_9128",
+                "name": "Mrc Nagar"
+              },
+              {
+                "sequence": 15,
+                "stop_id": "BUS_10814",
+                "name": "Music College Annamalai Puram"
+              },
+              {
+                "sequence": 16,
+                "stop_id": "BUS_5758",
+                "name": "M.G.R Janaki College Or Sathya Studio"
+              },
+              {
+                "sequence": 17,
+                "stop_id": "BUS_5760",
+                "name": "Adyar Signal"
+              },
+              {
+                "sequence": 18,
+                "stop_id": "BUS_5441",
+                "name": "Kamarajar Avenue 2nd Street"
+              },
+              {
+                "sequence": 19,
+                "stop_id": "BUS_8924",
+                "name": "Shasthri Nagar"
+              },
+              {
+                "sequence": 20,
+                "stop_id": "BUS_5914",
+                "name": "Jayanthi Theatre"
+              },
+              {
+                "sequence": 21,
+                "stop_id": "BUS_11149",
+                "name": "Thiruvanmiyur Ration Shop"
+              },
+              {
+                "sequence": 22,
+                "stop_id": "BUS_8693",
+                "name": "Srp Tools"
+              },
+              {
+                "sequence": 23,
+                "stop_id": "BUS_8624",
+                "name": "I G P"
+              },
+              {
+                "sequence": 24,
+                "stop_id": "BUS_8542",
+                "name": "Kandanchavadi"
+              },
+              {
+                "sequence": 25,
+                "stop_id": "BUS_8481",
+                "name": "Perungudi"
+              },
+              {
+                "sequence": 26,
+                "stop_id": "BUS_8425",
+                "name": "Seevaram"
+              },
+              {
+                "sequence": 27,
+                "stop_id": "BUS_8379",
+                "name": "D B Jain College"
+              },
+              {
+                "sequence": 28,
+                "stop_id": "BUS_8323",
+                "name": "Mettukuppam"
+              },
+              {
+                "sequence": 29,
+                "stop_id": "BUS_10066",
+                "name": "Ptc Quarters Or Mootakaran Chavadi"
+              },
+              {
+                "sequence": 30,
+                "stop_id": "BUS_6686",
+                "name": "Okkiyampet"
+              },
+              {
+                "sequence": 31,
+                "stop_id": "BUS_6622",
+                "name": "Kcg College"
+              },
+              {
+                "sequence": 32,
+                "stop_id": "BUS_6579",
+                "name": "Karapakkam"
+              },
+              {
+                "sequence": 33,
+                "stop_id": "BUS_10031",
+                "name": "Dollar Or Accenture"
+              },
+              {
+                "sequence": 34,
+                "stop_id": "BUS_10022",
+                "name": "Shozhinganallur"
+              },
+              {
+                "sequence": 35,
+                "stop_id": "BUS_10012",
+                "name": "Government School Shozhinganallur"
+              },
+              {
+                "sequence": 36,
+                "stop_id": "BUS_6454",
+                "name": "Ponniamman Kovil"
+              },
+              {
+                "sequence": 37,
+                "stop_id": "BUS_6420",
+                "name": "Kumaran Nagar"
+              },
+              {
+                "sequence": 38,
+                "stop_id": "BUS_6403",
+                "name": "Satyabhama University"
+              },
+              {
+                "sequence": 39,
+                "stop_id": "BUS_6358",
+                "name": "Semmancheri"
+              },
+              {
+                "sequence": 40,
+                "stop_id": "BUS_6314",
+                "name": "Ags Complex Navalur"
+              },
+              {
+                "sequence": 41,
+                "stop_id": "BUS_9974",
+                "name": "Navalur"
+              },
+              {
+                "sequence": 42,
+                "stop_id": "BUS_6269",
+                "name": "Egattur"
+              },
+              {
+                "sequence": 43,
+                "stop_id": "BUS_9966",
+                "name": "It Park Siruseri Or Muttukadu"
+              },
+              {
+                "sequence": 44,
+                "stop_id": "BUS_6225",
+                "name": "Vaniyanchavadi Padma Adarsh School"
+              },
+              {
+                "sequence": 45,
+                "stop_id": "BUS_6198",
+                "name": "Kazhipattur"
+              },
+              {
+                "sequence": 46,
+                "stop_id": "BUS_6179",
+                "name": "Akshaya Padur"
+              },
+              {
+                "sequence": 47,
+                "stop_id": "BUS_6157",
+                "name": "Padur"
+              },
+              {
+                "sequence": 48,
+                "stop_id": "BUS_6150",
+                "name": "Hindustan College"
+              },
+              {
+                "sequence": 49,
+                "stop_id": "BUS_6132",
+                "name": "Chettinad Hospital"
+              },
+              {
+                "sequence": 50,
+                "stop_id": "BUS_6125",
+                "name": "Kelambakkam V A O Office"
+              },
+              {
+                "sequence": 51,
+                "stop_id": "BUS_6099",
+                "name": "Kelambakkam Bus Terminal"
+              }
+            ],
+            "source": "CHENNAI_COMMUNITY_GTFS"
+          }
+        ],
+        "truncated": false,
+        "provisional": true,
+        "partial_topology": true,
+        "excluded_unusable_rows": 0,
+        "uncovered_route_ids": [
+          "GTFS_ROUTE_16861"
+        ]
+      },
+      "missing_slots": [],
+      "clarification_reason": null,
+      "candidate_entities": [],
+      "candidate_intents": [
+        "route_stop_sequence"
+      ]
+    },
+    "category": "successful bounded answer",
+    "expected_text": "102 के स्टॉप: Island ground Terminus, High Court, Parrys Corner, Secretariat, War Memorial, Annasquare, Kannagi Statue Shelter 1, Marina Beach, …। प्रकाशित स्टॉप कवरेज अधूरा है; अनुपयोगी कड़ियाँ या बिना कवरेज वाले रूट विकल्प छोड़े गए हैं। सेवा संचालन की पुष्टि नहीं है।",
+    "button_label": "बस रूट के स्टॉप"
+  },
+  {
+    "id": "S-HI-3",
+    "language": "hi",
+    "query": "स्टेज 4 का डीलक्स बस किराया कितना है?",
+    "intended_family": "fare_calculation",
+    "http_status": 200,
+    "elapsed_ms": 56.65,
+    "actual_json": {
+      "status": "ok",
+      "outcome_reason": "answered",
+      "response_text": "Published fare (Deluxe Services): INR 17 (record effective 2018-01-29). Published stage fare found; confirm the current fare before travel.",
+      "intent": "fare_calculation",
+      "operation": "CALCULATE_FARE",
+      "slots": {
+        "transport_mode": "bus",
+        "service_type": "Deluxe Services",
+        "stage_number": 4
+      },
+      "data": {
+        "amount": 17.0,
+        "currency": "INR",
+        "stage_number": 4,
+        "service_type": "Deluxe Services",
+        "effective_date": "2018-01-29",
+        "source": "MTC_OFFICIAL",
+        "government_order": "G.O (Ms.) No.48 Dated 28.01.2018",
+        "provisional": true
+      },
+      "missing_slots": [],
+      "clarification_reason": null,
+      "candidate_entities": [],
+      "candidate_intents": [
+        "fare_calculation"
+      ]
+    },
+    "category": "successful bounded answer",
+    "expected_text": "प्रकाशित किराया (डीलक्स सेवाएँ): INR 17 (रिकॉर्ड की प्रभावी तारीख 2018-01-29)। प्रकाशित स्टेज किराया मिला है; यात्रा से पहले मौजूदा किराए की पुष्टि करें।",
+    "button_label": "प्रकाशित किराया"
+  }
+]

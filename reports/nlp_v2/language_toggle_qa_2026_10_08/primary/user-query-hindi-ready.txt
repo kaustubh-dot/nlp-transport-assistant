@@ -1,0 +1,16 @@
+Browser tab: 1, Title: "Chennai Transit Assistant", URL: "http://127.0.0.1:8601/".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 35-41, 45-48
+~			44 button
++				45 container Chat message from user
++					46 text guindy se central kaise jau
++				47 container Chat message from assistant
++					48 container
++						49 text अधिक जानकारी चाहिए
++						50 text कृपया स्पष्ट करें कि आप किस स्टॉप या स्थान की बात कर रहे हैं।
++						51 text एक से अधिक स्टॉप या स्थान मेल खाते हैं। अपने पूरे संशोधित प्रश्न में रूट नंबर, परिवहन का माध्यम या सही स्टॉप नाम दें।
++				52 container
++					53 text field (settable) Description: अपना पूरा प्रश्न संशोधित करें, Value: guindy se central kaise jau, ID: text_input_1
++					54 button संशोधित प्रश्न पूछें
++						55 text संशोधित प्रश्न पूछें
+The focused UI element is 43 text entry area (settable) चेन्नई के सार्वजनिक परिवहन के बारे में पूछें…

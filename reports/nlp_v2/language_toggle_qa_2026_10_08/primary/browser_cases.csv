@@ -1,0 +1,1357 @@
+id,language,query,intended_family,time_utc,user_messages,assistant_messages,render_complete,last_exchange_ax,raw_question_preserved,localized_reply_matches_baseline
+H01,hi,बस से चेन्नई सेंट्रल से एयरपोर्ट तक जाने का रास्ता बताइए।,point_to_point_route,2026-10-08T09:13:17.997Z,49,49,True,"container Chat message from user
+					463 text बस से चेन्नई सेंट्रल से एयरपोर्ट तक जाने का रास्ता बताइए।
+				459 container Chat message from assistant
+					464 container
+						465 text अधिक जानकारी चाहिए
+						466 text कृपया स्पष्ट करें कि आप किस स्टॉप या स्थान की बात कर रहे हैं।
+						467 text एक से अधिक स्टॉप या स्थान मेल खाते हैं। अपने पूरे संशोधित प्रश्न में रूट नंबर, परिवहन का माध्यम या सही स्टॉप नाम दें।
+				460 container
+					468 text अपना पूरा प्रश्न संशोधित करें
+					461 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: बस से चेन्नई सेंट्रल से एयरपोर्ट तक जाने का रास्ता बताइए।, ID: text_input_26
+					462 button संशोधित प्रश्न पूछें
+						469 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H02,hi,सचिवालय से वॉर मेमोरियल तक बस से कैसे पहुँचूँ?,point_to_point_route,2026-10-08T09:13:19.022Z,50,50,True,"container Chat message from user
+					469 text सचिवालय से वॉर मेमोरियल तक बस से कैसे पहुँचूँ?
+				470 container Chat message from assistant
+					471 container
+						472 text अधिक जानकारी चाहिए
+						473 text कृपया शुरुआती स्टॉप, गंतव्य स्टॉप बताएं।
+						474 text जरूरी जानकारी: शुरुआती स्टॉप, गंतव्य स्टॉप
+				475 container
+					476 text अपना पूरा प्रश्न संशोधित करें
+					477 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: सचिवालय से वॉर मेमोरियल तक बस से कैसे पहुँचूँ?, ID: text_input_27
+					478 button संशोधित प्रश्न पूछें
+						479 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H03,hi,गिंडी से चेन्नई एयरपोर्ट जाने के लिए बस और मेट्रो जोड़कर यात्रा बताइए।,multimodal_route,2026-10-08T09:13:19.818Z,51,51,True,"container Chat message from user
+					476 text गिंडी से चेन्नई एयरपोर्ट जाने के लिए बस और मेट्रो जोड़कर यात्रा बताइए।
+				477 container Chat message from assistant
+					478 container
+						479 text जानकारी अनुपलब्ध है
+						480 text इस रिकॉर्ड संकलन में अलग परिवहन माध्यमों के बीच बदलाव का कोई पुष्ट नेटवर्क उपलब्ध नहीं है।
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H04,hi,तांबरम से अन्ना नगर तक लोकल ट्रेन और मेट्रो से यात्रा कैसे करूँ?,multimodal_route,2026-10-08T09:13:20.712Z,52,52,True,"container Chat message from user
+					486 text तांबरम से अन्ना नगर तक लोकल ट्रेन और मेट्रो से यात्रा कैसे करूँ?
+				482 container Chat message from assistant
+					487 container
+						488 text अधिक जानकारी चाहिए
+						489 text कृपया इस प्रश्न के लिए परिवहन का एक माध्यम चुनें।
+						490 text जरूरी जानकारी: परिवहन का माध्यम
+				483 container
+					491 text अपना पूरा प्रश्न संशोधित करें
+					484 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: तांबरम से अन्ना नगर तक लोकल ट्रेन और मेट्रो से यात्रा कैसे करूँ?, ID: text_input_28
+					485 button संशोधित प्रश्न पूछें
+						492 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H05,hi,"बस संख्या १०२ किन-किन स्टॉप पर जाती है, क्रम में नाम बताइए।",route_stop_sequence,2026-10-08T09:13:21.418Z,53,53,True,"container Chat message from user
+					492 text बस संख्या १०२ किन-किन स्टॉप पर जाती है, क्रम में नाम बताइए।
+				493 container Chat message from assistant
+					494 container
+						495 text अधिक जानकारी चाहिए
+						496 text कृपया रूट नंबर या लाइन का नाम बताएं।
+						497 text जरूरी जानकारी: रूट नंबर या लाइन का नाम
+				498 container
+					499 text अपना पूरा प्रश्न संशोधित करें
+					500 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: बस संख्या १०२ किन-किन स्टॉप पर जाती है, क्रम में नाम बताइए।, ID: text_input_29
+					501 button संशोधित प्रश्न पूछें
+						502 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H06,hi,रूट २५आर की बस के पूरे स्टॉपों की सूची दिखाइए।,route_stop_sequence,2026-10-08T09:13:22.116Z,54,54,True,"container Chat message from user
+					499 text रूट २५आर की बस के पूरे स्टॉपों की सूची दिखाइए।
+				500 container Chat message from assistant
+					501 container
+						502 text प्रकाशित जानकारी
+						503 text 25 R के स्टॉप: Anna Square Bus Terminus one, Madras University, Marina Beach, Kannagi Statue Or Presidency College, Vivekananda House, Ice House Police Station, Meersahibpet Market, New College, …। प्रकाशित स्टॉप क्रम मिले हैं। सेवा संचालन की पुष्टि नहीं है।
+						504 heading रूट के स्टॉप, Value: 3, ID: 76f603df
+							505 text रूट के स्टॉप
+						506 button (collapsed) 25 R · प्रकाशित क्रम 1, Secondary Actions: Expand
+							507 text 25 R · प्रकाशित क्रम 1
+						508 text यह जानकारी रिकॉर्ड के संकलन से मिली है। मौजूदा सेवा और स्थितियों की पुष्टि ऑपरेटर से करें।
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H07,hi,क्या १०२ नंबर बस मरिना बीच स्टॉप पर रुकती है?,route_stop_membership,2026-10-08T09:13:22.898Z,55,55,True,"container Chat message from user
+					510 text क्या १०२ नंबर बस मरिना बीच स्टॉप पर रुकती है?
+				511 container Chat message from assistant
+					512 container
+						513 text अधिक जानकारी चाहिए
+						514 text कृपया पूरे प्रत्यय सहित समर्थित रूट नंबर बताएं।
+						515 text जरूरी जानकारी: रूट नंबर
+				516 container
+					517 text अपना पूरा प्रश्न संशोधित करें
+					518 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: क्या १०२ नंबर बस मरिना बीच स्टॉप पर रुकती है?, ID: text_input_30
+					519 button संशोधित प्रश्न पूछें
+						520 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H08,hi,क्या २१जी बस गिंडी स्टॉप पर ठहरती है?,route_stop_membership,2026-10-08T09:13:23.714Z,56,56,True,"container Chat message from user
+					517 text क्या २१जी बस गिंडी स्टॉप पर ठहरती है?
+				518 container Chat message from assistant
+					519 container
+						520 text अधिक जानकारी चाहिए
+						521 text कृपया स्पष्ट करें कि आप किस स्टॉप या स्थान की बात कर रहे हैं।
+						522 text एक से अधिक स्टॉप या स्थान मेल खाते हैं। अपने पूरे संशोधित प्रश्न में रूट नंबर, परिवहन का माध्यम या सही स्टॉप नाम दें।
+				523 container
+					524 text अपना पूरा प्रश्न संशोधित करें
+					525 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: क्या २१जी बस गिंडी स्टॉप पर ठहरती है?, ID: text_input_31
+					526 button संशोधित प्रश्न पूछें
+						527 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H09,hi,आइलैंड ग्राउंड टर्मिनस से १०२ बस की पहली और आखिरी सेवा के समय बताइए।,first_and_last_service,2026-10-08T09:13:24.645Z,57,57,True,"container Chat message from user
+					524 text आइलैंड ग्राउंड टर्मिनस से १०२ बस की पहली और आखिरी सेवा के समय बताइए।
+				525 container Chat message from assistant
+					526 container
+						527 text अधिक जानकारी चाहिए
+						528 text कृपया चढ़ने का स्टॉप या स्टेशन बताएं।
+						529 text जरूरी जानकारी: चढ़ने का स्टॉप या स्टेशन
+				530 container
+					531 text अपना पूरा प्रश्न संशोधित करें
+					532 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: आइलैंड ग्राउंड टर्मिनस से १०२ बस की पहली और आखिरी सेवा के समय बताइए।, ID: text_input_32
+					533 button संशोधित प्रश्न पूछें
+						534 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H10,hi,पूनमल्ली बस टर्मिनस से रूट ६२ की आखिरी बस का निर्धारित समय क्या है?,first_and_last_service,2026-10-08T09:13:25.534Z,58,58,True,"container Chat message from user
+					535 text पूनमल्ली बस टर्मिनस से रूट ६२ की आखिरी बस का निर्धारित समय क्या है?
+				531 container Chat message from assistant
+					536 container
+						537 text अधिक जानकारी चाहिए
+						538 text कृपया एक बार में एक रूट, स्टॉप, किराए के स्टेज या समय के बारे में पूछें।
+				532 container
+					539 text अपना पूरा प्रश्न संशोधित करें
+					533 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: पूनमल्ली बस टर्मिनस से रूट ६२ की आखिरी बस का निर्धारित समय क्या है?, ID: text_input_33
+					534 button संशोधित प्रश्न पूछें
+						540 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H11,hi,आइलैंड ग्राउंड टर्मिनस से रूट १०२ की बस कितने मिनट के अंतराल से चलती है?,service_frequency,2026-10-08T09:13:26.240Z,59,59,True,"container Chat message from user
+					540 text आइलैंड ग्राउंड टर्मिनस से रूट १०२ की बस कितने मिनट के अंतराल से चलती है?
+				541 container Chat message from assistant
+					542 container
+						543 text अधिक जानकारी चाहिए
+						544 text कृपया एक बार में एक रूट, स्टॉप, किराए के स्टेज या समय के बारे में पूछें।
+				545 container
+					546 text अपना पूरा प्रश्न संशोधित करें
+					547 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: आइलैंड ग्राउंड टर्मिनस से रूट १०२ की बस कितने मिनट के अंतराल से चलती है?, ID: text_input_34
+					548 button संशोधित प्रश्न पूछें
+						549 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H12,hi,पूनमल्ली बस टर्मिनस पर ६२ बस की निर्धारित आवृत्ति क्या है?,service_frequency,2026-10-08T09:13:27.117Z,60,60,True,"container Chat message from user
+					547 text पूनमल्ली बस टर्मिनस पर ६२ बस की निर्धारित आवृत्ति क्या है?
+				546 container Chat message from assistant
+					548 container
+						549 text अधिक जानकारी चाहिए
+						550 text कृपया एक बार में एक रूट, स्टॉप, किराए के स्टेज या समय के बारे में पूछें।
+				551 container
+					552 text अपना पूरा प्रश्न संशोधित करें
+					553 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: पूनमल्ली बस टर्मिनस पर ६२ बस की निर्धारित आवृत्ति क्या है?, ID: text_input_35
+					554 button संशोधित प्रश्न पूछें
+						555 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H13,hi,पूनमल्ली बस टर्मिनस से सुबह नौ बजे के बाद बसों का प्रस्थान समय बताइए।,scheduled_departure,2026-10-08T09:16:54.554Z,109,109,True,"container Chat message from user
+					1006 text पूनमल्ली बस टर्मिनस से सुबह नौ बजे के बाद बसों का प्रस्थान समय बताइए।
+				1007 container Chat message from assistant
+					1008 container
+						1009 text प्रकाशित जानकारी
+						1010 container
+							1011 text प्रकाशित पहला प्रस्थान: 00:18 :00 ; अंतिम: 25:16 :00  (सेवा-दिन का समय)। ये प्रकाशित समय-सारणी की सीमाएँ हैं; मौजूदा संचालन की पुष्टि ऑपरेटर से करें।
+						1012 heading प्रकाशित सेवा समय, Value: 3, ID: bb109715
+							1013 text प्रकाशित सेवा समय
+						1014 container
+							1015 text पहला प्रस्थान
+							1016 text 00:18:00
+						1017 container
+							1018 text अंतिम प्रस्थान
+							1019 text 25:16:00
+						1020 container
+							1021 text GTFS सेवा-दिन का समय 24 :00  के बाद भी जारी हो सकता है।
+						1022 text स्रोत: CHENNAI_COMMUNITY_GTFS
+						1023 text यह जानकारी रिकॉर्ड के संकलन से मिली है। मौजूदा सेवा और स्थितियों की पुष्टि ऑपरेटर से करें।
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H14,hi,आइलैंड ग्राउंड टर्मिनस से १०२ बस के निर्धारित प्रस्थान 09:30 AM के बाद दिखाइए।,scheduled_departure,2026-10-08T09:16:55.588Z,110,110,True,"container Chat message from user
+					1025 container
+						1026 text आइलैंड ग्राउंड टर्मिनस से १०२ बस के निर्धारित प्रस्थान 09 :30  AM के बाद दिखाइए।
+				1027 container Chat message from assistant
+					1028 container
+						1029 text अधिक जानकारी चाहिए
+						1030 text कृपया चढ़ने का स्टॉप या स्टेशन बताएं।
+						1031 text जरूरी जानकारी: चढ़ने का स्टॉप या स्टेशन
+				1032 container
+					1033 text अपना पूरा प्रश्न संशोधित करें
+					1034 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: आइलैंड ग्राउंड टर्मिनस से १०२ बस के निर्धारित प्रस्थान 09:30 AM के बाद दिखाइए।, ID: text_input_59
+					1035 button संशोधित प्रश्न पूछें
+						1036 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H15,hi,गिंडी और चेन्नई सेंट्रल के बीच मेट्रो सेवा मिलती है क्या?,mode_availability,2026-10-08T09:16:57.426Z,111,111,True,"container Chat message from user
+					1034 text गिंडी और चेन्नई सेंट्रल के बीच मेट्रो सेवा मिलती है क्या?
+				1035 container Chat message from assistant
+					1036 container
+						1037 text जानकारी अनुपलब्ध है
+						1038 text माँगे गए परिवहन माध्यम से मेल खाता प्रकाशित रूट ढाँचा उपलब्ध नहीं है।
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H16,hi,अड्यार से ब्रॉडवे तक सीधी बस सेवा उपलब्ध है क्या?,mode_availability,2026-10-08T09:16:58.673Z,112,112,True,"container Chat message from user
+					1040 text अड्यार से ब्रॉडवे तक सीधी बस सेवा उपलब्ध है क्या?
+				1041 container Chat message from assistant
+					1042 container
+						1043 text अधिक जानकारी चाहिए
+						1044 text कृपया शुरुआती स्टॉप, गंतव्य स्टॉप बताएं।
+						1045 text जरूरी जानकारी: शुरुआती स्टॉप, गंतव्य स्टॉप
+				1046 container
+					1047 text अपना पूरा प्रश्न संशोधित करें
+					1048 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: अड्यार से ब्रॉडवे तक सीधी बस सेवा उपलब्ध है क्या?, ID: text_input_60
+					1049 button संशोधित प्रश्न पूछें
+						1050 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H17,hi,साधारण बस में स्टेज ८ के लिए कितना किराया लगता है?,fare_calculation,2026-10-08T09:16:59.761Z,113,113,True,"container Chat message from user
+					1047 text साधारण बस में स्टेज ८ के लिए कितना किराया लगता है?
+				1048 container Chat message from assistant
+					1049 container
+						1050 text प्रकाशित जानकारी
+						1051 text प्रकाशित किराया (साधारण सेवाएँ): INR 12 (रिकॉर्ड की प्रभावी तारीख 2018-01-29)। प्रकाशित स्टेज किराया मिला है; यात्रा से पहले मौजूदा किराए की पुष्टि करें।
+						1052 container
+							1053 text प्रकाशित किराया
+							1054 text INR 12
+						1055 text सेवा श्रेणी: साधारण सेवाएँ
+						1056 text प्रभावी तारीख: 2018-01-29 · स्रोत: MTC_OFFICIAL
+						1057 text यह जानकारी रिकॉर्ड के संकलन से मिली है। मौजूदा सेवा और स्थितियों की पुष्टि ऑपरेटर से करें।
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H18,hi,डीलक्स बस का स्टेज ६ वाला किराया रुपये में बताइए।,fare_calculation,2026-10-08T09:17:01.144Z,114,114,True,"container Chat message from user
+					1060 text डीलक्स बस का स्टेज ६ वाला किराया रुपये में बताइए।
+				1061 container Chat message from assistant
+					1062 container
+						1063 text प्रकाशित जानकारी
+						1064 text प्रकाशित किराया (डीलक्स सेवाएँ): INR 21 (रिकॉर्ड की प्रभावी तारीख 2018-01-29)। प्रकाशित स्टेज किराया मिला है; यात्रा से पहले मौजूदा किराए की पुष्टि करें।
+						1065 container
+							1066 text प्रकाशित किराया
+							1067 text INR 21
+						1068 text सेवा श्रेणी: डीलक्स सेवाएँ
+						1069 text प्रभावी तारीख: 2018-01-29 · स्रोत: MTC_OFFICIAL
+						1070 text यह जानकारी रिकॉर्ड के संकलन से मिली है। मौजूदा सेवा और स्थितियों की पुष्टि ऑपरेटर से करें।
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H19,hi,मेट्रो के मासिक पास को खरीदने का नियम बताइए।,ticketing_and_passes,2026-10-08T09:17:02.526Z,115,115,True,"container Chat message from user
+					1073 text मेट्रो के मासिक पास को खरीदने का नियम बताइए।
+				1074 container Chat message from assistant
+					1075 container
+						1076 text जानकारी अनुपलब्ध है
+						1077 text इस रिकॉर्ड संकलन में टिकट या पास नीति की कोई आधिकारिक तालिका नहीं है।
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H20,hi,चेन्नई मेट्रो में एनसीएमसी कार्ड को रिचार्ज कैसे करते हैं?,ticketing_and_passes,2026-10-08T09:17:03.803Z,116,116,True,"container Chat message from user
+					1086 text चेन्नई मेट्रो में एनसीएमसी कार्ड को रिचार्ज कैसे करते हैं?
+				1084 container Chat message from assistant
+					1087 container
+						1088 text जानकारी अनुपलब्ध है
+						1089 text इस रिकॉर्ड संकलन में टिकट या पास नीति की कोई आधिकारिक तालिका नहीं है।
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H21,hi,एयरपोर्ट मेट्रो स्टेशन में शौचालय की सुविधा है क्या?,station_facilities,2026-10-08T09:17:05.089Z,117,117,True,"container Chat message from user
+					1091 text एयरपोर्ट मेट्रो स्टेशन में शौचालय की सुविधा है क्या?
+				1092 container Chat message from assistant
+					1093 container
+						1094 text जानकारी अनुपलब्ध है
+						1095 text इस रिकॉर्ड संकलन में सुविधा की उपलब्धता सत्यापित नहीं है।
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H22,hi,गिंडी मेट्रो स्टेशन पर गाड़ी पार्क करने की जगह उपलब्ध है?,station_facilities,2026-10-08T09:17:06.447Z,118,118,True,"container Chat message from user
+					1104 text गिंडी मेट्रो स्टेशन पर गाड़ी पार्क करने की जगह उपलब्ध है?
+				1102 container Chat message from assistant
+					1105 container
+						1106 text जानकारी अनुपलब्ध है
+						1107 text इस रिकॉर्ड संकलन में सुविधा की उपलब्धता सत्यापित नहीं है।
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H23,hi,गिंडी मेट्रो में व्हीलचेयर के लिए रैंप मौजूद है क्या?,station_accessibility,2026-10-08T09:17:07.814Z,119,119,True,"container Chat message from user
+					1110 text गिंडी मेट्रो में व्हीलचेयर के लिए रैंप मौजूद है क्या?
+				1111 container Chat message from assistant
+					1112 container
+						1113 text जानकारी अनुपलब्ध है
+						1114 text इस रिकॉर्ड संकलन में सुगम्यता सुविधाओं की सत्यापित जानकारी नहीं है।
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H24,hi,चेन्नई सेंट्रल मेट्रो स्टेशन में दृष्टिबाधित यात्रियों के लिए स्पर्श पथ हैं क्या?,station_accessibility,2026-10-08T09:17:09.245Z,120,120,True,"container Chat message from user
+					1117 text चेन्नई सेंट्रल मेट्रो स्टेशन में दृष्टिबाधित यात्रियों के लिए स्पर्श पथ हैं क्या?
+				1118 container Chat message from assistant
+					1119 container
+						1120 text जानकारी अनुपलब्ध है
+						1121 text इस रिकॉर्ड संकलन में सुगम्यता सुविधाओं की सत्यापित जानकारी नहीं है।
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H25,hi,चेन्नई सेंट्रल पर मेट्रो से उपनगरीय ट्रेन में बदलने की जानकारी दीजिए।,interchange_transfer,2026-10-08T09:12:37.248Z,25,25,True,"container Chat message from user
+					247 text चेन्नई सेंट्रल पर मेट्रो से उपनगरीय ट्रेन में बदलने की जानकारी दीजिए।
+				248 container Chat message from assistant
+					249 container
+						250 text जानकारी अनुपलब्ध है
+						251 text इस रिकॉर्ड संकलन में टिकट या पास नीति की कोई आधिकारिक तालिका नहीं है।
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H26,hi,गिंडी में बस और मेट्रो के बीच इंटरचेंज कहाँ करना होता है?,interchange_transfer,2026-10-08T09:12:37.700Z,26,26,True,"container Chat message from user
+					253 text गिंडी में बस और मेट्रो के बीच इंटरचेंज कहाँ करना होता है?
+				254 container Chat message from assistant
+					255 container
+						256 text जानकारी अनुपलब्ध है
+						257 text इस रिकॉर्ड संकलन में परिवहन बदलाव के पुष्ट रिकॉर्ड नहीं हैं।
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H27,hi,मरिना बीच के सबसे निकट कौन सा मेट्रो स्टेशन पड़ता है?,nearest_transport,2026-10-08T09:12:38.136Z,27,27,True,"container Chat message from user
+					259 text मरिना बीच के सबसे निकट कौन सा मेट्रो स्टेशन पड़ता है?
+				260 container Chat message from assistant
+					261 container
+						262 text अधिक जानकारी चाहिए
+						263 text कृपया नजदीकी पहचान का स्थान या इलाका बताएं।
+						264 text जरूरी जानकारी: नजदीकी पहचान का स्थान या इलाका
+				265 container
+					266 text अपना पूरा प्रश्न संशोधित करें
+					267 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: मरिना बीच के सबसे निकट कौन सा मेट्रो स्टेशन पड़ता है?, ID: text_input_13
+					268 button संशोधित प्रश्न पूछें
+						269 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H28,hi,आईआईटी मद्रास के पास का निकटतम बस स्टॉप बताइए।,nearest_transport,2026-10-08T09:12:38.656Z,28,28,True,"container Chat message from user
+					266 text आईआईटी मद्रास के पास का निकटतम बस स्टॉप बताइए।
+				267 container Chat message from assistant
+					268 container
+						269 text अधिक जानकारी चाहिए
+						270 text कृपया नजदीकी पहचान का स्थान या इलाका बताएं।
+						271 text जरूरी जानकारी: नजदीकी पहचान का स्थान या इलाका
+				272 container
+					273 text अपना पूरा प्रश्न संशोधित करें
+					274 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: आईआईटी मद्रास के पास का निकटतम बस स्टॉप बताइए।, ID: text_input_14
+					275 button संशोधित प्रश्न पूछें
+						276 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H29,hi,रूट २५आर की बस का लाइव जीपीएस अभी दिखा सकते हैं?,realtime_status_query,2026-10-08T09:12:39.101Z,29,29,True,"container Chat message from user
+					273 text रूट २५आर की बस का लाइव जीपीएस अभी दिखा सकते हैं?
+				274 container Chat message from assistant
+					275 container
+						276 text जानकारी अनुपलब्ध है
+						277 text लाइव परिवहन स्थिति अनुपलब्ध है; कृपया ऑपरेटर से पुष्टि करें।
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H30,hi,इस समय एयरपोर्ट मेट्रो ट्रेन में भीड़ कितनी है?,realtime_status_query,2026-10-08T09:12:39.823Z,30,30,True,"container Chat message from user
+					279 text इस समय एयरपोर्ट मेट्रो ट्रेन में भीड़ कितनी है?
+				280 container Chat message from assistant
+					281 container
+						282 text जानकारी अनुपलब्ध है
+						283 text माँगे गए परिवहन माध्यम से मेल खाती प्रकाशित समय-सारणी उपलब्ध नहीं है।
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H31,hi,आज रात के खाने के लिए पनीर की कोई नई रेसिपी सुझाओ।,out_of_scope,2026-10-08T09:12:40.379Z,31,31,True,"container Chat message from user
+					285 text आज रात के खाने के लिए पनीर की कोई नई रेसिपी सुझाओ।
+				286 container Chat message from assistant
+					287 container
+						288 text परिवहन के दायरे से बाहर
+						289 text मैं चेन्नई के सार्वजनिक परिवहन से जुड़े प्रश्नों में मदद कर सकता हूँ।
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H32,hi,मुंबई के कल के मौसम का पूर्वानुमान क्या है?,out_of_scope,2026-10-08T09:12:40.947Z,32,32,True,"container Chat message from user
+					291 text मुंबई के कल के मौसम का पूर्वानुमान क्या है?
+				292 container Chat message from assistant
+					293 container
+						294 text अधिक जानकारी चाहिए
+						295 text कृपया समय या दिन स्पष्ट करें।
+				296 container
+					297 text अपना पूरा प्रश्न संशोधित करें
+					298 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: मुंबई के कल के मौसम का पूर्वानुमान क्या है?, ID: text_input_15
+					299 button संशोधित प्रश्न पूछें
+						300 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H33,hi,बस के स्टेज ८ का किराया कितना है?,fare_calculation,2026-10-08T09:12:41.529Z,33,33,True,"container Chat message from user
+					297 text बस के स्टेज ८ का किराया कितना है?
+				298 container Chat message from assistant
+					299 container
+						300 text प्रकाशित जानकारी
+						301 text प्रकाशित किराया (साधारण सेवाएँ): INR 12 (रिकॉर्ड की प्रभावी तारीख 2018-01-29)। प्रकाशित स्टेज किराया मिला है; यात्रा से पहले मौजूदा किराए की पुष्टि करें।
+						302 container
+							303 text प्रकाशित किराया
+							304 text INR 12
+						305 text सेवा श्रेणी: साधारण सेवाएँ
+						306 text प्रभावी तारीख: 2018-01-29 · स्रोत: MTC_OFFICIAL
+						307 text यह जानकारी रिकॉर्ड के संकलन से मिली है। मौजूदा सेवा और स्थितियों की पुष्टि ऑपरेटर से करें।
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H34,hi,बस के सभी स्टॉप क्रम से लिख दीजिए।,route_stop_sequence,2026-10-08T09:12:42.060Z,34,34,True,"container Chat message from user
+					309 text बस के सभी स्टॉप क्रम से लिख दीजिए।
+				310 container Chat message from assistant
+					311 container
+						312 text अधिक जानकारी चाहिए
+						313 text कृपया रूट नंबर या लाइन का नाम बताएं।
+						314 text जरूरी जानकारी: रूट नंबर या लाइन का नाम
+				315 container
+					316 text अपना पूरा प्रश्न संशोधित करें
+					317 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: बस के सभी स्टॉप क्रम से लिख दीजिए।, ID: text_input_16
+					318 button संशोधित प्रश्न पूछें
+						319 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H35,hi,निकटतम मेट्रो स्टेशन का नाम बताइए।,nearest_transport,2026-10-08T09:12:42.672Z,35,35,True,"container Chat message from user
+					316 text निकटतम मेट्रो स्टेशन का नाम बताइए।
+				317 container Chat message from assistant
+					318 container
+						319 text जानकारी अनुपलब्ध है
+						320 text माँगे गए परिवहन माध्यम से मेल खाता प्रकाशित रूट ढाँचा उपलब्ध नहीं है।
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H36,hi,साधारण बस में आठवें स्टेज का किराया बताइए।,fare_calculation,2026-10-08T09:12:43.213Z,36,36,True,"container Chat message from user
+					322 text साधारण बस में आठवें स्टेज का किराया बताइए।
+				323 container Chat message from assistant
+					324 container
+						325 text अधिक जानकारी चाहिए
+						326 text कृपया किराए का स्टेज नंबर या शुरुआती और गंतव्य स्टॉप बताएं।
+						327 text जरूरी जानकारी: शुरुआती स्टॉप या किराए का स्टेज नंबर, गंतव्य स्टॉप या किराए का स्टेज नंबर
+				328 container
+					329 text अपना पूरा प्रश्न संशोधित करें
+					330 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: साधारण बस में आठवें स्टेज का किराया बताइए।, ID: text_input_17
+					331 button संशोधित प्रश्न पूछें
+						332 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H37,hi,कल्पित नीलकमल चौराहे के पास कौन सा बस स्टॉप है?,nearest_transport,2026-10-08T09:13:09.300Z,37,37,True,"container Chat message from user
+					329 text कल्पित नीलकमल चौराहे के पास कौन सा बस स्टॉप है?
+				330 container Chat message from assistant
+					331 container
+						332 text अधिक जानकारी चाहिए
+						333 text कृपया नजदीकी पहचान का स्थान या इलाका बताएं।
+						334 text जरूरी जानकारी: नजदीकी पहचान का स्थान या इलाका
+				335 container
+					336 text अपना पूरा प्रश्न संशोधित करें
+					337 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: कल्पित नीलकमल चौराहे के पास कौन सा बस स्टॉप है?, ID: text_input_18
+					338 button संशोधित प्रश्न पूछें
+						339 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H38,hi,सेंट्रल के नजदीक मेट्रो स्टेशन कौन सा है?,nearest_transport,2026-10-08T09:13:09.975Z,38,38,True,"container Chat message from user
+					336 text सेंट्रल के नजदीक मेट्रो स्टेशन कौन सा है?
+				337 container Chat message from assistant
+					338 container
+						339 text अधिक जानकारी चाहिए
+						340 text कृपया स्पष्ट करें कि आप किस स्टॉप या स्थान की बात कर रहे हैं।
+						341 text एक से अधिक स्टॉप या स्थान मेल खाते हैं। अपने पूरे संशोधित प्रश्न में रूट नंबर, परिवहन का माध्यम या सही स्टॉप नाम दें।
+				342 container
+					343 text अपना पूरा प्रश्न संशोधित करें
+					344 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: सेंट्रल के नजदीक मेट्रो स्टेशन कौन सा है?, ID: text_input_19
+					345 button संशोधित प्रश्न पूछें
+						346 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H39,hi,Poonamallee Bus Terminus से ८ बजे की निर्धारित बसें दिखाइए।,scheduled_departure,2026-10-08T09:13:10.627Z,39,39,True,"container Chat message from user
+					343 text Poonamallee Bus Terminus से ८ बजे की निर्धारित बसें दिखाइए।
+				344 container Chat message from assistant
+					345 container
+						346 text अधिक जानकारी चाहिए
+						347 text कृपया रूट नंबर या लाइन का नाम बताएं।
+						348 text जरूरी जानकारी: रूट नंबर या लाइन का नाम
+				349 container
+					350 text अपना पूरा प्रश्न संशोधित करें
+					351 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: Poonamallee Bus Terminus से ८ बजे की निर्धारित बसें दिखाइए।, ID: text_input_20
+					352 button संशोधित प्रश्न पूछें
+						353 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H40,hi,Poonamallee Bus Terminus से सुबह ८ बजे के बाद की निर्धारित बसें दिखाइए।,scheduled_departure,2026-10-08T09:13:11.331Z,40,40,True,"container Chat message from user
+					351 text Poonamallee Bus Terminus से सुबह ८ बजे के बाद की निर्धारित बसें दिखाइए।
+				352 container Chat message from assistant
+					353 container
+						354 text प्रकाशित जानकारी
+						355 container
+							356 text प्रकाशित प्रस्थान: 154 R — 08:00 :00 , 62 — 08:00 :00 , 597A R — 08:00 :00 , 591 — 08:00 :00 , 49X — 08:00 :00  (सेवा-दिन का समय)। केवल प्रकाशित प्रस्थान; ये समय लाइव अनुमान नहीं हैं।
+						357 heading प्रकाशित प्रस्थान, Value: 3, ID: 7b6b2214
+							358 text प्रकाशित प्रस्थान
+						359 container
+							360 button Show/hide columns
+							361 button Download as CSV
+							362 button Search
+							363 button Fullscreen
+							364 image
+						365 text समय समय-सारणी के रिकॉर्ड हैं, लाइव अनुमान नहीं।
+						366 text यह जानकारी रिकॉर्ड के संकलन से मिली है। मौजूदा सेवा और स्थितियों की पुष्टि ऑपरेटर से करें।
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H41,hi,कल पूनमल्ली बस टर्मिनस से ६२ बस की पहली सेवा कब है?,first_and_last_service,2026-10-08T09:13:11.990Z,41,41,True,"container Chat message from user
+					394 text कल पूनमल्ली बस टर्मिनस से ६२ बस की पहली सेवा कब है?
+				395 container Chat message from assistant
+					396 container
+						397 text अधिक जानकारी चाहिए
+						398 text कृपया समय या दिन स्पष्ट करें।
+				399 container
+					400 text अपना पूरा प्रश्न संशोधित करें
+					401 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: कल पूनमल्ली बस टर्मिनस से ६२ बस की पहली सेवा कब है?, ID: text_input_21
+					402 button संशोधित प्रश्न पूछें
+						403 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H42,hi,रूट १०२ के प्रस्थान 2026-02-31 को 27:80 बजे दिखाइए।,scheduled_departure,2026-10-08T09:13:12.731Z,42,42,True,"container Chat message from user
+					400 container
+						401 text रूट १०२ के प्रस्थान 2026-02-31 को 27 :80  बजे दिखाइए।
+				402 container Chat message from assistant
+					403 container
+						404 text अधिक जानकारी चाहिए
+						405 text कृपया समय या दिन स्पष्ट करें।
+				406 container
+					407 text अपना पूरा प्रश्न संशोधित करें
+					408 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: रूट १०२ के प्रस्थान 2026-02-31 को 27:80 बजे दिखाइए।, ID: text_input_22
+					409 button संशोधित प्रश्न पूछें
+						410 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H43,hi,१०२ और २१जी दोनों बसों के सभी स्टॉप बताओ।,route_stop_sequence,2026-10-08T09:13:13.361Z,43,43,True,"container Chat message from user
+					407 text १०२ और २१जी दोनों बसों के सभी स्टॉप बताओ।
+				408 container Chat message from assistant
+					409 container
+						410 text अधिक जानकारी चाहिए
+						411 text कृपया पूरे प्रत्यय सहित समर्थित रूट नंबर बताएं।
+						412 text जरूरी जानकारी: रूट नंबर
+				413 container
+					414 text अपना पूरा प्रश्न संशोधित करें
+					415 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: १०२ और २१जी दोनों बसों के सभी स्टॉप बताओ।, ID: text_input_23
+					416 button संशोधित प्रश्न पूछें
+						417 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H44,hi,साधारण बस के स्टेज ८ का किराया बताओ और पूनमल्ली से बस के प्रस्थान दिखाओ।,multiple_goals,2026-10-08T09:13:13.939Z,44,44,True,"container Chat message from user
+					414 text साधारण बस के स्टेज ८ का किराया बताओ और पूनमल्ली से बस के प्रस्थान दिखाओ।
+				415 container Chat message from assistant
+					416 container
+						417 text प्रकाशित जानकारी
+						418 text प्रकाशित किराया (साधारण सेवाएँ): INR 12 (रिकॉर्ड की प्रभावी तारीख 2018-01-29)। प्रकाशित स्टेज किराया मिला है; यात्रा से पहले मौजूदा किराए की पुष्टि करें।
+						419 container
+							420 text प्रकाशित किराया
+							421 text INR 12
+						422 text सेवा श्रेणी: साधारण सेवाएँ
+						423 text प्रभावी तारीख: 2018-01-29 · स्रोत: MTC_OFFICIAL
+						424 text यह जानकारी रिकॉर्ड के संकलन से मिली है। मौजूदा सेवा और स्थितियों की पुष्टि ऑपरेटर से करें।
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H45,hi,चेन्नई सेंट्रल से तांबरम तक गिंडी के रास्ते निर्धारित प्रस्थान बताओ।,scheduled_departure,2026-10-08T09:13:14.677Z,45,45,True,"container Chat message from user
+					426 text चेन्नई सेंट्रल से तांबरम तक गिंडी के रास्ते निर्धारित प्रस्थान बताओ।
+				427 container Chat message from assistant
+					428 container
+						429 text अधिक जानकारी चाहिए
+						430 text कृपया स्पष्ट करें कि आप किस स्टॉप या स्थान की बात कर रहे हैं।
+						431 text एक से अधिक स्टॉप या स्थान मेल खाते हैं। अपने पूरे संशोधित प्रश्न में रूट नंबर, परिवहन का माध्यम या सही स्टॉप नाम दें।
+				432 container
+					433 text अपना पूरा प्रश्न संशोधित करें
+					434 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: चेन्नई सेंट्रल से तांबरम तक गिंडी के रास्ते निर्धारित प्रस्थान बताओ।, ID: text_input_24
+					435 button संशोधित प्रश्न पूछें
+						436 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H46,hi,चेन्नई सेंट्रल से तांबरम तक काल्पनिक सूरज चौक होकर ट्रेन कितनी देर में चलती है?,service_frequency,2026-10-08T09:13:15.365Z,46,46,True,"container Chat message from user
+					433 text चेन्नई सेंट्रल से तांबरम तक काल्पनिक सूरज चौक होकर ट्रेन कितनी देर में चलती है?
+				434 container Chat message from assistant
+					435 container
+						436 text अधिक जानकारी चाहिए
+						437 text कृपया रूट नंबर या लाइन का नाम बताएं।
+						438 text जरूरी जानकारी: रूट नंबर या लाइन का नाम
+				439 container
+					440 text अपना पूरा प्रश्न संशोधित करें
+					441 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: चेन्नई सेंट्रल से तांबरम तक काल्पनिक सूरज चौक होकर ट्रेन कितनी देर में चलती है?, ID: text_input_25
+					442 button संशोधित प्रश्न पूछें
+						443 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H47,hi,"  बस १०२... के स्टॉप???
+कृपया क्रम से बताओ!!  ",route_stop_sequence,2026-10-08T09:13:16.033Z,47,47,True,"container Chat message from user
+					440 text बस १०२... के स्टॉप??? कृपया क्रम से बताओ!!
+				441 container Chat message from assistant
+					442 container
+						443 text प्रकाशित जानकारी
+						444 text 102 के स्टॉप: Island ground Terminus, High Court, Parrys Corner, Secretariat, War Memorial, Annasquare, Kannagi Statue Shelter 1, Marina Beach, …। प्रकाशित स्टॉप कवरेज अधूरा है; अनुपयोगी कड़ियाँ या बिना कवरेज वाले रूट विकल्प छोड़े गए हैं। सेवा संचालन की पुष्टि नहीं है।
+						445 heading रूट के स्टॉप, Value: 3, ID: 76f603df
+							446 text रूट के स्टॉप
+						447 button (collapsed) 102 · प्रकाशित क्रम 1, Secondary Actions: Expand
+							448 text 102 · प्रकाशित क्रम 1
+						449 text प्रकाशित कवरेज अधूरा है: कुछ कड़ियों या रूट विकल्पों की पुष्टि नहीं हो सकती।
+						450 text छोड़े गए: 0 अनुपयोगी कड़ियाँ और 1 रूट विकल्प।
+						451 text यह जानकारी रिकॉर्ड के संकलन से मिली है। मौजूदा सेवा और स्थितियों की पुष्टि ऑपरेटर से करें।
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H48,hi,गिंडी मेट्रो स्टेशन के पास एक जन्मदिन की कविता लिखो।,out_of_scope,2026-10-08T09:13:17.000Z,48,48,True,"container Chat message from user
+					453 text गिंडी मेट्रो स्टेशन के पास एक जन्मदिन की कविता लिखो।
+				454 container Chat message from assistant
+					455 container
+						456 text जानकारी अनुपलब्ध है
+						457 text इस रिकॉर्ड संकलन में टिकट या पास नीति की कोई आधिकारिक तालिका नहीं है।
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H01,hinglish,guindy se central kaise jau,point_to_point_route,2026-10-08T09:13:46.889Z,61,61,True,"container Chat message from user
+					552 text guindy se central kaise jau
+				553 container Chat message from assistant
+					554 container
+						555 text Aur jaankari chahiye
+						556 text Kripya batayein ki kaunsa stop ya location keh rahe hain.
+						557 text Ek se zyada stop ya location match karte hain. Revised poore sawaal mein route number, transport mode ya exact stop name dein.
+				558 container
+					559 text Apna poora sawaal revise karein
+					560 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: guindy se central kaise jau, ID: text_input_36
+					561 button Revised sawaal poochhein
+						562 text Revised sawaal poochhein
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H02,hinglish,Tambaram se Egmore bus se jaane ka rasta bata do,point_to_point_route,2026-10-08T09:13:47.594Z,62,62,True,"container Chat message from user
+					559 text Tambaram se Egmore bus se jaane ka rasta bata do
+				560 container Chat message from assistant
+					561 container
+						562 text Aur jaankari chahiye
+						563 text Kripya batayein ki kaunsa stop ya location keh rahe hain.
+						564 text Ek se zyada stop ya location match karte hain. Revised poore sawaal mein route number, transport mode ya exact stop name dein.
+				565 container
+					566 text Apna poora sawaal revise karein
+					567 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: Tambaram se Egmore bus se jaane ka rasta bata do, ID: text_input_37
+					568 button Revised sawaal poochhein
+						569 text Revised sawaal poochhein
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H03,hinglish,Airport se Marina Beach tak metro aur bus badal kar kaise pahunchu?,multimodal_route,2026-10-08T09:21:49.103Z,121,121,True,"container Chat message from user
+					1124 text Airport se Marina Beach tak metro aur bus badal kar kaise pahunchu?
+				1123 container Chat message from assistant
+					1125 container
+						1126 text Jaankari unavailable hai
+						1127 text Is snapshot mein confirmed cross-mode transfer graph available nahi hai.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H04,hinglish,Chennai Central se Velachery tak pehle suburban train phir bus wala safar batao,multimodal_route,2026-10-08T09:13:48.959Z,64,64,True,"container Chat message from user
+					572 text Chennai Central se Velachery tak pehle suburban train phir bus wala safar batao
+				573 container Chat message from assistant
+					574 container
+						575 text Jaankari unavailable hai
+						576 text Is snapshot mein confirmed cross-mode transfer graph available nahi hai.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H05,hinglish,27D bus ke saare stops ek kram mein dikhao,route_stop_sequence,2026-10-08T09:13:49.837Z,65,65,True,"container Chat message from user
+					578 text 27D bus ke saare stops ek kram mein dikhao
+				579 container Chat message from assistant
+					580 container
+						581 text Prakashit jaankari
+						582 text 27D ke stops: Ayanavaram Depot, Sayani Theatre Aynavaram, Noor Hotel, Joint Office, Railway Quarters, Kambar Arangam, Icf, Icf. Published stop sequences mile hain. Service operation confirm nahi hai.
+						583 heading Route ke stops, Value: 3, ID: route-ke-stops
+							584 text Route ke stops
+						585 button (collapsed) 27D · published stop kram 1, Secondary Actions: Expand
+							586 text 27D · published stop kram 1
+						587 button (collapsed) 27D · published stop kram 2, Secondary Actions: Expand
+							588 text 27D · published stop kram 2
+						589 button (collapsed) 27D · published stop kram 3, Secondary Actions: Expand
+							590 text 27D · published stop kram 3
+						591 button (collapsed) 27D · published stop kram 4, Secondary Actions: Expand
+							592 text 27D · published stop kram 4
+						593 button (collapsed) 27D · published stop kram 5, Secondary Actions: Expand
+							594 text 27D · published stop kram 5
+						595 text Snapshot se mili jaankari. Current service aur conditions operator se confirm karein.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H06,hinglish,102 route ka stop sequence shuru se ant tak batao,route_stop_sequence,2026-10-08T09:13:50.810Z,66,66,True,"container Chat message from user
+					607 text 102 route ka stop sequence shuru se ant tak batao
+				602 container Chat message from assistant
+					603 container
+						608 text Prakashit jaankari
+						609 text 102 ke stops: Island ground Terminus, High Court, Parrys Corner, Secretariat, War Memorial, Annasquare, Kannagi Statue Shelter 1, Marina Beach, …. Published stop coverage partial hai; unusable links ya uncovered route variants chhode gaye hain. Service operation confirm nahi hai.
+						604 heading Route ke stops, Value: 3, ID: route-ke-stops
+							610 text Route ke stops
+						605 button (collapsed) 102 · published stop kram 1, Secondary Actions: Expand
+							611 text 102 · published stop kram 1
+						612 text Published coverage partial hai: kuch links ya route variants verify nahi ho sakte.
+						613 text Chhode gaye: 0 unusable links aur 1 route variants.
+						614 text Snapshot se mili jaankari. Current service aur conditions operator se confirm karein.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H07,hinglish,102 bus Marina Beach par rukti hai kya?,route_stop_membership,2026-10-08T09:13:51.747Z,67,67,True,"container Chat message from user
+					623 text 102 bus Marina Beach par rukti hai kya?
+				621 container Chat message from assistant
+					624 container
+						625 text Prakashit jaankari
+						626 text Yeh stop published route sequence par hai. Published route-stop sequence check hua; current service confirm nahi hai.
+						627 container
+							628 text Published route sequence par
+							629 text Haan
+						630 text Source ka record: CHENNAI_COMMUNITY_GTFS
+						631 text Published coverage partial hai: kuch links ya route variants verify nahi ho sakte.
+						632 text Snapshot se mili jaankari. Current service aur conditions operator se confirm karein.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H08,hinglish,27D route mein Egmore stop aata hai ya nahi?,route_stop_membership,2026-10-08T09:13:52.724Z,68,68,True,"container Chat message from user
+					634 text 27D route mein Egmore stop aata hai ya nahi?
+				635 container Chat message from assistant
+					636 container
+						637 text Aur jaankari chahiye
+						638 text Kripya batayein ki kaunsa stop ya location keh rahe hain.
+						639 text Ek se zyada stop ya location match karte hain. Revised poore sawaal mein route number, transport mode ya exact stop name dein.
+				640 container
+					641 text Apna poora sawaal revise karein
+					642 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: 27D route mein Egmore stop aata hai ya nahi?, ID: text_input_38
+					643 button Revised sawaal poochhein
+						644 text Revised sawaal poochhein
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H09,hinglish,Guindy metro ki subah pehli aur raat ki aakhri service kitne baje hai?,first_and_last_service,2026-10-08T09:13:53.650Z,69,69,True,"container Chat message from user
+					642 text Guindy metro ki subah pehli aur raat ki aakhri service kitne baje hai?
+				643 container Chat message from assistant
+					644 container
+						645 text Aur jaankari chahiye
+						646 text Kripya ek baar mein ek route, stop, fare stage ya samay poochhein.
+				647 container
+					648 text Apna poora sawaal revise karein
+					649 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: Guindy metro ki subah pehli aur raat ki aakhri service kitne baje hai?, ID: text_input_39
+					650 button Revised sawaal poochhein
+						651 text Revised sawaal poochhein
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H10,hinglish,Tambaram se nikalne wali pehli train aur aakhiri train ka published time kya hai?,first_and_last_service,2026-10-08T09:13:54.679Z,70,70,True,"container Chat message from user
+					652 text Tambaram se nikalne wali pehli train aur aakhiri train ka published time kya hai?
+				648 container Chat message from assistant
+					653 container
+						654 text Aur jaankari chahiye
+						655 text Kripya batayein ki kaunsa stop ya location keh rahe hain.
+						656 text Ek se zyada stop ya location match karte hain. Revised poore sawaal mein route number, transport mode ya exact stop name dein.
+				649 container
+					657 text Apna poora sawaal revise karein
+					650 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: Tambaram se nikalne wali pehli train aur aakhiri train ka published time kya hai?, ID: text_input_40
+					651 button Revised sawaal poochhein
+						658 text Revised sawaal poochhein
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H11,hinglish,Guindy se Central wali metro kitni der ke gap mein chalti hai?,service_frequency,2026-10-08T09:21:50.797Z,122,122,True,"container Chat message from user
+					1130 text Guindy se Central wali metro kitni der ke gap mein chalti hai?
+				1131 container Chat message from assistant
+					1132 container
+						1133 text Jaankari unavailable hai
+						1134 text Requested transport mode se matching published schedule available nahi hai.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H12,hinglish,102 bus ki frequency Island ground Terminus par kitni hai?,service_frequency,2026-10-08T09:13:56.669Z,72,72,True,"container Chat message from user
+					674 text 102 bus ki frequency Island ground Terminus par kitni hai?
+				675 container Chat message from assistant
+					676 container
+						677 text Aur jaankari chahiye
+						678 text Kripya starting stop ya fare stage number bataein.
+						679 text Zaroori jaankari: starting stop ya fare stage number
+				680 container
+					681 text Apna poora sawaal revise karein
+					682 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: 102 bus ki frequency Island ground Terminus par kitni hai?, ID: text_input_41
+					683 button Revised sawaal poochhein
+						684 text Revised sawaal poochhein
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H13,hinglish,Island ground Terminus se 102 bus ke scheduled departures 10:00 ke baad dikhao,scheduled_departure,2026-10-08T09:13:57.770Z,73,73,True,"container Chat message from user
+					681 container
+						682 text Island ground Terminus se 102 bus ke scheduled departures 10 :00  ke baad dikhao
+				683 container Chat message from assistant
+					684 container
+						685 text Prakashit jaankari
+						686 container
+							687 text Prakashit departures: 102 — 10:05 :00 , 102 — 13:10 :00 , 102 — 13:55 :00 , 102 — 15:20 :00 , 102 — 16:30 :00  (service-day samay). Sirf published departures; yeh samay live predictions nahi hain.
+						688 heading Prakashit departures, Value: 3, ID: prakashit-departures
+							689 text Prakashit departures
+						690 container
+							691 button Show/hide columns
+							692 button Download as CSV
+							693 button Search
+							694 button Fullscreen
+							695 image
+						696 text Samay schedule records hain, live predictions nahi.
+						697 text Snapshot se mili jaankari. Current service aur conditions operator se confirm karein.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H14,hinglish,Guindy station se Tambaram ki taraf train ka timetable 18:30 ke baad batao,scheduled_departure,2026-10-08T09:13:58.603Z,74,74,True,"container Chat message from user
+					725 container
+						726 text Guindy station se Tambaram ki taraf train ka timetable 18 :30  ke baad batao
+				727 container Chat message from assistant
+					728 container
+						729 text Aur jaankari chahiye
+						730 text Kripya batayein ki kaunsa stop ya location keh rahe hain.
+						731 text Ek se zyada stop ya location match karte hain. Revised poore sawaal mein route number, transport mode ya exact stop name dein.
+				732 container
+					733 text Apna poora sawaal revise karein
+					734 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: Guindy station se Tambaram ki taraf train ka timetable 18:30 ke baad batao, ID: text_input_42
+					735 button Revised sawaal poochhein
+						736 text Revised sawaal poochhein
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H15,hinglish,Egmore se Tambaram ke beech bus service milti hai kya?,mode_availability,2026-10-08T09:13:59.791Z,75,75,True,"container Chat message from user
+					734 text Egmore se Tambaram ke beech bus service milti hai kya?
+				735 container Chat message from assistant
+					736 container
+						737 text Aur jaankari chahiye
+						738 text Kripya batayein ki kaunsa stop ya location keh rahe hain.
+						739 text Ek se zyada stop ya location match karte hain. Revised poore sawaal mein route number, transport mode ya exact stop name dein.
+				740 container
+					741 text Apna poora sawaal revise karein
+					742 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: Egmore se Tambaram ke beech bus service milti hai kya?, ID: text_input_43
+					743 button Revised sawaal poochhein
+						744 text Revised sawaal poochhein
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H16,hinglish,Airport se Guindy tak metro ka connection available hai?,mode_availability,2026-10-08T09:14:00.897Z,76,76,True,"container Chat message from user
+					741 text Airport se Guindy tak metro ka connection available hai?
+				742 container Chat message from assistant
+					743 container
+						744 text Jaankari unavailable hai
+						745 text Requested transport mode se matching published topology available nahi hai.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H17,hinglish,Express bus mein stage 7 ka kiraya kitna padta hai?,fare_calculation,2026-10-08T09:15:20.546Z,77,77,True,"container Chat message from user
+					747 text Express bus mein stage 7 ka kiraya kitna padta hai?
+				748 container Chat message from assistant
+					749 container
+						750 text Prakashit jaankari
+						751 text Prakashit kiraya (Express services): INR 16 (record ki lagu tareekh 2018-01-29). Published stage kiraya mila hai; travel se pehle current kiraya confirm karein.
+						752 container
+							753 text Prakashit kiraya
+							754 text INR 16
+						755 text Service ki class: Express services
+						756 text Lagu tareekh: 2018-01-29 · Source: MTC_OFFICIAL
+						757 text Snapshot se mili jaankari. Current service aur conditions operator se confirm karein.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H18,hinglish,Night bus stage 9 ka published fare rupaye mein batao,fare_calculation,2026-10-08T09:15:21.482Z,78,78,True,"container Chat message from user
+					760 text Night bus stage 9 ka published fare rupaye mein batao
+				761 container Chat message from assistant
+					762 container
+						763 text Prakashit jaankari
+						764 text Prakashit kiraya (Night services): INR 27 (record ki lagu tareekh 2018-01-29). Published stage kiraya mila hai; travel se pehle current kiraya confirm karein.
+						765 container
+							766 text Prakashit kiraya
+							767 text INR 27
+						768 text Service ki class: Night services
+						769 text Lagu tareekh: 2018-01-29 · Source: MTC_OFFICIAL
+						770 text Snapshot se mili jaankari. Current service aur conditions operator se confirm karein.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H19,hinglish,Metro monthly pass kharidne ke niyam kya hain?,ticketing_and_passes,2026-10-08T09:15:22.369Z,79,79,True,"container Chat message from user
+					772 text Metro monthly pass kharidne ke niyam kya hain?
+				773 container Chat message from assistant
+					774 container
+						775 text Jaankari unavailable hai
+						776 text Is snapshot mein authoritative ticket ya pass policy table nahi hai.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H20,hinglish,Chennai suburban train ke season pass kaise milta hai?,ticketing_and_passes,2026-10-08T09:15:23.276Z,80,80,True,"container Chat message from user
+					778 text Chennai suburban train ke season pass kaise milta hai?
+				779 container Chat message from assistant
+					780 container
+						781 text Jaankari unavailable hai
+						782 text Is snapshot mein authoritative ticket ya pass policy table nahi hai.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H21,hinglish,Egmore station par peene ka paani milta hai kya?,station_facilities,2026-10-08T09:21:52.135Z,123,123,True,"container Chat message from user
+					1137 text Egmore station par peene ka paani milta hai kya?
+				1136 container Chat message from assistant
+					1138 container
+						1139 text Jaankari unavailable hai
+						1140 text Snapshot mein confirmed interchange records nahi hain.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H22,hinglish,Airport metro station mein parking ki suvidha hai kya?,station_facilities,2026-10-08T09:15:25.248Z,82,82,True,"container Chat message from user
+					790 text Airport metro station mein parking ki suvidha hai kya?
+				791 container Chat message from assistant
+					792 container
+						793 text Jaankari unavailable hai
+						794 text Is snapshot mein facility availability verify nahi hai.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H23,hinglish,Guindy metro mein wheelchair ke liye ramp hai?,station_accessibility,2026-10-08T09:15:26.179Z,83,83,True,"container Chat message from user
+					796 text Guindy metro mein wheelchair ke liye ramp hai?
+				797 container Chat message from assistant
+					798 container
+						799 text Jaankari unavailable hai
+						800 text Snapshot mein verified accessibility feature values nahi hain.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H24,hinglish,Tambaram station mein lift se platform tak pahunch sakte hain?,station_accessibility,2026-10-08T09:15:27.113Z,84,84,True,"container Chat message from user
+					802 text Tambaram station mein lift se platform tak pahunch sakte hain?
+				803 container Chat message from assistant
+					804 container
+						805 text Jaankari unavailable hai
+						806 text Snapshot mein verified accessibility feature values nahi hain.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H25,hinglish,Chennai Central par bus se metro mein badalne ki jagah kahan hai?,interchange_transfer,2026-10-08T09:15:28.019Z,85,85,True,"container Chat message from user
+					808 text Chennai Central par bus se metro mein badalne ki jagah kahan hai?
+				809 container Chat message from assistant
+					810 container
+						811 text Jaankari unavailable hai
+						812 text Snapshot mein confirmed interchange records nahi hain.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H26,hinglish,Guindy mein suburban train aur metro ka interchange batao,interchange_transfer,2026-10-08T09:15:29.241Z,86,86,True,"container Chat message from user
+					821 text Guindy mein suburban train aur metro ka interchange batao
+				819 container Chat message from assistant
+					822 container
+						823 text Jaankari unavailable hai
+						824 text Snapshot mein confirmed interchange records nahi hain.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H27,hinglish,Kapaleeshwarar Temple ke sabse nazdik bus stop ka naam batao,nearest_transport,2026-10-08T09:15:30.313Z,87,87,True,"container Chat message from user
+					836 text Kapaleeshwarar Temple ke sabse nazdik bus stop ka naam batao
+				831 container Chat message from assistant
+					837 container
+						838 text Aur jaankari chahiye
+						839 text Kripya batayein ki kaunsa stop ya location keh rahe hain.
+						840 text Ek se zyada stop ya location match karte hain. Revised poore sawaal mein route number, transport mode ya exact stop name dein.
+				832 container
+					841 text Apna poora sawaal revise karein
+					833 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: Kapaleeshwarar Temple ke sabse nazdik bus stop ka naam batao, ID: text_input_44
+					834 button Revised sawaal poochhein
+						842 text Revised sawaal poochhein
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H28,hinglish,Besant Nagar ke paas nearest metro station kaun sa padta hai?,nearest_transport,2026-10-08T09:15:31.557Z,88,88,True,"container Chat message from user
+					852 text Besant Nagar ke paas nearest metro station kaun sa padta hai?
+				847 container Chat message from assistant
+					853 container
+						854 text Aur jaankari chahiye
+						855 text Kripya batayein ki kaunsa stop ya location keh rahe hain.
+						856 text Ek se zyada stop ya location match karte hain. Revised poore sawaal mein route number, transport mode ya exact stop name dein.
+				848 container
+					857 text Apna poora sawaal revise karein
+					849 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: Besant Nagar ke paas nearest metro station kaun sa padta hai?, ID: text_input_45
+					850 button Revised sawaal poochhein
+						858 text Revised sawaal poochhein
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H29,hinglish,102 bus abhi live kahan chal rahi hai?,realtime_status_query,2026-10-08T09:15:32.507Z,89,89,True,"container Chat message from user
+					858 text 102 bus abhi live kahan chal rahi hai?
+				859 container Chat message from assistant
+					860 container
+						861 text Jaankari unavailable hai
+						862 text Live transport status unavailable hai; operator se verify karein.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H30,hinglish,Aaj Central se Tambaram train kitni delay hai?,realtime_status_query,2026-10-08T09:15:33.400Z,90,90,True,"container Chat message from user
+					864 text Aaj Central se Tambaram train kitni delay hai?
+				865 container Chat message from assistant
+					866 container
+						867 text Aur jaankari chahiye
+						868 text Kripya batayein ki kaunsa stop ya location keh rahe hain.
+						869 text Ek se zyada stop ya location match karte hain. Revised poore sawaal mein route number, transport mode ya exact stop name dein.
+				870 container
+					871 text Apna poora sawaal revise karein
+					872 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: Aaj Central se Tambaram train kitni delay hai?, ID: text_input_46
+					873 button Revised sawaal poochhein
+						874 text Revised sawaal poochhein
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H31,hinglish,Mujhe nariyal chutney banane ka tarika samjhao,out_of_scope,2026-10-08T09:15:34.430Z,91,91,True,"container Chat message from user
+					871 text Mujhe nariyal chutney banane ka tarika samjhao
+				872 container Chat message from assistant
+					873 container
+						874 text Aur jaankari chahiye
+						875 text Kripya starting stop, destination stop bataein.
+						876 text Zaroori jaankari: starting stop, destination stop
+				877 container
+					878 text Apna poora sawaal revise karein
+					879 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: Mujhe nariyal chutney banane ka tarika samjhao, ID: text_input_47
+					880 button Revised sawaal poochhein
+						881 text Revised sawaal poochhein
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H32,hinglish,Java mein do numbers jodne ka program likh do,out_of_scope,2026-10-08T09:21:57.082Z,124,124,True,"container Chat message from user
+					1149 text Java mein do numbers jodne ka program likh do
+				1147 container Chat message from assistant
+					1150 container
+						1151 text Jaankari unavailable hai
+						1152 text Is snapshot mein authoritative ticket ya pass policy table nahi hai.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H33,hinglish,"Mujhe metro se jaana hai, raasta batao.",point_to_point_route,2026-10-08T09:16:10.646Z,93,93,True,"container Chat message from user
+					884 text Mujhe metro se jaana hai, raasta batao.
+				885 container Chat message from assistant
+					886 container
+						887 text Jaankari unavailable hai
+						888 text Requested transport mode se matching published topology available nahi hai.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H34,hinglish,"Deluxe bus ka kiraya bata do, stage baad mein bolunga.",fare_calculation,2026-10-08T09:16:11.736Z,94,94,True,"container Chat message from user
+					891 text Deluxe bus ka kiraya bata do, stage baad mein bolunga.
+				892 container Chat message from assistant
+					893 container
+						894 text Jaankari unavailable hai
+						895 text Live transport status unavailable hai; operator se verify karein.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H35,hinglish,Is bus route ke saare stops dikhao,route_stop_sequence,2026-10-08T09:16:13.281Z,95,95,True,"container Chat message from user
+					897 text Is bus route ke saare stops dikhao
+				898 container Chat message from assistant
+					899 container
+						900 text Aur jaankari chahiye
+						901 text Kripya route number ya line name bataein.
+						902 text Zaroori jaankari: route number ya line name
+				903 container
+					904 text Apna poora sawaal revise karein
+					905 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: Is bus route ke saare stops dikhao, ID: text_input_48
+					906 button Revised sawaal poochhein
+						907 text Revised sawaal poochhein
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H36,hinglish,Scheduled departures 16:00 ke baad batao,scheduled_departure,2026-10-08T09:16:14.143Z,96,96,True,"container Chat message from user
+					904 container
+						905 text Scheduled departures 16 :00  ke baad batao
+				906 container Chat message from assistant
+					907 container
+						908 text Aur jaankari chahiye
+						909 text Kripya boarding stop ya station bataein.
+						910 text Zaroori jaankari: boarding stop ya station
+				911 container
+					912 text Apna poora sawaal revise karein
+					913 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: Scheduled departures 16:00 ke baad batao, ID: text_input_49
+					914 button Revised sawaal poochhein
+						915 text Revised sawaal poochhein
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H37,hinglish,Sabse nazdeek railway station batao,nearest_transport,2026-10-08T09:16:15.339Z,97,97,True,"container Chat message from user
+					913 text Sabse nazdeek railway station batao
+				914 container Chat message from assistant
+					915 container
+						916 text Aur jaankari chahiye
+						917 text Kripya nazdeeki landmark ya locality bataein.
+						918 text Zaroori jaankari: nazdeeki landmark ya locality
+				919 container
+					920 text Apna poora sawaal revise karein
+					921 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: Sabse nazdeek railway station batao, ID: text_input_50
+					922 button Revised sawaal poochhein
+						923 text Revised sawaal poochhein
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H38,hinglish,Zorvix Nagar se Guindy tak bus ka rasta batao,point_to_point_route,2026-10-08T09:16:16.369Z,98,98,True,"container Chat message from user
+					920 text Zorvix Nagar se Guindy tak bus ka rasta batao
+				921 container Chat message from assistant
+					922 container
+						923 text Aur jaankari chahiye
+						924 text Kripya batayein ki kaunsa stop ya location keh rahe hain.
+						925 text Ek se zyada stop ya location match karte hain. Revised poore sawaal mein route number, transport mode ya exact stop name dein.
+				926 container
+					927 text Apna poora sawaal revise karein
+					928 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: Zorvix Nagar se Guindy tak bus ka rasta batao, ID: text_input_51
+					929 button Revised sawaal poochhein
+						930 text Revised sawaal poochhein
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H39,hinglish,Central ke paas nearest metro kaun si hai?,nearest_transport,2026-10-08T09:16:17.398Z,99,99,True,"container Chat message from user
+					927 text Central ke paas nearest metro kaun si hai?
+				928 container Chat message from assistant
+					929 container
+						930 text Aur jaankari chahiye
+						931 text Kripya batayein ki kaunsa stop ya location keh rahe hain.
+						932 text Ek se zyada stop ya location match karte hain. Revised poore sawaal mein route number, transport mode ya exact stop name dein.
+				933 container
+					934 text Apna poora sawaal revise karein
+					935 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: Central ke paas nearest metro kaun si hai?, ID: text_input_52
+					936 button Revised sawaal poochhein
+						937 text Revised sawaal poochhein
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H40,hinglish,102 bus ke scheduled departures Island ground Terminus se 28:77 par batao.,scheduled_departure,2026-10-08T09:16:18.355Z,100,100,True,"container Chat message from user
+					934 container
+						935 text 102 bus ke scheduled departures Island ground Terminus se 28 :77  par batao.
+				936 container Chat message from assistant
+					937 container
+						938 text Aur jaankari chahiye
+						939 text Kripya samay ya din saaf bataein.
+				940 container
+					941 text Apna poora sawaal revise karein
+					942 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: 102 bus ke scheduled departures Island ground Terminus se 28:77 par batao., ID: text_input_53
+					943 button Revised sawaal poochhein
+						944 text Revised sawaal poochhein
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H41,hinglish,Kal 17:00 ke baad Island ground Terminus se 102 bus kab niklegi?,scheduled_departure,2026-10-08T09:16:19.503Z,101,101,True,"container Chat message from user
+					941 container
+						942 text Kal 17 :00  ke baad Island ground Terminus se 102 bus kab niklegi?
+				943 container Chat message from assistant
+					944 container
+						945 text Aur jaankari chahiye
+						946 text Kripya samay ya din saaf bataein.
+				947 container
+					948 text Apna poora sawaal revise karein
+					949 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: Kal 17:00 ke baad Island ground Terminus se 102 bus kab niklegi?, ID: text_input_54
+					950 button Revised sawaal poochhein
+						951 text Revised sawaal poochhein
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H42,hinglish,!!! ??? … 😵,out_of_scope,2026-10-08T09:16:20.607Z,102,102,True,"container Chat message from user
+					949 text !!! ??? … 😵
+				950 container Chat message from assistant
+					951 container
+						952 text Request poori nahi ho saki
+						953 text Kripya transport ka sawaal poochhein.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H43,hinglish,Guindy se Tambaram tak Egmore hote hue pehli train kab hai?,first_and_last_service,2026-10-08T09:16:21.648Z,103,103,True,"container Chat message from user
+					955 text Guindy se Tambaram tak Egmore hote hue pehli train kab hai?
+				956 container Chat message from assistant
+					957 container
+						958 text Jaankari unavailable hai
+						959 text Waypoint-filtered timetable supported nahi hai. Waypoint ke bina boarding stop aur destination poochhein.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H44,hinglish,Chennai Central se Tambaram tak Zafria Chowk hote hue train ki frequency batao,service_frequency,2026-10-08T09:16:22.675Z,104,104,True,"container Chat message from user
+					961 text Chennai Central se Tambaram tak Zafria Chowk hote hue train ki frequency batao
+				962 container Chat message from assistant
+					963 container
+						964 text Aur jaankari chahiye
+						965 text Kripya route number ya line name bataein.
+						966 text Zaroori jaankari: route number ya line name
+				967 container
+					968 text Apna poora sawaal revise karein
+					969 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: Chennai Central se Tambaram tak Zafria Chowk hote hue train ki frequency batao, ID: text_input_55
+					970 button Revised sawaal poochhein
+						971 text Revised sawaal poochhein
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H45,hinglish,Guindy se Tambaram aur Egmore tak scheduled train departures dikhao,scheduled_departure,2026-10-08T09:16:23.957Z,105,105,True,"container Chat message from user
+					978 text Guindy se Tambaram aur Egmore tak scheduled train departures dikhao
+				973 container Chat message from assistant
+					979 container
+						980 text Aur jaankari chahiye
+						981 text Kripya route number ya line name bataein.
+						982 text Zaroori jaankari: route number ya line name
+				974 container
+					983 text Apna poora sawaal revise karein
+					975 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: Guindy se Tambaram aur Egmore tak scheduled train departures dikhao, ID: text_input_56
+					976 button Revised sawaal poochhein
+						984 text Revised sawaal poochhein
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H46,hinglish,Ordinary bus mein stage 6 aur stage 8 dono ka kiraya batao,fare_calculation,2026-10-08T09:16:25.156Z,106,106,True,"container Chat message from user
+					984 text Ordinary bus mein stage 6 aur stage 8 dono ka kiraya batao
+				985 container Chat message from assistant
+					986 container
+						987 text Aur jaankari chahiye
+						988 text Kripya route number ya line name bataein.
+						989 text Zaroori jaankari: route number ya line name
+				990 container
+					991 text Apna poora sawaal revise karein
+					992 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: Ordinary bus mein stage 6 aur stage 8 dono ka kiraya batao, ID: text_input_57
+					993 button Revised sawaal poochhein
+						994 text Revised sawaal poochhein
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H47,hinglish,27D aur 102 dono routes ke stops ek saath dikhao,route_stop_sequence,2026-10-08T09:16:26.336Z,107,107,True,"container Chat message from user
+					992 text 27D aur 102 dono routes ke stops ek saath dikhao
+				993 container Chat message from assistant
+					994 container
+						995 text Aur jaankari chahiye
+						996 text Kripya route number ya line name bataein.
+						997 text Zaroori jaankari: route number ya line name
+				998 container
+					999 text Apna poora sawaal revise karein
+					1000 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: 27D aur 102 dono routes ke stops ek saath dikhao, ID: text_input_58
+					1001 button Revised sawaal poochhein
+						1002 text Revised sawaal poochhein
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True
+H48,hinglish,Guindy mein acchi biryani kaise banate hain?,out_of_scope,2026-10-08T09:21:58.848Z,125,125,True,"container Chat message from user
+					1162 text Guindy mein acchi biryani kaise banate hain?
+				1160 container Chat message from assistant
+					1163 container
+						1164 text Jaankari unavailable hai
+						1165 text Snapshot mein confirmed interchange records nahi hain.
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…",True,True

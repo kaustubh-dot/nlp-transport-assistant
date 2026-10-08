@@ -1,0 +1,52 @@
+Browser tab: 1, Title: "Chennai Transit Assistant", URL: "http://127.0.0.1:8601/".
+1 AXWebArea Chennai Transit Assistant, URL: 127.0.0.1:8601/
+	2 container root
+		3 container
+			4 button
+			5 button
+			6 container
+				7 container
+					8 heading चेन्नई परिवहन, Value: 2
+						9 text चेन्नई परिवहन
+					10 text बहुभाषी परिवहन सहायक
+					11 heading अपने शब्दों में पूछें, Value: 3
+						12 text अपने शब्दों में पूछें
+					14 text English · हिन्दी · Hinglish
+					15 text रूट, स्टॉप, प्रकाशित समय-सारणी, किराए और नजदीकी परिवहन।
+					13 heading प्रकाशित रिकॉर्ड का संकलन, Value: 3
+						16 text प्रकाशित रिकॉर्ड का संकलन
+					17 text लाइव अपडेट नहीं हैं। मौजूदा सेवा और किराए की पुष्टि ऑपरेटर से करें।
+					18 text बदलाव, सुगम्यता और सुविधाओं की जानकारी केवल स्रोत से समर्थित होने पर दिखाई जाती है।
+					19 text चेन्नई · सार्वजनिक परिवहन
+			20 container
+				21 Language / भाषा
+					22 container
+						23 radio button (settable, integer) Description: English, Value: 0
+						24 text English
+					25 container
+						26 radio button (settable, integer) Description: हिंदी, Value: 1
+						27 text हिंदी
+					28 container
+						29 radio button (settable, integer) Description: Hinglish, Value: 0
+						30 text Hinglish
+				31 container
+					32 heading चेन्नई बहु-माध्यम परिवहन सहायक, Value: 1, ID: chennai-multimodal-transit-assistant
+						33 text चेन्नई बहु-माध्यम परिवहन सहायक
+					34 text रूट, स्टॉप, समय-सारणी, किराए या नजदीकी परिवहन के बारे में पूछें। बस मेट्रो रेल प्रकाशित रिकॉर्ड
+				35 text प्रकाशित रिकॉर्ड का संकलन · लाइव अपडेट नहीं · मौजूदा सेवा की पुष्टि ऑपरेटर से करें
+				45 container Chat message from user
+					46 text guindy se central kaise jau
+				47 container Chat message from assistant
+					48 container
+						49 text अधिक जानकारी चाहिए
+						50 text कृपया स्पष्ट करें कि आप किस स्टॉप या स्थान की बात कर रहे हैं।
+						51 text एक से अधिक स्टॉप या स्थान मेल खाते हैं। अपने पूरे संशोधित प्रश्न में रूट नंबर, परिवहन का माध्यम या सही स्टॉप नाम दें।
+				52 container
+					53 text अपना पूरा प्रश्न संशोधित करें
+					54 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: Guindy Metro se Central Metro kaise jau?, ID: text_input_1
+					55 button संशोधित प्रश्न पूछें
+						56 text संशोधित प्रश्न पूछें
+				43 container
+					44 text entry area (settable) Ask / पूछें / Poochhein…
+
+The focused UI element is 26 radio button (settable, integer) Description: हिंदी, Value: 1

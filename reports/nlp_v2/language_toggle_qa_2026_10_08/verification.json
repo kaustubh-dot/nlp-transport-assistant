@@ -1,0 +1,175 @@
+{
+  "created_utc": "2026-10-08T09:26:15.088735+00:00",
+  "baseline_head": "490ba62b65f7bd3b223f66eaa1ac3c6335800006",
+  "backend_freeze": "1bf748c9e4cc35e75b1db004f5b74c9dad1eeb1b",
+  "scope": "User-requested frontend language selector and fresh manual language QA; not a new model evaluation",
+  "source_hashes": {
+    "app/api.py": "5c3dd67b933ab2991da777c8a772b2e7d86713dbb1083e8da830d80bbe923b31",
+    "app/frontend_contract.py": "7cc09a5e2a900f942c942a3cd3fefca2edc22222a4703fc51eeb6d3539630f0a",
+    "app/streamlit_app.py": "91f86a39e35e4cbadfa6a954cb1accab776b085596a360d9ab620855f67c0047",
+    "data/canonical/transit/canonical_transport.db": "583fd400bb3ee0d5af312e03ec78116de88ce162d6c33c2b87fd93df4da48791",
+    "models/nlp_v2_t3_manifest.json": "447a120090c33ba1259cad06ce9f216d80832d2540727c3330f14be3ec04dc39",
+    "requirements-nlp-v2.txt": "319a5d74126ee40b3a43d500f9d6fae5083f846e29dc678ba0bcaec87060569f",
+    "requirements.txt": "12bcd1ef9ca4fe4eff7a2b68733d606d7510a12857c0088e9f297c76980603ba",
+    "scripts/nlp_v2/evaluate_assistant.py": "64ccef4acc374264ac32278d048cc1da55ff60405edbe52a7a3b04f0dbed5607",
+    "scripts/nlp_v2/evaluate_production_t3.py": "46bfec6ac2448d4dd8c206f17322aadcae73ccfcb722a17823cd4749973c33e8",
+    "src/entity_extractor.py": "35d81e65cc94366d02636c1dae1b223f8db04a4fae26e2b2bb47698078eb43ff",
+    "src/nlp_v2/__init__.py": "323d76b4bbd0261f37f693161b103222543acd5aa386cfc50efa7cbdee397c4d",
+    "src/nlp_v2/assistant.py": "b5141dd9f65c00810529fd11c792fad797a626e67d2e687994379e3ec49f8062",
+    "src/nlp_v2/contracts.py": "06e226d21430c93acfe7a1dc91a6672ab48b08a5f0460a530823f6355b73282c",
+    "src/nlp_v2/dispatch.py": "046d740d8fbeb0769c81aaba781daf160c76a700e4b8e4a63e76ae0753f4caf4",
+    "src/nlp_v2/domain.py": "4a9de6879cc1d01adb990c084e89c9a7fcd005e6b3c9d5d2ab1e8fbc43d8fc0d",
+    "src/nlp_v2/entities.py": "a167950e0889542a32e6bb649f84a3adf24441fdb680b7eff4fb8d3d2c56425a",
+    "src/nlp_v2/model.py": "1ca0f3b60a6a65dfd21c766bcfd11f0daf0dcc5e0a89f75785b725e18f04b80a",
+    "src/nlp_v2/slots.py": "8fb1f050249eb14c704e4683ab735856d6f99eb562caaa3bab511d9194bd08bc",
+    "src/normalization.py": "fc36871d67fc04b9e516d5b3af9174f25224302d4a761cf8ed2e02c8bc5ae420",
+    "app/transit_theme.html": "e1d383ebf592c99efa40617cb7f3f6eebe51a267584283bcb4195af6f5445b8c",
+    "app/frontend_language.py": "5c13b2593cc604aff60c215fba8b0249b66f98edade024f2fc05651cbd8a4ca8",
+    "tests/test_t3_language_catalog.py": "375135c65e5e572d83df9c722c721f71111a990b0120662ad848e92d878f8ace",
+    "tests/test_t3_language_ui.py": "18d8a7ea85c7f3f67ff0d9cbbb2a872efb5e9c24ca59659ad90d6f59e36ae23b",
+    "tests/test_t3_frontend.py": "0d3c5027856f43e3fad6b25f79814ce66e634c7ef6c9ba92be3f45c5c3c91e31"
+  },
+  "intentional_changed_existing_source_files": [
+    "app/streamlit_app.py",
+    "app/transit_theme.html"
+  ],
+  "other_recorded_sources_unchanged": 18,
+  "preserved_historical_report_hashes": {
+    "reports/nlp_v2/post_development_regression/assistant/assistant_evaluation.json": "7a524525825c7b5ef886e8802600582daaa75644d972bd9b96f6579170f7a642",
+    "reports/nlp_v2/post_development_regression/assistant/assistant_evaluation.md": "0aac6ee5dfb6c3ebf6301ec076967795cdc78c4d2914592788c977e046003fd8",
+    "reports/nlp_v2/post_development_regression/comparison.md": "28517f5ed722268dd563c58ff8d07a82e780522fd1370a88a0d5ebf70f2ef617",
+    "reports/nlp_v2/post_development_regression/evaluation_context.json": "5352b1923561136556084d39ee91250af327c04ba6113361071d1de259653e1b",
+    "reports/nlp_v2/post_development_regression/model/production_t3_evaluation.json": "5e5108cf119f28f02ba812d5760400ed9ed47073002d5a95a0fe45189b806cd3",
+    "reports/nlp_v2/post_development_regression/model/production_t3_evaluation.md": "631a6fc6150aa86c5a89db3380a627f5e1a362e1d639e9b9dd8b759da3750287",
+    "reports/nlp_v2/phase23_post_fix_descriptive/assistant/assistant_evaluation.json": "b6f0109983acbd8e75195f9dac52642ce01c5487223f0c415f613e532eb79624",
+    "reports/nlp_v2/phase23_post_fix_descriptive/assistant/assistant_evaluation.md": "c15f88f52aa244628449dce5e8b407ad94be4c54c1bdb376707c0032a283f428",
+    "reports/nlp_v2/phase23_post_fix_descriptive/comparison.md": "af8776bd5f986303d95c2ebcd7d3e863328d23d5f65f31288f3570da6311a7e8",
+    "reports/nlp_v2/phase23_post_fix_descriptive/evaluation_context.json": "4da1c7d27d73b673fbb16d7df5ba6001b6a9b92c5957681ce5fe9f4fa0afc7f5"
+  },
+  "historical_report_hashes_verified": 10,
+  "checkpoint_sha256": "abac66fc9fa29212c7565117ae326e34f02b64e76dbb177c61e9661517803196",
+  "checkpoint_bytes": 950358409,
+  "evaluator_invocations": 0,
+  "training_invocations": 0,
+  "protected_item_inspection": false,
+  "development_suite_sha256": "0de0ce7de1ca933b70321bf15c0d9bbc2d7db0dc694cd046064d28104988ea41",
+  "tests": {
+    "full_passed": 1147,
+    "full_seconds": 33.17,
+    "focused_passed": 306,
+    "focused_seconds": 1.43,
+    "compileall": true,
+    "pip_check": true,
+    "diff_check": true
+  },
+  "browser": {
+    "unique_replayed_cases": 96,
+    "hindi": 48,
+    "hinglish": 48,
+    "raw_questions_and_localized_replies_verified": 96,
+    "method": "Native cua accessibility actions; AX whitespace normalization accounts for inline clock formatting; actual strings preserved in CSV/JSON",
+    "api_baseline_is_not_browser_evidence": true,
+    "starter_activations": 6,
+    "final_interaction_checks": 5,
+    "responsive_requested_viewports": [
+      {
+        "width": 390,
+        "height": 844
+      },
+      {
+        "width": 360,
+        "height": 800
+      },
+      {
+        "width": 768,
+        "height": 1024
+      }
+    ],
+    "viewport_reset": true,
+    "console_inspection": false,
+    "new_browser_download_verification": false,
+    "owned_qa_tabs_closed": true
+  },
+  "browser_cases_source_hashes": {
+    "app/streamlit_app.py": "52e25081ef2da8c60c01f0922e7c859ae88fc1bceb8fc6a6f7f47862c0692001",
+    "app/transit_theme.html": "e1d383ebf592c99efa40617cb7f3f6eebe51a267584283bcb4195af6f5445b8c",
+    "app/frontend_language.py": "5c13b2593cc604aff60c215fba8b0249b66f98edade024f2fc05651cbd8a4ca8"
+  },
+  "final_follow_up_change": "After the96-case replays, only the stable composer hint was shortened for360px fit; five final native interaction checks and fresh full tests cover that final source.",
+  "screenshot_dimensions": {
+    "hindi-desktop.jpg": [
+      940,
+      529
+    ],
+    "phone-390-ready.jpg": [
+      287,
+      621
+    ],
+    "phone-360-final.jpg": [
+      265,
+      588
+    ],
+    "tablet-768-hinglish.jpg": [
+      565,
+      753
+    ],
+    "hinglish-nearest.jpg": [
+      940,
+      529
+    ],
+    "phone-360-hinglish.jpg": [
+      265,
+      588
+    ],
+    "phone-390-english.jpg": [
+      287,
+      161
+    ],
+    "hindi-stops-expanded.jpg": [
+      940,
+      529
+    ],
+    "phone-390-hindi.jpg": [
+      287,
+      621
+    ],
+    "hindi-fare.jpg": [
+      940,
+      529
+    ],
+    "final-hindi-desktop.jpg": [
+      940,
+      529
+    ],
+    "english-desktop.jpg": [
+      940,
+      529
+    ]
+  },
+  "independent_review": {
+    "file": "hindi/independent_review.md",
+    "focused_variants": 112,
+    "groups": 26,
+    "additional_actionable_findings_after_fixes": 0
+  },
+  "runtime_health": {
+    "api": "200/T3",
+    "ui": "200/ok",
+    "ports": {
+      "api": 8875,
+      "ui": 8601
+    }
+  },
+  "standalone_campaign_scope": "No standalone model/assistant evaluator or production training campaign ran. The full unit suite retains synthetic trainer/evaluator smoke and guard checks.",
+  "frontend_freeze_commit": "57bb69b7f1f7b9cb4b1e99c8564842ddc5c8f457",
+  "git_closure": {
+    "branch": "main",
+    "behavior_commit": "57bb69b7f1f7b9cb4b1e99c8564842ddc5c8f457",
+    "qa_commit_scope": "documentation and repo-contained manual QA exports",
+    "required_post_commit_checks": [
+      "clean status",
+      "remote main equals HEAD",
+      "reviewed source hashes preserved"
+    ]
+  }
+}

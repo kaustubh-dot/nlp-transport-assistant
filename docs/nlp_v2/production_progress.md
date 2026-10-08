@@ -384,3 +384,11 @@ Each implementation phase receives tests, verification, independent review, fixe
   diff check and unchanged reviewed production/assets/historical evaluations.
   **NLP v2 implementation COMPLETE** once these mechanical checks pass.
   No new development phase or evaluator run follows.
+
+
+## User-requested language selector and fresh language QA — 2026-10-08
+
+- **Scope:** English / हिंदी / Hinglish main UI and curated saved replies, retaining the original parchment/oxblood style and unchanged raw API questions. Stable composer/revision identity preserves unsent drafts; each new clarification resets its revision field. Unknown explanations/canonical values remain unchanged.
+- **Evidence:** three agents supplied Hindi/Hinglish real-model API QA, the presentation catalog and independent review. Primary replayed96 unique questions in the browser, activated six translated starters, verified five final interactions, and inspected default/phone/tablet layouts. Source/presentation review passes112 variants; final full1,147 tests pass33.17s. Compile/pip/diff checks pass.
+- **Remaining quality:** fresh Hindi and Hinglish questions expose wrong-family and input/goal failures, separate from source-unavailable and legitimate ambiguity responses. These manual observations are not a new accuracy benchmark. The display toggle does not improve recognition.
+- **Preservation:** backend freeze1bf748c, checkpoint, DB, manifest, development suite and both historical descriptive evaluations remain unchanged. No model/alias/domain/training/evaluator change. [Report and repo-contained exports](../../reports/nlp_v2/language_toggle_qa_2026_10_08/summary.md) contain actual cases, localized browser evidence, review and limitations.

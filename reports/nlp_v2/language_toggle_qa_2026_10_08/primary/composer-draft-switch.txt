@@ -1,0 +1,53 @@
+Browser tab: 1, Title: "Chennai Transit Assistant", URL: "http://127.0.0.1:8601/".
+1 AXWebArea Chennai Transit Assistant, URL: 127.0.0.1:8601/
+	2 container root
+		3 container
+			4 button
+			5 button
+			6 container
+				7 container
+					8 heading Chennai Transit, Value: 2
+						9 text Chennai Transit
+					10 text Kai bhashaon mein transport sahayak
+					11 heading Apne shabdon mein poochhein, Value: 3
+						12 text Apne shabdon mein poochhein
+					14 text English · हिन्दी · Hinglish
+					15 text Route, stop, published schedule, kiraya aur nazdeeki transport.
+					13 heading Published records ka snapshot, Value: 3
+						16 text Published records ka snapshot
+					17 text Live updates nahi hain. Current service aur kiraya operator se confirm karein.
+					18 text Transfer, accessibility aur facility ki jaankari sirf source support hone par dikhai jaati hai.
+					19 text Chennai · Public transport
+			20 container
+				21 Language / भाषा
+					22 container
+						23 radio button (settable, integer) Description: English, Value: 0
+						24 text English
+					25 container
+						26 radio button (settable, integer) Description: हिंदी, Value: 0
+						27 text हिंदी
+					28 container
+						29 radio button (settable, integer) Description: Hinglish, Value: 1
+						30 text Hinglish
+				31 container
+					32 heading Chennai Multimodal Transit Sahayak, Value: 1, ID: chennai-multimodal-transit-assistant
+						33 text Chennai Multimodal Transit Sahayak
+					34 text Route, stop, schedule, kiraya ya nazdeeki transport ke baare mein poochhein. Bus Metro Rail Published records
+				35 text Published snapshot · Live updates nahi · Current service operator se verify karein
+				45 container Chat message from user
+					46 text guindy se central kaise jau
+				47 container Chat message from assistant
+					48 container
+						49 text Aur jaankari chahiye
+						50 text Kripya batayein ki kaunsa stop ya location keh rahe hain.
+						51 text Ek se zyada stop ya location match karte hain. Revised poore sawaal mein route number, transport mode ya exact stop name dein.
+				52 container
+					53 text Apna poora sawaal revise karein
+					54 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: Guindy Metro se Central Metro kaise jau?, ID: text_input_1
+					55 button Revised sawaal poochhein
+						56 text Revised sawaal poochhein
+				43 container
+					44 text entry area (settable) Description: Ask / पूछें / Poochhein…, Value: स्टेज 4 का डीलक्स बस किराया कितना है?
+					57 button
+
+The focused UI element is 29 radio button (settable, integer) Description: Hinglish, Value: 1

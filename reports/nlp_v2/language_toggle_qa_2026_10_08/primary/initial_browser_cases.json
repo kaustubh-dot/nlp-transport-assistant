@@ -1,0 +1,122 @@
+[
+  {
+    "id": "H01",
+    "language": "hi",
+    "query": "बस से चेन्नई सेंट्रल से एयरपोर्ट तक जाने का रास्ता बताइए।",
+    "intended_family": "point_to_point_route",
+    "time_utc": "2026-10-08T09:08:09.602Z",
+    "user_messages": 4,
+    "assistant_messages": 4,
+    "last_exchange_ax": "container Chat message from user\n\t\t\t\t\t77 text बस से चेन्नई सेंट्रल से एयरपोर्ट तक जाने का रास्ता बताइए।\n\t\t\t\t78 container Chat message from assistant\n\t\t\t\t\t79 container\n\t\t\t\t\t\t80 text अधिक जानकारी चाहिए\n\t\t\t\t\t\t81 text कृपया स्पष्ट करें कि आप किस स्टॉप या स्थान की बात कर रहे हैं।\n\t\t\t\t\t\t82 text एक से अधिक स्टॉप या स्थान मेल खाते हैं। अपने पूरे संशोधित प्रश्न में रूट नंबर, परिवहन का माध्यम या सही स्टॉप नाम दें।\n\t\t\t\t83 container\n\t\t\t\t\t84 text अपना पूरा प्रश्न संशोधित करें\n\t\t\t\t\t85 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: बस से चेन्नई सेंट्रल से एयरपोर्ट तक जाने का रास्ता बताइए।, ID: text_input_2\n\t\t\t\t\t86 button संशोधित प्रश्न पूछें\n\t\t\t\t\t\t87 text संशोधित प्रश्न पूछें\n\t\t\t\t43 container\n\t\t\t\t\t44 text entry area (settable) Ask / पूछें / Poochhein…\n\nThe focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…"
+  },
+  {
+    "id": "H02",
+    "language": "hi",
+    "query": "सचिवालय से वॉर मेमोरियल तक बस से कैसे पहुँचूँ?",
+    "intended_family": "point_to_point_route",
+    "time_utc": "2026-10-08T09:08:09.938Z",
+    "user_messages": 5,
+    "assistant_messages": 5,
+    "last_exchange_ax": "container Chat message from user\n\t\t\t\t\t84 text सचिवालय से वॉर मेमोरियल तक बस से कैसे पहुँचूँ?\n\t\t\t\t85 container Chat message from assistant\n\t\t\t\t\t86 container\n\t\t\t\t\t\t87 text अधिक जानकारी चाहिए\n\t\t\t\t\t\t88 text कृपया शुरुआती स्टॉप, गंतव्य स्टॉप बताएं।\n\t\t\t\t\t\t89 text जरूरी जानकारी: शुरुआती स्टॉप, गंतव्य स्टॉप\n\t\t\t\t90 container\n\t\t\t\t\t91 text अपना पूरा प्रश्न संशोधित करें\n\t\t\t\t\t92 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: सचिवालय से वॉर मेमोरियल तक बस से कैसे पहुँचूँ?, ID: text_input_3\n\t\t\t\t\t93 button संशोधित प्रश्न पूछें\n\t\t\t\t\t\t94 text संशोधित प्रश्न पूछें\n\t\t\t\t43 container\n\t\t\t\t\t44 text entry area (settable) Ask / पूछें / Poochhein…\n\nThe focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…"
+  },
+  {
+    "id": "H03",
+    "language": "hi",
+    "query": "गिंडी से चेन्नई एयरपोर्ट जाने के लिए बस और मेट्रो जोड़कर यात्रा बताइए।",
+    "intended_family": "multimodal_route",
+    "time_utc": "2026-10-08T09:08:10.305Z",
+    "user_messages": 6,
+    "assistant_messages": 6,
+    "last_exchange_ax": "container Chat message from user\n\t\t\t\t\t91 text गिंडी से चेन्नई एयरपोर्ट जाने के लिए बस और मेट्रो जोड़कर यात्रा बताइए।\n\t\t\t\t92 container Chat message from assistant\n\t\t\t\t\t93 container\n\t\t\t\t\t\t94 text जानकारी अनुपलब्ध है\n\t\t\t\t\t\t95 text इस रिकॉर्ड संकलन में अलग परिवहन माध्यमों के बीच बदलाव का कोई पुष्ट नेटवर्क उपलब्ध नहीं है।\n\t\t\t\t43 container\n\t\t\t\t\t44 text entry area (settable) Ask / पूछें / Poochhein…\n\nThe focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…"
+  },
+  {
+    "id": "H04",
+    "language": "hi",
+    "query": "तांबरम से अन्ना नगर तक लोकल ट्रेन और मेट्रो से यात्रा कैसे करूँ?",
+    "intended_family": "multimodal_route",
+    "time_utc": "2026-10-08T09:08:10.693Z",
+    "user_messages": 7,
+    "assistant_messages": 7,
+    "last_exchange_ax": "container Chat message from user\n\t\t\t\t\t97 text तांबरम से अन्ना नगर तक लोकल ट्रेन और मेट्रो से यात्रा कैसे करूँ?\n\t\t\t\t98 container Chat message from assistant\n\t\t\t\t\t99 container\n\t\t\t\t\t\t100 text अधिक जानकारी चाहिए\n\t\t\t\t\t\t101 text कृपया इस प्रश्न के लिए परिवहन का एक माध्यम चुनें।\n\t\t\t\t\t\t102 text जरूरी जानकारी: परिवहन का माध्यम\n\t\t\t\t103 container\n\t\t\t\t\t104 text अपना पूरा प्रश्न संशोधित करें\n\t\t\t\t\t105 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: तांबरम से अन्ना नगर तक लोकल ट्रेन और मेट्रो से यात्रा कैसे करूँ?, ID: text_input_4\n\t\t\t\t\t106 button संशोधित प्रश्न पूछें\n\t\t\t\t\t\t107 text संशोधित प्रश्न पूछें\n\t\t\t\t43 container\n\t\t\t\t\t44 text entry area (settable) Ask / पूछें / Poochhein…\n\nThe focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…"
+  },
+  {
+    "id": "H05",
+    "language": "hi",
+    "query": "बस संख्या १०२ किन-किन स्टॉप पर जाती है, क्रम में नाम बताइए।",
+    "intended_family": "route_stop_sequence",
+    "time_utc": "2026-10-08T09:08:11.045Z",
+    "user_messages": 8,
+    "assistant_messages": 8,
+    "last_exchange_ax": "container Chat message from user\n\t\t\t\t\t104 text बस संख्या १०२ किन-किन स्टॉप पर जाती है, क्रम में नाम बताइए।\n\t\t\t\t105 container Chat message from assistant\n\t\t\t\t\t106 container\n\t\t\t\t\t\t107 text अधिक जानकारी चाहिए\n\t\t\t\t\t\t108 text कृपया रूट नंबर या लाइन का नाम बताएं।\n\t\t\t\t\t\t109 text जरूरी जानकारी: रूट नंबर या लाइन का नाम\n\t\t\t\t110 container\n\t\t\t\t\t111 text अपना पूरा प्रश्न संशोधित करें\n\t\t\t\t\t112 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: बस संख्या १०२ किन-किन स्टॉप पर जाती है, क्रम में नाम बताइए।, ID: text_input_5\n\t\t\t\t\t113 button संशोधित प्रश्न पूछें\n\t\t\t\t\t\t114 text संशोधित प्रश्न पूछें\n\t\t\t\t43 container\n\t\t\t\t\t44 text entry area (settable) Ask / पूछें / Poochhein…\n\nThe focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…"
+  },
+  {
+    "id": "H06",
+    "language": "hi",
+    "query": "रूट २५आर की बस के पूरे स्टॉपों की सूची दिखाइए।",
+    "intended_family": "route_stop_sequence",
+    "time_utc": "2026-10-08T09:08:11.372Z",
+    "user_messages": 9,
+    "assistant_messages": 9,
+    "last_exchange_ax": "container Chat message from user\n\t\t\t\t\t111 text रूट २५आर की बस के पूरे स्टॉपों की सूची दिखाइए।\n\t\t\t\t112 container Chat message from assistant\n\t\t\t\t\t113 container\n\t\t\t\t\t\t114 text प्रकाशित जानकारी\n\t\t\t\t\t\t115 text 25 R के स्टॉप: Anna Square Bus Terminus one, Madras University, Marina Beach, Kannagi Statue Or Presidency College, Vivekananda House, Ice House Police Station, Meersahibpet Market, New College, …। प्रकाशित स्टॉप क्रम मिले हैं। सेवा संचालन की पुष्टि नहीं है।\n\t\t\t\t\t\t116 heading रूट के स्टॉप, Value: 3, ID: 76f603df\n\t\t\t\t\t\t\t117 text रूट के स्टॉप\n\t\t\t\t\t\t118 button (collapsed) 25 R · प्रकाशित क्रम 1, Secondary Actions: Expand\n\t\t\t\t\t\t\t119 text 25 R · प्रकाशित क्रम 1\n\t\t\t\t\t\t120 text यह जानकारी रिकॉर्ड के संकलन से मिली है। मौजूदा सेवा और स्थितियों की पुष्टि ऑपरेटर से करें।\n\t\t\t\t43 container\n\t\t\t\t\t44 text entry area (settable) Ask / पूछें / Poochhein…\n\nThe focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…"
+  },
+  {
+    "id": "H07",
+    "language": "hi",
+    "query": "क्या १०२ नंबर बस मरिना बीच स्टॉप पर रुकती है?",
+    "intended_family": "route_stop_membership",
+    "time_utc": "2026-10-08T09:08:11.745Z",
+    "user_messages": 10,
+    "assistant_messages": 10,
+    "last_exchange_ax": "container Chat message from user\n\t\t\t\t\t122 text क्या १०२ नंबर बस मरिना बीच स्टॉप पर रुकती है?\n\t\t\t\t123 container Chat message from assistant\n\t\t\t\t\t124 container\n\t\t\t\t\t\t125 text अधिक जानकारी चाहिए\n\t\t\t\t\t\t126 text कृपया पूरे प्रत्यय सहित समर्थित रूट नंबर बताएं।\n\t\t\t\t\t\t127 text जरूरी जानकारी: रूट नंबर\n\t\t\t\t128 container\n\t\t\t\t\t129 text अपना पूरा प्रश्न संशोधित करें\n\t\t\t\t\t130 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: क्या १०२ नंबर बस मरिना बीच स्टॉप पर रुकती है?, ID: text_input_6\n\t\t\t\t\t131 button संशोधित प्रश्न पूछें\n\t\t\t\t\t\t132 text संशोधित प्रश्न पूछें\n\t\t\t\t43 container\n\t\t\t\t\t44 text entry area (settable) Ask / पूछें / Poochhein…\n\nThe focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…"
+  },
+  {
+    "id": "H08",
+    "language": "hi",
+    "query": "क्या २१जी बस गिंडी स्टॉप पर ठहरती है?",
+    "intended_family": "route_stop_membership",
+    "time_utc": "2026-10-08T09:08:12.090Z",
+    "user_messages": 11,
+    "assistant_messages": 11,
+    "last_exchange_ax": "container Chat message from user\n\t\t\t\t\t129 text क्या २१जी बस गिंडी स्टॉप पर ठहरती है?\n\t\t\t\t130 container Chat message from assistant\n\t\t\t\t\t131 container\n\t\t\t\t\t\t132 text अधिक जानकारी चाहिए\n\t\t\t\t\t\t133 text कृपया स्पष्ट करें कि आप किस स्टॉप या स्थान की बात कर रहे हैं।\n\t\t\t\t\t\t134 text एक से अधिक स्टॉप या स्थान मेल खाते हैं। अपने पूरे संशोधित प्रश्न में रूट नंबर, परिवहन का माध्यम या सही स्टॉप नाम दें।\n\t\t\t\t135 container\n\t\t\t\t\t136 text अपना पूरा प्रश्न संशोधित करें\n\t\t\t\t\t137 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: क्या १०२ नंबर बस मरिना बीच स्टॉप पर रुकती है?, ID: text_input_7\n\t\t\t\t\t138 button संशोधित प्रश्न पूछें\n\t\t\t\t\t\t139 text संशोधित प्रश्न पूछें\n\t\t\t\t43 container\n\t\t\t\t\t44 text entry area (settable) Ask / पूछें / Poochhein…\n\nThe focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…"
+  },
+  {
+    "id": "H09",
+    "language": "hi",
+    "query": "आइलैंड ग्राउंड टर्मिनस से १०२ बस की पहली और आखिरी सेवा के समय बताइए।",
+    "intended_family": "first_and_last_service",
+    "time_utc": "2026-10-08T09:08:12.549Z",
+    "user_messages": 12,
+    "assistant_messages": 12,
+    "last_exchange_ax": "container Chat message from user\n\t\t\t\t\t136 text आइलैंड ग्राउंड टर्मिनस से १०२ बस की पहली और आखिरी सेवा के समय बताइए।\n\t\t\t\t137 container Chat message from assistant\n\t\t\t\t\t138 container\n\t\t\t\t\t\t139 text अधिक जानकारी चाहिए\n\t\t\t\t\t\t140 text कृपया चढ़ने का स्टॉप या स्टेशन बताएं।\n\t\t\t\t\t\t141 text जरूरी जानकारी: चढ़ने का स्टॉप या स्टेशन\n\t\t\t\t142 container\n\t\t\t\t\t143 text अपना पूरा प्रश्न संशोधित करें\n\t\t\t\t\t144 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: आइलैंड ग्राउंड टर्मिनस से १०२ बस की पहली और आखिरी सेवा के समय बताइए।, ID: text_input_8\n\t\t\t\t\t145 button संशोधित प्रश्न पूछें\n\t\t\t\t\t\t146 text संशोधित प्रश्न पूछें\n\t\t\t\t43 container\n\t\t\t\t\t44 text entry area (settable) Ask / पूछें / Poochhein…\n\nThe focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…"
+  },
+  {
+    "id": "H10",
+    "language": "hi",
+    "query": "पूनमल्ली बस टर्मिनस से रूट ६२ की आखिरी बस का निर्धारित समय क्या है?",
+    "intended_family": "first_and_last_service",
+    "time_utc": "2026-10-08T09:08:12.966Z",
+    "user_messages": 13,
+    "assistant_messages": 13,
+    "last_exchange_ax": "container Chat message from user\n\t\t\t\t\t143 text पूनमल्ली बस टर्मिनस से रूट ६२ की आखिरी बस का निर्धारित समय क्या है?\n\t\t\t\t144 container Chat message from assistant\n\t\t\t\t\t145 container\n\t\t\t\t\t\t146 text अधिक जानकारी चाहिए\n\t\t\t\t\t\t147 text कृपया एक बार में एक रूट, स्टॉप, किराए के स्टेज या समय के बारे में पूछें।\n\t\t\t\t148 container\n\t\t\t\t\t149 text अपना पूरा प्रश्न संशोधित करें\n\t\t\t\t\t150 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: पूनमल्ली बस टर्मिनस से रूट ६२ की आखिरी बस का निर्धारित समय क्या है?, ID: text_input_9\n\t\t\t\t\t151 button संशोधित प्रश्न पूछें\n\t\t\t\t\t\t152 text संशोधित प्रश्न पूछें\n\t\t\t\t43 container\n\t\t\t\t\t44 text entry area (settable) Ask / पूछें / Poochhein…\n\nThe focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…"
+  },
+  {
+    "id": "H11",
+    "language": "hi",
+    "query": "आइलैंड ग्राउंड टर्मिनस से रूट १०२ की बस कितने मिनट के अंतराल से चलती है?",
+    "intended_family": "service_frequency",
+    "time_utc": "2026-10-08T09:08:13.564Z",
+    "user_messages": 14,
+    "assistant_messages": 14,
+    "last_exchange_ax": "container Chat message from user\n\t\t\t\t\t149 text आइलैंड ग्राउंड टर्मिनस से रूट १०२ की बस कितने मिनट के अंतराल से चलती है?\n\t\t\t\t150 container Chat message from assistant\n\t\t\t\t\t151 container\n\t\t\t\t\t\t152 text अधिक जानकारी चाहिए\n\t\t\t\t\t\t153 text कृपया एक बार में एक रूट, स्टॉप, किराए के स्टेज या समय के बारे में पूछें।\n\t\t\t\t154 container\n\t\t\t\t\t155 text अपना पूरा प्रश्न संशोधित करें\n\t\t\t\t\t156 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: आइलैंड ग्राउंड टर्मिनस से रूट १०२ की बस कितने मिनट के अंतराल से चलती है?, ID: text_input_10\n\t\t\t\t\t157 button संशोधित प्रश्न पूछें\n\t\t\t\t\t\t158 text संशोधित प्रश्न पूछें\n\t\t\t\t43 container\n\t\t\t\t\t44 text entry area (settable) Ask / पूछें / Poochhein…\n\nThe focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…"
+  },
+  {
+    "id": "H12",
+    "language": "hi",
+    "query": "पूनमल्ली बस टर्मिनस पर ६२ बस की निर्धारित आवृत्ति क्या है?",
+    "intended_family": "service_frequency",
+    "time_utc": "2026-10-08T09:08:13.937Z",
+    "user_messages": 15,
+    "assistant_messages": 15,
+    "last_exchange_ax": "container Chat message from user\n\t\t\t\t\t155 text पूनमल्ली बस टर्मिनस पर ६२ बस की निर्धारित आवृत्ति क्या है?\n\t\t\t\t156 container Chat message from assistant\n\t\t\t\t\t157 container\n\t\t\t\t\t\t158 text अधिक जानकारी चाहिए\n\t\t\t\t\t\t159 text कृपया एक बार में एक रूट, स्टॉप, किराए के स्टेज या समय के बारे में पूछें।\n\t\t\t\t160 container\n\t\t\t\t\t161 text अपना पूरा प्रश्न संशोधित करें\n\t\t\t\t\t162 text field (settable) Description: Revise / संशोधित करें / Badlein, Value: पूनमल्ली बस टर्मिनस पर ६२ बस की निर्धारित आवृत्ति क्या है?, ID: text_input_11\n\t\t\t\t\t163 button संशोधित प्रश्न पूछें\n\t\t\t\t\t\t164 text संशोधित प्रश्न पूछें\n\t\t\t\t43 container\n\t\t\t\t\t44 text entry area (settable) Ask / पूछें / Poochhein…\n\nThe focused UI element is 44 text entry area (settable) Ask / पूछें / Poochhein…"
+  }
+]
