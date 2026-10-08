@@ -1,0 +1,1402 @@
+[
+  {
+    "id": "HI200_001",
+    "category": "safe_limitation",
+    "notes": "Correct metro-route topology refusal. Returned origin=METRO_NANDANAM is the supplied destination, with no Saidapet origin; this is a masked endpoint-role error, not a completed journey. Evidence: status=unavailable; intent=point_to_point_route; operation=PLAN_ROUTE; clarification_reason=None; slots={\"origin\": \"METRO_NANDANAM\", \"transport_mode\": \"metro\"}.",
+    "issue_type": "matched_source_limitation;counterfactual_endpoint_role_error",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_002",
+    "category": "recognition_failure",
+    "notes": "Single bus journey is classified multimodal and refused for missing cross-mode graph. The safe refusal is for the wrong requested family. Evidence: status=unavailable; intent=multimodal_route; operation=PLAN_MULTIMODAL_ROUTE; clarification_reason=None; slots={}.",
+    "issue_type": "wrong_intent_family",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_003",
+    "category": "safe_limitation",
+    "notes": "Correct MRTS point-to-point topology limitation, without invented route. Unreturned endpoints do not prove extraction failure under terminal preflight. Evidence: status=unavailable; intent=point_to_point_route; operation=PLAN_ROUTE; clarification_reason=None; slots={\"transport_mode\": \"mrts\"}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_004",
+    "category": "recognition_failure",
+    "notes": "Explicit metro-only journey becomes multimodal; missing cross-mode graph does not answer the requested metro route. Evidence: status=unavailable; intent=multimodal_route; operation=PLAN_MULTIMODAL_ROUTE; clarification_reason=None; slots={}.",
+    "issue_type": "wrong_intent_family",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_005",
+    "category": "legitimate_clarification",
+    "notes": "Anna Nagar/Koyambedu bus references can denote several physical stops; the reply retains bus and direct_only and asks which physical location is meant, providing candidates. Evidence: status=clarification; intent=point_to_point_route; operation=None; clarification_reason=entity_ambiguity; slots={\"preference\": \"direct_only\", \"transport_mode\": \"bus\"}.",
+    "issue_type": "genuine_physical_bus_stop_ambiguity",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_006",
+    "category": "safe_limitation",
+    "issue_type": "mode_consistent_source_limit",
+    "notes": "Explicit suburban mode now survives. Correct journey family refuses absent topology; endpoints remain unverified under terminal source preflight.",
+    "review_method": "manual rereview of changed actual query/expectation/full response"
+  },
+  {
+    "id": "HI200_007",
+    "category": "recognition_failure",
+    "notes": "Egmore origin is retained, but supplied Vadapalani destination is lost and requested again. Evidence: status=clarification; intent=point_to_point_route; operation=PLAN_ROUTE; clarification_reason=missing_slot; slots={\"origin\": \"HUB_CHENNAI_EGMORE\"}.",
+    "issue_type": "supplied_native_destination_unrecognized",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_008",
+    "category": "safe_limitation",
+    "notes": "Correct terminal metro topology refusal is safe even with missing journey origin. Returned origin=METRO_ARIGNAR_ANNA_ALANDUR misuses the supplied destination; no route was executed. Evidence: status=unavailable; intent=point_to_point_route; operation=PLAN_ROUTE; clarification_reason=None; slots={\"origin\": \"METRO_ARIGNAR_ANNA_ALANDUR\", \"transport_mode\": \"metro\"}.",
+    "issue_type": "matched_source_limitation;counterfactual_endpoint_role_error",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_009",
+    "category": "recognition_failure",
+    "notes": "Metro-only incomplete journey is mislabeled multimodal; cross-mode refusal is not a missing-destination clarification or the correct source limitation. Evidence: status=unavailable; intent=multimodal_route; operation=PLAN_MULTIMODAL_ROUTE; clarification_reason=None; slots={}.",
+    "issue_type": "wrong_intent_family",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_010",
+    "category": "recognition_failure",
+    "notes": "Request for cheapest public journey becomes fare_calculation; no cheapest-route preference retained. Subsequent entity clarification is in the wrong goal family. Evidence: status=clarification; intent=fare_calculation; operation=None; clarification_reason=entity_ambiguity; slots={}.",
+    "issue_type": "cheapest_route_confused_with_fare",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_011",
+    "category": "safe_limitation",
+    "notes": "Correct metro journey topology refusal. No fabricated journey or travel-time claim; this is not goal success. Evidence: status=unavailable; intent=point_to_point_route; operation=PLAN_ROUTE; clarification_reason=None; slots={\"transport_mode\": \"metro\"}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_012",
+    "category": "recognition_failure",
+    "issue_type": "negated_prediction_guarded",
+    "notes": "Excluded fare no longer produces INR20. Positive route goal is explicit, but the unchanged classifier chooses fare and the guard asks intent again. Safer, still a recognition failure.",
+    "review_method": "manual rereview of changed actual query/expectation/full response"
+  },
+  {
+    "id": "HI200_013",
+    "category": "safe_limitation",
+    "notes": "Correct multimodal family and explicit absence of a confirmed cross-mode graph; no invented rail/metro itinerary. Evidence: status=unavailable; intent=multimodal_route; operation=PLAN_MULTIMODAL_ROUTE; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_014",
+    "category": "safe_limitation",
+    "notes": "Correct bus-plus-metro planning refusal for missing confirmed graph; endpoints are not fabricated. Evidence: status=unavailable; intent=multimodal_route; operation=PLAN_MULTIMODAL_ROUTE; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_015",
+    "category": "safe_limitation",
+    "notes": "Correct combined bus/metro itinerary limitation, rather than invented airport transfer routing. Evidence: status=unavailable; intent=multimodal_route; operation=PLAN_MULTIMODAL_ROUTE; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_016",
+    "category": "recognition_failure",
+    "notes": "Full rail-then-metro journey is classified point_to_point_route with metro only, so its source refusal is for a narrower goal. Evidence: status=unavailable; intent=point_to_point_route; operation=PLAN_ROUTE; clarification_reason=None; slots={\"transport_mode\": \"metro\"}.",
+    "issue_type": "multimodal_goal_collapsed_to_single_mode",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_017",
+    "category": "safe_limitation",
+    "notes": "Correct combined local train/bus itinerary refusal due to absent cross-mode graph. Evidence: status=unavailable; intent=multimodal_route; operation=PLAN_MULTIMODAL_ROUTE; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_018",
+    "category": "safe_limitation",
+    "notes": "Correct MRTS-plus-bus journey family and missing cross-mode graph refusal. Evidence: status=unavailable; intent=multimodal_route; operation=PLAN_MULTIMODAL_ROUTE; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_019",
+    "category": "safe_limitation",
+    "notes": "Correct three-leg bus/metro/bus itinerary goal; no unverified transfer points are supplied. Evidence: status=unavailable; intent=multimodal_route; operation=PLAN_MULTIMODAL_ROUTE; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_020",
+    "category": "safe_limitation",
+    "notes": "Correct ordered bus/suburban-rail itinerary family and explicit graph limitation. Evidence: status=unavailable; intent=multimodal_route; operation=PLAN_MULTIMODAL_ROUTE; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_021",
+    "category": "safe_limitation",
+    "notes": "Correct metro-plus-bus journey to IIT Madras is refused for absent confirmed graph, without inventing landmark routing. Evidence: status=unavailable; intent=multimodal_route; operation=PLAN_MULTIMODAL_ROUTE; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_022",
+    "category": "safe_limitation",
+    "notes": "Correct combined metro/local-train planning family; source limitation is explicit. Evidence: status=unavailable; intent=multimodal_route; operation=PLAN_MULTIMODAL_ROUTE; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_023",
+    "category": "safe_limitation",
+    "notes": "Missing origin is real, but terminal graph absence independently prevents any multimodal plan. Correct source refusal is safe, without inventing origin. Evidence: status=unavailable; intent=multimodal_route; operation=PLAN_MULTIMODAL_ROUTE; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation_with_incomplete_context",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_024",
+    "category": "recognition_failure",
+    "notes": "Incomplete full mixed-mode itinerary becomes interchange_transfer. A station-interchange source refusal is not the intended planning limitation or missing-destination prompt. Evidence: status=unavailable; intent=interchange_transfer; operation=GET_INTERCHANGE_DETAILS; clarification_reason=None; slots={}.",
+    "issue_type": "wrong_intent_family",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_025",
+    "category": "safe_limitation",
+    "notes": "Preserves route21G and bus, and returns ordered published sequences. Explicit partial topology excludes route variants/links, so a complete start-to-end list is not established. Evidence: status=ok; intent=route_stop_sequence; operation=LIST_ROUTE_STOPS; clarification_reason=None; slots={\"route_number\": \"21G\", \"transport_mode\": \"bus\"}.",
+    "issue_type": "partial_published_route_coverage",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_026",
+    "category": "goal_correct",
+    "notes": "Preserves 102A bus suffix and supplies both published ordered stop variants (34/36 stops) in API data with no coverage gaps. Text previews first8 stops; full data supports the sequence goal with provisional-source qualification. Evidence: status=ok; intent=route_stop_sequence; operation=LIST_ROUTE_STOPS; clarification_reason=None; slots={\"route_number\": \"102A\", \"transport_mode\": \"bus\"}.",
+    "issue_type": "published_structured_stop_sequence",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_027",
+    "category": "safe_limitation",
+    "notes": "Correct570 sequence family and route, with ordered variants. Explicit uncovered route IDs mean the full route list is source-limited, not fully achieved. Evidence: status=ok; intent=route_stop_sequence; operation=LIST_ROUTE_STOPS; clarification_reason=None; slots={\"route_number\": \"570\"}.",
+    "issue_type": "partial_published_route_coverage",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_028",
+    "category": "recognition_failure",
+    "notes": "नीली लाइन is explicitly supplied, but no line_name is extracted and route/line is asked again. Evidence: status=clarification; intent=route_stop_sequence; operation=LIST_ROUTE_STOPS; clarification_reason=missing_slot; slots={}.",
+    "issue_type": "supplied_native_line_unrecognized",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_029",
+    "category": "safe_limitation",
+    "notes": "Correct metro stop-sequence topology refusal. Missing returned Green Line slot is not scored as a failure under terminal source preflight. Evidence: status=unavailable; intent=route_stop_sequence; operation=LIST_ROUTE_STOPS; clarification_reason=None; slots={\"transport_mode\": \"metro\"}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_030",
+    "category": "goal_correct",
+    "notes": "Correct27D bus sequence despite negated last-stop phrase; API data contains all published ordered variants with no coverage gaps. Text renders the first variant, while complete variants remain in structured data. Evidence: status=ok; intent=route_stop_sequence; operation=LIST_ROUTE_STOPS; clarification_reason=None; slots={\"route_number\": \"27D\", \"transport_mode\": \"bus\"}.",
+    "issue_type": "published_structured_stop_sequence",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_031",
+    "category": "recognition_failure",
+    "notes": "Positive route102 and explicitly excluded102A yield no route slot and a request for route/line again; the supplied positive scope was not retained. Evidence: status=clarification; intent=route_stop_sequence; operation=LIST_ROUTE_STOPS; clarification_reason=missing_slot; slots={}.",
+    "issue_type": "supplied_route_and_negation_unrecognized",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_032",
+    "category": "goal_correct",
+    "notes": "Correct47A suffix and ordered published variants (8/10/7/10 stops), with no reported topology gaps. Structured data supplies the stop-order goal. Evidence: status=ok; intent=route_stop_sequence; operation=LIST_ROUTE_STOPS; clarification_reason=None; slots={\"route_number\": \"47A\"}.",
+    "issue_type": "published_structured_stop_sequence",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_033",
+    "category": "safe_limitation",
+    "notes": "Correct MRTS sequence family and honest lack of mode-consistent topology; no false station list. Evidence: status=unavailable; intent=route_stop_sequence; operation=LIST_ROUTE_STOPS; clarification_reason=None; slots={\"transport_mode\": \"mrts\"}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_034",
+    "category": "legitimate_clarification",
+    "notes": "This bus has no identified route or line. Asking for route/line is necessary and preserves bus mode. Evidence: status=clarification; intent=route_stop_sequence; operation=LIST_ROUTE_STOPS; clarification_reason=missing_slot; slots={\"transport_mode\": \"bus\"}.",
+    "issue_type": "genuine_missing_route",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_035",
+    "category": "safe_limitation",
+    "notes": "Spaced Devanagari21 जी is correctly normalized21G, but explicit omitted route variants/links prevent a complete sequence guarantee. Evidence: status=ok; intent=route_stop_sequence; operation=LIST_ROUTE_STOPS; clarification_reason=None; slots={\"route_number\": \"21G\", \"transport_mode\": \"bus\"}.",
+    "issue_type": "partial_published_route_coverage",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_036",
+    "category": "recognition_failure",
+    "notes": "Full102K# route is supplied, yet route slot is empty and assistant requests a supported route suffix again; preservation/normalization failed before source lookup. Evidence: status=clarification; intent=route_stop_sequence; operation=LIST_ROUTE_STOPS; clarification_reason=missing_slot; slots={\"transport_mode\": \"bus\"}.",
+    "issue_type": "supplied_route_suffix_unrecognized",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_037",
+    "category": "recognition_failure",
+    "notes": "Preserves21G bus but asks the stop to check despite the explicit Saidapet stop. Evidence: status=clarification; intent=route_stop_membership; operation=CHECK_STOP_ON_ROUTE; clarification_reason=missing_slot; slots={\"route_number\": \"21G\", \"transport_mode\": \"bus\"}.",
+    "issue_type": "supplied_native_stop_unrecognized",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_038",
+    "category": "recognition_failure",
+    "notes": "Supplied102A and Adyar membership request produce neither slot and both are requested again. Evidence: status=clarification; intent=route_stop_membership; operation=CHECK_STOP_ON_ROUTE; clarification_reason=missing_slot; slots={}.",
+    "issue_type": "supplied_native_route_and_stop_unrecognized",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_039",
+    "category": "safe_limitation",
+    "notes": "Correct metro membership family and Guindy stop, safely refused because metro topology is absent. Unreturned Blue Line is not proof of extraction failure under terminal preflight. Evidence: status=unavailable; intent=route_stop_membership; operation=CHECK_STOP_ON_ROUTE; clarification_reason=None; slots={\"stop\": \"METRO_GUINDY\", \"transport_mode\": \"metro\"}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_040",
+    "category": "recognition_failure",
+    "notes": "Egmore membership of Green Line becomes route_stop_sequence; asking for missing line also ignores the supplied native line. Evidence: status=clarification; intent=route_stop_sequence; operation=LIST_ROUTE_STOPS; clarification_reason=missing_slot; slots={}.",
+    "issue_type": "membership_confused_with_sequence",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_041",
+    "category": "recognition_failure",
+    "notes": "Preserves bus570 but loses supplied Sholinganallur stop and asks for it again. Evidence: status=clarification; intent=route_stop_membership; operation=CHECK_STOP_ON_ROUTE; clarification_reason=missing_slot; slots={\"route_number\": \"570\", \"transport_mode\": \"bus\"}.",
+    "issue_type": "supplied_native_stop_unrecognized",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_042",
+    "category": "recognition_failure",
+    "notes": "Preserves27D but fails to retain Vadapalani and asks which stop, instead of evaluating the negative membership question. Evidence: status=clarification; intent=route_stop_membership; operation=CHECK_STOP_ON_ROUTE; clarification_reason=missing_slot; slots={\"route_number\": \"27D\"}.",
+    "issue_type": "supplied_native_stop_unrecognized",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_043",
+    "category": "recognition_failure",
+    "notes": "Question whether Thiruvanmiyur belongs to MRTS becomes an MRTS stop-list refusal; correct source limits do not excuse wrong family. Evidence: status=unavailable; intent=route_stop_sequence; operation=LIST_ROUTE_STOPS; clarification_reason=None; slots={\"transport_mode\": \"mrts\"}.",
+    "issue_type": "membership_confused_with_sequence",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_044",
+    "category": "recognition_failure",
+    "notes": "Single102K# Kannagi Nagar membership becomes route_stop_sequence with no route preserved, then requests route again. Evidence: status=clarification; intent=route_stop_sequence; operation=LIST_ROUTE_STOPS; clarification_reason=missing_slot; slots={\"transport_mode\": \"bus\"}.",
+    "issue_type": "wrong_intent_family_and_route_suffix",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_045",
+    "category": "recognition_failure",
+    "notes": "Preserves47A bus, but asks for the explicitly supplied Anna Nagar stop instead of checking membership. Evidence: status=clarification; intent=route_stop_membership; operation=CHECK_STOP_ON_ROUTE; clarification_reason=missing_slot; slots={\"route_number\": \"47A\", \"transport_mode\": \"bus\"}.",
+    "issue_type": "supplied_native_stop_unrecognized",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_046",
+    "category": "legitimate_clarification",
+    "notes": "Route is genuinely unspecified, so route clarification is appropriate. Asking for stop as well unnecessarily loses the supplied Tambaram reference; no membership facts are asserted. Evidence: status=clarification; intent=route_stop_membership; operation=CHECK_STOP_ON_ROUTE; clarification_reason=missing_slot; slots={}.",
+    "issue_type": "genuine_missing_route;secondary_supplied_stop_loss",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_047",
+    "category": "legitimate_clarification",
+    "notes": "The referent यह जगह is genuinely unspecified, so stop clarification is appropriate. The prompt also asks route although21G was supplied; note collateral route recognition loss. Evidence: status=clarification; intent=route_stop_membership; operation=CHECK_STOP_ON_ROUTE; clarification_reason=missing_slot; slots={}.",
+    "issue_type": "genuine_missing_stop;secondary_supplied_route_loss",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_048",
+    "category": "recognition_failure",
+    "notes": "Correct membership family despite negated fare, but Adyar stop is supplied and requested again; no membership answer is produced. Evidence: status=clarification; intent=route_stop_membership; operation=CHECK_STOP_ON_ROUTE; clarification_reason=missing_slot; slots={\"route_number\": \"102\", \"transport_mode\": \"bus\"}.",
+    "issue_type": "supplied_native_stop_unrecognized",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_049",
+    "category": "safe_limitation",
+    "notes": "Correct first-service metro goal, station and timing_type, with explicit absent metro timetable. Evidence: status=unavailable; intent=first_and_last_service; operation=GET_FIRST_LAST_SERVICE; clarification_reason=None; slots={\"station\": \"METRO_GUINDY\", \"timing_type\": \"first\", \"transport_mode\": \"metro\"}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_050",
+    "category": "safe_limitation",
+    "notes": "Correct last-service metro goal and last timing, with absent metro timetable; no live or invented departure time. Evidence: status=unavailable; intent=first_and_last_service; operation=GET_FIRST_LAST_SERVICE; clarification_reason=None; slots={\"timing_type\": \"last\", \"transport_mode\": \"metro\"}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_051",
+    "category": "safe_limitation",
+    "issue_type": "mode_consistent_source_limit",
+    "notes": "Local rail phrase now retains suburban mode and first-service timing; false कल is gone. Published suburban schedules are absent; station recognition is bypassed/unverified.",
+    "review_method": "manual rereview of changed actual query/expectation/full response"
+  },
+  {
+    "id": "HI200_052",
+    "category": "recognition_failure",
+    "notes": "One21G last departure from Broadway is treated as multiple execution scopes. No actual second goal, route, or time is requested. Evidence: status=clarification; intent=first_and_last_service; operation=None; clarification_reason=multiple_goals; slots={}.",
+    "issue_type": "false_multiple_scope_guard",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_053",
+    "category": "safe_limitation",
+    "notes": "Correct metro first-and-last goal and source refusal. Returned station=RAIL_CHENNAI_CENTRAL contradicts explicit metro qualification; masked by absent metro schedules. Evidence: status=unavailable; intent=first_and_last_service; operation=GET_FIRST_LAST_SERVICE; clarification_reason=None; slots={\"station\": \"RAIL_CHENNAI_CENTRAL\", \"transport_mode\": \"metro\"}.",
+    "issue_type": "matched_source_limitation;counterfactual_mode_inconsistent_station",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_054",
+    "category": "safe_limitation",
+    "notes": "Correct metro first-service family and missing metro schedule refusal. Empty line/station/timing extraction is not penalized under terminal source limitation. Evidence: status=unavailable; intent=first_and_last_service; operation=GET_FIRST_LAST_SERVICE; clarification_reason=None; slots={\"transport_mode\": \"metro\"}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_055",
+    "category": "recognition_failure",
+    "notes": "Single Alandur last-metro question triggers multiple_goals; no additional independently requested scope exists. Evidence: status=clarification; intent=first_and_last_service; operation=None; clarification_reason=multiple_goals; slots={}.",
+    "issue_type": "false_multiple_scope_guard",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_056",
+    "category": "safe_limitation",
+    "notes": "Correct first MRTS service family and explicit absence of mode-consistent schedule. Evidence: status=unavailable; intent=first_and_last_service; operation=GET_FIRST_LAST_SERVICE; clarification_reason=None; slots={\"transport_mode\": \"mrts\"}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_057",
+    "category": "legitimate_clarification",
+    "notes": "Guindy with bus570 can refer to multiple physical boarding stops. Route, bus, and last timing survive; physical-stop clarification with candidates avoids arbitrary scheduling. Evidence: status=clarification; intent=first_and_last_service; operation=None; clarification_reason=entity_ambiguity; slots={\"route_number\": \"570\", \"timing_type\": \"last\", \"transport_mode\": \"bus\"}.",
+    "issue_type": "genuine_physical_bus_stop_ambiguity",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_058",
+    "category": "legitimate_clarification",
+    "notes": "First bus time lacks boarding station/stop. Correct first_service family and useful stop clarification; no fabricated system-wide departure. Evidence: status=clarification; intent=first_and_last_service; operation=GET_FIRST_LAST_SERVICE; clarification_reason=missing_slot; slots={\"timing_type\": \"first\", \"transport_mode\": \"bus\"}.",
+    "issue_type": "genuine_missing_boarding_stop",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_059",
+    "category": "safe_limitation",
+    "issue_type": "mode_consistent_source_limit",
+    "notes": "Suburban mode and last timing survive. No timetable is invented. Sunday/station extraction is not established by the source preflight.",
+    "review_method": "manual rereview of changed actual query/expectation/full response"
+  },
+  {
+    "id": "HI200_060",
+    "category": "recognition_failure",
+    "notes": "User asks last metro and excludes last-station list, but gets route_stop_sequence topology refusal instead of first_and_last_service. Evidence: status=unavailable; intent=route_stop_sequence; operation=LIST_ROUTE_STOPS; clarification_reason=None; slots={\"transport_mode\": \"metro\"}.",
+    "issue_type": "negated_sequence_controls_intent",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_061",
+    "category": "safe_limitation",
+    "notes": "Correct metro frequency family and Guindy station, with honest absence of metro published schedules. Evidence: status=unavailable; intent=service_frequency; operation=GET_SERVICE_FREQUENCY; clarification_reason=None; slots={\"station\": \"METRO_GUINDY\", \"transport_mode\": \"metro\"}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_062",
+    "category": "recognition_failure",
+    "notes": "Bus21G is retained but Broadway is supplied and requested again as missing station/stop. Evidence: status=clarification; intent=service_frequency; operation=GET_SERVICE_FREQUENCY; clarification_reason=missing_slot; slots={\"route_number\": \"21G\", \"transport_mode\": \"bus\"}.",
+    "issue_type": "supplied_native_boarding_stop_unrecognized",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_063",
+    "category": "recognition_failure",
+    "issue_type": "wrong_family_with_corrected_substring",
+    "notes": "False कल and missing suburban mode are fixed, but frequency still becomes availability. Wrong-family source refusal remains failure.",
+    "review_method": "manual rereview of changed actual query/expectation/full response"
+  },
+  {
+    "id": "HI200_064",
+    "category": "safe_limitation",
+    "notes": "Typical Green Line metro wait is correctly frequency, safely limited by absent metro schedules rather than asserted as live wait. Evidence: status=unavailable; intent=service_frequency; operation=GET_SERVICE_FREQUENCY; clarification_reason=None; slots={\"transport_mode\": \"metro\"}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_065",
+    "category": "recognition_failure",
+    "notes": "Explicit average interval request for570 becomes scheduled_departure. Physical-stop ambiguity does not excuse wrong user-goal family. Evidence: status=clarification; intent=scheduled_departure; operation=None; clarification_reason=entity_ambiguity; slots={\"route_number\": \"570\", \"transport_mode\": \"bus\"}.",
+    "issue_type": "frequency_confused_with_departure",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_066",
+    "category": "safe_limitation",
+    "notes": "Correct Green Line metro frequency family and absent metro timetable limitation. Evidence: status=unavailable; intent=service_frequency; operation=GET_SERVICE_FREQUENCY; clarification_reason=None; slots={\"transport_mode\": \"metro\"}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_067",
+    "category": "recognition_failure",
+    "notes": "One Saidapet27D headway request is incorrectly treated as multiple scopes; no second goal/time is present. Evidence: status=clarification; intent=service_frequency; operation=None; clarification_reason=multiple_goals; slots={}.",
+    "issue_type": "false_multiple_scope_guard",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_068",
+    "category": "safe_limitation",
+    "notes": "Correct MRTS frequency family and source refusal; no guessed trips-per-hour figure. Evidence: status=unavailable; intent=service_frequency; operation=GET_SERVICE_FREQUENCY; clarification_reason=None; slots={\"transport_mode\": \"mrts\"}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_069",
+    "category": "safe_limitation",
+    "notes": "Correct peak-period metro frequency family with absent published metro schedules; no guessed peak headway. Evidence: status=unavailable; intent=service_frequency; operation=GET_SERVICE_FREQUENCY; clarification_reason=None; slots={\"station\": \"METRO_GUINDY\", \"transport_mode\": \"metro\"}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_070",
+    "category": "legitimate_clarification",
+    "notes": "Generic bus intervals lack route/line and boarding stop. Both requested execution facts are genuinely missing. Evidence: status=clarification; intent=service_frequency; operation=GET_SERVICE_FREQUENCY; clarification_reason=missing_slot; slots={\"transport_mode\": \"bus\"}.",
+    "issue_type": "genuine_missing_route_and_stop",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_071",
+    "category": "safe_limitation",
+    "notes": "Correct Blue Line metro frequency cannot execute even after supplying station because source timetable is absent. Terminal refusal is safe, without arbitrary estimate. Evidence: status=unavailable; intent=service_frequency; operation=GET_SERVICE_FREQUENCY; clarification_reason=None; slots={\"transport_mode\": \"metro\"}.",
+    "issue_type": "matched_source_limitation_with_incomplete_context",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_072",
+    "category": "recognition_failure",
+    "notes": "User asks21G frequency and says not first-bus time; reply chooses first_and_last_service and first timing. Evidence: status=clarification; intent=first_and_last_service; operation=GET_FIRST_LAST_SERVICE; clarification_reason=missing_slot; slots={\"route_number\": \"21G\", \"timing_type\": \"first\", \"transport_mode\": \"bus\"}.",
+    "issue_type": "negated_first_service_controls_intent",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_073",
+    "category": "safe_limitation",
+    "notes": "Correct metro scheduled departures, Guindy, and normalized07:15 are preserved, with absent metro schedule limitation. Evidence: status=unavailable; intent=scheduled_departure; operation=GET_SCHEDULED_DEPARTURES; clarification_reason=None; slots={\"station\": \"METRO_GUINDY\", \"time\": \"07:15:00\", \"transport_mode\": \"metro\"}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_074",
+    "category": "recognition_failure",
+    "notes": "Preserves21G bus and18:00, but Broadway boarding stop is explicitly supplied and requested again. Evidence: status=clarification; intent=scheduled_departure; operation=GET_SCHEDULED_DEPARTURES; clarification_reason=missing_slot; slots={\"route_number\": \"21G\", \"time\": \"18:00:00\", \"transport_mode\": \"bus\"}.",
+    "issue_type": "supplied_native_boarding_stop_unrecognized",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_075",
+    "category": "safe_limitation",
+    "issue_type": "mode_consistent_source_limit",
+    "notes": "Suburban mode retained, false कल removed; correct scheduled-departure family discloses absent published schedules.",
+    "review_method": "manual rereview of changed actual query/expectation/full response"
+  },
+  {
+    "id": "HI200_076",
+    "category": "safe_limitation",
+    "issue_type": "source_limit_with_corrected_period",
+    "notes": "दोपहर२:३० now yields14:30. Correct metro schedule source refusal remains source-limited, not a timetable answer.",
+    "review_method": "manual rereview of changed actual query/expectation/full response"
+  },
+  {
+    "id": "HI200_077",
+    "category": "safe_limitation",
+    "notes": "Correct MRTS published-departure goal is safely refused for absent schedules; no real-time substitution. Evidence: status=unavailable; intent=scheduled_departure; operation=GET_SCHEDULED_DEPARTURES; clarification_reason=None; slots={\"transport_mode\": \"mrts\"}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_078",
+    "category": "legitimate_clarification",
+    "notes": "Retains570, bus,21:00 after threshold. Guindy boarding-node ambiguity is clarified with candidates before any departure answer. Evidence: status=clarification; intent=scheduled_departure; operation=None; clarification_reason=entity_ambiguity; slots={\"route_number\": \"570\", \"time\": \"21:00:00\", \"transport_mode\": \"bus\"}.",
+    "issue_type": "genuine_physical_bus_stop_ambiguity",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_079",
+    "category": "recognition_failure",
+    "notes": "Bare8 legitimately needs AM/PM clarification, but system selects first_and_last_service and calls it multiple goals instead of scheduled_departure temporal ambiguity. Evidence: status=clarification; intent=first_and_last_service; operation=None; clarification_reason=multiple_goals; slots={}.",
+    "issue_type": "wrong_intent_and_false_multiple_scope_guard",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_080",
+    "category": "safe_limitation",
+    "notes": "Correct metro schedule source refusal safely prevents resolving ambiguous कल. Returned RAIL_CHENNAI_CENTRAL is incompatible with explicit metro station; no schedule executed. Evidence: status=unavailable; intent=scheduled_departure; operation=GET_SCHEDULED_DEPARTURES; clarification_reason=None; slots={\"station\": \"RAIL_CHENNAI_CENTRAL\", \"temporal_relative\": \"कल\", \"transport_mode\": \"metro\"}.",
+    "issue_type": "matched_source_limitation;counterfactual_mode_inconsistent_station",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_081",
+    "category": "safe_limitation",
+    "notes": "Station is genuinely unspecified, but absent metro schedules independently prevent a timetable; correct family source refusal invents no station. Evidence: status=unavailable; intent=scheduled_departure; operation=GET_SCHEDULED_DEPARTURES; clarification_reason=None; slots={\"transport_mode\": \"metro\"}.",
+    "issue_type": "matched_source_limitation_with_incomplete_context",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_082",
+    "category": "safe_limitation",
+    "notes": "Correct metro timetable source refusal makes no claim about25:61. It does not demonstrate proper invalid-clock recognition; no valid time was invented or used. Evidence: status=unavailable; intent=scheduled_departure; operation=GET_SCHEDULED_DEPARTURES; clarification_reason=None; slots={\"station\": \"METRO_GUINDY\", \"transport_mode\": \"metro\"}.",
+    "issue_type": "matched_source_limitation_with_invalid_clock",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_083",
+    "category": "recognition_failure",
+    "notes": "06:00-to08:00 is a single schedule range, not two independent goals. Multiple-goals clarification does not explain unsupported range semantics. Evidence: status=clarification; intent=scheduled_departure; operation=None; clarification_reason=multiple_goals; slots={}.",
+    "issue_type": "time_range_misread_as_multiple_goals",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_084",
+    "category": "recognition_failure",
+    "notes": "One before22:00 schedule request is mislabeled multiple scopes, instead of respecting before-bound or explaining its unsupported operation scope. Evidence: status=clarification; intent=scheduled_departure; operation=None; clarification_reason=multiple_goals; slots={}.",
+    "issue_type": "single_before_bound_misread_as_multiple_goals",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_085",
+    "category": "safe_limitation",
+    "notes": "Correct metro availability source refusal. Returned origin=Nandanam reverses supplied destination role and omits Saidapet; no connection was falsely asserted. Evidence: status=unavailable; intent=mode_availability; operation=CHECK_SERVICE_AVAILABILITY; clarification_reason=None; slots={\"origin\": \"METRO_NANDANAM\", \"transport_mode\": \"metro\"}.",
+    "issue_type": "matched_source_limitation;counterfactual_endpoint_role_error",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_086",
+    "category": "recognition_failure",
+    "notes": "Both Broadway and Adyar are supplied in a bus existence question, but reply asks for both endpoints again. Evidence: status=clarification; intent=mode_availability; operation=CHECK_SERVICE_AVAILABILITY; clarification_reason=missing_slot; slots={\"transport_mode\": \"bus\"}.",
+    "issue_type": "supplied_native_endpoints_unrecognized",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_087",
+    "category": "safe_limitation",
+    "issue_type": "mode_consistent_source_limit",
+    "notes": "Correct suburban availability family and mode now disclose missing topology; does not assert a connection exists.",
+    "review_method": "manual rereview of changed actual query/expectation/full response"
+  },
+  {
+    "id": "HI200_088",
+    "category": "safe_limitation",
+    "notes": "Correct MRTS existence question and explicit missing mode topology; no unsupported service absence assertion. Evidence: status=unavailable; intent=mode_availability; operation=CHECK_SERVICE_AVAILABILITY; clarification_reason=None; slots={\"transport_mode\": \"mrts\"}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_089",
+    "category": "safe_limitation",
+    "notes": "Correct metro availability family; safely refuses absent metro topology rather than interpreting service existence as a route itinerary. Evidence: status=unavailable; intent=mode_availability; operation=CHECK_SERVICE_AVAILABILITY; clarification_reason=None; slots={\"transport_mode\": \"metro\"}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_090",
+    "category": "legitimate_clarification",
+    "notes": "Guindy bus origin can denote multiple physical bus stops. Mode is preserved and clarification avoids treating user direct-bus assertion as verified connection. Evidence: status=clarification; intent=mode_availability; operation=None; clarification_reason=entity_ambiguity; slots={\"transport_mode\": \"bus\"}.",
+    "issue_type": "genuine_physical_bus_stop_ambiguity",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_091",
+    "category": "safe_limitation",
+    "issue_type": "source_limit_with_secondary_endpoint_issue",
+    "notes": "Negative availability question is retained as availability, with suburban mode and no false कल. Source absence blocks connection facts. Returned origin=Central still misuses the supplied destination; no completed OD extraction is claimed.",
+    "review_method": "manual rereview of changed actual query/expectation/full response"
+  },
+  {
+    "id": "HI200_092",
+    "category": "recognition_failure",
+    "notes": "Primary question is whether metro service exists, with bus as fallback. Reply asks to choose one mode and stores Alandur as origin rather than preserving the requested metro connection. Evidence: status=clarification; intent=mode_availability; operation=None; clarification_reason=missing_slot; slots={\"origin\": \"HUB_ALANDUR\"}.",
+    "issue_type": "alternative_mode_scope_misread",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_093",
+    "category": "recognition_failure",
+    "notes": "A single availability-at23:00 question becomes first_and_last_service with multiple_goals; no valid availability scope limitation is given. Evidence: status=clarification; intent=first_and_last_service; operation=None; clarification_reason=multiple_goals; slots={}.",
+    "issue_type": "wrong_intent_and_false_multiple_scope_guard",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_094",
+    "category": "legitimate_clarification",
+    "notes": "Origin is genuinely missing in bus-to-Adyar availability. Origin clarification is necessary; prompt also unnecessarily asks destination despite supplied Adyar. Evidence: status=clarification; intent=mode_availability; operation=CHECK_SERVICE_AVAILABILITY; clarification_reason=missing_slot; slots={\"transport_mode\": \"bus\"}.",
+    "issue_type": "genuine_missing_origin;secondary_supplied_destination_loss",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_095",
+    "category": "safe_limitation",
+    "notes": "Destination is genuinely missing, but terminal metro topology absence independently blocks confirmation. Correct source refusal preserves Guindy origin without inventing destination. Evidence: status=unavailable; intent=mode_availability; operation=CHECK_SERVICE_AVAILABILITY; clarification_reason=None; slots={\"origin\": \"METRO_GUINDY\", \"transport_mode\": \"metro\"}.",
+    "issue_type": "matched_source_limitation_with_incomplete_context",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_096",
+    "category": "safe_limitation",
+    "notes": "Correct metro availability and both endpoints are preserved despite negated route-detail phrase; absent topology is explicit. Evidence: status=unavailable; intent=mode_availability; operation=CHECK_SERVICE_AVAILABILITY; clarification_reason=None; slots={\"destination\": \"METRO_NANDANAM\", \"origin\": \"METRO_GUINDY\", \"transport_mode\": \"metro\"}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_097",
+    "category": "goal_correct",
+    "issue_type": "dated_published_stage_tariff",
+    "notes": "Ordinary class and spelled stage4 retained; INR8 is a dated official2018 tariff with source and current-fare caveat.",
+    "review_method": "manual rereview of changed actual query/expectation/full response"
+  },
+  {
+    "id": "HI200_098",
+    "category": "goal_correct",
+    "issue_type": "dated_published_stage_tariff",
+    "notes": "Express class and Devanagari stage6 retained; dated official2018 INR15 tariff, source and current-fare caveat supplied.",
+    "review_method": "manual rereview of changed actual query/expectation/full response"
+  },
+  {
+    "id": "HI200_099",
+    "category": "goal_correct",
+    "issue_type": "dated_published_stage_tariff",
+    "notes": "Deluxe class and आठ चरण=8 retained; dated official INR25 tariff supplied with source/effective date and current-fare caveat.",
+    "review_method": "manual rereview of changed actual query/expectation/full response"
+  },
+  {
+    "id": "HI200_100",
+    "category": "goal_correct",
+    "issue_type": "dated_published_stage_tariff",
+    "notes": "रात्रि सेवा now maps explicitly to Night, and पाँच=5. Dated Night INR19 tariff is supplied; Ordinary fallback seen in the intermediate postfix run is corrected.",
+    "review_method": "manual rereview of changed actual query/expectation/full response"
+  },
+  {
+    "id": "HI200_101",
+    "category": "safe_limitation",
+    "issue_type": "requested_class_source_absent",
+    "notes": "AC and stage10 retained. No verified AC tariff exists for this scope, so source limitation replaces the unnecessary stage prompt.",
+    "review_method": "manual rereview of changed actual query/expectation/full response"
+  },
+  {
+    "id": "HI200_102",
+    "category": "recognition_failure",
+    "notes": "Metro Guindy origin retained, but Chennai Airport destination supplied in Hindi is lost and requested again. Evidence: status=clarification; intent=fare_calculation; operation=CALCULATE_FARE; clarification_reason=missing_slot; slots={\"origin\": \"METRO_GUINDY\", \"transport_mode\": \"metro\"}.",
+    "issue_type": "supplied_native_destination_unrecognized",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_103",
+    "category": "recognition_failure",
+    "notes": "Explicit Egmore metro origin yields rail/bus/hub ambiguity, while Nandanam destination is wrongly stored as origin. This is recognition/role failure, not genuine user ambiguity. Evidence: status=clarification; intent=fare_calculation; operation=None; clarification_reason=entity_ambiguity; slots={\"origin\": \"METRO_NANDANAM\", \"transport_mode\": \"metro\"}.",
+    "issue_type": "mode_qualified_entity_and_role_error",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_104",
+    "category": "goal_correct",
+    "issue_type": "dated_published_stage_tariff",
+    "notes": "Ordinary and तीन=3 retained; dated official INR7 tariff is returned with source/effective date and current-fare caveat.",
+    "review_method": "manual rereview of changed actual query/expectation/full response"
+  },
+  {
+    "id": "HI200_105",
+    "category": "legitimate_clarification",
+    "issue_type": "genuine_unknown_service_class",
+    "notes": "Stage4 preserved; explicitly unknown service class now prompts for class rather than silently defaulting Ordinary.",
+    "review_method": "manual rereview of changed actual query/expectation/full response"
+  },
+  {
+    "id": "HI200_106",
+    "category": "recognition_failure",
+    "notes": "Incomplete fare calculation is classified ticketing_and_passes and refused for missing policy table, rather than requesting fare basis. Evidence: status=unavailable; intent=ticketing_and_passes; operation=GET_TICKETING_POLICY; clarification_reason=None; slots={}.",
+    "issue_type": "fare_goal_confused_with_ticket_policy",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_107",
+    "category": "legitimate_clarification",
+    "issue_type": "invalid_stage_clarified",
+    "notes": "Invalid zero stage now requests a valid stage, without fare execution.",
+    "review_method": "manual rereview of changed actual query/expectation/full response"
+  },
+  {
+    "id": "HI200_108",
+    "category": "legitimate_clarification",
+    "issue_type": "invalid_stage_clarified",
+    "notes": "31 is outside supported1–30 stages; valid-stage clarification does not truncate to a supported number.",
+    "review_method": "manual rereview of changed actual query/expectation/full response"
+  },
+  {
+    "id": "HI200_109",
+    "category": "safe_limitation",
+    "notes": "Correct smart-card minimum-recharge policy goal, honestly refused for absent authoritative ticket/pass policy. Evidence: status=unavailable; intent=ticketing_and_passes; operation=GET_TICKETING_POLICY; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_110",
+    "category": "safe_limitation",
+    "notes": "Correct QR-ticket policy goal with source limitation; no invented purchase rule. Evidence: status=unavailable; intent=ticketing_and_passes; operation=GET_TICKETING_POLICY; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_111",
+    "category": "safe_limitation",
+    "notes": "Correct monthly-pass validity family and absent authoritative policy limitation. Evidence: status=unavailable; intent=ticketing_and_passes; operation=GET_TICKETING_POLICY; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_112",
+    "category": "safe_limitation",
+    "notes": "Correct suburban season-pass documents goal and policy source refusal. Evidence: status=unavailable; intent=ticketing_and_passes; operation=GET_TICKETING_POLICY; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_113",
+    "category": "safe_limitation",
+    "notes": "Correct NCMC ticketing-policy family and explicit missing authoritative policy. Evidence: status=unavailable; intent=ticketing_and_passes; operation=GET_TICKETING_POLICY; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_114",
+    "category": "safe_limitation",
+    "notes": "Correct lost-token replacement policy family; no guessed replacement rules. Evidence: status=unavailable; intent=ticketing_and_passes; operation=GET_TICKETING_POLICY; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_115",
+    "category": "recognition_failure",
+    "notes": "Tourist-pass journey allowance is classified service_frequency and asks boarding stop/line, which are irrelevant policy execution facts. Evidence: status=clarification; intent=service_frequency; operation=GET_SERVICE_FREQUENCY; clarification_reason=missing_slot; slots={}.",
+    "issue_type": "pass_policy_confused_with_service_frequency",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_116",
+    "category": "safe_limitation",
+    "notes": "Correct child concession ticket-rule family, with no unsupported age limit or percentage. Evidence: status=unavailable; intent=ticketing_and_passes; operation=GET_TICKETING_POLICY; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_117",
+    "category": "safe_limitation",
+    "notes": "Correct smart-card refund policy family and explicit absent policy source. Evidence: status=unavailable; intent=ticketing_and_passes; operation=GET_TICKETING_POLICY; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_118",
+    "category": "safe_limitation",
+    "notes": "Correct payment-method policy family, refused due to absent authoritative ticket policy. Evidence: status=unavailable; intent=ticketing_and_passes; operation=GET_TICKETING_POLICY; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_119",
+    "category": "safe_limitation",
+    "notes": "Correct pass transferability policy, safely refuses absent authoritative allowed/disallowed rules. Evidence: status=unavailable; intent=ticketing_and_passes; operation=GET_TICKETING_POLICY; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_120",
+    "category": "safe_limitation",
+    "notes": "Correct QR validity policy despite negated price; absent policy source prevents unsupported validity claim. Evidence: status=unavailable; intent=ticketing_and_passes; operation=GET_TICKETING_POLICY; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_121",
+    "category": "safe_limitation",
+    "notes": "Correct bike-parking facility goal, explicitly unverified rather than affirmative parking claim. Evidence: status=unavailable; intent=station_facilities; operation=GET_STATION_FACILITY; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_122",
+    "category": "safe_limitation",
+    "notes": "Correct drinking-water facility family with unverified-source refusal. Evidence: status=unavailable; intent=station_facilities; operation=GET_STATION_FACILITY; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_123",
+    "category": "safe_limitation",
+    "notes": "Correct general restroom facility family, safely refuses absent verification. Evidence: status=unavailable; intent=station_facilities; operation=GET_STATION_FACILITY; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_124",
+    "category": "safe_limitation",
+    "notes": "Correct waiting-room facility family and honest missing verification. Evidence: status=unavailable; intent=station_facilities; operation=GET_STATION_FACILITY; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_125",
+    "category": "safe_limitation",
+    "notes": "Correct cloakroom facility family and source refusal; no fabricated luggage-storage availability. Evidence: status=unavailable; intent=station_facilities; operation=GET_STATION_FACILITY; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_126",
+    "category": "recognition_failure",
+    "notes": "ATM query becomes interchange_transfer and receives missing-interchange refusal; safe wording belongs to wrong family. Evidence: status=unavailable; intent=interchange_transfer; operation=GET_INTERCHANGE_DETAILS; clarification_reason=None; slots={}.",
+    "issue_type": "facility_confused_with_interchange",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_127",
+    "category": "recognition_failure",
+    "notes": "Airport-station Wi-Fi is classified mode_availability and refused for absent metro topology, not station facility evidence. Evidence: status=unavailable; intent=mode_availability; operation=CHECK_SERVICE_AVAILABILITY; clarification_reason=None; slots={\"transport_mode\": \"metro\"}.",
+    "issue_type": "facility_confused_with_mode_availability",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_128",
+    "category": "safe_limitation",
+    "notes": "Correct Nandanam car-parking facility family with unverified availability. Evidence: status=unavailable; intent=station_facilities; operation=GET_STATION_FACILITY; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_129",
+    "category": "safe_limitation",
+    "notes": "Correct Tambaram waiting-room station facility family with absent verification. Evidence: status=unavailable; intent=station_facilities; operation=GET_STATION_FACILITY; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_130",
+    "category": "safe_limitation",
+    "notes": "Station is genuinely unspecified, but terminal facility-source absence prevents an answer independently. Correct refusal picks no arbitrary station. Evidence: status=unavailable; intent=station_facilities; operation=GET_STATION_FACILITY; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation_with_incomplete_context",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_131",
+    "category": "safe_limitation",
+    "notes": "Correct parking family despite explicitly excluded wheelchair goal; no false accessibility or parking answer. Evidence: status=unavailable; intent=station_facilities; operation=GET_STATION_FACILITY; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_132",
+    "category": "recognition_failure",
+    "notes": "Egmore bathroom query is classified interchange_transfer; missing-interchange records do not address bathroom facility evidence. Evidence: status=unavailable; intent=interchange_transfer; operation=GET_INTERCHANGE_DETAILS; clarification_reason=None; slots={}.",
+    "issue_type": "colloquial_restroom_confused_with_interchange",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_133",
+    "category": "safe_limitation",
+    "notes": "Correct wheelchair accessibility goal and explicit absence of verified accessibility feature values. Evidence: status=unavailable; intent=station_accessibility; operation=GET_ACCESSIBILITY_INFO; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_134",
+    "category": "safe_limitation",
+    "notes": "Correct lift/step-free accessibility family and missing feature-value source, without guessed availability. Evidence: status=unavailable; intent=station_accessibility; operation=GET_ACCESSIBILITY_INFO; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_135",
+    "category": "safe_limitation",
+    "notes": "Correct ramp accessibility family and absence of verified feature values. Evidence: status=unavailable; intent=station_accessibility; operation=GET_ACCESSIBILITY_INFO; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_136",
+    "category": "safe_limitation",
+    "notes": "चलती सीढ़ी is correctly understood as accessibility; source refusal makes no unsupported escalator assertion. Evidence: status=unavailable; intent=station_accessibility; operation=GET_ACCESSIBILITY_INFO; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_137",
+    "category": "safe_limitation",
+    "notes": "Correct tactile-path accessibility family and explicit missing verified feature values. Evidence: status=unavailable; intent=station_accessibility; operation=GET_ACCESSIBILITY_INFO; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_138",
+    "category": "safe_limitation",
+    "notes": "Correct accessible-toilet accessibility family rather than general facility; absent verified values disclosed. Evidence: status=unavailable; intent=station_accessibility; operation=GET_ACCESSIBILITY_INFO; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_139",
+    "category": "safe_limitation",
+    "notes": "Correct lift accessibility goal for elderly access and honest missing verified values. Evidence: status=unavailable; intent=station_accessibility; operation=GET_ACCESSIBILITY_INFO; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_140",
+    "category": "safe_limitation",
+    "notes": "Correct wheelchair-platform access family; no unsupported affirmative confirmation. Evidence: status=unavailable; intent=station_accessibility; operation=GET_ACCESSIBILITY_INFO; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_141",
+    "category": "safe_limitation",
+    "notes": "Correct suburban ramp accessibility family; terminal verified-feature-value absence stated. Evidence: status=unavailable; intent=station_accessibility; operation=GET_ACCESSIBILITY_INFO; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_142",
+    "category": "recognition_failure",
+    "notes": "Station is genuinely missing, but wheelchair-accessibility question becomes nearest_transport and asks for landmark/locality rather than station. Evidence: status=clarification; intent=nearest_transport; operation=FIND_NEAREST_STATION; clarification_reason=missing_slot; slots={\"transport_mode\": \"metro\"}.",
+    "issue_type": "accessibility_confused_with_nearest",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_143",
+    "category": "recognition_failure",
+    "issue_type": "negated_prediction_guarded",
+    "notes": "Excluded parking/facility prediction is guarded. Explicit lift/accessibility goal still not recognized by unchanged classifier; asking intent again remains failure.",
+    "review_method": "manual rereview of changed actual query/expectation/full response"
+  },
+  {
+    "id": "HI200_144",
+    "category": "safe_limitation",
+    "notes": "Implicit step-free platform access correctly classified accessibility, with no unverified assurance. Evidence: status=unavailable; intent=station_accessibility; operation=GET_ACCESSIBILITY_INFO; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_145",
+    "category": "safe_limitation",
+    "notes": "Correct metro-to-local-train interchange goal and missing confirmed interchange records; no invented connection directions. Evidence: status=unavailable; intent=interchange_transfer; operation=GET_INTERCHANGE_DETAILS; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_146",
+    "category": "safe_limitation",
+    "notes": "Correct Alandur Blue-to-Green line transfer family; confirmed interchange source missing. Evidence: status=unavailable; intent=interchange_transfer; operation=GET_INTERCHANGE_DETAILS; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_147",
+    "category": "recognition_failure",
+    "notes": "Central rail-to-metro physical connection becomes multimodal_route, refusing a whole journey graph rather than transfer records. Evidence: status=unavailable; intent=multimodal_route; operation=PLAN_MULTIMODAL_ROUTE; clarification_reason=None; slots={}.",
+    "issue_type": "station_transfer_confused_with_full_multimodal_route",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_148",
+    "category": "recognition_failure",
+    "notes": "Bus-terminal/metro transfer arrangement becomes generic station_facilities; no correct interchange limitation given. Evidence: status=unavailable; intent=station_facilities; operation=GET_STATION_FACILITY; clarification_reason=None; slots={}.",
+    "issue_type": "interchange_confused_with_facility",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_149",
+    "category": "safe_limitation",
+    "notes": "Correct Chennai Beach rail-to-MRTS interchange family; source refuses unconfirmed transfer connection. Evidence: status=unavailable; intent=interchange_transfer; operation=GET_INTERCHANGE_DETAILS; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_150",
+    "category": "safe_limitation",
+    "notes": "Correct same-mode metro-line interchange family and missing confirmed transfer records. Evidence: status=unavailable; intent=interchange_transfer; operation=GET_INTERCHANGE_DETAILS; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_151",
+    "category": "recognition_failure",
+    "notes": "Tambaram rail-to-bus transfer point becomes full multimodal_route; refusal uses wrong operation/source family. Evidence: status=unavailable; intent=multimodal_route; operation=PLAN_MULTIMODAL_ROUTE; clarification_reason=None; slots={}.",
+    "issue_type": "station_transfer_confused_with_full_multimodal_route",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_152",
+    "category": "recognition_failure",
+    "notes": "Guindy bus-to-metro physical transfer information becomes multimodal_route rather than interchange_transfer. Evidence: status=unavailable; intent=multimodal_route; operation=PLAN_MULTIMODAL_ROUTE; clarification_reason=None; slots={}.",
+    "issue_type": "station_transfer_confused_with_full_multimodal_route",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_153",
+    "category": "recognition_failure",
+    "notes": "Egmore rail-platform-to-metro connection becomes mode_availability; topology absence does not address physical transfer records. Evidence: status=unavailable; intent=mode_availability; operation=CHECK_SERVICE_AVAILABILITY; clarification_reason=None; slots={\"transport_mode\": \"metro\"}.",
+    "issue_type": "interchange_confused_with_mode_availability",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_154",
+    "category": "safe_limitation",
+    "notes": "Correct metro-to-bus transfer family without specified station; terminal missing interchange records prevents any factual transfer guidance. Evidence: status=unavailable; intent=interchange_transfer; operation=GET_INTERCHANGE_DETAILS; clarification_reason=None; slots={}.",
+    "issue_type": "matched_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_155",
+    "category": "recognition_failure",
+    "notes": "Here and both transfer modes are unspecified, but changing vehicle is an interchange goal. Reply assumes generic facility rather than asking station/modes or correct interchange source limit. Evidence: status=unavailable; intent=station_facilities; operation=GET_STATION_FACILITY; clarification_reason=None; slots={}.",
+    "issue_type": "incomplete_interchange_confused_with_facility",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_156",
+    "category": "recognition_failure",
+    "issue_type": "negated_prediction_guarded",
+    "notes": "Excluded parking prediction is guarded; explicit line-transfer goal remains unrecognized, so intent clarification does not fulfill it.",
+    "review_method": "manual rereview of changed actual query/expectation/full response"
+  },
+  {
+    "id": "HI200_157",
+    "category": "goal_correct",
+    "notes": "Correct Marina Beach bus-mode anchor; source returns bus stop Kannagi Statue/Presidency College277m and explicitly labels straight-line distance with walking access unverified. Evidence: status=ok; intent=nearest_transport; operation=FIND_NEAREST_STATION; clarification_reason=None; slots={\"landmark\": \"OSM_POI_12137617372\", \"transport_mode\": \"bus\"}.",
+    "issue_type": "published_nearest_with_scope_qualification",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_158",
+    "category": "recognition_failure",
+    "notes": "IIT Madras landmark and metro mode are explicit; mode survives but landmark/locality is asked again. Evidence: status=clarification; intent=nearest_transport; operation=FIND_NEAREST_STATION; clarification_reason=missing_slot; slots={\"transport_mode\": \"metro\"}.",
+    "issue_type": "supplied_native_landmark_unrecognized",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_159",
+    "category": "recognition_failure",
+    "notes": "Anna Nagar locality and rail station request are supplied; both anchor and rail mode are lost, and locality is requested again. Evidence: status=clarification; intent=nearest_transport; operation=FIND_NEAREST_STATION; clarification_reason=missing_slot; slots={}.",
+    "issue_type": "supplied_native_locality_and_mode_unrecognized",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_160",
+    "category": "recognition_failure",
+    "notes": "Full Apollo Hospital Greams Road landmark is supplied with bus mode; assistant asks landmark/locality again. Evidence: status=clarification; intent=nearest_transport; operation=FIND_NEAREST_STATION; clarification_reason=missing_slot; slots={\"transport_mode\": \"bus\"}.",
+    "issue_type": "supplied_native_landmark_unrecognized",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_161",
+    "category": "recognition_failure",
+    "notes": "Adyar locality is explicit but no spatial anchor is retained and locality is requested again. Evidence: status=clarification; intent=nearest_transport; operation=FIND_NEAREST_STATION; clarification_reason=missing_slot; slots={}.",
+    "issue_type": "supplied_native_locality_unrecognized",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_162",
+    "category": "recognition_failure",
+    "notes": "Chepauk stadium landmark is supplied; MRTS mode is retained but reference landmark/locality is requested again. Evidence: status=clarification; intent=nearest_transport; operation=FIND_NEAREST_STATION; clarification_reason=missing_slot; slots={\"transport_mode\": \"mrts\"}.",
+    "issue_type": "supplied_native_landmark_unrecognized",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_163",
+    "category": "recognition_failure",
+    "notes": "Phoenix Marketcity is supplied as landmark but lost; nearest bus query asks location again. Evidence: status=clarification; intent=nearest_transport; operation=FIND_NEAREST_STATION; clarification_reason=missing_slot; slots={\"transport_mode\": \"bus\"}.",
+    "issue_type": "supplied_native_landmark_unrecognized",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_164",
+    "category": "recognition_failure",
+    "notes": "Velachery locality is explicit; nearest metro query requests an already supplied location. Evidence: status=clarification; intent=nearest_transport; operation=FIND_NEAREST_STATION; clarification_reason=missing_slot; slots={\"transport_mode\": \"metro\"}.",
+    "issue_type": "supplied_native_locality_unrecognized",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_165",
+    "category": "needs_review",
+    "issue_type": "published_rail_mode_labels_need_source_audit",
+    "notes": "Requested suburban mode now filters the actual source records and no bus is returned. Published RAIL_THIRUVALLIKENI/RAIL_LIGHT_HOUSE are labelled suburban_rail in the unchanged snapshot. Their separation from MRTS needs an independent source audit; no factual mode-correct success is claimed.",
+    "review_method": "manual rereview of changed actual query/expectation/full response"
+  },
+  {
+    "id": "HI200_166",
+    "category": "recognition_failure",
+    "notes": "A nearest bus stop with missing location becomes route_stop_sequence and asks route/line rather than nearby landmark/locality. Evidence: status=clarification; intent=route_stop_sequence; operation=LIST_ROUTE_STOPS; clarification_reason=missing_slot; slots={\"transport_mode\": \"bus\"}.",
+    "issue_type": "nearest_goal_confused_with_sequence",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_167",
+    "category": "goal_correct",
+    "notes": "Correct Marina Beach nearest metro goal despite excluded route request. Returns metro stop Lighthouse1121m with explicit straight-line/provisional and unverified-walking qualifications. Evidence: status=ok; intent=nearest_transport; operation=FIND_NEAREST_STATION; clarification_reason=None; slots={\"landmark\": \"OSM_POI_12137617372\", \"transport_mode\": \"metro\"}.",
+    "issue_type": "published_nearest_with_scope_qualification",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_168",
+    "category": "recognition_failure",
+    "notes": "User specifies Guindy locality and metro result, but anchor resolution returns bus/hub/rail/metro station ambiguity. It does not use the supplied locality as geographic reference. Evidence: status=clarification; intent=nearest_transport; operation=None; clarification_reason=entity_ambiguity; slots={\"transport_mode\": \"metro\"}.",
+    "issue_type": "locality_anchor_confused_with_physical_stop",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_169",
+    "category": "safe_limitation",
+    "notes": "Correct live21G GPS-location family and explicit lack of live transport status; no fabricated vehicle position. Evidence: status=unavailable; intent=realtime_status_query; operation=REJECT_UNSUPPORTED_REALTIME; clarification_reason=None; slots={}.",
+    "issue_type": "matched_external_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_170",
+    "category": "recognition_failure",
+    "notes": "Current metro delay is classified first_and_last_service; missing published timetable refusal does not explain unavailable live delay feed. Evidence: status=unavailable; intent=first_and_last_service; operation=GET_FIRST_LAST_SERVICE; clarification_reason=None; slots={\"station\": \"METRO_GUINDY\", \"transport_mode\": \"metro\"}.",
+    "issue_type": "realtime_delay_confused_with_first_last",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_171",
+    "category": "recognition_failure",
+    "notes": "Current Central metro crowd level becomes service_frequency and timetable-source refusal, not realtime source limitation. Evidence: status=unavailable; intent=service_frequency; operation=GET_SERVICE_FREQUENCY; clarification_reason=None; slots={\"station\": \"RAIL_CHENNAI_CENTRAL\", \"transport_mode\": \"metro\"}.",
+    "issue_type": "realtime_crowd_confused_with_frequency",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_172",
+    "category": "recognition_failure",
+    "notes": "Current Tambaram–Beach train position is classified interchange_transfer, producing irrelevant transfer-record refusal. Evidence: status=unavailable; intent=interchange_transfer; operation=GET_INTERCHANGE_DETAILS; clarification_reason=None; slots={}.",
+    "issue_type": "realtime_location_confused_with_interchange",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_173",
+    "category": "recognition_failure",
+    "notes": "Current airport-metro shutdown/running status becomes mode_availability, with static topology refusal instead of live source explanation. Evidence: status=unavailable; intent=mode_availability; operation=CHECK_SERVICE_AVAILABILITY; clarification_reason=None; slots={\"transport_mode\": \"metro\"}.",
+    "issue_type": "realtime_disruption_confused_with_static_availability",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_174",
+    "category": "safe_limitation",
+    "notes": "Correct live570 ETA family, explicit unavailable live transport status, and no scheduled-time-as-actual-arrival substitution. Evidence: status=unavailable; intent=realtime_status_query; operation=REJECT_UNSUPPORTED_REALTIME; clarification_reason=None; slots={}.",
+    "issue_type": "matched_external_source_limitation",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_175",
+    "category": "recognition_failure",
+    "notes": "Present Blue Line accident/disruption becomes interchange_transfer and irrelevant source refusal. Evidence: status=unavailable; intent=interchange_transfer; operation=GET_INTERCHANGE_DETAILS; clarification_reason=None; slots={}.",
+    "issue_type": "realtime_incident_confused_with_interchange",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_176",
+    "category": "recognition_failure",
+    "notes": "User asks if lift is working right now; classification station_accessibility addresses static feature evidence, not live equipment status. Evidence: status=unavailable; intent=station_accessibility; operation=GET_ACCESSIBILITY_INFO; clarification_reason=None; slots={}.",
+    "issue_type": "live_equipment_status_confused_with_static_accessibility",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_177",
+    "category": "recognition_failure",
+    "notes": "User asks actual present delay and excludes timetable, yet scheduled_departure selected and timetable absence refused. Evidence: status=unavailable; intent=scheduled_departure; operation=GET_SCHEDULED_DEPARTURES; clarification_reason=None; slots={\"transport_mode\": \"metro\"}.",
+    "issue_type": "negated_schedule_controls_realtime_intent",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_178",
+    "category": "recognition_failure",
+    "notes": "Actual MRTS departure already happened is realtime; reply selects first_and_last_service with multiple_goals despite one present-status question. Evidence: status=clarification; intent=first_and_last_service; operation=None; clarification_reason=multiple_goals; slots={}.",
+    "issue_type": "realtime_departure_confused_with_first_last_and_false_scope",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_179",
+    "category": "recognition_failure",
+    "notes": "Current27D crowd/seat availability becomes ticketing_and_passes and missing ticket policy, not live capacity source need. Evidence: status=unavailable; intent=ticketing_and_passes; operation=GET_TICKETING_POLICY; clarification_reason=None; slots={}.",
+    "issue_type": "realtime_capacity_confused_with_ticketing",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_180",
+    "category": "recognition_failure",
+    "notes": "Current Alandur platform closure is classified interchange_transfer; confirmed-interchange source absence is irrelevant to live closure status. Evidence: status=unavailable; intent=interchange_transfer; operation=GET_INTERCHANGE_DETAILS; clarification_reason=None; slots={}.",
+    "issue_type": "realtime_platform_closure_confused_with_interchange",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_181",
+    "category": "recognition_failure",
+    "notes": "Future rain/weather is out of scope but becomes first_and_last_service with day clarification. Irrelevant transport family is a failure even without weather hallucination. Evidence: status=clarification; intent=first_and_last_service; operation=None; clarification_reason=temporal_ambiguity; slots={\"temporal_relative\": \"कल\"}.",
+    "issue_type": "weather_confused_with_first_last",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_182",
+    "category": "safe_limitation",
+    "notes": "Taxi booking is correctly rejected as outside Chennai public-transport scope; requested transaction remains unfulfilled and no booking is claimed. Evidence: status=out_of_scope; intent=out_of_scope; operation=REJECT_OUT_OF_SCOPE; clarification_reason=None; slots={}.",
+    "issue_type": "correct_out_of_scope_rejection",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_183",
+    "category": "safe_limitation",
+    "notes": "Hotel reservation is correctly rejected without fabricated booking. Safe domain boundary, not completed user booking goal. Evidence: status=out_of_scope; intent=out_of_scope; operation=REJECT_OUT_OF_SCOPE; clarification_reason=None; slots={}.",
+    "issue_type": "correct_out_of_scope_rejection",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_184",
+    "category": "recognition_failure",
+    "notes": "Delhi flight purchase becomes ticketing_and_passes and policy-source refusal instead of correct out_of_scope transaction rejection. Evidence: status=unavailable; intent=ticketing_and_passes; operation=GET_TICKETING_POLICY; clarification_reason=None; slots={}.",
+    "issue_type": "flight_purchase_confused_with_ticket_policy",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_185",
+    "category": "recognition_failure",
+    "notes": "Bangalore intercity rail-seat reservation becomes ticketing_and_passes; missing local policy is the wrong rejection reason/family. Evidence: status=unavailable; intent=ticketing_and_passes; operation=GET_TICKETING_POLICY; clarification_reason=None; slots={}.",
+    "issue_type": "intercity_reservation_confused_with_ticket_policy",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_186",
+    "category": "recognition_failure",
+    "notes": "User asks actual metro ticket purchase/payment; API chooses informational ticket policy and absent source instead of out_of_scope transaction boundary. Evidence: status=unavailable; intent=ticketing_and_passes; operation=GET_TICKETING_POLICY; clarification_reason=None; slots={}.",
+    "issue_type": "ticket_purchase_transaction_confused_with_information",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_187",
+    "category": "recognition_failure",
+    "notes": "Electric bill account query becomes fare_calculation and asks fare endpoints/stages; irrelevant transportation workflow. Evidence: status=clarification; intent=fare_calculation; operation=CALCULATE_FARE; clarification_reason=missing_slot; slots={}.",
+    "issue_type": "utility_bill_confused_with_transit_fare",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_188",
+    "category": "safe_limitation",
+    "notes": "Food recommendation is correctly rejected as outside transport scope; no unsupported restaurant recommendation is provided and original goal remains unfulfilled. Evidence: status=out_of_scope; intent=out_of_scope; operation=REJECT_OUT_OF_SCOPE; clarification_reason=None; slots={}.",
+    "issue_type": "correct_out_of_scope_rejection",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_189",
+    "category": "recognition_failure",
+    "notes": "User asks own phone location, but realtime transport status refusal is selected; correct device/scope boundary is not recognized. Evidence: status=unavailable; intent=realtime_status_query; operation=REJECT_UNSUPPORTED_REALTIME; clarification_reason=None; slots={}.",
+    "issue_type": "device_location_confused_with_transport_realtime",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_190",
+    "category": "recognition_failure",
+    "notes": "Explicitly excluded metro topic and arithmetic question become ticketing_and_passes, with unrelated policy refusal. Evidence: status=unavailable; intent=ticketing_and_passes; operation=GET_TICKETING_POLICY; clarification_reason=None; slots={}.",
+    "issue_type": "unrelated_arithmetic_confused_with_ticketing",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_191",
+    "category": "recognition_failure",
+    "notes": "Bank money-transfer request is classified ticketing policy, instead of out_of_scope transaction rejection; no transfer is falsely claimed. Evidence: status=unavailable; intent=ticketing_and_passes; operation=GET_TICKETING_POLICY; clarification_reason=None; slots={}.",
+    "issue_type": "financial_transaction_confused_with_ticket_policy",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_192",
+    "category": "recognition_failure",
+    "notes": "Horoscope request becomes realtime_status_query; missing live transport feed is not an appropriate domain rejection. Evidence: status=unavailable; intent=realtime_status_query; operation=REJECT_UNSUPPORTED_REALTIME; clarification_reason=None; slots={}.",
+    "issue_type": "horoscope_confused_with_transport_realtime",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_193",
+    "category": "legitimate_clarification",
+    "notes": "Fare and first-service time are independently requested; correct null intent/operation and multiple_goals clarification ask which to answer first. Evidence: status=clarification; intent=None; operation=None; clarification_reason=multiple_goals; slots={}.",
+    "issue_type": "genuine_multiple_goals",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_194",
+    "category": "legitimate_clarification",
+    "issue_type": "genuine_multiple_goals",
+    "notes": "Stop list plus live bus position are both retained as candidate families. Neither is partially executed; asks which to answer first.",
+    "review_method": "manual rereview of changed actual query/expectation/full response"
+  },
+  {
+    "id": "HI200_195",
+    "category": "legitimate_clarification",
+    "notes": "Lift accessibility and parking facility are independently requested; null intent/operation with multiple_goals correctly asks which goal first. Evidence: status=clarification; intent=None; operation=None; clarification_reason=multiple_goals; slots={}.",
+    "issue_type": "genuine_multiple_goals",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_196",
+    "category": "recognition_failure",
+    "notes": "Nearest bus stop and full journey are independently requested. Reply instead assumes route_stop_sequence and asks route/line, neither requested clarification nor appropriate family. Evidence: status=clarification; intent=route_stop_sequence; operation=LIST_ROUTE_STOPS; clarification_reason=missing_slot; slots={\"transport_mode\": \"bus\"}.",
+    "issue_type": "multiple_goals_unrecognized_wrong_sequence_goal",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_197",
+    "category": "recognition_failure",
+    "notes": "गिंडी मेट्रो की सुविधा is genuinely unspecified across service/facilities/accessibility. Assistant chooses mode availability and topology refusal rather than asking the actual goal. Evidence: status=unavailable; intent=mode_availability; operation=CHECK_SERVICE_AVAILABILITY; clarification_reason=None; slots={\"destination\": \"METRO_GUINDY\", \"transport_mode\": \"metro\"}.",
+    "issue_type": "undetermined_goal_arbitrarily_selected",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_198",
+    "category": "recognition_failure",
+    "notes": "Sparse Tambaram/train/कल input contains no first/last goal. Reply arbitrarily selects first_and_last_service and interprets बस इतनी (only this much) as bus mode; day clarification alone does not resolve the unspecified goal. Evidence: status=clarification; intent=first_and_last_service; operation=None; clarification_reason=temporal_ambiguity; slots={\"temporal_relative\": \"कल\", \"transport_mode\": \"bus\"}.",
+    "issue_type": "undetermined_goal_and_polysemous_bus_assumption",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  },
+  {
+    "id": "HI200_199",
+    "category": "recognition_failure",
+    "issue_type": "negated_stage_count_competes",
+    "notes": "Positive stage10 and excluded stage4 are conservatively treated as competing scopes. No wrong fare executes, but the explicit positive count is not recognized.",
+    "review_method": "manual rereview of changed actual query/expectation/full response"
+  },
+  {
+    "id": "HI200_200",
+    "category": "safe_limitation",
+    "notes": "Correct metro departure source refusal asserts no clock/fact at invalid11:75. Terminal preflight makes invalid-minute parsing unproven; no invented valid time is executed. Evidence: status=unavailable; intent=scheduled_departure; operation=GET_SCHEDULED_DEPARTURES; clarification_reason=None; slots={\"station\": \"METRO_GUINDY\", \"transport_mode\": \"metro\"}.",
+    "issue_type": "matched_source_limitation_with_invalid_clock",
+    "review_method": "independent baseline manual review reused because public response is byte-identical"
+  }
+]

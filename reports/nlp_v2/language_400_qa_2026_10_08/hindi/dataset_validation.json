@@ -1,0 +1,30 @@
+{
+  "case_count": 200,
+  "unique_query_count": 200,
+  "strict_utf8": true,
+  "replacement_character_count": 0,
+  "intent_counts": {
+    "point_to_point_route": 12,
+    "multimodal_route": 12,
+    "route_stop_sequence": 12,
+    "route_stop_membership": 12,
+    "first_and_last_service": 12,
+    "service_frequency": 12,
+    "scheduled_departure": 13,
+    "mode_availability": 12,
+    "fare_calculation": 13,
+    "ticketing_and_passes": 12,
+    "station_facilities": 12,
+    "station_accessibility": 12,
+    "interchange_transfer": 12,
+    "nearest_transport": 12,
+    "realtime_status_query": 12,
+    "out_of_scope": 12
+  },
+  "prior_exact_query_duplicates": {
+    "hindi/baseline.json": [],
+    "hinglish/api_baseline.json": []
+  },
+  "authoring_policy": "Public contracts/taxonomy/service sources only. All 200 queries/expectations drafted before predictions. Prior JSON checked for exact query intersections only after authoring. No model, database, evaluator, or API invoked.",
+  "canonical_allowed_expected_slots": true
+}

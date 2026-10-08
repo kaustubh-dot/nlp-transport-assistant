@@ -18,6 +18,29 @@ responses are recorded separately. These 96 manually scoped questions are not a
 representative accuracy estimate; no model/alias/DB change or evaluator run
 accompanied the frontend language extension.
 
+The subsequent user-requested [400-question challenge QA](../../reports/nlp_v2/language_400_qa_2026_10_08/summary.md)
+uses 200 fresh Hindi and 200 fresh Hinglish questions. Final manual review records
+22 completed bounded published-data goals, 162 correct source/scope limitations,
+38 legitimate clarifications, 175 recognition failures and 3 cases needing
+source/anchor review. These deliberately varied observed development cases are
+not a representative or independent accuracy estimate. Passing software tests
+and matching localized browser replies do not mean the language goal succeeds.
+
+Bounded fixes cover Unicode word boundaries, Hindi bus inflections and local/
+suburban rail phrases, route labels/possessive suffixes, native/spelled fare
+stages, explicit day periods, Night service and unknown service classes. Guards
+clarify selected goals that the question explicitly excludes and independently
+requested stop-list/live goals. They do not reroute model predictions. Positive
+and negated mode/count combinations, native station names, conversational intent
+recognition and unqualified locality/campus anchors still have failures.
+
+Bus/Metro/Rail (suburban)/MRTS controls provide a separate default input for
+questions without an explicit mode. They do not change raw classifier text or
+improve the frozen intent model. Any mode clears that default. A combined route
+or interchange still needs its actual mode pair; a single default cannot supply
+it. Published records opens the coverage panel. All factual outputs retain
+source/date/straight-line and current-operation qualifications.
+
 ## Fully supported within the stated scope
 
 - **Nearest transport:** straight-line distance from exact canonical stop/hub/

@@ -1,0 +1,372 @@
+- banner:
+  - button:
+- button:
+- heading "चेन्नई परिवहन" [level=2]
+- paragraph: बहुभाषी परिवहन सहायक
+- heading "अपने शब्दों में पूछें" [level=3]
+- paragraph: English · हिन्दी · Hinglish
+- paragraph: रूट, स्टॉप, प्रकाशित समय-सारणी, किराए और नजदीकी परिवहन।
+- separator
+- heading "प्रकाशित रिकॉर्ड का संकलन" [level=3]
+- paragraph: लाइव अपडेट नहीं हैं। मौजूदा सेवा और किराए की पुष्टि ऑपरेटर से करें।
+- paragraph: बदलाव, सुगम्यता और सुविधाओं की जानकारी केवल स्रोत से समर्थित होने पर दिखाई जाती है।
+- generic: चेन्नई · सार्वजनिक परिवहन
+- paragraph: Language / भाषा
+- radiogroup "Language / भाषा":
+  - radio "English"
+  - paragraph: English
+  - radio "हिंदी" [checked]
+  - paragraph: हिंदी
+  - radio "Hinglish"
+  - paragraph: Hinglish
+- heading "चेन्नई बहु-माध्यम परिवहन सहायक" [level=1]: चेन्नई बहु-माध्यम परिवहन सहायक
+- paragraph: रूट, स्टॉप, समय-सारणी, किराए या नजदीकी परिवहन के बारे में पूछें।
+- radiogroup "Transport / परिवहन":
+  - radio "कोई भी माध्यम" [checked]
+  - paragraph: कोई भी माध्यम
+  - radio "बस"
+  - paragraph: बस
+  - radio "मेट्रो"
+  - paragraph: मेट्रो
+  - radio "रेल (उपनगरीय)"
+  - paragraph: रेल (उपनगरीय)
+  - radio "MRTS"
+  - paragraph: MRTS
+- button "प्रकाशित रिकॉर्ड":
+  - paragraph: प्रकाशित रिकॉर्ड
+- paragraph: प्रश्न में लिखा माध्यम प्राथमिकता पाता है। चुना हुआ माध्यम हटाने के लिए ‘कोई भी माध्यम’ चुनें।
+- paragraph: प्रकाशित रिकॉर्ड का संकलन · लाइव अपडेट नहीं · मौजूदा सेवा की पुष्टि ऑपरेटर से करें
+- generic "Chat message from user":
+  - paragraph: ताम्बरम में ट्रेन से उतरकर बस पकड़ने वाला स्थानांतरण बिंदु है?
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: इस रिकॉर्ड संकलन में अलग परिवहन माध्यमों के बीच बदलाव का कोई पुष्ट नेटवर्क उपलब्ध नहीं है।
+- generic "Chat message from user":
+  - paragraph: गिंडी स्टेशन पर बस से मेट्रो में बदलने की जानकारी चाहिए।
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: इस रिकॉर्ड संकलन में अलग परिवहन माध्यमों के बीच बदलाव का कोई पुष्ट नेटवर्क उपलब्ध नहीं है।
+- generic "Chat message from user":
+  - paragraph: एग्मोर में रेल प्लेटफॉर्म से मेट्रो का जुड़ाव सीधा है क्या?
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: माँगे गए परिवहन माध्यम से मेल खाता प्रकाशित रूट ढाँचा उपलब्ध नहीं है।
+- generic "Chat message from user":
+  - paragraph: मेट्रो से बस में कहाँ बदलना होता है?
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: इस रिकॉर्ड संकलन में परिवहन बदलाव के पुष्ट रिकॉर्ड नहीं हैं।
+- generic "Chat message from user":
+  - paragraph: यहाँ गाड़ी बदलने की सुविधा कहाँ है?
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: इस रिकॉर्ड संकलन में सुविधा की उपलब्धता सत्यापित नहीं है।
+- generic "Chat message from user":
+  - paragraph: आलंदूर में लाइन बदलने का तरीका चाहिए, वहाँ की पार्किंग नहीं।
+- generic "Chat message from assistant":
+  - paragraph: अधिक जानकारी चाहिए
+  - alert:
+    - paragraph: कृपया अपना परिवहन प्रश्न स्पष्ट करें।
+- generic "Chat message from user":
+  - paragraph: मरीना बीच के सबसे पास का बस स्टॉप कौन सा पड़ेगा?
+- generic "Chat message from assistant":
+  - paragraph: प्रकाशित जानकारी
+  - paragraph: "सीधी दूरी से निकटतम: Kannagi Statue Or Presidency College (277 m)। निकटतम केवल सीधी दूरी के आधार पर है; पैदल पहुँच सत्यापित नहीं है।"
+  - heading "सीधी दूरी से निकटतम" [level=3]: सीधी दूरी से निकटतम
+  - button "Show/hide columns":
+  - button "Download as CSV":
+  - button "Search":
+  - button "Fullscreen":
+  - paragraph: पैदल पहुँच और मौजूदा संचालन की पुष्टि नहीं है।
+  - paragraph: यह जानकारी रिकॉर्ड के संकलन से मिली है। मौजूदा सेवा और स्थितियों की पुष्टि ऑपरेटर से करें।
+- generic "Chat message from user":
+  - paragraph: आईआईटी मद्रास से नज़दीकी मेट्रो स्टेशन बताइए।
+- generic "Chat message from assistant":
+  - paragraph: अधिक जानकारी चाहिए
+  - alert:
+    - paragraph: कृपया नजदीकी पहचान का स्थान या इलाका बताएं।
+  - paragraph: "जरूरी जानकारी: नजदीकी पहचान का स्थान या इलाका"
+- generic "Chat message from user":
+  - paragraph: अन्ना नगर इलाके के पास सबसे निकट रेल स्टेशन कौन सा है?
+- generic "Chat message from assistant":
+  - paragraph: अधिक जानकारी चाहिए
+  - alert:
+    - paragraph: कृपया नजदीकी पहचान का स्थान या इलाका बताएं।
+  - paragraph: "जरूरी जानकारी: नजदीकी पहचान का स्थान या इलाका"
+- generic "Chat message from user":
+  - paragraph: अपोलो अस्पताल ग्रीम्स रोड के आसपास सबसे पास वाली बस पकड़ने की जगह बताओ।
+- generic "Chat message from assistant":
+  - paragraph: अधिक जानकारी चाहिए
+  - alert:
+    - paragraph: कृपया नजदीकी पहचान का स्थान या इलाका बताएं।
+  - paragraph: "जरूरी जानकारी: नजदीकी पहचान का स्थान या इलाका"
+- generic "Chat message from user":
+  - paragraph: अडयार में निकटतम सार्वजनिक परिवहन स्टेशन ढूँढ़ दीजिए।
+- generic "Chat message from assistant":
+  - paragraph: अधिक जानकारी चाहिए
+  - alert:
+    - paragraph: कृपया नजदीकी पहचान का स्थान या इलाका बताएं।
+  - paragraph: "जरूरी जानकारी: नजदीकी पहचान का स्थान या इलाका"
+- generic "Chat message from user":
+  - paragraph: चेपॉक स्टेडियम के नज़दीक कौन सा एमआरटीएस स्टेशन है?
+- generic "Chat message from assistant":
+  - paragraph: अधिक जानकारी चाहिए
+  - alert:
+    - paragraph: कृपया नजदीकी पहचान का स्थान या इलाका बताएं।
+  - paragraph: "जरूरी जानकारी: नजदीकी पहचान का स्थान या इलाका"
+- generic "Chat message from user":
+  - paragraph: फीनिक्स मार्केटसिटी के पास उतरने के लिए सबसे निकट बस स्टॉप क्या है?
+- generic "Chat message from assistant":
+  - paragraph: अधिक जानकारी चाहिए
+  - alert:
+    - paragraph: कृपया नजदीकी पहचान का स्थान या इलाका बताएं।
+  - paragraph: "जरूरी जानकारी: नजदीकी पहचान का स्थान या इलाका"
+- generic "Chat message from user":
+  - paragraph: वेलाचेरी इलाके में सबसे पास का मेट्रो ठहराव बताओ।
+- generic "Chat message from assistant":
+  - paragraph: अधिक जानकारी चाहिए
+  - alert:
+    - paragraph: कृपया नजदीकी पहचान का स्थान या इलाका बताएं।
+  - paragraph: "जरूरी जानकारी: नजदीकी पहचान का स्थान या इलाका"
+- generic "Chat message from user":
+  - paragraph: मरीना बीच से सबसे नज़दीकी उपनगरीय रेल स्टेशन कितना दूर है?
+- generic "Chat message from assistant":
+  - paragraph: प्रकाशित जानकारी
+  - paragraph: "सीधी दूरी से निकटतम: Thiruvallikeni (409 m)। निकटतम केवल सीधी दूरी के आधार पर है; पैदल पहुँच सत्यापित नहीं है।"
+  - heading "सीधी दूरी से निकटतम" [level=3]: सीधी दूरी से निकटतम
+  - button "Show/hide columns":
+  - button "Download as CSV":
+  - button "Search":
+  - button "Fullscreen":
+  - paragraph: पैदल पहुँच और मौजूदा संचालन की पुष्टि नहीं है।
+  - paragraph: यह जानकारी रिकॉर्ड के संकलन से मिली है। मौजूदा सेवा और स्थितियों की पुष्टि ऑपरेटर से करें।
+- generic "Chat message from user":
+  - paragraph: पास का बस स्टॉप बता दो, जगह अभी नहीं लिखी है।
+- generic "Chat message from assistant":
+  - paragraph: अधिक जानकारी चाहिए
+  - alert:
+    - paragraph: कृपया रूट नंबर या लाइन का नाम बताएं।
+  - paragraph: "जरूरी जानकारी: रूट नंबर या लाइन का नाम"
+- generic "Chat message from user":
+  - paragraph: मरीना बीच का सबसे पास मेट्रो स्टेशन चाहिए; वहाँ पहुँचने का रास्ता नहीं पूछ रहा।
+- generic "Chat message from assistant":
+  - paragraph: प्रकाशित जानकारी
+  - paragraph: "सीधी दूरी से निकटतम: Lighthouse Metro (1121 m)। निकटतम केवल सीधी दूरी के आधार पर है; पैदल पहुँच सत्यापित नहीं है।"
+  - heading "सीधी दूरी से निकटतम" [level=3]: सीधी दूरी से निकटतम
+  - button "Show/hide columns":
+  - button "Download as CSV":
+  - button "Search":
+  - button "Fullscreen":
+  - paragraph: पैदल पहुँच और मौजूदा संचालन की पुष्टि नहीं है।
+  - paragraph: यह जानकारी रिकॉर्ड के संकलन से मिली है। मौजूदा सेवा और स्थितियों की पुष्टि ऑपरेटर से करें।
+- generic "Chat message from user":
+  - paragraph: गिंडी इलाके के आसपास निकटतम स्टेशन, कृपया... मेट्रो वाला।
+- generic "Chat message from assistant":
+  - paragraph: अधिक जानकारी चाहिए
+  - alert:
+    - paragraph: कृपया स्पष्ट करें कि आप किस स्टॉप या स्थान की बात कर रहे हैं।
+  - paragraph: एक से अधिक स्टॉप या स्थान मेल खाते हैं। अपने पूरे संशोधित प्रश्न में रूट नंबर, परिवहन का माध्यम या सही स्टॉप नाम दें।
+- generic "Chat message from user":
+  - paragraph: २१जी बस इस वक्त कहाँ पहुँची है, उसकी जीपीएस स्थिति दिखाओ।
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: लाइव परिवहन स्थिति अनुपलब्ध है; कृपया ऑपरेटर से पुष्टि करें।
+- generic "Chat message from user":
+  - paragraph: गिंडी मेट्रो अभी कितनी देरी से चल रही है?
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: माँगे गए परिवहन माध्यम से मेल खाती प्रकाशित समय-सारणी उपलब्ध नहीं है।
+- generic "Chat message from user":
+  - paragraph: सेंट्रल मेट्रो में अभी यात्रियों की भीड़ कितनी है?
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: माँगे गए परिवहन माध्यम से मेल खाती प्रकाशित समय-सारणी उपलब्ध नहीं है।
+- generic "Chat message from user":
+  - paragraph: ताम्बरम से चेन्नई बीच वाली लोकल ट्रेन इस समय कहाँ रुकी है?
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: इस रिकॉर्ड संकलन में परिवहन बदलाव के पुष्ट रिकॉर्ड नहीं हैं।
+- generic "Chat message from user":
+  - paragraph: हवाई अड्डा मेट्रो की सेवा अभी बंद पड़ी है या सामान्य चल रही है?
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: माँगे गए परिवहन माध्यम से मेल खाता प्रकाशित रूट ढाँचा उपलब्ध नहीं है।
+- generic "Chat message from user":
+  - paragraph: बस ५७० का अभी अगला आगमन कितने मिनट में होगा, लाइव बताइए।
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: लाइव परिवहन स्थिति अनुपलब्ध है; कृपया ऑपरेटर से पुष्टि करें।
+- generic "Chat message from user":
+  - paragraph: नीली लाइन पर अभी कोई दुर्घटना से रुकावट है क्या?
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: इस रिकॉर्ड संकलन में परिवहन बदलाव के पुष्ट रिकॉर्ड नहीं हैं।
+- generic "Chat message from user":
+  - paragraph: वडपलनी मेट्रो की लिफ्ट आज अभी काम कर रही है?
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: इस रिकॉर्ड संकलन में सुगम्यता सुविधाओं की सत्यापित जानकारी नहीं है।
+- generic "Chat message from user":
+  - paragraph: मेट्रो की इस समय की असली देरी चाहिए, समय-सारणी वाली नहीं।
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: माँगे गए परिवहन माध्यम से मेल खाती प्रकाशित समय-सारणी उपलब्ध नहीं है।
+- generic "Chat message from user":
+  - paragraph: चेन्नई बीच से एमआरटीएस ट्रेन अभी निकल चुकी है या नहीं?
+- generic "Chat message from assistant":
+  - paragraph: अधिक जानकारी चाहिए
+  - alert:
+    - paragraph: कृपया एक बार में एक रूट, स्टॉप, किराए के स्टेज या समय के बारे में पूछें।
+- generic "Chat message from user":
+  - paragraph: २७डी बस में अभी सीट खाली मिलेगी? बस की मौजूदा भीड़ पूछ रहा हूँ।
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: इस रिकॉर्ड संकलन में टिकट या पास नीति की कोई आधिकारिक तालिका नहीं है।
+- generic "Chat message from user":
+  - paragraph: आलंदूर में अभी मेट्रो प्लेटफॉर्म बंद है क्या, तुरंत की स्थिति बताओ।
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: इस रिकॉर्ड संकलन में परिवहन बदलाव के पुष्ट रिकॉर्ड नहीं हैं।
+- generic "Chat message from user":
+  - paragraph: चेन्नई में कल बारिश होगी क्या, मौसम बताइए।
+- generic "Chat message from assistant":
+  - paragraph: अधिक जानकारी चाहिए
+  - alert:
+    - paragraph: कृपया समय या दिन स्पष्ट करें।
+- generic "Chat message from user":
+  - paragraph: हवाई अड्डे के लिए मेरे नाम से टैक्सी बुक कर दो।
+- generic "Chat message from assistant":
+  - paragraph: परिवहन के दायरे से बाहर
+  - alert:
+    - paragraph: मैं चेन्नई के सार्वजनिक परिवहन से जुड़े प्रश्नों में मदद कर सकता हूँ।
+- generic "Chat message from user":
+  - paragraph: मुझे एग्मोर के पास अच्छा होटल आरक्षित करके दे दो।
+- generic "Chat message from assistant":
+  - paragraph: परिवहन के दायरे से बाहर
+  - alert:
+    - paragraph: मैं चेन्नई के सार्वजनिक परिवहन से जुड़े प्रश्नों में मदद कर सकता हूँ।
+- generic "Chat message from user":
+  - paragraph: चेन्नई से दिल्ली की उड़ान का टिकट खरीदो।
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: इस रिकॉर्ड संकलन में टिकट या पास नीति की कोई आधिकारिक तालिका नहीं है।
+- generic "Chat message from user":
+  - paragraph: बैंगलुरु जाने वाली लंबी दूरी की ट्रेन में सीट आरक्षित करो।
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: इस रिकॉर्ड संकलन में टिकट या पास नीति की कोई आधिकारिक तालिका नहीं है।
+- generic "Chat message from user":
+  - paragraph: मेरे लिए सेंट्रल मेट्रो के दो टिकट अभी खरीदकर भुगतान कर दो।
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: इस रिकॉर्ड संकलन में टिकट या पास नीति की कोई आधिकारिक तालिका नहीं है।
+- generic "Chat message from user":
+  - paragraph: घर का बिजली बिल कितना बाकी है, जाँच दो।
+- generic "Chat message from assistant":
+  - paragraph: अधिक जानकारी चाहिए
+  - alert:
+    - paragraph: कृपया किराए का स्टेज नंबर या शुरुआती और गंतव्य स्टॉप बताएं।
+  - paragraph: "जरूरी जानकारी: शुरुआती स्टॉप या किराए का स्टेज नंबर, गंतव्य स्टॉप या किराए का स्टेज नंबर"
+- generic "Chat message from user":
+  - paragraph: चेन्नई की सबसे स्वादिष्ट बिरयानी कहाँ मिलेगी?
+- generic "Chat message from assistant":
+  - paragraph: परिवहन के दायरे से बाहर
+  - alert:
+    - paragraph: मैं चेन्नई के सार्वजनिक परिवहन से जुड़े प्रश्नों में मदद कर सकता हूँ।
+- generic "Chat message from user":
+  - paragraph: मेरी मोबाइल लोकेशन से पता करो मैं अभी कहाँ हूँ।
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: लाइव परिवहन स्थिति अनुपलब्ध है; कृपया ऑपरेटर से पुष्टि करें।
+- generic "Chat message from user":
+  - paragraph: "मेट्रो विषय छोड़ो, मुझे गणित का सवाल हल करके दो: सात गुणा आठ कितना?"
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: इस रिकॉर्ड संकलन में टिकट या पास नीति की कोई आधिकारिक तालिका नहीं है।
+- generic "Chat message from user":
+  - paragraph: मेरे स्मार्ट कार्ड से बैंक खाते में पैसे भेज दो।
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: इस रिकॉर्ड संकलन में टिकट या पास नीति की कोई आधिकारिक तालिका नहीं है।
+- generic "Chat message from user":
+  - paragraph: नमस्ते! आज का राशिफल सुनाओ।
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: लाइव परिवहन स्थिति अनुपलब्ध है; कृपया ऑपरेटर से पुष्टि करें।
+- generic "Chat message from user":
+  - paragraph: गिंडी मेट्रो से हवाई अड्डे का किराया बताइए और पहली ट्रेन का समय भी बताइए।
+- generic "Chat message from assistant":
+  - paragraph: अधिक जानकारी चाहिए
+  - alert:
+    - paragraph: कृपया चुनें कि पहले किस परिवहन प्रश्न का जवाब चाहिए।
+  - paragraph: "प्रश्न के प्रकार: किराए की जानकारी, पहली और अंतिम सेवा"
+- generic "Chat message from user":
+  - paragraph: ब्रॉडवे से २१जी बस के सभी स्टॉप बताओ और अभी बस कहाँ है यह भी बताओ।
+- generic "Chat message from assistant":
+  - paragraph: अधिक जानकारी चाहिए
+  - alert:
+    - paragraph: कृपया चुनें कि पहले किस परिवहन प्रश्न का जवाब चाहिए।
+  - paragraph: "प्रश्न के प्रकार: रूट के स्टॉप का क्रम, लाइव स्थिति"
+- generic "Chat message from user":
+  - paragraph: आलंदूर मेट्रो में लिफ्ट है क्या, और पार्किंग की सुविधा भी बताओ।
+- generic "Chat message from assistant":
+  - paragraph: अधिक जानकारी चाहिए
+  - alert:
+    - paragraph: कृपया चुनें कि पहले किस परिवहन प्रश्न का जवाब चाहिए।
+  - paragraph: "प्रश्न के प्रकार: स्टेशन की सुगम्यता, स्टेशन की सुविधाएँ"
+- generic "Chat message from user":
+  - paragraph: मरीना बीच के पास का बस स्टॉप बताइए और सेंट्रल से वहाँ पहुँचने का रास्ता बताइए।
+- generic "Chat message from assistant":
+  - paragraph: अधिक जानकारी चाहिए
+  - alert:
+    - paragraph: कृपया रूट नंबर या लाइन का नाम बताएं।
+  - paragraph: "जरूरी जानकारी: रूट नंबर या लाइन का नाम"
+- generic "Chat message from user":
+  - paragraph: गिंडी मेट्रो की सुविधा?
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: माँगे गए परिवहन माध्यम से मेल खाता प्रकाशित रूट ढाँचा उपलब्ध नहीं है।
+- generic "Chat message from user":
+  - paragraph: ताम्बरम, ट्रेन, कल — बस इतनी ही जानकारी है।
+- generic "Chat message from assistant":
+  - paragraph: अधिक जानकारी चाहिए
+  - alert:
+    - paragraph: कृपया समय या दिन स्पष्ट करें।
+- generic "Chat message from user":
+  - paragraph: साधारण बस में किराया दस स्टेज का चाहिए, चार स्टेज का नहीं।
+- generic "Chat message from assistant":
+  - paragraph: अधिक जानकारी चाहिए
+  - alert:
+    - paragraph: कृपया एक बार में एक रूट, स्टॉप, किराए के स्टेज या समय के बारे में पूछें।
+- generic "Chat message from user":
+  - paragraph: गिंडी मेट्रो की समय-सारणी रात ११:७५ के बाद बताइए।
+- generic "Chat message from assistant":
+  - paragraph: जानकारी अनुपलब्ध है
+  - alert:
+    - paragraph: माँगे गए परिवहन माध्यम से मेल खाती प्रकाशित समय-सारणी उपलब्ध नहीं है।
+- textbox "Ask / पूछें / Pooch" [active]
+- button [disabled]:

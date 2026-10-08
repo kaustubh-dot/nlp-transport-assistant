@@ -1,0 +1,273 @@
+FFFFFFFFFFFFFF                                                           [100%]
+=================================== FAILURES ===================================
+______ test_api_passes_selected_mode_separately_from_exact_question[bus] _______
+
+mode = 'bus'
+
+    @pytest.mark.parametrize('mode', ['bus', 'metro', 'suburban_rail', 'mrts'])
+    def test_api_passes_selected_mode_separately_from_exact_question(mode):
+        calls = []
+    
+        class ModeAssistant(FakeAssistant):
+            def process_query(self, query, *, default_transport_mode=None):
+                calls.append((query, default_transport_mode))
+                return super().process_query(query)
+    
+        query = 'गिंडी से Central कैसे जाऊँ?'
+        status, _ = request('/api/v2/query', {'query': query, 'transport_mode': mode}, assistant=ModeAssistant())
+        assert status == 200
+>       assert calls == [(query, mode)]
+E       AssertionError: assert [('गिंडी से C...जाऊँ?', None)] == [('गिंडी से C...ाऊँ?', 'bus')]
+E         
+E         At index 0 diff: ('गिंडी से Central कैसे जाऊँ?', None) != ('गिंडी से Central कैसे जाऊँ?', 'bus')
+E         Use -v to get more diff
+
+tests/test_t3_api.py:56: AssertionError
+_____ test_api_passes_selected_mode_separately_from_exact_question[metro] ______
+
+mode = 'metro'
+
+    @pytest.mark.parametrize('mode', ['bus', 'metro', 'suburban_rail', 'mrts'])
+    def test_api_passes_selected_mode_separately_from_exact_question(mode):
+        calls = []
+    
+        class ModeAssistant(FakeAssistant):
+            def process_query(self, query, *, default_transport_mode=None):
+                calls.append((query, default_transport_mode))
+                return super().process_query(query)
+    
+        query = 'गिंडी से Central कैसे जाऊँ?'
+        status, _ = request('/api/v2/query', {'query': query, 'transport_mode': mode}, assistant=ModeAssistant())
+        assert status == 200
+>       assert calls == [(query, mode)]
+E       AssertionError: assert [('गिंडी से C...जाऊँ?', None)] == [('गिंडी से C...ँ?', 'metro')]
+E         
+E         At index 0 diff: ('गिंडी से Central कैसे जाऊँ?', None) != ('गिंडी से Central कैसे जाऊँ?', 'metro')
+E         Use -v to get more diff
+
+tests/test_t3_api.py:56: AssertionError
+_ test_api_passes_selected_mode_separately_from_exact_question[suburban_rail] __
+
+mode = 'suburban_rail'
+
+    @pytest.mark.parametrize('mode', ['bus', 'metro', 'suburban_rail', 'mrts'])
+    def test_api_passes_selected_mode_separately_from_exact_question(mode):
+        calls = []
+    
+        class ModeAssistant(FakeAssistant):
+            def process_query(self, query, *, default_transport_mode=None):
+                calls.append((query, default_transport_mode))
+                return super().process_query(query)
+    
+        query = 'गिंडी से Central कैसे जाऊँ?'
+        status, _ = request('/api/v2/query', {'query': query, 'transport_mode': mode}, assistant=ModeAssistant())
+        assert status == 200
+>       assert calls == [(query, mode)]
+E       AssertionError: assert [('गिंडी से C...जाऊँ?', None)] == [('गिंडी से C...burban_rail')]
+E         
+E         At index 0 diff: ('गिंडी से Central कैसे जाऊँ?', None) != ('गिंडी से Central कैसे जाऊँ?', 'suburban_rail')
+E         Use -v to get more diff
+
+tests/test_t3_api.py:56: AssertionError
+______ test_api_passes_selected_mode_separately_from_exact_question[mrts] ______
+
+mode = 'mrts'
+
+    @pytest.mark.parametrize('mode', ['bus', 'metro', 'suburban_rail', 'mrts'])
+    def test_api_passes_selected_mode_separately_from_exact_question(mode):
+        calls = []
+    
+        class ModeAssistant(FakeAssistant):
+            def process_query(self, query, *, default_transport_mode=None):
+                calls.append((query, default_transport_mode))
+                return super().process_query(query)
+    
+        query = 'गिंडी से Central कैसे जाऊँ?'
+        status, _ = request('/api/v2/query', {'query': query, 'transport_mode': mode}, assistant=ModeAssistant())
+        assert status == 200
+>       assert calls == [(query, mode)]
+E       AssertionError: assert [('गिंडी से C...जाऊँ?', None)] == [('गिंडी से C...ऊँ?', 'mrts')]
+E         
+E         At index 0 diff: ('गिंडी से Central कैसे जाऊँ?', None) != ('गिंडी से Central कैसे जाऊँ?', 'mrts')
+E         Use -v to get more diff
+
+tests/test_t3_api.py:56: AssertionError
+_____________ test_api_rejects_invalid_mode_before_assistant[rail] _____________
+
+mode = 'rail'
+
+    @pytest.mark.parametrize('mode', ['rail', 'hovercraft', '', None, 4, True, [], {}])
+    def test_api_rejects_invalid_mode_before_assistant(mode):
+        class Uncalled:
+            def process_query(self, *args, **kwargs):
+                raise AssertionError('Invalid mode reached the assistant')
+    
+        status, reply = request('/api/v2/query', {'query': 'route please', 'transport_mode': mode}, assistant=Uncalled())
+>       assert status == 422
+E       assert <HTTPStatus.SERVICE_UNAVAILABLE: 503> == 422
+
+tests/test_t3_api.py:66: AssertionError
+__________ test_api_rejects_invalid_mode_before_assistant[hovercraft] __________
+
+mode = 'hovercraft'
+
+    @pytest.mark.parametrize('mode', ['rail', 'hovercraft', '', None, 4, True, [], {}])
+    def test_api_rejects_invalid_mode_before_assistant(mode):
+        class Uncalled:
+            def process_query(self, *args, **kwargs):
+                raise AssertionError('Invalid mode reached the assistant')
+    
+        status, reply = request('/api/v2/query', {'query': 'route please', 'transport_mode': mode}, assistant=Uncalled())
+>       assert status == 422
+E       assert <HTTPStatus.SERVICE_UNAVAILABLE: 503> == 422
+
+tests/test_t3_api.py:66: AssertionError
+_______________ test_api_rejects_invalid_mode_before_assistant[] _______________
+
+mode = ''
+
+    @pytest.mark.parametrize('mode', ['rail', 'hovercraft', '', None, 4, True, [], {}])
+    def test_api_rejects_invalid_mode_before_assistant(mode):
+        class Uncalled:
+            def process_query(self, *args, **kwargs):
+                raise AssertionError('Invalid mode reached the assistant')
+    
+        status, reply = request('/api/v2/query', {'query': 'route please', 'transport_mode': mode}, assistant=Uncalled())
+>       assert status == 422
+E       assert <HTTPStatus.SERVICE_UNAVAILABLE: 503> == 422
+
+tests/test_t3_api.py:66: AssertionError
+_____________ test_api_rejects_invalid_mode_before_assistant[None] _____________
+
+mode = None
+
+    @pytest.mark.parametrize('mode', ['rail', 'hovercraft', '', None, 4, True, [], {}])
+    def test_api_rejects_invalid_mode_before_assistant(mode):
+        class Uncalled:
+            def process_query(self, *args, **kwargs):
+                raise AssertionError('Invalid mode reached the assistant')
+    
+        status, reply = request('/api/v2/query', {'query': 'route please', 'transport_mode': mode}, assistant=Uncalled())
+>       assert status == 422
+E       assert <HTTPStatus.SERVICE_UNAVAILABLE: 503> == 422
+
+tests/test_t3_api.py:66: AssertionError
+______________ test_api_rejects_invalid_mode_before_assistant[4] _______________
+
+mode = 4
+
+    @pytest.mark.parametrize('mode', ['rail', 'hovercraft', '', None, 4, True, [], {}])
+    def test_api_rejects_invalid_mode_before_assistant(mode):
+        class Uncalled:
+            def process_query(self, *args, **kwargs):
+                raise AssertionError('Invalid mode reached the assistant')
+    
+        status, reply = request('/api/v2/query', {'query': 'route please', 'transport_mode': mode}, assistant=Uncalled())
+>       assert status == 422
+E       assert <HTTPStatus.SERVICE_UNAVAILABLE: 503> == 422
+
+tests/test_t3_api.py:66: AssertionError
+_____________ test_api_rejects_invalid_mode_before_assistant[True] _____________
+
+mode = True
+
+    @pytest.mark.parametrize('mode', ['rail', 'hovercraft', '', None, 4, True, [], {}])
+    def test_api_rejects_invalid_mode_before_assistant(mode):
+        class Uncalled:
+            def process_query(self, *args, **kwargs):
+                raise AssertionError('Invalid mode reached the assistant')
+    
+        status, reply = request('/api/v2/query', {'query': 'route please', 'transport_mode': mode}, assistant=Uncalled())
+>       assert status == 422
+E       assert <HTTPStatus.SERVICE_UNAVAILABLE: 503> == 422
+
+tests/test_t3_api.py:66: AssertionError
+____________ test_api_rejects_invalid_mode_before_assistant[mode6] _____________
+
+mode = []
+
+    @pytest.mark.parametrize('mode', ['rail', 'hovercraft', '', None, 4, True, [], {}])
+    def test_api_rejects_invalid_mode_before_assistant(mode):
+        class Uncalled:
+            def process_query(self, *args, **kwargs):
+                raise AssertionError('Invalid mode reached the assistant')
+    
+        status, reply = request('/api/v2/query', {'query': 'route please', 'transport_mode': mode}, assistant=Uncalled())
+>       assert status == 422
+E       assert <HTTPStatus.SERVICE_UNAVAILABLE: 503> == 422
+
+tests/test_t3_api.py:66: AssertionError
+____________ test_api_rejects_invalid_mode_before_assistant[mode7] _____________
+
+mode = {}
+
+    @pytest.mark.parametrize('mode', ['rail', 'hovercraft', '', None, 4, True, [], {}])
+    def test_api_rejects_invalid_mode_before_assistant(mode):
+        class Uncalled:
+            def process_query(self, *args, **kwargs):
+                raise AssertionError('Invalid mode reached the assistant')
+    
+        status, reply = request('/api/v2/query', {'query': 'route please', 'transport_mode': mode}, assistant=Uncalled())
+>       assert status == 422
+E       assert <HTTPStatus.SERVICE_UNAVAILABLE: 503> == 422
+
+tests/test_t3_api.py:66: AssertionError
+__________ test_mode_controls_send_default_without_rewriting_question __________
+
+ui = (AppTest(
+    _script_path='app/streamlit_app.py',
+    default_timeout=3,
+    session_state={$$ID-82250bedfa922bf4244f...ason': None, 'data': {'amount': 17, 'currency': 'INR', 'effective_date': '2018-01-29', 'provisional': True, ...}, ...})
+
+    def test_mode_controls_send_default_without_rewriting_question(ui):
+        app, calls, _ = ui
+        question = 'guindy se central kaise jau'
+>       app.radio[1].set_value('metro').run(timeout=10)
+
+tests/test_t3_language_ui.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = WidgetList(_list=[Radio(key='ui_language', _value=InitialValue(), label='Language / भाषा', options=['English', 'हिंदी', 'Hinglish'], horizontal=True)])
+idx = 1
+
+    def __getitem__(self, idx: int | slice) -> El_co | ElementList[El_co]:
+        if isinstance(idx, slice):
+            return ElementList(self._list[idx])
+        else:
+>           return self._list[idx]
+E           IndexError: list index out of range
+
+.venv/lib/python3.12/site-packages/streamlit/testing/v1/element_tree.py:227: IndexError
+---------------------------- Captured stderr setup -----------------------------
+2026-10-08 15:58:29.766 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+_______ test_published_records_control_is_interactive_without_api_query ________
+
+ui = (AppTest(
+    _script_path='app/streamlit_app.py',
+    default_timeout=3,
+    session_state={$$ID-82250bedfa922bf4244f...ason': None, 'data': {'amount': 17, 'currency': 'INR', 'effective_date': '2018-01-29', 'provisional': True, ...}, ...})
+
+    def test_published_records_control_is_interactive_without_api_query(ui):
+        app, calls, _ = ui
+>       button = next(item for item in app.button if item.key == 'published_records')
+E       StopIteration
+
+tests/test_t3_language_ui.py:76: StopIteration
+---------------------------- Captured stderr setup -----------------------------
+2026-10-08 15:58:29.819 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+=========================== short test summary info ============================
+FAILED tests/test_t3_api.py::test_api_passes_selected_mode_separately_from_exact_question[bus]
+FAILED tests/test_t3_api.py::test_api_passes_selected_mode_separately_from_exact_question[metro]
+FAILED tests/test_t3_api.py::test_api_passes_selected_mode_separately_from_exact_question[suburban_rail]
+FAILED tests/test_t3_api.py::test_api_passes_selected_mode_separately_from_exact_question[mrts]
+FAILED tests/test_t3_api.py::test_api_rejects_invalid_mode_before_assistant[rail]
+FAILED tests/test_t3_api.py::test_api_rejects_invalid_mode_before_assistant[hovercraft]
+FAILED tests/test_t3_api.py::test_api_rejects_invalid_mode_before_assistant[]
+FAILED tests/test_t3_api.py::test_api_rejects_invalid_mode_before_assistant[None]
+FAILED tests/test_t3_api.py::test_api_rejects_invalid_mode_before_assistant[4]
+FAILED tests/test_t3_api.py::test_api_rejects_invalid_mode_before_assistant[True]
+FAILED tests/test_t3_api.py::test_api_rejects_invalid_mode_before_assistant[mode6]
+FAILED tests/test_t3_api.py::test_api_rejects_invalid_mode_before_assistant[mode7]
+FAILED tests/test_t3_language_ui.py::test_mode_controls_send_default_without_rewriting_question
+FAILED tests/test_t3_language_ui.py::test_published_records_control_is_interactive_without_api_query
+14 failed, 19 deselected in 0.22s

@@ -1,0 +1,122 @@
+{
+  "total": 200,
+  "categories": {
+    "safe_limitation": 70,
+    "recognition_failure": 99,
+    "legitimate_clarification": 19,
+    "goal_correct": 10,
+    "unsafe_or_wrong_answer": 1,
+    "needs_review": 1
+  },
+  "per_intent": {
+    "point_to_point_route": {
+      "safe_limitation": 5,
+      "recognition_failure": 6,
+      "legitimate_clarification": 1
+    },
+    "multimodal_route": {
+      "safe_limitation": 8,
+      "recognition_failure": 4
+    },
+    "route_stop_sequence": {
+      "safe_limitation": 6,
+      "goal_correct": 3,
+      "recognition_failure": 2,
+      "legitimate_clarification": 1
+    },
+    "route_stop_membership": {
+      "recognition_failure": 9,
+      "legitimate_clarification": 2,
+      "safe_limitation": 1
+    },
+    "first_and_last_service": {
+      "safe_limitation": 1,
+      "unsafe_or_wrong_answer": 1,
+      "recognition_failure": 10
+    },
+    "service_frequency": {
+      "recognition_failure": 11,
+      "legitimate_clarification": 1
+    },
+    "scheduled_departure": {
+      "goal_correct": 1,
+      "safe_limitation": 3,
+      "recognition_failure": 5,
+      "legitimate_clarification": 3
+    },
+    "mode_availability": {
+      "legitimate_clarification": 1,
+      "safe_limitation": 5,
+      "recognition_failure": 6
+    },
+    "fare_calculation": {
+      "goal_correct": 3,
+      "recognition_failure": 5,
+      "safe_limitation": 2,
+      "legitimate_clarification": 2
+    },
+    "ticketing_and_passes": {
+      "safe_limitation": 12
+    },
+    "station_facilities": {
+      "safe_limitation": 8,
+      "recognition_failure": 4
+    },
+    "station_accessibility": {
+      "safe_limitation": 8,
+      "recognition_failure": 4
+    },
+    "interchange_transfer": {
+      "recognition_failure": 5,
+      "safe_limitation": 7
+    },
+    "nearest_transport": {
+      "goal_correct": 1,
+      "recognition_failure": 7,
+      "legitimate_clarification": 3,
+      "needs_review": 1
+    },
+    "realtime_status_query": {
+      "safe_limitation": 4,
+      "recognition_failure": 8
+    },
+    "out_of_scope": {
+      "recognition_failure": 10,
+      "goal_correct": 2
+    },
+    "guard": {
+      "recognition_failure": 3,
+      "legitimate_clarification": 5
+    }
+  },
+  "actual_ok_ids": [
+    "HG200_026",
+    "HG200_027",
+    "HG200_030",
+    "HG200_032",
+    "HG200_036",
+    "HG200_043",
+    "HG200_046",
+    "HG200_050",
+    "HG200_073",
+    "HG200_097",
+    "HG200_100",
+    "HG200_107",
+    "HG200_157",
+    "HG200_168"
+  ],
+  "assessment_method": "manual query/expectation/response/status/slot/data/candidate review for every ID; no mechanical intent-only grading",
+  "source_limit_with_secondary_issue_ids": [
+    "HG200_001",
+    "HG200_008",
+    "HG200_009",
+    "HG200_018",
+    "HG200_076",
+    "HG200_082",
+    "HG200_086",
+    "HG200_088",
+    "HG200_090",
+    "HG200_095",
+    "HG200_151"
+  ]
+}

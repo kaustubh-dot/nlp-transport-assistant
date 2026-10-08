@@ -1,0 +1,34 @@
+{
+  "language": "Roman Hindi/Hinglish",
+  "case_count": 200,
+  "intent_counts": {
+    "point_to_point_route": 12,
+    "multimodal_route": 12,
+    "route_stop_sequence": 12,
+    "route_stop_membership": 12,
+    "first_and_last_service": 12,
+    "service_frequency": 12,
+    "scheduled_departure": 12,
+    "mode_availability": 12,
+    "fare_calculation": 12,
+    "ticketing_and_passes": 12,
+    "station_facilities": 12,
+    "station_accessibility": 12,
+    "interchange_transfer": 12,
+    "nearest_transport": 12,
+    "realtime_status_query": 12,
+    "out_of_scope": 12
+  },
+  "guard_count": 8,
+  "expectations_authored_before_predictions": true,
+  "expectation_sources": [
+    "src/nlp_v2/contracts.py",
+    "data/nlp_v2/taxonomy/taxonomy_semantic_mapping.json",
+    "docs/nlp_v2/slot_schema.md",
+    "docs/nlp_v2/entity_resolution_contract.md",
+    "docs/nlp_v2/known_limitations.md",
+    "docs/nlp_v2/answerability_matrix.md"
+  ],
+  "factual_values": "No expected fare amounts, timetables, facility flags, route-membership results or nearest names invented.",
+  "corpus_isolation": "No individual frozen/development/held-out examples inspected; prior campaign queries read programmatically only for exact duplicate check after authoring."
+}

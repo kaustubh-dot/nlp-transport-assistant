@@ -1,0 +1,97 @@
+FFF.F                                                                    [100%]
+=================================== FAILURES ===================================
+_ test_negated_selected_goal_cannot_execute_a_factual_answer[Guindy metro to Nandanam route please, fare nahi pooch raha] _
+
+resolver = <src.nlp_v2.entities.CanonicalResolver object at 0x703537bb7560>
+query = 'Guindy metro to Nandanam route please, fare nahi pooch raha'
+
+    @pytest.mark.parametrize('query', [
+        'Guindy metro to Nandanam route please, fare nahi pooch raha',
+        'गिंडी से Nandanam मेट्रो का रास्ता चाहिए, किराया नहीं पूछ रहा।',
+        'Guindy to Nandanam metro route please, not asking for fare.',
+    ])
+    def test_negated_selected_goal_cannot_execute_a_factual_answer(resolver, query):
+        from src.nlp_v2.assistant import T3Assistant
+    
+        classifier = FixedClassifier('fare_calculation')
+        reply = T3Assistant(classifier=classifier, resolver=resolver).process_query(query)
+        assert classifier.queries == [query]
+>       assert reply.status == 'clarification'
+E       AssertionError: assert 'ok' == 'clarification'
+E         
+E         - clarification
+E         + ok
+
+tests/test_t3_assistant.py:29: AssertionError
+_ test_negated_selected_goal_cannot_execute_a_factual_answer[\u0917\u093f\u0902\u0921\u0940 \u0938\u0947 Nandanam \u092e\u0947\u091f\u094d\u0930\u094b \u0915\u093e \u0930\u093e\u0938\u094d\u0924\u093e \u091a\u093e\u0939\u093f\u090f, \u0915\u093f\u0930\u093e\u092f\u093e \u0928\u0939\u0940\u0902 \u092a\u0942\u091b \u0930\u0939\u093e\u0964] _
+
+resolver = <src.nlp_v2.entities.CanonicalResolver object at 0x703537bb7560>
+query = 'गिंडी से Nandanam मेट्रो का रास्ता चाहिए, किराया नहीं पूछ रहा।'
+
+    @pytest.mark.parametrize('query', [
+        'Guindy metro to Nandanam route please, fare nahi pooch raha',
+        'गिंडी से Nandanam मेट्रो का रास्ता चाहिए, किराया नहीं पूछ रहा।',
+        'Guindy to Nandanam metro route please, not asking for fare.',
+    ])
+    def test_negated_selected_goal_cannot_execute_a_factual_answer(resolver, query):
+        from src.nlp_v2.assistant import T3Assistant
+    
+        classifier = FixedClassifier('fare_calculation')
+        reply = T3Assistant(classifier=classifier, resolver=resolver).process_query(query)
+        assert classifier.queries == [query]
+>       assert reply.status == 'clarification'
+E       AssertionError: assert 'ok' == 'clarification'
+E         
+E         - clarification
+E         + ok
+
+tests/test_t3_assistant.py:29: AssertionError
+_ test_negated_selected_goal_cannot_execute_a_factual_answer[Guindy to Nandanam metro route please, not asking for fare.] _
+
+resolver = <src.nlp_v2.entities.CanonicalResolver object at 0x703537bb7560>
+query = 'Guindy to Nandanam metro route please, not asking for fare.'
+
+    @pytest.mark.parametrize('query', [
+        'Guindy metro to Nandanam route please, fare nahi pooch raha',
+        'गिंडी से Nandanam मेट्रो का रास्ता चाहिए, किराया नहीं पूछ रहा।',
+        'Guindy to Nandanam metro route please, not asking for fare.',
+    ])
+    def test_negated_selected_goal_cannot_execute_a_factual_answer(resolver, query):
+        from src.nlp_v2.assistant import T3Assistant
+    
+        classifier = FixedClassifier('fare_calculation')
+        reply = T3Assistant(classifier=classifier, resolver=resolver).process_query(query)
+        assert classifier.queries == [query]
+        assert reply.status == 'clarification'
+        assert reply.operation is None
+>       assert reply.clarification_reason == 'intent_ambiguity'
+E       AssertionError: assert 'entity_ambiguity' == 'intent_ambiguity'
+E         
+E         - intent_ambiguity
+E         ? ---
+E         + entity_ambiguity
+E         ?    +++
+
+tests/test_t3_assistant.py:31: AssertionError
+______ test_multiple_hindi_goals_keep_live_location_with_intervening_mode ______
+
+resolver = <src.nlp_v2.entities.CanonicalResolver object at 0x703537bb7560>
+
+    def test_multiple_hindi_goals_keep_live_location_with_intervening_mode(resolver):
+        from src.nlp_v2.assistant import T3Assistant
+    
+        reply = T3Assistant(classifier=FixedClassifier('route_stop_sequence'), resolver=resolver).process_query(
+            '२७डी बस के सभी स्टॉप बताओ और अभी बस कहाँ है यह भी बताओ')
+>       assert reply.status == 'clarification'
+E       AssertionError: assert 'ok' == 'clarification'
+E         
+E         - clarification
+E         + ok
+
+tests/test_t3_assistant.py:49: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_t3_assistant.py::test_negated_selected_goal_cannot_execute_a_factual_answer[Guindy metro to Nandanam route please, fare nahi pooch raha]
+FAILED tests/test_t3_assistant.py::test_negated_selected_goal_cannot_execute_a_factual_answer[\u0917\u093f\u0902\u0921\u0940 \u0938\u0947 Nandanam \u092e\u0947\u091f\u094d\u0930\u094b \u0915\u093e \u0930\u093e\u0938\u094d\u0924\u093e \u091a\u093e\u0939\u093f\u090f, \u0915\u093f\u0930\u093e\u092f\u093e \u0928\u0939\u0940\u0902 \u092a\u0942\u091b \u0930\u0939\u093e\u0964]
+FAILED tests/test_t3_assistant.py::test_negated_selected_goal_cannot_execute_a_factual_answer[Guindy to Nandanam metro route please, not asking for fare.]
+FAILED tests/test_t3_assistant.py::test_multiple_hindi_goals_keep_live_location_with_intervening_mode
+4 failed, 1 passed, 98 deselected in 0.19s

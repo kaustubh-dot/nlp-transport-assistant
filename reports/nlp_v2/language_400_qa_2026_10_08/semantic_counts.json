@@ -1,0 +1,39 @@
+{
+  "hindi": {
+    "total": 200,
+    "changed_responses": 23,
+    "baseline_categories": {
+      "safe_limitation": 83,
+      "recognition_failure": 95,
+      "legitimate_clarification": 14,
+      "unsafe_or_wrong_answer": 3,
+      "goal_correct": 5
+    },
+    "verified_categories": {
+      "safe_limitation": 90,
+      "recognition_failure": 83,
+      "legitimate_clarification": 16,
+      "goal_correct": 10,
+      "needs_review": 1
+    }
+  },
+  "hinglish": {
+    "total": 200,
+    "changed_responses": 22,
+    "baseline_categories": {
+      "safe_limitation": 72,
+      "recognition_failure": 99,
+      "legitimate_clarification": 19,
+      "goal_correct": 8,
+      "unsafe_or_wrong_answer": 1,
+      "needs_review": 1
+    },
+    "verified_categories": {
+      "safe_limitation": 72,
+      "recognition_failure": 92,
+      "legitimate_clarification": 22,
+      "goal_correct": 12,
+      "needs_review": 2
+    }
+  }
+}

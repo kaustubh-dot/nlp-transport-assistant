@@ -1,0 +1,10 @@
+{
+  "total": 400,
+  "hindi": 200,
+  "hinglish": 200,
+  "localized_reply_matches": 400,
+  "exact_normalized_display_question_matches": 400,
+  "method": "Every authored query entered into the real Streamlit composer using native browser actions; rendered reply compared to localized actual final API reply. This checks presentation, not semantic correctness.",
+  "browser_tab": "3",
+  "finished_utc": "2026-10-08T11:44:39.447Z"
+}

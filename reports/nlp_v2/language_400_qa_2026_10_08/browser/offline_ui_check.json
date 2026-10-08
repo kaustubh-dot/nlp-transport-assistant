@@ -1,0 +1,29 @@
+{
+  "query": "Which is the nearest station to Marina Beach?",
+  "visible_user": "Which is the nearest station to Marina Beach?\n\nChuna hua mode: metro",
+  "visible_answer": "Request poori nahi ho saki\n\nLocal T3 API unavailable hai. API start karke phir try karein.",
+  "expected_reply": null,
+  "question_preserved": true,
+  "localized_reply_match": null,
+  "timestamp_utc": "2026-10-08T11:46:02.492Z",
+  "alert_styles": [
+    {
+      "background": "oklch(0.95 0.015 235)",
+      "color": "oklch(0.45 0.06 235)",
+      "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "text": "Kripya batayein ki kaunsa stop ya location keh rahe hain."
+    },
+    {
+      "background": "oklch(0.95 0.015 235)",
+      "color": "oklch(0.45 0.06 235)",
+      "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "text": "Kripya ek baar mein ek route, stop, fare stage ya samay poochhein."
+    },
+    {
+      "background": "oklch(0.91 0.03 18)",
+      "color": "oklch(0.48 0.15 18)",
+      "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "text": "Local T3 API unavailable hai. API start karke phir try karein."
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "current_source_commit": "597bf9123bf989853134e20e26b0c831081d9212",
+  "verified_api_source_commit": "3ed0c339f5b1cb9b0a771663ba9a74affbd31d9b",
+  "verified_api_source_py_hashes_match_current": true,
+  "frontend_assets": {
+    "app/transit_theme.html": "6f5cba539304639346b82da0600d946906a288d7b4901d8746b8135187614bde",
+    ".streamlit/config.toml": "2a83aea241f5218a1adbd7af423b4c16c4e2855608f224c57bbb7ead5e64d7a4"
+  },
+  "preserved_artifacts": {
+    "checkpoint": {
+      "path": "experiments/nlp_v2/gate_b2/t3_muril_seed42_best.pt",
+      "actual": "abac66fc9fa29212c7565117ae326e34f02b64e76dbb177c61e9661517803196",
+      "expected": "abac66fc9fa29212c7565117ae326e34f02b64e76dbb177c61e9661517803196"
+    },
+    "manifest": {
+      "path": "models/nlp_v2_t3_manifest.json",
+      "actual": "447a120090c33ba1259cad06ce9f216d80832d2540727c3330f14be3ec04dc39",
+      "expected": "447a120090c33ba1259cad06ce9f216d80832d2540727c3330f14be3ec04dc39"
+    },
+    "canonical_database": {
+      "path": "data/canonical/transit/canonical_transport.db",
+      "actual": "583fd400bb3ee0d5af312e03ec78116de88ce162d6c33c2b87fd93df4da48791",
+      "expected": "583fd400bb3ee0d5af312e03ec78116de88ce162d6c33c2b87fd93df4da48791"
+    },
+    "development_suite": {
+      "path": "data/nlp_v2/development/assistant_coverage_v1.json",
+      "actual": "0de0ce7de1ca933b70321bf15c0d9bbc2d7db0dc694cd046064d28104988ea41",
+      "expected": "0de0ce7de1ca933b70321bf15c0d9bbc2d7db0dc694cd046064d28104988ea41"
+    },
+    "reports/nlp_v2/post_development_regression/assistant/assistant_evaluation.json": {
+      "path": "reports/nlp_v2/post_development_regression/assistant/assistant_evaluation.json",
+      "actual": "7a524525825c7b5ef886e8802600582daaa75644d972bd9b96f6579170f7a642",
+      "expected": "7a524525825c7b5ef886e8802600582daaa75644d972bd9b96f6579170f7a642"
+    },
+    "reports/nlp_v2/post_development_regression/assistant/assistant_evaluation.md": {
+      "path": "reports/nlp_v2/post_development_regression/assistant/assistant_evaluation.md",
+      "actual": "0aac6ee5dfb6c3ebf6301ec076967795cdc78c4d2914592788c977e046003fd8",
+      "expected": "0aac6ee5dfb6c3ebf6301ec076967795cdc78c4d2914592788c977e046003fd8"
+    },
+    "reports/nlp_v2/post_development_regression/comparison.md": {
+      "path": "reports/nlp_v2/post_development_regression/comparison.md",
+      "actual": "28517f5ed722268dd563c58ff8d07a82e780522fd1370a88a0d5ebf70f2ef617",
+      "expected": "28517f5ed722268dd563c58ff8d07a82e780522fd1370a88a0d5ebf70f2ef617"
+    },
+    "reports/nlp_v2/post_development_regression/evaluation_context.json": {
+      "path": "reports/nlp_v2/post_development_regression/evaluation_context.json",
+      "actual": "5352b1923561136556084d39ee91250af327c04ba6113361071d1de259653e1b",
+      "expected": "5352b1923561136556084d39ee91250af327c04ba6113361071d1de259653e1b"
+    },
+    "reports/nlp_v2/post_development_regression/model/production_t3_evaluation.json": {
+      "path": "reports/nlp_v2/post_development_regression/model/production_t3_evaluation.json",
+      "actual": "5e5108cf119f28f02ba812d5760400ed9ed47073002d5a95a0fe45189b806cd3",
+      "expected": "5e5108cf119f28f02ba812d5760400ed9ed47073002d5a95a0fe45189b806cd3"
+    },
+    "reports/nlp_v2/post_development_regression/model/production_t3_evaluation.md": {
+      "path": "reports/nlp_v2/post_development_regression/model/production_t3_evaluation.md",
+      "actual": "631a6fc6150aa86c5a89db3380a627f5e1a362e1d639e9b9dd8b759da3750287",
+      "expected": "631a6fc6150aa86c5a89db3380a627f5e1a362e1d639e9b9dd8b759da3750287"
+    },
+    "reports/nlp_v2/phase23_post_fix_descriptive/assistant/assistant_evaluation.json": {
+      "path": "reports/nlp_v2/phase23_post_fix_descriptive/assistant/assistant_evaluation.json",
+      "actual": "b6f0109983acbd8e75195f9dac52642ce01c5487223f0c415f613e532eb79624",
+      "expected": "b6f0109983acbd8e75195f9dac52642ce01c5487223f0c415f613e532eb79624"
+    },
+    "reports/nlp_v2/phase23_post_fix_descriptive/assistant/assistant_evaluation.md": {
+      "path": "reports/nlp_v2/phase23_post_fix_descriptive/assistant/assistant_evaluation.md",
+      "actual": "c15f88f52aa244628449dce5e8b407ad94be4c54c1bdb376707c0032a283f428",
+      "expected": "c15f88f52aa244628449dce5e8b407ad94be4c54c1bdb376707c0032a283f428"
+    },
+    "reports/nlp_v2/phase23_post_fix_descriptive/comparison.md": {
+      "path": "reports/nlp_v2/phase23_post_fix_descriptive/comparison.md",
+      "actual": "af8776bd5f986303d95c2ebcd7d3e863328d23d5f65f31288f3570da6311a7e8",
+      "expected": "af8776bd5f986303d95c2ebcd7d3e863328d23d5f65f31288f3570da6311a7e8"
+    },
+    "reports/nlp_v2/phase23_post_fix_descriptive/evaluation_context.json": {
+      "path": "reports/nlp_v2/phase23_post_fix_descriptive/evaluation_context.json",
+      "actual": "4da1c7d27d73b673fbb16d7df5ba6001b6a9b92c5957681ce5fe9f4fa0afc7f5",
+      "expected": "4da1c7d27d73b673fbb16d7df5ba6001b6a9b92c5957681ce5fe9f4fa0afc7f5"
+    },
+    "untouched_source_paths": {
+      "count": 6,
+      "all_equal": true
+    }
+  },
+  "training_or_research_evaluator_run": false,
+  "custom_queries_are_observed_development_qa_not_heldout_accuracy": true,
+  "api_runtime_cpu_threads_environment": {
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2"
+  },
+  "independent_case_authors": [
+    "hindi_200_qa",
+    "hinglish_200_qa"
+  ],
+  "review_status": "Root final source review; independent final reviewer exhausted usage allowance. No independent whole-project signoff claimed."
+}

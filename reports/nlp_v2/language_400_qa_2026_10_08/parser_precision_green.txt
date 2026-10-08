@@ -1,0 +1,20 @@
+........................................................................ [ 21%]
+................F....................................................... [ 43%]
+........................................................................ [ 65%]
+........................................................................ [ 87%]
+........................................                                 [100%]
+=================================== FAILURES ===================================
+__________ test_possessive_competing_routes_are_not_silently_reduced ___________
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7f0af778b4d0>
+
+    def test_possessive_competing_routes_are_not_silently_reduced(extractor):
+        result = extractor.extract('31B ki bus stops aur 83C ke stops', 'route_stop_sequence')
+>       assert result.multiple_execution_scopes is True
+E       AssertionError: assert False is True
+E        +  where False = ExtractionResult(slots={'transport_mode': 'bus', 'route_number': '31B'}, spans=(), unresolved=(), clarification_reason...tion_slots=(), multiple_execution_scopes=False, unsupported_temporal_scope=False, unsupported_timetable_waypoint=False).multiple_execution_scopes
+
+tests/test_t3_language_extraction.py:55: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_t3_language_extraction.py::test_possessive_competing_routes_are_not_silently_reduced
+1 failed, 327 passed in 9.61s

@@ -1,0 +1,395 @@
+[
+  {
+    "request": {
+      "query": "Which is the nearest station to Marina Beach?",
+      "transport_mode": "bus"
+    },
+    "http": 200,
+    "actual": {
+      "status": "ok",
+      "outcome_reason": "answered",
+      "response_text": "Nearest by straight line: Kannagi Statue Or Presidency College (277 m). Nearest by straight-line distance only; walking access is not verified.",
+      "intent": "nearest_transport",
+      "operation": "FIND_NEAREST_STATION",
+      "slots": {
+        "transport_mode": "bus",
+        "landmark": "OSM_POI_12137617372"
+      },
+      "data": {
+        "anchor": "OSM_POI_12137617372",
+        "anchor_name": "Marina Beach,Chennai",
+        "stops": [
+          {
+            "stop_id": "BUS_5918",
+            "name": "Kannagi Statue Or Presidency College",
+            "mode": "bus",
+            "distance_m": 277,
+            "source": "CHENNAI_COMMUNITY_GTFS"
+          },
+          {
+            "stop_id": "BUS_10941",
+            "name": "Kannagi Statue Shelter 1",
+            "mode": "bus",
+            "distance_m": 282,
+            "source": "CHENNAI_COMMUNITY_GTFS"
+          },
+          {
+            "stop_id": "BUS_357233537",
+            "name": "Kannagi Statue",
+            "mode": "bus",
+            "distance_m": 375,
+            "source": "OSM_OVERPASS"
+          },
+          {
+            "stop_id": "BUS_5923",
+            "name": "Kannagi Statue Or Presidency College",
+            "mode": "bus",
+            "distance_m": 380,
+            "source": "CHENNAI_COMMUNITY_GTFS"
+          },
+          {
+            "stop_id": "BUS_5922",
+            "name": "Vivekananda House",
+            "mode": "bus",
+            "distance_m": 381,
+            "source": "CHENNAI_COMMUNITY_GTFS"
+          }
+        ],
+        "distance_type": "straight_line",
+        "provisional": true
+      },
+      "missing_slots": [],
+      "clarification_reason": null,
+      "candidate_entities": [],
+      "candidate_intents": [
+        "nearest_transport"
+      ]
+    },
+    "expected_effective_mode": "bus",
+    "timestamp_utc": "2026-10-08T11:37:45.694664+00:00"
+  },
+  {
+    "request": {
+      "query": "Which is the nearest station to Marina Beach?",
+      "transport_mode": "metro"
+    },
+    "http": 200,
+    "actual": {
+      "status": "ok",
+      "outcome_reason": "answered",
+      "response_text": "Nearest by straight line: Lighthouse Metro (1121 m). Nearest by straight-line distance only; walking access is not verified.",
+      "intent": "nearest_transport",
+      "operation": "FIND_NEAREST_STATION",
+      "slots": {
+        "transport_mode": "metro",
+        "landmark": "OSM_POI_12137617372"
+      },
+      "data": {
+        "anchor": "OSM_POI_12137617372",
+        "anchor_name": "Marina Beach,Chennai",
+        "stops": [
+          {
+            "stop_id": "METRO_LIGHTHOUSE",
+            "name": "Lighthouse Metro",
+            "mode": "metro",
+            "distance_m": 1121,
+            "source": "OSM_OVERPASS"
+          },
+          {
+            "stop_id": "METRO_ROYAPETTAH",
+            "name": "Royapettah Metro",
+            "mode": "metro",
+            "distance_m": 2072,
+            "source": "OSM_OVERPASS"
+          },
+          {
+            "stop_id": "METRO_OSM_RAIL_603015278",
+            "name": "அரசினர் தோட்டம்",
+            "mode": "metro",
+            "distance_m": 2131,
+            "source": "OSM_OVERPASS"
+          },
+          {
+            "stop_id": "METRO_OSM_RAIL_5337407350",
+            "name": "எல் ஐ சி",
+            "mode": "metro",
+            "distance_m": 2253,
+            "source": "OSM_OVERPASS"
+          },
+          {
+            "stop_id": "METRO_GOVERNMENT_ESTATE",
+            "name": "Government Estate",
+            "mode": "metro",
+            "distance_m": 2287,
+            "source": "CMRL_API"
+          }
+        ],
+        "distance_type": "straight_line",
+        "provisional": true
+      },
+      "missing_slots": [],
+      "clarification_reason": null,
+      "candidate_entities": [],
+      "candidate_intents": [
+        "nearest_transport"
+      ]
+    },
+    "expected_effective_mode": "metro",
+    "timestamp_utc": "2026-10-08T11:37:45.747278+00:00"
+  },
+  {
+    "request": {
+      "query": "Which is the nearest station to Marina Beach?",
+      "transport_mode": "suburban_rail"
+    },
+    "http": 200,
+    "actual": {
+      "status": "ok",
+      "outcome_reason": "answered",
+      "response_text": "Nearest by straight line: Thiruvallikeni (409 m). Nearest by straight-line distance only; walking access is not verified.",
+      "intent": "nearest_transport",
+      "operation": "FIND_NEAREST_STATION",
+      "slots": {
+        "transport_mode": "suburban_rail",
+        "landmark": "OSM_POI_12137617372"
+      },
+      "data": {
+        "anchor": "OSM_POI_12137617372",
+        "anchor_name": "Marina Beach,Chennai",
+        "stops": [
+          {
+            "stop_id": "RAIL_THIRUVALLIKENI",
+            "name": "Thiruvallikeni",
+            "mode": "suburban_rail",
+            "distance_m": 409,
+            "source": "OSM_OVERPASS"
+          },
+          {
+            "stop_id": "RAIL_LIGHT_HOUSE",
+            "name": "Light House",
+            "mode": "suburban_rail",
+            "distance_m": 1112,
+            "source": "OSM_OVERPASS"
+          },
+          {
+            "stop_id": "RAIL_MUNDAKAKANNI_AMMAN_KOIL",
+            "name": "Mundakakanni Amman Koil",
+            "mode": "suburban_rail",
+            "distance_m": 2033,
+            "source": "OSM_OVERPASS"
+          },
+          {
+            "stop_id": "RAIL_CHINTADARIPET",
+            "name": "Chintadaripet",
+            "mode": "suburban_rail",
+            "distance_m": 2489,
+            "source": "OSM_OVERPASS"
+          },
+          {
+            "stop_id": "RAIL_THIRUMAYILAI",
+            "name": "Thirumayilai",
+            "mode": "suburban_rail",
+            "distance_m": 2635,
+            "source": "OSM_OVERPASS"
+          }
+        ],
+        "distance_type": "straight_line",
+        "provisional": true
+      },
+      "missing_slots": [],
+      "clarification_reason": null,
+      "candidate_entities": [],
+      "candidate_intents": [
+        "nearest_transport"
+      ]
+    },
+    "expected_effective_mode": "suburban_rail",
+    "timestamp_utc": "2026-10-08T11:37:45.799852+00:00"
+  },
+  {
+    "request": {
+      "query": "Which is the nearest station to Marina Beach?",
+      "transport_mode": "mrts"
+    },
+    "http": 200,
+    "actual": {
+      "status": "ok",
+      "outcome_reason": "answered",
+      "response_text": "Nearest by straight line: Chepauk (994 m). Nearest by straight-line distance only; walking access is not verified.",
+      "intent": "nearest_transport",
+      "operation": "FIND_NEAREST_STATION",
+      "slots": {
+        "transport_mode": "mrts",
+        "landmark": "OSM_POI_12137617372"
+      },
+      "data": {
+        "anchor": "OSM_POI_12137617372",
+        "anchor_name": "Marina Beach,Chennai",
+        "stops": [
+          {
+            "stop_id": "MRTS_CHEPAUK",
+            "name": "Chepauk",
+            "mode": "mrts",
+            "distance_m": 994,
+            "source": "OSM_OVERPASS"
+          },
+          {
+            "stop_id": "MRTS_VELACHERY",
+            "name": "Velachery",
+            "mode": "mrts",
+            "distance_m": 11781,
+            "source": "OSM_OVERPASS"
+          }
+        ],
+        "distance_type": "straight_line",
+        "provisional": true
+      },
+      "missing_slots": [],
+      "clarification_reason": null,
+      "candidate_entities": [],
+      "candidate_intents": [
+        "nearest_transport"
+      ]
+    },
+    "expected_effective_mode": "mrts",
+    "timestamp_utc": "2026-10-08T11:37:45.852448+00:00"
+  },
+  {
+    "request": {
+      "query": "Nearest bus stop to Marina Beach",
+      "transport_mode": "mrts"
+    },
+    "http": 200,
+    "actual": {
+      "status": "ok",
+      "outcome_reason": "answered",
+      "response_text": "Nearest by straight line: Kannagi Statue Or Presidency College (277 m). Nearest by straight-line distance only; walking access is not verified.",
+      "intent": "nearest_transport",
+      "operation": "FIND_NEAREST_STATION",
+      "slots": {
+        "transport_mode": "bus",
+        "landmark": "OSM_POI_12137617372"
+      },
+      "data": {
+        "anchor": "OSM_POI_12137617372",
+        "anchor_name": "Marina Beach,Chennai",
+        "stops": [
+          {
+            "stop_id": "BUS_5918",
+            "name": "Kannagi Statue Or Presidency College",
+            "mode": "bus",
+            "distance_m": 277,
+            "source": "CHENNAI_COMMUNITY_GTFS"
+          },
+          {
+            "stop_id": "BUS_10941",
+            "name": "Kannagi Statue Shelter 1",
+            "mode": "bus",
+            "distance_m": 282,
+            "source": "CHENNAI_COMMUNITY_GTFS"
+          },
+          {
+            "stop_id": "BUS_357233537",
+            "name": "Kannagi Statue",
+            "mode": "bus",
+            "distance_m": 375,
+            "source": "OSM_OVERPASS"
+          },
+          {
+            "stop_id": "BUS_5923",
+            "name": "Kannagi Statue Or Presidency College",
+            "mode": "bus",
+            "distance_m": 380,
+            "source": "CHENNAI_COMMUNITY_GTFS"
+          },
+          {
+            "stop_id": "BUS_5922",
+            "name": "Vivekananda House",
+            "mode": "bus",
+            "distance_m": 381,
+            "source": "CHENNAI_COMMUNITY_GTFS"
+          }
+        ],
+        "distance_type": "straight_line",
+        "provisional": true
+      },
+      "missing_slots": [],
+      "clarification_reason": null,
+      "candidate_entities": [],
+      "candidate_intents": [
+        "nearest_transport"
+      ]
+    },
+    "expected_effective_mode": "bus",
+    "timestamp_utc": "2026-10-08T11:37:45.915851+00:00"
+  },
+  {
+    "request": {
+      "query": "Nearest metro station to Marina Beach",
+      "transport_mode": "bus"
+    },
+    "http": 200,
+    "actual": {
+      "status": "ok",
+      "outcome_reason": "answered",
+      "response_text": "Nearest by straight line: Lighthouse Metro (1121 m). Nearest by straight-line distance only; walking access is not verified.",
+      "intent": "nearest_transport",
+      "operation": "FIND_NEAREST_STATION",
+      "slots": {
+        "transport_mode": "metro",
+        "landmark": "OSM_POI_12137617372"
+      },
+      "data": {
+        "anchor": "OSM_POI_12137617372",
+        "anchor_name": "Marina Beach,Chennai",
+        "stops": [
+          {
+            "stop_id": "METRO_LIGHTHOUSE",
+            "name": "Lighthouse Metro",
+            "mode": "metro",
+            "distance_m": 1121,
+            "source": "OSM_OVERPASS"
+          },
+          {
+            "stop_id": "METRO_ROYAPETTAH",
+            "name": "Royapettah Metro",
+            "mode": "metro",
+            "distance_m": 2072,
+            "source": "OSM_OVERPASS"
+          },
+          {
+            "stop_id": "METRO_OSM_RAIL_603015278",
+            "name": "அரசினர் தோட்டம்",
+            "mode": "metro",
+            "distance_m": 2131,
+            "source": "OSM_OVERPASS"
+          },
+          {
+            "stop_id": "METRO_OSM_RAIL_5337407350",
+            "name": "எல் ஐ சி",
+            "mode": "metro",
+            "distance_m": 2253,
+            "source": "OSM_OVERPASS"
+          },
+          {
+            "stop_id": "METRO_GOVERNMENT_ESTATE",
+            "name": "Government Estate",
+            "mode": "metro",
+            "distance_m": 2287,
+            "source": "CMRL_API"
+          }
+        ],
+        "distance_type": "straight_line",
+        "provisional": true
+      },
+      "missing_slots": [],
+      "clarification_reason": null,
+      "candidate_entities": [],
+      "candidate_intents": [
+        "nearest_transport"
+      ]
+    },
+    "expected_effective_mode": "metro",
+    "timestamp_utc": "2026-10-08T11:37:45.969011+00:00"
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "background": "oklch(0.94 0.03 70)",
+    "color": "oklch(0.48 0.13 70)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "tag": "DIV",
+    "text": "माँगी गई यात्रा या स्टेज के लिए कोई सत्यापित किराया रिकॉर्ड नहीं है।"
+  },
+  {
+    "background": "oklch(0.95 0.015 235)",
+    "color": "oklch(0.45 0.06 235)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "tag": "DIV",
+    "text": "कृपया गंतव्य स्टॉप या किराए का स्टेज नंबर बताएं।"
+  },
+  {
+    "background": "oklch(0.95 0.015 235)",
+    "color": "oklch(0.45 0.06 235)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "tag": "DIV",
+    "text": "कृपया स्पष्ट करें कि आप किस स्टॉप या स्थान की बात कर रहे हैं।"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "rgb(26, 21, 17)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", sans-serif",
+    "tag": "DIV",
+    "text": "प्रकाशित किराया"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "rgb(26, 21, 17)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", sans-serif",
+    "tag": "DIV",
+    "text": "प्रकाशित किराया"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "rgb(26, 21, 17)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "tag": "P",
+    "text": "प्रकाशित किराया"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.2 0.012 55)",
+    "font": "\"IBM Plex Mono\", \"Cascadia Mono\", ui-monospace, monospace",
+    "tag": "DIV",
+    "text": "INR 7"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.2 0.012 55)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", sans-serif",
+    "tag": "DIV",
+    "text": "INR 7"
+  },
+  {
+    "background": "oklch(0.95 0.015 235)",
+    "color": "oklch(0.45 0.06 235)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "tag": "DIV",
+    "text": "कृपया बस सेवा श्रेणी (साधारण, एक्सप्रेस, डीलक्स, रात्रि या वातानुकूलित) बताएं।"
+  },
+  {
+    "background": "oklch(0.98 0.008 75)",
+    "color": "oklch(0.2 0.012 55)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "tag": "BUTTON",
+    "text": "संशोधित प्रश्न पूछें"
+  }
+]

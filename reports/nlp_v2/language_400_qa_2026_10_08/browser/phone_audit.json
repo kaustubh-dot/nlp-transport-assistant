@@ -1,0 +1,97 @@
+{
+  "controls": [
+    {
+      "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "height": 0,
+      "text": "Deploy",
+      "width": 0
+    },
+    {
+      "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "height": 23.988969802856445,
+      "text": "Language / भाषा",
+      "width": 255.2849273681641
+    },
+    {
+      "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "height": 43.991268157958984,
+      "text": "English",
+      "width": 96.72563934326172
+    },
+    {
+      "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "height": 43.991268157958984,
+      "text": "हिंदी",
+      "width": 73.48345184326172
+    },
+    {
+      "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "height": 43.991268157958984,
+      "text": "Hinglish",
+      "width": 101.32122802734376
+    },
+    {
+      "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "height": 0,
+      "text": "Transport / परिवहन",
+      "width": 0
+    },
+    {
+      "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "height": 43.991268157958984,
+      "text": "कोई भी माध्यम",
+      "width": 122.43795776367188
+    },
+    {
+      "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "height": 43.991268157958984,
+      "text": "बस",
+      "width": 69.09466552734375
+    },
+    {
+      "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "height": 43.991268157958984,
+      "text": "मेट्रो",
+      "width": 70.59972381591797
+    },
+    {
+      "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "height": 43.991268157958984,
+      "text": "रेल (उपनगरीय)",
+      "width": 126.7807846069336
+    },
+    {
+      "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "height": 43.991268157958984,
+      "text": "MRTS",
+      "width": 88.05146789550781
+    },
+    {
+      "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "height": 43.991268157958984,
+      "text": "प्रकाशित रिकॉर्ड",
+      "width": 255.2849273681641
+    },
+    {
+      "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "height": 43.991268157958984,
+      "text": "नजदीकी मेट्रो",
+      "width": 255.2849273681641
+    },
+    {
+      "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "height": 43.991268157958984,
+      "text": "बस रूट के स्टॉप",
+      "width": 255.2849273681641
+    },
+    {
+      "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "height": 43.991268157958984,
+      "text": "प्रकाशित किराया",
+      "width": 255.2849273681641
+    }
+  ],
+  "height": 620,
+  "scrollWidth": 287,
+  "width": 287
+}

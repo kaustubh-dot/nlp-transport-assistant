@@ -1,0 +1,407 @@
+- banner:
+  - button:
+- button:
+- heading "Chennai Transit" [level=2]
+- paragraph: Kai bhashaon mein transport sahayak
+- heading "Apne shabdon mein poochhein" [level=3]
+- paragraph: English · हिन्दी · Hinglish
+- paragraph: Route, stop, published schedule, kiraya aur nazdeeki transport.
+- separator
+- heading "Published records ka snapshot" [level=3]
+- paragraph: Live updates nahi hain. Current service aur kiraya operator se confirm karein.
+- paragraph: Transfer, accessibility aur facility ki jaankari sirf source support hone par dikhai jaati hai.
+- generic: Chennai · Public transport
+- paragraph: Language / भाषा
+- radiogroup "Language / भाषा":
+  - radio "English"
+  - paragraph: English
+  - radio "हिंदी"
+  - paragraph: हिंदी
+  - radio "Hinglish" [checked]
+  - paragraph: Hinglish
+- heading "Chennai Multimodal Transit Sahayak" [level=1]: Chennai Multimodal Transit Sahayak
+- paragraph: Route, stop, schedule, kiraya ya nazdeeki transport ke baare mein poochhein.
+- radiogroup "Transport / परिवहन":
+  - radio "Koi bhi mode" [checked]
+  - paragraph: Koi bhi mode
+  - radio "Bus"
+  - paragraph: Bus
+  - radio "Metro"
+  - paragraph: Metro
+  - radio "Rail (suburban)"
+  - paragraph: Rail (suburban)
+  - radio "MRTS"
+  - paragraph: MRTS
+- button "Published records":
+  - paragraph: Published records
+- paragraph: Sawaal mein likha mode pehle maana jayega. Default hatane ke liye ‘Koi bhi mode’ chunein.
+- paragraph: Published snapshot · Live updates nahi · Current service operator se verify karein
+- generic "Chat message from user":
+  - paragraph: Vadapalani metro se Teynampet metro pahunchne ka tareeka samjha do yaar
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Requested transport mode se matching published topology available nahi hai.
+- generic "Chat message from user":
+  - paragraph: Mujhe Alandur se High Court sirf metro me jaana hai, kaise jaun?
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Requested transport mode se matching published topology available nahi hai.
+- generic "Chat message from user":
+  - paragraph: Broadway se Adyar bus se kaun sa raasta pakdu, ticket rate nahi pooch raha
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya batayein ki kaunsa stop ya location keh rahe hain.
+  - paragraph: Ek se zyada stop ya location match karte hain. Revised poore sawaal mein route number, transport mode ya exact stop name dein.
+- generic "Chat message from user":
+  - paragraph: Airport metro tk jana h, starting jagah main bhool gaya likhna
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Requested transport mode se matching published topology available nahi hai.
+- generic "Chat message from user":
+  - paragraph: Egmore metro se nikalunga; kidhar jana hai abhi nahi bataya, route help chahiye
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Snapshot mein confirmed interchange records nahi hain.
+- generic "Chat message from user":
+  - paragraph: Guindy se Chennai Central metro rasta dikha, change jitna kam ho utna better
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Snapshot mein confirmed interchange records nahi hain.
+- generic "Chat message from user":
+  - paragraph: Poonamallee Bus Terminus se CMBT ka bus rasta bta sakte ho?
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya batayein ki kaunsa stop ya location keh rahe hain.
+  - paragraph: Ek se zyada stop ya location match karte hain. Revised poore sawaal mein route number, transport mode ya exact stop name dein.
+- generic "Chat message from user":
+  - paragraph: Ashok Nagar metro se Saidapet metro jaane ka quickest route kya padega?
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Requested transport mode se matching published topology available nahi hai.
+- generic "Chat message from user":
+  - paragraph: Anna Nagar Tower metro se Airport jana hai via Alandur metro, poora route batana
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Requested transport mode se matching published topology available nahi hai.
+- generic "Chat message from user":
+  - paragraph: Nandanam metro se LIC metro direct hi jaana hai, interchange avoid karna
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Requested transport mode se matching published topology available nahi hai.
+- generic "Chat message from user":
+  - paragraph: Local train se Tambaram to Chennai Beach kaise niklu, pura safar bata do
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Requested transport mode se matching published topology available nahi hai.
+- generic "Chat message from user":
+  - paragraph: Thirumangalam metro se Nehru Park metro ka raasta chahiye, bus bilkul nahi
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya is sawaal ke liye ek transport mode chunein.
+  - paragraph: "Zaroori jaankari: transport mode"
+- generic "Chat message from user":
+  - paragraph: Tambaram se Anna Nagar jana h, pehle local fir metro ka combo batao
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Is snapshot mein confirmed cross-mode transfer graph available nahi hai.
+- generic "Chat message from user":
+  - paragraph: Velachery se High Court bus aur metro mila ke kaise pahuchu?
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya is sawaal ke liye ek transport mode chunein.
+  - paragraph: "Zaroori jaankari: transport mode"
+- generic "Chat message from user":
+  - paragraph: Avadi se Airport ka route chahiye local train plus metro me, steps me samjhao
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Is snapshot mein confirmed cross-mode transfer graph available nahi hai.
+- generic "Chat message from user":
+  - paragraph: Mylapore se Koyambedu bus se nikal kar metro change karu to kya journey banegi?
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Is snapshot mein confirmed cross-mode transfer graph available nahi hai.
+- generic "Chat message from user":
+  - paragraph: Bus aur metro dono use kar lunga, destination Teynampet hai; start kaha se bolna bhool gaya
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya is sawaal ke liye ek transport mode chunein.
+  - paragraph: "Zaroori jaankari: transport mode"
+- generic "Chat message from user":
+  - paragraph: Chromepet se bus+metro travel karna hai, destination likha hi nahi maine
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Is snapshot mein confirmed cross-mode transfer graph available nahi hai.
+- generic "Chat message from user":
+  - paragraph: Guindy se Washermenpet tak metro ke saath bus connect karke sabse sasta way?
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya is sawaal ke liye ek transport mode chunein.
+  - paragraph: "Zaroori jaankari: transport mode"
+- generic "Chat message from user":
+  - paragraph: Perambur se Chennai Airport local aur metro se jaana hai, Central hote hue
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Requested transport mode se matching published topology available nahi hai.
+- generic "Chat message from user":
+  - paragraph: Thiruvanmiyur se Egmore, MRTS utar ke bus lena chahta hu; travel chain bta
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Is snapshot mein confirmed cross-mode transfer graph available nahi hai.
+- generic "Chat message from user":
+  - paragraph: Bus se metro pakad ke Marina Beach jana h from Porur, shortest plan milega?
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Is snapshot mein confirmed cross-mode transfer graph available nahi hai.
+- generic "Chat message from user":
+  - paragraph: Sirf metro nahi, Ambattur se Saidapet bus bhi jodna padega; route explain karo
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Is snapshot mein confirmed cross-mode transfer graph available nahi hai.
+- generic "Chat message from user":
+  - paragraph: Kya tum local aur bus ka combined journey Chennai Beach se Madipakkam ke liye samjha sakte ho?
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Is snapshot mein confirmed cross-mode transfer graph available nahi hai.
+- generic "Chat message from user":
+  - paragraph: 570S bus ka start se end tk har stop naam order me likh do
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Us route ke liye mode-consistent published stop sequence available nahi hai.
+- generic "Chat message from user":
+  - paragraph: 21 G bus raste me konse-konse stops leti hai? bas poori list chahiye
+- generic "Chat message from assistant":
+  - paragraph: Prakashit jaankari
+  - paragraph: "21G ke stops: Alandur Court, Meeanambakkam International Airport, Thirusoolam National Airport, Pallavaram Or English Electrical, Pallavaram, Saravana Store Chromepet, Chromepet, Tambaram Tb Hospital, …. Published stop coverage partial hai; unusable links ya uncovered route variants chhode gaye hain. Service operation confirm nahi hai."
+  - heading "Route ke stops" [level=3]: Route ke stops
+  - generic "21G · published stop kram 1":
+    - paragraph: 21G · published stop kram 1
+  - generic "21G · published stop kram 2":
+    - paragraph: 21G · published stop kram 2
+  - generic "21G · published stop kram 3":
+    - paragraph: 21G · published stop kram 3
+  - paragraph: "Published coverage partial hai: kuch links ya route variants verify nahi ho sakte."
+  - paragraph: "Chhode gaye: 4 unusable links aur 4 route variants."
+  - paragraph: Snapshot se mili jaankari. Current service aur conditions operator se confirm karein.
+- generic "Chat message from user":
+  - paragraph: 102-A bus ke saare stoppage ek ek krke btao
+- generic "Chat message from assistant":
+  - paragraph: Prakashit jaankari
+  - paragraph: "102A ke stops: Thiruvanmiyur Bus Stand, Jayanthi Theatre, Tidel Park, Srp Tools, I G P, Kandanchavadi, Perungudi, Seevaram, …. Published stop sequences mile hain. Service operation confirm nahi hai."
+  - heading "Route ke stops" [level=3]: Route ke stops
+  - generic "102A · published stop kram 1":
+    - paragraph: 102A · published stop kram 1
+  - generic "102A · published stop kram 2":
+    - paragraph: 102A · published stop kram 2
+  - paragraph: Snapshot se mili jaankari. Current service aur conditions operator se confirm karein.
+- generic "Chat message from user":
+  - paragraph: Blue Line metro me stations ka sequence first se last kya hai?
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Requested transport mode se matching published topology available nahi hai.
+- generic "Chat message from user":
+  - paragraph: Green Line wali metro kahan kahan rukti h, station order bhejo
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Requested transport mode se matching published topology available nahi hai.
+- generic "Chat message from user":
+  - paragraph: Bus no 29C ke poore stop chain dikha do; kiraya nahi chahiye
+- generic "Chat message from assistant":
+  - paragraph: Prakashit jaankari
+  - paragraph: "29C ke stops: Vmc Street, Avm Rajeshwari Thirumana Mandapam, New Woodlands, Chola Hotel Or Music Academy, Stella Marys College, Semmozhi Poonga, M.O.P Vaishnava College, Taj Hotel Or Uthamar Gandhi Salai, …. Published stop coverage partial hai; unusable links ya uncovered route variants chhode gaye hain. Service operation confirm nahi hai."
+  - heading "Route ke stops" [level=3]: Route ke stops
+  - generic "29C · published stop kram 1":
+    - paragraph: 29C · published stop kram 1
+  - generic "29C · published stop kram 2":
+    - paragraph: 29C · published stop kram 2
+  - paragraph: "Published coverage partial hai: kuch links ya route variants verify nahi ho sakte."
+  - paragraph: "Chhode gaye: 0 unusable links aur 3 route variants."
+  - paragraph: Snapshot se mili jaankari. Current service aur conditions operator se confirm karein.
+- generic "Chat message from user":
+  - paragraph: M1 bus ka route-stop list nikal doge?
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Us route ke liye mode-consistent published stop sequence available nahi hai.
+- generic "Chat message from user":
+  - paragraph: १०२A bus kaha kaha rukti hai, ordered list chahiye mujhe
+- generic "Chat message from assistant":
+  - paragraph: Prakashit jaankari
+  - paragraph: "102A ke stops: Thiruvanmiyur Bus Stand, Jayanthi Theatre, Tidel Park, Srp Tools, I G P, Kandanchavadi, Perungudi, Seevaram, …. Published stop sequences mile hain. Service operation confirm nahi hai."
+  - heading "Route ke stops" [level=3]: Route ke stops
+  - generic "102A · published stop kram 1":
+    - paragraph: 102A · published stop kram 1
+  - generic "102A · published stop kram 2":
+    - paragraph: 102A · published stop kram 2
+  - paragraph: Snapshot se mili jaankari. Current service aur conditions operator se confirm karein.
+- generic "Chat message from user":
+  - paragraph: २५R ki stops wali list do, bus number Hindi digits me likha hai
+- generic "Chat message from assistant":
+  - paragraph: Prakashit jaankari
+  - paragraph: "25 R ke stops: Anna Square Bus Terminus one, Madras University, Marina Beach, Kannagi Statue Or Presidency College, Vivekananda House, Ice House Police Station, Meersahibpet Market, New College, …. Published stop sequences mile hain. Service operation confirm nahi hai."
+  - heading "Route ke stops" [level=3]: Route ke stops
+  - generic "25 R · published stop kram 1":
+    - paragraph: 25 R · published stop kram 1
+  - paragraph: Snapshot se mili jaankari. Current service aur conditions operator se confirm karein.
+- generic "Chat message from user":
+  - paragraph: Ek bus ka saara stops sequence jaana hai, number abhi mere paas nahi
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya route number ya line name bataein.
+  - paragraph: "Zaroori jaankari: route number ya line name"
+- generic "Chat message from user":
+  - paragraph: 102K# ka stop order kya hai? hash wala variant hi batana
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya route number ya line name bataein.
+  - paragraph: "Zaroori jaankari: route number ya line name"
+- generic "Chat message from user":
+  - paragraph: Bus route 27D me dono direction ke stop order alag hote to dono dikhao
+- generic "Chat message from assistant":
+  - paragraph: Prakashit jaankari
+  - paragraph: "27D ke stops: Ayanavaram Depot, Sayani Theatre Aynavaram, Noor Hotel, Joint Office, Railway Quarters, Kambar Arangam, Icf, Icf. Published stop sequences mile hain. Service operation confirm nahi hai."
+  - heading "Route ke stops" [level=3]: Route ke stops
+  - generic "27D · published stop kram 1":
+    - paragraph: 27D · published stop kram 1
+  - generic "27D · published stop kram 2":
+    - paragraph: 27D · published stop kram 2
+  - generic "27D · published stop kram 3":
+    - paragraph: 27D · published stop kram 3
+  - generic "27D · published stop kram 4":
+    - paragraph: 27D · published stop kram 4
+  - generic "27D · published stop kram 5":
+    - paragraph: 27D · published stop kram 5
+  - paragraph: Snapshot se mili jaankari. Current service aur conditions operator se confirm karein.
+- generic "Chat message from user":
+  - paragraph: 29C bus T Nagar par rukti hai ya bypass kar deti h?
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya stop bataein.
+  - paragraph: "Zaroori jaankari: stop"
+- generic "Chat message from user":
+  - paragraph: 21G bus me Guindy stop aata h kya bhai?
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya batayein ki kaunsa stop ya location keh rahe hain.
+  - paragraph: Ek se zyada stop ya location match karte hain. Revised poore sawaal mein route number, transport mode ya exact stop name dein.
+- generic "Chat message from user":
+  - paragraph: 102A me Adyar included hai ki nahi, sirf ye confirm karna
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya route number ya line name bataein.
+  - paragraph: "Zaroori jaankari: route number ya line name"
+- generic "Chat message from user":
+  - paragraph: 570 S bus Sholinganallur pe halt karti hai?
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Route ya stop canonical snapshot mein nahi hai.
+- generic "Chat message from user":
+  - paragraph: Green Line me Guindy station padta hai kya?
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Snapshot mein confirmed interchange records nahi hain.
+- generic "Chat message from user":
+  - paragraph: Blue Line ke stops me Egmore bhi hai kya?
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Us route ke liye mode-consistent published stop sequence available nahi hai.
+- generic "Chat message from user":
+  - paragraph: २१G bus Saidapet par rukti hai kya? Hindi digits ko bus number samjho
+- generic "Chat message from assistant":
+  - paragraph: Prakashit jaankari
+  - paragraph: "21G ke stops: Alandur Court, Meeanambakkam International Airport, Thirusoolam National Airport, Pallavaram Or English Electrical, Pallavaram, Saravana Store Chromepet, Chromepet, Tambaram Tb Hospital, …. Published stop coverage partial hai; unusable links ya uncovered route variants chhode gaye hain. Service operation confirm nahi hai."
+  - heading "Route ke stops" [level=3]: Route ke stops
+  - generic "21G · published stop kram 1":
+    - paragraph: 21G · published stop kram 1
+  - generic "21G · published stop kram 2":
+    - paragraph: 21G · published stop kram 2
+  - generic "21G · published stop kram 3":
+    - paragraph: 21G · published stop kram 3
+  - paragraph: "Published coverage partial hai: kuch links ya route variants verify nahi ho sakte."
+  - paragraph: "Chhode gaye: 4 unusable links aur 4 route variants."
+  - paragraph: Snapshot se mili jaankari. Current service aur conditions operator se confirm karein.
+- generic "Chat message from user":
+  - paragraph: १०२-C Thiruvanmiyur cover karti h kya?
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya route number ya line name bataein.
+  - paragraph: "Zaroori jaankari: route number ya line name"
+- generic "Chat message from user":
+  - paragraph: Guindy par ye bus rukti h kya, route number main abhi nahi de sakta
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya batayein ki kaunsa stop ya location keh rahe hain.
+  - paragraph: Ek se zyada stop ya location match karte hain. Revised poore sawaal mein route number, transport mode ya exact stop name dein.
+- generic "Chat message from user":
+  - paragraph: Bus 25R kisi stop par rukti hai kya? stop ka naam nahi likha maine
+- generic "Chat message from assistant":
+  - paragraph: Prakashit jaankari
+  - paragraph: "25 R ke stops: Anna Square Bus Terminus one, Madras University, Marina Beach, Kannagi Statue Or Presidency College, Vivekananda House, Ice House Police Station, Meersahibpet Market, New College, …. Published stop sequences mile hain. Service operation confirm nahi hai."
+  - heading "Route ke stops" [level=3]: Route ke stops
+  - generic "25 R · published stop kram 1":
+    - paragraph: 25 R · published stop kram 1
+  - paragraph: Snapshot se mili jaankari. Current service aur conditions operator se confirm karein.
+- generic "Chat message from user":
+  - paragraph: 27D Ashok Pillar se guzarti hai? timing nahi, stop confirm chahiye
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya batayein ki kaunsa stop ya location keh rahe hain.
+  - paragraph: Ek se zyada stop ya location match karte hain. Revised poore sawaal mein route number, transport mode ya exact stop name dein.
+- generic "Chat message from user":
+  - paragraph: 102K# Kannagi Nagar pe rukne wali variant hai na, stop record check karo
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya route number ya line name bataein.
+  - paragraph: "Zaroori jaankari: route number ya line name"
+- generic "Chat message from user":
+  - paragraph: Guindy metro se roz sabse pehli train kitne baje nikalti hai?
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Requested transport mode se matching published schedule available nahi hai.
+- generic "Chat message from user":
+  - paragraph: Poonamallee Bus Terminus se 25R ki aakhri bus ka schedule time?
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Is stop ke liye mode-consistent published departures nahi mile.
+- textbox "Ask / पूछें / Pooch" [active]
+- button [disabled]:

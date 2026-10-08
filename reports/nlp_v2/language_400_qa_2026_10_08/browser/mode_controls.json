@@ -1,0 +1,48 @@
+[
+  {
+    "selected": "Bus",
+    "query": "Which is the nearest station to Marina Beach?",
+    "visible_user": "Which is the nearest station to Marina Beach?\n\nDefault mode: bus",
+    "visible_answer": "Published information\n\nNearest by straight line: Kannagi Statue Or Presidency College (277 m). Nearest by straight-line distance only; walking access is not verified.\n\nNearest by straight line\n\nWalking access and current operation are not verified.\n\nSnapshot-derived information. Verify current service and conditions with the operator."
+  },
+  {
+    "selected": "Metro",
+    "query": "Which is the nearest station to Marina Beach?",
+    "visible_user": "Which is the nearest station to Marina Beach?\n\nDefault mode: metro",
+    "visible_answer": "Published information\n\nNearest by straight line: Lighthouse Metro (1121 m). Nearest by straight-line distance only; walking access is not verified.\n\nNearest by straight line\n\nWalking access and current operation are not verified.\n\nSnapshot-derived information. Verify current service and conditions with the operator.",
+    "expected_reply": null,
+    "question_preserved": true,
+    "localized_reply_match": null,
+    "timestamp_utc": "2026-10-08T11:23:13.099Z"
+  },
+  {
+    "selected": "Rail (suburban)",
+    "query": "Which is the nearest station to Marina Beach?",
+    "visible_user": "Which is the nearest station to Marina Beach?\n\nDefault mode: suburban rail",
+    "visible_answer": "Published information\n\nNearest by straight line: Thiruvallikeni (409 m). Nearest by straight-line distance only; walking access is not verified.\n\nNearest by straight line\n\nWalking access and current operation are not verified.\n\nSnapshot-derived information. Verify current service and conditions with the operator.",
+    "expected_reply": null,
+    "question_preserved": true,
+    "localized_reply_match": null,
+    "timestamp_utc": "2026-10-08T11:23:14.155Z"
+  },
+  {
+    "selected": "MRTS",
+    "query": "Which is the nearest station to Marina Beach?",
+    "visible_user": "Which is the nearest station to Marina Beach?\n\nDefault mode: mrts",
+    "visible_answer": "Published information\n\nNearest by straight line: Chepauk (994 m). Nearest by straight-line distance only; walking access is not verified.\n\nNearest by straight line\n\nWalking access and current operation are not verified.\n\nSnapshot-derived information. Verify current service and conditions with the operator.",
+    "expected_reply": null,
+    "question_preserved": true,
+    "localized_reply_match": null,
+    "timestamp_utc": "2026-10-08T11:23:15.397Z"
+  },
+  {
+    "selected": "MRTS",
+    "query": "Nearest bus stop to Marina Beach",
+    "visible_user": "Nearest bus stop to Marina Beach\n\nDefault mode: mrts",
+    "visible_answer": "Published information\n\nNearest by straight line: Kannagi Statue Or Presidency College (277 m). Nearest by straight-line distance only; walking access is not verified.\n\nNearest by straight line\n\nWalking access and current operation are not verified.\n\nSnapshot-derived information. Verify current service and conditions with the operator.",
+    "expected_reply": null,
+    "question_preserved": true,
+    "localized_reply_match": null,
+    "timestamp_utc": "2026-10-08T11:23:16.226Z"
+  }
+]

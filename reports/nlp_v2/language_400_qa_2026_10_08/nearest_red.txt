@@ -1,0 +1,25 @@
+F.                                                                       [100%]
+=================================== FAILURES ===================================
+_______________ test_nearest_bus_target_is_not_an_anchor_entity ________________
+
+canonical_db = '/tmp/pytest-of-kaustubh/pytest-235/test_nearest_bus_target_is_not0/canonical.db'
+
+    def test_nearest_bus_target_is_not_an_anchor_entity(canonical_db):
+        from src.nlp_v2.entities import CanonicalResolver
+        from src.nlp_v2.slots import T3SlotExtractor
+    
+        with sqlite3.connect(canonical_db) as conn:
+            conn.execute("INSERT INTO transport_stops VALUES ('BUS_GENERIC', 'Bus Stop', 'bus')")
+            conn.execute("INSERT INTO transport_stops VALUES ('METRO_CEDAR', 'Cedar Metro Quay', 'metro')")
+        result = T3SlotExtractor(CanonicalResolver(canonical_db)).extract(
+            'nearest bus stop near Cedar Metro Quay', 'nearest_transport', default_transport_mode='mrts')
+>       assert result.slots['transport_mode'] == 'bus'
+E       AssertionError: assert 'mrts' == 'bus'
+E         
+E         - bus
+E         + mrts
+
+tests/test_t3_slots.py:124: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_t3_slots.py::test_nearest_bus_target_is_not_an_anchor_entity
+1 failed, 1 passed, 77 deselected in 0.17s

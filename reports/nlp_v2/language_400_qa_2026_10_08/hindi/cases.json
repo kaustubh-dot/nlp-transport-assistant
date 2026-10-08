@@ -1,0 +1,2120 @@
+[
+  {
+    "id": "HI200_001",
+    "query": "सैदापेट से नंदनम तक मेट्रो पकड़कर पहुँचने का रास्ता समझा दीजिए।",
+    "expected_intent": "point_to_point_route",
+    "expected_operation": "PLAN_ROUTE",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "native_places",
+    "expected_behavior": "Plan a directionally valid metro journey; give only published route evidence."
+  },
+  {
+    "id": "HI200_002",
+    "query": "ब्रॉडवे से अडयार बस में जाना है; कहाँ चढ़ूँ, कहाँ उतरूँ?",
+    "expected_intent": "point_to_point_route",
+    "expected_operation": "PLAN_ROUTE",
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "colloquial",
+    "expected_behavior": "Recognize a bus journey request and preserve both endpoints; clarify unresolved locations."
+  },
+  {
+    "id": "HI200_003",
+    "query": "चेन्नई बीच से तिरुवान्मियूर एमआरटीएस लेकर कैसे पहुँचूँ?",
+    "expected_intent": "point_to_point_route",
+    "expected_operation": "PLAN_ROUTE",
+    "expected_slots": {
+      "transport_mode": "mrts"
+    },
+    "test_type": "mode_qualified",
+    "expected_behavior": "Route using MRTS only, or state that a published directional route is unavailable."
+  },
+  {
+    "id": "HI200_004",
+    "query": "गिंडी से चेन्नई हवाई अड्डे तक मेट्रो वाला रास्ता बताइए, जल्दी में हूँ।",
+    "expected_intent": "point_to_point_route",
+    "expected_operation": "PLAN_ROUTE",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "native_wording",
+    "expected_behavior": "Recognize metro journey planning, without inventing optimized travel time."
+  },
+  {
+    "id": "HI200_005",
+    "query": "अन्ना नगर से कोयम्बेडु जाने का सीधा बस मार्ग चाहिए।",
+    "expected_intent": "point_to_point_route",
+    "expected_operation": "PLAN_ROUTE",
+    "expected_slots": {
+      "transport_mode": "bus",
+      "preference": "direct_only"
+    },
+    "test_type": "direct_preference",
+    "expected_behavior": "Preserve direct bus preference; state any optimization/data limit rather than inventing a connection."
+  },
+  {
+    "id": "HI200_006",
+    "query": "ताम्बरम से चेन्नई बीच उपनगरीय रेल में सफर कैसे करूँ?",
+    "expected_intent": "point_to_point_route",
+    "expected_operation": "PLAN_ROUTE",
+    "expected_slots": {
+      "transport_mode": "suburban_rail"
+    },
+    "test_type": "native_mode_name",
+    "expected_behavior": "Recognize suburban rail journey planning; do not substitute metro routes."
+  },
+  {
+    "id": "HI200_007",
+    "query": "एग्मोर से वडपलनी पहुँचने की राह बता दो, भैया।",
+    "expected_intent": "point_to_point_route",
+    "expected_operation": "PLAN_ROUTE",
+    "expected_slots": {},
+    "test_type": "colloquial",
+    "expected_behavior": "Recognize an open point-to-point journey; preserve endpoints without choosing an arbitrary station."
+  },
+  {
+    "id": "HI200_008",
+    "query": "मुझे मेट्रो से आलंदूर पहुँचना है।",
+    "expected_intent": "point_to_point_route",
+    "expected_operation": null,
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "missing_origin",
+    "expected_behavior": "Ask where the journey starts, without fabricating an origin."
+  },
+  {
+    "id": "HI200_009",
+    "query": "मेट्रो में गिंडी से निकलूँगा; आगे कैसे जाऊँ?",
+    "expected_intent": "point_to_point_route",
+    "expected_operation": null,
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "missing_destination",
+    "expected_behavior": "Ask for destination; do not make up the intended destination."
+  },
+  {
+    "id": "HI200_010",
+    "query": "ब्रॉडवे से मरीना बीच तक कम से कम खर्च वाले सार्वजनिक रास्ते की जानकारी चाहिए।",
+    "expected_intent": "point_to_point_route",
+    "expected_operation": "PLAN_ROUTE",
+    "expected_slots": {
+      "preference": "cheapest"
+    },
+    "test_type": "optimization",
+    "expected_behavior": "Recognize journey planning with cheapest preference; disclose unsupported optimization."
+  },
+  {
+    "id": "HI200_011",
+    "query": "सेंट्रल से हवाई अड्डा: मेट्रो से पहुँचने का मार्ग, कृपया!",
+    "expected_intent": "point_to_point_route",
+    "expected_operation": "PLAN_ROUTE",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "punctuation",
+    "expected_behavior": "Treat colon/comma as punctuation; preserve metro and both endpoints."
+  },
+  {
+    "id": "HI200_012",
+    "query": "गिंडी से नंदनम मेट्रो से पहुँचने का रास्ता चाहिए, किराया नहीं पूछ रहा।",
+    "expected_intent": "point_to_point_route",
+    "expected_operation": "PLAN_ROUTE",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "negated_goal",
+    "expected_behavior": "Answer only route planning; negated fare is not a second goal."
+  },
+  {
+    "id": "HI200_013",
+    "query": "ताम्बरम से अन्ना नगर तक पहले लोकल रेल, फिर मेट्रो लेकर पूरा सफर कैसे बनेगा?",
+    "expected_intent": "multimodal_route",
+    "expected_operation": "PLAN_MULTIMODAL_ROUTE",
+    "expected_slots": {},
+    "test_type": "explicit_mode_sequence",
+    "expected_behavior": "Recognize cross-mode planning; refuse unsupported cross-mode graph rather than presenting a single-mode plan."
+  },
+  {
+    "id": "HI200_014",
+    "query": "कोयम्बेडु से तिरुवान्मियूर जाना है, बस और मेट्रो मिलाकर रास्ता बनाइए।",
+    "expected_intent": "multimodal_route",
+    "expected_operation": "PLAN_MULTIMODAL_ROUTE",
+    "expected_slots": {},
+    "test_type": "mixed_modes",
+    "expected_behavior": "Use multimodal family and disclose missing verified transfer graph."
+  },
+  {
+    "id": "HI200_015",
+    "query": "अडयार से हवाई अड्डे के लिए बस से मेट्रो जोड़कर यात्रा सुझा दो।",
+    "expected_intent": "multimodal_route",
+    "expected_operation": "PLAN_MULTIMODAL_ROUTE",
+    "expected_slots": {},
+    "test_type": "native_places",
+    "expected_behavior": "Recognize a combined bus-plus-metro itinerary; state source limitation."
+  },
+  {
+    "id": "HI200_016",
+    "query": "चेन्नई बीच से वडपलनी रेल बदलकर मेट्रो पकड़ूँ तो पूरा मार्ग क्या होगा?",
+    "expected_intent": "multimodal_route",
+    "expected_operation": "PLAN_MULTIMODAL_ROUTE",
+    "expected_slots": {},
+    "test_type": "colloquial",
+    "expected_behavior": "Recognize a full mixed-mode itinerary rather than only station interchange information."
+  },
+  {
+    "id": "HI200_017",
+    "query": "पेरम्बूर से गिंडी तक लोकल ट्रेन और बस दोनों का उपयोग करके पहुँचाना है।",
+    "expected_intent": "multimodal_route",
+    "expected_operation": "PLAN_MULTIMODAL_ROUTE",
+    "expected_slots": {},
+    "test_type": "mode_pair",
+    "expected_behavior": "Keep the combined suburban rail and bus journey goal; no fabricated transfer routing."
+  },
+  {
+    "id": "HI200_018",
+    "query": "मरीना बीच से कोयम्बेडु तक एमआरटीएस और बस की जोड़ वाली यात्रा बताइए।",
+    "expected_intent": "multimodal_route",
+    "expected_operation": "PLAN_MULTIMODAL_ROUTE",
+    "expected_slots": {},
+    "test_type": "native_mode_wording",
+    "expected_behavior": "Classify combined MRTS/bus planning and state verified graph limitation."
+  },
+  {
+    "id": "HI200_019",
+    "query": "ब्रॉडवे से शोलिंगनल्लूर तक बस-मेट्रो-बस में कहाँ-कहाँ बदलूँ?",
+    "expected_intent": "multimodal_route",
+    "expected_operation": "PLAN_MULTIMODAL_ROUTE",
+    "expected_slots": {},
+    "test_type": "three_leg_sequence",
+    "expected_behavior": "Recognize multi-leg multimodal route planning; do not invent transfer points."
+  },
+  {
+    "id": "HI200_020",
+    "query": "गिंडी से चेन्नई बीच तक बस के बाद उपनगरीय रेल वाली योजना चाहिए।",
+    "expected_intent": "multimodal_route",
+    "expected_operation": "PLAN_MULTIMODAL_ROUTE",
+    "expected_slots": {},
+    "test_type": "ordered_modes",
+    "expected_behavior": "Retain bus-then-suburban-rail journey intent and source limits."
+  },
+  {
+    "id": "HI200_021",
+    "query": "सेंट्रल से आईआईटी मद्रास तक मेट्रो और बस जोड़कर पूरा रास्ता समझाओ।",
+    "expected_intent": "multimodal_route",
+    "expected_operation": "PLAN_MULTIMODAL_ROUTE",
+    "expected_slots": {},
+    "test_type": "landmark_destination",
+    "expected_behavior": "Recognize mixed-mode route to a landmark; clarify unresolved landmark or disclose routing limitation."
+  },
+  {
+    "id": "HI200_022",
+    "query": "अन्ना नगर से ताम्बरम पहुँचने में मेट्रो के साथ लोकल ट्रेन भी जोड़ सकते हैं; यात्रा बनाइए।",
+    "expected_intent": "multimodal_route",
+    "expected_operation": "PLAN_MULTIMODAL_ROUTE",
+    "expected_slots": {},
+    "test_type": "permissive_mixed_mode",
+    "expected_behavior": "Recognize explicit combined itinerary request, not yes/no mode availability."
+  },
+  {
+    "id": "HI200_023",
+    "query": "बस और मेट्रो मिलाकर गिंडी पहुँचना है, रास्ता कहाँ से शुरू करूँ यह अभी नहीं बताया।",
+    "expected_intent": "multimodal_route",
+    "expected_operation": null,
+    "expected_slots": {},
+    "test_type": "missing_origin",
+    "expected_behavior": "Ask for origin or explicitly disclose absent verified multimodal graph; never invent an origin."
+  },
+  {
+    "id": "HI200_024",
+    "query": "कोयम्बेडु से एमआरटीएस जोड़कर बस में आगे जाना है; अभी मंजिल तय नहीं है।",
+    "expected_intent": "multimodal_route",
+    "expected_operation": null,
+    "expected_slots": {},
+    "test_type": "missing_destination",
+    "expected_behavior": "Ask destination or disclose absent cross-mode graph; no invented itinerary."
+  },
+  {
+    "id": "HI200_025",
+    "query": "बस रूट २१जी के शुरू से आखिर तक सारे पड़ाव क्रम में लिखिए।",
+    "expected_intent": "route_stop_sequence",
+    "expected_operation": "LIST_ROUTE_STOPS",
+    "expected_slots": {
+      "route_number": "21G",
+      "transport_mode": "bus"
+    },
+    "test_type": "devanagari_route",
+    "expected_behavior": "List published ordered stops for full route code 21G; never drop suffix."
+  },
+  {
+    "id": "HI200_026",
+    "query": "१०२ए बस किन-किन ठहरावों से होकर निकलती है? पूरी सूची चाहिए।",
+    "expected_intent": "route_stop_sequence",
+    "expected_operation": "LIST_ROUTE_STOPS",
+    "expected_slots": {
+      "route_number": "102A",
+      "transport_mode": "bus"
+    },
+    "test_type": "devanagari_suffix",
+    "expected_behavior": "Recognize complete stop sequence request for 102A, not one-stop membership."
+  },
+  {
+    "id": "HI200_027",
+    "query": "रूट ५७० में पहला पड़ाव कौन सा है और उसके बाद सारे पड़ाव किस क्रम में आते हैं?",
+    "expected_intent": "route_stop_sequence",
+    "expected_operation": "LIST_ROUTE_STOPS",
+    "expected_slots": {
+      "route_number": "570"
+    },
+    "test_type": "first_stop_contrast",
+    "expected_behavior": "Recognize stop ordering rather than first service departure."
+  },
+  {
+    "id": "HI200_028",
+    "query": "नीली लाइन के स्टेशनों का सिलसिला बताइए।",
+    "expected_intent": "route_stop_sequence",
+    "expected_operation": "LIST_ROUTE_STOPS",
+    "expected_slots": {
+      "line_name": "Blue Line"
+    },
+    "test_type": "native_line",
+    "expected_behavior": "List published Blue Line station sequence, or state missing published sequence."
+  },
+  {
+    "id": "HI200_029",
+    "query": "हरी मेट्रो लाइन पर एक स्टेशन के बाद कौन सा स्टेशन पड़ता है, पूरा क्रम बताओ।",
+    "expected_intent": "route_stop_sequence",
+    "expected_operation": "LIST_ROUTE_STOPS",
+    "expected_slots": {
+      "line_name": "Green Line",
+      "transport_mode": "metro"
+    },
+    "test_type": "native_line",
+    "expected_behavior": "Recognize Green Line station sequence."
+  },
+  {
+    "id": "HI200_030",
+    "query": "बस नंबर २७डी के रास्ते के सभी स्टॉप दिखाइए; सिर्फ आखिरी स्टॉप नहीं।",
+    "expected_intent": "route_stop_sequence",
+    "expected_operation": "LIST_ROUTE_STOPS",
+    "expected_slots": {
+      "route_number": "27D",
+      "transport_mode": "bus"
+    },
+    "test_type": "negation",
+    "expected_behavior": "List the whole 27D sequence; do not mistake last-stop wording for last service."
+  },
+  {
+    "id": "HI200_031",
+    "query": "मुझे १०२ के पड़ावों की सूची चाहिए, १०२ए की नहीं।",
+    "expected_intent": "route_stop_sequence",
+    "expected_operation": "LIST_ROUTE_STOPS",
+    "expected_slots": {
+      "route_number": "102"
+    },
+    "test_type": "negated_route",
+    "expected_behavior": "Honor only route 102; negated 102A is not an additional execution scope."
+  },
+  {
+    "id": "HI200_032",
+    "query": "रूट ४७ए — रुकने की जगहें एक-एक करके, कृपया।",
+    "expected_intent": "route_stop_sequence",
+    "expected_operation": "LIST_ROUTE_STOPS",
+    "expected_slots": {
+      "route_number": "47A"
+    },
+    "test_type": "punctuation",
+    "expected_behavior": "Recognize ordered stops for 47A and preserve suffix."
+  },
+  {
+    "id": "HI200_033",
+    "query": "एमआरटीएस लाइन के सभी स्टेशन यात्रा के क्रम में बता सकते हो?",
+    "expected_intent": "route_stop_sequence",
+    "expected_operation": "LIST_ROUTE_STOPS",
+    "expected_slots": {
+      "line_name": "MRTS",
+      "transport_mode": "mrts"
+    },
+    "test_type": "mrts_sequence",
+    "expected_behavior": "List a published MRTS sequence or give an explicit data limit."
+  },
+  {
+    "id": "HI200_034",
+    "query": "इस बस के पूरे रास्ते के पड़ाव बता दो।",
+    "expected_intent": "route_stop_sequence",
+    "expected_operation": null,
+    "expected_slots": {},
+    "test_type": "missing_route",
+    "expected_behavior": "Ask route number or line; do not guess this bus."
+  },
+  {
+    "id": "HI200_035",
+    "query": "बस रूट २१ जी कहाँ-कहाँ रुकता है? सूची बनाओ।",
+    "expected_intent": "route_stop_sequence",
+    "expected_operation": "LIST_ROUTE_STOPS",
+    "expected_slots": {
+      "route_number": "21G",
+      "transport_mode": "bus"
+    },
+    "test_type": "spaced_suffix",
+    "expected_behavior": "Normalize २१ जी to route 21G without losing suffix."
+  },
+  {
+    "id": "HI200_036",
+    "query": "१०२के# बस के हर पड़ाव का क्रम देखना है।",
+    "expected_intent": "route_stop_sequence",
+    "expected_operation": "LIST_ROUTE_STOPS",
+    "expected_slots": {
+      "route_number": "102K#",
+      "transport_mode": "bus"
+    },
+    "test_type": "route_variant",
+    "expected_behavior": "Preserve complete operational variant 102K# and list its own sequence."
+  },
+  {
+    "id": "HI200_037",
+    "query": "क्या २१जी बस सैदापेट के स्टॉप पर ठहरती है?",
+    "expected_intent": "route_stop_membership",
+    "expected_operation": "CHECK_STOP_ON_ROUTE",
+    "expected_slots": {
+      "route_number": "21G",
+      "transport_mode": "bus"
+    },
+    "test_type": "devanagari_route",
+    "expected_behavior": "Check a particular stop on route 21G using published sequence, not plan a journey."
+  },
+  {
+    "id": "HI200_038",
+    "query": "१०२ए में अडयार वाला पड़ाव शामिल है या नहीं?",
+    "expected_intent": "route_stop_membership",
+    "expected_operation": "CHECK_STOP_ON_ROUTE",
+    "expected_slots": {
+      "route_number": "102A"
+    },
+    "test_type": "membership_wording",
+    "expected_behavior": "Check membership for route 102A; do not infer absent service from incomplete coverage."
+  },
+  {
+    "id": "HI200_039",
+    "query": "गिंडी मेट्रो स्टेशन नीली लाइन में आता है क्या?",
+    "expected_intent": "route_stop_membership",
+    "expected_operation": "CHECK_STOP_ON_ROUTE",
+    "expected_slots": {
+      "line_name": "Blue Line",
+      "transport_mode": "metro"
+    },
+    "test_type": "native_line",
+    "expected_behavior": "Check Guindy metro membership of Blue Line, without turning it into journey planning."
+  },
+  {
+    "id": "HI200_040",
+    "query": "एग्मोर हरी लाइन का स्टेशन है? सिर्फ हाँ या नहीं की पुष्टि चाहिए।",
+    "expected_intent": "route_stop_membership",
+    "expected_operation": "CHECK_STOP_ON_ROUTE",
+    "expected_slots": {
+      "line_name": "Green Line"
+    },
+    "test_type": "yes_no",
+    "expected_behavior": "Check Green Line station membership using evidence."
+  },
+  {
+    "id": "HI200_041",
+    "query": "बस ५७० से शोलिंगनल्लूर पर उतर सकते हैं, यह स्टॉप उस रूट पर है?",
+    "expected_intent": "route_stop_membership",
+    "expected_operation": "CHECK_STOP_ON_ROUTE",
+    "expected_slots": {
+      "route_number": "570",
+      "transport_mode": "bus"
+    },
+    "test_type": "colloquial",
+    "expected_behavior": "Recognize one-stop route membership for 570."
+  },
+  {
+    "id": "HI200_042",
+    "query": "रूट २७डी वडपलनी में नहीं रुकता क्या?",
+    "expected_intent": "route_stop_membership",
+    "expected_operation": "CHECK_STOP_ON_ROUTE",
+    "expected_slots": {
+      "route_number": "27D"
+    },
+    "test_type": "negative_question",
+    "expected_behavior": "Answer stop membership honestly; negative question must not imply a negative fact."
+  },
+  {
+    "id": "HI200_043",
+    "query": "तिरुवान्मियूर एमआरटीएस लाइन के स्टेशनों में गिना जाता है?",
+    "expected_intent": "route_stop_membership",
+    "expected_operation": "CHECK_STOP_ON_ROUTE",
+    "expected_slots": {
+      "line_name": "MRTS",
+      "transport_mode": "mrts"
+    },
+    "test_type": "native_membership",
+    "expected_behavior": "Check named MRTS station membership."
+  },
+  {
+    "id": "HI200_044",
+    "query": "१०२के# में कन्नगी नगर वाला ठहराव है या किसी दूसरी बस में?",
+    "expected_intent": "route_stop_membership",
+    "expected_operation": "CHECK_STOP_ON_ROUTE",
+    "expected_slots": {
+      "route_number": "102K#"
+    },
+    "test_type": "route_suffix",
+    "expected_behavior": "Check complete route variant 102K# and named stop, preserving suffix."
+  },
+  {
+    "id": "HI200_045",
+    "query": "४७ए बस अन्ना नगर पर रुकती है; इसकी पुष्टि कर दो।",
+    "expected_intent": "route_stop_membership",
+    "expected_operation": "CHECK_STOP_ON_ROUTE",
+    "expected_slots": {
+      "route_number": "47A",
+      "transport_mode": "bus"
+    },
+    "test_type": "assertion_confirmation",
+    "expected_behavior": "Treat assertion with confirmation request as membership, not an established fact."
+  },
+  {
+    "id": "HI200_046",
+    "query": "इस रूट में ताम्बरम वाला स्टॉप आता है क्या?",
+    "expected_intent": "route_stop_membership",
+    "expected_operation": null,
+    "expected_slots": {},
+    "test_type": "missing_route",
+    "expected_behavior": "Ask route number or line; do not guess the referenced route."
+  },
+  {
+    "id": "HI200_047",
+    "query": "२१जी पर यह जगह पड़ती है क्या?",
+    "expected_intent": "route_stop_membership",
+    "expected_operation": null,
+    "expected_slots": {
+      "route_number": "21G"
+    },
+    "test_type": "missing_stop",
+    "expected_behavior": "Ask which stop/location; do not fabricate one."
+  },
+  {
+    "id": "HI200_048",
+    "query": "१०२ बस अडयार पर रुकती है? किराया नहीं चाहिए।",
+    "expected_intent": "route_stop_membership",
+    "expected_operation": "CHECK_STOP_ON_ROUTE",
+    "expected_slots": {
+      "route_number": "102",
+      "transport_mode": "bus"
+    },
+    "test_type": "negated_fare",
+    "expected_behavior": "Handle membership only; ignored negated fare mention must not trigger multi-goal clarification."
+  },
+  {
+    "id": "HI200_049",
+    "query": "गिंडी मेट्रो से दिन की सबसे पहली गाड़ी कब निकलती है?",
+    "expected_intent": "first_and_last_service",
+    "expected_operation": "GET_FIRST_LAST_SERVICE",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "timing_type": "first"
+    },
+    "test_type": "native_first",
+    "expected_behavior": "Return a published first-service time with source limits, or explicit missing schedule."
+  },
+  {
+    "id": "HI200_050",
+    "query": "वडपलनी मेट्रो की आखिरी रात वाली सेवा कितने बजे छूटती है?",
+    "expected_intent": "first_and_last_service",
+    "expected_operation": "GET_FIRST_LAST_SERVICE",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "timing_type": "last"
+    },
+    "test_type": "native_last",
+    "expected_behavior": "Recognize last service, not live status; disclose schedule coverage limits."
+  },
+  {
+    "id": "HI200_051",
+    "query": "ताम्बरम से चेन्नई बीच जाने वाली लोकल रेल का पहला फेरा बताइए।",
+    "expected_intent": "first_and_last_service",
+    "expected_operation": "GET_FIRST_LAST_SERVICE",
+    "expected_slots": {
+      "transport_mode": "suburban_rail",
+      "timing_type": "first"
+    },
+    "test_type": "native_first",
+    "expected_behavior": "Preserve suburban direction and first-service goal."
+  },
+  {
+    "id": "HI200_052",
+    "query": "ब्रॉडवे से २१जी बस की अंतिम रवाना होने की घड़ी क्या है?",
+    "expected_intent": "first_and_last_service",
+    "expected_operation": "GET_FIRST_LAST_SERVICE",
+    "expected_slots": {
+      "route_number": "21G",
+      "transport_mode": "bus",
+      "timing_type": "last"
+    },
+    "test_type": "native_last",
+    "expected_behavior": "Use bus route 21G and boarding stop for published last service."
+  },
+  {
+    "id": "HI200_053",
+    "query": "सेंट्रल मेट्रो पर पहली और आखिरी ट्रेन का समय एक साथ चाहिए।",
+    "expected_intent": "first_and_last_service",
+    "expected_operation": "GET_FIRST_LAST_SERVICE",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "combined_extrema",
+    "expected_behavior": "First and last are one timing goal, not multiple unrelated goals."
+  },
+  {
+    "id": "HI200_054",
+    "query": "नीली लाइन की हवाई अड्डा मेट्रो से सुबह सबसे पहले निकलने वाली सेवा बताओ।",
+    "expected_intent": "first_and_last_service",
+    "expected_operation": "GET_FIRST_LAST_SERVICE",
+    "expected_slots": {
+      "line_name": "Blue Line",
+      "transport_mode": "metro",
+      "timing_type": "first"
+    },
+    "test_type": "line_and_station",
+    "expected_behavior": "Recognize first departure from Airport on Blue Line."
+  },
+  {
+    "id": "HI200_055",
+    "query": "आलंदूर से अंतिम मेट्रो कब मिलती है, देर हो जाए तो जानना है।",
+    "expected_intent": "first_and_last_service",
+    "expected_operation": "GET_FIRST_LAST_SERVICE",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "timing_type": "last"
+    },
+    "test_type": "colloquial_last",
+    "expected_behavior": "Recognize last scheduled metro service; no live availability claim."
+  },
+  {
+    "id": "HI200_056",
+    "query": "चेन्नई बीच स्टेशन से एमआरटीएस की दिन की शुरुआती ट्रेन का वक्त चाहिए।",
+    "expected_intent": "first_and_last_service",
+    "expected_operation": "GET_FIRST_LAST_SERVICE",
+    "expected_slots": {
+      "transport_mode": "mrts",
+      "timing_type": "first"
+    },
+    "test_type": "native_mode",
+    "expected_behavior": "Use MRTS first-service goal; state any absence of published timetable."
+  },
+  {
+    "id": "HI200_057",
+    "query": "बस रूट ५७० का गिंडी से आखिरी फेरा किस समय छूटता है?",
+    "expected_intent": "first_and_last_service",
+    "expected_operation": "GET_FIRST_LAST_SERVICE",
+    "expected_slots": {
+      "route_number": "570",
+      "transport_mode": "bus",
+      "timing_type": "last"
+    },
+    "test_type": "route_and_stop",
+    "expected_behavior": "Keep specific bus route and boarding stop, avoiding route stop sequence confusion."
+  },
+  {
+    "id": "HI200_058",
+    "query": "पहली बस का समय बता दो।",
+    "expected_intent": "first_and_last_service",
+    "expected_operation": null,
+    "expected_slots": {
+      "transport_mode": "bus",
+      "timing_type": "first"
+    },
+    "test_type": "missing_boarding_stop",
+    "expected_behavior": "Ask boarding stop/station and enough service context; do not guess."
+  },
+  {
+    "id": "HI200_059",
+    "query": "ताम्बरम से रविवार की आखिरी उपनगरीय रेल कब रवाना होती है?",
+    "expected_intent": "first_and_last_service",
+    "expected_operation": "GET_FIRST_LAST_SERVICE",
+    "expected_slots": {
+      "transport_mode": "suburban_rail",
+      "timing_type": "last"
+    },
+    "test_type": "date_scope",
+    "expected_behavior": "Use explicit Sunday service scope if supported; otherwise explain date/calendar limitation."
+  },
+  {
+    "id": "HI200_060",
+    "query": "गिंडी मेट्रो की आखिरी ट्रेन बताइए, उसके आखिरी स्टेशन की सूची नहीं।",
+    "expected_intent": "first_and_last_service",
+    "expected_operation": "GET_FIRST_LAST_SERVICE",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "timing_type": "last"
+    },
+    "test_type": "last_service_contrast",
+    "expected_behavior": "Answer last departure goal only; negated stop list is not another request."
+  },
+  {
+    "id": "HI200_061",
+    "query": "गिंडी मेट्रो पर नीली लाइन की दो गाड़ियों के बीच कितना अंतर रहता है?",
+    "expected_intent": "service_frequency",
+    "expected_operation": "GET_SERVICE_FREQUENCY",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "line_name": "Blue Line",
+      "timing_type": "frequency"
+    },
+    "test_type": "native_headway",
+    "expected_behavior": "Recognize route-specific scheduled headway; no live frequency claim."
+  },
+  {
+    "id": "HI200_062",
+    "query": "ब्रॉडवे से २१जी बस कितनी-कितनी देर में मिलती है?",
+    "expected_intent": "service_frequency",
+    "expected_operation": "GET_SERVICE_FREQUENCY",
+    "expected_slots": {
+      "route_number": "21G",
+      "transport_mode": "bus",
+      "timing_type": "frequency"
+    },
+    "test_type": "colloquial_headway",
+    "expected_behavior": "Use published route-specific bus departures for headway or disclose insufficiency."
+  },
+  {
+    "id": "HI200_063",
+    "query": "ताम्बरम से चेन्नई बीच की दक्षिण लाइन पर लोकल रेल कितनी नियमित आती है?",
+    "expected_intent": "service_frequency",
+    "expected_operation": "GET_SERVICE_FREQUENCY",
+    "expected_slots": {
+      "transport_mode": "suburban_rail",
+      "line_name": "South Line"
+    },
+    "test_type": "native_frequency",
+    "expected_behavior": "Recognize frequency for South Line with direction, not first/last."
+  },
+  {
+    "id": "HI200_064",
+    "query": "हरी मेट्रो लाइन में एग्मोर से अगली गाड़ी के लिए आम तौर पर कितने मिनट रुकना पड़ता है?",
+    "expected_intent": "service_frequency",
+    "expected_operation": "GET_SERVICE_FREQUENCY",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "line_name": "Green Line"
+    },
+    "test_type": "typical_wait",
+    "expected_behavior": "Interpret typical interval as scheduled frequency, not live next-arrival."
+  },
+  {
+    "id": "HI200_065",
+    "query": "रूट ५७० की गिंडी से बसों का औसत अंतराल बताइए।",
+    "expected_intent": "service_frequency",
+    "expected_operation": "GET_SERVICE_FREQUENCY",
+    "expected_slots": {
+      "route_number": "570",
+      "transport_mode": "bus",
+      "timing_type": "frequency"
+    },
+    "test_type": "native_statistic",
+    "expected_behavior": "Return schedule-based headway only when directional departures support it."
+  },
+  {
+    "id": "HI200_066",
+    "query": "वडपलनी पर हरी लाइन की मेट्रो का फेरा कितनी देर बाद दोहराता है?",
+    "expected_intent": "service_frequency",
+    "expected_operation": "GET_SERVICE_FREQUENCY",
+    "expected_slots": {
+      "line_name": "Green Line",
+      "transport_mode": "metro"
+    },
+    "test_type": "native_wording",
+    "expected_behavior": "Recognize Green Line service frequency at Vadapalani."
+  },
+  {
+    "id": "HI200_067",
+    "query": "सैदापेट से २७डी बस का अंतराल क्या रहता है?",
+    "expected_intent": "service_frequency",
+    "expected_operation": "GET_SERVICE_FREQUENCY",
+    "expected_slots": {
+      "route_number": "27D",
+      "transport_mode": "bus",
+      "timing_type": "frequency"
+    },
+    "test_type": "route_headway",
+    "expected_behavior": "Recognize bus headway using complete 27D route code."
+  },
+  {
+    "id": "HI200_068",
+    "query": "चेन्नई बीच पर एमआरटीएस गाड़ियाँ एक घंटे में लगभग कितनी बार आती हैं?",
+    "expected_intent": "service_frequency",
+    "expected_operation": "GET_SERVICE_FREQUENCY",
+    "expected_slots": {
+      "line_name": "MRTS",
+      "transport_mode": "mrts"
+    },
+    "test_type": "rate_wording",
+    "expected_behavior": "Frequency goal; disclose provisional schedule and no guessed hourly counts."
+  },
+  {
+    "id": "HI200_069",
+    "query": "गिंडी मेट्रो की नीली लाइन सुबह के व्यस्त समय में कितनी देर-देर में चलती है?",
+    "expected_intent": "service_frequency",
+    "expected_operation": "GET_SERVICE_FREQUENCY",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "line_name": "Blue Line"
+    },
+    "test_type": "peak_scope",
+    "expected_behavior": "Recognize peak headway request and preserve requested period or state scope limitation."
+  },
+  {
+    "id": "HI200_070",
+    "query": "बसों के बीच कितना अंतर रहता है?",
+    "expected_intent": "service_frequency",
+    "expected_operation": null,
+    "expected_slots": {
+      "transport_mode": "bus",
+      "timing_type": "frequency"
+    },
+    "test_type": "missing_route_stop",
+    "expected_behavior": "Ask which boarding stop and route/line, not arbitrary general frequency."
+  },
+  {
+    "id": "HI200_071",
+    "query": "नीली लाइन की मेट्रो कितनी-कितनी देर में आती है?",
+    "expected_intent": "service_frequency",
+    "expected_operation": null,
+    "expected_slots": {
+      "line_name": "Blue Line",
+      "transport_mode": "metro"
+    },
+    "test_type": "missing_station",
+    "expected_behavior": "Ask station/boarding location if needed for a directional estimate."
+  },
+  {
+    "id": "HI200_072",
+    "query": "२१जी बस की ब्रॉडवे पर आवृत्ति चाहिए; पहली बस का समय मत बताना।",
+    "expected_intent": "service_frequency",
+    "expected_operation": "GET_SERVICE_FREQUENCY",
+    "expected_slots": {
+      "route_number": "21G",
+      "transport_mode": "bus",
+      "timing_type": "frequency"
+    },
+    "test_type": "negated_first",
+    "expected_behavior": "Recognize frequency only; negated first-service phrase must not create another goal."
+  },
+  {
+    "id": "HI200_073",
+    "query": "गिंडी मेट्रो से सुबह ७:१५ के बाद रवाना होने वाली गाड़ियों की समय-सारणी दिखाओ।",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": "GET_SCHEDULED_DEPARTURES",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "time": "07:15:00",
+      "timing_type": "departure"
+    },
+    "test_type": "devanagari_clock",
+    "expected_behavior": "Normalize 07:15 and return only published departures after requested time."
+  },
+  {
+    "id": "HI200_074",
+    "query": "ब्रॉडवे से २१जी बस के शाम ६ बजे बाद के छूटने के समय लिखिए।",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": "GET_SCHEDULED_DEPARTURES",
+    "expected_slots": {
+      "route_number": "21G",
+      "transport_mode": "bus",
+      "time": "18:00:00"
+    },
+    "test_type": "native_period",
+    "expected_behavior": "Normalize evening six to 18:00 and retain route/stop."
+  },
+  {
+    "id": "HI200_075",
+    "query": "ताम्बरम स्टेशन से चेन्नई बीच की लोकल रेल के निर्धारित प्रस्थान बताओ।",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": "GET_SCHEDULED_DEPARTURES",
+    "expected_slots": {
+      "transport_mode": "suburban_rail",
+      "timing_type": "departure"
+    },
+    "test_type": "native_schedule",
+    "expected_behavior": "Return published suburban departures for stated direction or a precise data limit."
+  },
+  {
+    "id": "HI200_076",
+    "query": "एग्मोर मेट्रो की दोपहर २:३० के बाद वाली समय-सूची चाहिए।",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": "GET_SCHEDULED_DEPARTURES",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "time": "14:30:00"
+    },
+    "test_type": "native_clock",
+    "expected_behavior": "Normalize afternoon 2:30 to 14:30; no live arrival representation."
+  },
+  {
+    "id": "HI200_077",
+    "query": "चेन्नई बीच से एमआरटीएस की समय-सारणी कहाँ तक उपलब्ध है? रवाना होने के समय बताइए।",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": "GET_SCHEDULED_DEPARTURES",
+    "expected_slots": {
+      "transport_mode": "mrts",
+      "timing_type": "departure"
+    },
+    "test_type": "schedule_request",
+    "expected_behavior": "Recognize published departure schedule request for MRTS."
+  },
+  {
+    "id": "HI200_078",
+    "query": "गिंडी से बस ५७० के रात ९ बजे के बाद के निर्धारित फेरे दिखाओ।",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": "GET_SCHEDULED_DEPARTURES",
+    "expected_slots": {
+      "route_number": "570",
+      "transport_mode": "bus",
+      "time": "21:00:00"
+    },
+    "test_type": "native_period",
+    "expected_behavior": "Preserve bus route and boarding location; normalize 21:00."
+  },
+  {
+    "id": "HI200_079",
+    "query": "गिंडी मेट्रो से ८ बजे के बाद कौन-कौन सी गाड़ियाँ छूटेंगी?",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": null,
+    "expected_slots": {
+      "transport_mode": "metro",
+      "time": [
+        "08:00:00",
+        "20:00:00"
+      ]
+    },
+    "test_type": "ambiguous_clock",
+    "expected_behavior": "Clarify morning versus evening; never silently choose one."
+  },
+  {
+    "id": "HI200_080",
+    "query": "सेंट्रल मेट्रो से कल की समय-सारणी बताओ।",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": null,
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "ambiguous_day",
+    "expected_behavior": "Clarify whether कल means yesterday or tomorrow; never silently assign a date."
+  },
+  {
+    "id": "HI200_081",
+    "query": "मेट्रो की समय-सारणी चाहिए, स्टेशन अभी नहीं लिखा है।",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": null,
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "missing_station",
+    "expected_behavior": "Ask boarding stop or station; no invented timetable."
+  },
+  {
+    "id": "HI200_082",
+    "query": "गिंडी मेट्रो से रात २५:६१ पर रवाना होने वाली ट्रेन बताओ।",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": null,
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "invalid_clock",
+    "expected_behavior": "Reject or clarify impossible clock; do not normalize it into a valid time."
+  },
+  {
+    "id": "HI200_083",
+    "query": "एग्मोर मेट्रो से सुबह ६ बजे से ८ बजे तक के प्रस्थान बताइए।",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": "GET_SCHEDULED_DEPARTURES",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "time_range",
+    "expected_behavior": "Preserve full range; explain unsupported time-range scope rather than answer after only one bound."
+  },
+  {
+    "id": "HI200_084",
+    "query": "गिंडी से रात १० बजे से पहले छूटने वाली मेट्रो की समय-सारणी चाहिए।",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": "GET_SCHEDULED_DEPARTURES",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "before_bound",
+    "expected_behavior": "Honor before-time request or state unsupported before-time scope; never silently invert into after-time."
+  },
+  {
+    "id": "HI200_085",
+    "query": "सैदापेट से नंदनम तक सीधी मेट्रो सेवा है क्या?",
+    "expected_intent": "mode_availability",
+    "expected_operation": "CHECK_SERVICE_AVAILABILITY",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "direct_availability",
+    "expected_behavior": "Confirm only published mode-consistent directional connectivity; no full itinerary needed."
+  },
+  {
+    "id": "HI200_086",
+    "query": "ब्रॉडवे और अडयार के बीच बस चलती है या नहीं?",
+    "expected_intent": "mode_availability",
+    "expected_operation": "CHECK_SERVICE_AVAILABILITY",
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "native_yes_no",
+    "expected_behavior": "Check static bus connectivity; absence of recorded connection is not proof of no service."
+  },
+  {
+    "id": "HI200_087",
+    "query": "ताम्बरम से चेन्नई बीच तक उपनगरीय रेल उपलब्ध है?",
+    "expected_intent": "mode_availability",
+    "expected_operation": "CHECK_SERVICE_AVAILABILITY",
+    "expected_slots": {
+      "transport_mode": "suburban_rail"
+    },
+    "test_type": "native_mode",
+    "expected_behavior": "Check suburban rail directional availability, without substituting metro."
+  },
+  {
+    "id": "HI200_088",
+    "query": "चेन्नई बीच से तिरुवान्मियूर जाने को एमआरटीएस सेवा मिलती है क्या?",
+    "expected_intent": "mode_availability",
+    "expected_operation": "CHECK_SERVICE_AVAILABILITY",
+    "expected_slots": {
+      "transport_mode": "mrts"
+    },
+    "test_type": "mrts_availability",
+    "expected_behavior": "Check MRTS connection and disclose missing coverage if any."
+  },
+  {
+    "id": "HI200_089",
+    "query": "कोयम्बेडु से वडपलनी मेट्रो की सुविधा मिल जाएगी?",
+    "expected_intent": "mode_availability",
+    "expected_operation": "CHECK_SERVICE_AVAILABILITY",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "colloquial_yes_no",
+    "expected_behavior": "Recognize service existence rather than journey route planning."
+  },
+  {
+    "id": "HI200_090",
+    "query": "गिंडी से हवाई अड्डे की सीधी बस है, इस बात की पुष्टि चाहिए।",
+    "expected_intent": "mode_availability",
+    "expected_operation": "CHECK_SERVICE_AVAILABILITY",
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "assertion_confirmation",
+    "expected_behavior": "Check direct bus connectivity; do not treat user assertion as verified data."
+  },
+  {
+    "id": "HI200_091",
+    "query": "पेरम्बूर से सेंट्रल के बीच लोकल रेल नहीं चलती क्या?",
+    "expected_intent": "mode_availability",
+    "expected_operation": "CHECK_SERVICE_AVAILABILITY",
+    "expected_slots": {
+      "transport_mode": "suburban_rail"
+    },
+    "test_type": "negative_question",
+    "expected_behavior": "Answer availability on evidence; negative wording does not establish absence."
+  },
+  {
+    "id": "HI200_092",
+    "query": "अन्ना नगर से आलंदूर तक मेट्रो सेवा उपलब्ध है या बस ही लेनी होगी?",
+    "expected_intent": "mode_availability",
+    "expected_operation": "CHECK_SERVICE_AVAILABILITY",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "mode_contrast",
+    "expected_behavior": "Check requested metro availability without inventing alternate bus travel."
+  },
+  {
+    "id": "HI200_093",
+    "query": "सेंट्रल से हवाई अड्डे मेट्रो अभी रात ११ बजे चलती है क्या?",
+    "expected_intent": "mode_availability",
+    "expected_operation": "CHECK_SERVICE_AVAILABILITY",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "time": "23:00:00"
+    },
+    "test_type": "temporal_scope",
+    "expected_behavior": "Preserve requested time; static connectivity cannot certify operating availability at 23:00."
+  },
+  {
+    "id": "HI200_094",
+    "query": "अडयार तक बस मिलती है क्या?",
+    "expected_intent": "mode_availability",
+    "expected_operation": null,
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "missing_origin",
+    "expected_behavior": "Ask starting place, preserving bus availability goal."
+  },
+  {
+    "id": "HI200_095",
+    "query": "गिंडी से सीधी मेट्रो है क्या?",
+    "expected_intent": "mode_availability",
+    "expected_operation": null,
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "missing_destination",
+    "expected_behavior": "Ask destination; do not guess the desired connection."
+  },
+  {
+    "id": "HI200_096",
+    "query": "गिंडी से नंदनम मेट्रो चलती है? रास्ते का विवरण नहीं चाहिए।",
+    "expected_intent": "mode_availability",
+    "expected_operation": "CHECK_SERVICE_AVAILABILITY",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "negated_route",
+    "expected_behavior": "Answer yes/no connectivity only; negated route detail is not a second goal."
+  },
+  {
+    "id": "HI200_097",
+    "query": "साधारण बस में चार स्टेज के सफर का किराया कितना होगा?",
+    "expected_intent": "fare_calculation",
+    "expected_operation": "CALCULATE_FARE",
+    "expected_slots": {
+      "transport_mode": "bus",
+      "stage_number": 4,
+      "service_type": "Ordinary Services"
+    },
+    "test_type": "spelled_stage",
+    "expected_behavior": "Extract stage 4 and ordinary bus service, then use verified stage tariff."
+  },
+  {
+    "id": "HI200_098",
+    "query": "एक्सप्रेस बस के ६ स्टेज का किराया बताइए।",
+    "expected_intent": "fare_calculation",
+    "expected_operation": "CALCULATE_FARE",
+    "expected_slots": {
+      "transport_mode": "bus",
+      "stage_number": 6,
+      "service_type": "Express Services"
+    },
+    "test_type": "devanagari_stage",
+    "expected_behavior": "Extract six stages and Express Services; no guessed amount."
+  },
+  {
+    "id": "HI200_099",
+    "query": "डीलक्स बस में आठ चरण चलने पर कितने रुपये लगते हैं?",
+    "expected_intent": "fare_calculation",
+    "expected_operation": "CALCULATE_FARE",
+    "expected_slots": {
+      "transport_mode": "bus",
+      "stage_number": 8,
+      "service_type": "Deluxe Services"
+    },
+    "test_type": "spelled_stage_synonym",
+    "expected_behavior": "Recognize stage count eight and Deluxe service or clarify stage wording, never invent fare."
+  },
+  {
+    "id": "HI200_100",
+    "query": "रात्रि सेवा की बस में पाँच स्टेज का भाड़ा जानना है।",
+    "expected_intent": "fare_calculation",
+    "expected_operation": "CALCULATE_FARE",
+    "expected_slots": {
+      "transport_mode": "bus",
+      "stage_number": 5,
+      "service_type": "Night Services"
+    },
+    "test_type": "native_service",
+    "expected_behavior": "Extract five stages and Night Services for tariff lookup."
+  },
+  {
+    "id": "HI200_101",
+    "query": "वातानुकूलित बस से १० स्टेज का सफर, टिकट के कितने पैसे बनेंगे?",
+    "expected_intent": "fare_calculation",
+    "expected_operation": "CALCULATE_FARE",
+    "expected_slots": {
+      "transport_mode": "bus",
+      "stage_number": 10,
+      "service_type": "Air Conditioned Services"
+    },
+    "test_type": "native_service",
+    "expected_behavior": "Extract ten stages and Air Conditioned Services; return verified tariff or explicit source limit."
+  },
+  {
+    "id": "HI200_102",
+    "query": "गिंडी मेट्रो से हवाई अड्डा मेट्रो तक एक यात्रा के टिकट की कीमत क्या है?",
+    "expected_intent": "fare_calculation",
+    "expected_operation": "CALCULATE_FARE",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "od_fare",
+    "expected_behavior": "Recognize metro origin-destination fare; use authoritative fare data only."
+  },
+  {
+    "id": "HI200_103",
+    "query": "एग्मोर मेट्रो से नंदनम मेट्रो का किराया बताओ, रास्ता मत समझाना।",
+    "expected_intent": "fare_calculation",
+    "expected_operation": "CALCULATE_FARE",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "negated_route",
+    "expected_behavior": "Fare only; negated route should not trigger multiple goals."
+  },
+  {
+    "id": "HI200_104",
+    "query": "साधारण एमटीसी बस में तीन स्टेज, किराया?",
+    "expected_intent": "fare_calculation",
+    "expected_operation": "CALCULATE_FARE",
+    "expected_slots": {
+      "transport_mode": "bus",
+      "stage_number": 3,
+      "service_type": "Ordinary Services"
+    },
+    "test_type": "fragment",
+    "expected_behavior": "Recognize ordinary bus stage fare from a short fragment."
+  },
+  {
+    "id": "HI200_105",
+    "query": "बस में ४ स्टेज जाने के पैसे कितने होंगे? सेवा का प्रकार नहीं मालूम।",
+    "expected_intent": "fare_calculation",
+    "expected_operation": null,
+    "expected_slots": {
+      "transport_mode": "bus",
+      "stage_number": 4
+    },
+    "test_type": "missing_service_class",
+    "expected_behavior": "Ask bus service class rather than choosing Ordinary by default."
+  },
+  {
+    "id": "HI200_106",
+    "query": "मेरा बस किराया निकाल दो, दूरी और स्टेज अभी नहीं बताए हैं।",
+    "expected_intent": "fare_calculation",
+    "expected_operation": null,
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "missing_fare_basis",
+    "expected_behavior": "Ask stage number or journey endpoints; no fare guessed."
+  },
+  {
+    "id": "HI200_107",
+    "query": "साधारण बस में ० स्टेज का किराया क्या है?",
+    "expected_intent": "fare_calculation",
+    "expected_operation": null,
+    "expected_slots": {
+      "transport_mode": "bus",
+      "service_type": "Ordinary Services"
+    },
+    "test_type": "invalid_stage",
+    "expected_behavior": "Reject or clarify zero stage; never map invalid count to a valid tariff."
+  },
+  {
+    "id": "HI200_108",
+    "query": "साधारण बस के इकतीस स्टेज के किराए की रकम बताओ।",
+    "expected_intent": "fare_calculation",
+    "expected_operation": null,
+    "expected_slots": {
+      "transport_mode": "bus",
+      "service_type": "Ordinary Services"
+    },
+    "test_type": "out_of_range_stage",
+    "expected_behavior": "Reject/clarify unsupported stage 31; do not drop count and provide another fare."
+  },
+  {
+    "id": "HI200_109",
+    "query": "मेट्रो स्मार्ट कार्ड में कम से कम कितना रिचार्ज कराना पड़ता है?",
+    "expected_intent": "ticketing_and_passes",
+    "expected_operation": "GET_TICKETING_POLICY",
+    "expected_slots": {},
+    "test_type": "card_policy",
+    "expected_behavior": "Recognize card policy and disclose absent authoritative ticket/pass rules; no invented minimum."
+  },
+  {
+    "id": "HI200_110",
+    "query": "मेट्रो का क्यूआर टिकट खरीदने का नियम समझाइए।",
+    "expected_intent": "ticketing_and_passes",
+    "expected_operation": "GET_TICKETING_POLICY",
+    "expected_slots": {},
+    "test_type": "qr_policy",
+    "expected_behavior": "Use ticketing family and state authoritative policy limitation."
+  },
+  {
+    "id": "HI200_111",
+    "query": "एमटीसी का मासिक पास किन बसों में मान्य होता है?",
+    "expected_intent": "ticketing_and_passes",
+    "expected_operation": "GET_TICKETING_POLICY",
+    "expected_slots": {},
+    "test_type": "pass_validity",
+    "expected_behavior": "Recognize monthly pass validity policy; do not guess coverage."
+  },
+  {
+    "id": "HI200_112",
+    "query": "उपनगरीय रेल का सीजन पास लेने के लिए कौन से कागज चाहिए?",
+    "expected_intent": "ticketing_and_passes",
+    "expected_operation": "GET_TICKETING_POLICY",
+    "expected_slots": {},
+    "test_type": "pass_documents",
+    "expected_behavior": "Recognize season-pass policy and disclose source limitation, not journey fare calculation."
+  },
+  {
+    "id": "HI200_113",
+    "query": "एनसीएमसी कार्ड मेट्रो में चलाने के नियम क्या हैं?",
+    "expected_intent": "ticketing_and_passes",
+    "expected_operation": "GET_TICKETING_POLICY",
+    "expected_slots": {},
+    "test_type": "native_card",
+    "expected_behavior": "Recognize NCMC policy; no unsupported validity assertion."
+  },
+  {
+    "id": "HI200_114",
+    "query": "मेट्रो टोकन खो जाए तो बदलवाने का तरीका बताओ।",
+    "expected_intent": "ticketing_and_passes",
+    "expected_operation": "GET_TICKETING_POLICY",
+    "expected_slots": {},
+    "test_type": "replacement_policy",
+    "expected_behavior": "Ticket/token policy; do not invent replacement rules."
+  },
+  {
+    "id": "HI200_115",
+    "query": "पर्यटक पास एक ही दिन में कितनी यात्राओं के लिए चलता है?",
+    "expected_intent": "ticketing_and_passes",
+    "expected_operation": "GET_TICKETING_POLICY",
+    "expected_slots": {},
+    "test_type": "tourist_policy",
+    "expected_behavior": "Recognize tourist pass usage policy; missing source must be explained."
+  },
+  {
+    "id": "HI200_116",
+    "query": "बच्चों को मेट्रो टिकट में छूट किस उम्र तक मिलती है?",
+    "expected_intent": "ticketing_and_passes",
+    "expected_operation": "GET_TICKETING_POLICY",
+    "expected_slots": {},
+    "test_type": "concession_policy",
+    "expected_behavior": "Recognize child ticket concession rule; do not guess age or concession percentage."
+  },
+  {
+    "id": "HI200_117",
+    "query": "मेट्रो स्मार्ट कार्ड की बची रकम वापस मिलने का नियम क्या है?",
+    "expected_intent": "ticketing_and_passes",
+    "expected_operation": "GET_TICKETING_POLICY",
+    "expected_slots": {},
+    "test_type": "refund_policy",
+    "expected_behavior": "Recognize card refund policy and give source limitation."
+  },
+  {
+    "id": "HI200_118",
+    "query": "मेट्रो टिकट नकद लें या कार्ड से, कौन-कौन से भुगतान तरीके मान्य हैं?",
+    "expected_intent": "ticketing_and_passes",
+    "expected_operation": "GET_TICKETING_POLICY",
+    "expected_slots": {},
+    "test_type": "payment_policy",
+    "expected_behavior": "Recognize accepted payment rules rather than exact fare."
+  },
+  {
+    "id": "HI200_119",
+    "query": "बस का मासिक पास दूसरे व्यक्ति को देना मना है क्या?",
+    "expected_intent": "ticketing_and_passes",
+    "expected_operation": "GET_TICKETING_POLICY",
+    "expected_slots": {},
+    "test_type": "negative_policy_question",
+    "expected_behavior": "Recognize transferability rules; do not assume allowed/disallowed without authoritative policy."
+  },
+  {
+    "id": "HI200_120",
+    "query": "क्यूआर टिकट कब तक मान्य रहता है, कीमत नहीं पूछ रहा।",
+    "expected_intent": "ticketing_and_passes",
+    "expected_operation": "GET_TICKETING_POLICY",
+    "expected_slots": {},
+    "test_type": "negated_fare",
+    "expected_behavior": "Handle ticket validity only; negated fare is not a separate goal."
+  },
+  {
+    "id": "HI200_121",
+    "query": "गिंडी मेट्रो स्टेशन पर बाइक खड़ी करने की पार्किंग मिलती है?",
+    "expected_intent": "station_facilities",
+    "expected_operation": "GET_STATION_FACILITY",
+    "expected_slots": {},
+    "test_type": "native_parking",
+    "expected_behavior": "Recognize parking facility goal; disclose unverified facility availability."
+  },
+  {
+    "id": "HI200_122",
+    "query": "एग्मोर मेट्रो में पीने के पानी की जगह है क्या?",
+    "expected_intent": "station_facilities",
+    "expected_operation": "GET_STATION_FACILITY",
+    "expected_slots": {},
+    "test_type": "native_water",
+    "expected_behavior": "Correct facility family; do not claim unverified water availability."
+  },
+  {
+    "id": "HI200_123",
+    "query": "कोयम्बेडु मेट्रो स्टेशन के अंदर शौचालय उपलब्ध हैं?",
+    "expected_intent": "station_facilities",
+    "expected_operation": "GET_STATION_FACILITY",
+    "expected_slots": {},
+    "test_type": "native_restroom",
+    "expected_behavior": "Recognize station restroom facility and explain source limitation."
+  },
+  {
+    "id": "HI200_124",
+    "query": "वडपलनी मेट्रो पर यात्रियों के लिए बैठकर प्रतीक्षा करने का कमरा है?",
+    "expected_intent": "station_facilities",
+    "expected_operation": "GET_STATION_FACILITY",
+    "expected_slots": {},
+    "test_type": "waiting_room",
+    "expected_behavior": "Recognize waiting-room facility; no fabricated yes/no answer."
+  },
+  {
+    "id": "HI200_125",
+    "query": "चेन्नई सेंट्रल मेट्रो में सामान रखने का क्लोक रूम मिलेगा?",
+    "expected_intent": "station_facilities",
+    "expected_operation": "GET_STATION_FACILITY",
+    "expected_slots": {},
+    "test_type": "cloakroom",
+    "expected_behavior": "Station amenity query remains facilities despite source limitation."
+  },
+  {
+    "id": "HI200_126",
+    "query": "आलंदूर मेट्रो स्टेशन पर एटीएम लगा है क्या?",
+    "expected_intent": "station_facilities",
+    "expected_operation": "GET_STATION_FACILITY",
+    "expected_slots": {},
+    "test_type": "native_atm",
+    "expected_behavior": "Recognize ATM facility goal and disclose absent verification."
+  },
+  {
+    "id": "HI200_127",
+    "query": "हवाई अड्डा मेट्रो स्टेशन में वाई-फाई मिलता है?",
+    "expected_intent": "station_facilities",
+    "expected_operation": "GET_STATION_FACILITY",
+    "expected_slots": {},
+    "test_type": "wifi",
+    "expected_behavior": "Recognize station Wi-Fi availability; avoid unsupported assurance."
+  },
+  {
+    "id": "HI200_128",
+    "query": "नंदनम मेट्रो के पास कार पार्क करने की सुविधा पूछनी है।",
+    "expected_intent": "station_facilities",
+    "expected_operation": "GET_STATION_FACILITY",
+    "expected_slots": {},
+    "test_type": "car_parking",
+    "expected_behavior": "Correct facilities intent; unverified parking must not be presented as fact."
+  },
+  {
+    "id": "HI200_129",
+    "query": "ताम्बरम रेलवे स्टेशन पर प्रतीक्षालय की सुविधा है या नहीं?",
+    "expected_intent": "station_facilities",
+    "expected_operation": "GET_STATION_FACILITY",
+    "expected_slots": {},
+    "test_type": "suburban_facility",
+    "expected_behavior": "Recognize physical station facility; disclose source coverage limit."
+  },
+  {
+    "id": "HI200_130",
+    "query": "मेट्रो स्टेशन पर पानी और शौचालय की सुविधाएँ हैं क्या? स्टेशन नहीं बताया।",
+    "expected_intent": "station_facilities",
+    "expected_operation": null,
+    "expected_slots": {},
+    "test_type": "missing_station",
+    "expected_behavior": "Ask station or explain facility source limitation; never pick arbitrary station."
+  },
+  {
+    "id": "HI200_131",
+    "query": "गिंडी मेट्रो की पार्किंग पूछ रहा हूँ, व्हीलचेयर की जानकारी नहीं।",
+    "expected_intent": "station_facilities",
+    "expected_operation": "GET_STATION_FACILITY",
+    "expected_slots": {},
+    "test_type": "negated_accessibility",
+    "expected_behavior": "Handle parking only; negated accessibility phrase must not create another goal."
+  },
+  {
+    "id": "HI200_132",
+    "query": "एग्मोर मेट्रो: बाथरूम है? जल्दी बता दीजिए।",
+    "expected_intent": "station_facilities",
+    "expected_operation": "GET_STATION_FACILITY",
+    "expected_slots": {},
+    "test_type": "colloquial_punctuation",
+    "expected_behavior": "Recognize ordinary restroom facility despite colloquial borrowing/punctuation; no invented fact."
+  },
+  {
+    "id": "HI200_133",
+    "query": "गिंडी मेट्रो में व्हीलचेयर लेकर भीतर जाना संभव है?",
+    "expected_intent": "station_accessibility",
+    "expected_operation": "GET_ACCESSIBILITY_INFO",
+    "expected_slots": {},
+    "test_type": "wheelchair",
+    "expected_behavior": "Recognize wheelchair accessibility; report verified feature or precise absence of evidence."
+  },
+  {
+    "id": "HI200_134",
+    "query": "एग्मोर मेट्रो स्टेशन में सीढ़ियाँ चढ़े बिना जाने के लिए लिफ्ट है क्या?",
+    "expected_intent": "station_accessibility",
+    "expected_operation": "GET_ACCESSIBILITY_INFO",
+    "expected_slots": {
+      "accessibility_feature": "lift",
+      "transport_mode": "metro"
+    },
+    "test_type": "native_lift",
+    "expected_behavior": "Recognize lift accessibility, not generic facility; do not invent availability."
+  },
+  {
+    "id": "HI200_135",
+    "query": "कोयम्बेडु मेट्रो पर व्हीलचेयर के लिए ढलान वाला रैंप बना है?",
+    "expected_intent": "station_accessibility",
+    "expected_operation": "GET_ACCESSIBILITY_INFO",
+    "expected_slots": {
+      "accessibility_feature": "ramp",
+      "transport_mode": "metro"
+    },
+    "test_type": "native_ramp",
+    "expected_behavior": "Recognize ramp accessibility and use verified physical-station records."
+  },
+  {
+    "id": "HI200_136",
+    "query": "वडपलनी मेट्रो में चलती सीढ़ी की सुविधा मिलती है?",
+    "expected_intent": "station_accessibility",
+    "expected_operation": "GET_ACCESSIBILITY_INFO",
+    "expected_slots": {
+      "accessibility_feature": "escalator",
+      "transport_mode": "metro"
+    },
+    "test_type": "native_escalator",
+    "expected_behavior": "Recognize escalator accessibility from native phrasing; no generic facility substitution."
+  },
+  {
+    "id": "HI200_137",
+    "query": "आलंदूर मेट्रो पर दृष्टिबाधित यात्रियों के लिए स्पर्श पथ है?",
+    "expected_intent": "station_accessibility",
+    "expected_operation": "GET_ACCESSIBILITY_INFO",
+    "expected_slots": {
+      "accessibility_feature": "tactile_paths",
+      "transport_mode": "metro"
+    },
+    "test_type": "native_tactile",
+    "expected_behavior": "Recognize tactile accessibility; report source record or limitation."
+  },
+  {
+    "id": "HI200_138",
+    "query": "हवाई अड्डा मेट्रो में दिव्यांगों के उपयोग वाला शौचालय है क्या?",
+    "expected_intent": "station_accessibility",
+    "expected_operation": "GET_ACCESSIBILITY_INFO",
+    "expected_slots": {
+      "accessibility_feature": "accessible_toilet",
+      "transport_mode": "metro"
+    },
+    "test_type": "accessible_toilet_contrast",
+    "expected_behavior": "Recognize accessible toilet rather than general restroom."
+  },
+  {
+    "id": "HI200_139",
+    "query": "नंदनम मेट्रो पर बुज़ुर्गों के लिए सीढ़ी के बजाय लिफ्ट मिलेगी?",
+    "expected_intent": "station_accessibility",
+    "expected_operation": "GET_ACCESSIBILITY_INFO",
+    "expected_slots": {
+      "accessibility_feature": "lift",
+      "transport_mode": "metro"
+    },
+    "test_type": "colloquial_access",
+    "expected_behavior": "Keep lift accessibility goal despite mention of stairs."
+  },
+  {
+    "id": "HI200_140",
+    "query": "सैदापेट मेट्रो में व्हीलचेयर से प्लेटफॉर्म तक पहुँचने की सुविधा की पुष्टि करो।",
+    "expected_intent": "station_accessibility",
+    "expected_operation": "GET_ACCESSIBILITY_INFO",
+    "expected_slots": {},
+    "test_type": "assertion_confirmation",
+    "expected_behavior": "Verify wheelchair accessibility; do not assume affirmative."
+  },
+  {
+    "id": "HI200_141",
+    "query": "ताम्बरम रेल स्टेशन पर दिव्यांग रैंप उपलब्ध है?",
+    "expected_intent": "station_accessibility",
+    "expected_operation": "GET_ACCESSIBILITY_INFO",
+    "expected_slots": {
+      "accessibility_feature": "ramp",
+      "transport_mode": "suburban_rail"
+    },
+    "test_type": "suburban_scope",
+    "expected_behavior": "Recognize rail accessibility and honestly disclose missing verified record."
+  },
+  {
+    "id": "HI200_142",
+    "query": "व्हीलचेयर के अनुकूल मेट्रो स्टेशन है क्या?",
+    "expected_intent": "station_accessibility",
+    "expected_operation": null,
+    "expected_slots": {
+      "accessibility_feature": "wheelchair",
+      "transport_mode": "metro"
+    },
+    "test_type": "missing_station",
+    "expected_behavior": "Ask station; do not choose or imply every station is accessible."
+  },
+  {
+    "id": "HI200_143",
+    "query": "गिंडी मेट्रो पर लिफ्ट है? पार्किंग नहीं पूछी है।",
+    "expected_intent": "station_accessibility",
+    "expected_operation": "GET_ACCESSIBILITY_INFO",
+    "expected_slots": {
+      "accessibility_feature": "lift",
+      "transport_mode": "metro"
+    },
+    "test_type": "negated_facility",
+    "expected_behavior": "Accessibility only; negated parking is not a second goal."
+  },
+  {
+    "id": "HI200_144",
+    "query": "सेंट्रल मेट्रो में बिना सीढ़ी चढ़े प्लेटफॉर्म पहुँचा जा सकता है?",
+    "expected_intent": "station_accessibility",
+    "expected_operation": "GET_ACCESSIBILITY_INFO",
+    "expected_slots": {},
+    "test_type": "implicit_accessibility",
+    "expected_behavior": "Recognize step-free access question; explain feature evidence limits without guessing."
+  },
+  {
+    "id": "HI200_145",
+    "query": "गिंडी पर मेट्रो से लोकल ट्रेन बदलने की जगह कहाँ है?",
+    "expected_intent": "interchange_transfer",
+    "expected_operation": "GET_INTERCHANGE_DETAILS",
+    "expected_slots": {},
+    "test_type": "mode_pair",
+    "expected_behavior": "Recognize station transfer details; give only confirmed interchange evidence."
+  },
+  {
+    "id": "HI200_146",
+    "query": "आलंदूर मेट्रो में नीली लाइन से हरी लाइन पर कैसे बदलूँ?",
+    "expected_intent": "interchange_transfer",
+    "expected_operation": "GET_INTERCHANGE_DETAILS",
+    "expected_slots": {},
+    "test_type": "line_transfer",
+    "expected_behavior": "Interchange goal, not full endpoint journey; no unverified transfer directions."
+  },
+  {
+    "id": "HI200_147",
+    "query": "चेन्नई सेंट्रल पर उपनगरीय रेल छोड़कर मेट्रो में जाने का जुड़ाव बताइए।",
+    "expected_intent": "interchange_transfer",
+    "expected_operation": "GET_INTERCHANGE_DETAILS",
+    "expected_slots": {},
+    "test_type": "native_transfer",
+    "expected_behavior": "Recognize rail-to-metro transfer and state confirmed-interchange coverage limit."
+  },
+  {
+    "id": "HI200_148",
+    "query": "कोयम्बेडु में बस अड्डे और मेट्रो स्टेशन के बीच बदलने का इंतजाम क्या है?",
+    "expected_intent": "interchange_transfer",
+    "expected_operation": "GET_INTERCHANGE_DETAILS",
+    "expected_slots": {},
+    "test_type": "bus_metro",
+    "expected_behavior": "Recognize physical interchange details without inventing walkway/distance."
+  },
+  {
+    "id": "HI200_149",
+    "query": "चेन्नई बीच पर लोकल रेल से एमआरटीएस में स्थानांतरण कहाँ होता है?",
+    "expected_intent": "interchange_transfer",
+    "expected_operation": "GET_INTERCHANGE_DETAILS",
+    "expected_slots": {},
+    "test_type": "native_transfer",
+    "expected_behavior": "Keep inter-mode transfer goal and disclose source limit."
+  },
+  {
+    "id": "HI200_150",
+    "query": "सेंट्रल मेट्रो में एक मेट्रो लाइन से दूसरी लाइन का इंटरचेंज समझाइए।",
+    "expected_intent": "interchange_transfer",
+    "expected_operation": "GET_INTERCHANGE_DETAILS",
+    "expected_slots": {},
+    "test_type": "same_mode_lines",
+    "expected_behavior": "Recognize line interchange rather than mode availability or journey route."
+  },
+  {
+    "id": "HI200_151",
+    "query": "ताम्बरम में ट्रेन से उतरकर बस पकड़ने वाला स्थानांतरण बिंदु है?",
+    "expected_intent": "interchange_transfer",
+    "expected_operation": "GET_INTERCHANGE_DETAILS",
+    "expected_slots": {},
+    "test_type": "native_hub",
+    "expected_behavior": "Recognize transfer feasibility at named hub, not bus stop membership."
+  },
+  {
+    "id": "HI200_152",
+    "query": "गिंडी स्टेशन पर बस से मेट्रो में बदलने की जानकारी चाहिए।",
+    "expected_intent": "interchange_transfer",
+    "expected_operation": "GET_INTERCHANGE_DETAILS",
+    "expected_slots": {},
+    "test_type": "native_places",
+    "expected_behavior": "Recognize bus-to-metro interchange and verify before answering."
+  },
+  {
+    "id": "HI200_153",
+    "query": "एग्मोर में रेल प्लेटफॉर्म से मेट्रो का जुड़ाव सीधा है क्या?",
+    "expected_intent": "interchange_transfer",
+    "expected_operation": "GET_INTERCHANGE_DETAILS",
+    "expected_slots": {},
+    "test_type": "connection_yes_no",
+    "expected_behavior": "Confirm only verified physical transfer connection; no inferred direct link."
+  },
+  {
+    "id": "HI200_154",
+    "query": "मेट्रो से बस में कहाँ बदलना होता है?",
+    "expected_intent": "interchange_transfer",
+    "expected_operation": "GET_INTERCHANGE_DETAILS",
+    "expected_slots": {
+      "mode_from": "metro",
+      "mode_to": "bus"
+    },
+    "test_type": "mode_pair_no_station",
+    "expected_behavior": "Recognize requested mode pair and ask location/scope or explain transfer source limit."
+  },
+  {
+    "id": "HI200_155",
+    "query": "यहाँ गाड़ी बदलने की सुविधा कहाँ है?",
+    "expected_intent": "interchange_transfer",
+    "expected_operation": null,
+    "expected_slots": {},
+    "test_type": "missing_location_modes",
+    "expected_behavior": "Ask station or both modes; do not guess referent."
+  },
+  {
+    "id": "HI200_156",
+    "query": "आलंदूर में लाइन बदलने का तरीका चाहिए, वहाँ की पार्किंग नहीं।",
+    "expected_intent": "interchange_transfer",
+    "expected_operation": "GET_INTERCHANGE_DETAILS",
+    "expected_slots": {},
+    "test_type": "negated_facility",
+    "expected_behavior": "Answer interchange goal only; negated parking is not another question."
+  },
+  {
+    "id": "HI200_157",
+    "query": "मरीना बीच के सबसे पास का बस स्टॉप कौन सा पड़ेगा?",
+    "expected_intent": "nearest_transport",
+    "expected_operation": "FIND_NEAREST_STATION",
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "native_landmark",
+    "expected_behavior": "Find nearest bus stop using source coordinates and label straight-line distance; do not claim walkable route."
+  },
+  {
+    "id": "HI200_158",
+    "query": "आईआईटी मद्रास से नज़दीकी मेट्रो स्टेशन बताइए।",
+    "expected_intent": "nearest_transport",
+    "expected_operation": "FIND_NEAREST_STATION",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "native_landmark",
+    "expected_behavior": "Recognize nearest metro to IIT Madras; clarify unresolved landmark or use coordinate evidence."
+  },
+  {
+    "id": "HI200_159",
+    "query": "अन्ना नगर इलाके के पास सबसे निकट रेल स्टेशन कौन सा है?",
+    "expected_intent": "nearest_transport",
+    "expected_operation": "FIND_NEAREST_STATION",
+    "expected_slots": {
+      "transport_mode": "suburban_rail"
+    },
+    "test_type": "native_locality",
+    "expected_behavior": "Use locality as spatial reference and requested rail mode; no invented precise proximity."
+  },
+  {
+    "id": "HI200_160",
+    "query": "अपोलो अस्पताल ग्रीम्स रोड के आसपास सबसे पास वाली बस पकड़ने की जगह बताओ।",
+    "expected_intent": "nearest_transport",
+    "expected_operation": "FIND_NEAREST_STATION",
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "landmark_colloquial",
+    "expected_behavior": "Recognize nearest bus stop to full hospital landmark; do not substitute journey planning."
+  },
+  {
+    "id": "HI200_161",
+    "query": "अडयार में निकटतम सार्वजनिक परिवहन स्टेशन ढूँढ़ दीजिए।",
+    "expected_intent": "nearest_transport",
+    "expected_operation": "FIND_NEAREST_STATION",
+    "expected_slots": {},
+    "test_type": "any_mode",
+    "expected_behavior": "Recognize locality-relative nearest transport; clarify unresolved locality or return verified coordinates."
+  },
+  {
+    "id": "HI200_162",
+    "query": "चेपॉक स्टेडियम के नज़दीक कौन सा एमआरटीएस स्टेशन है?",
+    "expected_intent": "nearest_transport",
+    "expected_operation": "FIND_NEAREST_STATION",
+    "expected_slots": {
+      "transport_mode": "mrts"
+    },
+    "test_type": "native_landmark_mode",
+    "expected_behavior": "Preserve MRTS mode in nearest lookup."
+  },
+  {
+    "id": "HI200_163",
+    "query": "फीनिक्स मार्केटसिटी के पास उतरने के लिए सबसे निकट बस स्टॉप क्या है?",
+    "expected_intent": "nearest_transport",
+    "expected_operation": "FIND_NEAREST_STATION",
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "landmark",
+    "expected_behavior": "Nearest bus stop goal; use recognized landmark coordinates or ask clarification."
+  },
+  {
+    "id": "HI200_164",
+    "query": "वेलाचेरी इलाके में सबसे पास का मेट्रो ठहराव बताओ।",
+    "expected_intent": "nearest_transport",
+    "expected_operation": "FIND_NEAREST_STATION",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "locality_mode",
+    "expected_behavior": "Nearest metro relative to Velachery locality; no assumption that a local metro station exists."
+  },
+  {
+    "id": "HI200_165",
+    "query": "मरीना बीच से सबसे नज़दीकी उपनगरीय रेल स्टेशन कितना दूर है?",
+    "expected_intent": "nearest_transport",
+    "expected_operation": "FIND_NEAREST_STATION",
+    "expected_slots": {
+      "transport_mode": "suburban_rail"
+    },
+    "test_type": "nearest_distance",
+    "expected_behavior": "Return nearest coordinate distance with straight-line qualification, no fabricated walking distance."
+  },
+  {
+    "id": "HI200_166",
+    "query": "पास का बस स्टॉप बता दो, जगह अभी नहीं लिखी है।",
+    "expected_intent": "nearest_transport",
+    "expected_operation": null,
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "missing_reference",
+    "expected_behavior": "Ask nearby landmark or locality; do not assume user GPS location."
+  },
+  {
+    "id": "HI200_167",
+    "query": "मरीना बीच का सबसे पास मेट्रो स्टेशन चाहिए; वहाँ पहुँचने का रास्ता नहीं पूछ रहा।",
+    "expected_intent": "nearest_transport",
+    "expected_operation": "FIND_NEAREST_STATION",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "negated_route",
+    "expected_behavior": "Nearest only; negated route request must not create multiple goals."
+  },
+  {
+    "id": "HI200_168",
+    "query": "गिंडी इलाके के आसपास निकटतम स्टेशन, कृपया... मेट्रो वाला।",
+    "expected_intent": "nearest_transport",
+    "expected_operation": "FIND_NEAREST_STATION",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "punctuation_colloquial",
+    "expected_behavior": "Use Guindy locality for nearest metro request despite punctuation."
+  },
+  {
+    "id": "HI200_169",
+    "query": "२१जी बस इस वक्त कहाँ पहुँची है, उसकी जीपीएस स्थिति दिखाओ।",
+    "expected_intent": "realtime_status_query",
+    "expected_operation": "REJECT_UNSUPPORTED_REALTIME",
+    "expected_slots": {},
+    "test_type": "live_gps",
+    "expected_behavior": "Recognize realtime goal and explicitly refuse absent live feed; no guessed vehicle position."
+  },
+  {
+    "id": "HI200_170",
+    "query": "गिंडी मेट्रो अभी कितनी देरी से चल रही है?",
+    "expected_intent": "realtime_status_query",
+    "expected_operation": "REJECT_UNSUPPORTED_REALTIME",
+    "expected_slots": {},
+    "test_type": "live_delay",
+    "expected_behavior": "Realtime delay family; explain missing external source without claiming on-time status."
+  },
+  {
+    "id": "HI200_171",
+    "query": "सेंट्रल मेट्रो में अभी यात्रियों की भीड़ कितनी है?",
+    "expected_intent": "realtime_status_query",
+    "expected_operation": "REJECT_UNSUPPORTED_REALTIME",
+    "expected_slots": {},
+    "test_type": "live_crowd",
+    "expected_behavior": "Recognize current crowd density and refuse unavailable live information."
+  },
+  {
+    "id": "HI200_172",
+    "query": "ताम्बरम से चेन्नई बीच वाली लोकल ट्रेन इस समय कहाँ रुकी है?",
+    "expected_intent": "realtime_status_query",
+    "expected_operation": "REJECT_UNSUPPORTED_REALTIME",
+    "expected_slots": {},
+    "test_type": "live_location",
+    "expected_behavior": "Recognize realtime vehicle position rather than published schedule."
+  },
+  {
+    "id": "HI200_173",
+    "query": "हवाई अड्डा मेट्रो की सेवा अभी बंद पड़ी है या सामान्य चल रही है?",
+    "expected_intent": "realtime_status_query",
+    "expected_operation": "REJECT_UNSUPPORTED_REALTIME",
+    "expected_slots": {},
+    "test_type": "live_disruption",
+    "expected_behavior": "Recognize current disruption/running status; static connectivity is insufficient."
+  },
+  {
+    "id": "HI200_174",
+    "query": "बस ५७० का अभी अगला आगमन कितने मिनट में होगा, लाइव बताइए।",
+    "expected_intent": "realtime_status_query",
+    "expected_operation": "REJECT_UNSUPPORTED_REALTIME",
+    "expected_slots": {},
+    "test_type": "live_eta",
+    "expected_behavior": "Refuse unavailable live ETA without presenting scheduled time as actual arrival."
+  },
+  {
+    "id": "HI200_175",
+    "query": "नीली लाइन पर अभी कोई दुर्घटना से रुकावट है क्या?",
+    "expected_intent": "realtime_status_query",
+    "expected_operation": "REJECT_UNSUPPORTED_REALTIME",
+    "expected_slots": {},
+    "test_type": "live_incident",
+    "expected_behavior": "Recognize live incident status, disclose lack of live operator feed."
+  },
+  {
+    "id": "HI200_176",
+    "query": "वडपलनी मेट्रो की लिफ्ट आज अभी काम कर रही है?",
+    "expected_intent": "realtime_status_query",
+    "expected_operation": "REJECT_UNSUPPORTED_REALTIME",
+    "expected_slots": {},
+    "test_type": "live_accessibility",
+    "expected_behavior": "Live equipment operation is realtime, not static lift availability; no operational assurance."
+  },
+  {
+    "id": "HI200_177",
+    "query": "मेट्रो की इस समय की असली देरी चाहिए, समय-सारणी वाली नहीं।",
+    "expected_intent": "realtime_status_query",
+    "expected_operation": "REJECT_UNSUPPORTED_REALTIME",
+    "expected_slots": {},
+    "test_type": "negated_schedule",
+    "expected_behavior": "Realtime only; negated timetable is not a second goal."
+  },
+  {
+    "id": "HI200_178",
+    "query": "चेन्नई बीच से एमआरटीएस ट्रेन अभी निकल चुकी है या नहीं?",
+    "expected_intent": "realtime_status_query",
+    "expected_operation": "REJECT_UNSUPPORTED_REALTIME",
+    "expected_slots": {},
+    "test_type": "live_departure",
+    "expected_behavior": "Recognize actual present departure state and refuse unsupported live status."
+  },
+  {
+    "id": "HI200_179",
+    "query": "२७डी बस में अभी सीट खाली मिलेगी? बस की मौजूदा भीड़ पूछ रहा हूँ।",
+    "expected_intent": "realtime_status_query",
+    "expected_operation": "REJECT_UNSUPPORTED_REALTIME",
+    "expected_slots": {},
+    "test_type": "live_capacity",
+    "expected_behavior": "Recognize vehicle realtime capacity/crowding and no guessed seats."
+  },
+  {
+    "id": "HI200_180",
+    "query": "आलंदूर में अभी मेट्रो प्लेटफॉर्म बंद है क्या, तुरंत की स्थिति बताओ।",
+    "expected_intent": "realtime_status_query",
+    "expected_operation": "REJECT_UNSUPPORTED_REALTIME",
+    "expected_slots": {},
+    "test_type": "live_platform",
+    "expected_behavior": "Realtime disruption question; disclose external-source need, not facilities fact."
+  },
+  {
+    "id": "HI200_181",
+    "query": "चेन्नई में कल बारिश होगी क्या, मौसम बताइए।",
+    "expected_intent": "out_of_scope",
+    "expected_operation": "REJECT_OUT_OF_SCOPE",
+    "expected_slots": {},
+    "test_type": "weather",
+    "expected_behavior": "Reject weather as outside Chennai public-transport assistant scope."
+  },
+  {
+    "id": "HI200_182",
+    "query": "हवाई अड्डे के लिए मेरे नाम से टैक्सी बुक कर दो।",
+    "expected_intent": "out_of_scope",
+    "expected_operation": "REJECT_OUT_OF_SCOPE",
+    "expected_slots": {},
+    "test_type": "cab_transaction",
+    "expected_behavior": "Reject ride-hailing booking; do not claim booking performed."
+  },
+  {
+    "id": "HI200_183",
+    "query": "मुझे एग्मोर के पास अच्छा होटल आरक्षित करके दे दो।",
+    "expected_intent": "out_of_scope",
+    "expected_operation": "REJECT_OUT_OF_SCOPE",
+    "expected_slots": {},
+    "test_type": "hotel_transaction",
+    "expected_behavior": "Reject hotel booking, with no fabricated reservation."
+  },
+  {
+    "id": "HI200_184",
+    "query": "चेन्नई से दिल्ली की उड़ान का टिकट खरीदो।",
+    "expected_intent": "out_of_scope",
+    "expected_operation": "REJECT_OUT_OF_SCOPE",
+    "expected_slots": {},
+    "test_type": "flight_transaction",
+    "expected_behavior": "Reject flight purchase and intercity flight scope."
+  },
+  {
+    "id": "HI200_185",
+    "query": "बैंगलुरु जाने वाली लंबी दूरी की ट्रेन में सीट आरक्षित करो।",
+    "expected_intent": "out_of_scope",
+    "expected_operation": "REJECT_OUT_OF_SCOPE",
+    "expected_slots": {},
+    "test_type": "intercity_transaction",
+    "expected_behavior": "Reject intercity reservation request; no booking performed."
+  },
+  {
+    "id": "HI200_186",
+    "query": "मेरे लिए सेंट्रल मेट्रो के दो टिकट अभी खरीदकर भुगतान कर दो।",
+    "expected_intent": "out_of_scope",
+    "expected_operation": "REJECT_OUT_OF_SCOPE",
+    "expected_slots": {},
+    "test_type": "transit_purchase",
+    "expected_behavior": "Transactional ticket purchase is outside supported informational ticketing; do not claim payment."
+  },
+  {
+    "id": "HI200_187",
+    "query": "घर का बिजली बिल कितना बाकी है, जाँच दो।",
+    "expected_intent": "out_of_scope",
+    "expected_operation": "REJECT_OUT_OF_SCOPE",
+    "expected_slots": {},
+    "test_type": "unrelated_account",
+    "expected_behavior": "Reject unrelated utility-account request."
+  },
+  {
+    "id": "HI200_188",
+    "query": "चेन्नई की सबसे स्वादिष्ट बिरयानी कहाँ मिलेगी?",
+    "expected_intent": "out_of_scope",
+    "expected_operation": "REJECT_OUT_OF_SCOPE",
+    "expected_slots": {},
+    "test_type": "food",
+    "expected_behavior": "Reject restaurant/food recommendation as outside transit scope."
+  },
+  {
+    "id": "HI200_189",
+    "query": "मेरी मोबाइल लोकेशन से पता करो मैं अभी कहाँ हूँ।",
+    "expected_intent": "out_of_scope",
+    "expected_operation": "REJECT_OUT_OF_SCOPE",
+    "expected_slots": {},
+    "test_type": "device_location",
+    "expected_behavior": "Do not imply GPS/device access; reject outside scope."
+  },
+  {
+    "id": "HI200_190",
+    "query": "मेट्रो विषय छोड़ो, मुझे गणित का सवाल हल करके दो: सात गुणा आठ कितना?",
+    "expected_intent": "out_of_scope",
+    "expected_operation": "REJECT_OUT_OF_SCOPE",
+    "expected_slots": {},
+    "test_type": "explicit_scope_shift",
+    "expected_behavior": "Reject unrelated arithmetic despite transport keyword; no transit intent selected."
+  },
+  {
+    "id": "HI200_191",
+    "query": "मेरे स्मार्ट कार्ड से बैंक खाते में पैसे भेज दो।",
+    "expected_intent": "out_of_scope",
+    "expected_operation": "REJECT_OUT_OF_SCOPE",
+    "expected_slots": {},
+    "test_type": "money_transaction",
+    "expected_behavior": "Reject financial transaction rather than give unsupported card transfer policy."
+  },
+  {
+    "id": "HI200_192",
+    "query": "नमस्ते! आज का राशिफल सुनाओ।",
+    "expected_intent": "out_of_scope",
+    "expected_operation": "REJECT_OUT_OF_SCOPE",
+    "expected_slots": {},
+    "test_type": "smalltalk_plus_oos",
+    "expected_behavior": "Reject horoscope request politely; no transport facts invented."
+  },
+  {
+    "id": "HI200_193",
+    "query": "गिंडी मेट्रो से हवाई अड्डे का किराया बताइए और पहली ट्रेन का समय भी बताइए।",
+    "expected_intent": null,
+    "expected_operation": null,
+    "expected_slots": {},
+    "test_type": "multiple_goals",
+    "expected_behavior": "Ask which fare or first-service question to answer first; no arbitrary single operation."
+  },
+  {
+    "id": "HI200_194",
+    "query": "ब्रॉडवे से २१जी बस के सभी स्टॉप बताओ और अभी बस कहाँ है यह भी बताओ।",
+    "expected_intent": null,
+    "expected_operation": null,
+    "expected_slots": {},
+    "test_type": "multiple_goals",
+    "expected_behavior": "Clarify separate stop sequence and live location goals; do not answer only one silently."
+  },
+  {
+    "id": "HI200_195",
+    "query": "आलंदूर मेट्रो में लिफ्ट है क्या, और पार्किंग की सुविधा भी बताओ।",
+    "expected_intent": null,
+    "expected_operation": null,
+    "expected_slots": {},
+    "test_type": "multiple_goals",
+    "expected_behavior": "Clarify separate accessibility and facility goals; do not collapse the two."
+  },
+  {
+    "id": "HI200_196",
+    "query": "मरीना बीच के पास का बस स्टॉप बताइए और सेंट्रल से वहाँ पहुँचने का रास्ता बताइए।",
+    "expected_intent": null,
+    "expected_operation": null,
+    "expected_slots": {},
+    "test_type": "multiple_goals",
+    "expected_behavior": "Clarify nearest-stop and journey-planning goals rather than choose one arbitrarily."
+  },
+  {
+    "id": "HI200_197",
+    "query": "गिंडी मेट्रो की सुविधा?",
+    "expected_intent": null,
+    "expected_operation": null,
+    "expected_slots": {},
+    "test_type": "intent_ambiguity",
+    "expected_behavior": "Ask whether user means service, station amenities, accessibility, or another specific goal."
+  },
+  {
+    "id": "HI200_198",
+    "query": "ताम्बरम, ट्रेन, कल — बस इतनी ही जानकारी है।",
+    "expected_intent": null,
+    "expected_operation": null,
+    "expected_slots": {},
+    "test_type": "incomplete_ambiguous",
+    "expected_behavior": "Ask actual transport goal and day; do not fabricate a route, timetable, fare, or date."
+  },
+  {
+    "id": "HI200_199",
+    "query": "साधारण बस में किराया दस स्टेज का चाहिए, चार स्टेज का नहीं।",
+    "expected_intent": "fare_calculation",
+    "expected_operation": "CALCULATE_FARE",
+    "expected_slots": {
+      "transport_mode": "bus",
+      "stage_number": 10,
+      "service_type": "Ordinary Services"
+    },
+    "test_type": "negated_stage",
+    "expected_behavior": "Extract only positive ten stages; negated four is not another fare scope."
+  },
+  {
+    "id": "HI200_200",
+    "query": "गिंडी मेट्रो की समय-सारणी रात ११:७५ के बाद बताइए।",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": null,
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "invalid_minute",
+    "expected_behavior": "Reject or clarify impossible minute 75; do not silently convert to another clock."
+  }
+]

@@ -42,6 +42,8 @@ Open `http://127.0.0.1:8501`. The API defaults to `http://127.0.0.1:8765`. Each 
 
 The **English / हिंदी / Hinglish** selector changes the website's main text and curated assistant replies, including saved replies. Type questions in any supported language; the original question reaches the API unchanged. Language changes preserve history and unsubmitted drafts. Canonical stop names, route codes, amounts, dates and source identifiers stay unchanged. Unmapped explanations remain verbatim with a localized label; some built-in Streamlit controls remain English.
 
+Choose **Bus, Metro, Rail (suburban), or MRTS** to apply that mode to subsequent questions. A mode explicitly written in the question takes priority; **Any mode** clears the default. **Published records** opens the source-coverage panel. Mode selection and saved history survive language changes. Typography and widget colors share the original parchment/oxblood theme.
+
 ## Verification and results
 
 ```bash
@@ -49,7 +51,7 @@ python -m pytest -q
 python -m pip check
 ```
 
-The verified local environment passes **1,147 tests**. [Language-selector QA](reports/nlp_v2/language_toggle_qa_2026_10_08/summary.md) includes 48 Hindi and 48 Hinglish questions checked through the actual API and replayed in the browser, plus independent frontend review. These checks confirm remaining recognition/input-extraction gaps; translation does not improve the frozen model. Earlier [frontend QA](reports/nlp_v2/frontend_qa/qa.md) records all five real API states. No lint/type checker is configured. Tests include strict real-checkpoint inference, synthetic contract/integration/UI cases, and frozen research integrity checks; they do not establish factual travel-answer accuracy.
+The verified local environment passes **1,344 tests**. The new [400-question language QA](reports/nlp_v2/language_400_qa_2026_10_08/summary.md) preserves 200 Hindi and 200 Hinglish questions, actual API responses, browser evidence and manual semantic judgments. It exposed bounded parsing defects now corrected, and substantial remaining recognition/source gaps. The retained intent model is unchanged. Earlier [language-selector QA](reports/nlp_v2/language_toggle_qa_2026_10_08/summary.md) covers 96 questions, and [frontend QA](reports/nlp_v2/frontend_qa/qa.md) records all five real API states. No lint/type checker is configured. Tests include strict real-checkpoint inference, synthetic contract/integration/UI cases, and frozen research integrity checks; they do not establish factual travel-answer accuracy.
 
 - [Supported scope and known limitations](docs/nlp_v2/known_limitations.md)
 - [Development acceptance](docs/nlp_v2/development_acceptance.md): answerable coverage **24/50→42/50**, false-positive clarification **30/104→3/104** on the observed frozen development suite.

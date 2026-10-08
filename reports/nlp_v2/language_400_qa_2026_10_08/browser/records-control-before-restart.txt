@@ -1,0 +1,73 @@
+Browser tab: 3, Title: "Chennai Transit Assistant", URL: "http://127.0.0.1:8601/".
+0 AXWebArea Chennai Transit Assistant, URL: 127.0.0.1:8601/
+	1 container root
+		2 container
+			44 button
+			4 button
+			5 container
+				6 container
+					7 heading Chennai Transit, Value: 2
+						8 text Chennai Transit
+					9 text Kai bhashaon mein transport sahayak
+					10 heading Apne shabdon mein poochhein, Value: 3
+						11 text Apne shabdon mein poochhein
+					12 text English · हिन्दी · Hinglish
+					13 text Route, stop, published schedule, kiraya aur nazdeeki transport.
+					14 heading Published records ka snapshot, Value: 3
+						15 text Published records ka snapshot
+					16 text Live updates nahi hain. Current service aur kiraya operator se confirm karein.
+					17 text Transfer, accessibility aur facility ki jaankari sirf source support hone par dikhai jaati hai.
+					18 text Chennai · Public transport
+			19 container
+				26 Language / भाषा
+					27 container
+						28 radio button (settable, integer) Description: English, Value: 0
+						29 text English
+					30 container
+						31 radio button (settable, integer) Description: हिंदी, Value: 0
+						32 text हिंदी
+					33 container
+						34 radio button (settable, integer) Description: Hinglish, Value: 1
+						35 text Hinglish
+				20 container
+					21 heading Chennai Multimodal Transit Sahayak, Value: 1, ID: chennai-multimodal-transit-assistant
+						22 text Chennai Multimodal Transit Sahayak
+					23 text Route, stop, schedule, kiraya ya nazdeeki transport ke baare mein poochhein.
+				45 container
+					46 Transport / परिवहन
+						47 container
+							48 radio button (settable, integer) Description: Koi bhi mode, Value: 0
+							49 text Koi bhi mode
+						50 container
+							51 radio button (settable, integer) Description: Bus, Value: 1
+							52 text Bus
+						53 container
+							54 radio button (settable, integer) Description: Metro, Value: 0
+							55 text Metro
+						56 container
+							57 radio button (settable, integer) Description: Rail (suburban), Value: 0
+							58 text Rail (suburban)
+						59 container
+							60 radio button (settable, integer) Description: MRTS, Value: 0
+							61 text MRTS
+					65 button Published records
+						66 text Published records
+					64 text Sawaal mein likha mode pehle maana jayega. Default hatane ke liye ‘Koi bhi mode’ chunein.
+				67 container
+					68 heading Source mein uplabdh jaankari, Value: 3, ID: source-mein-uplabdh-jaankari
+						69 text Source mein uplabdh jaankari
+					70 text Published stop kram, schedule records aur dated fares. Jaankari ka daayra mode ke hisaab se badalta hai.
+					71 text Live updates nahi hain. Current service aur kiraya operator se confirm karein.
+					72 text Transfer, accessibility aur facility ki jaankari sirf source support hone par dikhai jaati hai.
+				73 text Published snapshot · Live updates nahi · Current service operator se verify karein
+				74 text Poora sawaal poochhein. Route aur kiraya published snapshot se hain; live status unavailable hai.
+				75 button Nazdeeki metro
+					76 text Nazdeeki metro
+				77 button Bus route ke stops
+					78 text Bus route ke stops
+				79 button Prakashit kiraya
+					80 text Prakashit kiraya
+				42 container
+					43 text entry area (settable) Ask / पूछें / Pooch
+
+The focused UI element is 0 AXWebArea Chennai Transit Assistant, URL: 127.0.0.1:8601/

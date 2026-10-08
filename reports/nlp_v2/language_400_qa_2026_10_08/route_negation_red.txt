@@ -1,0 +1,20 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______ test_negated_route_stop_list_cannot_answer_live_location_request _______
+
+resolver = <src.nlp_v2.entities.CanonicalResolver object at 0x7df74a9084a0>
+
+    def test_negated_route_stop_list_cannot_answer_live_location_request(resolver):
+        from src.nlp_v2.assistant import T3Assistant
+        reply = T3Assistant(classifier=FixedClassifier('route_stop_sequence'), resolver=resolver).process_query(
+            '83C ka current location chahiye, route stops mat bhejna')
+>       assert reply.status == 'clarification'
+E       AssertionError: assert 'unavailable' == 'clarification'
+E         
+E         - clarification
+E         + unavailable
+
+tests/test_t3_assistant.py:518: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_t3_assistant.py::test_negated_route_stop_list_cannot_answer_live_location_request
+1 failed, 105 deselected in 0.17s

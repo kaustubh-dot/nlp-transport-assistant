@@ -1,0 +1,123 @@
+[
+  {
+    "request": {
+      "query": "guindy se central kaise jau"
+    },
+    "http": 200,
+    "actual": {
+      "status": "clarification",
+      "outcome_reason": "entity_ambiguity",
+      "response_text": "Please clarify which stop or location you mean.",
+      "intent": "point_to_point_route",
+      "operation": null,
+      "slots": {
+        "origin": "HUB_GUINDY"
+      },
+      "data": {},
+      "missing_slots": [],
+      "clarification_reason": "entity_ambiguity",
+      "candidate_entities": [
+        "HUB_PURATCHI_THALAIVAR_DR__M_G_RAMACHANDRAN_CENTRAL",
+        "HUB_PURATCHI_THALAIVAR_DR__M__G__RAMACHANDRAN_CENTRAL"
+      ],
+      "candidate_intents": [
+        "point_to_point_route"
+      ]
+    }
+  },
+  {
+    "request": {
+      "query": "guindy se central kaise jau",
+      "transport_mode": "bus"
+    },
+    "http": 200,
+    "actual": {
+      "status": "clarification",
+      "outcome_reason": "entity_ambiguity",
+      "response_text": "Please clarify which stop or location you mean.",
+      "intent": "point_to_point_route",
+      "operation": null,
+      "slots": {
+        "transport_mode": "bus"
+      },
+      "data": {},
+      "missing_slots": [],
+      "clarification_reason": "entity_ambiguity",
+      "candidate_entities": [
+        "BUS_1007625852",
+        "BUS_10167",
+        "BUS_11200",
+        "BUS_11203",
+        "BUS_2241055785",
+        "BUS_256039818",
+        "BUS_3264712327",
+        "BUS_3264712469",
+        "BUS_5631301427",
+        "BUS_CMRL_22",
+        "HUB_PURATCHI_THALAIVAR_DR__M_G_RAMACHANDRAN_CENTRAL",
+        "HUB_PURATCHI_THALAIVAR_DR__M__G__RAMACHANDRAN_CENTRAL",
+        "RAIL_CHENNAI_CENTRAL"
+      ],
+      "candidate_intents": [
+        "point_to_point_route"
+      ]
+    }
+  },
+  {
+    "request": {
+      "query": "guindy se central kaise jau",
+      "transport_mode": "metro"
+    },
+    "http": 200,
+    "actual": {
+      "status": "unavailable",
+      "outcome_reason": "unsupported_source",
+      "response_text": "No mode-consistent published topology is available for the requested transport mode.",
+      "intent": "point_to_point_route",
+      "operation": "PLAN_ROUTE",
+      "slots": {
+        "transport_mode": "metro",
+        "origin": "METRO_GUINDY"
+      },
+      "data": {
+        "reason": "published_mode_topology_absent",
+        "transport_mode": "metro"
+      },
+      "missing_slots": [],
+      "clarification_reason": null,
+      "candidate_entities": [],
+      "candidate_intents": [
+        "point_to_point_route"
+      ]
+    }
+  },
+  {
+    "request": {
+      "query": "guindy se central kaise jau",
+      "transport_mode": "suburban_rail"
+    },
+    "http": 200,
+    "actual": {
+      "status": "unavailable",
+      "outcome_reason": "unsupported_source",
+      "response_text": "No mode-consistent published topology is available for the requested transport mode.",
+      "intent": "point_to_point_route",
+      "operation": "PLAN_ROUTE",
+      "slots": {
+        "transport_mode": "suburban_rail",
+        "origin": "RAIL_GUINDY",
+        "destination": "RAIL_CHENNAI_CENTRAL"
+      },
+      "data": {
+        "reason": "published_mode_topology_absent",
+        "transport_mode": "suburban_rail"
+      },
+      "missing_slots": [],
+      "clarification_reason": null,
+      "candidate_entities": [],
+      "candidate_intents": [
+        "point_to_point_route"
+      ]
+    }
+  }
+]

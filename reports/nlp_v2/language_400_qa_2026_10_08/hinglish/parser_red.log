@@ -1,0 +1,2301 @@
+FFFFF......F.F.FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF [ 48%]
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF.FFFF..FF.. [ 96%]
+FF....                                                                   [100%]
+=================================== FAILURES ===================================
+_ test_possessive_route_codes_preserve_bus_context_and_suffix[31B ki aakhri bus Cedar Quay se-31B] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d295d3a0>
+query = '31B ki aakhri bus Cedar Quay se', code = '31B'
+
+    @pytest.mark.parametrize('query,code', [
+        ('31B ki aakhri bus Cedar Quay se', '31B'),
+        ('83C ke stops bus route me dikhao', '83C'),
+        ('bus route me ८३सी के स्टॉप बताओ', '83C'),
+        ('Bus context: 31-B ki pehli bus', '31B'),
+        ('31B# ki bus ke stops', '31B#'),
+        ('Bus route 83 ke stops', '83'),
+    ])
+    def test_possessive_route_codes_preserve_bus_context_and_suffix(extractor, query, code):
+        result = extractor.extract(query, 'route_stop_sequence')
+>       assert result.slots['route_number'] == code
+E       KeyError: 'route_number'
+
+tests/test_t3_language_extraction.py:40: KeyError
+_ test_possessive_route_codes_preserve_bus_context_and_suffix[83C ke stops bus route me dikhao-83C] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2515700>
+query = '83C ke stops bus route me dikhao', code = '83C'
+
+    @pytest.mark.parametrize('query,code', [
+        ('31B ki aakhri bus Cedar Quay se', '31B'),
+        ('83C ke stops bus route me dikhao', '83C'),
+        ('bus route me ८३सी के स्टॉप बताओ', '83C'),
+        ('Bus context: 31-B ki pehli bus', '31B'),
+        ('31B# ki bus ke stops', '31B#'),
+        ('Bus route 83 ke stops', '83'),
+    ])
+    def test_possessive_route_codes_preserve_bus_context_and_suffix(extractor, query, code):
+        result = extractor.extract(query, 'route_stop_sequence')
+>       assert result.slots['route_number'] == code
+E       KeyError: 'route_number'
+
+tests/test_t3_language_extraction.py:40: KeyError
+_ test_possessive_route_codes_preserve_bus_context_and_suffix[bus route me \u096e\u0969\u0938\u0940 \u0915\u0947 \u0938\u094d\u091f\u0949\u092a \u092c\u0924\u093e\u0913-83C] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2516240>
+query = 'bus route me ८३सी के स्टॉप बताओ', code = '83C'
+
+    @pytest.mark.parametrize('query,code', [
+        ('31B ki aakhri bus Cedar Quay se', '31B'),
+        ('83C ke stops bus route me dikhao', '83C'),
+        ('bus route me ८३सी के स्टॉप बताओ', '83C'),
+        ('Bus context: 31-B ki pehli bus', '31B'),
+        ('31B# ki bus ke stops', '31B#'),
+        ('Bus route 83 ke stops', '83'),
+    ])
+    def test_possessive_route_codes_preserve_bus_context_and_suffix(extractor, query, code):
+        result = extractor.extract(query, 'route_stop_sequence')
+>       assert result.slots['route_number'] == code
+E       KeyError: 'route_number'
+
+tests/test_t3_language_extraction.py:40: KeyError
+_ test_possessive_route_codes_preserve_bus_context_and_suffix[Bus context: 31-B ki pehli bus-31B] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2517350>
+query = 'Bus context: 31-B ki pehli bus', code = '31B'
+
+    @pytest.mark.parametrize('query,code', [
+        ('31B ki aakhri bus Cedar Quay se', '31B'),
+        ('83C ke stops bus route me dikhao', '83C'),
+        ('bus route me ८३सी के स्टॉप बताओ', '83C'),
+        ('Bus context: 31-B ki pehli bus', '31B'),
+        ('31B# ki bus ke stops', '31B#'),
+        ('Bus route 83 ke stops', '83'),
+    ])
+    def test_possessive_route_codes_preserve_bus_context_and_suffix(extractor, query, code):
+        result = extractor.extract(query, 'route_stop_sequence')
+>       assert result.slots['route_number'] == code
+E       KeyError: 'route_number'
+
+tests/test_t3_language_extraction.py:40: KeyError
+_ test_possessive_route_codes_preserve_bus_context_and_suffix[31B# ki bus ke stops-31B#] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d255e000>
+query = '31B# ki bus ke stops', code = '31B#'
+
+    @pytest.mark.parametrize('query,code', [
+        ('31B ki aakhri bus Cedar Quay se', '31B'),
+        ('83C ke stops bus route me dikhao', '83C'),
+        ('bus route me ८३सी के स्टॉप बताओ', '83C'),
+        ('Bus context: 31-B ki pehli bus', '31B'),
+        ('31B# ki bus ke stops', '31B#'),
+        ('Bus route 83 ke stops', '83'),
+    ])
+    def test_possessive_route_codes_preserve_bus_context_and_suffix(extractor, query, code):
+        result = extractor.extract(query, 'route_stop_sequence')
+>       assert result.slots['route_number'] == code
+E       KeyError: 'route_number'
+
+tests/test_t3_language_extraction.py:40: KeyError
+_ test_possessive_route_extension_does_not_promote_unrelated_numbers[Ordinary bus 8 ka fare] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d255e3f0>
+query = 'Ordinary bus 8 ka fare'
+
+    @pytest.mark.parametrize('query', [
+        '83C ke stops dikhao', '83 ke stops chahiye', '83 ka price kya hai',
+        'Bus ka 8:15 AM departure', 'Bus departure on 2026-11-13',
+        'Ordinary bus 8 ka fare', 'bus ticket for 6 passengers',
+    ])
+    def test_possessive_route_extension_does_not_promote_unrelated_numbers(extractor, query):
+        result = extractor.extract(query, 'route_stop_sequence')
+>       assert 'route_number' not in result.slots
+E       AssertionError: assert 'route_number' not in {'route_number': '8', 'transport_mode': 'bus'}
+E        +  where {'route_number': '8', 'transport_mode': 'bus'} = ExtractionResult(slots={'transport_mode': 'bus', 'route_number': '8'}, spans=(), unresolved=(), clarification_reason=N...tion_slots=(), multiple_execution_scopes=False, unsupported_temporal_scope=False, unsupported_timetable_waypoint=False).slots
+
+tests/test_t3_language_extraction.py:50: AssertionError
+__________ test_possessive_competing_routes_are_not_silently_reduced ___________
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2572870>
+
+    def test_possessive_competing_routes_are_not_silently_reduced(extractor):
+        result = extractor.extract('31B ki bus stops aur 83C ke stops', 'route_stop_sequence')
+>       assert result.multiple_execution_scopes is True
+E       AssertionError: assert False is True
+E        +  where False = ExtractionResult(slots={'transport_mode': 'bus'}, spans=(), unresolved=(), clarification_reason=None, requested_modes=...ute_number',), multiple_execution_scopes=False, unsupported_temporal_scope=False, unsupported_timetable_waypoint=False).multiple_execution_scopes
+
+tests/test_t3_language_extraction.py:55: AssertionError
+_ test_stage_count_order_script_and_unit_preserve_tariff_scope[Express bus fare for 14 stages-14] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2571a60>
+query = 'Express bus fare for 14 stages', stage = 14
+
+    @pytest.mark.parametrize('query,stage', [
+        ('Express bus fare for stage 14', 14),
+        ('Express bus fare for 14 stages', 14),
+        ('Express bus १४ stage ka kiraya', 14),
+        ('Express bus चौदह स्टेज का किराया', 14),
+        ('Express bus चौदह चरण का किराया', 14),
+        ('Express bus stage number १४ fare', 14),
+    ])
+    def test_stage_count_order_script_and_unit_preserve_tariff_scope(extractor, query, stage):
+        result = extractor.extract(query, 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:68: KeyError
+_ test_stage_count_order_script_and_unit_preserve_tariff_scope[Express bus \u0967\u096a stage ka kiraya-14] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2571ca0>
+query = 'Express bus १४ stage ka kiraya', stage = 14
+
+    @pytest.mark.parametrize('query,stage', [
+        ('Express bus fare for stage 14', 14),
+        ('Express bus fare for 14 stages', 14),
+        ('Express bus १४ stage ka kiraya', 14),
+        ('Express bus चौदह स्टेज का किराया', 14),
+        ('Express bus चौदह चरण का किराया', 14),
+        ('Express bus stage number १४ fare', 14),
+    ])
+    def test_stage_count_order_script_and_unit_preserve_tariff_scope(extractor, query, stage):
+        result = extractor.extract(query, 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:68: KeyError
+_ test_stage_count_order_script_and_unit_preserve_tariff_scope[Express bus \u091a\u094c\u0926\u0939 \u0938\u094d\u091f\u0947\u091c \u0915\u093e \u0915\u093f\u0930\u093e\u092f\u093e-14] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2572600>
+query = 'Express bus चौदह स्टेज का किराया', stage = 14
+
+    @pytest.mark.parametrize('query,stage', [
+        ('Express bus fare for stage 14', 14),
+        ('Express bus fare for 14 stages', 14),
+        ('Express bus १४ stage ka kiraya', 14),
+        ('Express bus चौदह स्टेज का किराया', 14),
+        ('Express bus चौदह चरण का किराया', 14),
+        ('Express bus stage number १४ fare', 14),
+    ])
+    def test_stage_count_order_script_and_unit_preserve_tariff_scope(extractor, query, stage):
+        result = extractor.extract(query, 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:68: KeyError
+_ test_stage_count_order_script_and_unit_preserve_tariff_scope[Express bus \u091a\u094c\u0926\u0939 \u091a\u0930\u0923 \u0915\u093e \u0915\u093f\u0930\u093e\u092f\u093e-14] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2514a10>
+query = 'Express bus चौदह चरण का किराया', stage = 14
+
+    @pytest.mark.parametrize('query,stage', [
+        ('Express bus fare for stage 14', 14),
+        ('Express bus fare for 14 stages', 14),
+        ('Express bus १४ stage ka kiraya', 14),
+        ('Express bus चौदह स्टेज का किराया', 14),
+        ('Express bus चौदह चरण का किराया', 14),
+        ('Express bus stage number १४ fare', 14),
+    ])
+    def test_stage_count_order_script_and_unit_preserve_tariff_scope(extractor, query, stage):
+        result = extractor.extract(query, 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:68: KeyError
+_ test_stage_count_order_script_and_unit_preserve_tariff_scope[Express bus stage number \u0967\u096a fare-14] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d255edb0>
+query = 'Express bus stage number १४ fare', stage = 14
+
+    @pytest.mark.parametrize('query,stage', [
+        ('Express bus fare for stage 14', 14),
+        ('Express bus fare for 14 stages', 14),
+        ('Express bus १४ stage ka kiraya', 14),
+        ('Express bus चौदह स्टेज का किराया', 14),
+        ('Express bus चौदह चरण का किराया', 14),
+        ('Express bus stage number १४ fare', 14),
+    ])
+    def test_stage_count_order_script_and_unit_preserve_tariff_scope(extractor, query, stage):
+        result = extractor.extract(query, 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:68: KeyError
+__ test_spelled_stage_cardinals_one_through_thirty[en-1-one-\u090f\u0915-ek] ___
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25170b0>
+stage = 1, en = 'one', hi = 'एक', roman = 'ek', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+__ test_spelled_stage_cardinals_one_through_thirty[en-2-two-\u0926\u094b-do] ___
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d255c1a0>
+stage = 2, en = 'two', hi = 'दो', roman = 'do', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-3-three-\u0924\u0940\u0928-teen] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d255e2a0>
+stage = 3, en = 'three', hi = 'तीन', roman = 'teen', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-4-four-\u091a\u093e\u0930-chaar] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2546660>
+stage = 4, en = 'four', hi = 'चार', roman = 'chaar', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-5-five-\u092a\u093e\u0901\u091a-paanch] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2546e10>
+stage = 5, en = 'five', hi = 'पाँच', roman = 'paanch', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-6-six-\u091b\u0939-chhe] __
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2547f80>
+stage = 6, en = 'six', hi = 'छह', roman = 'chhe', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-7-seven-\u0938\u093e\u0924-saat] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2545ca0>
+stage = 7, en = 'seven', hi = 'सात', roman = 'saat', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-8-eight-\u0906\u0920-aath] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2545700>
+stage = 8, en = 'eight', hi = 'आठ', roman = 'aath', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-9-nine-\u0928\u094c-nau] __
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d259a3c0>
+stage = 9, en = 'nine', hi = 'नौ', roman = 'nau', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-10-ten-\u0926\u0938-das] __
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25460c0>
+stage = 10, en = 'ten', hi = 'दस', roman = 'das', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-11-eleven-\u0917\u094d\u092f\u093e\u0930\u0939-gyarah] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2547680>
+stage = 11, en = 'eleven', hi = 'ग्यारह', roman = 'gyarah', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-12-twelve-\u092c\u093e\u0930\u0939-barah] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d255c260>
+stage = 12, en = 'twelve', hi = 'बारह', roman = 'barah', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-13-thirteen-\u0924\u0947\u0930\u0939-terah] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d255d820>
+stage = 13, en = 'thirteen', hi = 'तेरह', roman = 'terah', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-14-fourteen-\u091a\u094c\u0926\u0939-chaudah] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2517920>
+stage = 14, en = 'fourteen', hi = 'चौदह', roman = 'chaudah', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-15-fifteen-\u092a\u0902\u0926\u094d\u0930\u0939-pandrah] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2516090>
+stage = 15, en = 'fifteen', hi = 'पंद्रह', roman = 'pandrah', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-16-sixteen-\u0938\u094b\u0932\u0939-solah] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2572bd0>
+stage = 16, en = 'sixteen', hi = 'सोलह', roman = 'solah', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-17-seventeen-\u0938\u0924\u094d\u0930\u0939-satrah] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2598d40>
+stage = 17, en = 'seventeen', hi = 'सत्रह', roman = 'satrah', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-18-eighteen-\u0905\u0920\u093e\u0930\u0939-atharah] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d259af00>
+stage = 18, en = 'eighteen', hi = 'अठारह', roman = 'atharah', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-19-nineteen-\u0909\u0928\u094d\u0928\u0940\u0938-unnis] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2599580>
+stage = 19, en = 'nineteen', hi = 'उन्नीस', roman = 'unnis', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-20-twenty-\u092c\u0940\u0938-bees] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d259b5c0>
+stage = 20, en = 'twenty', hi = 'बीस', roman = 'bees', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-21-twenty one-\u0907\u0915\u094d\u0915\u0940\u0938-ikkis] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25ca1e0>
+stage = 21, en = 'twenty one', hi = 'इक्कीस', roman = 'ikkis', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-22-twenty two-\u092c\u093e\u0908\u0938-baais] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2598590>
+stage = 22, en = 'twenty two', hi = 'बाईस', roman = 'baais', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-23-twenty three-\u0924\u0947\u0908\u0938-teis] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d29bea20>
+stage = 23, en = 'twenty three', hi = 'तेईस', roman = 'teis', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-24-twenty four-\u091a\u094c\u092c\u0940\u0938-chaubis] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2571a60>
+stage = 24, en = 'twenty four', hi = 'चौबीस', roman = 'chaubis', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-25-twenty five-\u092a\u091a\u094d\u091a\u0940\u0938-pachis] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2516840>
+stage = 25, en = 'twenty five', hi = 'पच्चीस', roman = 'pachis', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-26-twenty six-\u091b\u092c\u094d\u092c\u0940\u0938-chabbis] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d255d820>
+stage = 26, en = 'twenty six', hi = 'छब्बीस', roman = 'chabbis', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-27-twenty seven-\u0938\u0924\u094d\u0924\u093e\u0908\u0938-sattais] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d255ede0>
+stage = 27, en = 'twenty seven', hi = 'सत्ताईस', roman = 'sattais'
+language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-28-twenty eight-\u0905\u091f\u094d\u0920\u093e\u0908\u0938-atthais] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2599a00>
+stage = 28, en = 'twenty eight', hi = 'अट्ठाईस', roman = 'atthais'
+language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-29-twenty nine-\u0909\u0928\u0924\u0940\u0938-untees] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2547e90>
+stage = 29, en = 'twenty nine', hi = 'उनतीस', roman = 'untees', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[en-30-thirty-\u0924\u0940\u0938-tees] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25446b0>
+stage = 30, en = 'thirty', hi = 'तीस', roman = 'tees', language = 'en'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+__ test_spelled_stage_cardinals_one_through_thirty[hi-1-one-\u090f\u0915-ek] ___
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2572e70>
+stage = 1, en = 'one', hi = 'एक', roman = 'ek', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+__ test_spelled_stage_cardinals_one_through_thirty[hi-2-two-\u0926\u094b-do] ___
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2573e60>
+stage = 2, en = 'two', hi = 'दो', roman = 'do', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-3-three-\u0924\u0940\u0928-teen] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25cb4a0>
+stage = 3, en = 'three', hi = 'तीन', roman = 'teen', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-4-four-\u091a\u093e\u0930-chaar] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25c94f0>
+stage = 4, en = 'four', hi = 'चार', roman = 'chaar', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-5-five-\u092a\u093e\u0901\u091a-paanch] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2546210>
+stage = 5, en = 'five', hi = 'पाँच', roman = 'paanch', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-6-six-\u091b\u0939-chhe] __
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d255f5f0>
+stage = 6, en = 'six', hi = 'छह', roman = 'chhe', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-7-seven-\u0938\u093e\u0924-saat] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2517e90>
+stage = 7, en = 'seven', hi = 'सात', roman = 'saat', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-8-eight-\u0906\u0920-aath] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2571cd0>
+stage = 8, en = 'eight', hi = 'आठ', roman = 'aath', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-9-nine-\u0928\u094c-nau] __
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2598ec0>
+stage = 9, en = 'nine', hi = 'नौ', roman = 'nau', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-10-ten-\u0926\u0938-das] __
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d259a810>
+stage = 10, en = 'ten', hi = 'दस', roman = 'das', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-11-eleven-\u0917\u094d\u092f\u093e\u0930\u0939-gyarah] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25ca5a0>
+stage = 11, en = 'eleven', hi = 'ग्यारह', roman = 'gyarah', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-12-twelve-\u092c\u093e\u0930\u0939-barah] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25c9490>
+stage = 12, en = 'twelve', hi = 'बारह', roman = 'barah', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-13-thirteen-\u0924\u0947\u0930\u0939-terah] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25c9be0>
+stage = 13, en = 'thirteen', hi = 'तेरह', roman = 'terah', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-14-fourteen-\u091a\u094c\u0926\u0939-chaudah] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25cb920>
+stage = 14, en = 'fourteen', hi = 'चौदह', roman = 'chaudah', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-15-fifteen-\u092a\u0902\u0926\u094d\u0930\u0939-pandrah] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25c2000>
+stage = 15, en = 'fifteen', hi = 'पंद्रह', roman = 'pandrah', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-16-sixteen-\u0938\u094b\u0932\u0939-solah] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25c26f0>
+stage = 16, en = 'sixteen', hi = 'सोलह', roman = 'solah', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-17-seventeen-\u0938\u0924\u094d\u0930\u0939-satrah] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25cbf20>
+stage = 17, en = 'seventeen', hi = 'सत्रह', roman = 'satrah', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-18-eighteen-\u0905\u0920\u093e\u0930\u0939-atharah] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d29be6c0>
+stage = 18, en = 'eighteen', hi = 'अठारह', roman = 'atharah', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-19-nineteen-\u0909\u0928\u094d\u0928\u0940\u0938-unnis] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d259b5f0>
+stage = 19, en = 'nineteen', hi = 'उन्नीस', roman = 'unnis', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-20-twenty-\u092c\u0940\u0938-bees] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2572f90>
+stage = 20, en = 'twenty', hi = 'बीस', roman = 'bees', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-21-twenty one-\u0907\u0915\u094d\u0915\u0940\u0938-ikkis] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2571d90>
+stage = 21, en = 'twenty one', hi = 'इक्कीस', roman = 'ikkis', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-22-twenty two-\u092c\u093e\u0908\u0938-baais] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d255cb00>
+stage = 22, en = 'twenty two', hi = 'बाईस', roman = 'baais', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-23-twenty three-\u0924\u0947\u0908\u0938-teis] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25461b0>
+stage = 23, en = 'twenty three', hi = 'तेईस', roman = 'teis', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-24-twenty four-\u091a\u094c\u092c\u0940\u0938-chaubis] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25c2750>
+stage = 24, en = 'twenty four', hi = 'चौबीस', roman = 'chaubis', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-25-twenty five-\u092a\u091a\u094d\u091a\u0940\u0938-pachis] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25c2f90>
+stage = 25, en = 'twenty five', hi = 'पच्चीस', roman = 'pachis', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-26-twenty six-\u091b\u092c\u094d\u092c\u0940\u0938-chabbis] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25c0aa0>
+stage = 26, en = 'twenty six', hi = 'छब्बीस', roman = 'chabbis', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-27-twenty seven-\u0938\u0924\u094d\u0924\u093e\u0908\u0938-sattais] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25c0b00>
+stage = 27, en = 'twenty seven', hi = 'सत्ताईस', roman = 'sattais'
+language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-28-twenty eight-\u0905\u091f\u094d\u0920\u093e\u0908\u0938-atthais] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d253a060>
+stage = 28, en = 'twenty eight', hi = 'अट्ठाईस', roman = 'atthais'
+language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-29-twenty nine-\u0909\u0928\u0924\u0940\u0938-untees] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25c0140>
+stage = 29, en = 'twenty nine', hi = 'उनतीस', roman = 'untees', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[hi-30-thirty-\u0924\u0940\u0938-tees] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25c3500>
+stage = 30, en = 'thirty', hi = 'तीस', roman = 'tees', language = 'hi'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-1-one-\u090f\u0915-ek] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d255c230>
+stage = 1, en = 'one', hi = 'एक', roman = 'ek', language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-2-two-\u0926\u094b-do] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25718e0>
+stage = 2, en = 'two', hi = 'दो', roman = 'do', language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-3-three-\u0924\u0940\u0928-teen] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2572f30>
+stage = 3, en = 'three', hi = 'तीन', roman = 'teen', language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-4-four-\u091a\u093e\u0930-chaar] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d259b230>
+stage = 4, en = 'four', hi = 'चार', roman = 'chaar', language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-5-five-\u092a\u093e\u0901\u091a-paanch] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25c8800>
+stage = 5, en = 'five', hi = 'पाँच', roman = 'paanch', language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-6-six-\u091b\u0939-chhe] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d253a2d0>
+stage = 6, en = 'six', hi = 'छह', roman = 'chhe', language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-7-seven-\u0938\u093e\u0924-saat] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2538fe0>
+stage = 7, en = 'seven', hi = 'सात', roman = 'saat', language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-8-eight-\u0906\u0920-aath] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d253b800>
+stage = 8, en = 'eight', hi = 'आठ', roman = 'aath', language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-9-nine-\u0928\u094c-nau] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25386b0>
+stage = 9, en = 'nine', hi = 'नौ', roman = 'nau', language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-10-ten-\u0926\u0938-das] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2539940>
+stage = 10, en = 'ten', hi = 'दस', roman = 'das', language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-11-eleven-\u0917\u094d\u092f\u093e\u0930\u0939-gyarah] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2539e80>
+stage = 11, en = 'eleven', hi = 'ग्यारह', roman = 'gyarah', language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-12-twelve-\u092c\u093e\u0930\u0939-barah] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d253afc0>
+stage = 12, en = 'twelve', hi = 'बारह', roman = 'barah', language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-13-thirteen-\u0924\u0947\u0930\u0939-terah] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25c8620>
+stage = 13, en = 'thirteen', hi = 'तेरह', roman = 'terah', language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-14-fourteen-\u091a\u094c\u0926\u0939-chaudah] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d259ba40>
+stage = 14, en = 'fourteen', hi = 'चौदह', roman = 'chaudah', language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-15-fifteen-\u092a\u0902\u0926\u094d\u0930\u0939-pandrah] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2571d90>
+stage = 15, en = 'fifteen', hi = 'पंद्रह', roman = 'pandrah', language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-16-sixteen-\u0938\u094b\u0932\u0939-solah] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d255d820>
+stage = 16, en = 'sixteen', hi = 'सोलह', roman = 'solah', language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-17-seventeen-\u0938\u0924\u094d\u0930\u0939-satrah] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25c27b0>
+stage = 17, en = 'seventeen', hi = 'सत्रह', roman = 'satrah', language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-18-eighteen-\u0905\u0920\u093e\u0930\u0939-atharah] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25c2780>
+stage = 18, en = 'eighteen', hi = 'अठारह', roman = 'atharah', language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-19-nineteen-\u0909\u0928\u094d\u0928\u0940\u0938-unnis] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d04800>
+stage = 19, en = 'nineteen', hi = 'उन्नीस', roman = 'unnis', language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-20-twenty-\u092c\u0940\u0938-bees] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d06030>
+stage = 20, en = 'twenty', hi = 'बीस', roman = 'bees', language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-21-twenty one-\u0907\u0915\u094d\u0915\u0940\u0938-ikkis] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d07110>
+stage = 21, en = 'twenty one', hi = 'इक्कीस', roman = 'ikkis'
+language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-22-twenty two-\u092c\u093e\u0908\u0938-baais] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d04470>
+stage = 22, en = 'twenty two', hi = 'बाईस', roman = 'baais', language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-23-twenty three-\u0924\u0947\u0908\u0938-teis] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25c0980>
+stage = 23, en = 'twenty three', hi = 'तेईस', roman = 'teis', language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-24-twenty four-\u091a\u094c\u092c\u0940\u0938-chaubis] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d29be960>
+stage = 24, en = 'twenty four', hi = 'चौबीस', roman = 'chaubis'
+language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-25-twenty five-\u092a\u091a\u094d\u091a\u0940\u0938-pachis] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2598b30>
+stage = 25, en = 'twenty five', hi = 'पच्चीस', roman = 'pachis'
+language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-26-twenty six-\u091b\u092c\u094d\u092c\u0940\u0938-chabbis] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25cb530>
+stage = 26, en = 'twenty six', hi = 'छब्बीस', roman = 'chabbis'
+language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-27-twenty seven-\u0938\u0924\u094d\u0924\u093e\u0908\u0938-sattais] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2538410>
+stage = 27, en = 'twenty seven', hi = 'सत्ताईस', roman = 'sattais'
+language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-28-twenty eight-\u0905\u091f\u094d\u0920\u093e\u0908\u0938-atthais] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d06780>
+stage = 28, en = 'twenty eight', hi = 'अट्ठाईस', roman = 'atthais'
+language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-29-twenty nine-\u0909\u0928\u0924\u0940\u0938-untees] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d05a60>
+stage = 29, en = 'twenty nine', hi = 'उनतीस', roman = 'untees'
+language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_spelled_stage_cardinals_one_through_thirty[roman-30-thirty-\u0924\u0940\u0938-tees] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d065d0>
+stage = 30, en = 'thirty', hi = 'तीस', roman = 'tees', language = 'roman'
+
+    @pytest.mark.parametrize('stage,en,hi,roman', CARDINALS)
+    @pytest.mark.parametrize('language', ['en', 'hi', 'roman'])
+    def test_spelled_stage_cardinals_one_through_thirty(extractor, stage, en, hi, roman, language):
+        number = {'en': en, 'hi': hi, 'roman': roman}[language]
+        result = extractor.extract(f'Ordinary bus {number} stage ka kiraya', 'fare_calculation')
+>       assert result.slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:98: KeyError
+_ test_explicit_stage_ordinals_and_compound_cardinals[Ordinary bus \u092a\u0939\u0932\u093e \u0938\u094d\u091f\u0947\u091c \u0915\u093f\u0930\u093e\u092f\u093e-1] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d49e80>
+query = 'Ordinary bus पहला स्टेज किराया', stage = 1
+
+    @pytest.mark.parametrize('query,stage', [
+        ('Ordinary bus पहला स्टेज किराया', 1),
+        ('Ordinary bus दूसरे चरण का किराया', 2),
+        ('Ordinary bus तीसरे स्टेज का किराया', 3),
+        ('Ordinary bus सातवें चरण का किराया', 7),
+        ('Ordinary bus ग्यारहवें स्टेज का किराया', 11),
+        ('Ordinary bus इक्कीसवें चरण का किराया', 21),
+        ('Ordinary bus तीसवाँ स्टेज किराया', 30),
+        ('Ordinary bus twenty-five stages ka fare', 25),
+    ])
+    def test_explicit_stage_ordinals_and_compound_cardinals(extractor, query, stage):
+>       assert extractor.extract(query, 'fare_calculation').slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:114: KeyError
+_ test_explicit_stage_ordinals_and_compound_cardinals[Ordinary bus \u0926\u0942\u0938\u0930\u0947 \u091a\u0930\u0923 \u0915\u093e \u0915\u093f\u0930\u093e\u092f\u093e-2] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d4a6f0>
+query = 'Ordinary bus दूसरे चरण का किराया', stage = 2
+
+    @pytest.mark.parametrize('query,stage', [
+        ('Ordinary bus पहला स्टेज किराया', 1),
+        ('Ordinary bus दूसरे चरण का किराया', 2),
+        ('Ordinary bus तीसरे स्टेज का किराया', 3),
+        ('Ordinary bus सातवें चरण का किराया', 7),
+        ('Ordinary bus ग्यारहवें स्टेज का किराया', 11),
+        ('Ordinary bus इक्कीसवें चरण का किराया', 21),
+        ('Ordinary bus तीसवाँ स्टेज किराया', 30),
+        ('Ordinary bus twenty-five stages ka fare', 25),
+    ])
+    def test_explicit_stage_ordinals_and_compound_cardinals(extractor, query, stage):
+>       assert extractor.extract(query, 'fare_calculation').slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:114: KeyError
+_ test_explicit_stage_ordinals_and_compound_cardinals[Ordinary bus \u0924\u0940\u0938\u0930\u0947 \u0938\u094d\u091f\u0947\u091c \u0915\u093e \u0915\u093f\u0930\u093e\u092f\u093e-3] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d4b110>
+query = 'Ordinary bus तीसरे स्टेज का किराया', stage = 3
+
+    @pytest.mark.parametrize('query,stage', [
+        ('Ordinary bus पहला स्टेज किराया', 1),
+        ('Ordinary bus दूसरे चरण का किराया', 2),
+        ('Ordinary bus तीसरे स्टेज का किराया', 3),
+        ('Ordinary bus सातवें चरण का किराया', 7),
+        ('Ordinary bus ग्यारहवें स्टेज का किराया', 11),
+        ('Ordinary bus इक्कीसवें चरण का किराया', 21),
+        ('Ordinary bus तीसवाँ स्टेज किराया', 30),
+        ('Ordinary bus twenty-five stages ka fare', 25),
+    ])
+    def test_explicit_stage_ordinals_and_compound_cardinals(extractor, query, stage):
+>       assert extractor.extract(query, 'fare_calculation').slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:114: KeyError
+_ test_explicit_stage_ordinals_and_compound_cardinals[Ordinary bus \u0938\u093e\u0924\u0935\u0947\u0902 \u091a\u0930\u0923 \u0915\u093e \u0915\u093f\u0930\u093e\u092f\u093e-7] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d487d0>
+query = 'Ordinary bus सातवें चरण का किराया', stage = 7
+
+    @pytest.mark.parametrize('query,stage', [
+        ('Ordinary bus पहला स्टेज किराया', 1),
+        ('Ordinary bus दूसरे चरण का किराया', 2),
+        ('Ordinary bus तीसरे स्टेज का किराया', 3),
+        ('Ordinary bus सातवें चरण का किराया', 7),
+        ('Ordinary bus ग्यारहवें स्टेज का किराया', 11),
+        ('Ordinary bus इक्कीसवें चरण का किराया', 21),
+        ('Ordinary bus तीसवाँ स्टेज किराया', 30),
+        ('Ordinary bus twenty-five stages ka fare', 25),
+    ])
+    def test_explicit_stage_ordinals_and_compound_cardinals(extractor, query, stage):
+>       assert extractor.extract(query, 'fare_calculation').slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:114: KeyError
+_ test_explicit_stage_ordinals_and_compound_cardinals[Ordinary bus \u0917\u094d\u092f\u093e\u0930\u0939\u0935\u0947\u0902 \u0938\u094d\u091f\u0947\u091c \u0915\u093e \u0915\u093f\u0930\u093e\u092f\u093e-11] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d07470>
+query = 'Ordinary bus ग्यारहवें स्टेज का किराया', stage = 11
+
+    @pytest.mark.parametrize('query,stage', [
+        ('Ordinary bus पहला स्टेज किराया', 1),
+        ('Ordinary bus दूसरे चरण का किराया', 2),
+        ('Ordinary bus तीसरे स्टेज का किराया', 3),
+        ('Ordinary bus सातवें चरण का किराया', 7),
+        ('Ordinary bus ग्यारहवें स्टेज का किराया', 11),
+        ('Ordinary bus इक्कीसवें चरण का किराया', 21),
+        ('Ordinary bus तीसवाँ स्टेज किराया', 30),
+        ('Ordinary bus twenty-five stages ka fare', 25),
+    ])
+    def test_explicit_stage_ordinals_and_compound_cardinals(extractor, query, stage):
+>       assert extractor.extract(query, 'fare_calculation').slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:114: KeyError
+_ test_explicit_stage_ordinals_and_compound_cardinals[Ordinary bus \u0907\u0915\u094d\u0915\u0940\u0938\u0935\u0947\u0902 \u091a\u0930\u0923 \u0915\u093e \u0915\u093f\u0930\u093e\u092f\u093e-21] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25394c0>
+query = 'Ordinary bus इक्कीसवें चरण का किराया', stage = 21
+
+    @pytest.mark.parametrize('query,stage', [
+        ('Ordinary bus पहला स्टेज किराया', 1),
+        ('Ordinary bus दूसरे चरण का किराया', 2),
+        ('Ordinary bus तीसरे स्टेज का किराया', 3),
+        ('Ordinary bus सातवें चरण का किराया', 7),
+        ('Ordinary bus ग्यारहवें स्टेज का किराया', 11),
+        ('Ordinary bus इक्कीसवें चरण का किराया', 21),
+        ('Ordinary bus तीसवाँ स्टेज किराया', 30),
+        ('Ordinary bus twenty-five stages ka fare', 25),
+    ])
+    def test_explicit_stage_ordinals_and_compound_cardinals(extractor, query, stage):
+>       assert extractor.extract(query, 'fare_calculation').slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:114: KeyError
+_ test_explicit_stage_ordinals_and_compound_cardinals[Ordinary bus \u0924\u0940\u0938\u0935\u093e\u0901 \u0938\u094d\u091f\u0947\u091c \u0915\u093f\u0930\u093e\u092f\u093e-30] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2570a10>
+query = 'Ordinary bus तीसवाँ स्टेज किराया', stage = 30
+
+    @pytest.mark.parametrize('query,stage', [
+        ('Ordinary bus पहला स्टेज किराया', 1),
+        ('Ordinary bus दूसरे चरण का किराया', 2),
+        ('Ordinary bus तीसरे स्टेज का किराया', 3),
+        ('Ordinary bus सातवें चरण का किराया', 7),
+        ('Ordinary bus ग्यारहवें स्टेज का किराया', 11),
+        ('Ordinary bus इक्कीसवें चरण का किराया', 21),
+        ('Ordinary bus तीसवाँ स्टेज किराया', 30),
+        ('Ordinary bus twenty-five stages ka fare', 25),
+    ])
+    def test_explicit_stage_ordinals_and_compound_cardinals(extractor, query, stage):
+>       assert extractor.extract(query, 'fare_calculation').slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:114: KeyError
+_ test_explicit_stage_ordinals_and_compound_cardinals[Ordinary bus twenty-five stages ka fare-25] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2544d70>
+query = 'Ordinary bus twenty-five stages ka fare', stage = 25
+
+    @pytest.mark.parametrize('query,stage', [
+        ('Ordinary bus पहला स्टेज किराया', 1),
+        ('Ordinary bus दूसरे चरण का किराया', 2),
+        ('Ordinary bus तीसरे स्टेज का किराया', 3),
+        ('Ordinary bus सातवें चरण का किराया', 7),
+        ('Ordinary bus ग्यारहवें स्टेज का किराया', 11),
+        ('Ordinary bus इक्कीसवें चरण का किराया', 21),
+        ('Ordinary bus तीसवाँ स्टेज किराया', 30),
+        ('Ordinary bus twenty-five stages ka fare', 25),
+    ])
+    def test_explicit_stage_ordinals_and_compound_cardinals(extractor, query, stage):
+>       assert extractor.extract(query, 'fare_calculation').slots['stage_number'] == stage
+E       KeyError: 'stage_number'
+
+tests/test_t3_language_extraction.py:114: KeyError
+_ test_competing_stage_values_never_select_one_tariff[Ordinary bus stage 14 aur 18 fare] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25c0ad0>
+query = 'Ordinary bus stage 14 aur 18 fare'
+
+    @pytest.mark.parametrize('query', [
+        'Ordinary bus stage 14 aur 18 fare',
+        'Ordinary bus fourteen stages aur eighteen stages fare',
+        'Ordinary bus चौदह और अठारह स्टेज किराया',
+        'Ordinary bus chaudah stage ya atharah stage kiraya',
+        'Ordinary bus stage fourteen and eighteen fare',
+        'Ordinary bus चौदह स्टेज या stage 18 fare',
+        'Ordinary bus stage 14 nahi, stage 18 ka fare',
+    ])
+    def test_competing_stage_values_never_select_one_tariff(extractor, query):
+        result = extractor.extract(query, 'fare_calculation')
+        assert result.multiple_execution_scopes is True
+>       assert 'stage_number' not in result.slots
+E       AssertionError: assert 'stage_number' not in {'service_type': 'Ordinary Services', 'stage_number': 14, 'transport_mode': 'bus'}
+E        +  where {'service_type': 'Ordinary Services', 'stage_number': 14, 'transport_mode': 'bus'} = ExtractionResult(slots={'transport_mode': 'bus', 'service_type': 'Ordinary Services', 'stage_number': 14}, spans=(), u...ution_slots=(), multiple_execution_scopes=True, unsupported_temporal_scope=False, unsupported_timetable_waypoint=False).slots
+
+tests/test_t3_language_extraction.py:129: AssertionError
+_ test_competing_stage_values_never_select_one_tariff[Ordinary bus fourteen stages aur eighteen stages fare] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d4a900>
+query = 'Ordinary bus fourteen stages aur eighteen stages fare'
+
+    @pytest.mark.parametrize('query', [
+        'Ordinary bus stage 14 aur 18 fare',
+        'Ordinary bus fourteen stages aur eighteen stages fare',
+        'Ordinary bus चौदह और अठारह स्टेज किराया',
+        'Ordinary bus chaudah stage ya atharah stage kiraya',
+        'Ordinary bus stage fourteen and eighteen fare',
+        'Ordinary bus चौदह स्टेज या stage 18 fare',
+        'Ordinary bus stage 14 nahi, stage 18 ka fare',
+    ])
+    def test_competing_stage_values_never_select_one_tariff(extractor, query):
+        result = extractor.extract(query, 'fare_calculation')
+>       assert result.multiple_execution_scopes is True
+E       AssertionError: assert False is True
+E        +  where False = ExtractionResult(slots={'transport_mode': 'bus', 'service_type': 'Ordinary Services'}, spans=(), unresolved=(), clarif...tion_slots=(), multiple_execution_scopes=False, unsupported_temporal_scope=False, unsupported_timetable_waypoint=False).multiple_execution_scopes
+
+tests/test_t3_language_extraction.py:128: AssertionError
+_ test_competing_stage_values_never_select_one_tariff[Ordinary bus \u091a\u094c\u0926\u0939 \u0914\u0930 \u0905\u0920\u093e\u0930\u0939 \u0938\u094d\u091f\u0947\u091c \u0915\u093f\u0930\u093e\u092f\u093e] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d49f40>
+query = 'Ordinary bus चौदह और अठारह स्टेज किराया'
+
+    @pytest.mark.parametrize('query', [
+        'Ordinary bus stage 14 aur 18 fare',
+        'Ordinary bus fourteen stages aur eighteen stages fare',
+        'Ordinary bus चौदह और अठारह स्टेज किराया',
+        'Ordinary bus chaudah stage ya atharah stage kiraya',
+        'Ordinary bus stage fourteen and eighteen fare',
+        'Ordinary bus चौदह स्टेज या stage 18 fare',
+        'Ordinary bus stage 14 nahi, stage 18 ka fare',
+    ])
+    def test_competing_stage_values_never_select_one_tariff(extractor, query):
+        result = extractor.extract(query, 'fare_calculation')
+>       assert result.multiple_execution_scopes is True
+E       AssertionError: assert False is True
+E        +  where False = ExtractionResult(slots={'transport_mode': 'bus', 'service_type': 'Ordinary Services', 'fare_type': 'stage_fare'}, span...tion_slots=(), multiple_execution_scopes=False, unsupported_temporal_scope=False, unsupported_timetable_waypoint=False).multiple_execution_scopes
+
+tests/test_t3_language_extraction.py:128: AssertionError
+_ test_competing_stage_values_never_select_one_tariff[Ordinary bus chaudah stage ya atharah stage kiraya] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d4b560>
+query = 'Ordinary bus chaudah stage ya atharah stage kiraya'
+
+    @pytest.mark.parametrize('query', [
+        'Ordinary bus stage 14 aur 18 fare',
+        'Ordinary bus fourteen stages aur eighteen stages fare',
+        'Ordinary bus चौदह और अठारह स्टेज किराया',
+        'Ordinary bus chaudah stage ya atharah stage kiraya',
+        'Ordinary bus stage fourteen and eighteen fare',
+        'Ordinary bus चौदह स्टेज या stage 18 fare',
+        'Ordinary bus stage 14 nahi, stage 18 ka fare',
+    ])
+    def test_competing_stage_values_never_select_one_tariff(extractor, query):
+        result = extractor.extract(query, 'fare_calculation')
+>       assert result.multiple_execution_scopes is True
+E       AssertionError: assert False is True
+E        +  where False = ExtractionResult(slots={'transport_mode': 'bus', 'service_type': 'Ordinary Services'}, spans=(), unresolved=(), clarif...tion_slots=(), multiple_execution_scopes=False, unsupported_temporal_scope=False, unsupported_timetable_waypoint=False).multiple_execution_scopes
+
+tests/test_t3_language_extraction.py:128: AssertionError
+_ test_competing_stage_values_never_select_one_tariff[Ordinary bus stage fourteen and eighteen fare] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d4a690>
+query = 'Ordinary bus stage fourteen and eighteen fare'
+
+    @pytest.mark.parametrize('query', [
+        'Ordinary bus stage 14 aur 18 fare',
+        'Ordinary bus fourteen stages aur eighteen stages fare',
+        'Ordinary bus चौदह और अठारह स्टेज किराया',
+        'Ordinary bus chaudah stage ya atharah stage kiraya',
+        'Ordinary bus stage fourteen and eighteen fare',
+        'Ordinary bus चौदह स्टेज या stage 18 fare',
+        'Ordinary bus stage 14 nahi, stage 18 ka fare',
+    ])
+    def test_competing_stage_values_never_select_one_tariff(extractor, query):
+        result = extractor.extract(query, 'fare_calculation')
+>       assert result.multiple_execution_scopes is True
+E       AssertionError: assert False is True
+E        +  where False = ExtractionResult(slots={'transport_mode': 'bus', 'service_type': 'Ordinary Services'}, spans=(), unresolved=(), clarif...tion_slots=(), multiple_execution_scopes=False, unsupported_temporal_scope=False, unsupported_timetable_waypoint=False).multiple_execution_scopes
+
+tests/test_t3_language_extraction.py:128: AssertionError
+_ test_competing_stage_values_never_select_one_tariff[Ordinary bus \u091a\u094c\u0926\u0939 \u0938\u094d\u091f\u0947\u091c \u092f\u093e stage 18 fare] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d07b90>
+query = 'Ordinary bus चौदह स्टेज या stage 18 fare'
+
+    @pytest.mark.parametrize('query', [
+        'Ordinary bus stage 14 aur 18 fare',
+        'Ordinary bus fourteen stages aur eighteen stages fare',
+        'Ordinary bus चौदह और अठारह स्टेज किराया',
+        'Ordinary bus chaudah stage ya atharah stage kiraya',
+        'Ordinary bus stage fourteen and eighteen fare',
+        'Ordinary bus चौदह स्टेज या stage 18 fare',
+        'Ordinary bus stage 14 nahi, stage 18 ka fare',
+    ])
+    def test_competing_stage_values_never_select_one_tariff(extractor, query):
+        result = extractor.extract(query, 'fare_calculation')
+>       assert result.multiple_execution_scopes is True
+E       AssertionError: assert False is True
+E        +  where False = ExtractionResult(slots={'transport_mode': 'bus', 'service_type': 'Ordinary Services', 'stage_number': 18}, spans=(), u...tion_slots=(), multiple_execution_scopes=False, unsupported_temporal_scope=False, unsupported_timetable_waypoint=False).multiple_execution_scopes
+
+tests/test_t3_language_extraction.py:128: AssertionError
+_ test_competing_stage_values_never_select_one_tariff[Ordinary bus stage 14 nahi, stage 18 ka fare] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d7a840>
+query = 'Ordinary bus stage 14 nahi, stage 18 ka fare'
+
+    @pytest.mark.parametrize('query', [
+        'Ordinary bus stage 14 aur 18 fare',
+        'Ordinary bus fourteen stages aur eighteen stages fare',
+        'Ordinary bus चौदह और अठारह स्टेज किराया',
+        'Ordinary bus chaudah stage ya atharah stage kiraya',
+        'Ordinary bus stage fourteen and eighteen fare',
+        'Ordinary bus चौदह स्टेज या stage 18 fare',
+        'Ordinary bus stage 14 nahi, stage 18 ka fare',
+    ])
+    def test_competing_stage_values_never_select_one_tariff(extractor, query):
+        result = extractor.extract(query, 'fare_calculation')
+        assert result.multiple_execution_scopes is True
+>       assert 'stage_number' not in result.slots
+E       AssertionError: assert 'stage_number' not in {'service_type': 'Ordinary Services', 'stage_number': 14, 'transport_mode': 'bus'}
+E        +  where {'service_type': 'Ordinary Services', 'stage_number': 14, 'transport_mode': 'bus'} = ExtractionResult(slots={'transport_mode': 'bus', 'service_type': 'Ordinary Services', 'stage_number': 14}, spans=(), u...ution_slots=(), multiple_execution_scopes=True, unsupported_temporal_scope=False, unsupported_timetable_waypoint=False).slots
+
+tests/test_t3_language_extraction.py:129: AssertionError
+_ test_invalid_or_negated_stage_never_executes_tariff[Ordinary bus stage 0 ka fare] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d7aed0>
+query = 'Ordinary bus stage 0 ka fare'
+
+    @pytest.mark.parametrize('query', [
+        'Ordinary bus stage 0 ka fare', 'Ordinary bus 31 stages ka fare',
+        'Ordinary bus stage १२३ fare', 'Ordinary bus -3 stages fare',
+        'Ordinary bus thirty one stages fare', 'Ordinary bus stage thirty one fare',
+        'Ordinary bus not stage fourteen fare',
+        'Ordinary bus chaudah stage nahi fare',
+    ])
+    def test_invalid_or_negated_stage_never_executes_tariff(extractor, query):
+        result = extractor.extract(query, 'fare_calculation')
+        assert 'stage_number' not in result.slots
+>       assert 'stage_number' in result.missing_execution_slots
+E       AssertionError: assert 'stage_number' in ()
+E        +  where () = ExtractionResult(slots={'transport_mode': 'bus', 'service_type': 'Ordinary Services'}, spans=(), unresolved=(), clarif...tion_slots=(), multiple_execution_scopes=False, unsupported_temporal_scope=False, unsupported_timetable_waypoint=False).missing_execution_slots
+
+tests/test_t3_language_extraction.py:142: AssertionError
+_ test_invalid_or_negated_stage_never_executes_tariff[Ordinary bus 31 stages ka fare] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d49fd0>
+query = 'Ordinary bus 31 stages ka fare'
+
+    @pytest.mark.parametrize('query', [
+        'Ordinary bus stage 0 ka fare', 'Ordinary bus 31 stages ka fare',
+        'Ordinary bus stage १२३ fare', 'Ordinary bus -3 stages fare',
+        'Ordinary bus thirty one stages fare', 'Ordinary bus stage thirty one fare',
+        'Ordinary bus not stage fourteen fare',
+        'Ordinary bus chaudah stage nahi fare',
+    ])
+    def test_invalid_or_negated_stage_never_executes_tariff(extractor, query):
+        result = extractor.extract(query, 'fare_calculation')
+        assert 'stage_number' not in result.slots
+>       assert 'stage_number' in result.missing_execution_slots
+E       AssertionError: assert 'stage_number' in ()
+E        +  where () = ExtractionResult(slots={'transport_mode': 'bus', 'route_number': '31', 'service_type': 'Ordinary Services'}, spans=(),...tion_slots=(), multiple_execution_scopes=False, unsupported_temporal_scope=False, unsupported_timetable_waypoint=False).missing_execution_slots
+
+tests/test_t3_language_extraction.py:142: AssertionError
+_ test_invalid_or_negated_stage_never_executes_tariff[Ordinary bus stage \u0967\u0968\u0969 fare] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25c1d30>
+query = 'Ordinary bus stage १२३ fare'
+
+    @pytest.mark.parametrize('query', [
+        'Ordinary bus stage 0 ka fare', 'Ordinary bus 31 stages ka fare',
+        'Ordinary bus stage १२३ fare', 'Ordinary bus -3 stages fare',
+        'Ordinary bus thirty one stages fare', 'Ordinary bus stage thirty one fare',
+        'Ordinary bus not stage fourteen fare',
+        'Ordinary bus chaudah stage nahi fare',
+    ])
+    def test_invalid_or_negated_stage_never_executes_tariff(extractor, query):
+        result = extractor.extract(query, 'fare_calculation')
+        assert 'stage_number' not in result.slots
+>       assert 'stage_number' in result.missing_execution_slots
+E       AssertionError: assert 'stage_number' in ()
+E        +  where () = ExtractionResult(slots={'transport_mode': 'bus', 'service_type': 'Ordinary Services'}, spans=(), unresolved=(), clarif...tion_slots=(), multiple_execution_scopes=False, unsupported_temporal_scope=False, unsupported_timetable_waypoint=False).missing_execution_slots
+
+tests/test_t3_language_extraction.py:142: AssertionError
+_ test_invalid_or_negated_stage_never_executes_tariff[Ordinary bus -3 stages fare] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d2516e70>
+query = 'Ordinary bus -3 stages fare'
+
+    @pytest.mark.parametrize('query', [
+        'Ordinary bus stage 0 ka fare', 'Ordinary bus 31 stages ka fare',
+        'Ordinary bus stage १२३ fare', 'Ordinary bus -3 stages fare',
+        'Ordinary bus thirty one stages fare', 'Ordinary bus stage thirty one fare',
+        'Ordinary bus not stage fourteen fare',
+        'Ordinary bus chaudah stage nahi fare',
+    ])
+    def test_invalid_or_negated_stage_never_executes_tariff(extractor, query):
+        result = extractor.extract(query, 'fare_calculation')
+        assert 'stage_number' not in result.slots
+>       assert 'stage_number' in result.missing_execution_slots
+E       AssertionError: assert 'stage_number' in ()
+E        +  where () = ExtractionResult(slots={'transport_mode': 'bus', 'service_type': 'Ordinary Services'}, spans=(), unresolved=(), clarif...tion_slots=(), multiple_execution_scopes=False, unsupported_temporal_scope=False, unsupported_timetable_waypoint=False).missing_execution_slots
+
+tests/test_t3_language_extraction.py:142: AssertionError
+_ test_invalid_or_negated_stage_never_executes_tariff[Ordinary bus thirty one stages fare] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d259a000>
+query = 'Ordinary bus thirty one stages fare'
+
+    @pytest.mark.parametrize('query', [
+        'Ordinary bus stage 0 ka fare', 'Ordinary bus 31 stages ka fare',
+        'Ordinary bus stage १२३ fare', 'Ordinary bus -3 stages fare',
+        'Ordinary bus thirty one stages fare', 'Ordinary bus stage thirty one fare',
+        'Ordinary bus not stage fourteen fare',
+        'Ordinary bus chaudah stage nahi fare',
+    ])
+    def test_invalid_or_negated_stage_never_executes_tariff(extractor, query):
+        result = extractor.extract(query, 'fare_calculation')
+        assert 'stage_number' not in result.slots
+>       assert 'stage_number' in result.missing_execution_slots
+E       AssertionError: assert 'stage_number' in ()
+E        +  where () = ExtractionResult(slots={'transport_mode': 'bus', 'service_type': 'Ordinary Services'}, spans=(), unresolved=(), clarif...tion_slots=(), multiple_execution_scopes=False, unsupported_temporal_scope=False, unsupported_timetable_waypoint=False).missing_execution_slots
+
+tests/test_t3_language_extraction.py:142: AssertionError
+_ test_invalid_or_negated_stage_never_executes_tariff[Ordinary bus stage thirty one fare] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d253a840>
+query = 'Ordinary bus stage thirty one fare'
+
+    @pytest.mark.parametrize('query', [
+        'Ordinary bus stage 0 ka fare', 'Ordinary bus 31 stages ka fare',
+        'Ordinary bus stage १२३ fare', 'Ordinary bus -3 stages fare',
+        'Ordinary bus thirty one stages fare', 'Ordinary bus stage thirty one fare',
+        'Ordinary bus not stage fourteen fare',
+        'Ordinary bus chaudah stage nahi fare',
+    ])
+    def test_invalid_or_negated_stage_never_executes_tariff(extractor, query):
+        result = extractor.extract(query, 'fare_calculation')
+        assert 'stage_number' not in result.slots
+>       assert 'stage_number' in result.missing_execution_slots
+E       AssertionError: assert 'stage_number' in ()
+E        +  where () = ExtractionResult(slots={'transport_mode': 'bus', 'service_type': 'Ordinary Services'}, spans=(), unresolved=(), clarif...tion_slots=(), multiple_execution_scopes=False, unsupported_temporal_scope=False, unsupported_timetable_waypoint=False).missing_execution_slots
+
+tests/test_t3_language_extraction.py:142: AssertionError
+_ test_invalid_or_negated_stage_never_executes_tariff[Ordinary bus not stage fourteen fare] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d052e0>
+query = 'Ordinary bus not stage fourteen fare'
+
+    @pytest.mark.parametrize('query', [
+        'Ordinary bus stage 0 ka fare', 'Ordinary bus 31 stages ka fare',
+        'Ordinary bus stage १२३ fare', 'Ordinary bus -3 stages fare',
+        'Ordinary bus thirty one stages fare', 'Ordinary bus stage thirty one fare',
+        'Ordinary bus not stage fourteen fare',
+        'Ordinary bus chaudah stage nahi fare',
+    ])
+    def test_invalid_or_negated_stage_never_executes_tariff(extractor, query):
+        result = extractor.extract(query, 'fare_calculation')
+        assert 'stage_number' not in result.slots
+>       assert 'stage_number' in result.missing_execution_slots
+E       AssertionError: assert 'stage_number' in ()
+E        +  where () = ExtractionResult(slots={'transport_mode': 'bus', 'service_type': 'Ordinary Services'}, spans=(), unresolved=(), clarif...tion_slots=(), multiple_execution_scopes=False, unsupported_temporal_scope=False, unsupported_timetable_waypoint=False).missing_execution_slots
+
+tests/test_t3_language_extraction.py:142: AssertionError
+_ test_invalid_or_negated_stage_never_executes_tariff[Ordinary bus chaudah stage nahi fare] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d788c0>
+query = 'Ordinary bus chaudah stage nahi fare'
+
+    @pytest.mark.parametrize('query', [
+        'Ordinary bus stage 0 ka fare', 'Ordinary bus 31 stages ka fare',
+        'Ordinary bus stage १२३ fare', 'Ordinary bus -3 stages fare',
+        'Ordinary bus thirty one stages fare', 'Ordinary bus stage thirty one fare',
+        'Ordinary bus not stage fourteen fare',
+        'Ordinary bus chaudah stage nahi fare',
+    ])
+    def test_invalid_or_negated_stage_never_executes_tariff(extractor, query):
+        result = extractor.extract(query, 'fare_calculation')
+        assert 'stage_number' not in result.slots
+>       assert 'stage_number' in result.missing_execution_slots
+E       AssertionError: assert 'stage_number' in ()
+E        +  where () = ExtractionResult(slots={'transport_mode': 'bus', 'service_type': 'Ordinary Services'}, spans=(), unresolved=(), clarif...tion_slots=(), multiple_execution_scopes=False, unsupported_temporal_scope=False, unsupported_timetable_waypoint=False).missing_execution_slots
+
+tests/test_t3_language_extraction.py:142: AssertionError
+_ test_numeric_clock_prefix_daypart_is_honored_without_baje[Cedar Quay departures shaam 5:45-17:45:00] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d79dc0>
+query = 'Cedar Quay departures shaam 5:45', time = '17:45:00'
+
+    @pytest.mark.parametrize('query,time', [
+        ('Cedar Quay departures shaam 5:45', '17:45:00'),
+        ('Cedar Quay departures शाम ५:४५', '17:45:00'),
+        ('Cedar Quay departures dopahar 3:25', '15:25:00'),
+        ('Cedar Quay departures दोपहर ३:२५', '15:25:00'),
+        ('Cedar Quay departures subah 9:35', '09:35:00'),
+        ('Cedar Quay departures सुबह ९:३५', '09:35:00'),
+        ('Cedar Quay departures raat 11:40', '23:40:00'),
+        ('Cedar Quay departures रात ११:४०', '23:40:00'),
+        ('Cedar Quay departures shaam 5:45 baje', '17:45:00'),
+        ('Cedar Quay departures shaam 5:45 PM', '17:45:00'),
+    ])
+    def test_numeric_clock_prefix_daypart_is_honored_without_baje(extractor, query, time):
+        result = extractor.extract(query, 'scheduled_departure')
+>       assert result.slots['time'] == time
+E       AssertionError: assert '05:45:00' == '17:45:00'
+E         
+E         - 17:45:00
+E         ? ^^
+E         + 05:45:00
+E         ? ^^
+
+tests/test_t3_language_extraction.py:164: AssertionError
+_ test_numeric_clock_prefix_daypart_is_honored_without_baje[Cedar Quay departures \u0936\u093e\u092e \u096b:\u096a\u096b-17:45:00] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d79d90>
+query = 'Cedar Quay departures शाम ५:४५', time = '17:45:00'
+
+    @pytest.mark.parametrize('query,time', [
+        ('Cedar Quay departures shaam 5:45', '17:45:00'),
+        ('Cedar Quay departures शाम ५:४५', '17:45:00'),
+        ('Cedar Quay departures dopahar 3:25', '15:25:00'),
+        ('Cedar Quay departures दोपहर ३:२५', '15:25:00'),
+        ('Cedar Quay departures subah 9:35', '09:35:00'),
+        ('Cedar Quay departures सुबह ९:३५', '09:35:00'),
+        ('Cedar Quay departures raat 11:40', '23:40:00'),
+        ('Cedar Quay departures रात ११:४०', '23:40:00'),
+        ('Cedar Quay departures shaam 5:45 baje', '17:45:00'),
+        ('Cedar Quay departures shaam 5:45 PM', '17:45:00'),
+    ])
+    def test_numeric_clock_prefix_daypart_is_honored_without_baje(extractor, query, time):
+        result = extractor.extract(query, 'scheduled_departure')
+>       assert result.slots['time'] == time
+E       AssertionError: assert '05:45:00' == '17:45:00'
+E         
+E         - 17:45:00
+E         ? ^^
+E         + 05:45:00
+E         ? ^^
+
+tests/test_t3_language_extraction.py:164: AssertionError
+_ test_numeric_clock_prefix_daypart_is_honored_without_baje[Cedar Quay departures dopahar 3:25-15:25:00] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d7bef0>
+query = 'Cedar Quay departures dopahar 3:25', time = '15:25:00'
+
+    @pytest.mark.parametrize('query,time', [
+        ('Cedar Quay departures shaam 5:45', '17:45:00'),
+        ('Cedar Quay departures शाम ५:४५', '17:45:00'),
+        ('Cedar Quay departures dopahar 3:25', '15:25:00'),
+        ('Cedar Quay departures दोपहर ३:२५', '15:25:00'),
+        ('Cedar Quay departures subah 9:35', '09:35:00'),
+        ('Cedar Quay departures सुबह ९:३५', '09:35:00'),
+        ('Cedar Quay departures raat 11:40', '23:40:00'),
+        ('Cedar Quay departures रात ११:४०', '23:40:00'),
+        ('Cedar Quay departures shaam 5:45 baje', '17:45:00'),
+        ('Cedar Quay departures shaam 5:45 PM', '17:45:00'),
+    ])
+    def test_numeric_clock_prefix_daypart_is_honored_without_baje(extractor, query, time):
+        result = extractor.extract(query, 'scheduled_departure')
+>       assert result.slots['time'] == time
+E       AssertionError: assert '03:25:00' == '15:25:00'
+E         
+E         - 15:25:00
+E         ? ^^
+E         + 03:25:00
+E         ? ^^
+
+tests/test_t3_language_extraction.py:164: AssertionError
+_ test_numeric_clock_prefix_daypart_is_honored_without_baje[Cedar Quay departures \u0926\u094b\u092a\u0939\u0930 \u0969:\u0968\u096b-15:25:00] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d07290>
+query = 'Cedar Quay departures दोपहर ३:२५', time = '15:25:00'
+
+    @pytest.mark.parametrize('query,time', [
+        ('Cedar Quay departures shaam 5:45', '17:45:00'),
+        ('Cedar Quay departures शाम ५:४५', '17:45:00'),
+        ('Cedar Quay departures dopahar 3:25', '15:25:00'),
+        ('Cedar Quay departures दोपहर ३:२५', '15:25:00'),
+        ('Cedar Quay departures subah 9:35', '09:35:00'),
+        ('Cedar Quay departures सुबह ९:३५', '09:35:00'),
+        ('Cedar Quay departures raat 11:40', '23:40:00'),
+        ('Cedar Quay departures रात ११:४०', '23:40:00'),
+        ('Cedar Quay departures shaam 5:45 baje', '17:45:00'),
+        ('Cedar Quay departures shaam 5:45 PM', '17:45:00'),
+    ])
+    def test_numeric_clock_prefix_daypart_is_honored_without_baje(extractor, query, time):
+        result = extractor.extract(query, 'scheduled_departure')
+>       assert result.slots['time'] == time
+E       AssertionError: assert '03:25:00' == '15:25:00'
+E         
+E         - 15:25:00
+E         ? ^^
+E         + 03:25:00
+E         ? ^^
+
+tests/test_t3_language_extraction.py:164: AssertionError
+_ test_numeric_clock_prefix_daypart_is_honored_without_baje[Cedar Quay departures raat 11:40-23:40:00] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d9a480>
+query = 'Cedar Quay departures raat 11:40', time = '23:40:00'
+
+    @pytest.mark.parametrize('query,time', [
+        ('Cedar Quay departures shaam 5:45', '17:45:00'),
+        ('Cedar Quay departures शाम ५:४५', '17:45:00'),
+        ('Cedar Quay departures dopahar 3:25', '15:25:00'),
+        ('Cedar Quay departures दोपहर ३:२५', '15:25:00'),
+        ('Cedar Quay departures subah 9:35', '09:35:00'),
+        ('Cedar Quay departures सुबह ९:३५', '09:35:00'),
+        ('Cedar Quay departures raat 11:40', '23:40:00'),
+        ('Cedar Quay departures रात ११:४०', '23:40:00'),
+        ('Cedar Quay departures shaam 5:45 baje', '17:45:00'),
+        ('Cedar Quay departures shaam 5:45 PM', '17:45:00'),
+    ])
+    def test_numeric_clock_prefix_daypart_is_honored_without_baje(extractor, query, time):
+        result = extractor.extract(query, 'scheduled_departure')
+>       assert result.slots['time'] == time
+E       AssertionError: assert '11:40:00' == '23:40:00'
+E         
+E         - 23:40:00
+E         ? ^^
+E         + 11:40:00
+E         ? ^^
+
+tests/test_t3_language_extraction.py:164: AssertionError
+_ test_numeric_clock_prefix_daypart_is_honored_without_baje[Cedar Quay departures \u0930\u093e\u0924 \u0967\u0967:\u096a\u0966-23:40:00] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d7bbf0>
+query = 'Cedar Quay departures रात ११:४०', time = '23:40:00'
+
+    @pytest.mark.parametrize('query,time', [
+        ('Cedar Quay departures shaam 5:45', '17:45:00'),
+        ('Cedar Quay departures शाम ५:४५', '17:45:00'),
+        ('Cedar Quay departures dopahar 3:25', '15:25:00'),
+        ('Cedar Quay departures दोपहर ३:२५', '15:25:00'),
+        ('Cedar Quay departures subah 9:35', '09:35:00'),
+        ('Cedar Quay departures सुबह ९:३५', '09:35:00'),
+        ('Cedar Quay departures raat 11:40', '23:40:00'),
+        ('Cedar Quay departures रात ११:४०', '23:40:00'),
+        ('Cedar Quay departures shaam 5:45 baje', '17:45:00'),
+        ('Cedar Quay departures shaam 5:45 PM', '17:45:00'),
+    ])
+    def test_numeric_clock_prefix_daypart_is_honored_without_baje(extractor, query, time):
+        result = extractor.extract(query, 'scheduled_departure')
+>       assert result.slots['time'] == time
+E       AssertionError: assert '11:40:00' == '23:40:00'
+E         
+E         - 23:40:00
+E         ? ^^
+E         + 11:40:00
+E         ? ^^
+
+tests/test_t3_language_extraction.py:164: AssertionError
+_ test_conflicting_or_invalid_daypart_clock_clarifies[Cedar Quay departures subah 9:35 PM] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d25384d0>
+query = 'Cedar Quay departures subah 9:35 PM'
+
+    @pytest.mark.parametrize('query', [
+        'Cedar Quay departures subah 9:35 PM',
+        'Cedar Quay departures shaam 5:45 AM',
+        'Cedar Quay departures dopahar 3:85',
+        'Cedar Quay departures raat 25:40',
+    ])
+    def test_conflicting_or_invalid_daypart_clock_clarifies(extractor, query):
+        result = extractor.extract(query, 'scheduled_departure')
+>       assert 'time' not in result.slots
+E       AssertionError: assert 'time' not in {'station': 'BUS_CEDAR', 'time': '21:35:00'}
+E        +  where {'station': 'BUS_CEDAR', 'time': '21:35:00'} = ExtractionResult(slots={'time': '21:35:00', 'station': 'BUS_CEDAR'}, spans=(EntitySpan(surface='cedar quay', start=0, ...tion_slots=(), multiple_execution_scopes=False, unsupported_temporal_scope=False, unsupported_timetable_waypoint=False).slots
+
+tests/test_t3_language_extraction.py:176: AssertionError
+_ test_conflicting_or_invalid_daypart_clock_clarifies[Cedar Quay departures shaam 5:45 AM] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7122d1d78290>
+query = 'Cedar Quay departures shaam 5:45 AM'
+
+    @pytest.mark.parametrize('query', [
+        'Cedar Quay departures subah 9:35 PM',
+        'Cedar Quay departures shaam 5:45 AM',
+        'Cedar Quay departures dopahar 3:85',
+        'Cedar Quay departures raat 25:40',
+    ])
+    def test_conflicting_or_invalid_daypart_clock_clarifies(extractor, query):
+        result = extractor.extract(query, 'scheduled_departure')
+>       assert 'time' not in result.slots
+E       AssertionError: assert 'time' not in {'station': 'BUS_CEDAR', 'time': '05:45:00'}
+E        +  where {'station': 'BUS_CEDAR', 'time': '05:45:00'} = ExtractionResult(slots={'time': '05:45:00', 'station': 'BUS_CEDAR'}, spans=(EntitySpan(surface='cedar quay', start=0, ...tion_slots=(), multiple_execution_scopes=False, unsupported_temporal_scope=False, unsupported_timetable_waypoint=False).slots
+
+tests/test_t3_language_extraction.py:176: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_t3_language_extraction.py::test_possessive_route_codes_preserve_bus_context_and_suffix[31B ki aakhri bus Cedar Quay se-31B]
+FAILED tests/test_t3_language_extraction.py::test_possessive_route_codes_preserve_bus_context_and_suffix[83C ke stops bus route me dikhao-83C]
+FAILED tests/test_t3_language_extraction.py::test_possessive_route_codes_preserve_bus_context_and_suffix[bus route me \u096e\u0969\u0938\u0940 \u0915\u0947 \u0938\u094d\u091f\u0949\u092a \u092c\u0924\u093e\u0913-83C]
+FAILED tests/test_t3_language_extraction.py::test_possessive_route_codes_preserve_bus_context_and_suffix[Bus context: 31-B ki pehli bus-31B]
+FAILED tests/test_t3_language_extraction.py::test_possessive_route_codes_preserve_bus_context_and_suffix[31B# ki bus ke stops-31B#]
+FAILED tests/test_t3_language_extraction.py::test_possessive_route_extension_does_not_promote_unrelated_numbers[Ordinary bus 8 ka fare]
+FAILED tests/test_t3_language_extraction.py::test_possessive_competing_routes_are_not_silently_reduced
+FAILED tests/test_t3_language_extraction.py::test_stage_count_order_script_and_unit_preserve_tariff_scope[Express bus fare for 14 stages-14]
+FAILED tests/test_t3_language_extraction.py::test_stage_count_order_script_and_unit_preserve_tariff_scope[Express bus \u0967\u096a stage ka kiraya-14]
+FAILED tests/test_t3_language_extraction.py::test_stage_count_order_script_and_unit_preserve_tariff_scope[Express bus \u091a\u094c\u0926\u0939 \u0938\u094d\u091f\u0947\u091c \u0915\u093e \u0915\u093f\u0930\u093e\u092f\u093e-14]
+FAILED tests/test_t3_language_extraction.py::test_stage_count_order_script_and_unit_preserve_tariff_scope[Express bus \u091a\u094c\u0926\u0939 \u091a\u0930\u0923 \u0915\u093e \u0915\u093f\u0930\u093e\u092f\u093e-14]
+FAILED tests/test_t3_language_extraction.py::test_stage_count_order_script_and_unit_preserve_tariff_scope[Express bus stage number \u0967\u096a fare-14]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-1-one-\u090f\u0915-ek]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-2-two-\u0926\u094b-do]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-3-three-\u0924\u0940\u0928-teen]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-4-four-\u091a\u093e\u0930-chaar]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-5-five-\u092a\u093e\u0901\u091a-paanch]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-6-six-\u091b\u0939-chhe]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-7-seven-\u0938\u093e\u0924-saat]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-8-eight-\u0906\u0920-aath]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-9-nine-\u0928\u094c-nau]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-10-ten-\u0926\u0938-das]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-11-eleven-\u0917\u094d\u092f\u093e\u0930\u0939-gyarah]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-12-twelve-\u092c\u093e\u0930\u0939-barah]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-13-thirteen-\u0924\u0947\u0930\u0939-terah]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-14-fourteen-\u091a\u094c\u0926\u0939-chaudah]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-15-fifteen-\u092a\u0902\u0926\u094d\u0930\u0939-pandrah]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-16-sixteen-\u0938\u094b\u0932\u0939-solah]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-17-seventeen-\u0938\u0924\u094d\u0930\u0939-satrah]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-18-eighteen-\u0905\u0920\u093e\u0930\u0939-atharah]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-19-nineteen-\u0909\u0928\u094d\u0928\u0940\u0938-unnis]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-20-twenty-\u092c\u0940\u0938-bees]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-21-twenty one-\u0907\u0915\u094d\u0915\u0940\u0938-ikkis]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-22-twenty two-\u092c\u093e\u0908\u0938-baais]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-23-twenty three-\u0924\u0947\u0908\u0938-teis]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-24-twenty four-\u091a\u094c\u092c\u0940\u0938-chaubis]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-25-twenty five-\u092a\u091a\u094d\u091a\u0940\u0938-pachis]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-26-twenty six-\u091b\u092c\u094d\u092c\u0940\u0938-chabbis]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-27-twenty seven-\u0938\u0924\u094d\u0924\u093e\u0908\u0938-sattais]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-28-twenty eight-\u0905\u091f\u094d\u0920\u093e\u0908\u0938-atthais]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-29-twenty nine-\u0909\u0928\u0924\u0940\u0938-untees]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[en-30-thirty-\u0924\u0940\u0938-tees]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-1-one-\u090f\u0915-ek]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-2-two-\u0926\u094b-do]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-3-three-\u0924\u0940\u0928-teen]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-4-four-\u091a\u093e\u0930-chaar]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-5-five-\u092a\u093e\u0901\u091a-paanch]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-6-six-\u091b\u0939-chhe]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-7-seven-\u0938\u093e\u0924-saat]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-8-eight-\u0906\u0920-aath]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-9-nine-\u0928\u094c-nau]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-10-ten-\u0926\u0938-das]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-11-eleven-\u0917\u094d\u092f\u093e\u0930\u0939-gyarah]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-12-twelve-\u092c\u093e\u0930\u0939-barah]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-13-thirteen-\u0924\u0947\u0930\u0939-terah]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-14-fourteen-\u091a\u094c\u0926\u0939-chaudah]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-15-fifteen-\u092a\u0902\u0926\u094d\u0930\u0939-pandrah]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-16-sixteen-\u0938\u094b\u0932\u0939-solah]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-17-seventeen-\u0938\u0924\u094d\u0930\u0939-satrah]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-18-eighteen-\u0905\u0920\u093e\u0930\u0939-atharah]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-19-nineteen-\u0909\u0928\u094d\u0928\u0940\u0938-unnis]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-20-twenty-\u092c\u0940\u0938-bees]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-21-twenty one-\u0907\u0915\u094d\u0915\u0940\u0938-ikkis]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-22-twenty two-\u092c\u093e\u0908\u0938-baais]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-23-twenty three-\u0924\u0947\u0908\u0938-teis]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-24-twenty four-\u091a\u094c\u092c\u0940\u0938-chaubis]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-25-twenty five-\u092a\u091a\u094d\u091a\u0940\u0938-pachis]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-26-twenty six-\u091b\u092c\u094d\u092c\u0940\u0938-chabbis]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-27-twenty seven-\u0938\u0924\u094d\u0924\u093e\u0908\u0938-sattais]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-28-twenty eight-\u0905\u091f\u094d\u0920\u093e\u0908\u0938-atthais]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-29-twenty nine-\u0909\u0928\u0924\u0940\u0938-untees]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[hi-30-thirty-\u0924\u0940\u0938-tees]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-1-one-\u090f\u0915-ek]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-2-two-\u0926\u094b-do]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-3-three-\u0924\u0940\u0928-teen]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-4-four-\u091a\u093e\u0930-chaar]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-5-five-\u092a\u093e\u0901\u091a-paanch]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-6-six-\u091b\u0939-chhe]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-7-seven-\u0938\u093e\u0924-saat]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-8-eight-\u0906\u0920-aath]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-9-nine-\u0928\u094c-nau]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-10-ten-\u0926\u0938-das]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-11-eleven-\u0917\u094d\u092f\u093e\u0930\u0939-gyarah]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-12-twelve-\u092c\u093e\u0930\u0939-barah]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-13-thirteen-\u0924\u0947\u0930\u0939-terah]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-14-fourteen-\u091a\u094c\u0926\u0939-chaudah]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-15-fifteen-\u092a\u0902\u0926\u094d\u0930\u0939-pandrah]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-16-sixteen-\u0938\u094b\u0932\u0939-solah]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-17-seventeen-\u0938\u0924\u094d\u0930\u0939-satrah]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-18-eighteen-\u0905\u0920\u093e\u0930\u0939-atharah]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-19-nineteen-\u0909\u0928\u094d\u0928\u0940\u0938-unnis]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-20-twenty-\u092c\u0940\u0938-bees]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-21-twenty one-\u0907\u0915\u094d\u0915\u0940\u0938-ikkis]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-22-twenty two-\u092c\u093e\u0908\u0938-baais]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-23-twenty three-\u0924\u0947\u0908\u0938-teis]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-24-twenty four-\u091a\u094c\u092c\u0940\u0938-chaubis]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-25-twenty five-\u092a\u091a\u094d\u091a\u0940\u0938-pachis]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-26-twenty six-\u091b\u092c\u094d\u092c\u0940\u0938-chabbis]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-27-twenty seven-\u0938\u0924\u094d\u0924\u093e\u0908\u0938-sattais]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-28-twenty eight-\u0905\u091f\u094d\u0920\u093e\u0908\u0938-atthais]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-29-twenty nine-\u0909\u0928\u0924\u0940\u0938-untees]
+FAILED tests/test_t3_language_extraction.py::test_spelled_stage_cardinals_one_through_thirty[roman-30-thirty-\u0924\u0940\u0938-tees]
+FAILED tests/test_t3_language_extraction.py::test_explicit_stage_ordinals_and_compound_cardinals[Ordinary bus \u092a\u0939\u0932\u093e \u0938\u094d\u091f\u0947\u091c \u0915\u093f\u0930\u093e\u092f\u093e-1]
+FAILED tests/test_t3_language_extraction.py::test_explicit_stage_ordinals_and_compound_cardinals[Ordinary bus \u0926\u0942\u0938\u0930\u0947 \u091a\u0930\u0923 \u0915\u093e \u0915\u093f\u0930\u093e\u092f\u093e-2]
+FAILED tests/test_t3_language_extraction.py::test_explicit_stage_ordinals_and_compound_cardinals[Ordinary bus \u0924\u0940\u0938\u0930\u0947 \u0938\u094d\u091f\u0947\u091c \u0915\u093e \u0915\u093f\u0930\u093e\u092f\u093e-3]
+FAILED tests/test_t3_language_extraction.py::test_explicit_stage_ordinals_and_compound_cardinals[Ordinary bus \u0938\u093e\u0924\u0935\u0947\u0902 \u091a\u0930\u0923 \u0915\u093e \u0915\u093f\u0930\u093e\u092f\u093e-7]
+FAILED tests/test_t3_language_extraction.py::test_explicit_stage_ordinals_and_compound_cardinals[Ordinary bus \u0917\u094d\u092f\u093e\u0930\u0939\u0935\u0947\u0902 \u0938\u094d\u091f\u0947\u091c \u0915\u093e \u0915\u093f\u0930\u093e\u092f\u093e-11]
+FAILED tests/test_t3_language_extraction.py::test_explicit_stage_ordinals_and_compound_cardinals[Ordinary bus \u0907\u0915\u094d\u0915\u0940\u0938\u0935\u0947\u0902 \u091a\u0930\u0923 \u0915\u093e \u0915\u093f\u0930\u093e\u092f\u093e-21]
+FAILED tests/test_t3_language_extraction.py::test_explicit_stage_ordinals_and_compound_cardinals[Ordinary bus \u0924\u0940\u0938\u0935\u093e\u0901 \u0938\u094d\u091f\u0947\u091c \u0915\u093f\u0930\u093e\u092f\u093e-30]
+FAILED tests/test_t3_language_extraction.py::test_explicit_stage_ordinals_and_compound_cardinals[Ordinary bus twenty-five stages ka fare-25]
+FAILED tests/test_t3_language_extraction.py::test_competing_stage_values_never_select_one_tariff[Ordinary bus stage 14 aur 18 fare]
+FAILED tests/test_t3_language_extraction.py::test_competing_stage_values_never_select_one_tariff[Ordinary bus fourteen stages aur eighteen stages fare]
+FAILED tests/test_t3_language_extraction.py::test_competing_stage_values_never_select_one_tariff[Ordinary bus \u091a\u094c\u0926\u0939 \u0914\u0930 \u0905\u0920\u093e\u0930\u0939 \u0938\u094d\u091f\u0947\u091c \u0915\u093f\u0930\u093e\u092f\u093e]
+FAILED tests/test_t3_language_extraction.py::test_competing_stage_values_never_select_one_tariff[Ordinary bus chaudah stage ya atharah stage kiraya]
+FAILED tests/test_t3_language_extraction.py::test_competing_stage_values_never_select_one_tariff[Ordinary bus stage fourteen and eighteen fare]
+FAILED tests/test_t3_language_extraction.py::test_competing_stage_values_never_select_one_tariff[Ordinary bus \u091a\u094c\u0926\u0939 \u0938\u094d\u091f\u0947\u091c \u092f\u093e stage 18 fare]
+FAILED tests/test_t3_language_extraction.py::test_competing_stage_values_never_select_one_tariff[Ordinary bus stage 14 nahi, stage 18 ka fare]
+FAILED tests/test_t3_language_extraction.py::test_invalid_or_negated_stage_never_executes_tariff[Ordinary bus stage 0 ka fare]
+FAILED tests/test_t3_language_extraction.py::test_invalid_or_negated_stage_never_executes_tariff[Ordinary bus 31 stages ka fare]
+FAILED tests/test_t3_language_extraction.py::test_invalid_or_negated_stage_never_executes_tariff[Ordinary bus stage \u0967\u0968\u0969 fare]
+FAILED tests/test_t3_language_extraction.py::test_invalid_or_negated_stage_never_executes_tariff[Ordinary bus -3 stages fare]
+FAILED tests/test_t3_language_extraction.py::test_invalid_or_negated_stage_never_executes_tariff[Ordinary bus thirty one stages fare]
+FAILED tests/test_t3_language_extraction.py::test_invalid_or_negated_stage_never_executes_tariff[Ordinary bus stage thirty one fare]
+FAILED tests/test_t3_language_extraction.py::test_invalid_or_negated_stage_never_executes_tariff[Ordinary bus not stage fourteen fare]
+FAILED tests/test_t3_language_extraction.py::test_invalid_or_negated_stage_never_executes_tariff[Ordinary bus chaudah stage nahi fare]
+FAILED tests/test_t3_language_extraction.py::test_numeric_clock_prefix_daypart_is_honored_without_baje[Cedar Quay departures shaam 5:45-17:45:00]
+FAILED tests/test_t3_language_extraction.py::test_numeric_clock_prefix_daypart_is_honored_without_baje[Cedar Quay departures \u0936\u093e\u092e \u096b:\u096a\u096b-17:45:00]
+FAILED tests/test_t3_language_extraction.py::test_numeric_clock_prefix_daypart_is_honored_without_baje[Cedar Quay departures dopahar 3:25-15:25:00]
+FAILED tests/test_t3_language_extraction.py::test_numeric_clock_prefix_daypart_is_honored_without_baje[Cedar Quay departures \u0926\u094b\u092a\u0939\u0930 \u0969:\u0968\u096b-15:25:00]
+FAILED tests/test_t3_language_extraction.py::test_numeric_clock_prefix_daypart_is_honored_without_baje[Cedar Quay departures raat 11:40-23:40:00]
+FAILED tests/test_t3_language_extraction.py::test_numeric_clock_prefix_daypart_is_honored_without_baje[Cedar Quay departures \u0930\u093e\u0924 \u0967\u0967:\u096a\u0966-23:40:00]
+FAILED tests/test_t3_language_extraction.py::test_conflicting_or_invalid_daypart_clock_clarifies[Cedar Quay departures subah 9:35 PM]
+FAILED tests/test_t3_language_extraction.py::test_conflicting_or_invalid_daypart_clock_clarifies[Cedar Quay departures shaam 5:45 AM]
+133 failed, 17 passed in 5.77s

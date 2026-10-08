@@ -1,0 +1,381 @@
+- banner:
+  - button:
+- button:
+- heading "Chennai Transit" [level=2]
+- paragraph: Kai bhashaon mein transport sahayak
+- heading "Apne shabdon mein poochhein" [level=3]
+- paragraph: English · हिन्दी · Hinglish
+- paragraph: Route, stop, published schedule, kiraya aur nazdeeki transport.
+- separator
+- heading "Published records ka snapshot" [level=3]
+- paragraph: Live updates nahi hain. Current service aur kiraya operator se confirm karein.
+- paragraph: Transfer, accessibility aur facility ki jaankari sirf source support hone par dikhai jaati hai.
+- generic: Chennai · Public transport
+- paragraph: Language / भाषा
+- radiogroup "Language / भाषा":
+  - radio "English"
+  - paragraph: English
+  - radio "हिंदी"
+  - paragraph: हिंदी
+  - radio "Hinglish" [checked]
+  - paragraph: Hinglish
+- heading "Chennai Multimodal Transit Sahayak" [level=1]: Chennai Multimodal Transit Sahayak
+- paragraph: Route, stop, schedule, kiraya ya nazdeeki transport ke baare mein poochhein.
+- radiogroup "Transport / परिवहन":
+  - radio "Koi bhi mode" [checked]
+  - paragraph: Koi bhi mode
+  - radio "Bus"
+  - paragraph: Bus
+  - radio "Metro"
+  - paragraph: Metro
+  - radio "Rail (suburban)"
+  - paragraph: Rail (suburban)
+  - radio "MRTS"
+  - paragraph: MRTS
+- button "Published records":
+  - paragraph: Published records
+- paragraph: Sawaal mein likha mode pehle maana jayega. Default hatane ke liye ‘Koi bhi mode’ chunein.
+- paragraph: Published snapshot · Live updates nahi · Current service operator se verify karein
+- generic "Chat message from user":
+  - paragraph: Train badalni hai, interchange help chahiye par kaunse station pe nahi bataya
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Snapshot mein confirmed interchange records nahi hain.
+- generic "Chat message from user":
+  - paragraph: High Court metro se bus stop tak paidal transfer ka info chahiye
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Is snapshot mein authoritative ticket ya pass policy table nahi hai.
+- generic "Chat message from user":
+  - paragraph: Chennai Beach local se MRTS switch ho sakta hai, transfer data?
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Snapshot mein confirmed interchange records nahi hain.
+- generic "Chat message from user":
+  - paragraph: Guindy bus stand se metro pakadne ke liye badalna kahan padega?
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Snapshot mein confirmed interchange records nahi hain.
+- generic "Chat message from user":
+  - paragraph: Central metro me line change ka info, fare nahi chahiye abhi
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya apna transport sawaal saaf bataein.
+- generic "Chat message from user":
+  - paragraph: Koyambedu par bus utar ke metro chadhne ka walking connection verified hai?
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Snapshot mein confirmed interchange records nahi hain.
+- generic "Chat message from user":
+  - paragraph: Marina Beach ke sabse kareeb metro station konsa h?
+- generic "Chat message from assistant":
+  - paragraph: Prakashit jaankari
+  - paragraph: "Seedhi doori se sabse nazdeek: Lighthouse Metro (1121 m). Nearest sirf straight-line distance se hai; walking access verify nahi hai."
+  - heading "Seedhi doori se sabse nazdeek" [level=3]: Seedhi doori se sabse nazdeek
+  - button "Show/hide columns":
+  - button "Download as CSV":
+  - button "Search":
+  - button "Fullscreen":
+  - paragraph: Walking access aur current operation verify nahi hain.
+  - paragraph: Snapshot se mili jaankari. Current service aur conditions operator se confirm karein.
+- generic "Chat message from user":
+  - paragraph: IIT Madras ke aas paas nearest bus stop ka naam btao
+- generic "Chat message from assistant":
+  - paragraph: Prakashit jaankari
+  - paragraph: "Seedhi doori se sabse nazdeek: Anjaneyar Temple Pudupakkam (1445 m). Nearest sirf straight-line distance se hai; walking access verify nahi hai."
+  - heading "Seedhi doori se sabse nazdeek" [level=3]: Seedhi doori se sabse nazdeek
+  - button "Show/hide columns":
+  - button "Download as CSV":
+  - button "Search":
+  - button "Fullscreen":
+  - paragraph: Walking access aur current operation verify nahi hain.
+  - paragraph: Snapshot se mili jaankari. Current service aur conditions operator se confirm karein.
+- generic "Chat message from user":
+  - paragraph: Apollo Hospital ke closest metro ka coordinate distance chahiye
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya batayein ki kaunsa stop ya location keh rahe hain.
+  - paragraph: Ek se zyada stop ya location match karte hain. Revised poore sawaal mein route number, transport mode ya exact stop name dein.
+- generic "Chat message from user":
+  - paragraph: T Nagar me sabse paas wala local train station dhund do
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya nazdeeki landmark ya locality bataein.
+  - paragraph: "Zaroori jaankari: nazdeeki landmark ya locality"
+- generic "Chat message from user":
+  - paragraph: Besant Nagar ke near bus stop milega? sabse nazdeek ka
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya batayein ki kaunsa stop ya location keh rahe hain.
+  - paragraph: Ek se zyada stop ya location match karte hain. Revised poore sawaal mein route number, transport mode ya exact stop name dein.
+- generic "Chat message from user":
+  - paragraph: Mylapore ke najdeek MRTS station bata sakte ho?
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya batayein ki kaunsa stop ya location keh rahe hain.
+  - paragraph: Ek se zyada stop ya location match karte hain. Revised poore sawaal mein route number, transport mode ya exact stop name dein.
+- generic "Chat message from user":
+  - paragraph: Nearest metro station kaunsa hai? meri location aapko di nahi
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya nazdeeki landmark ya locality bataein.
+  - paragraph: "Zaroori jaankari: nazdeeki landmark ya locality"
+- generic "Chat message from user":
+  - paragraph: Paas ka bus stop bata na, aas paas kis jagah ki woh abhi nahi bataya
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya nazdeeki landmark ya locality bataein.
+  - paragraph: "Zaroori jaankari: nazdeeki landmark ya locality"
+- generic "Chat message from user":
+  - paragraph: Anna Nagar Tower metro ke closest bus stop kaun sa padega?
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya is sawaal ke liye ek transport mode chunein.
+  - paragraph: "Zaroori jaankari: transport mode"
+- generic "Chat message from user":
+  - paragraph: Marina Beach ke paas metro chahiye, bus stop nahi
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya is sawaal ke liye ek transport mode chunein.
+  - paragraph: "Zaroori jaankari: transport mode"
+- generic "Chat message from user":
+  - paragraph: Fort St George se sabse kam walking distance wala metro kaunsa?
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Requested transport mode se matching published topology available nahi hai.
+- generic "Chat message from user":
+  - paragraph: Thiruvanmiyur ke paas public transport me closest station btao, koi mode fixed nahi
+- generic "Chat message from assistant":
+  - paragraph: Prakashit jaankari
+  - paragraph: "Seedhi doori se sabse nazdeek: Thiruvanmiyur (0 m). Nearest sirf straight-line distance se hai; walking access verify nahi hai."
+  - heading "Seedhi doori se sabse nazdeek" [level=3]: Seedhi doori se sabse nazdeek
+  - button "Show/hide columns":
+  - button "Download as CSV":
+  - button "Search":
+  - button "Fullscreen":
+  - paragraph: Walking access aur current operation verify nahi hain.
+  - paragraph: Snapshot se mili jaankari. Current service aur conditions operator se confirm karein.
+- generic "Chat message from user":
+  - paragraph: Bus 25R iss waqt GPS pe kidhar chal rahi h?
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Live transport status unavailable hai; operator se verify karein.
+- generic "Chat message from user":
+  - paragraph: Guindy metro pe abhi train late hai kya?
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Requested transport mode se matching published schedule available nahi hai.
+- generic "Chat message from user":
+  - paragraph: Central metro me filhaal crowd kitni h, bheed avoid karni hai
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya ek baar mein ek route, stop, fare stage ya samay poochhein.
+- generic "Chat message from user":
+  - paragraph: 102A bus ka real time arrival Adyar par kitne minute me hoga?
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Schedule-based frequency estimate ke liye published departures kaafi nahi hain.
+- generic "Chat message from user":
+  - paragraph: 570S abhi Kelambakkam pahuchi kya, tracking karke bolo
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Live transport status unavailable hai; operator se verify karein.
+- generic "Chat message from user":
+  - paragraph: MRTS Thirumayilai pe aaj abhi disruption chal raha h kya?
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Requested transport mode se matching published schedule available nahi hai.
+- generic "Chat message from user":
+  - paragraph: २१G bus right now kaha hai bhai?
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya stop bataein.
+  - paragraph: "Zaroori jaankari: stop"
+- generic "Chat message from user":
+  - paragraph: Guindy local abhi on time hai ya delay? timetable nahi pucha
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya ek baar mein ek route, stop, fare stage ya samay poochhein.
+- generic "Chat message from user":
+  - paragraph: Airport metro ki iss pal crowd level check kar do
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Live transport status unavailable hai; operator se verify karein.
+- generic "Chat message from user":
+  - paragraph: 27D ka current location share karo, route stops mat bhejna
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya apna transport sawaal saaf bataein.
+- generic "Chat message from user":
+  - paragraph: Bus kab live aayegi? stop ya route mere message me nahi hai
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Live transport status unavailable hai; operator se verify karein.
+- generic "Chat message from user":
+  - paragraph: Blue Line me abhi service suspended hai kya, latest status chahiye
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Is snapshot mein authoritative ticket ya pass policy table nahi hai.
+- generic "Chat message from user":
+  - paragraph: Guindy station ke paas dosa ghar tak order kar do
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Is snapshot mein authoritative ticket ya pass policy table nahi hai.
+- generic "Chat message from user":
+  - paragraph: Airport jana hai, mere liye Ola cab book karo abhi
+- generic "Chat message from assistant":
+  - paragraph: Transport scope ke bahar
+  - alert:
+    - paragraph: Main Chennai public transport ke sawaalon mein madad kar sakta hoon.
+- generic "Chat message from user":
+  - paragraph: Chennai Central ke pass budget hotel book karna h
+- generic "Chat message from assistant":
+  - paragraph: Transport scope ke bahar
+  - alert:
+    - paragraph: Main Chennai public transport ke sawaalon mein madad kar sakta hoon.
+- generic "Chat message from user":
+  - paragraph: Aaj Chennai me baarish hogi kya, weather batao yaar
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya boarding stop ya station, route number ya line name bataein.
+  - paragraph: "Zaroori jaankari: boarding stop ya station, route number ya line name"
+- generic "Chat message from user":
+  - paragraph: Delhi wali flight ka ticket cost kya padega Chennai se?
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya fare stage number ya starting aur destination stops bataein.
+  - paragraph: "Zaroori jaankari: starting stop ya fare stage number, destination stop ya fare stage number"
+- generic "Chat message from user":
+  - paragraph: Bangalore ke liye private sleeper bus reserve kar do
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya starting stop, destination stop bataein.
+  - paragraph: "Zaroori jaankari: starting stop, destination stop"
+- generic "Chat message from user":
+  - paragraph: Central ke restaurant me table reserve karwana hai
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Is snapshot mein facility availability verify nahi hai.
+- generic "Chat message from user":
+  - paragraph: Nandanam flat ka rent kitna chalega, broker se baat karao
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya batayein ki kaunsa stop ya location keh rahe hain.
+  - paragraph: Ek se zyada stop ya location match karte hain. Revised poore sawaal mein route number, transport mode ya exact stop name dein.
+- generic "Chat message from user":
+  - paragraph: T Nagar ke nearby cinema showtime bta doge?
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya boarding stop ya station, route number ya line name bataein.
+  - paragraph: "Zaroori jaankari: boarding stop ya station, route number ya line name"
+- generic "Chat message from user":
+  - paragraph: 21G ka bus route nahi chahiye, mujhe cricket score batao
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Is snapshot mein authoritative ticket ya pass policy table nahi hai.
+- generic "Chat message from user":
+  - paragraph: Metro ke baare me nahi; laptop slow hai kaise repair karu?
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Is snapshot mein authoritative ticket ya pass policy table nahi hai.
+- generic "Chat message from user":
+  - paragraph: Mumbai local ka monthly pass rule samjhao, Chennai wala nahi
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Is snapshot mein authoritative ticket ya pass policy table nahi hai.
+- generic "Chat message from user":
+  - paragraph: 25R aur 102 dono bus routes ke stops ek saath dikha do bhai
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya poore suffix ke saath supported route number bataein.
+  - paragraph: "Zaroori jaankari: route number"
+- generic "Chat message from user":
+  - paragraph: Ordinary stage 5 aur stage 9 ka fare dono nikal do
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya ek baar mein ek route, stop, fare stage ya samay poochhein.
+- generic "Chat message from user":
+  - paragraph: Broadway se 102 bus departures 7 AM ya 9 PM dono options me batao
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya ek baar mein ek route, stop, fare stage ya samay poochhein.
+- generic "Chat message from user":
+  - paragraph: Marina Beach aur IIT Madras dono ke closest metro station batao
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya ek baar mein ek route, stop, fare stage ya samay poochhein.
+- generic "Chat message from user":
+  - paragraph: Guindy se Airport metro ka rasta aur ticket ka kiraya dono btao
+- generic "Chat message from assistant":
+  - paragraph: Jaankari unavailable hai
+  - alert:
+    - paragraph: Requested journey ya stage ke liye verified fare record nahi hai.
+- generic "Chat message from user":
+  - paragraph: Alandur metro me parking bhi hai aur lift bhi? dono info chahiye
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya chunein ki pehle kaunsa transport sawaal answer karein.
+  - paragraph: "Sawaal ke types: station facilities, station accessibility"
+- generic "Chat message from user":
+  - paragraph: 102A Guindy pe rukti hai kya aur abhi GPS pe kahan hai?
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya batayein ki kaunsa stop ya location keh rahe hain.
+  - paragraph: Ek se zyada stop ya location match karte hain. Revised poore sawaal mein route number, transport mode ya exact stop name dein.
+- generic "Chat message from user":
+  - paragraph: Broadway se Adyar aur Tambaram tak bus route bta do, dono jagah jana h
+- generic "Chat message from assistant":
+  - paragraph: Aur jaankari chahiye
+  - alert:
+    - paragraph: Kripya ek baar mein ek route, stop, fare stage ya samay poochhein.
+- paragraph: Apna poora sawaal revise karein
+- textbox "Revise / संशोधित करें / Badlein":
+  - /placeholder: ""
+  - text: Broadway se Adyar aur Tambaram tak bus route bta do, dono jagah jana h
+- button "Revised sawaal poochhein":
+  - paragraph: Revised sawaal poochhein
+- textbox "Ask / पूछें / Pooch" [active]
+- button [disabled]:

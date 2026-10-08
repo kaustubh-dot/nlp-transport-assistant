@@ -1,0 +1,102 @@
+........................................................................ [ 27%]
+........................................................................ [ 55%]
+.....FFF.FF............................................................. [ 83%]
+..........................................FF                             [100%]
+=================================== FAILURES ===================================
+___ test_hindi_bus_inflections_keep_explicit_mode[\u092c\u0938\u0947\u0902] ____
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7a4a43a4a930>
+word = 'बसें'
+
+    @pytest.mark.parametrize('word', ['बसें', 'बसों'])
+    def test_hindi_bus_inflections_keep_explicit_mode(extractor, word):
+        result = extractor.extract(f'Cedar Quay से {word} का अंतराल बताओ', 'service_frequency')
+>       assert result.slots['transport_mode'] == 'bus'
+E       KeyError: 'transport_mode'
+
+tests/test_t3_language_extraction.py:198: KeyError
+___ test_hindi_bus_inflections_keep_explicit_mode[\u092c\u0938\u094b\u0902] ____
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7a4a43aa9850>
+word = 'बसों'
+
+    @pytest.mark.parametrize('word', ['बसें', 'बसों'])
+    def test_hindi_bus_inflections_keep_explicit_mode(extractor, word):
+        result = extractor.extract(f'Cedar Quay से {word} का अंतराल बताओ', 'service_frequency')
+>       assert result.slots['transport_mode'] == 'bus'
+E       KeyError: 'transport_mode'
+
+tests/test_t3_language_extraction.py:198: KeyError
+_ test_hindi_local_rail_phrase_is_explicit_suburban_mode[\u0932\u094b\u0915\u0932 \u0930\u0947\u0932] _
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7a4a43aa9ac0>
+word = 'लोकल रेल'
+
+    @pytest.mark.parametrize('word', ['लोकल रेल', 'लोकल ट्रेन'])
+    def test_hindi_local_rail_phrase_is_explicit_suburban_mode(extractor, word):
+        result = extractor.extract(f'Cedar Quay से {word} का समय बताओ', 'scheduled_departure')
+>       assert result.slots['transport_mode'] == 'suburban_rail'
+E       KeyError: 'transport_mode'
+
+tests/test_t3_language_extraction.py:203: KeyError
+____________ test_hindi_night_service_cannot_fall_back_to_ordinary _____________
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7a4a43aabec0>
+
+    def test_hindi_night_service_cannot_fall_back_to_ordinary(extractor):
+        result = extractor.extract('रात्रि सेवा की बस में पाँच स्टेज का भाड़ा', 'fare_calculation')
+>       assert result.slots['service_type'] == 'Night Services'
+E       KeyError: 'service_type'
+
+tests/test_t3_language_extraction.py:209: KeyError
+______ test_explicitly_unknown_service_class_requires_class_clarification ______
+
+extractor = <src.nlp_v2.slots.T3SlotExtractor object at 0x7a4a43a48da0>
+
+    def test_explicitly_unknown_service_class_requires_class_clarification(extractor):
+        result = extractor.extract('बस में ४ स्टेज के पैसे, सेवा का प्रकार नहीं मालूम', 'fare_calculation')
+        assert result.slots['stage_number'] == 4
+>       assert 'service_type' in result.missing_execution_slots
+E       AssertionError: assert 'service_type' in ()
+E        +  where () = ExtractionResult(slots={'transport_mode': 'bus', 'stage_number': 4}, spans=(), unresolved=(), clarification_reason=Non...tion_slots=(), multiple_execution_scopes=False, unsupported_temporal_scope=False, unsupported_timetable_waypoint=False).missing_execution_slots
+
+tests/test_t3_language_extraction.py:216: AssertionError
+_ test_negative_availability_question_is_not_a_negated_user_goal[\u0915\u094d\u092f\u093e Cedar Quay \u0938\u0947 bus \u0928\u0939\u0940\u0902 \u091a\u0932\u0924\u0940?] _
+
+query = 'क्या Cedar Quay से bus नहीं चलती?'
+
+    @pytest.mark.parametrize('query', [
+        'क्या Cedar Quay से bus नहीं चलती?',
+        'Cedar Quay bus chalti nahi kya?',
+    ])
+    def test_negative_availability_question_is_not_a_negated_user_goal(query):
+        from src.nlp_v2.assistant import selected_goal_negated
+>       assert selected_goal_negated(query, 'mode_availability') is False
+E       AssertionError: assert True is False
+E        +  where True = <function selected_goal_negated at 0x7a4a426baac0>('क्या Cedar Quay से bus नहीं चलती?', 'mode_availability')
+
+tests/test_t3_assistant.py:511: AssertionError
+_ test_negative_availability_question_is_not_a_negated_user_goal[Cedar Quay bus chalti nahi kya?] _
+
+query = 'Cedar Quay bus chalti nahi kya?'
+
+    @pytest.mark.parametrize('query', [
+        'क्या Cedar Quay से bus नहीं चलती?',
+        'Cedar Quay bus chalti nahi kya?',
+    ])
+    def test_negative_availability_question_is_not_a_negated_user_goal(query):
+        from src.nlp_v2.assistant import selected_goal_negated
+>       assert selected_goal_negated(query, 'mode_availability') is False
+E       AssertionError: assert True is False
+E        +  where True = <function selected_goal_negated at 0x7a4a426baac0>('Cedar Quay bus chalti nahi kya?', 'mode_availability')
+
+tests/test_t3_assistant.py:511: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_t3_language_extraction.py::test_hindi_bus_inflections_keep_explicit_mode[\u092c\u0938\u0947\u0902]
+FAILED tests/test_t3_language_extraction.py::test_hindi_bus_inflections_keep_explicit_mode[\u092c\u0938\u094b\u0902]
+FAILED tests/test_t3_language_extraction.py::test_hindi_local_rail_phrase_is_explicit_suburban_mode[\u0932\u094b\u0915\u0932 \u0930\u0947\u0932]
+FAILED tests/test_t3_language_extraction.py::test_hindi_night_service_cannot_fall_back_to_ordinary
+FAILED tests/test_t3_language_extraction.py::test_explicitly_unknown_service_class_requires_class_clarification
+FAILED tests/test_t3_assistant.py::test_negative_availability_question_is_not_a_negated_user_goal[\u0915\u094d\u092f\u093e Cedar Quay \u0938\u0947 bus \u0928\u0939\u0940\u0902 \u091a\u0932\u0924\u0940?]
+FAILED tests/test_t3_assistant.py::test_negative_availability_question_is_not_a_negated_user_goal[Cedar Quay bus chalti nahi kya?]
+7 failed, 253 passed in 7.44s

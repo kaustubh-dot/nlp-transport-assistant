@@ -1,0 +1,222 @@
+FFFF..F.FFF.FFFFF                                                        [100%]
+=================================== FAILURES ===================================
+_ test_hindi_lexical_cues_respect_combining_mark_boundaries[\u0932\u094b\u0915\u0932-\u0915\u0932-False] _
+
+word = 'लोकल', phrase = 'कल', expected = False
+
+    @pytest.mark.parametrize('word,phrase,expected', [
+        ('लोकल', 'कल', False), ('कलाकार', 'कल', False), ('कल्याण', 'कल', False),
+        ('पासिंग', 'पास', False), ('कल।', 'कल', True), ('कल शाम', 'कल', True),
+        ('बसंत', 'बस', False), ('बस।', 'बस', True),
+    ])
+    def test_hindi_lexical_cues_respect_combining_mark_boundaries(word, phrase, expected):
+        from src.nlp_v2.slots import _has
+    
+>       assert _has(word, phrase) is expected
+E       AssertionError: assert True is False
+E        +  where True = <function _has at 0x7f458cdc7100>('लोकल', 'कल')
+
+tests/test_t3_slots.py:16: AssertionError
+_ test_hindi_lexical_cues_respect_combining_mark_boundaries[\u0915\u0932\u093e\u0915\u093e\u0930-\u0915\u0932-False] _
+
+word = 'कलाकार', phrase = 'कल', expected = False
+
+    @pytest.mark.parametrize('word,phrase,expected', [
+        ('लोकल', 'कल', False), ('कलाकार', 'कल', False), ('कल्याण', 'कल', False),
+        ('पासिंग', 'पास', False), ('कल।', 'कल', True), ('कल शाम', 'कल', True),
+        ('बसंत', 'बस', False), ('बस।', 'बस', True),
+    ])
+    def test_hindi_lexical_cues_respect_combining_mark_boundaries(word, phrase, expected):
+        from src.nlp_v2.slots import _has
+    
+>       assert _has(word, phrase) is expected
+E       AssertionError: assert True is False
+E        +  where True = <function _has at 0x7f458cdc7100>('कलाकार', 'कल')
+
+tests/test_t3_slots.py:16: AssertionError
+_ test_hindi_lexical_cues_respect_combining_mark_boundaries[\u0915\u0932\u094d\u092f\u093e\u0923-\u0915\u0932-False] _
+
+word = 'कल्याण', phrase = 'कल', expected = False
+
+    @pytest.mark.parametrize('word,phrase,expected', [
+        ('लोकल', 'कल', False), ('कलाकार', 'कल', False), ('कल्याण', 'कल', False),
+        ('पासिंग', 'पास', False), ('कल।', 'कल', True), ('कल शाम', 'कल', True),
+        ('बसंत', 'बस', False), ('बस।', 'बस', True),
+    ])
+    def test_hindi_lexical_cues_respect_combining_mark_boundaries(word, phrase, expected):
+        from src.nlp_v2.slots import _has
+    
+>       assert _has(word, phrase) is expected
+E       AssertionError: assert True is False
+E        +  where True = <function _has at 0x7f458cdc7100>('कल्याण', 'कल')
+
+tests/test_t3_slots.py:16: AssertionError
+_ test_hindi_lexical_cues_respect_combining_mark_boundaries[\u092a\u093e\u0938\u093f\u0902\u0917-\u092a\u093e\u0938-False] _
+
+word = 'पासिंग', phrase = 'पास', expected = False
+
+    @pytest.mark.parametrize('word,phrase,expected', [
+        ('लोकल', 'कल', False), ('कलाकार', 'कल', False), ('कल्याण', 'कल', False),
+        ('पासिंग', 'पास', False), ('कल।', 'कल', True), ('कल शाम', 'कल', True),
+        ('बसंत', 'बस', False), ('बस।', 'बस', True),
+    ])
+    def test_hindi_lexical_cues_respect_combining_mark_boundaries(word, phrase, expected):
+        from src.nlp_v2.slots import _has
+    
+>       assert _has(word, phrase) is expected
+E       AssertionError: assert True is False
+E        +  where True = <function _has at 0x7f458cdc7100>('पासिंग', 'पास')
+
+tests/test_t3_slots.py:16: AssertionError
+_ test_hindi_lexical_cues_respect_combining_mark_boundaries[\u092c\u0938\u0902\u0924-\u092c\u0938-False] _
+
+word = 'बसंत', phrase = 'बस', expected = False
+
+    @pytest.mark.parametrize('word,phrase,expected', [
+        ('लोकल', 'कल', False), ('कलाकार', 'कल', False), ('कल्याण', 'कल', False),
+        ('पासिंग', 'पास', False), ('कल।', 'कल', True), ('कल शाम', 'कल', True),
+        ('बसंत', 'बस', False), ('बस।', 'बस', True),
+    ])
+    def test_hindi_lexical_cues_respect_combining_mark_boundaries(word, phrase, expected):
+        from src.nlp_v2.slots import _has
+    
+>       assert _has(word, phrase) is expected
+E       AssertionError: assert True is False
+E        +  where True = <function _has at 0x7f458cdc7100>('बसंत', 'बस')
+
+tests/test_t3_slots.py:16: AssertionError
+_ test_native_route_number_labels_keep_full_code[\u092c\u0938 \u0938\u0902\u0916\u094d\u092f\u093e \u0967\u0966\u0968 \u0915\u0947 \u0938\u094d\u091f\u0949\u092a-102] _
+
+query = 'बस संख्या १०२ के स्टॉप', code = '102'
+
+    @pytest.mark.parametrize('query,code', [
+        ('बस संख्या १०२ के स्टॉप', '102'), ('बस संख्या 27D कहाँ रुकती है?', '27D'),
+        ('रूट क्रमांक २९सी के स्टॉप', '29C'), ('bus number 102K# stops', '102K#'),
+    ])
+    def test_native_route_number_labels_keep_full_code(query, code):
+        from src.nlp_v2.slots import _route_number
+    
+>       assert _route_number(query) == code
+E       AssertionError: assert None == '102'
+E        +  where None = <function _route_number at 0x7f458cd5de40>('बस संख्या १०२ के स्टॉप')
+
+tests/test_t3_slots.py:26: AssertionError
+_ test_native_route_number_labels_keep_full_code[\u092c\u0938 \u0938\u0902\u0916\u094d\u092f\u093e 27D \u0915\u0939\u093e\u0901 \u0930\u0941\u0915\u0924\u0940 \u0939\u0948?-27D] _
+
+query = 'बस संख्या 27D कहाँ रुकती है?', code = '27D'
+
+    @pytest.mark.parametrize('query,code', [
+        ('बस संख्या १०२ के स्टॉप', '102'), ('बस संख्या 27D कहाँ रुकती है?', '27D'),
+        ('रूट क्रमांक २९सी के स्टॉप', '29C'), ('bus number 102K# stops', '102K#'),
+    ])
+    def test_native_route_number_labels_keep_full_code(query, code):
+        from src.nlp_v2.slots import _route_number
+    
+>       assert _route_number(query) == code
+E       AssertionError: assert None == '27D'
+E        +  where None = <function _route_number at 0x7f458cd5de40>('बस संख्या 27D कहाँ रुकती है?')
+
+tests/test_t3_slots.py:26: AssertionError
+_ test_native_route_number_labels_keep_full_code[\u0930\u0942\u091f \u0915\u094d\u0930\u092e\u093e\u0902\u0915 \u0968\u096f\u0938\u0940 \u0915\u0947 \u0938\u094d\u091f\u0949\u092a-29C] _
+
+query = 'रूट क्रमांक २९सी के स्टॉप', code = '29C'
+
+    @pytest.mark.parametrize('query,code', [
+        ('बस संख्या १०२ के स्टॉप', '102'), ('बस संख्या 27D कहाँ रुकती है?', '27D'),
+        ('रूट क्रमांक २९सी के स्टॉप', '29C'), ('bus number 102K# stops', '102K#'),
+    ])
+    def test_native_route_number_labels_keep_full_code(query, code):
+        from src.nlp_v2.slots import _route_number
+    
+>       assert _route_number(query) == code
+E       AssertionError: assert None == '29C'
+E        +  where None = <function _route_number at 0x7f458cd5de40>('रूट क्रमांक २९सी के स्टॉप')
+
+tests/test_t3_slots.py:26: AssertionError
+____________ test_local_hindi_train_does_not_invent_a_relative_day _____________
+
+canonical_db = '/tmp/pytest-of-kaustubh/pytest-227/test_local_hindi_train_does_no0/canonical.db'
+
+    def test_local_hindi_train_does_not_invent_a_relative_day(canonical_db):
+        from src.nlp_v2.entities import CanonicalResolver
+        from src.nlp_v2.slots import T3SlotExtractor
+    
+        result = T3SlotExtractor(CanonicalResolver(canonical_db)).extract(
+            'Guindy से लोकल ट्रेन के प्रस्थान १८:३० के बाद बताओ', 'scheduled_departure')
+        assert result.slots['transport_mode'] == 'suburban_rail'
+>       assert 'temporal_relative' not in result.slots
+E       AssertionError: assert 'temporal_relative' not in {'station': 'RAIL_GUINDY', 'temporal_relative': 'कल', 'time': '18:30:00', 'transport_mode': 'suburban_rail'}
+E        +  where {'station': 'RAIL_GUINDY', 'temporal_relative': 'कल', 'time': '18:30:00', 'transport_mode': 'suburban_rail'} = ExtractionResult(slots={'transport_mode': 'suburban_rail', 'time': '18:30:00', 'temporal_relative': 'कल', 'station': '...tion_slots=(), multiple_execution_scopes=False, unsupported_temporal_scope=False, unsupported_timetable_waypoint=False).slots
+
+tests/test_t3_slots.py:75: AssertionError
+_ test_selected_default_mode_is_used_before_entity_resolution[metro-METRO_GUINDY] _
+
+canonical_db = '/tmp/pytest-of-kaustubh/pytest-227/test_selected_default_mode_is_0/canonical.db'
+mode = 'metro', expected_origin = 'METRO_GUINDY'
+
+    @pytest.mark.parametrize('mode,expected_origin', [('metro', 'METRO_GUINDY'), ('suburban_rail', 'RAIL_GUINDY')])
+    def test_selected_default_mode_is_used_before_entity_resolution(canonical_db, mode, expected_origin):
+        from src.nlp_v2.entities import CanonicalResolver
+        from src.nlp_v2.slots import T3SlotExtractor
+    
+>       result = T3SlotExtractor(CanonicalResolver(canonical_db)).extract(
+            'Guindy se Chennai Central kaise jau', 'point_to_point_route', default_transport_mode=mode)
+E       TypeError: T3SlotExtractor.extract() got an unexpected keyword argument 'default_transport_mode'
+
+tests/test_t3_slots.py:84: TypeError
+_ test_selected_default_mode_is_used_before_entity_resolution[suburban_rail-RAIL_GUINDY] _
+
+canonical_db = '/tmp/pytest-of-kaustubh/pytest-227/test_selected_default_mode_is_1/canonical.db'
+mode = 'suburban_rail', expected_origin = 'RAIL_GUINDY'
+
+    @pytest.mark.parametrize('mode,expected_origin', [('metro', 'METRO_GUINDY'), ('suburban_rail', 'RAIL_GUINDY')])
+    def test_selected_default_mode_is_used_before_entity_resolution(canonical_db, mode, expected_origin):
+        from src.nlp_v2.entities import CanonicalResolver
+        from src.nlp_v2.slots import T3SlotExtractor
+    
+>       result = T3SlotExtractor(CanonicalResolver(canonical_db)).extract(
+            'Guindy se Chennai Central kaise jau', 'point_to_point_route', default_transport_mode=mode)
+E       TypeError: T3SlotExtractor.extract() got an unexpected keyword argument 'default_transport_mode'
+
+tests/test_t3_slots.py:84: TypeError
+_________ test_explicit_modes_win_over_ui_default_and_remain_multiple __________
+
+canonical_db = '/tmp/pytest-of-kaustubh/pytest-227/test_explicit_modes_win_over_u0/canonical.db'
+
+    def test_explicit_modes_win_over_ui_default_and_remain_multiple(canonical_db):
+        from src.nlp_v2.entities import CanonicalResolver
+        from src.nlp_v2.slots import T3SlotExtractor
+    
+        extractor = T3SlotExtractor(CanonicalResolver(canonical_db))
+>       result = extractor.extract('Guindy to Central metro route', 'point_to_point_route', default_transport_mode='bus')
+E       TypeError: T3SlotExtractor.extract() got an unexpected keyword argument 'default_transport_mode'
+
+tests/test_t3_slots.py:96: TypeError
+________________ test_default_mode_is_not_an_out_of_scope_slot _________________
+
+canonical_db = '/tmp/pytest-of-kaustubh/pytest-227/test_default_mode_is_not_an_ou0/canonical.db'
+
+    def test_default_mode_is_not_an_out_of_scope_slot(canonical_db):
+        from src.nlp_v2.entities import CanonicalResolver
+        from src.nlp_v2.slots import T3SlotExtractor
+    
+>       result = T3SlotExtractor(CanonicalResolver(canonical_db)).extract(
+            'Write a cake recipe', 'out_of_scope', default_transport_mode='bus')
+E       TypeError: T3SlotExtractor.extract() got an unexpected keyword argument 'default_transport_mode'
+
+tests/test_t3_slots.py:110: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_t3_slots.py::test_hindi_lexical_cues_respect_combining_mark_boundaries[\u0932\u094b\u0915\u0932-\u0915\u0932-False]
+FAILED tests/test_t3_slots.py::test_hindi_lexical_cues_respect_combining_mark_boundaries[\u0915\u0932\u093e\u0915\u093e\u0930-\u0915\u0932-False]
+FAILED tests/test_t3_slots.py::test_hindi_lexical_cues_respect_combining_mark_boundaries[\u0915\u0932\u094d\u092f\u093e\u0923-\u0915\u0932-False]
+FAILED tests/test_t3_slots.py::test_hindi_lexical_cues_respect_combining_mark_boundaries[\u092a\u093e\u0938\u093f\u0902\u0917-\u092a\u093e\u0938-False]
+FAILED tests/test_t3_slots.py::test_hindi_lexical_cues_respect_combining_mark_boundaries[\u092c\u0938\u0902\u0924-\u092c\u0938-False]
+FAILED tests/test_t3_slots.py::test_native_route_number_labels_keep_full_code[\u092c\u0938 \u0938\u0902\u0916\u094d\u092f\u093e \u0967\u0966\u0968 \u0915\u0947 \u0938\u094d\u091f\u0949\u092a-102]
+FAILED tests/test_t3_slots.py::test_native_route_number_labels_keep_full_code[\u092c\u0938 \u0938\u0902\u0916\u094d\u092f\u093e 27D \u0915\u0939\u093e\u0901 \u0930\u0941\u0915\u0924\u0940 \u0939\u0948?-27D]
+FAILED tests/test_t3_slots.py::test_native_route_number_labels_keep_full_code[\u0930\u0942\u091f \u0915\u094d\u0930\u092e\u093e\u0902\u0915 \u0968\u096f\u0938\u0940 \u0915\u0947 \u0938\u094d\u091f\u0949\u092a-29C]
+FAILED tests/test_t3_slots.py::test_local_hindi_train_does_not_invent_a_relative_day
+FAILED tests/test_t3_slots.py::test_selected_default_mode_is_used_before_entity_resolution[metro-METRO_GUINDY]
+FAILED tests/test_t3_slots.py::test_selected_default_mode_is_used_before_entity_resolution[suburban_rail-RAIL_GUINDY]
+FAILED tests/test_t3_slots.py::test_explicit_modes_win_over_ui_default_and_remain_multiple
+FAILED tests/test_t3_slots.py::test_default_mode_is_not_an_out_of_scope_slot
+13 failed, 4 passed, 59 deselected in 0.35s

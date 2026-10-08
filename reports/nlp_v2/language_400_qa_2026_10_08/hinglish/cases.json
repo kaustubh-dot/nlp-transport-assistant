@@ -1,0 +1,2273 @@
+[
+  {
+    "id": "HG200_001",
+    "query": "Vadapalani metro se Teynampet metro pahunchne ka tareeka samjha do yaar",
+    "expected_intent": "point_to_point_route",
+    "expected_operation": "PLAN_ROUTE",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "colloquial",
+    "expected_behavior": "Preserve Vadapalani origin and Teynampet destination; return only source-backed metro journey information or a precise source limitation."
+  },
+  {
+    "id": "HG200_002",
+    "query": "Mujhe Alandur se High Court sirf metro me jaana hai, kaise jaun?",
+    "expected_intent": "point_to_point_route",
+    "expected_operation": "PLAN_ROUTE",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "single_mode_constraint",
+    "expected_behavior": "Preserve both endpoints and metro-only constraint; do not silently substitute bus."
+  },
+  {
+    "id": "HG200_003",
+    "query": "Broadway se Adyar bus se kaun sa raasta pakdu, ticket rate nahi pooch raha",
+    "expected_intent": "point_to_point_route",
+    "expected_operation": "PLAN_ROUTE",
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "negated_distractor",
+    "expected_behavior": "Plan bus travel, not fare; any published directional route evidence must carry its source/provisional caveat."
+  },
+  {
+    "id": "HG200_004",
+    "query": "Airport metro tk jana h, starting jagah main bhool gaya likhna",
+    "expected_intent": "point_to_point_route",
+    "expected_operation": "PLAN_ROUTE",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "missing_origin",
+    "expected_behavior": "Ask for the absent origin instead of guessing the current location."
+  },
+  {
+    "id": "HG200_005",
+    "query": "Egmore metro se nikalunga; kidhar jana hai abhi nahi bataya, route help chahiye",
+    "expected_intent": "point_to_point_route",
+    "expected_operation": "PLAN_ROUTE",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "missing_destination",
+    "expected_behavior": "Ask for destination and preserve the supplied origin."
+  },
+  {
+    "id": "HG200_006",
+    "query": "Guindy se Chennai Central metro rasta dikha, change jitna kam ho utna better",
+    "expected_intent": "point_to_point_route",
+    "expected_operation": "PLAN_ROUTE",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "preference": "least_transfers"
+    },
+    "test_type": "preference",
+    "expected_behavior": "Retain least-transfer preference; report inability to honor it if the route service cannot optimize."
+  },
+  {
+    "id": "HG200_007",
+    "query": "Poonamallee Bus Terminus se CMBT ka bus rasta bta sakte ho?",
+    "expected_intent": "point_to_point_route",
+    "expected_operation": "PLAN_ROUTE",
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "spelling_variant",
+    "expected_behavior": "Preserve two bus journey endpoints; give directional sourced connection evidence or a limitation."
+  },
+  {
+    "id": "HG200_008",
+    "query": "Ashok Nagar metro se Saidapet metro jaane ka quickest route kya padega?",
+    "expected_intent": "point_to_point_route",
+    "expected_operation": "PLAN_ROUTE",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "preference": "fastest"
+    },
+    "test_type": "optimization_constraint",
+    "expected_behavior": "Do not ignore quickest constraint or invent a travel-time optimum."
+  },
+  {
+    "id": "HG200_009",
+    "query": "Anna Nagar Tower metro se Airport jana hai via Alandur metro, poora route batana",
+    "expected_intent": "point_to_point_route",
+    "expected_operation": "PLAN_ROUTE",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "waypoint",
+    "expected_behavior": "Retain Alandur as an intermediate waypoint and Airport as destination; clarify or limit if waypoint routing is unsupported."
+  },
+  {
+    "id": "HG200_010",
+    "query": "Nandanam metro se LIC metro direct hi jaana hai, interchange avoid karna",
+    "expected_intent": "point_to_point_route",
+    "expected_operation": "PLAN_ROUTE",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "preference": "direct_only"
+    },
+    "test_type": "constraint_negation",
+    "expected_behavior": "Preserve direct-only restriction; do not present an interchange journey as fulfillment."
+  },
+  {
+    "id": "HG200_011",
+    "query": "Local train se Tambaram to Chennai Beach kaise niklu, pura safar bata do",
+    "expected_intent": "point_to_point_route",
+    "expected_operation": "PLAN_ROUTE",
+    "expected_slots": {
+      "transport_mode": "suburban_rail"
+    },
+    "test_type": "mixed_english",
+    "expected_behavior": "Recognize local-train journey planning; preserve Tambaram to Chennai Beach direction."
+  },
+  {
+    "id": "HG200_012",
+    "query": "Thirumangalam metro se Nehru Park metro ka raasta chahiye, bus bilkul nahi",
+    "expected_intent": "point_to_point_route",
+    "expected_operation": "PLAN_ROUTE",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "excluded_mode",
+    "expected_behavior": "Plan the explicitly requested metro journey and honor exclusion of bus."
+  },
+  {
+    "id": "HG200_013",
+    "query": "Tambaram se Anna Nagar jana h, pehle local fir metro ka combo batao",
+    "expected_intent": "multimodal_route",
+    "expected_operation": "PLAN_MULTIMODAL_ROUTE",
+    "expected_slots": {},
+    "test_type": "mode_chain",
+    "expected_behavior": "Recognize an explicit suburban-rail then metro journey; do not claim verified multimodal routing without confirmed transfer evidence."
+  },
+  {
+    "id": "HG200_014",
+    "query": "Velachery se High Court bus aur metro mila ke kaise pahuchu?",
+    "expected_intent": "multimodal_route",
+    "expected_operation": "PLAN_MULTIMODAL_ROUTE",
+    "expected_slots": {},
+    "test_type": "mixed_modes",
+    "expected_behavior": "Retain both endpoints and combined bus/metro request; report source limits if no verified itinerary can be built."
+  },
+  {
+    "id": "HG200_015",
+    "query": "Avadi se Airport ka route chahiye local train plus metro me, steps me samjhao",
+    "expected_intent": "multimodal_route",
+    "expected_operation": "PLAN_MULTIMODAL_ROUTE",
+    "expected_slots": {},
+    "test_type": "mode_chain",
+    "expected_behavior": "Recognize multimodal route rather than an interchange-only or fare goal."
+  },
+  {
+    "id": "HG200_016",
+    "query": "Mylapore se Koyambedu bus se nikal kar metro change karu to kya journey banegi?",
+    "expected_intent": "multimodal_route",
+    "expected_operation": "PLAN_MULTIMODAL_ROUTE",
+    "expected_slots": {},
+    "test_type": "colloquial",
+    "expected_behavior": "Preserve Mylapore origin, Koyambedu destination and requested bus/metro combination."
+  },
+  {
+    "id": "HG200_017",
+    "query": "Bus aur metro dono use kar lunga, destination Teynampet hai; start kaha se bolna bhool gaya",
+    "expected_intent": "multimodal_route",
+    "expected_operation": "PLAN_MULTIMODAL_ROUTE",
+    "expected_slots": {},
+    "test_type": "missing_origin",
+    "expected_behavior": "Ask for starting point for the combined-mode journey."
+  },
+  {
+    "id": "HG200_018",
+    "query": "Chromepet se bus+metro travel karna hai, destination likha hi nahi maine",
+    "expected_intent": "multimodal_route",
+    "expected_operation": "PLAN_MULTIMODAL_ROUTE",
+    "expected_slots": {},
+    "test_type": "missing_destination",
+    "expected_behavior": "Ask for destination and do not invent a second endpoint."
+  },
+  {
+    "id": "HG200_019",
+    "query": "Guindy se Washermenpet tak metro ke saath bus connect karke sabse sasta way?",
+    "expected_intent": "multimodal_route",
+    "expected_operation": "PLAN_MULTIMODAL_ROUTE",
+    "expected_slots": {
+      "preference": "cheapest"
+    },
+    "test_type": "optimization_constraint",
+    "expected_behavior": "Retain cheapest multimodal preference; do not present an unoptimized partial connection as cheapest."
+  },
+  {
+    "id": "HG200_020",
+    "query": "Perambur se Chennai Airport local aur metro se jaana hai, Central hote hue",
+    "expected_intent": "multimodal_route",
+    "expected_operation": "PLAN_MULTIMODAL_ROUTE",
+    "expected_slots": {},
+    "test_type": "waypoint",
+    "expected_behavior": "Retain Central waypoint and Airport destination with explicit multimodal request; unsupported constraint requires limitation or clarification."
+  },
+  {
+    "id": "HG200_021",
+    "query": "Thiruvanmiyur se Egmore, MRTS utar ke bus lena chahta hu; travel chain bta",
+    "expected_intent": "multimodal_route",
+    "expected_operation": "PLAN_MULTIMODAL_ROUTE",
+    "expected_slots": {},
+    "test_type": "mode_chain",
+    "expected_behavior": "Recognize MRTS/bus journey planning rather than service availability."
+  },
+  {
+    "id": "HG200_022",
+    "query": "Bus se metro pakad ke Marina Beach jana h from Porur, shortest plan milega?",
+    "expected_intent": "multimodal_route",
+    "expected_operation": "PLAN_MULTIMODAL_ROUTE",
+    "expected_slots": {
+      "preference": "fastest"
+    },
+    "test_type": "mixed_english",
+    "expected_behavior": "Preserve requested mode chain and optimization; do not invent confirmed walking legs."
+  },
+  {
+    "id": "HG200_023",
+    "query": "Sirf metro nahi, Ambattur se Saidapet bus bhi jodna padega; route explain karo",
+    "expected_intent": "multimodal_route",
+    "expected_operation": "PLAN_MULTIMODAL_ROUTE",
+    "expected_slots": {},
+    "test_type": "negation",
+    "expected_behavior": "Do not read negated metro-only phrase as a single-mode route; preserve combined-mode goal."
+  },
+  {
+    "id": "HG200_024",
+    "query": "Kya tum local aur bus ka combined journey Chennai Beach se Madipakkam ke liye samjha sakte ho?",
+    "expected_intent": "multimodal_route",
+    "expected_operation": "PLAN_MULTIMODAL_ROUTE",
+    "expected_slots": {},
+    "test_type": "indirect_request",
+    "expected_behavior": "Interpret the modal phrasing as a request for an itinerary, retaining both travel modes."
+  },
+  {
+    "id": "HG200_025",
+    "query": "570S bus ka start se end tk har stop naam order me likh do",
+    "expected_intent": "route_stop_sequence",
+    "expected_operation": "LIST_ROUTE_STOPS",
+    "expected_slots": {
+      "route_number": "570S",
+      "transport_mode": "bus"
+    },
+    "test_type": "suffix",
+    "expected_behavior": "List sourced ordered stop sequences for 570S without truncating its S suffix; disclose incomplete variants."
+  },
+  {
+    "id": "HG200_026",
+    "query": "21 G bus raste me konse-konse stops leti hai? bas poori list chahiye",
+    "expected_intent": "route_stop_sequence",
+    "expected_operation": "LIST_ROUTE_STOPS",
+    "expected_slots": {
+      "route_number": "21G",
+      "transport_mode": "bus"
+    },
+    "test_type": "split_suffix",
+    "expected_behavior": "Normalize separated route suffix while retaining 21G and list its sequence."
+  },
+  {
+    "id": "HG200_027",
+    "query": "102-A bus ke saare stoppage ek ek krke btao",
+    "expected_intent": "route_stop_sequence",
+    "expected_operation": "LIST_ROUTE_STOPS",
+    "expected_slots": {
+      "route_number": "102A",
+      "transport_mode": "bus"
+    },
+    "test_type": "hyphen_suffix",
+    "expected_behavior": "Retain route 102A after delimiter normalization; do not return 102 as an equivalent."
+  },
+  {
+    "id": "HG200_028",
+    "query": "Blue Line metro me stations ka sequence first se last kya hai?",
+    "expected_intent": "route_stop_sequence",
+    "expected_operation": "LIST_ROUTE_STOPS",
+    "expected_slots": {
+      "line_name": "Blue Line",
+      "transport_mode": "metro"
+    },
+    "test_type": "line_sequence",
+    "expected_behavior": "Return only sourced Blue Line ordered topology or the matching source limitation."
+  },
+  {
+    "id": "HG200_029",
+    "query": "Green Line wali metro kahan kahan rukti h, station order bhejo",
+    "expected_intent": "route_stop_sequence",
+    "expected_operation": "LIST_ROUTE_STOPS",
+    "expected_slots": {
+      "line_name": "Green Line",
+      "transport_mode": "metro"
+    },
+    "test_type": "roman_spelling",
+    "expected_behavior": "Recognize ordered Green Line stations, not journey planning or live status."
+  },
+  {
+    "id": "HG200_030",
+    "query": "Bus no 29C ke poore stop chain dikha do; kiraya nahi chahiye",
+    "expected_intent": "route_stop_sequence",
+    "expected_operation": "LIST_ROUTE_STOPS",
+    "expected_slots": {
+      "route_number": "29C",
+      "transport_mode": "bus"
+    },
+    "test_type": "negated_distractor",
+    "expected_behavior": "List 29C stops and ignore explicitly negated fare goal."
+  },
+  {
+    "id": "HG200_031",
+    "query": "M1 bus ka route-stop list nikal doge?",
+    "expected_intent": "route_stop_sequence",
+    "expected_operation": "LIST_ROUTE_STOPS",
+    "expected_slots": {
+      "route_number": "M1",
+      "transport_mode": "bus"
+    },
+    "test_type": "alphanumeric_prefix",
+    "expected_behavior": "Preserve M1 as the route code rather than dropping the letter."
+  },
+  {
+    "id": "HG200_032",
+    "query": "१०२A bus kaha kaha rukti hai, ordered list chahiye mujhe",
+    "expected_intent": "route_stop_sequence",
+    "expected_operation": "LIST_ROUTE_STOPS",
+    "expected_slots": {
+      "route_number": "102A",
+      "transport_mode": "bus"
+    },
+    "test_type": "native_digit_contrast",
+    "expected_behavior": "Normalize Devanagari route numerals to 102A while preserving the suffix."
+  },
+  {
+    "id": "HG200_033",
+    "query": "२५R ki stops wali list do, bus number Hindi digits me likha hai",
+    "expected_intent": "route_stop_sequence",
+    "expected_operation": "LIST_ROUTE_STOPS",
+    "expected_slots": {
+      "route_number": "25R",
+      "transport_mode": "bus"
+    },
+    "test_type": "native_digit_contrast",
+    "expected_behavior": "Preserve 25R route identity after digit normalization; do not ask for an already supplied route."
+  },
+  {
+    "id": "HG200_034",
+    "query": "Ek bus ka saara stops sequence jaana hai, number abhi mere paas nahi",
+    "expected_intent": "route_stop_sequence",
+    "expected_operation": "LIST_ROUTE_STOPS",
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "missing_route",
+    "expected_behavior": "Ask for route number or line name; do not pick a default bus."
+  },
+  {
+    "id": "HG200_035",
+    "query": "102K# ka stop order kya hai? hash wala variant hi batana",
+    "expected_intent": "route_stop_sequence",
+    "expected_operation": "LIST_ROUTE_STOPS",
+    "expected_slots": {
+      "route_number": "102K#"
+    },
+    "test_type": "express_variant",
+    "expected_behavior": "Keep the meaningful # suffix and do not answer another route variant."
+  },
+  {
+    "id": "HG200_036",
+    "query": "Bus route 27D me dono direction ke stop order alag hote to dono dikhao",
+    "expected_intent": "route_stop_sequence",
+    "expected_operation": "LIST_ROUTE_STOPS",
+    "expected_slots": {
+      "route_number": "27D",
+      "transport_mode": "bus"
+    },
+    "test_type": "directional_variants",
+    "expected_behavior": "Return separate sourced directional sequences with provisional/completeness qualifications."
+  },
+  {
+    "id": "HG200_037",
+    "query": "29C bus T Nagar par rukti hai ya bypass kar deti h?",
+    "expected_intent": "route_stop_membership",
+    "expected_operation": "CHECK_STOP_ON_ROUTE",
+    "expected_slots": {
+      "route_number": "29C",
+      "transport_mode": "bus"
+    },
+    "test_type": "colloquial",
+    "expected_behavior": "Check the requested stop on 29C; negative membership requires complete consistent route evidence."
+  },
+  {
+    "id": "HG200_038",
+    "query": "21G bus me Guindy stop aata h kya bhai?",
+    "expected_intent": "route_stop_membership",
+    "expected_operation": "CHECK_STOP_ON_ROUTE",
+    "expected_slots": {
+      "route_number": "21G",
+      "transport_mode": "bus"
+    },
+    "test_type": "roman_spelling",
+    "expected_behavior": "Recognize membership, retain Guindy stop and 21G route; ambiguity may require an explicit stop choice."
+  },
+  {
+    "id": "HG200_039",
+    "query": "102A me Adyar included hai ki nahi, sirf ye confirm karna",
+    "expected_intent": "route_stop_membership",
+    "expected_operation": "CHECK_STOP_ON_ROUTE",
+    "expected_slots": {
+      "route_number": "102A"
+    },
+    "test_type": "suffix",
+    "expected_behavior": "Check Adyar membership on exactly 102A; do not give full route advice."
+  },
+  {
+    "id": "HG200_040",
+    "query": "570 S bus Sholinganallur pe halt karti hai?",
+    "expected_intent": "route_stop_membership",
+    "expected_operation": "CHECK_STOP_ON_ROUTE",
+    "expected_slots": {
+      "route_number": "570S",
+      "transport_mode": "bus"
+    },
+    "test_type": "split_suffix",
+    "expected_behavior": "Normalize route suffix and check Sholinganallur membership without inferring current running service."
+  },
+  {
+    "id": "HG200_041",
+    "query": "Green Line me Guindy station padta hai kya?",
+    "expected_intent": "route_stop_membership",
+    "expected_operation": "CHECK_STOP_ON_ROUTE",
+    "expected_slots": {
+      "line_name": "Green Line"
+    },
+    "test_type": "line_membership",
+    "expected_behavior": "Check the named station against Green Line topology; do not assume membership from location alone."
+  },
+  {
+    "id": "HG200_042",
+    "query": "Blue Line ke stops me Egmore bhi hai kya?",
+    "expected_intent": "route_stop_membership",
+    "expected_operation": "CHECK_STOP_ON_ROUTE",
+    "expected_slots": {
+      "line_name": "Blue Line"
+    },
+    "test_type": "line_membership",
+    "expected_behavior": "Recognize one-station line membership rather than nearest or route planning."
+  },
+  {
+    "id": "HG200_043",
+    "query": "२१G bus Saidapet par rukti hai kya? Hindi digits ko bus number samjho",
+    "expected_intent": "route_stop_membership",
+    "expected_operation": "CHECK_STOP_ON_ROUTE",
+    "expected_slots": {
+      "route_number": "21G",
+      "transport_mode": "bus"
+    },
+    "test_type": "native_digit_contrast",
+    "expected_behavior": "Interpret २१G as 21G route and preserve Saidapet stop."
+  },
+  {
+    "id": "HG200_044",
+    "query": "१०२-C Thiruvanmiyur cover karti h kya?",
+    "expected_intent": "route_stop_membership",
+    "expected_operation": "CHECK_STOP_ON_ROUTE",
+    "expected_slots": {
+      "route_number": "102C"
+    },
+    "test_type": "native_digit_suffix",
+    "expected_behavior": "Normalize native digits and hyphen, preserve C suffix and stop scope."
+  },
+  {
+    "id": "HG200_045",
+    "query": "Guindy par ye bus rukti h kya, route number main abhi nahi de sakta",
+    "expected_intent": "route_stop_membership",
+    "expected_operation": "CHECK_STOP_ON_ROUTE",
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "missing_route",
+    "expected_behavior": "Request the missing route identifier while retaining the named stop."
+  },
+  {
+    "id": "HG200_046",
+    "query": "Bus 25R kisi stop par rukti hai kya? stop ka naam nahi likha maine",
+    "expected_intent": "route_stop_membership",
+    "expected_operation": "CHECK_STOP_ON_ROUTE",
+    "expected_slots": {
+      "route_number": "25R",
+      "transport_mode": "bus"
+    },
+    "test_type": "missing_stop",
+    "expected_behavior": "Ask which stop should be checked instead of returning arbitrary membership."
+  },
+  {
+    "id": "HG200_047",
+    "query": "27D Ashok Pillar se guzarti hai? timing nahi, stop confirm chahiye",
+    "expected_intent": "route_stop_membership",
+    "expected_operation": "CHECK_STOP_ON_ROUTE",
+    "expected_slots": {
+      "route_number": "27D"
+    },
+    "test_type": "negated_distractor",
+    "expected_behavior": "Check stop coverage only; do not answer a timing question."
+  },
+  {
+    "id": "HG200_048",
+    "query": "102K# Kannagi Nagar pe rukne wali variant hai na, stop record check karo",
+    "expected_intent": "route_stop_membership",
+    "expected_operation": "CHECK_STOP_ON_ROUTE",
+    "expected_slots": {
+      "route_number": "102K#"
+    },
+    "test_type": "express_variant",
+    "expected_behavior": "Check source-backed membership for the exact # variant and clarify ambiguous stop aliases."
+  },
+  {
+    "id": "HG200_049",
+    "query": "Guindy metro se roz sabse pehli train kitne baje nikalti hai?",
+    "expected_intent": "first_and_last_service",
+    "expected_operation": "GET_FIRST_LAST_SERVICE",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "timing_type": "first"
+    },
+    "test_type": "colloquial",
+    "expected_behavior": "Recognize first-service goal; current production has no valid metro timetable, so give a source-specific limitation."
+  },
+  {
+    "id": "HG200_050",
+    "query": "Poonamallee Bus Terminus se 25R ki aakhri bus ka schedule time?",
+    "expected_intent": "first_and_last_service",
+    "expected_operation": "GET_FIRST_LAST_SERVICE",
+    "expected_slots": {
+      "route_number": "25R",
+      "transport_mode": "bus",
+      "timing_type": "last"
+    },
+    "test_type": "scheduled_boundary",
+    "expected_behavior": "Use published route/physical-stop service bounds if unambiguous; distinguish schedule from live departure."
+  },
+  {
+    "id": "HG200_051",
+    "query": "Chennai Beach se Tambaram last local ka time bata dijiye",
+    "expected_intent": "first_and_last_service",
+    "expected_operation": "GET_FIRST_LAST_SERVICE",
+    "expected_slots": {
+      "transport_mode": "suburban_rail",
+      "timing_type": "last"
+    },
+    "test_type": "polite_roman",
+    "expected_behavior": "Retain Chennai Beach origin and Tambaram destination, give source-backed bounds or missing-source limitation."
+  },
+  {
+    "id": "HG200_052",
+    "query": "CMBT par 27D ka subah wala first trip kab start hota h?",
+    "expected_intent": "first_and_last_service",
+    "expected_operation": "GET_FIRST_LAST_SERVICE",
+    "expected_slots": {
+      "route_number": "27D",
+      "timing_type": "first"
+    },
+    "test_type": "colloquial",
+    "expected_behavior": "Recognize earliest scheduled service for supplied route and station; clarify alias ambiguity only if real."
+  },
+  {
+    "id": "HG200_053",
+    "query": "102 bus Broadway se pehli aur aakhri service ki timings dono de do",
+    "expected_intent": "first_and_last_service",
+    "expected_operation": "GET_FIRST_LAST_SERVICE",
+    "expected_slots": {
+      "route_number": "102",
+      "transport_mode": "bus"
+    },
+    "test_type": "two_bounds_same_goal",
+    "expected_behavior": "Treat first and last bounds as one supported family and preserve Broadway origin."
+  },
+  {
+    "id": "HG200_054",
+    "query": "First metro kab hai bhai? station ka naam maine nahi diya",
+    "expected_intent": "first_and_last_service",
+    "expected_operation": "GET_FIRST_LAST_SERVICE",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "timing_type": "first"
+    },
+    "test_type": "missing_station",
+    "expected_behavior": "Ask for a station/origin to identify the requested first service."
+  },
+  {
+    "id": "HG200_055",
+    "query": "21G ki last bus ka timing chahiye, kis stop se woh nahi likha",
+    "expected_intent": "first_and_last_service",
+    "expected_operation": "GET_FIRST_LAST_SERVICE",
+    "expected_slots": {
+      "route_number": "21G",
+      "timing_type": "last"
+    },
+    "test_type": "missing_station",
+    "expected_behavior": "Request the missing stop/origin; do not treat the route alone as a particular physical-stop schedule."
+  },
+  {
+    "id": "HG200_056",
+    "query": "Alandur metro ki aakhri train kal, matlab kis din ki poochu samajh nahi aa raha",
+    "expected_intent": "first_and_last_service",
+    "expected_operation": null,
+    "expected_slots": {
+      "transport_mode": "metro",
+      "timing_type": "last",
+      "temporal_relative": "kal"
+    },
+    "test_type": "ambiguous_day",
+    "expected_behavior": "Ask whether kal means yesterday or tomorrow; do not default the date or execute a dated timetable."
+  },
+  {
+    "id": "HG200_057",
+    "query": "Last bus from Broadway raat 10 baje ke baad kab hogi, route 102 hai",
+    "expected_intent": "first_and_last_service",
+    "expected_operation": "GET_FIRST_LAST_SERVICE",
+    "expected_slots": {
+      "route_number": "102",
+      "timing_type": "last",
+      "time": "22:00:00"
+    },
+    "test_type": "unsupported_clock_bound",
+    "expected_behavior": "Retain clock filter; first/last service with clock constraints must state unsupported scope rather than ignore 22:00."
+  },
+  {
+    "id": "HG200_058",
+    "query": "५७०S ki pehli bus Kelambakkam se kb nikalti h?",
+    "expected_intent": "first_and_last_service",
+    "expected_operation": "GET_FIRST_LAST_SERVICE",
+    "expected_slots": {
+      "route_number": "570S",
+      "timing_type": "first"
+    },
+    "test_type": "native_digit_contrast",
+    "expected_behavior": "Preserve native-numeral route 570S and explicit origin for the first-service query."
+  },
+  {
+    "id": "HG200_059",
+    "query": "Guindy se Airport ki first metro aaj ka published schedule batao, live nahi",
+    "expected_intent": "first_and_last_service",
+    "expected_operation": "GET_FIRST_LAST_SERVICE",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "timing_type": "first",
+      "temporal_relative": "aaj"
+    },
+    "test_type": "negated_live",
+    "expected_behavior": "Recognize static first service despite live word being negated; do not claim unsupported metro timetable."
+  },
+  {
+    "id": "HG200_060",
+    "query": "Pehli bus Broadway se Adyar ke liye Saidapet hote hue, 21G ka timing?",
+    "expected_intent": "first_and_last_service",
+    "expected_operation": "GET_FIRST_LAST_SERVICE",
+    "expected_slots": {
+      "route_number": "21G",
+      "transport_mode": "bus",
+      "timing_type": "first"
+    },
+    "test_type": "waypoint",
+    "expected_behavior": "Preserve Broadway origin, Adyar destination and Saidapet waypoint; explicitly limit unsupported timetable waypoint filtering."
+  },
+  {
+    "id": "HG200_061",
+    "query": "25R Poonamallee Bus Terminus se average kitne minute gap me chalti hai schedule me?",
+    "expected_intent": "service_frequency",
+    "expected_operation": "GET_SERVICE_FREQUENCY",
+    "expected_slots": {
+      "route_number": "25R",
+      "timing_type": "frequency"
+    },
+    "test_type": "colloquial",
+    "expected_behavior": "Compute only a source-backed single route/direction/physical-stop scheduled headway or request genuine disambiguation."
+  },
+  {
+    "id": "HG200_062",
+    "query": "102 bus Broadway par timetable ke mutabik kitni der der me milti hai?",
+    "expected_intent": "service_frequency",
+    "expected_operation": "GET_SERVICE_FREQUENCY",
+    "expected_slots": {
+      "route_number": "102",
+      "transport_mode": "bus",
+      "timing_type": "frequency"
+    },
+    "test_type": "roman_reduplication",
+    "expected_behavior": "Interpret repeated der as headway, not a live countdown."
+  },
+  {
+    "id": "HG200_063",
+    "query": "Green Line metro Nehru Park pe scheduled frequency kya rehti hai?",
+    "expected_intent": "service_frequency",
+    "expected_operation": "GET_SERVICE_FREQUENCY",
+    "expected_slots": {
+      "line_name": "Green Line",
+      "transport_mode": "metro",
+      "timing_type": "frequency"
+    },
+    "test_type": "line_headway",
+    "expected_behavior": "Preserve line and station; refuse missing valid metro schedule instead of inventing frequency."
+  },
+  {
+    "id": "HG200_064",
+    "query": "Blue Line Guindy station pe trains ka normal interval btao",
+    "expected_intent": "service_frequency",
+    "expected_operation": "GET_SERVICE_FREQUENCY",
+    "expected_slots": {
+      "line_name": "Blue Line",
+      "timing_type": "frequency"
+    },
+    "test_type": "colloquial",
+    "expected_behavior": "Recognize headway goal for Blue Line at Guindy; qualify unsupported source."
+  },
+  {
+    "id": "HG200_065",
+    "query": "21 G buses Saidapet stop se kitne-kitne min ke gap pe hain?",
+    "expected_intent": "service_frequency",
+    "expected_operation": "GET_SERVICE_FREQUENCY",
+    "expected_slots": {
+      "route_number": "21G",
+      "timing_type": "frequency"
+    },
+    "test_type": "split_suffix",
+    "expected_behavior": "Retain 21G identifier and requested physical stop; do not mix schedule directions."
+  },
+  {
+    "id": "HG200_066",
+    "query": "१०२A Broadway pe kitni der ke antaral me scheduled bus deti hai?",
+    "expected_intent": "service_frequency",
+    "expected_operation": "GET_SERVICE_FREQUENCY",
+    "expected_slots": {
+      "route_number": "102A",
+      "transport_mode": "bus",
+      "timing_type": "frequency"
+    },
+    "test_type": "native_digit_contrast",
+    "expected_behavior": "Normalize native digits with A suffix and retain headway family."
+  },
+  {
+    "id": "HG200_067",
+    "query": "Bus frequency janna h at CMBT, route ka number nahi malum",
+    "expected_intent": "service_frequency",
+    "expected_operation": "GET_SERVICE_FREQUENCY",
+    "expected_slots": {
+      "transport_mode": "bus",
+      "timing_type": "frequency"
+    },
+    "test_type": "missing_route",
+    "expected_behavior": "Ask which route/line; do not average unrelated routes together."
+  },
+  {
+    "id": "HG200_068",
+    "query": "27D ka average gap batao, stop ka naam main bhool gaya",
+    "expected_intent": "service_frequency",
+    "expected_operation": "GET_SERVICE_FREQUENCY",
+    "expected_slots": {
+      "route_number": "27D",
+      "timing_type": "frequency"
+    },
+    "test_type": "missing_station",
+    "expected_behavior": "Ask for the missing physical stop or origin instead of selecting a schedule group arbitrarily."
+  },
+  {
+    "id": "HG200_069",
+    "query": "570S Kelambakkam se timetable gap kya hai, aaj live wait nahi pooch rha",
+    "expected_intent": "service_frequency",
+    "expected_operation": "GET_SERVICE_FREQUENCY",
+    "expected_slots": {
+      "route_number": "570S",
+      "timing_type": "frequency"
+    },
+    "test_type": "negated_live",
+    "expected_behavior": "Recognize scheduled frequency despite negated live wait wording."
+  },
+  {
+    "id": "HG200_070",
+    "query": "M1 Thiruvanmiyur se evening me kitne minute par ek bus scheduled hoti h?",
+    "expected_intent": "service_frequency",
+    "expected_operation": "GET_SERVICE_FREQUENCY",
+    "expected_slots": {
+      "route_number": "M1",
+      "transport_mode": "bus",
+      "timing_type": "frequency"
+    },
+    "test_type": "period_constraint",
+    "expected_behavior": "Honor requested evening scope if represented; otherwise explicitly disclose unsupported period filtering rather than claim it."
+  },
+  {
+    "id": "HG200_071",
+    "query": "102 Broadway se Adyar via Guindy buses ka schedule interval kya h?",
+    "expected_intent": "service_frequency",
+    "expected_operation": "GET_SERVICE_FREQUENCY",
+    "expected_slots": {
+      "route_number": "102",
+      "timing_type": "frequency"
+    },
+    "test_type": "waypoint",
+    "expected_behavior": "Preserve endpoints and via Guindy; unsupported frequency waypoint filtering must be limited before partial execution."
+  },
+  {
+    "id": "HG200_072",
+    "query": "25R ka Poonamallee Bus Terminus pe kal ka frequency schedule",
+    "expected_intent": "service_frequency",
+    "expected_operation": null,
+    "expected_slots": {
+      "route_number": "25R",
+      "timing_type": "frequency",
+      "temporal_relative": "kal"
+    },
+    "test_type": "ambiguous_day",
+    "expected_behavior": "Ask whether kal is yesterday or tomorrow instead of choosing a date."
+  },
+  {
+    "id": "HG200_073",
+    "query": "Poonamallee Bus Terminus se subah 7:15 baje ke baad departures dikhao",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": "GET_SCHEDULED_DEPARTURES",
+    "expected_slots": {
+      "time": "07:15:00"
+    },
+    "test_type": "explicit_am",
+    "expected_behavior": "Return only published departures at/after 07:15 for requested stop, qualified as static schedule."
+  },
+  {
+    "id": "HG200_074",
+    "query": "Bus 25R Poonamallee Bus Terminus se 18:40 par scheduled departure list milegi?",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": "GET_SCHEDULED_DEPARTURES",
+    "expected_slots": {
+      "route_number": "25R",
+      "transport_mode": "bus",
+      "time": "18:40:00"
+    },
+    "test_type": "24h_clock",
+    "expected_behavior": "Retain route, origin and explicit 24-hour clock; do not convert it into live ETA."
+  },
+  {
+    "id": "HG200_075",
+    "query": "Broadway pe 102 ke 9:30 AM se aage wale timetable departures bta do",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": "GET_SCHEDULED_DEPARTURES",
+    "expected_slots": {
+      "route_number": "102",
+      "time": "09:30:00"
+    },
+    "test_type": "explicit_am",
+    "expected_behavior": "Filter published departures at/after the explicit AM clock, subject to genuine physical-stop ambiguity."
+  },
+  {
+    "id": "HG200_076",
+    "query": "Guindy metro ka timetable shaam 6:20 ke baad chahiye mujhe",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": "GET_SCHEDULED_DEPARTURES",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "time": "18:20:00"
+    },
+    "test_type": "hindi_daypart",
+    "expected_behavior": "Recognize departures and preserve evening clock; explicitly report invalid/missing metro timetable source."
+  },
+  {
+    "id": "HG200_077",
+    "query": "२१G bus Saidapet se रात ९:१० baje ka schedule dikhana",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": "GET_SCHEDULED_DEPARTURES",
+    "expected_slots": {
+      "route_number": "21G",
+      "transport_mode": "bus",
+      "time": "21:10:00"
+    },
+    "test_type": "native_digit_mixed_script",
+    "expected_behavior": "Normalize native route/time digits with the explicit night daypart; preserve Saidapet station scope."
+  },
+  {
+    "id": "HG200_078",
+    "query": "Departures batao 6 PM par, station maine mention nahi kiya",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": "GET_SCHEDULED_DEPARTURES",
+    "expected_slots": {
+      "time": "18:00:00"
+    },
+    "test_type": "missing_station",
+    "expected_behavior": "Ask which station/stop instead of picking a transit node."
+  },
+  {
+    "id": "HG200_079",
+    "query": "Poonamallee Bus Terminus pe bus schedule 9 baje wala chahiye",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": null,
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "ambiguous_clock",
+    "expected_behavior": "Ask AM or PM for bare 9 baje; no silent morning default."
+  },
+  {
+    "id": "HG200_080",
+    "query": "CMBT se departure 26:75 pe kab hai? typo lag raha par check karo",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": null,
+    "expected_slots": {},
+    "test_type": "invalid_clock",
+    "expected_behavior": "Reject/clarify invalid clock without removing it and answering an unconstrained timetable."
+  },
+  {
+    "id": "HG200_081",
+    "query": "Poonamallee Bus Terminus se 25R departures kal ka schedule dikhao",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": null,
+    "expected_slots": {
+      "route_number": "25R",
+      "temporal_relative": "kal"
+    },
+    "test_type": "ambiguous_day",
+    "expected_behavior": "Clarify ambiguous kal before schedule execution; never assume tomorrow."
+  },
+  {
+    "id": "HG200_082",
+    "query": "Broadway se Adyar via Guindy, 102 ke 08:15 AM departures chahiye",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": "GET_SCHEDULED_DEPARTURES",
+    "expected_slots": {
+      "route_number": "102",
+      "time": "08:15:00"
+    },
+    "test_type": "waypoint",
+    "expected_behavior": "Retain all three location roles; explain unsupported timetable waypoint filter rather than drop Guindy."
+  },
+  {
+    "id": "HG200_083",
+    "query": "25R Poonamallee Bus Terminus se 5 PM se pehle ki departure list do",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": "GET_SCHEDULED_DEPARTURES",
+    "expected_slots": {
+      "route_number": "25R",
+      "time": "17:00:00"
+    },
+    "test_type": "unsupported_before_filter",
+    "expected_behavior": "Preserve before constraint and state unsupported query shape; do not return at/after 17:00 as fulfillment."
+  },
+  {
+    "id": "HG200_084",
+    "query": "CMBT pe 27D departures 14:05 ka published chart, current arrival mat bta",
+    "expected_intent": "scheduled_departure",
+    "expected_operation": "GET_SCHEDULED_DEPARTURES",
+    "expected_slots": {
+      "route_number": "27D",
+      "time": "14:05:00"
+    },
+    "test_type": "negated_live",
+    "expected_behavior": "Use static departures at explicit clock; do not misread negated current-arrival language as realtime."
+  },
+  {
+    "id": "HG200_085",
+    "query": "Saidapet se Guindy direct bus service hai bhi ya nahi?",
+    "expected_intent": "mode_availability",
+    "expected_operation": "CHECK_SERVICE_AVAILABILITY",
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "colloquial",
+    "expected_behavior": "Check sourced service connectivity; negative availability cannot be proven from partial topology."
+  },
+  {
+    "id": "HG200_086",
+    "query": "Alandur aur Airport ke beech metro chalti h kya?",
+    "expected_intent": "mode_availability",
+    "expected_operation": "CHECK_SERVICE_AVAILABILITY",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "existence",
+    "expected_behavior": "Recognize connectivity existence without treating it as a route instruction request."
+  },
+  {
+    "id": "HG200_087",
+    "query": "Tambaram se Chennai Beach local train milti hai kya generally?",
+    "expected_intent": "mode_availability",
+    "expected_operation": "CHECK_SERVICE_AVAILABILITY",
+    "expected_slots": {
+      "transport_mode": "suburban_rail"
+    },
+    "test_type": "colloquial",
+    "expected_behavior": "Check only published suburban connectivity, distinguishing static evidence from current service."
+  },
+  {
+    "id": "HG200_088",
+    "query": "Velachery to Thirumayilai MRTS connection available hai?",
+    "expected_intent": "mode_availability",
+    "expected_operation": "CHECK_SERVICE_AVAILABILITY",
+    "expected_slots": {
+      "transport_mode": "mrts"
+    },
+    "test_type": "mixed_english",
+    "expected_behavior": "Preserve MRTS mode and endpoints; do not replace with other modes silently."
+  },
+  {
+    "id": "HG200_089",
+    "query": "Porur se CMBT bus aati jaati hai ki route hi nahi hai?",
+    "expected_intent": "mode_availability",
+    "expected_operation": "CHECK_SERVICE_AVAILABILITY",
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "existence_negation",
+    "expected_behavior": "Recognize bus availability and avoid a definite no from incomplete records."
+  },
+  {
+    "id": "HG200_090",
+    "query": "Nehru Park se Anna Nagar Tower metro connection hoga na?",
+    "expected_intent": "mode_availability",
+    "expected_operation": "CHECK_SERVICE_AVAILABILITY",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "informal",
+    "expected_behavior": "Recognize mode connectivity rather than fare or nearest transport."
+  },
+  {
+    "id": "HG200_091",
+    "query": "Airport ke liye bus service h kya? meri starting locality nahi di",
+    "expected_intent": "mode_availability",
+    "expected_operation": "CHECK_SERVICE_AVAILABILITY",
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "missing_origin",
+    "expected_behavior": "Ask for origin while retaining Airport destination."
+  },
+  {
+    "id": "HG200_092",
+    "query": "Pallavaram se local available h kya, destination batana reh gaya",
+    "expected_intent": "mode_availability",
+    "expected_operation": "CHECK_SERVICE_AVAILABILITY",
+    "expected_slots": {
+      "transport_mode": "suburban_rail"
+    },
+    "test_type": "missing_destination",
+    "expected_behavior": "Request the missing destination rather than check generic station existence."
+  },
+  {
+    "id": "HG200_093",
+    "query": "Guindy se Central metro connection check karo, route directions abhi nahi chahiye",
+    "expected_intent": "mode_availability",
+    "expected_operation": "CHECK_SERVICE_AVAILABILITY",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "negated_distractor",
+    "expected_behavior": "Answer connectivity/source scope only; route instructions are explicitly not requested."
+  },
+  {
+    "id": "HG200_094",
+    "query": "Broadway se Adyar bus kal chalti hai kya, future trip plan kar raha hu",
+    "expected_intent": "mode_availability",
+    "expected_operation": "CHECK_SERVICE_AVAILABILITY",
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "dated_availability",
+    "expected_behavior": "Recognize future-oriented connectivity goal; current/dated bus trip availability requires an explicit limitation, not topology proof."
+  },
+  {
+    "id": "HG200_095",
+    "query": "Guindy se Airport aaj 11 PM metro available hai kya?",
+    "expected_intent": "mode_availability",
+    "expected_operation": "CHECK_SERVICE_AVAILABILITY",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "time": "23:00:00",
+      "temporal_relative": "aaj"
+    },
+    "test_type": "time_specific_availability",
+    "expected_behavior": "Retain time/day availability constraints; no valid metro timetable means a source limitation instead of claiming operation today."
+  },
+  {
+    "id": "HG200_096",
+    "query": "Chennai Beach se Tambaram sirf local train hai kya, bus ki availability mat ginna",
+    "expected_intent": "mode_availability",
+    "expected_operation": "CHECK_SERVICE_AVAILABILITY",
+    "expected_slots": {
+      "transport_mode": "suburban_rail"
+    },
+    "test_type": "excluded_mode",
+    "expected_behavior": "Check the explicitly requested local mode and preserve excluded bus constraint."
+  },
+  {
+    "id": "HG200_097",
+    "query": "Ordinary MTC bus stage 6 ka kiraya kitna baithega?",
+    "expected_intent": "fare_calculation",
+    "expected_operation": "CALCULATE_FARE",
+    "expected_slots": {
+      "transport_mode": "bus",
+      "stage_number": 6,
+      "service_type": "Ordinary Services"
+    },
+    "test_type": "stage_fare",
+    "expected_behavior": "Return the sourced dated Ordinary stage-6 tariff if present; disclose effective date and source."
+  },
+  {
+    "id": "HG200_098",
+    "query": "Express service me 11 stages ka ticket amount bta do",
+    "expected_intent": "fare_calculation",
+    "expected_operation": "CALCULATE_FARE",
+    "expected_slots": {
+      "stage_number": 11,
+      "service_type": "Express Services"
+    },
+    "test_type": "service_class",
+    "expected_behavior": "Use exactly Express stage-11 tariff; no silent substitution with Ordinary."
+  },
+  {
+    "id": "HG200_099",
+    "query": "Deluxe bus ka 8 stage fare kya hai bhai?",
+    "expected_intent": "fare_calculation",
+    "expected_operation": "CALCULATE_FARE",
+    "expected_slots": {
+      "transport_mode": "bus",
+      "stage_number": 8,
+      "service_type": "Deluxe Services"
+    },
+    "test_type": "service_class",
+    "expected_behavior": "Return the sourced dated Deluxe stage-8 amount if available."
+  },
+  {
+    "id": "HG200_100",
+    "query": "Night service stage 3 ke paise kitne lagenge?",
+    "expected_intent": "fare_calculation",
+    "expected_operation": "CALCULATE_FARE",
+    "expected_slots": {
+      "stage_number": 3,
+      "service_type": "Night Services"
+    },
+    "test_type": "service_class",
+    "expected_behavior": "Honor Night tariff class; disclose lack of requested class if source absent."
+  },
+  {
+    "id": "HG200_101",
+    "query": "AC bus me stage 7 ka cost bataoge?",
+    "expected_intent": "fare_calculation",
+    "expected_operation": "CALCULATE_FARE",
+    "expected_slots": {
+      "transport_mode": "bus",
+      "stage_number": 7,
+      "service_type": "Air Conditioned Services"
+    },
+    "test_type": "unsupported_class_source",
+    "expected_behavior": "Do not substitute an available non-AC tariff for the requested AC class."
+  },
+  {
+    "id": "HG200_102",
+    "query": "Ordinary bus me ६ stage ka किराया kitna h?",
+    "expected_intent": "fare_calculation",
+    "expected_operation": "CALCULATE_FARE",
+    "expected_slots": {
+      "transport_mode": "bus",
+      "stage_number": 6,
+      "service_type": "Ordinary Services"
+    },
+    "test_type": "native_digit_contrast",
+    "expected_behavior": "Normalize Devanagari stage ६ to 6 and preserve Ordinary class."
+  },
+  {
+    "id": "HG200_103",
+    "query": "Guindy metro se High Court metro token ticket kitne ka?",
+    "expected_intent": "fare_calculation",
+    "expected_operation": "CALCULATE_FARE",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "ticket_type": "token"
+    },
+    "test_type": "metro_pair",
+    "expected_behavior": "Return dated source-backed metro pair token fare or genuine entity ambiguity; do not invent amount."
+  },
+  {
+    "id": "HG200_104",
+    "query": "Airport se Alandur metro smart card fare kya padega?",
+    "expected_intent": "fare_calculation",
+    "expected_operation": "CALCULATE_FARE",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "ticket_type": "smart_card"
+    },
+    "test_type": "unsupported_discount",
+    "expected_behavior": "Retain smart-card request; unverified discount policy must be limited rather than applying a guessed discount."
+  },
+  {
+    "id": "HG200_105",
+    "query": "Broadway se Adyar bus ka kiraya nikal do, stage ka mujhe nahi pata",
+    "expected_intent": "fare_calculation",
+    "expected_operation": "CALCULATE_FARE",
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "unsupported_bus_od",
+    "expected_behavior": "Explain unsupported bus OD stage arithmetic; do not invent fare from a guessed stage delta."
+  },
+  {
+    "id": "HG200_106",
+    "query": "Bus fare kitna hai? start end dono nahi diye aur stage bhi nahi",
+    "expected_intent": "fare_calculation",
+    "expected_operation": "CALCULATE_FARE",
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "missing_fare_scope",
+    "expected_behavior": "Ask for origin/destination pair or fare stage."
+  },
+  {
+    "id": "HG200_107",
+    "query": "MTC stage 12 ka amount chahiye, bus class specify nahi ki maine",
+    "expected_intent": "fare_calculation",
+    "expected_operation": "CALCULATE_FARE",
+    "expected_slots": {
+      "transport_mode": "bus",
+      "stage_number": 12
+    },
+    "test_type": "disclosed_default_class",
+    "expected_behavior": "Ordinary default is acceptable only if explicitly disclosed with recorded fare source and date."
+  },
+  {
+    "id": "HG200_108",
+    "query": "Egmore metro se Central metro ka amount, route mat samjhana abhi",
+    "expected_intent": "fare_calculation",
+    "expected_operation": "CALCULATE_FARE",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "negated_distractor",
+    "expected_behavior": "Recognize fare goal rather than route and return only sourced dated token fare or limitation."
+  },
+  {
+    "id": "HG200_109",
+    "query": "Metro smart card recharge ka process kya h, thoda easy samjhao",
+    "expected_intent": "ticketing_and_passes",
+    "expected_operation": "GET_TICKETING_POLICY",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "ticket_type": "smart_card"
+    },
+    "test_type": "colloquial",
+    "expected_behavior": "Recognize recharge policy goal; say authoritative policy source is absent rather than invent steps."
+  },
+  {
+    "id": "HG200_110",
+    "query": "MTC monthly pass banwane ke rules aur documents kya honge?",
+    "expected_intent": "ticketing_and_passes",
+    "expected_operation": "GET_TICKETING_POLICY",
+    "expected_slots": {
+      "transport_mode": "bus",
+      "ticket_type": "monthly_pass"
+    },
+    "test_type": "policy_requirements",
+    "expected_behavior": "Give a source-specific ticket/pass policy limitation; do not invent requirements."
+  },
+  {
+    "id": "HG200_111",
+    "query": "NCMC card Chennai metro me use karne ka niyam bata do",
+    "expected_intent": "ticketing_and_passes",
+    "expected_operation": "GET_TICKETING_POLICY",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "ticket_type": "ncmc_card"
+    },
+    "test_type": "policy_usage",
+    "expected_behavior": "Retain NCMC policy goal; no unverified acceptance assertion."
+  },
+  {
+    "id": "HG200_112",
+    "query": "QR ticket ka validity rule kya rehta h metro me?",
+    "expected_intent": "ticketing_and_passes",
+    "expected_operation": "GET_TICKETING_POLICY",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "ticket_type": "qr_ticket"
+    },
+    "test_type": "policy_validity",
+    "expected_behavior": "Do not invent QR expiry or refund policy without authoritative source."
+  },
+  {
+    "id": "HG200_113",
+    "query": "Token ticket return ho sakta hai kya? metro wala pooch raha hu",
+    "expected_intent": "ticketing_and_passes",
+    "expected_operation": "GET_TICKETING_POLICY",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "ticket_type": "token"
+    },
+    "test_type": "policy_refund",
+    "expected_behavior": "Recognize token refund policy, distinguish it from token fare calculation."
+  },
+  {
+    "id": "HG200_114",
+    "query": "Suburban season pass renew kaise hota hai, rule batao",
+    "expected_intent": "ticketing_and_passes",
+    "expected_operation": "GET_TICKETING_POLICY",
+    "expected_slots": {
+      "transport_mode": "suburban_rail",
+      "ticket_type": "season_pass"
+    },
+    "test_type": "policy_renewal",
+    "expected_behavior": "Retain suburban season-pass policy question and report missing source."
+  },
+  {
+    "id": "HG200_115",
+    "query": "Tourist pass lena ho to kya conditions hoti hain Chennai metro me?",
+    "expected_intent": "ticketing_and_passes",
+    "expected_operation": "GET_TICKETING_POLICY",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "ticket_type": "tourist_pass"
+    },
+    "test_type": "policy_conditions",
+    "expected_behavior": "No fabricated tourist-pass availability/conditions; source limitation is appropriate."
+  },
+  {
+    "id": "HG200_116",
+    "query": "Monthly pass kisi aur ko deke travel karwa sakte hai kya?",
+    "expected_intent": "ticketing_and_passes",
+    "expected_operation": "GET_TICKETING_POLICY",
+    "expected_slots": {
+      "ticket_type": "monthly_pass"
+    },
+    "test_type": "policy_transferability",
+    "expected_behavior": "Recognize pass transferability policy without inventing an authoritative rule."
+  },
+  {
+    "id": "HG200_117",
+    "query": "Bus monthly pass ke rules bolna, per ride kiraya nahi puch raha",
+    "expected_intent": "ticketing_and_passes",
+    "expected_operation": "GET_TICKETING_POLICY",
+    "expected_slots": {
+      "transport_mode": "bus",
+      "ticket_type": "monthly_pass"
+    },
+    "test_type": "negated_fare",
+    "expected_behavior": "Choose ticket/pass policy despite explicit negated fare distractor."
+  },
+  {
+    "id": "HG200_118",
+    "query": "Metro smartcard kho gayi to replace ka process kya rahega?",
+    "expected_intent": "ticketing_and_passes",
+    "expected_operation": "GET_TICKETING_POLICY",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "ticket_type": "smart_card"
+    },
+    "test_type": "roman_spelling",
+    "expected_behavior": "Recognize replacement policy and report no verified policy data."
+  },
+  {
+    "id": "HG200_119",
+    "query": "Chennai local ka season pass online apply karne ka tarika?",
+    "expected_intent": "ticketing_and_passes",
+    "expected_operation": "GET_TICKETING_POLICY",
+    "expected_slots": {
+      "transport_mode": "suburban_rail",
+      "ticket_type": "season_pass"
+    },
+    "test_type": "mixed_english",
+    "expected_behavior": "Do not invent booking links or application flow; report policy-source limit."
+  },
+  {
+    "id": "HG200_120",
+    "query": "Ticket policy help chahiye, QR ticket ko cancel karna ho to?",
+    "expected_intent": "ticketing_and_passes",
+    "expected_operation": "GET_TICKETING_POLICY",
+    "expected_slots": {
+      "ticket_type": "qr_ticket"
+    },
+    "test_type": "policy_cancellation",
+    "expected_behavior": "Recognize ticket policy with unspecified mode; clarify mode if necessary or state missing policy source."
+  },
+  {
+    "id": "HG200_121",
+    "query": "Nandanam metro pe bike parking ki suvidha hai kya?",
+    "expected_intent": "station_facilities",
+    "expected_operation": "GET_STATION_FACILITY",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "facility_type": "parking"
+    },
+    "test_type": "colloquial",
+    "expected_behavior": "Recognize parking amenity; unverified facility source must be disclosed instead of asserting availability."
+  },
+  {
+    "id": "HG200_122",
+    "query": "Guindy metro me paani peene ka point milta hai?",
+    "expected_intent": "station_facilities",
+    "expected_operation": "GET_STATION_FACILITY",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "facility_type": "drinking_water"
+    },
+    "test_type": "colloquial_facility",
+    "expected_behavior": "Recognize drinking-water facility and explain no verified amenity inventory."
+  },
+  {
+    "id": "HG200_123",
+    "query": "Egmore station par cloak room h kya luggage rakhne ke liye?",
+    "expected_intent": "station_facilities",
+    "expected_operation": "GET_STATION_FACILITY",
+    "expected_slots": {
+      "facility_type": "cloak_room"
+    },
+    "test_type": "amenity_purpose",
+    "expected_behavior": "Recognize cloak-room facility, not route or accessibility; do not claim unsupported storage."
+  },
+  {
+    "id": "HG200_124",
+    "query": "High Court metro me ATM mil jayega kya?",
+    "expected_intent": "station_facilities",
+    "expected_operation": "GET_STATION_FACILITY",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "facility_type": "atm"
+    },
+    "test_type": "mixed_english",
+    "expected_behavior": "Give specific absence of verified ATM records rather than assert yes/no."
+  },
+  {
+    "id": "HG200_125",
+    "query": "Vadapalani metro pe toilet facility ka info chahiye",
+    "expected_intent": "station_facilities",
+    "expected_operation": "GET_STATION_FACILITY",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "facility_type": "restroom"
+    },
+    "test_type": "facility_synonym",
+    "expected_behavior": "Recognize general restroom facility; do not conflate with accessible toilet request."
+  },
+  {
+    "id": "HG200_126",
+    "query": "Chennai Central metro me free wifi hai kya yaar?",
+    "expected_intent": "station_facilities",
+    "expected_operation": "GET_STATION_FACILITY",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "facility_type": "wifi"
+    },
+    "test_type": "colloquial",
+    "expected_behavior": "Recognize Wi-Fi facility and state missing verified source without inventing service."
+  },
+  {
+    "id": "HG200_127",
+    "query": "CMBT bus stand me waiting room ka record hai?",
+    "expected_intent": "station_facilities",
+    "expected_operation": "GET_STATION_FACILITY",
+    "expected_slots": {
+      "transport_mode": "bus",
+      "facility_type": "waiting_room"
+    },
+    "test_type": "bus_facility",
+    "expected_behavior": "Source-limited facility goal remains in station_facilities even for bus station."
+  },
+  {
+    "id": "HG200_128",
+    "query": "Parking kaha hai station pe? station ka naam main nahi bol paya",
+    "expected_intent": "station_facilities",
+    "expected_operation": "GET_STATION_FACILITY",
+    "expected_slots": {
+      "facility_type": "parking"
+    },
+    "test_type": "missing_station",
+    "expected_behavior": "Ask which station instead of assuming a nearby/current one."
+  },
+  {
+    "id": "HG200_129",
+    "query": "Metro station me drinking water h kya, kaunsa station nahi likha",
+    "expected_intent": "station_facilities",
+    "expected_operation": "GET_STATION_FACILITY",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "facility_type": "drinking_water"
+    },
+    "test_type": "missing_station",
+    "expected_behavior": "Request station for the supplied drinking-water amenity."
+  },
+  {
+    "id": "HG200_130",
+    "query": "Alandur metro me parking pooch raha hu, lift nahi",
+    "expected_intent": "station_facilities",
+    "expected_operation": "GET_STATION_FACILITY",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "facility_type": "parking"
+    },
+    "test_type": "negated_accessibility",
+    "expected_behavior": "Recognize parking only; negated lift does not create an accessibility goal."
+  },
+  {
+    "id": "HG200_131",
+    "query": "Saidapet metro par washroom ka available data bataiye",
+    "expected_intent": "station_facilities",
+    "expected_operation": "GET_STATION_FACILITY",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "facility_type": "restroom"
+    },
+    "test_type": "polite_roman",
+    "expected_behavior": "Retain station and requested restroom; respond with source-qualified information or limitation."
+  },
+  {
+    "id": "HG200_132",
+    "query": "Tambaram railway station me waiting hall hai ki nahi?",
+    "expected_intent": "station_facilities",
+    "expected_operation": "GET_STATION_FACILITY",
+    "expected_slots": {
+      "transport_mode": "suburban_rail",
+      "facility_type": "waiting_room"
+    },
+    "test_type": "local_station_facility",
+    "expected_behavior": "Do not mistake railway station amenity for intercity out-of-scope; report absent facility inventory."
+  },
+  {
+    "id": "HG200_133",
+    "query": "Guindy metro pe wheelchair access ka record btao",
+    "expected_intent": "station_accessibility",
+    "expected_operation": "GET_ACCESSIBILITY_INFO",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "accessibility_feature": "wheelchair"
+    },
+    "test_type": "colloquial",
+    "expected_behavior": "Recognize wheelchair accessibility; canonical values are null, so do not assert availability."
+  },
+  {
+    "id": "HG200_134",
+    "query": "Alandur metro me lift lagi hai kya, stairs mushkil hain mere liye",
+    "expected_intent": "station_accessibility",
+    "expected_operation": "GET_ACCESSIBILITY_INFO",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "accessibility_feature": "lift"
+    },
+    "test_type": "assistive_context",
+    "expected_behavior": "Recognize lift feature and source limitation; do not infer from generic station facts."
+  },
+  {
+    "id": "HG200_135",
+    "query": "Airport metro station pe ramp available hai wheelchair ke liye?",
+    "expected_intent": "station_accessibility",
+    "expected_operation": "GET_ACCESSIBILITY_INFO",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "accessibility_feature": "ramp"
+    },
+    "test_type": "assistive_context",
+    "expected_behavior": "Retain explicitly asked ramp and avoid inventing accessibility status."
+  },
+  {
+    "id": "HG200_136",
+    "query": "Nehru Park metro me escalator ka verified info h kya?",
+    "expected_intent": "station_accessibility",
+    "expected_operation": "GET_ACCESSIBILITY_INFO",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "accessibility_feature": "escalator"
+    },
+    "test_type": "verified_source_request",
+    "expected_behavior": "Recognize escalator accessibility; no availability claim without verified record."
+  },
+  {
+    "id": "HG200_137",
+    "query": "Central metro me accessible toilet ka status kya hai?",
+    "expected_intent": "station_accessibility",
+    "expected_operation": "GET_ACCESSIBILITY_INFO",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "accessibility_feature": "accessible_toilet"
+    },
+    "test_type": "specific_assistive_feature",
+    "expected_behavior": "Distinguish accessible toilet from general restroom facility and state missing verification."
+  },
+  {
+    "id": "HG200_138",
+    "query": "Blind passengers ke liye Vadapalani metro me tactile paths hain?",
+    "expected_intent": "station_accessibility",
+    "expected_operation": "GET_ACCESSIBILITY_INFO",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "accessibility_feature": "tactile_paths"
+    },
+    "test_type": "assistive_context",
+    "expected_behavior": "Recognize tactile-path accessibility, not general facility or route advice."
+  },
+  {
+    "id": "HG200_139",
+    "query": "Tambaram local station par ramp ka data mil sakta h?",
+    "expected_intent": "station_accessibility",
+    "expected_operation": "GET_ACCESSIBILITY_INFO",
+    "expected_slots": {
+      "transport_mode": "suburban_rail",
+      "accessibility_feature": "ramp"
+    },
+    "test_type": "nonmetro_source_limit",
+    "expected_behavior": "State absent suburban accessibility records; do not invent a negative or positive feature value."
+  },
+  {
+    "id": "HG200_140",
+    "query": "CMBT bus stand wheelchair friendly hai kya?",
+    "expected_intent": "station_accessibility",
+    "expected_operation": "GET_ACCESSIBILITY_INFO",
+    "expected_slots": {
+      "transport_mode": "bus",
+      "accessibility_feature": "wheelchair"
+    },
+    "test_type": "nonmetro_source_limit",
+    "expected_behavior": "Recognize accessibility despite bus stand; specify missing bus accessibility source."
+  },
+  {
+    "id": "HG200_141",
+    "query": "Lift ka status batao please, kis station ki woh bolna reh gaya",
+    "expected_intent": "station_accessibility",
+    "expected_operation": "GET_ACCESSIBILITY_INFO",
+    "expected_slots": {
+      "accessibility_feature": "lift"
+    },
+    "test_type": "missing_station",
+    "expected_behavior": "Ask which station while preserving lift feature."
+  },
+  {
+    "id": "HG200_142",
+    "query": "Metro me accessible toilet chahiye, station naam abhi nahi diya",
+    "expected_intent": "station_accessibility",
+    "expected_operation": "GET_ACCESSIBILITY_INFO",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "accessibility_feature": "accessible_toilet"
+    },
+    "test_type": "missing_station",
+    "expected_behavior": "Request missing station without guessing a physical node."
+  },
+  {
+    "id": "HG200_143",
+    "query": "High Court metro pe lift ka info chahiye, parking nahi",
+    "expected_intent": "station_accessibility",
+    "expected_operation": "GET_ACCESSIBILITY_INFO",
+    "expected_slots": {
+      "transport_mode": "metro",
+      "accessibility_feature": "lift"
+    },
+    "test_type": "negated_facility",
+    "expected_behavior": "Recognize lift accessibility while ignoring explicitly negated parking."
+  },
+  {
+    "id": "HG200_144",
+    "query": "Saidapet metro me chalne me dikkat wale passenger ke liye accessibility kya hai?",
+    "expected_intent": "station_accessibility",
+    "expected_operation": "GET_ACCESSIBILITY_INFO",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "general_accessibility",
+    "expected_behavior": "Recognize overall assistive-access goal and source limitation; do not invent a default specific feature."
+  },
+  {
+    "id": "HG200_145",
+    "query": "Central par metro se local train switch karne ka interchange info?",
+    "expected_intent": "interchange_transfer",
+    "expected_operation": "GET_INTERCHANGE_DETAILS",
+    "expected_slots": {
+      "mode_from": "metro",
+      "mode_to": "suburban_rail"
+    },
+    "test_type": "colloquial",
+    "expected_behavior": "Recognize metro-to-suburban transfer; unconfirmed hub/transfer records cannot prove a verified connection."
+  },
+  {
+    "id": "HG200_146",
+    "query": "Guindy me local se metro badalne ka tarika btao, station transfer wala",
+    "expected_intent": "interchange_transfer",
+    "expected_operation": "GET_INTERCHANGE_DETAILS",
+    "expected_slots": {
+      "mode_from": "suburban_rail",
+      "mode_to": "metro"
+    },
+    "test_type": "mode_direction",
+    "expected_behavior": "Preserve source/destination mode order; give source-specific transfer limitation without inventing a path."
+  },
+  {
+    "id": "HG200_147",
+    "query": "Alandur pe Blue Line se Green Line interchange kaisa hota hai?",
+    "expected_intent": "interchange_transfer",
+    "expected_operation": "GET_INTERCHANGE_DETAILS",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "line_transfer",
+    "expected_behavior": "Recognize intra-metro interchange as transfer goal, not full endpoint journey."
+  },
+  {
+    "id": "HG200_148",
+    "query": "CMBT me bus se metro connect karna ho to transfer info milega?",
+    "expected_intent": "interchange_transfer",
+    "expected_operation": "GET_INTERCHANGE_DETAILS",
+    "expected_slots": {
+      "mode_from": "bus",
+      "mode_to": "metro"
+    },
+    "test_type": "mode_direction",
+    "expected_behavior": "Recognize bus-to-metro transfer at CMBT; only confirmed evidence may support walking instruction."
+  },
+  {
+    "id": "HG200_149",
+    "query": "St Thomas Mount metro se suburban platform jana, connection kaise?",
+    "expected_intent": "interchange_transfer",
+    "expected_operation": "GET_INTERCHANGE_DETAILS",
+    "expected_slots": {
+      "mode_from": "metro",
+      "mode_to": "suburban_rail"
+    },
+    "test_type": "platform_source_limit",
+    "expected_behavior": "Recognize transfer while explicitly limiting absent platform/gate/verified-walking data."
+  },
+  {
+    "id": "HG200_150",
+    "query": "Metro se bus interchange possible hai kya? station main mention nahi kar raha",
+    "expected_intent": "interchange_transfer",
+    "expected_operation": "GET_INTERCHANGE_DETAILS",
+    "expected_slots": {
+      "mode_from": "metro",
+      "mode_to": "bus"
+    },
+    "test_type": "mode_pair_only",
+    "expected_behavior": "Treat supplied mode pair as recognized transfer scope; avoid claiming a specific unmentioned station."
+  },
+  {
+    "id": "HG200_151",
+    "query": "Train badalni hai, interchange help chahiye par kaunse station pe nahi bataya",
+    "expected_intent": "interchange_transfer",
+    "expected_operation": "GET_INTERCHANGE_DETAILS",
+    "expected_slots": {},
+    "test_type": "missing_transfer_scope",
+    "expected_behavior": "Ask for station or from/to modes before a transfer operation."
+  },
+  {
+    "id": "HG200_152",
+    "query": "High Court metro se bus stop tak paidal transfer ka info chahiye",
+    "expected_intent": "interchange_transfer",
+    "expected_operation": "GET_INTERCHANGE_DETAILS",
+    "expected_slots": {
+      "mode_from": "metro",
+      "mode_to": "bus"
+    },
+    "test_type": "walking_transfer",
+    "expected_behavior": "Do not invent a verified walking route from geometric/candidate transfer evidence."
+  },
+  {
+    "id": "HG200_153",
+    "query": "Chennai Beach local se MRTS switch ho sakta hai, transfer data?",
+    "expected_intent": "interchange_transfer",
+    "expected_operation": "GET_INTERCHANGE_DETAILS",
+    "expected_slots": {
+      "mode_from": "suburban_rail",
+      "mode_to": "mrts"
+    },
+    "test_type": "rail_mode_pair",
+    "expected_behavior": "Recognize suburban-to-MRTS transfer and disclose source confirmation limits."
+  },
+  {
+    "id": "HG200_154",
+    "query": "Guindy bus stand se metro pakadne ke liye badalna kahan padega?",
+    "expected_intent": "interchange_transfer",
+    "expected_operation": "GET_INTERCHANGE_DETAILS",
+    "expected_slots": {
+      "mode_from": "bus",
+      "mode_to": "metro"
+    },
+    "test_type": "colloquial",
+    "expected_behavior": "Treat as local transfer query with Guindy context rather than nearest transport."
+  },
+  {
+    "id": "HG200_155",
+    "query": "Central metro me line change ka info, fare nahi chahiye abhi",
+    "expected_intent": "interchange_transfer",
+    "expected_operation": "GET_INTERCHANGE_DETAILS",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "negated_fare",
+    "expected_behavior": "Recognize line transfer and ignore explicitly negated fare request."
+  },
+  {
+    "id": "HG200_156",
+    "query": "Koyambedu par bus utar ke metro chadhne ka walking connection verified hai?",
+    "expected_intent": "interchange_transfer",
+    "expected_operation": "GET_INTERCHANGE_DETAILS",
+    "expected_slots": {
+      "mode_from": "bus",
+      "mode_to": "metro"
+    },
+    "test_type": "verified_source_request",
+    "expected_behavior": "Answer evidence status honestly; do not describe unverified interchange as confirmed."
+  },
+  {
+    "id": "HG200_157",
+    "query": "Marina Beach ke sabse kareeb metro station konsa h?",
+    "expected_intent": "nearest_transport",
+    "expected_operation": "FIND_NEAREST_STATION",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "colloquial",
+    "expected_behavior": "Find geometric nearest requested-mode stop from canonical Marina Beach coordinates; include straight-line/walking caveat."
+  },
+  {
+    "id": "HG200_158",
+    "query": "IIT Madras ke aas paas nearest bus stop ka naam btao",
+    "expected_intent": "nearest_transport",
+    "expected_operation": "FIND_NEAREST_STATION",
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "landmark",
+    "expected_behavior": "Find nearest bus stop to the explicit landmark; do not silently return metro."
+  },
+  {
+    "id": "HG200_159",
+    "query": "Apollo Hospital ke closest metro ka coordinate distance chahiye",
+    "expected_intent": "nearest_transport",
+    "expected_operation": "FIND_NEAREST_STATION",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "geometric_distance",
+    "expected_behavior": "Recognize geometric nearest request and state source/distance basis."
+  },
+  {
+    "id": "HG200_160",
+    "query": "T Nagar me sabse paas wala local train station dhund do",
+    "expected_intent": "nearest_transport",
+    "expected_operation": "FIND_NEAREST_STATION",
+    "expected_slots": {
+      "transport_mode": "suburban_rail"
+    },
+    "test_type": "locality",
+    "expected_behavior": "Use T Nagar reference and local-train mode; clarify genuine locality aliases rather than infer user coordinates."
+  },
+  {
+    "id": "HG200_161",
+    "query": "Besant Nagar ke near bus stop milega? sabse nazdeek ka",
+    "expected_intent": "nearest_transport",
+    "expected_operation": "FIND_NEAREST_STATION",
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "mixed_english",
+    "expected_behavior": "Recognize proximity despite milega phrasing, not a point-to-point bus route."
+  },
+  {
+    "id": "HG200_162",
+    "query": "Mylapore ke najdeek MRTS station bata sakte ho?",
+    "expected_intent": "nearest_transport",
+    "expected_operation": "FIND_NEAREST_STATION",
+    "expected_slots": {
+      "transport_mode": "mrts"
+    },
+    "test_type": "roman_spelling",
+    "expected_behavior": "Preserve explicitly requested MRTS mode in spatial result."
+  },
+  {
+    "id": "HG200_163",
+    "query": "Nearest metro station kaunsa hai? meri location aapko di nahi",
+    "expected_intent": "nearest_transport",
+    "expected_operation": "FIND_NEAREST_STATION",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "missing_location",
+    "expected_behavior": "Request landmark/locality because user location is absent; do not infer GPS."
+  },
+  {
+    "id": "HG200_164",
+    "query": "Paas ka bus stop bata na, aas paas kis jagah ki woh abhi nahi bataya",
+    "expected_intent": "nearest_transport",
+    "expected_operation": "FIND_NEAREST_STATION",
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "missing_location",
+    "expected_behavior": "Ask for reference location, preserving bus mode."
+  },
+  {
+    "id": "HG200_165",
+    "query": "Anna Nagar Tower metro ke closest bus stop kaun sa padega?",
+    "expected_intent": "nearest_transport",
+    "expected_operation": "FIND_NEAREST_STATION",
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "stop_as_reference",
+    "expected_behavior": "Use the named metro station as reference point, while returning only bus candidates."
+  },
+  {
+    "id": "HG200_166",
+    "query": "Marina Beach ke paas metro chahiye, bus stop nahi",
+    "expected_intent": "nearest_transport",
+    "expected_operation": "FIND_NEAREST_STATION",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "negated_mode",
+    "expected_behavior": "Honor requested metro and excluded bus; no mixed-mode nearest response."
+  },
+  {
+    "id": "HG200_167",
+    "query": "Fort St George se sabse kam walking distance wala metro kaunsa?",
+    "expected_intent": "nearest_transport",
+    "expected_operation": "FIND_NEAREST_STATION",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "unsupported_walk_metric",
+    "expected_behavior": "Do not substitute geometric nearest for walking optimum without explicitly stating unsupported pedestrian network metric."
+  },
+  {
+    "id": "HG200_168",
+    "query": "Thiruvanmiyur ke paas public transport me closest station btao, koi mode fixed nahi",
+    "expected_intent": "nearest_transport",
+    "expected_operation": "FIND_NEAREST_STATION",
+    "expected_slots": {},
+    "test_type": "unconstrained_mode",
+    "expected_behavior": "Find geometric nearest canonical transport stop or clarify reference ambiguity; do not invent mode constraint."
+  },
+  {
+    "id": "HG200_169",
+    "query": "Bus 25R iss waqt GPS pe kidhar chal rahi h?",
+    "expected_intent": "realtime_status_query",
+    "expected_operation": "REJECT_UNSUPPORTED_REALTIME",
+    "expected_slots": {
+      "route_number": "25R",
+      "transport_mode": "bus"
+    },
+    "test_type": "live_gps",
+    "expected_behavior": "Return realtime source unavailable under the realtime intent; no live vehicle location invention."
+  },
+  {
+    "id": "HG200_170",
+    "query": "Guindy metro pe abhi train late hai kya?",
+    "expected_intent": "realtime_status_query",
+    "expected_operation": "REJECT_UNSUPPORTED_REALTIME",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "live_delay",
+    "expected_behavior": "Refuse absent live delay feed; do not substitute a static schedule as current running status."
+  },
+  {
+    "id": "HG200_171",
+    "query": "Central metro me filhaal crowd kitni h, bheed avoid karni hai",
+    "expected_intent": "realtime_status_query",
+    "expected_operation": "REJECT_UNSUPPORTED_REALTIME",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "live_crowd",
+    "expected_behavior": "No live crowd/occupancy assertion; recognize realtime crowd goal."
+  },
+  {
+    "id": "HG200_172",
+    "query": "102A bus ka real time arrival Adyar par kitne minute me hoga?",
+    "expected_intent": "realtime_status_query",
+    "expected_operation": "REJECT_UNSUPPORTED_REALTIME",
+    "expected_slots": {
+      "route_number": "102A",
+      "transport_mode": "bus"
+    },
+    "test_type": "live_eta",
+    "expected_behavior": "Retain exact A suffix and refuse live ETA without realtime feed."
+  },
+  {
+    "id": "HG200_173",
+    "query": "570S abhi Kelambakkam pahuchi kya, tracking karke bolo",
+    "expected_intent": "realtime_status_query",
+    "expected_operation": "REJECT_UNSUPPORTED_REALTIME",
+    "expected_slots": {
+      "route_number": "570S"
+    },
+    "test_type": "live_position",
+    "expected_behavior": "Recognize live progress question and state missing telemetry."
+  },
+  {
+    "id": "HG200_174",
+    "query": "MRTS Thirumayilai pe aaj abhi disruption chal raha h kya?",
+    "expected_intent": "realtime_status_query",
+    "expected_operation": "REJECT_UNSUPPORTED_REALTIME",
+    "expected_slots": {
+      "transport_mode": "mrts"
+    },
+    "test_type": "live_disruption",
+    "expected_behavior": "Do not invent current disruption or operational status; external live source required."
+  },
+  {
+    "id": "HG200_175",
+    "query": "२१G bus right now kaha hai bhai?",
+    "expected_intent": "realtime_status_query",
+    "expected_operation": "REJECT_UNSUPPORTED_REALTIME",
+    "expected_slots": {
+      "route_number": "21G",
+      "transport_mode": "bus"
+    },
+    "test_type": "native_digit_contrast",
+    "expected_behavior": "Normalize route identity and select realtime family before source refusal."
+  },
+  {
+    "id": "HG200_176",
+    "query": "Guindy local abhi on time hai ya delay? timetable nahi pucha",
+    "expected_intent": "realtime_status_query",
+    "expected_operation": "REJECT_UNSUPPORTED_REALTIME",
+    "expected_slots": {
+      "transport_mode": "suburban_rail"
+    },
+    "test_type": "negated_schedule",
+    "expected_behavior": "Recognize live delay and ignore negated timetable distractor."
+  },
+  {
+    "id": "HG200_177",
+    "query": "Airport metro ki iss pal crowd level check kar do",
+    "expected_intent": "realtime_status_query",
+    "expected_operation": "REJECT_UNSUPPORTED_REALTIME",
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "live_crowd",
+    "expected_behavior": "No invented crowd data; correct realtime refusal is a safe limitation, not full travel goal fulfillment."
+  },
+  {
+    "id": "HG200_178",
+    "query": "27D ka current location share karo, route stops mat bhejna",
+    "expected_intent": "realtime_status_query",
+    "expected_operation": "REJECT_UNSUPPORTED_REALTIME",
+    "expected_slots": {
+      "route_number": "27D"
+    },
+    "test_type": "negated_sequence",
+    "expected_behavior": "Recognize live position; do not provide route stops as requested location."
+  },
+  {
+    "id": "HG200_179",
+    "query": "Bus kab live aayegi? stop ya route mere message me nahi hai",
+    "expected_intent": "realtime_status_query",
+    "expected_operation": "REJECT_UNSUPPORTED_REALTIME",
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "missing_context_live",
+    "expected_behavior": "Realtime source refusal remains appropriate even when context is absent; do not pretend clarification enables live tracking."
+  },
+  {
+    "id": "HG200_180",
+    "query": "Blue Line me abhi service suspended hai kya, latest status chahiye",
+    "expected_intent": "realtime_status_query",
+    "expected_operation": "REJECT_UNSUPPORTED_REALTIME",
+    "expected_slots": {
+      "line_name": "Blue Line"
+    },
+    "test_type": "current_service_status",
+    "expected_behavior": "Recognize live disruption/status rather than static mode availability; refuse without current feed."
+  },
+  {
+    "id": "HG200_181",
+    "query": "Guindy station ke paas dosa ghar tak order kar do",
+    "expected_intent": "out_of_scope",
+    "expected_operation": "REJECT_OUT_OF_SCOPE",
+    "expected_slots": {},
+    "test_type": "food_order_transit_entity",
+    "expected_behavior": "Reject food-ordering domain; transit location does not convert it to nearest transport."
+  },
+  {
+    "id": "HG200_182",
+    "query": "Airport jana hai, mere liye Ola cab book karo abhi",
+    "expected_intent": "out_of_scope",
+    "expected_operation": "REJECT_OUT_OF_SCOPE",
+    "expected_slots": {},
+    "test_type": "cab_booking",
+    "expected_behavior": "Reject ride-hailing request; do not present public-transit itinerary as fulfillment."
+  },
+  {
+    "id": "HG200_183",
+    "query": "Chennai Central ke pass budget hotel book karna h",
+    "expected_intent": "out_of_scope",
+    "expected_operation": "REJECT_OUT_OF_SCOPE",
+    "expected_slots": {},
+    "test_type": "hotel_booking_transit_entity",
+    "expected_behavior": "Reject hotel booking while preserving scope boundary."
+  },
+  {
+    "id": "HG200_184",
+    "query": "Aaj Chennai me baarish hogi kya, weather batao yaar",
+    "expected_intent": "out_of_scope",
+    "expected_operation": "REJECT_OUT_OF_SCOPE",
+    "expected_slots": {},
+    "test_type": "weather",
+    "expected_behavior": "Reject weather question; do not misclassify live transport because of aaj wording."
+  },
+  {
+    "id": "HG200_185",
+    "query": "Delhi wali flight ka ticket cost kya padega Chennai se?",
+    "expected_intent": "out_of_scope",
+    "expected_operation": "REJECT_OUT_OF_SCOPE",
+    "expected_slots": {},
+    "test_type": "intercity_flight",
+    "expected_behavior": "Reject non-CMA flight fare query instead of calculating metro/bus fare."
+  },
+  {
+    "id": "HG200_186",
+    "query": "Bangalore ke liye private sleeper bus reserve kar do",
+    "expected_intent": "out_of_scope",
+    "expected_operation": "REJECT_OUT_OF_SCOPE",
+    "expected_slots": {},
+    "test_type": "intercity_private_bus",
+    "expected_behavior": "Reject intercity private booking; bus word alone must not trigger local public transit."
+  },
+  {
+    "id": "HG200_187",
+    "query": "Central ke restaurant me table reserve karwana hai",
+    "expected_intent": "out_of_scope",
+    "expected_operation": "REJECT_OUT_OF_SCOPE",
+    "expected_slots": {},
+    "test_type": "restaurant_transit_entity",
+    "expected_behavior": "Reject restaurant reservation even with canonical station name."
+  },
+  {
+    "id": "HG200_188",
+    "query": "Nandanam flat ka rent kitna chalega, broker se baat karao",
+    "expected_intent": "out_of_scope",
+    "expected_operation": "REJECT_OUT_OF_SCOPE",
+    "expected_slots": {},
+    "test_type": "housing",
+    "expected_behavior": "Reject housing/broker request, not transit fare."
+  },
+  {
+    "id": "HG200_189",
+    "query": "T Nagar ke nearby cinema showtime bta doge?",
+    "expected_intent": "out_of_scope",
+    "expected_operation": "REJECT_OUT_OF_SCOPE",
+    "expected_slots": {},
+    "test_type": "cinema_schedule",
+    "expected_behavior": "Reject cinema schedule despite location and timing semantics."
+  },
+  {
+    "id": "HG200_190",
+    "query": "21G ka bus route nahi chahiye, mujhe cricket score batao",
+    "expected_intent": "out_of_scope",
+    "expected_operation": "REJECT_OUT_OF_SCOPE",
+    "expected_slots": {
+      "route_number": "21G"
+    },
+    "test_type": "negated_transit_distractor",
+    "expected_behavior": "Reject cricket goal while ignoring explicitly negated route request."
+  },
+  {
+    "id": "HG200_191",
+    "query": "Metro ke baare me nahi; laptop slow hai kaise repair karu?",
+    "expected_intent": "out_of_scope",
+    "expected_operation": "REJECT_OUT_OF_SCOPE",
+    "expected_slots": {},
+    "test_type": "negated_transit_distractor",
+    "expected_behavior": "Reject computer repair as out of scope, not station facilities."
+  },
+  {
+    "id": "HG200_192",
+    "query": "Mumbai local ka monthly pass rule samjhao, Chennai wala nahi",
+    "expected_intent": "out_of_scope",
+    "expected_operation": "REJECT_OUT_OF_SCOPE",
+    "expected_slots": {
+      "ticket_type": "monthly_pass"
+    },
+    "test_type": "other_city",
+    "expected_behavior": "Reject out-of-geography local-pass question; do not supply Chennai policy."
+  },
+  {
+    "id": "HG200_193",
+    "query": "25R aur 102 dono bus routes ke stops ek saath dikha do bhai",
+    "expected_intent": null,
+    "expected_operation": null,
+    "expected_slots": {},
+    "test_type": "competing_routes",
+    "expected_behavior": "Ask user to choose one route scope; do not silently drop either requested route."
+  },
+  {
+    "id": "HG200_194",
+    "query": "Ordinary stage 5 aur stage 9 ka fare dono nikal do",
+    "expected_intent": null,
+    "expected_operation": null,
+    "expected_slots": {
+      "service_type": "Ordinary Services"
+    },
+    "test_type": "competing_stages",
+    "expected_behavior": "Clarify competing stage scopes; do not execute only one stage."
+  },
+  {
+    "id": "HG200_195",
+    "query": "Broadway se 102 bus departures 7 AM ya 9 PM dono options me batao",
+    "expected_intent": null,
+    "expected_operation": null,
+    "expected_slots": {
+      "route_number": "102"
+    },
+    "test_type": "competing_clocks",
+    "expected_behavior": "Clarify multiple explicit clocks; no silent selection of one time."
+  },
+  {
+    "id": "HG200_196",
+    "query": "Marina Beach aur IIT Madras dono ke closest metro station batao",
+    "expected_intent": null,
+    "expected_operation": null,
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "competing_nearest_locations",
+    "expected_behavior": "Request one reference location or explicit separate questions; do not pick one locality silently."
+  },
+  {
+    "id": "HG200_197",
+    "query": "Guindy se Airport metro ka rasta aur ticket ka kiraya dono btao",
+    "expected_intent": null,
+    "expected_operation": null,
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "multiple_goals_route_fare",
+    "expected_behavior": "Clarify two distinct goals (route and fare) with both candidate families; no single-family partial answer."
+  },
+  {
+    "id": "HG200_198",
+    "query": "Alandur metro me parking bhi hai aur lift bhi? dono info chahiye",
+    "expected_intent": null,
+    "expected_operation": null,
+    "expected_slots": {
+      "transport_mode": "metro"
+    },
+    "test_type": "multiple_goals_facility_accessibility",
+    "expected_behavior": "Clarify station facilities plus accessibility goals; do not mistake them for one feature."
+  },
+  {
+    "id": "HG200_199",
+    "query": "102A Guindy pe rukti hai kya aur abhi GPS pe kahan hai?",
+    "expected_intent": null,
+    "expected_operation": null,
+    "expected_slots": {
+      "route_number": "102A"
+    },
+    "test_type": "multiple_goals_membership_live",
+    "expected_behavior": "Clarify membership and live-location goals; a one-family safe refusal must not count as understanding both."
+  },
+  {
+    "id": "HG200_200",
+    "query": "Broadway se Adyar aur Tambaram tak bus route bta do, dono jagah jana h",
+    "expected_intent": null,
+    "expected_operation": null,
+    "expected_slots": {
+      "transport_mode": "bus"
+    },
+    "test_type": "competing_destinations",
+    "expected_behavior": "Clarify destination/itinerary scope rather than silently discarding one endpoint."
+  }
+]

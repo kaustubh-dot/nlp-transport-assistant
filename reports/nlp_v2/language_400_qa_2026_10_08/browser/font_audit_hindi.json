@@ -1,0 +1,346 @@
+[
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "rgb(26, 21, 17)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "14px",
+    "tag": "BUTTON",
+    "text": "Deploy"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.2 0.012 55)",
+    "font": "\"Cormorant Garamond\", \"Noto Serif Devanagari\", Georgia, serif",
+    "size": "20px",
+    "tag": "H2",
+    "text": "चेन्नई परिवहन"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.45 0.012 55)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "12.8px",
+    "tag": "P",
+    "text": "बहुभाषी परिवहन सहायक"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.2 0.012 55)",
+    "font": "\"Cormorant Garamond\", \"Noto Serif Devanagari\", Georgia, serif",
+    "size": "18px",
+    "tag": "H3",
+    "text": "अपने शब्दों में पूछें"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.45 0.012 55)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "12.8px",
+    "tag": "P",
+    "text": "English · हिन्दी · Hinglish"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "rgb(26, 21, 17)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "16px",
+    "tag": "P",
+    "text": "रूट, स्टॉप, प्रकाशित समय-सारणी, किराए और नजदीकी परिवहन।"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.2 0.012 55)",
+    "font": "\"Cormorant Garamond\", \"Noto Serif Devanagari\", Georgia, serif",
+    "size": "18px",
+    "tag": "H3",
+    "text": "प्रकाशित रिकॉर्ड का संकलन"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.45 0.012 55)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "12.8px",
+    "tag": "P",
+    "text": "लाइव अपडेट नहीं हैं। मौजूदा सेवा और किराए की पुष्टि ऑपरेटर से करें।"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.45 0.012 55)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "12.8px",
+    "tag": "P",
+    "text": "बदलाव, सुगम्यता और सुविधाओं की जानकारी केवल स्रोत से समर्थित होने पर दिखाई जाती है।"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "rgb(26, 21, 17)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "14px",
+    "tag": "LABEL",
+    "text": "Language / भाषा"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "rgb(26, 21, 17)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "P",
+    "text": "Language / भाषा"
+  },
+  {
+    "background": "oklch(0.98 0.008 75)",
+    "color": "oklch(0.2 0.012 55)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "LABEL",
+    "text": "English"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "rgb(26, 21, 17)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "P",
+    "text": "English"
+  },
+  {
+    "background": "oklch(0.91 0.03 18)",
+    "color": "oklch(0.38 0.13 18)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "LABEL",
+    "text": "हिंदी"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "rgb(26, 21, 17)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "P",
+    "text": "हिंदी"
+  },
+  {
+    "background": "oklch(0.98 0.008 75)",
+    "color": "oklch(0.2 0.012 55)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "LABEL",
+    "text": "Hinglish"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "rgb(26, 21, 17)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "P",
+    "text": "Hinglish"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.2 0.012 55)",
+    "font": "\"Cormorant Garamond\", \"Noto Serif Devanagari\", Georgia, serif",
+    "size": "36px",
+    "tag": "H1",
+    "text": "चेन्नई बहु-माध्यम परिवहन सहायक"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.38 0.012 55)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "15.2px",
+    "tag": "P",
+    "text": "रूट, स्टॉप, समय-सारणी, किराए या नजदीकी परिवहन के बारे में पूछें।"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "rgb(26, 21, 17)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "14px",
+    "tag": "LABEL",
+    "text": "Transport / परिवहन"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "rgb(26, 21, 17)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "P",
+    "text": "Transport / परिवहन"
+  },
+  {
+    "background": "oklch(0.91 0.03 18)",
+    "color": "oklch(0.38 0.13 18)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "LABEL",
+    "text": "कोई भी माध्यम"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "rgb(26, 21, 17)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "P",
+    "text": "कोई भी माध्यम"
+  },
+  {
+    "background": "oklch(0.98 0.008 75)",
+    "color": "oklch(0.2 0.012 55)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "LABEL",
+    "text": "बस"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "rgb(26, 21, 17)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "P",
+    "text": "बस"
+  },
+  {
+    "background": "oklch(0.98 0.008 75)",
+    "color": "oklch(0.2 0.012 55)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "LABEL",
+    "text": "मेट्रो"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "rgb(26, 21, 17)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "P",
+    "text": "मेट्रो"
+  },
+  {
+    "background": "oklch(0.98 0.008 75)",
+    "color": "oklch(0.2 0.012 55)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "LABEL",
+    "text": "रेल (उपनगरीय)"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "rgb(26, 21, 17)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "P",
+    "text": "रेल (उपनगरीय)"
+  },
+  {
+    "background": "oklch(0.98 0.008 75)",
+    "color": "oklch(0.2 0.012 55)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "LABEL",
+    "text": "MRTS"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "rgb(26, 21, 17)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "P",
+    "text": "MRTS"
+  },
+  {
+    "background": "oklch(0.98 0.008 75)",
+    "color": "oklch(0.38 0.012 55)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "BUTTON",
+    "text": "प्रकाशित रिकॉर्ड"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.38 0.012 55)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "P",
+    "text": "प्रकाशित रिकॉर्ड"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.45 0.012 55)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "12.8px",
+    "tag": "P",
+    "text": "प्रश्न में लिखा माध्यम प्राथमिकता पाता है। चुना हुआ माध्यम हटाने के लिए ‘कोई भी माध्यम’ चुनें।"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.45 0.012 55)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "12.8px",
+    "tag": "P",
+    "text": "प्रकाशित रिकॉर्ड का संकलन · लाइव अपडेट नहीं · मौजूदा सेवा की पुष्टि ऑपरेटर से करें"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.45 0.06 235)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "16px",
+    "tag": "P",
+    "text": "पूरा प्रश्न पूछें। रूट और किराए के जवाब प्रकाशित रिकॉर्ड पर आधारित हैं; लाइव स्थिति अनुपलब्ध है।"
+  },
+  {
+    "background": "oklch(0.98 0.008 75)",
+    "color": "oklch(0.2 0.012 55)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "BUTTON",
+    "text": "नजदीकी मेट्रो"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.2 0.012 55)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "P",
+    "text": "नजदीकी मेट्रो"
+  },
+  {
+    "background": "oklch(0.98 0.008 75)",
+    "color": "oklch(0.2 0.012 55)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "BUTTON",
+    "text": "बस रूट के स्टॉप"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.2 0.012 55)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "P",
+    "text": "बस रूट के स्टॉप"
+  },
+  {
+    "background": "oklch(0.98 0.008 75)",
+    "color": "oklch(0.2 0.012 55)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "BUTTON",
+    "text": "प्रकाशित किराया"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.2 0.012 55)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "13.2px",
+    "tag": "P",
+    "text": "प्रकाशित किराया"
+  },
+  {
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.2 0.012 55)",
+    "font": "Manrope, \"Noto Sans Devanagari\", \"Noto Sans Tamil\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "size": "16px",
+    "tag": "TEXTAREA",
+    "text": ""
+  }
+]

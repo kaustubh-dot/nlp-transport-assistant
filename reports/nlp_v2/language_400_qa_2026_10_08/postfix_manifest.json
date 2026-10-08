@@ -1,0 +1,41 @@
+{
+  "kind": "fresh_custom_development_product_qa",
+  "label": "postfix",
+  "started_utc": "2026-10-08T11:10:08.447675+00:00",
+  "git_head": "3336e0d4ed0f84ddc706bf14cbf1aaa1e5c33a4c",
+  "api": "http://127.0.0.1:8875",
+  "count": 400,
+  "case_sha256": {
+    "hindi": "2e8229b89defcdb2fe6c4496bc508cbb8e2cd3893e637f5ef7ceec96663e85e1",
+    "hinglish": "91bcb569710063ef9e018e7dfc519486b0cb2a2d406483908776e72250c7da8c"
+  },
+  "source_sha256": {
+    "src/nlp_v2/__init__.py": "323d76b4bbd0261f37f693161b103222543acd5aa386cfc50efa7cbdee397c4d",
+    "src/nlp_v2/assistant.py": "cf2608d5bace84e469d8c3845db97f4a1ac7fbedfad1bd7c5c51219a08a4cd71",
+    "src/nlp_v2/contracts.py": "06e226d21430c93acfe7a1dc91a6672ab48b08a5f0460a530823f6355b73282c",
+    "src/nlp_v2/dispatch.py": "046d740d8fbeb0769c81aaba781daf160c76a700e4b8e4a63e76ae0753f4caf4",
+    "src/nlp_v2/domain.py": "4a9de6879cc1d01adb990c084e89c9a7fcd005e6b3c9d5d2ab1e8fbc43d8fc0d",
+    "src/nlp_v2/entities.py": "a167950e0889542a32e6bb649f84a3adf24441fdb680b7eff4fb8d3d2c56425a",
+    "src/nlp_v2/model.py": "1ca0f3b60a6a65dfd21c766bcfd11f0daf0dcc5e0a89f75785b725e18f04b80a",
+    "src/nlp_v2/slots.py": "9cf17d696fc771ce559cfe3657f915bd07e118187efaf790bb588ff52c30004e",
+    "app/api.py": "7ed043868d80aeb646480bd234eb1ba12b728d0d215ec77ceeefdbd0f004b260",
+    "app/frontend_contract.py": "166bb86635e2b71c91b0fa1458c9b2eabc296fbd37b4bc394d7b419de9b020f5",
+    "app/frontend_language.py": "3d545b5885a0c5020f92cd1df6cc0b12e97163df1066853b13b0ff55d26d548c",
+    "app/legacy_streamlit_app.py": "ee9f3a85c154d9d8bc6936fac9fd70cdcc4fbc4588852e9001b267fc5fd7bebc",
+    "app/streamlit_app.py": "9062677a6344d063873a71e666ba68b6445141980b9b1ccd3c345bf43062d0df"
+  },
+  "model_manifest_sha256": "447a120090c33ba1259cad06ce9f216d80832d2540727c3330f14be3ec04dc39",
+  "semantic_scoring": "Independent manual assessments; status and intent equality alone are not goal success.",
+  "health": {
+    "http": 200,
+    "body": {
+      "status": "ok",
+      "taxonomy": "T3"
+    }
+  },
+  "finished_utc": "2026-10-08T11:19:29.131510+00:00",
+  "response_sha256": {
+    "hindi": "718ed2e215483e68450351b93662686c141188e52a8c297770699673bd92a94b",
+    "hinglish": "3221b2d2515ad38ebac332d9696eef1d5153988ca02ec8e36b67201c7ce923b7"
+  }
+}

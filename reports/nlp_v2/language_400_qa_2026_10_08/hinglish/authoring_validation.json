@@ -1,0 +1,19 @@
+{
+  "case_count": 200,
+  "unique_queries": 200,
+  "sha256": "91bcb569710063ef9e018e7dfc519486b0cb2a2d406483908776e72250c7da8c",
+  "old_duplicate_check": {
+    "reports/nlp_v2/language_toggle_qa_2026_10_08/hindi/baseline.json": {
+      "unique_prior_queries": 48,
+      "new_exact_duplicates": 0
+    },
+    "reports/nlp_v2/language_toggle_qa_2026_10_08/hinglish/api_baseline.json": {
+      "unique_prior_queries": 48,
+      "new_exact_duplicates": 0
+    }
+  },
+  "canonical_slot_values_validated": true,
+  "all_16_families_at_least_8": true,
+  "api_calls": 0,
+  "evaluator_calls": 0
+}

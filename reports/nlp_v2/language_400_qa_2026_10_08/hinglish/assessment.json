@@ -1,0 +1,1202 @@
+[
+  {
+    "id": "HG200_001",
+    "category": "safe_limitation",
+    "notes": "Correct journey family and metro topology refusal. Returned slots retain Teynampet destination but omit supplied Vadapalani origin; no itinerary claimed, so source limitation remains primary.",
+    "issue_type": "source_limit; secondary_origin_not_retained"
+  },
+  {
+    "id": "HG200_002",
+    "category": "safe_limitation",
+    "notes": "Correct metro journey family, both endpoints retained; no mode-consistent published metro topology.",
+    "issue_type": "source_limit"
+  },
+  {
+    "id": "HG200_003",
+    "category": "recognition_failure",
+    "notes": "Route request explicitly excludes ticket rate; fare_calculation/entity clarification answers the wrong family.",
+    "issue_type": "negation_wrong_family"
+  },
+  {
+    "id": "HG200_004",
+    "category": "recognition_failure",
+    "notes": "Missing-origin route request becomes route_stop_sequence; source refusal does not request absent origin.",
+    "issue_type": "wrong_family_missing_origin"
+  },
+  {
+    "id": "HG200_005",
+    "category": "recognition_failure",
+    "notes": "Missing-destination journey request becomes interchange_transfer and a transfer-source refusal.",
+    "issue_type": "wrong_family_missing_destination"
+  },
+  {
+    "id": "HG200_006",
+    "category": "recognition_failure",
+    "notes": "Metro journey with least-changes preference becomes interchange_transfer.",
+    "issue_type": "wrong_family_preference"
+  },
+  {
+    "id": "HG200_007",
+    "category": "legitimate_clarification",
+    "notes": "Correct journey family and bus origin preserved; CMBT has multiple bus physical-stop candidates. Clarification avoids guessing destination.",
+    "issue_type": "canonical_entity_ambiguity"
+  },
+  {
+    "id": "HG200_008",
+    "category": "safe_limitation",
+    "notes": "Correct metro journey source refusal, but returned destination is Ashok Nagar (the origin); Saidapet and quickest preference are absent. No narrower route was asserted.",
+    "issue_type": "source_limit; secondary_roles_and_preference_not_retained"
+  },
+  {
+    "id": "HG200_009",
+    "category": "safe_limitation",
+    "notes": "Correct metro journey source refusal and Alandur via retained. Anna Nagar Tower and Airport endpoints are absent from returned slots; waypoint itinerary is not fulfilled.",
+    "issue_type": "source_limit; secondary_endpoints_not_retained"
+  },
+  {
+    "id": "HG200_010",
+    "category": "recognition_failure",
+    "notes": "Direct-only journey request becomes mode_availability; also LIC is retained without Nandanam origin or direct preference.",
+    "issue_type": "wrong_family_constraint"
+  },
+  {
+    "id": "HG200_011",
+    "category": "safe_limitation",
+    "notes": "Correct suburban journey family, Tambaram-to-Chennai Beach direction and mode retained; matching topology is unavailable.",
+    "issue_type": "source_limit"
+  },
+  {
+    "id": "HG200_012",
+    "category": "recognition_failure",
+    "notes": "Explicit metro request excluding bus becomes mode_availability and asks to choose metro or bus; negated mode is treated as requested.",
+    "issue_type": "negation_mode_conflict"
+  },
+  {
+    "id": "HG200_013",
+    "category": "safe_limitation",
+    "notes": "Explicit local/metro combined journey is recognized as multimodal; blanket missing confirmed transfer-graph refusal precedes endpoint extraction, so no itinerary goal is fulfilled.",
+    "issue_type": "source_limit; extraction_unverified"
+  },
+  {
+    "id": "HG200_014",
+    "category": "recognition_failure",
+    "notes": "Combined bus/metro itinerary becomes point_to_point_route and a request to select one mode.",
+    "issue_type": "wrong_family_mode_chain"
+  },
+  {
+    "id": "HG200_015",
+    "category": "safe_limitation",
+    "notes": "Local-train/metro combined journey family correctly selected; absent confirmed multimodal graph prevents itinerary, with no extracted scope exposed.",
+    "issue_type": "source_limit; extraction_unverified"
+  },
+  {
+    "id": "HG200_016",
+    "category": "safe_limitation",
+    "notes": "Bus-to-metro journey family correctly selected; blanket confirmed-graph limitation, no travel steps asserted.",
+    "issue_type": "source_limit; extraction_unverified"
+  },
+  {
+    "id": "HG200_017",
+    "category": "recognition_failure",
+    "notes": "Multimodal journey with absent start becomes first_and_last_service and a one-mode prompt.",
+    "issue_type": "wrong_family_missing_origin"
+  },
+  {
+    "id": "HG200_018",
+    "category": "safe_limitation",
+    "notes": "Multimodal family correct but source refusal precedes clarification of explicitly absent destination. Safe graph limitation is primary; missing destination is still unresolved.",
+    "issue_type": "source_limit_before_missing_scope"
+  },
+  {
+    "id": "HG200_019",
+    "category": "recognition_failure",
+    "notes": "Explicit cheapest metro/bus combination becomes single-mode route and asks user to choose one mode.",
+    "issue_type": "wrong_family_mode_chain_preference"
+  },
+  {
+    "id": "HG200_020",
+    "category": "recognition_failure",
+    "notes": "Local/metro itinerary via Central becomes point_to_point_route, with only metro mode retained; broad refusal does not rescue wrong family.",
+    "issue_type": "wrong_family_waypoint"
+  },
+  {
+    "id": "HG200_021",
+    "category": "safe_limitation",
+    "notes": "Explicit MRTS/bus travel chain recognized as multimodal; graph absent and no itinerary asserted.",
+    "issue_type": "source_limit; extraction_unverified"
+  },
+  {
+    "id": "HG200_022",
+    "category": "safe_limitation",
+    "notes": "Bus/metro journey recognized as multimodal; graph refusal is safe, but shortest preference/endpoints are not exposed or fulfilled.",
+    "issue_type": "source_limit; optimization_unverified"
+  },
+  {
+    "id": "HG200_023",
+    "category": "safe_limitation",
+    "notes": "Combined journey family retained despite negated metro-only wording; confirmed multimodal graph absent.",
+    "issue_type": "source_limit; extraction_unverified"
+  },
+  {
+    "id": "HG200_024",
+    "category": "safe_limitation",
+    "notes": "Indirect combined local/bus itinerary request recognized as multimodal; source refusal does not claim an itinerary.",
+    "issue_type": "source_limit; extraction_unverified"
+  },
+  {
+    "id": "HG200_025",
+    "category": "safe_limitation",
+    "notes": "Exact 570S suffix and bus mode retained; no published sequence available for the requested route.",
+    "issue_type": "source_limit"
+  },
+  {
+    "id": "HG200_026",
+    "category": "safe_limitation",
+    "notes": "21 G correctly normalized to 21G and sourced sequences returned, but full requested list is only partial. Response discloses four unusable links and uncovered variants; not full goal fulfillment.",
+    "issue_type": "partial_topology"
+  },
+  {
+    "id": "HG200_027",
+    "category": "goal_correct",
+    "notes": "102-A correctly normalized to 102A; two complete sourced directional sequences returned with provisional operation caveat.",
+    "issue_type": "answered_published_scope"
+  },
+  {
+    "id": "HG200_028",
+    "category": "safe_limitation",
+    "notes": "Correct sequence family, explicit metro mode and named line retained; matching metro topology source unavailable.",
+    "issue_type": "source_limit"
+  },
+  {
+    "id": "HG200_029",
+    "category": "safe_limitation",
+    "notes": "Correct sequence family, explicit metro mode and named line retained; matching metro topology source unavailable.",
+    "issue_type": "source_limit"
+  },
+  {
+    "id": "HG200_030",
+    "category": "safe_limitation",
+    "notes": "29C stop list recognized despite negated fare. Returned sourced variants disclose partial coverage and uncovered route IDs; requested complete list is not fully fulfilled.",
+    "issue_type": "partial_topology"
+  },
+  {
+    "id": "HG200_031",
+    "category": "safe_limitation",
+    "notes": "M1 route prefix and bus mode preserved; no mode-consistent sequence for exact route.",
+    "issue_type": "source_limit"
+  },
+  {
+    "id": "HG200_032",
+    "category": "goal_correct",
+    "notes": "Native १०२A correctly normalized to 102A; two complete sourced directional sequences returned with provisional caveat.",
+    "issue_type": "answered_native_digit_scope"
+  },
+  {
+    "id": "HG200_033",
+    "category": "recognition_failure",
+    "notes": "२५R is clearly supplied but route slot absent and prompt asks for route; numeral/route-cue recognition failed.",
+    "issue_type": "supplied_route_missed"
+  },
+  {
+    "id": "HG200_034",
+    "category": "legitimate_clarification",
+    "notes": "Correct sequence family asks for the route/line that the query explicitly says is absent.",
+    "issue_type": "genuinely_missing_route"
+  },
+  {
+    "id": "HG200_035",
+    "category": "recognition_failure",
+    "notes": "Explicit 102K# variant is not extracted; route clarification asks for an already supplied identifier.",
+    "issue_type": "supplied_suffix_route_missed"
+  },
+  {
+    "id": "HG200_036",
+    "category": "goal_correct",
+    "notes": "Exact 27D retained and five sourced sequences include both directions; full payload is qualified as published topology, not running service.",
+    "issue_type": "answered_directional_sequences"
+  },
+  {
+    "id": "HG200_037",
+    "category": "recognition_failure",
+    "notes": "T Nagar stop is supplied but prompt asks for stop; absence of canonical alias is not genuinely missing user input.",
+    "issue_type": "supplied_stop_missed"
+  },
+  {
+    "id": "HG200_038",
+    "category": "legitimate_clarification",
+    "notes": "Correct membership family, 21G and bus retained; ten distinct Guindy bus physical-stop candidates justify a stop choice.",
+    "issue_type": "canonical_entity_ambiguity"
+  },
+  {
+    "id": "HG200_039",
+    "category": "recognition_failure",
+    "notes": "Adyar membership on 102A becomes route_stop_sequence, with 102A omitted and requested again.",
+    "issue_type": "wrong_family_supplied_route_missed"
+  },
+  {
+    "id": "HG200_040",
+    "category": "safe_limitation",
+    "notes": "570 S normalized to 570S, Sholinganallur and membership goal retained; source says exact route or stop absent.",
+    "issue_type": "source_limit"
+  },
+  {
+    "id": "HG200_041",
+    "category": "recognition_failure",
+    "notes": "Green Line membership of Guindy becomes interchange_transfer refusal.",
+    "issue_type": "wrong_family_line_membership"
+  },
+  {
+    "id": "HG200_042",
+    "category": "recognition_failure",
+    "notes": "Egmore membership on Blue Line becomes sequence listing refusal; no membership operation selected.",
+    "issue_type": "wrong_family_line_membership"
+  },
+  {
+    "id": "HG200_043",
+    "category": "recognition_failure",
+    "notes": "२१G normalized successfully but specific Saidapet membership is answered with an entire route sequence. Sourced list is not the requested yes/no membership result.",
+    "issue_type": "wrong_family_answered_sequence"
+  },
+  {
+    "id": "HG200_044",
+    "category": "recognition_failure",
+    "notes": "१०२-C supplied explicitly, but only Thiruvanmiyur stop retained; route identifier requested again.",
+    "issue_type": "supplied_native_suffix_route_missed"
+  },
+  {
+    "id": "HG200_045",
+    "category": "legitimate_clarification",
+    "notes": "Guindy bus physical stop is genuinely ambiguous and route is explicitly absent. Asking for a stop choice is legitimate, though route remains unresolved.",
+    "issue_type": "canonical_ambiguity_and_missing_route"
+  },
+  {
+    "id": "HG200_046",
+    "category": "recognition_failure",
+    "notes": "Query explicitly says membership stop is absent; response lists 25R route stops rather than asking which stop.",
+    "issue_type": "wrong_family_missing_stop"
+  },
+  {
+    "id": "HG200_047",
+    "category": "recognition_failure",
+    "notes": "Ashok Pillar bus candidates are genuinely multiple, but explicit 27D is absent from slots. Genuine entity ambiguity does not excuse losing the supplied route scope.",
+    "issue_type": "supplied_route_missed_with_ambiguity"
+  },
+  {
+    "id": "HG200_048",
+    "category": "recognition_failure",
+    "notes": "102K# membership becomes sequence family and prompt requests already supplied route variant.",
+    "issue_type": "wrong_family_supplied_suffix_route_missed"
+  },
+  {
+    "id": "HG200_049",
+    "category": "safe_limitation",
+    "notes": "Correct first-service goal with Guindy metro station and first timing retained; metro schedule source absent.",
+    "issue_type": "source_limit"
+  },
+  {
+    "id": "HG200_050",
+    "category": "unsafe_or_wrong_answer",
+    "notes": "Last 25R bus from Poonamallee becomes general scheduled_departure. Route 25R and last bound are dropped; OK answer lists unrelated 597A/66P departures around midnight, falsely fulfilling a different scope.",
+    "issue_type": "wrong_family_unsafe_partial_answer"
+  },
+  {
+    "id": "HG200_051",
+    "category": "recognition_failure",
+    "notes": "Last-service family is correct, but explicit local train is not retained as suburban mode. Tambaram candidates include bus/hub/rail and ask avoidable cross-mode ambiguity.",
+    "issue_type": "explicit_local_mode_not_used"
+  },
+  {
+    "id": "HG200_052",
+    "category": "recognition_failure",
+    "notes": "First-service family and CMBT ambiguity are recognized, but explicit 27D route is absent; generic clarification loses route constraint.",
+    "issue_type": "supplied_route_missed_with_ambiguity"
+  },
+  {
+    "id": "HG200_053",
+    "category": "recognition_failure",
+    "notes": "First and last bounds are one GET_FIRST_LAST_SERVICE goal on 102 from Broadway. Generic multiple-scope clarification incorrectly treats this as competing goals.",
+    "issue_type": "false_multiple_goals"
+  },
+  {
+    "id": "HG200_054",
+    "category": "recognition_failure",
+    "notes": "First metro with explicit absent station becomes interchange_transfer source refusal, rather than first-service scope.",
+    "issue_type": "wrong_family_missing_station"
+  },
+  {
+    "id": "HG200_055",
+    "category": "recognition_failure",
+    "notes": "Absent boarding stop legitimately needs input, but supplied 21G was dropped from first/last slots; not a fully legitimate clarification.",
+    "issue_type": "supplied_route_missed"
+  },
+  {
+    "id": "HG200_056",
+    "category": "recognition_failure",
+    "notes": "Ambiguous kal for one last train becomes multiple_goals rather than temporal clarification; actual question has one temporal ambiguity.",
+    "issue_type": "false_multiple_goals_temporal"
+  },
+  {
+    "id": "HG200_057",
+    "category": "recognition_failure",
+    "notes": "One last-bus query with explicit night clock and route 102 gets competing-scope clarification instead of retaining/limiting the unsupported clock bound.",
+    "issue_type": "false_multiple_goals_clock_bound"
+  },
+  {
+    "id": "HG200_058",
+    "category": "recognition_failure",
+    "notes": "५७०S and Kelambakkam were supplied, but neither route nor origin retained; asks again for boarding stop.",
+    "issue_type": "supplied_native_route_and_origin_missed"
+  },
+  {
+    "id": "HG200_059",
+    "category": "recognition_failure",
+    "notes": "Published first metro explicitly excludes live; response selects realtime_status_query and live refusal.",
+    "issue_type": "negated_live_wrong_family"
+  },
+  {
+    "id": "HG200_060",
+    "category": "recognition_failure",
+    "notes": "Pehli bus explicitly asks first service, but selected family is scheduled_departure. Safe waypoint limitation does not rescue wrong family.",
+    "issue_type": "wrong_family_waypoint"
+  },
+  {
+    "id": "HG200_061",
+    "category": "recognition_failure",
+    "notes": "25R supplied before stop name is not extracted; correct headway family asks for a route already provided.",
+    "issue_type": "supplied_route_missed"
+  },
+  {
+    "id": "HG200_062",
+    "category": "legitimate_clarification",
+    "notes": "Correct frequency family and bus 102 preserved; three Broadway bus physical-stop candidates justify choosing stop.",
+    "issue_type": "canonical_entity_ambiguity"
+  },
+  {
+    "id": "HG200_063",
+    "category": "recognition_failure",
+    "notes": "Explicit scheduled frequency on Green Line becomes scheduled_departure; matching source refusal still wrong family.",
+    "issue_type": "wrong_family_headway"
+  },
+  {
+    "id": "HG200_064",
+    "category": "recognition_failure",
+    "notes": "Blue Line headway goal selected but line context does not qualify Guindy as metro; bus/metro/rail ambiguity prompt is avoidable with unambiguous line context.",
+    "issue_type": "line_mode_context_not_used"
+  },
+  {
+    "id": "HG200_065",
+    "category": "recognition_failure",
+    "notes": "21 G and buses explicitly supplied, but slots empty and rail/bus Saidapet candidates mixed. Supplied route/mode not retained.",
+    "issue_type": "supplied_route_and_plural_mode_missed"
+  },
+  {
+    "id": "HG200_066",
+    "category": "recognition_failure",
+    "notes": "Correct frequency family and Broadway bus ambiguity, but supplied १०२A route is absent.",
+    "issue_type": "supplied_native_route_missed"
+  },
+  {
+    "id": "HG200_067",
+    "category": "recognition_failure",
+    "notes": "Frequency with explicitly unknown route becomes sequence-listing clarification.",
+    "issue_type": "wrong_family_missing_route"
+  },
+  {
+    "id": "HG200_068",
+    "category": "recognition_failure",
+    "notes": "Headway with missing stop becomes sequence family, which also asks for already supplied 27D route.",
+    "issue_type": "wrong_family_supplied_route_missed"
+  },
+  {
+    "id": "HG200_069",
+    "category": "recognition_failure",
+    "notes": "Scheduled gap explicitly excludes live wait; selected scheduled_departure and false multiple-scope clarification instead of headway.",
+    "issue_type": "wrong_family_negated_live_false_multigoal"
+  },
+  {
+    "id": "HG200_070",
+    "category": "recognition_failure",
+    "notes": "M1 evening headway becomes first_and_last_service; M1/period scope omitted from source refusal.",
+    "issue_type": "wrong_family_supplied_route_missed"
+  },
+  {
+    "id": "HG200_071",
+    "category": "recognition_failure",
+    "notes": "Frequency via Guindy becomes scheduled_departure; waypoint refusal safe but family wrong.",
+    "issue_type": "wrong_family_waypoint"
+  },
+  {
+    "id": "HG200_072",
+    "category": "recognition_failure",
+    "notes": "kal correctly triggers temporal clarification, but frequency becomes scheduled_departure and explicit 25R is dropped.",
+    "issue_type": "wrong_family_supplied_route_missed"
+  },
+  {
+    "id": "HG200_073",
+    "category": "goal_correct",
+    "notes": "07:15 explicit morning clock and Poonamallee stop retained; five published departures at/after 07:15 have schedule/source/provisional caveat.",
+    "issue_type": "answered_scheduled_scope"
+  },
+  {
+    "id": "HG200_074",
+    "category": "safe_limitation",
+    "notes": "25R, 18:40, bus mode and Poonamallee stop retained; no matching published departures found, no live/negative availability claim.",
+    "issue_type": "source_limit"
+  },
+  {
+    "id": "HG200_075",
+    "category": "recognition_failure",
+    "notes": "Correct departure family, AM clock and genuine Broadway bus ambiguity, but supplied 102 before ke not extracted.",
+    "issue_type": "supplied_route_missed_with_ambiguity"
+  },
+  {
+    "id": "HG200_076",
+    "category": "safe_limitation",
+    "notes": "Correct departure family and metro source refusal. Returned 06:20 contradicts explicit shaam 6:20 (18:20); blanket refusal prevents factual timetable misanswer but exposes time-normalization defect.",
+    "issue_type": "source_limit; secondary_daypart_time_wrong"
+  },
+  {
+    "id": "HG200_077",
+    "category": "legitimate_clarification",
+    "notes": "Native २१G route and night ९:१० clock normalize correctly; Saidapet bus physical candidates genuinely ambiguous.",
+    "issue_type": "canonical_entity_ambiguity"
+  },
+  {
+    "id": "HG200_078",
+    "category": "recognition_failure",
+    "notes": "Explicit departures at 6 PM with station absent becomes route_stop_sequence and asks for route/line instead.",
+    "issue_type": "wrong_family_missing_station"
+  },
+  {
+    "id": "HG200_079",
+    "category": "legitimate_clarification",
+    "notes": "Bare 9 baje preserved as 09:00/21:00 candidates and requests time/day clarification; no AM default.",
+    "issue_type": "genuine_bare_clock_ambiguity"
+  },
+  {
+    "id": "HG200_080",
+    "category": "legitimate_clarification",
+    "notes": "CMBT genuinely has bus/metro candidates, so asking which physical stop is legitimate and no invalid-clock answer executes. 26:75 is not retained or explicitly acknowledged; invalid-clock handling remains unverified behind this ambiguity.",
+    "issue_type": "canonical_ambiguity; invalid_clock_unverified"
+  },
+  {
+    "id": "HG200_081",
+    "category": "recognition_failure",
+    "notes": "Ambiguous kal appropriately clarified but explicit 25R omitted; partial recognition is not a fully legitimate clarification.",
+    "issue_type": "supplied_route_missed_with_temporal_ambiguity"
+  },
+  {
+    "id": "HG200_082",
+    "category": "safe_limitation",
+    "notes": "Correct departure goal, AM clock retained and explicit waypoint-filter limitation. Returned slots omit supplied 102 and endpoints; no partial timetable claimed.",
+    "issue_type": "unsupported_waypoint_scope; secondary_route_unretained"
+  },
+  {
+    "id": "HG200_083",
+    "category": "recognition_failure",
+    "notes": "One departure scope with before 5 PM is incorrectly treated as multiple goals; route/clock discarded instead of explicit unsupported-before limitation.",
+    "issue_type": "false_multiple_goals_before_clock"
+  },
+  {
+    "id": "HG200_084",
+    "category": "recognition_failure",
+    "notes": "One 27D departure clock with negated current arrival becomes multiple_goals, dropping route/time scope.",
+    "issue_type": "false_multiple_goals_negated_live"
+  },
+  {
+    "id": "HG200_085",
+    "category": "legitimate_clarification",
+    "notes": "Correct bus-connectivity family; supplied Saidapet and Guindy have multiple physical bus candidates, so stop choice is legitimate.",
+    "issue_type": "canonical_entity_ambiguity"
+  },
+  {
+    "id": "HG200_086",
+    "category": "safe_limitation",
+    "notes": "Correct metro availability refusal; Alandur retained as destination and Airport absent, although query states a between-pair. No connection asserted; endpoint representation remains defective.",
+    "issue_type": "source_limit; secondary_endpoint_roles_not_retained"
+  },
+  {
+    "id": "HG200_087",
+    "category": "safe_limitation",
+    "notes": "Correct suburban connectivity family and both endpoints/mode retained; matching published topology unavailable.",
+    "issue_type": "source_limit"
+  },
+  {
+    "id": "HG200_088",
+    "category": "safe_limitation",
+    "notes": "Correct MRTS connectivity refusal and Velachery origin; Thirumayilai destination absent from returned slots. No route/connection assertion made.",
+    "issue_type": "source_limit; secondary_destination_not_retained"
+  },
+  {
+    "id": "HG200_089",
+    "category": "recognition_failure",
+    "notes": "Porur-to-CMBT bus existence becomes interchange_transfer source refusal.",
+    "issue_type": "wrong_family_connectivity"
+  },
+  {
+    "id": "HG200_090",
+    "category": "safe_limitation",
+    "notes": "Correct metro connectivity refusal and Nehru Park origin; Anna Nagar Tower destination absent. Blanket source gate prevents a connection assertion.",
+    "issue_type": "source_limit; secondary_destination_not_retained"
+  },
+  {
+    "id": "HG200_091",
+    "category": "recognition_failure",
+    "notes": "Origin genuinely absent, but Airport destination supplied and also requested again. Missing canonical recognition cannot be counted as truly absent input.",
+    "issue_type": "supplied_destination_missed"
+  },
+  {
+    "id": "HG200_092",
+    "category": "recognition_failure",
+    "notes": "Pallavaram origin with local mode and absent destination becomes cross-mode entity ambiguity including bus and rail, with local mode unretained.",
+    "issue_type": "explicit_local_mode_not_used"
+  },
+  {
+    "id": "HG200_093",
+    "category": "recognition_failure",
+    "notes": "Connectivity explicitly excludes directions; response selects sequence family and metro topology refusal.",
+    "issue_type": "negated_route_wrong_family"
+  },
+  {
+    "id": "HG200_094",
+    "category": "recognition_failure",
+    "notes": "Future bus availability becomes first_and_last_service with false multiple-goal clarification; dated connectivity scope not recognized.",
+    "issue_type": "wrong_family_dated_availability"
+  },
+  {
+    "id": "HG200_095",
+    "category": "safe_limitation",
+    "notes": "Correct availability source refusal and 23:00/aaj/metro retained; Airport destination omitted. No claim of operation today made.",
+    "issue_type": "source_limit; secondary_destination_not_retained"
+  },
+  {
+    "id": "HG200_096",
+    "category": "recognition_failure",
+    "notes": "Local train explicitly requested and bus excluded, but prompt asks to choose suburban or bus, counting negated bus as requested mode.",
+    "issue_type": "negated_mode_conflict"
+  },
+  {
+    "id": "HG200_097",
+    "category": "goal_correct",
+    "notes": "Ordinary stage 6 preserved; INR 10 includes source, government order and 2018 effective date with current-fare caveat. No claimed current price guarantee.",
+    "issue_type": "answered_dated_stage_tariff"
+  },
+  {
+    "id": "HG200_098",
+    "category": "recognition_failure",
+    "notes": "11 stages explicitly supplied before the plural stage noun; missing-stage prompt fails to retain stage count while Express class is retained.",
+    "issue_type": "supplied_reversed_plural_stage_missed"
+  },
+  {
+    "id": "HG200_099",
+    "category": "recognition_failure",
+    "notes": "8 stage explicitly supplied before stage; missing-stage prompt fails to retain stage count while Deluxe class is retained.",
+    "issue_type": "supplied_reversed_stage_missed"
+  },
+  {
+    "id": "HG200_100",
+    "category": "goal_correct",
+    "notes": "Night stage 3 retained; INR 15 returned with official source, government order, effective date and current-fare caveat.",
+    "issue_type": "answered_dated_stage_tariff"
+  },
+  {
+    "id": "HG200_101",
+    "category": "safe_limitation",
+    "notes": "AC stage 7 and bus mode retained; absent verified AC tariff is reported, with no class substitution.",
+    "issue_type": "requested_class_source_absent"
+  },
+  {
+    "id": "HG200_102",
+    "category": "recognition_failure",
+    "notes": "Ordinary ६ stage clearly supplied but stage slot missing; prompt requests already supplied stage.",
+    "issue_type": "supplied_native_stage_missed"
+  },
+  {
+    "id": "HG200_103",
+    "category": "safe_limitation",
+    "notes": "Correct token fare family, Guindy-to-High Court metro endpoints and token retained; no verified fare record returned.",
+    "issue_type": "source_limit"
+  },
+  {
+    "id": "HG200_104",
+    "category": "recognition_failure",
+    "notes": "Smart-card journey amount explicitly requested, but selected ticket/pass policy refusal instead of fare-calculation goal.",
+    "issue_type": "wrong_family_amount_vs_policy"
+  },
+  {
+    "id": "HG200_105",
+    "category": "recognition_failure",
+    "notes": "Bus OD fare with no known stage becomes interchange_transfer source refusal.",
+    "issue_type": "wrong_family_bus_od_fare"
+  },
+  {
+    "id": "HG200_106",
+    "category": "legitimate_clarification",
+    "notes": "Fare family and bus retained; query explicitly lacks OD pair and stage, so requesting them is legitimate.",
+    "issue_type": "genuinely_missing_fare_scope"
+  },
+  {
+    "id": "HG200_107",
+    "category": "goal_correct",
+    "notes": "Explicit stage 12 retained; Ordinary default disclosed in response and data along with official source/effective date and current-price caveat.",
+    "issue_type": "answered_dated_disclosed_default"
+  },
+  {
+    "id": "HG200_108",
+    "category": "legitimate_clarification",
+    "notes": "Correct metro fare family despite negated route directions; two Egmore metro physical IDs justify origin choice and Central destination retained.",
+    "issue_type": "canonical_entity_ambiguity"
+  },
+  {
+    "id": "HG200_109",
+    "category": "safe_limitation",
+    "notes": "Correct ticketing_and_passes family; blanket refusal states authoritative ticket/pass policy table absent. No invented policy or transaction flow; ticket/mode extraction is bypassed/unverified and policy goal remains unfulfilled.",
+    "issue_type": "ticket_policy_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_110",
+    "category": "safe_limitation",
+    "notes": "Correct ticketing_and_passes family; blanket refusal states authoritative ticket/pass policy table absent. No invented policy or transaction flow; ticket/mode extraction is bypassed/unverified and policy goal remains unfulfilled.",
+    "issue_type": "ticket_policy_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_111",
+    "category": "safe_limitation",
+    "notes": "Correct ticketing_and_passes family; blanket refusal states authoritative ticket/pass policy table absent. No invented policy or transaction flow; ticket/mode extraction is bypassed/unverified and policy goal remains unfulfilled.",
+    "issue_type": "ticket_policy_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_112",
+    "category": "safe_limitation",
+    "notes": "Correct ticketing_and_passes family; blanket refusal states authoritative ticket/pass policy table absent. No invented policy or transaction flow; ticket/mode extraction is bypassed/unverified and policy goal remains unfulfilled.",
+    "issue_type": "ticket_policy_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_113",
+    "category": "safe_limitation",
+    "notes": "Correct ticketing_and_passes family; blanket refusal states authoritative ticket/pass policy table absent. No invented policy or transaction flow; ticket/mode extraction is bypassed/unverified and policy goal remains unfulfilled.",
+    "issue_type": "ticket_policy_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_114",
+    "category": "safe_limitation",
+    "notes": "Correct ticketing_and_passes family; blanket refusal states authoritative ticket/pass policy table absent. No invented policy or transaction flow; ticket/mode extraction is bypassed/unverified and policy goal remains unfulfilled.",
+    "issue_type": "ticket_policy_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_115",
+    "category": "safe_limitation",
+    "notes": "Correct ticketing_and_passes family; blanket refusal states authoritative ticket/pass policy table absent. No invented policy or transaction flow; ticket/mode extraction is bypassed/unverified and policy goal remains unfulfilled.",
+    "issue_type": "ticket_policy_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_116",
+    "category": "safe_limitation",
+    "notes": "Correct ticketing_and_passes family; blanket refusal states authoritative ticket/pass policy table absent. No invented policy or transaction flow; ticket/mode extraction is bypassed/unverified and policy goal remains unfulfilled.",
+    "issue_type": "ticket_policy_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_117",
+    "category": "safe_limitation",
+    "notes": "Correct ticketing_and_passes family; blanket refusal states authoritative ticket/pass policy table absent. No invented policy or transaction flow; ticket/mode extraction is bypassed/unverified and policy goal remains unfulfilled.",
+    "issue_type": "ticket_policy_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_118",
+    "category": "safe_limitation",
+    "notes": "Correct ticketing_and_passes family; blanket refusal states authoritative ticket/pass policy table absent. No invented policy or transaction flow; ticket/mode extraction is bypassed/unverified and policy goal remains unfulfilled.",
+    "issue_type": "ticket_policy_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_119",
+    "category": "safe_limitation",
+    "notes": "Correct ticketing_and_passes family; blanket refusal states authoritative ticket/pass policy table absent. No invented policy or transaction flow; ticket/mode extraction is bypassed/unverified and policy goal remains unfulfilled.",
+    "issue_type": "ticket_policy_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_120",
+    "category": "safe_limitation",
+    "notes": "Correct ticketing_and_passes family; blanket refusal states authoritative ticket/pass policy table absent. No invented policy or transaction flow; ticket/mode extraction is bypassed/unverified and policy goal remains unfulfilled.",
+    "issue_type": "ticket_policy_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_121",
+    "category": "safe_limitation",
+    "notes": "Correct station_facilities family with explicit unverified-facility limitation. No amenity availability invented; station/facility extraction bypassed/unverified and user goal not answered.",
+    "issue_type": "facility_source_unverified; extraction_unverified"
+  },
+  {
+    "id": "HG200_122",
+    "category": "recognition_failure",
+    "notes": "Drinking-water amenity expressed as paani peene becomes interchange_transfer source refusal.",
+    "issue_type": "wrong_family_hindi_facility"
+  },
+  {
+    "id": "HG200_123",
+    "category": "safe_limitation",
+    "notes": "Correct station_facilities family with explicit unverified-facility limitation. No amenity availability invented; station/facility extraction bypassed/unverified and user goal not answered.",
+    "issue_type": "facility_source_unverified; extraction_unverified"
+  },
+  {
+    "id": "HG200_124",
+    "category": "recognition_failure",
+    "notes": "ATM inside High Court metro is an in-domain station facility/source-limited goal, but classified out_of_scope.",
+    "issue_type": "wrong_family_transit_amenity_oos"
+  },
+  {
+    "id": "HG200_125",
+    "category": "safe_limitation",
+    "notes": "Correct station_facilities family with explicit unverified-facility limitation. No amenity availability invented; station/facility extraction bypassed/unverified and user goal not answered.",
+    "issue_type": "facility_source_unverified; extraction_unverified"
+  },
+  {
+    "id": "HG200_126",
+    "category": "safe_limitation",
+    "notes": "Correct station_facilities family with explicit unverified-facility limitation. No amenity availability invented; station/facility extraction bypassed/unverified and user goal not answered.",
+    "issue_type": "facility_source_unverified; extraction_unverified"
+  },
+  {
+    "id": "HG200_127",
+    "category": "safe_limitation",
+    "notes": "Correct station_facilities family with explicit unverified-facility limitation. No amenity availability invented; station/facility extraction bypassed/unverified and user goal not answered.",
+    "issue_type": "facility_source_unverified; extraction_unverified"
+  },
+  {
+    "id": "HG200_128",
+    "category": "recognition_failure",
+    "notes": "Parking query with station absent becomes interchange_transfer rather than facilities scope or station clarification.",
+    "issue_type": "wrong_family_missing_facility_station"
+  },
+  {
+    "id": "HG200_129",
+    "category": "recognition_failure",
+    "notes": "Drinking-water station query with absent station becomes interchange_transfer.",
+    "issue_type": "wrong_family_missing_facility_station"
+  },
+  {
+    "id": "HG200_130",
+    "category": "safe_limitation",
+    "notes": "Correct station_facilities family with explicit unverified-facility limitation. No amenity availability invented; station/facility extraction bypassed/unverified and user goal not answered.",
+    "issue_type": "facility_source_unverified; extraction_unverified"
+  },
+  {
+    "id": "HG200_131",
+    "category": "safe_limitation",
+    "notes": "Correct station_facilities family with explicit unverified-facility limitation. No amenity availability invented; station/facility extraction bypassed/unverified and user goal not answered.",
+    "issue_type": "facility_source_unverified; extraction_unverified"
+  },
+  {
+    "id": "HG200_132",
+    "category": "safe_limitation",
+    "notes": "Correct station_facilities family with explicit unverified-facility limitation. No amenity availability invented; station/facility extraction bypassed/unverified and user goal not answered.",
+    "issue_type": "facility_source_unverified; extraction_unverified"
+  },
+  {
+    "id": "HG200_133",
+    "category": "safe_limitation",
+    "notes": "Correct station_accessibility family; no verified accessibility values explicitly disclosed. No availability flag invented; feature/station extraction bypassed/unverified and goal remains unfulfilled.",
+    "issue_type": "accessibility_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_134",
+    "category": "safe_limitation",
+    "notes": "Correct station_accessibility family; no verified accessibility values explicitly disclosed. No availability flag invented; feature/station extraction bypassed/unverified and goal remains unfulfilled.",
+    "issue_type": "accessibility_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_135",
+    "category": "safe_limitation",
+    "notes": "Correct station_accessibility family; no verified accessibility values explicitly disclosed. No availability flag invented; feature/station extraction bypassed/unverified and goal remains unfulfilled.",
+    "issue_type": "accessibility_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_136",
+    "category": "recognition_failure",
+    "notes": "Escalator verified-info request becomes ticketing_and_passes source refusal.",
+    "issue_type": "wrong_family_accessibility"
+  },
+  {
+    "id": "HG200_137",
+    "category": "safe_limitation",
+    "notes": "Correct station_accessibility family; no verified accessibility values explicitly disclosed. No availability flag invented; feature/station extraction bypassed/unverified and goal remains unfulfilled.",
+    "issue_type": "accessibility_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_138",
+    "category": "safe_limitation",
+    "notes": "Correct station_accessibility family; no verified accessibility values explicitly disclosed. No availability flag invented; feature/station extraction bypassed/unverified and goal remains unfulfilled.",
+    "issue_type": "accessibility_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_139",
+    "category": "safe_limitation",
+    "notes": "Correct station_accessibility family; no verified accessibility values explicitly disclosed. No availability flag invented; feature/station extraction bypassed/unverified and goal remains unfulfilled.",
+    "issue_type": "accessibility_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_140",
+    "category": "safe_limitation",
+    "notes": "Correct station_accessibility family; no verified accessibility values explicitly disclosed. No availability flag invented; feature/station extraction bypassed/unverified and goal remains unfulfilled.",
+    "issue_type": "accessibility_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_141",
+    "category": "recognition_failure",
+    "notes": "General lift status with absent station is not explicitly live vehicle status, but becomes realtime_status_query.",
+    "issue_type": "wrong_family_missing_accessibility_station"
+  },
+  {
+    "id": "HG200_142",
+    "category": "recognition_failure",
+    "notes": "Accessible-toilet query with absent station becomes interchange_transfer.",
+    "issue_type": "wrong_family_missing_accessibility_station"
+  },
+  {
+    "id": "HG200_143",
+    "category": "recognition_failure",
+    "notes": "Lift info explicitly excludes parking; station_facilities refusal selects the negated goal family.",
+    "issue_type": "negated_facility_wrong_family"
+  },
+  {
+    "id": "HG200_144",
+    "category": "safe_limitation",
+    "notes": "Correct station_accessibility family; no verified accessibility values explicitly disclosed. No availability flag invented; feature/station extraction bypassed/unverified and goal remains unfulfilled.",
+    "issue_type": "accessibility_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_145",
+    "category": "recognition_failure",
+    "notes": "Central metro-to-local transfer becomes ticketing_and_passes refusal.",
+    "issue_type": "wrong_family_transfer"
+  },
+  {
+    "id": "HG200_146",
+    "category": "safe_limitation",
+    "notes": "Correct interchange_transfer family; snapshot has no confirmed interchange records, so no verified switch/walk instructions are claimed. Transfer modes/location extraction bypassed/unverified.",
+    "issue_type": "confirmed_transfer_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_147",
+    "category": "safe_limitation",
+    "notes": "Correct interchange_transfer family; snapshot has no confirmed interchange records, so no verified switch/walk instructions are claimed. Transfer modes/location extraction bypassed/unverified.",
+    "issue_type": "confirmed_transfer_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_148",
+    "category": "recognition_failure",
+    "notes": "Bus-to-metro transfer at CMBT becomes mode_availability and asks to choose one mode instead of preserving mode pair.",
+    "issue_type": "wrong_family_transfer_mode_conflict"
+  },
+  {
+    "id": "HG200_149",
+    "category": "recognition_failure",
+    "notes": "Metro-to-suburban transfer at St Thomas Mount becomes point_to_point_route and a single-mode prompt.",
+    "issue_type": "wrong_family_transfer_mode_conflict"
+  },
+  {
+    "id": "HG200_150",
+    "category": "safe_limitation",
+    "notes": "Correct interchange_transfer family; snapshot has no confirmed interchange records, so no verified switch/walk instructions are claimed. Transfer modes/location extraction bypassed/unverified.",
+    "issue_type": "confirmed_transfer_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_151",
+    "category": "safe_limitation",
+    "notes": "Correct interchange family; blanket no-confirmed-records refusal precedes missing station/mode-pair clarification. No transfer asserted, absent scope remains unresolved.",
+    "issue_type": "source_limit_before_missing_scope"
+  },
+  {
+    "id": "HG200_152",
+    "category": "recognition_failure",
+    "notes": "Metro-to-bus walking transfer from High Court becomes ticketing_and_passes source refusal.",
+    "issue_type": "wrong_family_walking_transfer"
+  },
+  {
+    "id": "HG200_153",
+    "category": "safe_limitation",
+    "notes": "Correct interchange_transfer family; snapshot has no confirmed interchange records, so no verified switch/walk instructions are claimed. Transfer modes/location extraction bypassed/unverified.",
+    "issue_type": "confirmed_transfer_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_154",
+    "category": "safe_limitation",
+    "notes": "Correct interchange_transfer family; snapshot has no confirmed interchange records, so no verified switch/walk instructions are claimed. Transfer modes/location extraction bypassed/unverified.",
+    "issue_type": "confirmed_transfer_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_155",
+    "category": "recognition_failure",
+    "notes": "Line interchange explicitly excludes fare; selected fare_calculation and asks for starting stop.",
+    "issue_type": "negated_fare_wrong_family"
+  },
+  {
+    "id": "HG200_156",
+    "category": "safe_limitation",
+    "notes": "Correct interchange_transfer family; snapshot has no confirmed interchange records, so no verified switch/walk instructions are claimed. Transfer modes/location extraction bypassed/unverified.",
+    "issue_type": "confirmed_transfer_source_absent; extraction_unverified"
+  },
+  {
+    "id": "HG200_157",
+    "category": "goal_correct",
+    "notes": "Marina Beach anchor and requested metro mode retained. Sourced metro candidates and distance returned with straight-line/provisional and unverified walking caveats; this proves geometric nearest only, not current operation.",
+    "issue_type": "answered_geometric_published_scope"
+  },
+  {
+    "id": "HG200_158",
+    "category": "recognition_failure",
+    "notes": "One IIT Madras reference and one bus target mode get false competing-scope clarification; landmark/target relation not retained.",
+    "issue_type": "false_multiple_goals_nearest"
+  },
+  {
+    "id": "HG200_159",
+    "category": "legitimate_clarification",
+    "notes": "Four Apollo Hospital POI candidates genuinely ambiguous; correct nearest family and metro target retained.",
+    "issue_type": "canonical_entity_ambiguity"
+  },
+  {
+    "id": "HG200_160",
+    "category": "recognition_failure",
+    "notes": "T Nagar reference supplied but landmark/locality slot absent; prompt requests already supplied place.",
+    "issue_type": "supplied_locality_missed"
+  },
+  {
+    "id": "HG200_161",
+    "category": "recognition_failure",
+    "notes": "One Besant Nagar reference with bus target is treated as multiple goals instead of a proximity lookup.",
+    "issue_type": "false_multiple_goals_nearest"
+  },
+  {
+    "id": "HG200_162",
+    "category": "legitimate_clarification",
+    "notes": "Mylapore has two canonical reference candidates; nearest family and MRTS requested mode retained. Candidate choice avoids guessing reference coordinates.",
+    "issue_type": "canonical_entity_ambiguity"
+  },
+  {
+    "id": "HG200_163",
+    "category": "legitimate_clarification",
+    "notes": "Correct nearest family and metro mode; user explicitly says location absent, so landmark/locality prompt is appropriate.",
+    "issue_type": "genuinely_missing_location"
+  },
+  {
+    "id": "HG200_164",
+    "category": "recognition_failure",
+    "notes": "Reference location explicitly absent but six spurious bus entity candidates are offered, mode omitted; clarification invents an entity ambiguity from explanatory prose.",
+    "issue_type": "false_entity_from_missing_location_prose"
+  },
+  {
+    "id": "HG200_165",
+    "category": "recognition_failure",
+    "notes": "Single Anna Nagar Tower metro reference plus bus target is incorrectly multiple scopes; cannot distinguish anchor mode from desired nearest mode.",
+    "issue_type": "false_multiple_goals_anchor_target_modes"
+  },
+  {
+    "id": "HG200_166",
+    "category": "recognition_failure",
+    "notes": "One Marina Beach reference and metro target explicitly excluding bus becomes multiple scopes; negation not honored.",
+    "issue_type": "negation_false_multiple_goals_nearest"
+  },
+  {
+    "id": "HG200_167",
+    "category": "recognition_failure",
+    "notes": "Nearest metro by walking distance becomes point_to_point_route source refusal; unsupported walking metric should remain nearest family.",
+    "issue_type": "wrong_family_walking_metric"
+  },
+  {
+    "id": "HG200_168",
+    "category": "needs_review",
+    "notes": "Correct nearest family but geographic Thiruvanmiyur is silently anchored to exact BUS_3247299914, returning itself at 0 m. No independent canonical locality coordinates were supplied; whether this fulfills intended locality scope needs review. Not counted as goal_correct.",
+    "issue_type": "locality_to_stop_anchor_needs_review"
+  },
+  {
+    "id": "HG200_169",
+    "category": "safe_limitation",
+    "notes": "Correct realtime_status_query family with explicit live-source refusal. No current location/ETA/crowd invented; route/location extraction bypassed/unverified and live goal remains unfulfilled.",
+    "issue_type": "external_live_source_required; extraction_unverified"
+  },
+  {
+    "id": "HG200_170",
+    "category": "recognition_failure",
+    "notes": "Current metro lateness becomes first_and_last_service and a static schedule source refusal.",
+    "issue_type": "wrong_family_live_delay"
+  },
+  {
+    "id": "HG200_171",
+    "category": "recognition_failure",
+    "notes": "Current crowd goal becomes service_frequency with false multiple-scope clarification.",
+    "issue_type": "wrong_family_live_crowd_false_multigoal"
+  },
+  {
+    "id": "HG200_172",
+    "category": "recognition_failure",
+    "notes": "Real time arrival countdown becomes scheduled frequency, returning insufficient static departures rather than live-source limitation.",
+    "issue_type": "wrong_family_live_eta"
+  },
+  {
+    "id": "HG200_173",
+    "category": "safe_limitation",
+    "notes": "Correct realtime_status_query family with explicit live-source refusal. No current location/ETA/crowd invented; route/location extraction bypassed/unverified and live goal remains unfulfilled.",
+    "issue_type": "external_live_source_required; extraction_unverified"
+  },
+  {
+    "id": "HG200_174",
+    "category": "recognition_failure",
+    "notes": "Current MRTS disruption becomes service_frequency and static timetable refusal.",
+    "issue_type": "wrong_family_live_disruption"
+  },
+  {
+    "id": "HG200_175",
+    "category": "recognition_failure",
+    "notes": "Native २१G normalizes but right-now vehicle location becomes route_stop_membership and asks for stop.",
+    "issue_type": "wrong_family_native_route_live"
+  },
+  {
+    "id": "HG200_176",
+    "category": "recognition_failure",
+    "notes": "Current local delay explicitly excludes timetable, but first_and_last_service/false competing scope selected.",
+    "issue_type": "wrong_family_live_delay_negation"
+  },
+  {
+    "id": "HG200_177",
+    "category": "safe_limitation",
+    "notes": "Correct realtime_status_query family with explicit live-source refusal. No current location/ETA/crowd invented; route/location extraction bypassed/unverified and live goal remains unfulfilled.",
+    "issue_type": "external_live_source_required; extraction_unverified"
+  },
+  {
+    "id": "HG200_178",
+    "category": "recognition_failure",
+    "notes": "Current 27D location explicitly excludes route stops; sequence family selected and route also missed.",
+    "issue_type": "negated_sequence_wrong_family"
+  },
+  {
+    "id": "HG200_179",
+    "category": "safe_limitation",
+    "notes": "Correct realtime_status_query family with explicit live-source refusal. No current location/ETA/crowd invented; route/location extraction bypassed/unverified and live goal remains unfulfilled.",
+    "issue_type": "external_live_source_required; extraction_unverified"
+  },
+  {
+    "id": "HG200_180",
+    "category": "recognition_failure",
+    "notes": "Current Blue Line suspension/latest status becomes ticketing_and_passes source refusal.",
+    "issue_type": "wrong_family_live_disruption"
+  },
+  {
+    "id": "HG200_181",
+    "category": "recognition_failure",
+    "notes": "Food delivery near transit entity becomes ticket policy refusal rather than domain rejection.",
+    "issue_type": "wrong_family_food_order"
+  },
+  {
+    "id": "HG200_182",
+    "category": "goal_correct",
+    "notes": "Explicit Ola cab booking correctly rejected as out_of_scope; no public-transit answer pretends to book cab.",
+    "issue_type": "correct_domain_rejection"
+  },
+  {
+    "id": "HG200_183",
+    "category": "goal_correct",
+    "notes": "Hotel booking near Chennai Central correctly rejected as out_of_scope.",
+    "issue_type": "correct_domain_rejection"
+  },
+  {
+    "id": "HG200_184",
+    "category": "recognition_failure",
+    "notes": "Weather/rain question becomes service_frequency and asks for station/route.",
+    "issue_type": "wrong_family_weather"
+  },
+  {
+    "id": "HG200_185",
+    "category": "recognition_failure",
+    "notes": "Intercity flight ticket cost becomes transit fare_calculation and asks for local fare stage/OD inputs.",
+    "issue_type": "wrong_family_flight_fare"
+  },
+  {
+    "id": "HG200_186",
+    "category": "recognition_failure",
+    "notes": "Bangalore private sleeper reservation becomes local bus availability and asks for local endpoints.",
+    "issue_type": "wrong_family_intercity_booking"
+  },
+  {
+    "id": "HG200_187",
+    "category": "recognition_failure",
+    "notes": "Restaurant table reservation near Central becomes station_facilities refusal.",
+    "issue_type": "wrong_family_restaurant_booking"
+  },
+  {
+    "id": "HG200_188",
+    "category": "recognition_failure",
+    "notes": "Flat rent/broker request becomes transit fare entity clarification.",
+    "issue_type": "wrong_family_housing_rent"
+  },
+  {
+    "id": "HG200_189",
+    "category": "recognition_failure",
+    "notes": "Cinema showtime becomes transport frequency and missing stop/route prompt.",
+    "issue_type": "wrong_family_cinema_schedule"
+  },
+  {
+    "id": "HG200_190",
+    "category": "recognition_failure",
+    "notes": "Cricket-score request explicitly excludes bus route, but ticket/pass policy refusal selected.",
+    "issue_type": "negated_transit_wrong_family_cricket"
+  },
+  {
+    "id": "HG200_191",
+    "category": "recognition_failure",
+    "notes": "Laptop repair explicitly excludes metro; ticket/pass policy refusal selected.",
+    "issue_type": "negated_transit_wrong_family_repair"
+  },
+  {
+    "id": "HG200_192",
+    "category": "recognition_failure",
+    "notes": "Mumbai local pass policy explicitly excludes Chennai; Chennai ticket-policy family chosen rather than geography rejection.",
+    "issue_type": "wrong_geography_policy"
+  },
+  {
+    "id": "HG200_193",
+    "category": "recognition_failure",
+    "notes": "Two explicit routes 25R and 102 should clarify one scope, but response says route missing instead of acknowledging competing supplied routes.",
+    "issue_type": "competing_routes_not_recognized"
+  },
+  {
+    "id": "HG200_194",
+    "category": "legitimate_clarification",
+    "notes": "Two explicit Ordinary stage values correctly trigger one-scope clarification; neither silently executed.",
+    "issue_type": "genuine_competing_stages"
+  },
+  {
+    "id": "HG200_195",
+    "category": "legitimate_clarification",
+    "notes": "Two explicit AM/PM clocks correctly trigger one-scope clarification; no clock silently selected.",
+    "issue_type": "genuine_competing_clocks"
+  },
+  {
+    "id": "HG200_196",
+    "category": "legitimate_clarification",
+    "notes": "Two nearest anchors correctly trigger competing-scope clarification; neither silently selected.",
+    "issue_type": "genuine_competing_reference_locations"
+  },
+  {
+    "id": "HG200_197",
+    "category": "recognition_failure",
+    "notes": "Explicit route plus fare receives only fare source refusal; route goal/candidate is lost.",
+    "issue_type": "multiple_goals_one_goal_dropped"
+  },
+  {
+    "id": "HG200_198",
+    "category": "legitimate_clarification",
+    "notes": "Parking plus lift correctly clarifies multiple goals and exposes both station_facilities and station_accessibility candidate families.",
+    "issue_type": "genuine_multiple_families"
+  },
+  {
+    "id": "HG200_199",
+    "category": "recognition_failure",
+    "notes": "Membership plus GPS location receives membership-only entity clarification; live goal/candidate absent and supplied 102A route omitted.",
+    "issue_type": "multiple_goals_live_goal_dropped"
+  },
+  {
+    "id": "HG200_200",
+    "category": "legitimate_clarification",
+    "notes": "Two destinations in one bus journey correctly trigger scope clarification instead of silently dropping an endpoint.",
+    "issue_type": "genuine_competing_destinations"
+  }
+]
