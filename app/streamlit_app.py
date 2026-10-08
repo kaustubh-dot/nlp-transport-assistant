@@ -48,11 +48,21 @@ def _api_ready() -> bool:
 def _submit(query: str) -> None:
     if not query.strip():
         return
-    st.session_state.messages.append({"role": "user", "text": query})
+    default_mode = st.session_state.get('selected_transport_mode', 'auto')
+    default_mode = None if default_mode == 'auto' else default_mode
+    st.session_state.messages.append({"role": "user", "text": query, "default_transport_mode": default_mode})
     with st.spinner(_t("Checking the transit snapshot…")):
-        reply = ask_api(query, base_url=API_URL)
+        reply = ask_api(query, base_url=API_URL, transport_mode=default_mode)
     st.session_state.messages.append({"role": "assistant", "reply": reply})
     st.session_state.pending_query = query if reply.get("status") == "clarification" else None
+
+
+def _save_mode_selection() -> None:
+    st.session_state.selected_transport_mode = st.session_state.transport_mode
+
+
+def _toggle_records() -> None:
+    st.session_state.records_open = not st.session_state.get('records_open', False)
 
 
 def _table(rows: list[dict], columns: list[str] | None = None) -> None:
@@ -193,14 +203,30 @@ st.markdown(f"""
 <header class="mp-masthead">
     <h1 class="mp-title">{_t('Chennai Multimodal Transit Assistant')}</h1>
     <p class="mp-subtitle">{_t('Ask about routes, stops, schedules, fares, or nearby transit.')}</p>
-    <div class="mp-pill-row">
-        <span class="mp-pill mp-pill-blue">{_t('Bus')}</span>
-        <span class="mp-pill mp-pill-green">{_t('Metro')}</span>
-        <span class="mp-pill mp-pill-accent">{_t('Rail')}</span>
-        <span class="mp-pill">{_t('Published records')}</span>
-    </div>
 </header>
 """, unsafe_allow_html=True)
+
+# Keep a separate persistent selection: translated widget option labels change
+# Streamlit's widget identity, but must never reset a user's chosen mode.
+MODE_NAMES = {'auto': 'Any mode', 'bus': 'Bus', 'metro': 'Metro',
+              'suburban_rail': 'Rail (suburban)', 'mrts': 'MRTS'}
+st.session_state.transport_mode = st.session_state.get('selected_transport_mode', 'auto')
+with st.container(key='transport_controls'):
+    mode_column, records_column = st.columns([4, 1.5])
+    with mode_column:
+        st.radio('Transport / परिवहन', list(MODE_NAMES), format_func=lambda mode: _t(MODE_NAMES[mode]),
+                 horizontal=True, key='transport_mode', on_change=_save_mode_selection,
+                 label_visibility='collapsed')
+    with records_column:
+        st.button(_t('Published records'), key='published_records', use_container_width=True,
+                  type='primary' if st.session_state.get('records_open') else 'secondary', on_click=_toggle_records)
+    st.caption(_t('A mode written in your question takes priority. Select Any mode to clear the default.'))
+if st.session_state.get('records_open'):
+    with st.container(border=True):
+        st.subheader(_t('Source coverage'))
+        st.write(_t('Published stop sequences, schedule records and dated fares. Coverage varies by transport mode.'))
+        st.caption(_t('No live updates. Confirm current service and fares with the operator.'))
+        st.caption(_t('Transfer, accessibility and facility information is shown only when supported by the source.'))
 st.caption(_t('Published snapshot · No live updates · Verify current service with the operator'))
 
 if "messages" not in st.session_state:
@@ -215,8 +241,8 @@ if not st.session_state.messages:
     st.info(_t("Start with a complete question. Route and fare answers use the published snapshot; live status is unavailable."))
     starter_examples = examples(UI_LANGUAGE)
     columns = st.columns(3)
-    for column, (label, query) in zip(columns, starter_examples):
-        if column.button(label, use_container_width=True):
+    for index, (column, (label, query)) in enumerate(zip(columns, starter_examples)):
+        if column.button(label, use_container_width=True, key=f'starter_example_{index}'):
             _submit(query)
             st.rerun()
 
@@ -224,6 +250,8 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         if message["role"] == "user":
             st.write(message["text"])
+            if message.get('default_transport_mode'):
+                st.caption(_t('Default mode: {mode}', mode=field_label(message['default_transport_mode'], UI_LANGUAGE)))
         else:
             _render_reply(message["reply"])
 

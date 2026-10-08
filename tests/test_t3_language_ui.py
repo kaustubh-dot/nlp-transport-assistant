@@ -51,6 +51,39 @@ def test_language_switch_preserves_history_and_original_question(ui):
     assert calls == [{'query': query}]
 
 
+def test_mode_controls_send_default_without_rewriting_question(ui):
+    app, calls, _ = ui
+    question = 'guindy se central kaise jau'
+    app.radio[1].set_value('metro').run(timeout=10)
+    app.chat_input[0].set_value(question).run(timeout=10)
+    assert not app.exception
+    assert calls == [{'query': question, 'transport_mode': 'metro'}]
+    assert app.session_state.messages[0]['text'] == question
+    assert app.session_state.messages[0]['default_transport_mode'] == 'metro'
+    for language in ('hi', 'hinglish', 'en'):
+        app.radio[0].set_value(language).run(timeout=10)
+        assert not app.exception
+        assert app.radio[1].value == 'metro'
+        assert len(app.session_state.messages) == 2
+    assert len(calls) == 1
+    app.radio[1].set_value('auto').run(timeout=10)
+    app.chat_input[0].set_value('bus stage 4 deluxe fare').run(timeout=10)
+    assert calls[-1] == {'query': 'bus stage 4 deluxe fare'}
+
+
+def test_published_records_control_is_interactive_without_api_query(ui):
+    app, calls, _ = ui
+    button = next(item for item in app.button if item.key == 'published_records')
+    button.click().run(timeout=10)
+    assert not app.exception
+    assert app.session_state.records_open is True
+    assert any('Source coverage' in item.value for item in app.subheader)
+    assert calls == []
+    next(item for item in app.button if item.key == 'published_records').click().run(timeout=10)
+    assert app.session_state.records_open is False
+    assert calls == []
+
+
 def test_language_switch_keeps_composer_widget_identity(ui):
     app, calls, _ = ui
     composer_id = app.chat_input[0].id
@@ -119,7 +152,7 @@ def test_switching_language_keeps_unsubmitted_revision_draft(ui):
     assert app.text_input[0].id == revision_id
     assert app.text_input[0].value == draft
     assert calls == [{'query': 'guindy se central kaise jau'}]
-    app.button[0].click().run(timeout=10)
+    next(item for item in app.button if (item.key or '').startswith('FormSubmitter:revise_question-')).click().run(timeout=10)
     assert not app.exception
     assert calls[-1] == {'query': draft}
     assert len(app.session_state.messages) == 4

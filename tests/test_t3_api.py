@@ -41,6 +41,33 @@ def test_health_and_public_query_schema():
     assert "raw_query" not in body and "normalized_query" not in body and "confidence" not in body
 
 
+@pytest.mark.parametrize('mode', ['bus', 'metro', 'suburban_rail', 'mrts'])
+def test_api_passes_selected_mode_separately_from_exact_question(mode):
+    calls = []
+
+    class ModeAssistant(FakeAssistant):
+        def process_query(self, query, *, default_transport_mode=None):
+            calls.append((query, default_transport_mode))
+            return super().process_query(query)
+
+    query = 'गिंडी से Central कैसे जाऊँ?'
+    status, _ = request('/api/v2/query', {'query': query, 'transport_mode': mode}, assistant=ModeAssistant())
+    assert status == 200
+    assert calls == [(query, mode)]
+
+
+@pytest.mark.parametrize('mode', ['rail', 'hovercraft', '', None, 4, True, [], {}])
+def test_api_rejects_invalid_mode_before_assistant(mode):
+    class Uncalled:
+        def process_query(self, *args, **kwargs):
+            raise AssertionError('Invalid mode reached the assistant')
+
+    status, reply = request('/api/v2/query', {'query': 'route please', 'transport_mode': mode}, assistant=Uncalled())
+    assert status == 422
+    assert reply['status'] == 'error'
+    assert reply['outcome_reason'] == 'malformed_request'
+
+
 @pytest.mark.parametrize("payload,expected", [
     ({}, 422), ({"query": ""}, 422), ({"query": 42}, 422),
     ({"query": "x" * 9000}, 413),

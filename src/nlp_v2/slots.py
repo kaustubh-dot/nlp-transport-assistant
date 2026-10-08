@@ -12,8 +12,8 @@ from src.nlp_v2.entities import CanonicalResolver, EntitySpan, Resolution
 
 MODE_PATTERNS = {
     "metro": r"(?<!\w)(?:metro|मेट्रो)(?!\w)",
-    "bus": r"(?<!\w)(?:bus|bs|बस)(?!\w)",
-    "suburban_rail": r"(?<!\w)(?:suburban(?:\s+rail)?|local\s+train|लोकल\s+ट्रेन)(?!\w)",
+    "bus": r"(?<!\w)(?:buses|bus|bs|बसें|बसों|बस)(?!\w)",
+    "suburban_rail": r"(?<!\w)(?:suburban(?:\s+rail)?|local\s+train|लोकल\s+(?:ट्रेन|रेल)|उपनगरीय(?:\s+(?:रेल|ट्रेन))?)(?!\w)",
     "mrts": r"(?<!\w)(?:mrts|एमआरटीएस)(?!\w)",
 }
 FACILITIES = {
@@ -53,7 +53,7 @@ SERVICE_TYPES = {
     "Ordinary Services": ("ordinary", "साधारण"),
     "Express Services": ("express", "एक्सप्रेस"),
     "Deluxe Services": ("deluxe", 'deluxw', "डीलक्स"),
-    "Night Services": ("night service", "night bus", "रात्रि बस"),
+    "Night Services": ("night service", "night bus", "रात्रि बस", "रात्रि सेवा"),
     "Air Conditioned Services": ("air conditioned", "ac bus", "एसी बस", "वातानुकूलित"),
 }
 FARE_TYPES = {
@@ -81,8 +81,84 @@ class ExtractionResult:
     unsupported_timetable_waypoint: bool = False
 
 
+def _word_character(char: str) -> bool:
+    # Python's \w excludes combining marks: a Hindi vowel or virama must not
+    # become a word boundary (e.g. लोकल must not contain the relative day कल).
+    return unicodedata.category(char)[0] in 'LNM' or char == '_'
+
+
+def _word_matches(pattern: str, text: str, flags: int = 0):
+    return (match for match in re.finditer(pattern, text, flags)
+            if (match.start() == 0 or not _word_character(text[match.start() - 1]))
+            and (match.end() == len(text) or not _word_character(text[match.end()])))
+
+
 def _has(text: str, phrase: str) -> bool:
-    return re.search(r"(?<!\w)" + re.escape(normalize_text(phrase)) + r"(?!\w)", text) is not None
+    return next(_word_matches(re.escape(normalize_text(phrase)), text), None) is not None
+
+
+# Explicit tariff counts only. These words never choose an intent or alter the
+# raw classifier input. Compound counts are consumed whole, not truncated.
+_COUNT_WORDS = [
+    ('one', 'एक', 'ek'), ('two', 'दो', 'do'), ('three', 'तीन', 'teen'),
+    ('four', 'चार', 'chaar', 'char'), ('five', 'पाँच', 'पांच', 'paanch', 'panch'),
+    ('six', 'छह', 'छः', 'chhe', 'chhah', 'cheh'), ('seven', 'सात', 'saat'),
+    ('eight', 'आठ', 'aath'), ('nine', 'नौ', 'nau'), ('ten', 'दस', 'das'),
+    ('eleven', 'ग्यारह', 'gyarah'), ('twelve', 'बारह', 'barah'),
+    ('thirteen', 'तेरह', 'terah'), ('fourteen', 'चौदह', 'chaudah'),
+    ('fifteen', 'पंद्रह', 'पन्द्रह', 'pandrah'), ('sixteen', 'सोलह', 'solah'),
+    ('seventeen', 'सत्रह', 'satrah'), ('eighteen', 'अठारह', 'atharah'),
+    ('nineteen', 'उन्नीस', 'unnis', 'unnees'), ('twenty', 'बीस', 'bees'),
+    ('twenty one', 'इक्कीस', 'ikkis', 'ikkees'), ('twenty two', 'बाईस', 'baais', 'bais'),
+    ('twenty three', 'तेईस', 'teis'), ('twenty four', 'चौबीस', 'chaubis', 'chaubees'),
+    ('twenty five', 'पच्चीस', 'pachis', 'pachchis'), ('twenty six', 'छब्बीस', 'chabbis'),
+    ('twenty seven', 'सत्ताईस', 'sattais'), ('twenty eight', 'अट्ठाईस', 'atthais'),
+    ('twenty nine', 'उनतीस', 'untees'), ('thirty', 'तीस', 'tees'),
+]
+_COUNT_VALUES = {normalize_text(word): number for number, words in enumerate(_COUNT_WORDS, 1) for word in words}
+for _number, _words in enumerate(_COUNT_WORDS, 1):
+    for _word in _words:
+        if any('\u0900' <= char <= '\u097f' for char in _word):
+            for _ending in ('वाँ', 'वां', 'वें', 'वीं', 'वे'):
+                _COUNT_VALUES[normalize_text(_word + _ending)] = _number
+for _number, _root in enumerate(('पहल', 'दूसर', 'तीसर', 'चौथ', 'पाँचव', 'छठ', 'सातव', 'आठव', 'नौव', 'दसव'), 1):
+    for _ending in ('ा', 'े', 'ी', 'ाँ', 'ां', 'ें', 'ीं'):
+        _COUNT_VALUES[normalize_text(_root + _ending)] = _number
+_COUNT_PATTERN = r'(?:\d+|' + '|'.join(re.escape(word) for word in sorted(_COUNT_VALUES, key=len, reverse=True)) + r')'
+_COUNT_TOKENS = {token for word in _COUNT_VALUES for token in word.split()}
+_STAGE_UNIT = r'(?:stages?|स्टेज|चरण)'
+
+
+def _stage_counts(query: str) -> tuple[set[int], bool, bool]:
+    text = normalize_text(query)
+    mentioned = next(_word_matches(_STAGE_UNIT, text), None) is not None
+    values: set[int] = set()
+    invalid = bool(re.search(r'-\s*\d+\s*' + _STAGE_UNIT + r'|' + _STAGE_UNIT + r'\s*-\s*\d+', query, re.I))
+    coordinated = _COUNT_PATTERN + r'(?:\s+' + COORDINATION + r'\s*' + _COUNT_PATTERN + r')*'
+    patterns = (_STAGE_UNIT + r'\s*(?:(?:number|count|नंबर|संख्या)\s*)?(?P<count>' + coordinated + ')',
+                r'(?P<count>' + coordinated + r')\s+' + _STAGE_UNIT)
+    for pattern in patterns:
+        for match in _word_matches(pattern, text):
+            before, after = text[:match.start()].strip(), text[match.end():].strip()
+            count_start, count_end = match.span('count')
+            prior_number_word = text[:count_start].split()[-1:]
+            next_number_word = text[count_end:].split()[:1]
+            if (prior_number_word and prior_number_word[0] in _COUNT_TOKENS
+                    or next_number_word and next_number_word[0] in _COUNT_TOKENS):
+                invalid = True
+                continue
+            negated = (bool(re.search(r'(?<!\w)(?:not|no|nahi|नहीं)\s*$', before))
+                       or bool(re.match(r'(?:nahi|nahin|nhi|नहीं|नही)(?!\w)', after)))
+            invalid |= negated
+            for count in re.split(COORDINATION, match.group('count')):
+                count = count.strip()
+                if count == 'do' and after.startswith('calculation'):
+                    continue
+                value = int(count) if count.isdecimal() else _COUNT_VALUES.get(count)
+                if value is not None:
+                    values.add(value)
+                    invalid |= not 1 <= value <= 30
+    return values, invalid, mentioned
 
 
 def _enum(text: str, vocabulary: dict[str, tuple[str, ...]]) -> str | None:
@@ -93,6 +169,9 @@ def _enum(text: str, vocabulary: dict[str, tuple[str, ...]]) -> str | None:
 
 
 def _uncertain_service_class(text: str) -> bool:
+    if any(_has(text, phrase) for phrase in ('service class unknown', 'unknown service class',
+                                            'सेवा का प्रकार नहीं मालूम', 'सेवा वर्ग नहीं मालूम')):
+        return True
     hits = [value for value, aliases in SERVICE_TYPES.items()
             if any(_has(text, alias) for alias in (value, *aliases))]
     if len(hits) > 1:
@@ -115,8 +194,8 @@ def _endpoints(text: str, spans: list[EntitySpan]) -> tuple[EntitySpan, EntitySp
     first, last = spans[0], spans[-1]
     source_before = r"(?:from|से|se)\s*$"
     source_after = r"\s*(?:से|se)(?!\w)"
-    first_source = bool(re.search(source_before, text[:first.start]) or re.match(source_after, text[first.end:last.start]))
-    last_source = bool(re.search(source_before, text[first.end:last.start]) or re.match(source_after, text[last.end:]))
+    first_source = bool(next(_word_matches(source_before, text[:first.start]), None) or re.match(source_after, text[first.end:last.start]))
+    last_source = bool(next(_word_matches(source_before, text[first.end:last.start]), None) or re.match(source_after, text[last.end:]))
     return (last, first) if last_source and not first_source else (first, last)
 
 
@@ -198,11 +277,9 @@ def _route_number(query: str) -> str | None:
     ascii_digits = "".join(str(unicodedata.digit(char)) if char.isdecimal() else char
                            for char in unicodedata.normalize('NFC', query))
     suffixes = {'आर': 'R', 'जी': 'G', 'बी': 'B', 'सी': 'C', 'डी': 'D', 'ए': 'A', 'ई': 'E'}
-    def word_character(char: str) -> bool:
-        return unicodedata.category(char)[0] in 'LNM' or char == '_'
     def translate_suffix(match: re.Match) -> str:
         # Marks belong to the suffix; punctuation such as danda ends it.
-        if match.end() < len(ascii_digits) and word_character(ascii_digits[match.end()]):
+        if match.end() < len(ascii_digits) and _word_character(ascii_digits[match.end()]):
             return match.group(0)
         return suffixes[match.group(1)]
     ascii_digits = re.sub(r'(?<=\d)\s*(' + '|'.join(suffixes) + r')',
@@ -211,13 +288,20 @@ def _route_number(query: str) -> str | None:
     code = r"(?:[A-Za-z]{1,3})?\d{1,4}(?:[A-Za-z]{1,3})?(?:-[A-Za-z]{1,3})?#?"
     terminal = r"(?![\w#-])"
     spaced_suffix = r'(?:\s+([A-Za-z]#?)' + terminal + r')?'
-    prefix = re.search(r"(?i)(?:\bbus\b|\bbs\b|\broute\b|बस|रूट)\s*(?:(?:no\.?|number|नंबर)\s*)?(" + code + r")" + terminal + spaced_suffix, ascii_digits)
+    prefix = re.search(r"(?i)(?:\bbus\b|\bbs\b|\broute\b|बस|रूट)\s*(?:(?:no\.?|number|नंबर|संख्या|क्रमांक)\s*)?(" + code + r")" + terminal + spaced_suffix, ascii_digits)
     suffix = re.search(r"(?i)(" + code + r")" + terminal + spaced_suffix + r"\s*(?:\bbus\b|\bbs\b|\broute\b|बस|रूट)", ascii_digits)
     match = prefix or suffix
+    if match is None and any(_has(normalize_text(ascii_digits), marker) for marker in ('bus', 'bs', 'बस', 'route', 'रूट')):
+        # A possessive code is explicit when bus/route context is present.
+        # Bare passenger counts, clocks and dates never enter this branch.
+        match = re.search(r'(?i)(?<!\w)(' + code + r')' + terminal + spaced_suffix
+                          + r'\s+(?:ki|ka|ke|की|का|के)(?!\w)', ascii_digits)
+        if match and not re.search('[A-Za-z]', match.group(1)):
+            match = None
     if not match:
         return None
     end = match.end(2) if match.group(2) else match.end(1)
-    if end < len(ascii_digits) and word_character(ascii_digits[end]):
+    if end < len(ascii_digits) and _word_character(ascii_digits[end]):
         return None
     if prefix and not match.group(2):
         following = re.match(r'\s+(.+)', ascii_digits[match.end(1):])
@@ -225,7 +309,7 @@ def _route_number(query: str) -> str | None:
             # Consume letters/marks and route symbols, stopping at punctuation.
             token = []
             for char in following.group(1):
-                if not word_character(char) and char not in '#-':
+                if not _word_character(char) and char not in '#-':
                     break
                 token.append(char)
             word = ''.join(token).rstrip('#-_')
@@ -244,12 +328,35 @@ def _route_number(query: str) -> str | None:
 
 def _time(query: str) -> str | list[str] | None:
     text = unicodedata.normalize("NFKC", query).lower()
+    periods = {period for period, phrases in {
+        'morning': ('subah', 'सुबह'), 'afternoon': ('dopahar', 'दोपहर'),
+        'evening': ('shaam', 'शाम'), 'night': ('raat', 'रात')}.items()
+        if any(_has(normalize_text(text), phrase) for phrase in phrases)}
+    if len(periods) > 1:
+        return None
+    period = next(iter(periods), None)
+
+    def period_hour(hour: int):
+        if hour > 12:
+            return hour if period != 'morning' else None
+        if period in {'afternoon', 'evening'}:
+            return hour % 12 + 12
+        if period == 'morning':
+            return hour % 12
+        if period == 'night':
+            return (0 if hour == 12 else hour if hour <= 4 else
+                    [hour, hour + 12] if hour <= 7 else hour + 12)
+        return hour
     explicit = re.search(r"(?<![\d:.])(\d{1,2})(?:[:.](\d{2})(?::(\d{2}))?)?\s*(am|pm)(?!\w)", text)
     if explicit:
         hour, minute = int(explicit.group(1)), int(explicit.group(2) or 0)
         second = int(explicit.group(3) or 0)
         if 1 <= hour <= 12 and minute < 60 and second < 60:
-            return f"{hour % 12 + (12 if explicit.group(4) == 'pm' else 0):02d}:{minute:02d}:{second:02d}"
+            value = hour % 12 + (12 if explicit.group(4) == 'pm' else 0)
+            inferred = period_hour(hour)
+            if period and (value not in inferred if isinstance(inferred, list) else value != inferred):
+                return None
+            return f"{value:02d}:{minute:02d}:{second:02d}"
         return None
     colloquial = re.search(r"(?<![\d:.])(\d{1,2})(?:[:.](\d{2})(?::(\d{2}))?)?\s*(?:baje|बजे|o['’]?clock)(?!\w)", text)
     if colloquial:
@@ -260,27 +367,19 @@ def _time(query: str) -> str | list[str] | None:
             return None
         def stamp(value: int) -> str:
             return f"{value:02d}:{minute:02d}:{second:02d}"
-        if hour > 12:
-            return stamp(hour)
-        if re.search(r"raat|रात", text):
-            if hour == 12:
-                return stamp(0)
-            if hour <= 4:
-                return stamp(hour)
-            if hour <= 7:
-                return [stamp(hour), stamp(hour + 12)]
-            return stamp(hour + 12)
-        if re.search(r"shaam|शाम|dopahar|दोपहर", text):
-            return stamp(hour % 12 + 12)
-        if re.search(r"subah|सुबह", text):
-            return stamp(hour % 12)
+        if period or hour > 12:
+            value = period_hour(hour)
+            return ([stamp(item) for item in value] if isinstance(value, list)
+                    else stamp(value) if value is not None else None)
         return [stamp(hour % 12), stamp(hour % 12 + 12)]
     twenty_four = re.search(r"(?<![\d:.])(\d{1,2}):(\d{2})(?::(\d{2}))?(?![\d:])", text)
     if twenty_four:
         hour, minute = int(twenty_four.group(1)), int(twenty_four.group(2))
         second = int(twenty_four.group(3) or 0)
         if hour < 24 and minute < 60 and second < 60:
-            return f"{hour:02d}:{minute:02d}:{second:02d}"
+            value = period_hour(hour)
+            return ([f"{item:02d}:{minute:02d}:{second:02d}" for item in value] if isinstance(value, list)
+                    else f"{value:02d}:{minute:02d}:{second:02d}" if value is not None else None)
     return None
 
 
@@ -301,6 +400,9 @@ def _multiple_scopes(text: str, intent: str, spans: tuple[EntitySpan, ...]) -> b
         # A coordinated bare code inherits the first clause's explicit route cue.
         if route_codes:
             for clause in clauses[1:]:
+                inherited = _route_number('bus ' + clause)
+                if inherited:
+                    route_codes.add(inherited)
                 bare = re.fullmatch(r'\s*([a-z]{0,3}\d{1,4}(?:[a-z]{0,3}|आर|जी|बी|सी|डी|ए|ई)?)\s*[?.!]?\s*', clause)
                 if bare:
                     route_codes.add(_route_number('bus ' + bare.group(1)))
@@ -310,9 +412,7 @@ def _multiple_scopes(text: str, intent: str, spans: tuple[EntitySpan, ...]) -> b
                 _explicit_route_marker(clause) and _route_number(clause) is None for clause in clauses):
             return True
     if intent == 'fare_calculation':
-        stages = {int(m.group(1)) for m in re.finditer(r'(?<!\w)(?:stage|स्टेज)\s*(\d{1,2})(?!\w)', text)}
-        for match in re.finditer(r'(?:stage|स्टेज)\s*\d{1,2}\s*' + COORDINATION + r'\s*(\d{1,2})(?!\w)', text):
-            stages.add(int(match.group(1)))
+        stages, _, _ = _stage_counts(text)
         if len(stages) > 1:
             return True
     if intent in {'route_stop_membership', 'nearest_transport'}:
@@ -339,7 +439,7 @@ def _explicit_route_marker(text: str) -> bool:
     text = re.sub(CLOCK_TOKEN, '', text)
     text = re.sub(r'(?<!\d)\d{4}-\d{2}-\d{2}(?!\d)', '', text)
     marker = r'(?:\bbus\b|\bbs\b|\broute\b|बस|रूट)'
-    return bool(re.search(marker + r'\s*(?:(?:route|रूट|no\.?|number|नंबर)\s*)?(?:[a-z]{1,3})?\d', text)
+    return bool(re.search(marker + r'\s*(?:(?:route|रूट|no\.?|number|नंबर|संख्या|क्रमांक)\s*)?(?:[a-z]{1,3})?\d', text)
                 or re.search(r'(?<!\w)(?:[a-z]{1,3})?\d[^\s?.,!:;()]*(?:\s+[^\s?.,!:;()]+)?\s*' + marker, text))
 
 
@@ -347,13 +447,19 @@ class T3SlotExtractor:
     def __init__(self, resolver: CanonicalResolver):
         self.resolver = resolver
 
-    def extract(self, query: str, intent: str) -> ExtractionResult:
+    def extract(self, query: str, intent: str, *, default_transport_mode: str | None = None) -> ExtractionResult:
         """Extract explicit canonical slots for one T3 intent."""
         if intent not in T3_INTENTS:
             raise ContractError(f"Unknown T3 intent: {intent}")
         normalized = normalize_text(query)
         slots: dict[str, object] = {}
         spans = self.resolver.find_spans(query)
+        if intent == 'nearest_transport':
+            # Gazetteers can contain generic names such as "Bus Stop". Those
+            # words describe the requested target, not the search's anchor.
+            generic_targets = {'bus stop', 'bus station', 'metro station', 'railway station',
+                               'train station', 'बस स्टॉप', 'बस स्टेशन', 'मेट्रो स्टेशन', 'रेलवे स्टेशन'}
+            spans = tuple(span for span in spans if span.surface not in generic_targets)
         unresolved: list[Resolution] = []
         invalid_temporal = False
         missing_execution = ()
@@ -364,12 +470,16 @@ class T3SlotExtractor:
             # In nearest queries, mode words in the anchor name describe its
             # location, not the requested target mode. Other intents retain
             # mode-qualified station resolution (e.g. Guindy metro).
-            match = next((m for m in re.finditer(pattern, normalized)
+            match = next((m for m in _word_matches(pattern, normalized)
                           if intent != 'nearest_transport'
                           or not any(span.start <= m.start() < span.end for span in spans)), None)
             if match:
                 mode_hits.append((match.start(), mode))
         requested_modes = tuple(mode for _, mode in sorted(mode_hits))
+        if not requested_modes and default_transport_mode is not None and intent not in {'out_of_scope', 'multimodal_route', 'interchange_transfer'}:
+            if default_transport_mode not in MODE_PATTERNS:
+                raise ContractError('Unknown default transport mode')
+            requested_modes = (default_transport_mode,)
         mode = requested_modes[0] if len(requested_modes) == 1 else None
         if mode and intent not in {"out_of_scope"}:
             slots["transport_mode"] = mode
@@ -417,9 +527,11 @@ class T3SlotExtractor:
                 value = _enum(normalized, vocabulary)
                 if value:
                     slots[name] = value
-            stage = re.search(r"(?<!\w)(?:stage|स्टेज)\s*(\d{1,2})(?!\w)", normalized)
-            if stage and 1 <= int(stage.group(1)) <= 30:
-                slots["stage_number"] = int(stage.group(1))
+            stages, invalid_stage, stage_mentioned = _stage_counts(query)
+            if len(stages) == 1 and not invalid_stage:
+                slots['stage_number'] = next(iter(stages))
+            elif stage_mentioned and len(stages) < 2:
+                missing_execution += ('stage_number',)
             if _uncertain_service_class(normalized):
                 slots.pop('service_type', None)
                 missing_execution += ('service_type',)

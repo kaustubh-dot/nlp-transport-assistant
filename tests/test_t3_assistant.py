@@ -15,6 +15,43 @@ class FixedClassifier:
         return IntentPrediction(self.intent, (self.intent,), 0.9)
 
 
+@pytest.mark.parametrize('query', [
+    'Guindy metro to Nandanam route please, fare nahi pooch raha',
+    'गिंडी से Nandanam मेट्रो का रास्ता चाहिए, किराया नहीं पूछ रहा।',
+    'Guindy to Nandanam metro route please, not asking for fare.',
+])
+def test_negated_selected_goal_cannot_execute_a_factual_answer(resolver, query):
+    from src.nlp_v2.assistant import T3Assistant
+
+    classifier = FixedClassifier('fare_calculation')
+    reply = T3Assistant(classifier=classifier, resolver=resolver).process_query(query)
+    assert classifier.queries == [query]
+    assert reply.status == 'clarification'
+    assert reply.operation is None
+    assert reply.clarification_reason == 'intent_ambiguity'
+    assert 'amount' not in reply.data
+
+
+def test_positive_fare_is_not_blocked_by_negated_live_goal(resolver):
+    from src.nlp_v2.assistant import T3Assistant
+
+    reply = T3Assistant(classifier=FixedClassifier('fare_calculation'), resolver=resolver).process_query(
+        'Deluxe bus stage 4 fare please, live status nahi chahiye')
+    assert reply.status == 'ok'
+    assert reply.data['amount'] == 17
+
+
+def test_multiple_hindi_goals_keep_live_location_with_intervening_mode(resolver):
+    from src.nlp_v2.assistant import T3Assistant
+
+    reply = T3Assistant(classifier=FixedClassifier('route_stop_sequence'), resolver=resolver).process_query(
+        '२७डी बस के सभी स्टॉप बताओ और अभी बस कहाँ है यह भी बताओ')
+    assert reply.status == 'clarification'
+    assert reply.clarification_reason == 'multiple_goals'
+    assert set(reply.candidate_intents) == {'route_stop_sequence', 'realtime_status_query'}
+    assert reply.operation is None
+
+
 @pytest.fixture(scope="module")
 def resolver():
     from src.nlp_v2.entities import CanonicalResolver
@@ -464,3 +501,11 @@ def test_repeated_aliases_of_one_nearest_anchor_are_one_scope(resolver):
         'Nearest metro station to Marina Beach (मरीना बीच)?')
     assert reply.status == 'ok'
     assert reply.data['anchor'] == 'OSM_POI_12137617372'
+
+@pytest.mark.parametrize('query', [
+    'क्या Cedar Quay से bus नहीं चलती?',
+    'Cedar Quay bus chalti nahi kya?',
+])
+def test_negative_availability_question_is_not_a_negated_user_goal(query):
+    from src.nlp_v2.assistant import selected_goal_negated
+    assert selected_goal_negated(query, 'mode_availability') is False

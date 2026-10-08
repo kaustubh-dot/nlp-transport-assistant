@@ -2,9 +2,16 @@
 base = "light"
 primaryColor = "#781827"
 backgroundColor = "#f7f1e9"
-secondaryBackgroundColor = "#f0e7db"
+secondaryBackgroundColor = "#ebe3d9"
 textColor = "#1a1511"
-font = "sans serif"
+font = "Manrope, Noto Sans Devanagari, Noto Sans Tamil, sans-serif"
+headingFont = "Cormorant Garamond, Noto Serif Devanagari, Georgia, serif"
+codeFont = "IBM Plex Mono, ui-monospace, monospace"
+borderColor = "#c9c3bc"
+linkColor = "#781827"
+codeBackgroundColor = "#ebe3d9"
+baseRadius = "0.25rem"
+showWidgetBorder = true
 
 [server]
 headless = true

@@ -13,7 +13,7 @@ from .dispatch import DispatchResult, ServiceResult, OPERATIONS, dispatch
 from .domain import CanonicalTransitService
 from .entities import CanonicalResolver
 from .model import T3IntentClassifier
-from .slots import T3SlotExtractor, _route_number
+from .slots import T3SlotExtractor, _route_number, _word_matches
 
 
 # This guard only requests clarification for independently expressed conjoined
@@ -30,10 +30,32 @@ GOAL_CUES = (
     ("route_stop_membership", r"stop at|stops at|रुकती|rukti"),
     ("nearest_transport", r"nearest|closest|nazdik|नजदीक"),
     ("interchange_transfer", r"transfer|interchange|बदलना|badalna"),
-    ("realtime_status_query", r"live|realtime|delay|अभी कहाँ"),
+    ("realtime_status_query", r"live|realtime|delay|अभी(?:\s+(?:बस|ट्रेन|मेट्रो))?\s+कहाँ"),
     ("point_to_point_route", r"route|how to get|kaise|कैसे"),
     ("mode_availability", r"available|availability|चलती|chalti"),
 )
+
+
+def _cue_is_negated(text: str, match: re.Match) -> bool:
+    following = text[match.end():]
+    preceding = text[:match.start()]
+    return bool(re.match(r'\s+(?:नहीं|नही|nahi|nahin|nhi|not|मत|mat)(?!\w)', following)
+                or re.search(r'(?<!\w)(?:not|no|nahi|nahin|नहीं)\s+'
+                             r'(?:(?:asking|for|about|the|a|any)\s+){0,3}$', preceding))
+
+
+def selected_goal_negated(query: str, intent: str) -> bool:
+    """Refuse an explicitly negated predicted goal; never select another one."""
+    # A negative proposition ("doesn't this bus run?") still asks about
+    # availability or membership. It does not exclude that question family.
+    if intent in {'mode_availability', 'route_stop_membership'}:
+        return False
+    text = normalize_text(query)
+    pattern = next((pattern for label, pattern in GOAL_CUES if label == intent), None)
+    if pattern is None:
+        return False
+    matches = tuple(_word_matches(pattern, text))
+    return bool(matches) and all(_cue_is_negated(text, match) for match in matches)
 
 
 def explicit_multiple_goals(query: str) -> tuple[str, ...]:
@@ -47,7 +69,8 @@ def explicit_multiple_goals(query: str) -> tuple[str, ...]:
     asked_clauses = 0
     for clause in clauses:
         for intent, pattern in GOAL_CUES:
-            if re.search(r"(?<!\w)(?:" + pattern + r")(?!\w)", clause):
+            matches = tuple(_word_matches(pattern, clause))
+            if any(not _cue_is_negated(clause, match) for match in matches):
                 if re.search(r'(?<!\w)(?:list|show|find|tell|give|what|when|how|which|बताइए|बताओ|दिखाओ|batao|dikhao)(?!\w)', clause):
                     asked_clauses += 1
                 if intent not in goals:
@@ -102,6 +125,7 @@ def _missing_prompt(names: tuple[str, ...]) -> str:
         'transport_mode': 'one transport mode',
         'service_type': 'the bus service class (Ordinary, Express, Deluxe, Night or Air Conditioned)',
         'route_number': 'a supported route number including its complete suffix',
+        'stage_number': 'a valid fare stage number',
         'via': 'a recognized waypoint after “via”',
     }
     return 'Please provide ' + ', '.join(descriptions.get(name, name.replace('_', ' ')) for name in names) + '.'
@@ -180,7 +204,7 @@ class T3Assistant:
         self.extractor = extractor if extractor is not None else T3SlotExtractor(self.resolver)
         self.service = service if service is not None else CanonicalTransitService()
 
-    def process_query(self, query: str) -> AssistantReply:
+    def process_query(self, query: str, *, default_transport_mode: str | None = None) -> AssistantReply:
         if not isinstance(query, str) or not any(char.isalnum() for char in query):
             return AssistantReply("error", "Please enter a transport question.", query if isinstance(query, str) else "", "", None, None, None,
                                   data={'reason': 'malformed_request'})
@@ -190,6 +214,11 @@ class T3Assistant:
             validate_prediction(prediction)
             if prediction.clarification_reason or prediction.primary_label is None:
                 return self._reply(query, normalized, dispatch(prediction, {}, self.service))
+            if selected_goal_negated(query, prediction.primary_label):
+                return AssistantReply('clarification', 'Please clarify which transport question you mean.',
+                                      query, normalized, None, None, prediction.confidence,
+                                      data={'reason': 'negated_selected_goal'}, clarification_reason='intent_ambiguity',
+                                      candidate_intents=prediction.acceptable_labels)
             goals = explicit_multiple_goals(query)
             if goals:
                 if len(goals) == 1:
@@ -213,7 +242,10 @@ class T3Assistant:
                                         message=capability.message, data=capability.data)
                 return self._reply(query, normalized, result)
 
-            extraction = self.extractor.extract(query, intent)
+            # Keep legacy/injected extractors' one-question call unchanged when
+            # no UI default was supplied. The raw classifier input is unchanged.
+            extraction = (self.extractor.extract(query, intent) if default_transport_mode is None
+                          else self.extractor.extract(query, intent, default_transport_mode=default_transport_mode))
             if len(extraction.requested_modes) > 1 and intent not in {'multimodal_route', 'interchange_transfer'}:
                 return AssistantReply(
                     'clarification', 'Please choose one transport mode for this question.',

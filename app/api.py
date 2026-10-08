@@ -72,8 +72,12 @@ def handle_request(method: str, path: str, headers: dict, body: bytes, assistant
         return error(HTTPStatus.BAD_REQUEST, "Invalid JSON request.")
     if not isinstance(data, dict) or not isinstance(data.get("query"), str) or not data["query"].strip():
         return error(HTTPStatus.UNPROCESSABLE_ENTITY, "Provide a nonempty query string.")
+    if 'transport_mode' in data and (not isinstance(data['transport_mode'], str)
+                                    or data['transport_mode'] not in {'bus', 'metro', 'suburban_rail', 'mrts'}):
+        return error(HTTPStatus.UNPROCESSABLE_ENTITY, "Choose bus, metro, suburban_rail or mrts as the transport mode.")
     try:
-        reply = assistant.process_query(data["query"])
+        reply = (assistant.process_query(data["query"], default_transport_mode=data['transport_mode'])
+                 if 'transport_mode' in data else assistant.process_query(data["query"]))
         status = HTTPStatus.OK
         if reply.status == 'error':
             status = HTTPStatus.UNPROCESSABLE_ENTITY if reply.outcome_reason == 'malformed_request' else HTTPStatus.SERVICE_UNAVAILABLE

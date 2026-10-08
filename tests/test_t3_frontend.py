@@ -127,7 +127,7 @@ def test_streamlit_chat_shows_api_clarification_and_revision_form(monkeypatch):
     monkeypatch.setattr(requests, "get", get)
     monkeypatch.setattr(requests, "post", post)
     app = AppTest.from_file("app/streamlit_app.py").run(timeout=10)
-    app.button[0].click().run(timeout=10)
+    app.button(key='starter_example_0').click().run(timeout=10)
     assert not app.exception
     assert calls and calls[0][0].endswith("/api/v2/query")
     assert app.text_input[0].label == "Revise / संशोधित करें / Badlein"
@@ -148,7 +148,7 @@ def test_entity_clarification_explains_choice_without_internal_ids(monkeypatch):
         "candidate_intents": ["point_to_point_route"],
     }))
     app = AppTest.from_file("app/streamlit_app.py").run(timeout=10)
-    app.button[0].click().run(timeout=10)
+    app.button(key='starter_example_0').click().run(timeout=10)
     assert not app.exception
     captions = ' '.join(caption.value for caption in app.caption)
     assert 'More than one stop' in captions
@@ -169,7 +169,7 @@ def test_chat_labels_all_statuses_and_retains_snapshot_limit(monkeypatch, status
         'status':status,'response_text':'Test message.', 'data':{}, 'slots':{},
     }))
     app = AppTest.from_file('app/streamlit_app.py').run(timeout=10)
-    app.button[0].click().run(timeout=10)
+    app.button(key='starter_example_0').click().run(timeout=10)
     assert not app.exception
     captions=' '.join(c.value for c in app.caption)
     assert label in captions
@@ -190,7 +190,7 @@ def test_partial_route_panel_discloses_omissions_without_internal_ids(monkeypatc
                 'stops':[{'sequence':1,'name':'Example stop','stop_id':'PRIVATE_STOP'}]}]},
     }))
     app=AppTest.from_file('app/streamlit_app.py').run(timeout=10)
-    app.button[0].click().run(timeout=10)
+    app.button(key='starter_example_0').click().run(timeout=10)
     assert not app.exception
     captions=' '.join(c.value for c in app.caption)
     assert 'Partial published coverage' in captions
@@ -213,7 +213,7 @@ def test_optional_coverage_metadata_never_exposes_renderer_exception(monkeypatch
         'status':'ok','response_text':'Published information.', 'operation':operation,'data':data,
     }))
     app=AppTest.from_file('app/streamlit_app.py').run(timeout=10)
-    app.button[0].click().run(timeout=10)
+    app.button(key='starter_example_0').click().run(timeout=10)
     assert not app.exception
 
 
@@ -234,7 +234,7 @@ def test_structured_panels_show_source(monkeypatch, operation, data, expected):
         "clarification_reason": None, "candidate_entities": [], "candidate_intents": [],
     }))
     app = AppTest.from_file("app/streamlit_app.py").run(timeout=10)
-    app.button[0].click().run(timeout=10)
+    app.button(key='starter_example_0').click().run(timeout=10)
     assert not app.exception
     assert any(expected in caption.value for caption in app.caption)
     if operation == "LIST_ROUTE_STOPS":

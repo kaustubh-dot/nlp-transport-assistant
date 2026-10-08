@@ -5,6 +5,27 @@ import sqlite3
 import pytest
 
 
+@pytest.mark.parametrize('word,phrase,expected', [
+    ('लोकल', 'कल', False), ('कलाकार', 'कल', False), ('कल्याण', 'कल', False),
+    ('पासिंग', 'पास', False), ('कल।', 'कल', True), ('कल शाम', 'कल', True),
+    ('बसंत', 'बस', False), ('बस।', 'बस', True),
+])
+def test_hindi_lexical_cues_respect_combining_mark_boundaries(word, phrase, expected):
+    from src.nlp_v2.slots import _has
+
+    assert _has(word, phrase) is expected
+
+
+@pytest.mark.parametrize('query,code', [
+    ('बस संख्या १०२ के स्टॉप', '102'), ('बस संख्या 27D कहाँ रुकती है?', '27D'),
+    ('रूट क्रमांक २९सी के स्टॉप', '29C'), ('bus number 102K# stops', '102K#'),
+])
+def test_native_route_number_labels_keep_full_code(query, code):
+    from src.nlp_v2.slots import _route_number
+
+    assert _route_number(query) == code
+
+
 @pytest.fixture
 def canonical_db(tmp_path):
     path = tmp_path / "canonical.db"
@@ -42,6 +63,89 @@ def test_generic_route_location_uses_canonical_hub(canonical_db):
     resolution = resolver.resolve(guindy, "origin", "point_to_point_route")
     assert resolution.entity_id == "HUB_GUINDY"
     assert resolution.ambiguous is False
+
+
+def test_local_hindi_train_does_not_invent_a_relative_day(canonical_db):
+    from src.nlp_v2.entities import CanonicalResolver
+    from src.nlp_v2.slots import T3SlotExtractor
+
+    result = T3SlotExtractor(CanonicalResolver(canonical_db)).extract(
+        'Guindy से लोकल ट्रेन के प्रस्थान १८:३० के बाद बताओ', 'scheduled_departure')
+    assert result.slots['transport_mode'] == 'suburban_rail'
+    assert 'temporal_relative' not in result.slots
+    assert result.clarification_reason is None
+
+
+@pytest.mark.parametrize('mode,expected_origin', [('metro', 'METRO_GUINDY'), ('suburban_rail', 'RAIL_GUINDY')])
+def test_selected_default_mode_is_used_before_entity_resolution(canonical_db, mode, expected_origin):
+    from src.nlp_v2.entities import CanonicalResolver
+    from src.nlp_v2.slots import T3SlotExtractor
+
+    result = T3SlotExtractor(CanonicalResolver(canonical_db)).extract(
+        'Guindy se Chennai Central kaise jau', 'point_to_point_route', default_transport_mode=mode)
+    assert result.slots['transport_mode'] == mode
+    assert result.slots['origin'] == expected_origin
+    assert result.requested_modes == (mode,)
+
+
+def test_explicit_modes_win_over_ui_default_and_remain_multiple(canonical_db):
+    from src.nlp_v2.entities import CanonicalResolver
+    from src.nlp_v2.slots import T3SlotExtractor
+
+    extractor = T3SlotExtractor(CanonicalResolver(canonical_db))
+    result = extractor.extract('Guindy to Central metro route', 'point_to_point_route', default_transport_mode='bus')
+    assert result.slots['transport_mode'] == 'metro'
+    assert result.slots['origin'] == 'METRO_GUINDY'
+    multiple = extractor.extract('Guindy to Central bus and metro route', 'multimodal_route', default_transport_mode='suburban_rail')
+    assert set(multiple.requested_modes) == {'bus', 'metro'}
+    assert 'transport_mode' not in multiple.slots
+    mrts = extractor.extract('MRTS stops', 'route_stop_sequence', default_transport_mode='suburban_rail')
+    assert mrts.slots['transport_mode'] == 'mrts'
+
+
+def test_default_mode_is_not_an_out_of_scope_slot(canonical_db):
+    from src.nlp_v2.entities import CanonicalResolver
+    from src.nlp_v2.slots import T3SlotExtractor
+
+    result = T3SlotExtractor(CanonicalResolver(canonical_db)).extract(
+        'Write a cake recipe', 'out_of_scope', default_transport_mode='bus')
+    assert 'transport_mode' not in result.slots
+
+
+def test_nearest_bus_target_is_not_an_anchor_entity(canonical_db):
+    from src.nlp_v2.entities import CanonicalResolver
+    from src.nlp_v2.slots import T3SlotExtractor
+
+    with sqlite3.connect(canonical_db) as conn:
+        conn.execute("INSERT INTO transport_stops VALUES ('BUS_GENERIC', 'Bus Stop', 'bus')")
+        conn.execute("INSERT INTO transport_stops VALUES ('METRO_CEDAR', 'Cedar Metro Quay', 'metro')")
+    result = T3SlotExtractor(CanonicalResolver(canonical_db)).extract(
+        'nearest bus stop near Cedar Metro Quay', 'nearest_transport', default_transport_mode='mrts')
+    assert result.slots['transport_mode'] == 'bus'
+    assert result.slots['landmark'] == 'METRO_CEDAR'
+    assert result.multiple_execution_scopes is False
+
+
+def test_nearest_mode_inside_named_anchor_does_not_override_default(canonical_db):
+    from src.nlp_v2.entities import CanonicalResolver
+    from src.nlp_v2.slots import T3SlotExtractor
+
+    with sqlite3.connect(canonical_db) as conn:
+        conn.execute("INSERT INTO transport_stops VALUES ('METRO_CEDAR', 'Cedar Metro Quay', 'metro')")
+    result = T3SlotExtractor(CanonicalResolver(canonical_db)).extract(
+        'nearest stop near Cedar Metro Quay', 'nearest_transport', default_transport_mode='bus')
+    assert result.slots['transport_mode'] == 'bus'
+    assert result.slots['landmark'] == 'METRO_CEDAR'
+
+
+def test_endpoint_source_marker_must_not_be_suffix_of_please(canonical_db):
+    from src.nlp_v2.entities import CanonicalResolver
+    from src.nlp_v2.slots import T3SlotExtractor
+
+    result = T3SlotExtractor(CanonicalResolver(canonical_db)).extract(
+        'Guindy please Chennai Central route', 'point_to_point_route')
+    assert result.slots['origin'] == 'HUB_GUINDY'
+    assert result.slots['destination'] == 'HUB_CENTRAL'
 
 
 def test_mode_qualified_station_selects_physical_node(canonical_db):

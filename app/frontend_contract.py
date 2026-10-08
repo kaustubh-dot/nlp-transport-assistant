@@ -13,12 +13,15 @@ from src.nlp_v2.contracts import OUTCOME_REASONS
 DEFAULT_API_URL = "http://127.0.0.1:8765"
 
 
-def ask_api(query: str, *, base_url: str | None = None, session=None) -> dict:
+def ask_api(query: str, *, base_url: str | None = None, session=None, transport_mode: str | None = None) -> dict:
     """Submit one complete question; return a safe error object on API failure."""
     client = session or requests
     base = (base_url or os.environ.get("NLP_V2_API_URL") or DEFAULT_API_URL).rstrip("/")
     try:
-        response = client.post(base + "/api/v2/query", json={"query": query}, timeout=20)
+        payload = {"query": query}
+        if transport_mode is not None:
+            payload['transport_mode'] = transport_mode
+        response = client.post(base + "/api/v2/query", json=payload, timeout=20)
         result = response.json()
     except (requests.RequestException, ValueError, TypeError):
         return {"status": "error", "response_text": "The local T3 API is unavailable. Start the API and try again."}

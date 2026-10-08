@@ -64,10 +64,11 @@
 
     /* Typography */
     --font-display: 'Cormorant Garamond', 'Noto Serif Devanagari', Georgia, serif;
-    --font-body: 'Manrope', 'Noto Sans Tamil', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-body: 'Manrope', 'Noto Sans Devanagari', 'Noto Sans Tamil', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     --font-tamil: 'Noto Sans Tamil', 'Manrope', sans-serif;
     --font-outlier: 'IBM Plex Mono', 'Cascadia Mono', ui-monospace, monospace;
     --font-numeric: var(--font-outlier);
+    --font-control-size: .825rem;
 
     /* Spacing 4-pt Scale */
     --space-3xs: 2px;
@@ -174,7 +175,7 @@ code {
 .stButton > button {
     font-family: var(--font-body) !important;
     font-weight: 600 !important;
-    font-size: 0.825rem !important;
+    font-size: var(--font-control-size) !important;
     line-height: 1.25 !important;
     min-height: 44px !important;
     border: 1px solid var(--mp-rule-strong) !important;
@@ -300,14 +301,40 @@ h1.mp-title {
 
 
 html, body, [data-testid="stAppViewContainer"] {
-    font-family: var(--font-body); color: var(--mp-ink); background: var(--mp-paper);
+    font-family: var(--font-body) !important; color: var(--mp-ink); background: var(--mp-paper);
     color-scheme: light; line-height: 1.6; -webkit-font-smoothing: antialiased;
 }
 [data-testid="stHeader"] { background: var(--mp-paper); border-bottom: 1px solid var(--mp-rule); }
 [data-testid="stAppDeployButton"], [data-testid="stDecoration"] { display: none; }
 .block-container { max-width: 1180px; padding: 4.5rem 2.5rem 6rem; }
-[data-testid="stMarkdownContainer"] p, [data-testid="stCaptionContainer"] { font-family: var(--font-body); }
-[data-testid="stCaptionContainer"] { color: var(--mp-muted); opacity: 1 !important; }
+[data-testid="stMarkdownContainer"] p,
+[data-testid="stMarkdownContainer"] li,
+[data-testid="stWidgetLabel"],
+[data-testid="stCaptionContainer"] {
+    font-family: var(--font-body) !important;
+}
+[data-testid="stCaptionContainer"], [data-testid="stCaptionContainer"] p {
+    color: var(--mp-muted) !important; opacity: 1 !important;
+    font-size: .8rem !important; line-height: 1.45 !important;
+}
+/* Markdown paragraphs have their own size; preserve the editorial hierarchy. */
+[data-testid="stMarkdownContainer"] p.rail-brand-sub {
+    font-size: .8rem !important; line-height: 1.3 !important;
+    color: var(--mp-muted) !important;
+}
+[data-testid="stMarkdownContainer"] p.mp-subtitle {
+    font-size: .95rem !important; line-height: 1.5 !important;
+    color: var(--mp-ink-2) !important;
+}
+[data-testid="stMarkdownContainer"] a {
+    color: var(--mp-accent) !important;
+    text-decoration-color: currentColor;
+    text-underline-offset: .15em;
+}
+[data-testid="stMarkdownContainer"] a:hover { color: var(--mp-ink) !important; }
+[data-testid="stMarkdownContainer"] a:focus-visible {
+    outline: 2px solid var(--mp-focus); outline-offset: 3px;
+}
 [data-testid="stChatMessage"] {
     background: var(--mp-surface); border: 1px solid var(--mp-rule);
     border-left: 2px solid var(--mp-accent); border-radius: var(--radius-control);
@@ -316,30 +343,115 @@ html, body, [data-testid="stAppViewContainer"] {
 [data-testid="stChatMessageAvatarUser"], [data-testid="stChatMessageAvatarAssistant"] {
     color: var(--mp-paper); background: var(--mp-accent); border-radius: var(--radius-control);
 }
-[data-testid="stVerticalBlockBorderWrapper"] > div { border-color: var(--mp-rule); border-radius: var(--radius-control); }
-[data-testid="stMetricValue"] { font-family: var(--font-numeric); color: var(--mp-ink); }
-[data-testid="stBottom"], [data-testid="stBottomBlockContainer"] { background: var(--mp-paper); }
-[data-testid="stChatInput"], [data-testid="stTextInput"] input {
-    background: var(--mp-surface); color: var(--mp-ink);
-    border: 1px solid var(--mp-rule-strong); border-radius: var(--radius-control);
+[data-testid="stVerticalBlockBorderWrapper"] > div {
+    border-color: var(--mp-rule) !important; border-radius: var(--radius-control);
 }
-[data-testid="stChatInput"] textarea { font-family: var(--font-body); color: var(--mp-ink); }
-[data-testid="stChatInput"] textarea::placeholder { color: var(--mp-muted); }
-[data-testid="stChatInput"]:focus-within { border-color: var(--mp-accent); outline: 2px solid var(--mp-focus); outline-offset: 1px; }
-[data-testid="stTextInput"] input:focus-visible, [data-testid="stFormSubmitButton"] button:focus-visible {
+[data-testid="stMetricValue"] {
+    font-family: var(--font-numeric) !important;
+    font-variant-numeric: tabular-nums; color: var(--mp-ink);
+}
+[data-testid="stMetricLabel"] { font-family: var(--font-body) !important; }
+[data-testid="stBottom"], [data-testid="stBottomBlockContainer"] { background: var(--mp-paper); }
+[data-testid="stChatInput"], [data-testid="stTextInput"] [data-baseweb="input"] {
+    background: var(--mp-surface) !important; color: var(--mp-ink) !important;
+    border: 1px solid var(--mp-rule-strong) !important;
+    border-radius: var(--radius-control); box-shadow: none !important;
+}
+[data-testid="stChatInput"] textarea, [data-testid="stTextInput"] input {
+    font-family: var(--font-body) !important; color: var(--mp-ink) !important;
+    background: transparent !important;
+}
+[data-testid="stChatInput"] textarea::placeholder,
+[data-testid="stTextInput"] input::placeholder { color: var(--mp-muted) !important; opacity: 1; }
+[data-testid="stChatInput"]:focus-within,
+[data-testid="stTextInput"] [data-baseweb="input"]:focus-within {
+    border-color: var(--mp-accent) !important;
     outline: 2px solid var(--mp-focus); outline-offset: 1px;
 }
-[data-testid="stFormSubmitButton"] button {
-    font-family: var(--font-body); background: var(--mp-surface); color: var(--mp-ink);
-    border: 1px solid var(--mp-rule-strong); border-radius: var(--radius-control); min-height: 44px;
+[data-testid="stForm"] {
+    border-color: var(--mp-rule) !important;
+    border-radius: var(--radius-control); background: var(--mp-surface-raised);
 }
-[data-testid="stAlert"] { border-radius: var(--radius-control); }
-/* Three exclusive language buttons use a native accessible radio group. */
+[data-testid="stFormSubmitButton"] button {
+    font-family: var(--font-body) !important; font-size: var(--font-control-size) !important;
+    font-weight: 600; line-height: 1.25 !important;
+    background: var(--mp-surface) !important; color: var(--mp-ink) !important;
+    border: 1px solid var(--mp-rule-strong) !important;
+    border-radius: var(--radius-control); min-height: 44px !important;
+    padding: var(--space-2xs) var(--space-sm); white-space: normal;
+}
+[data-testid="stFormSubmitButton"] button:hover {
+    background: var(--mp-paper-2) !important; border-color: var(--mp-ink) !important;
+}
+/* Child Markdown text shares the control size, rather than its default 16px. */
+[data-testid="stButton"] button [data-testid="stMarkdownContainer"] p,
+[data-testid="stFormSubmitButton"] button [data-testid="stMarkdownContainer"] p,
+[data-testid="stRadio"] label [data-testid="stMarkdownContainer"] p {
+    font-family: var(--font-body) !important; font-size: var(--font-control-size) !important;
+    line-height: 1.25 !important; color: inherit !important;
+}
+[data-testid="stFormSubmitButton"] button:focus-visible,
+[data-testid="stChatInputSubmitButton"]:focus-visible {
+    outline: 2px solid var(--mp-focus) !important; outline-offset: 2px;
+}
+[data-testid="stChatInputSubmitButton"] {
+    color: var(--mp-paper) !important; background: var(--mp-accent) !important;
+    border: 1px solid var(--mp-accent) !important;
+    border-radius: var(--radius-control); min-width: 44px !important; min-height: 44px !important;
+}
+[data-testid="stChatInputSubmitButton"]:hover:not(:disabled) {
+    background: var(--mp-ink) !important; border-color: var(--mp-ink) !important;
+}
+[data-testid="stChatInputSubmitButton"]:disabled {
+    color: var(--mp-muted) !important; background: var(--mp-paper-2) !important;
+    border-color: var(--mp-rule) !important; opacity: .7;
+}
+[data-testid="stExpander"] details {
+    background: var(--mp-surface); border-color: var(--mp-rule) !important;
+    border-radius: var(--radius-control);
+}
+[data-testid="stExpander"] summary {
+    font-family: var(--font-body) !important; color: var(--mp-ink) !important;
+    min-height: 44px !important;
+}
+[data-testid="stExpander"] summary:hover { background: var(--mp-paper-2); }
+[data-testid="stExpander"] summary:focus-visible {
+    outline: 2px solid var(--mp-focus); outline-offset: 2px;
+}
+/* Semantic kinds come from Streamlit 1.44's alert content markers. */
+[data-testid="stAlertContainer"] {
+    font-family: var(--font-body) !important;
+    border: 1px solid var(--mp-rule) !important;
+    border-left-width: 3px !important; border-radius: var(--radius-control) !important;
+}
+[data-testid="stAlertContainer"]:has([data-testid="stAlertContentInfo"]) {
+    color: var(--mp-info) !important; background: var(--color-blue-line-surface) !important;
+    border-left-color: var(--mp-info) !important;
+}
+[data-testid="stAlertContainer"]:has([data-testid="stAlertContentWarning"]) {
+    color: var(--mp-warning) !important; background: var(--color-scope-surface) !important;
+    border-left-color: var(--mp-warning) !important;
+}
+[data-testid="stAlertContainer"]:has([data-testid="stAlertContentError"]) {
+    color: var(--mp-danger) !important; background: var(--mp-accent-soft) !important;
+    border-left-color: var(--mp-danger) !important;
+}
+[data-testid="stAlertContainer"]:has([data-testid="stAlertContentSuccess"]) {
+    color: var(--mp-success) !important; background: var(--color-verified-surface) !important;
+    border-left-color: var(--mp-success) !important;
+}
+[data-testid="stAlertContainer"] [data-testid="stMarkdownContainer"] p {
+    color: inherit !important;
+}
+/* Language and transport choices retain native radio semantics. */
 [data-testid="stRadio"] [role="radiogroup"] { gap: .4rem; flex-wrap: wrap; }
 [data-testid="stRadio"] label[data-baseweb="radio"] {
-    background: var(--mp-surface); border: 1px solid var(--mp-rule-strong);
+    background: var(--mp-surface); color: var(--mp-ink);
+    border: 1px solid var(--mp-rule-strong);
     border-radius: var(--radius-control); padding: .45rem .85rem;
-    min-height: 44px; margin: 0; font-family: var(--font-body);
+    min-height: 44px !important; margin: 0; box-sizing: border-box;
+    font-family: var(--font-body) !important; font-size: var(--font-control-size) !important;
+    font-weight: 600; line-height: 1.25;
 }
 [data-testid="stRadio"] label[data-baseweb="radio"]:has(input:checked) {
     background: var(--mp-accent-soft); border-color: var(--mp-accent); color: var(--mp-accent);
@@ -347,10 +459,17 @@ html, body, [data-testid="stAppViewContainer"] {
 [data-testid="stRadio"] label[data-baseweb="radio"]:focus-within {
     outline: 2px solid var(--mp-focus); outline-offset: 1px;
 }
+.st-key-published_records button {
+    color: var(--mp-ink-2) !important; background: var(--mp-surface) !important;
+    border-color: var(--mp-rule) !important;
+}
+.st-key-published_records button:hover {
+    color: var(--mp-accent) !important; border-color: var(--mp-accent) !important;
+}
 @media (max-width: 768px) {
     .block-container { padding: 4.5rem 1rem 6rem; }
     h1.mp-title { font-size: 1.75rem !important; line-height: 1.25 !important; }
-    .mp-subtitle { font-size: .875rem; }
+    [data-testid="stMarkdownContainer"] p.mp-subtitle { font-size: .875rem !important; }
     .mp-pill-row { gap: 6px; }
 }
 @media (max-width: 480px) {

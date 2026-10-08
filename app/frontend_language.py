@@ -32,6 +32,13 @@ CATALOG = {
     "Chennai · Public transport": ("चेन्नई · सार्वजनिक परिवहन", "Chennai · Public transport"),
     "Bus": ("बस", "Bus"), "Metro": ("मेट्रो", "Metro"), "Rail": ("रेल", "Rail"),
     "Published records": ("प्रकाशित रिकॉर्ड", "Published records"),
+    "Any mode": ("कोई भी माध्यम", "Koi bhi mode"),
+    "Rail (suburban)": ("रेल (उपनगरीय)", "Rail (suburban)"),
+    "MRTS": ("MRTS", "MRTS"),
+    "A mode written in your question takes priority. Select Any mode to clear the default.": ("प्रश्न में लिखा माध्यम प्राथमिकता पाता है। चुना हुआ माध्यम हटाने के लिए ‘कोई भी माध्यम’ चुनें।", "Sawaal mein likha mode pehle maana jayega. Default hatane ke liye ‘Koi bhi mode’ chunein."),
+    "Default mode: {mode}": ("चुना हुआ माध्यम: {mode}", "Chuna hua mode: {mode}"),
+    "Source coverage": ("स्रोत में उपलब्ध जानकारी", "Source mein uplabdh jaankari"),
+    "Published stop sequences, schedule records and dated fares. Coverage varies by transport mode.": ("प्रकाशित स्टॉप क्रम, समय-सारणी के रिकॉर्ड और तारीख वाले किराए। जानकारी का दायरा माध्यम के अनुसार बदलता है।", "Published stop kram, schedule records aur dated fares. Jaankari ka daayra mode ke hisaab se badalta hai."),
     "Published snapshot · No live updates · Verify current service with the operator": ("प्रकाशित रिकॉर्ड का संकलन · लाइव अपडेट नहीं · मौजूदा सेवा की पुष्टि ऑपरेटर से करें", "Published snapshot · Live updates nahi · Current service operator se verify karein"),
     "Published information": ("प्रकाशित जानकारी", "Prakashit jaankari"),
     "More information needed": ("अधिक जानकारी चाहिए", "Aur jaankari chahiye"),
@@ -257,11 +264,13 @@ _MISSING_DESCRIPTIONS = {
     "transport_mode": "one transport mode",
     "service_type": "the bus service class (Ordinary, Express, Deluxe, Night or Air Conditioned)",
     "route_number": "a supported route number including its complete suffix",
+    "stage_number": "a valid fare stage number",
     "via": "a recognized waypoint after “via”",
 }
 _MISSING_LOCALIZED = {
     "service_type": ("बस सेवा श्रेणी (साधारण, एक्सप्रेस, डीलक्स, रात्रि या वातानुकूलित)", "bus service class (Ordinary, Express, Deluxe, Night ya Air Conditioned)"),
     "route_number": ("पूरे प्रत्यय सहित समर्थित रूट नंबर", "poore suffix ke saath supported route number"),
+    "stage_number": ("मान्य किराया स्टेज नंबर", "valid kiraya stage number"),
     "via": ("“via” के बाद पहचाना गया बीच का स्थान", "“via” ke baad recognized waypoint"),
 }
 
