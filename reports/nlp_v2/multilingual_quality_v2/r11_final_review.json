@@ -1,0 +1,152 @@
+{
+  "gate": "R11 final read-only saved-response STOP audit",
+  "status": "STOP",
+  "accepted": false,
+  "unresolved_critical": 0,
+  "unresolved_high": 0,
+  "unresolved_medium": 2,
+  "findings": [
+    {
+      "id": "R11-M1",
+      "severity": "medium",
+      "title": "Supported and source-limited single requests newly refused",
+      "examples": [
+        "HG200_036",
+        "HI200_064",
+        "HI200_135",
+        "HG200_074",
+        "HG200_127",
+        "HG200_135",
+        "HG200_140",
+        "HG200_147",
+        "HG200_151"
+      ],
+      "detail": "HG200_036 explicitly requests Bus27D both-direction stop order; v1 saved data exactly matches canonical SQL for all five route variants and includes directions0/1. R10 drops explicit27D and asks for route_number. Other single requests receive false multiple_goals or negated_selected_goal refusals. This material regression determines STOP."
+    },
+    {
+      "id": "R11-M2",
+      "severity": "medium",
+      "title": "Stage counts emitted as invented public route numbers",
+      "examples": [
+        "HG200_097",
+        "HG200_101",
+        "HG200_107"
+      ],
+      "detail": "Stage6/7/12 requests newly emit route_number6/7/12 despite no requested route. Saved dated tariff data and refusal remain canonical and unchanged, so bounded-goal/source-limitation categories are retained with this public-slot defect. Zero wrong/unsafe travel-data answers does not establish correct slot metadata."
+    }
+  ],
+  "categories": {
+    "Completed bounded published-data goal": 22,
+    "Correct source/scope limitation": 159,
+    "Legitimate clarification": 50,
+    "Recognition failure": 169,
+    "Explicit wrong/unsafe answer": 0,
+    "Needs source/anchor review": 0
+  },
+  "by_language": {
+    "hindi": {
+      "goal_correct": 11,
+      "safe_limitation": 89,
+      "legitimate_clarification": 20,
+      "recognition_failure": 80,
+      "wrong_unsafe": 0,
+      "needs_review": 0
+    },
+    "hinglish": {
+      "goal_correct": 11,
+      "safe_limitation": 70,
+      "legitimate_clarification": 30,
+      "recognition_failure": 89,
+      "wrong_unsafe": 0,
+      "needs_review": 0
+    }
+  },
+  "recognition_failure_delta_vs_v1": 7,
+  "recognition_failure_delta_vs_earlier_baseline": -6,
+  "wrong_unsafe": 0,
+  "assessment_method": {
+    "saved_responses": 400,
+    "fresh_manual_changed_replies": 38,
+    "exact_unchanged_historical_categories_reused": 362,
+    "fresh_canonical_checks_of_all_ok_saved_data": 28,
+    "fresh_manual_all400_claimed": false,
+    "draft_category_corrections": [
+      "HI200_082",
+      "HG200_080"
+    ],
+    "no_runtime_queries_or_probes": true
+  },
+  "integrity": {
+    "development_suite": {
+      "files": 52,
+      "sha256": "60d9ffb44c90fc3924a028866b9b54aae5e80b1543b16df634dae95a54c9f7d1",
+      "matched_freeze": true
+    },
+    "independent_remediation_suite": {
+      "files": 5,
+      "sha256": "721086a8ae1d2790360dd70361eeab7b5f0ee7366fe2e1fb8501d10d52e22f22",
+      "matched_freeze": true
+    },
+    "behavioral_source": {
+      "files": 102,
+      "sha256": "1092a8507b0d17a2ad3c05c42dbd7f861c36868aa24ed1f13c9392ade4b4e231",
+      "matched_freeze": true
+    },
+    "head": "f738ddb3b7d63051dbd611f8087ffd7ca26d6d87",
+    "model_sha256": "abac66fc9fa29212c7565117ae326e34f02b64e76dbb177c61e9661517803196",
+    "database_sha256": "583fd400bb3ee0d5af312e03ec78116de88ce162d6c33c2b87fd93df4da48791",
+    "model_manifest_sha256": "447a120090c33ba1259cad06ce9f216d80832d2540727c3330f14be3ec04dc39",
+    "audit_input_count": 177,
+    "all_audit_inputs_unchanged": true,
+    "raw_responses_sha256": "4326dc92eaa6ca03092310d87d6e561ac7c25735ace39b61767b8695d026418a",
+    "exact_envelopes_unchanged": 362,
+    "changed_envelopes": 38,
+    "git_status": " M docs/superpowers/plans/2026-10-09-multilingual-remediation-v2.md\n M reports/nlp_v2/multilingual_quality_v2/phase_gates.json\n M reports/nlp_v2/multilingual_quality_v2/progress.md\n?? docs/nlp_v2/multilingual_quality_v2.md\n?? reports/nlp_v2/multilingual_quality_v2/r10_regression.json\n?? reports/nlp_v2/multilingual_quality_v2/r9_source_freeze.json\n",
+    "tracked_diff_paths": [
+      "docs/superpowers/plans/2026-10-09-multilingual-remediation-v2.md",
+      "reports/nlp_v2/multilingual_quality_v2/phase_gates.json",
+      "reports/nlp_v2/multilingual_quality_v2/progress.md"
+    ],
+    "sqlite": {
+      "connections": 1,
+      "selects": 170,
+      "write_attempts": 0,
+      "rejected_connections": 0
+    }
+  },
+  "sqlite_total_review": {
+    "connections": 2,
+    "selects": 179,
+    "write_attempts": 0,
+    "rejected_connections": 0
+  },
+  "prefreeze_evidence_reused": {
+    "R4_R8": "PASS C0/H0/M0 before freeze",
+    "tests_passed": 2466,
+    "test_seconds": 64.4,
+    "compile_python_files": 142,
+    "dependencies": "No broken requirements found",
+    "protected_files": 241,
+    "independent_injected_contracts": 452,
+    "English_injected_contracts": 64,
+    "English_API_conflict_controls": 4,
+    "frontend_interruption_tests": 8
+  },
+  "source_model_database_changed_by_reviewer": false,
+  "model_inference_performed": false,
+  "training_performed": false,
+  "pytest_or_fixtures_performed": false,
+  "HTTP_queries_performed": false,
+  "server_actions_performed": false,
+  "behavioral_edits_after_freeze_observed": false,
+  "challenge_used_as_tuning_dataset": false,
+  "leakage_confirmation": "Confirmed within recorded provenance: independent development and prefreeze R4/R8 gates attest no individual400 challenge access before committed R9; one postfreeze R10 ledger and exact frozen behavioral/model/DB/suite hashes show no challenge-derived behavioral tuning after access. This is evidence-based confirmation, not a forensic proof of every prior off-record access or action. The400 is previously observed challenge regression, never an independent accuracy estimate.",
+  "model_choice": "Retain unchanged original checkpoint; no new training. Legitimate classifier metrics remain unchanged evidence; historical downstream partition is not final-source measurement.",
+  "English_UI_scope": "Prior bounded English/API/Hindi-Hinglish presentation/desktop-mobile/ScriptRunner evidence is reused because frozen relevant source is unchanged. No new UI execution or exhaustive coverage claimed.",
+  "source_hold": "EXPLICITLY RELEASED; reviewer audit finished. STOP remains in force.",
+  "R12": "STOP; no fixes, no push, no cleanup, no additional runs",
+  "reviewer_writes_only_under": "/tmp/nlp-remediation-v2-r11-final",
+  "report": "/tmp/nlp-remediation-v2-r11-final/report.md",
+  "final_assessment": "/tmp/nlp-remediation-v2-r11-final/final-assessment.json",
+  "adjudications": "/tmp/nlp-remediation-v2-r11-final/adjudications.json"
+}

@@ -45,12 +45,20 @@
     "full_repository_passed": 2466
   },
   "R9": {
-    "status": "NOT_STARTED"
+    "status": "PASS",
+    "commit_sha": "f738ddb3b7d63051dbd611f8087ffd7ca26d6d87",
+    "record": "r9_source_freeze.json"
   },
   "R10": {
-    "status": "NOT_STARTED",
-    "runs": 0,
-    "case_inspection": "No individual frozen challenge inputs/replies inspected in v2 development"
+    "status": "STOP_MATERIAL_POSTFREEZE_REGRESSION",
+    "runs": 1,
+    "case_inspection": "First frozen individual content access occurred only after R9 commit and freeze hashes were recorded. No source/model/behavior changes afterward.",
+    "http_200": 400,
+    "ledger": "experiments/nlp_v2/production_runs/multilingual_v2/r10/one_run_ledger.json",
+    "assessment": "r10_regression.json",
+    "behavioral_changes_after_freeze": false,
+    "confirmed_blocker": "HG200_036: previouslyvalidBus27Dbothdirectionstoplist nowfalsemissingrouteclarification",
+    "assessment_state": "FINAL_READONLY_R11_ADJUDICATED"
   },
   "R5": {
     "status": "PASS",
@@ -81,5 +89,26 @@
     "dependencies": "No broken requirements found",
     "protected_files_unchanged": 241,
     "review": "Fresh Solxhighwhole-system coverage plusfinalboundedacceptance C0/H0/M0. Evidence r8_review.md andr8_review_verdict.json."
+  },
+  "R11": {
+    "status": "FAIL_STOP",
+    "reviewer": "Fresh GPT-6.1 Sol xhigh",
+    "unresolved_critical": 0,
+    "unresolved_high": 0,
+    "unresolved_medium": 2,
+    "report": "r11_final_review.md",
+    "verdict": "r11_final_review.json",
+    "challenge_used_as_tuning_dataset": false,
+    "source_hold": "EXPLICITLY RELEASED",
+    "no_pending_review": true
+  },
+  "R12": {
+    "status": "FAILED_GATE_PUBLICATION_AUTHORIZED",
+    "cleanup_started": false,
+    "completion_claim": false,
+    "another_development_cycle_requires_new_authorization": true,
+    "pushed_at_failed_gate_closure": false,
+    "publication_authorized_by_user": true,
+    "publication_scope": "Push frozen source and failed-gate reports to main, as explicitly requested after the cycle stopped."
   }
 }

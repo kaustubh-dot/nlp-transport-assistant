@@ -1,0 +1,62 @@
+{
+  "label": "Multilingual v2 post-remediation regression on previously observed challenge set",
+  "status": "STOP_MATERIAL_POSTFREEZE_REGRESSION",
+  "assessment_state": "FINAL_READONLY_R11_ADJUDICATED",
+  "total": 400,
+  "categories": {
+    "Completed bounded published-data goal": 22,
+    "Correct source/scope limitation": 159,
+    "Legitimate clarification": 50,
+    "Recognition failure": 169,
+    "Explicit wrong/unsafe answer": 0,
+    "Needs source/anchor review": 0
+  },
+  "counts": {
+    "goal_correct": 22,
+    "safe_limitation": 159,
+    "legitimate_clarification": 50,
+    "recognition_failure": 169,
+    "wrong_unsafe": 0,
+    "needs_review": 0
+  },
+  "by_language": {
+    "hindi": {
+      "goal_correct": 11,
+      "safe_limitation": 89,
+      "legitimate_clarification": 20,
+      "recognition_failure": 80,
+      "wrong_unsafe": 0,
+      "needs_review": 0
+    },
+    "hinglish": {
+      "goal_correct": 11,
+      "safe_limitation": 70,
+      "legitimate_clarification": 30,
+      "recognition_failure": 89,
+      "wrong_unsafe": 0,
+      "needs_review": 0
+    }
+  },
+  "http_200": 400,
+  "runs": 1,
+  "v1": {
+    "recognition_failure": 162,
+    "wrong_unsafe": 1
+  },
+  "earlier_baseline_recognition_failure": 175,
+  "recognition_failure_delta_vs_v1": 7,
+  "methods": [
+    "362 identical semantic envelopes retain historical assessments under the unchanged canonical database; all 38 changed responses received post-freeze primary and fresh R11 review.",
+    "R11 checked the saved data of all 28 ok replies against canonical data via read-only SQL; 22 are bounded goal completions, four are honest partial lists and two remain wrong-operation recognition failures.",
+    "Two invalid-clock cases were reclassified from legitimate clarification to recognition failure because their actual multiple_goals reason fails to recognize the malformed clock.",
+    "Individual challenge content was accessed only after the committed source freeze; no behavioral tuning, checkpoint selection or further challenge run followed.",
+    "HTTP success, intent-label agreement and source preflight are not general accuracy. Correct fare data with extraneous route metadata is recorded as a separate defect."
+  ],
+  "confirmed_material_blocker": {
+    "id": "HG200_036",
+    "finding": "ExplicitpublishedBus27D bothdirectionstop-list request formerlycompleted nowclarifiesmissingroute.",
+    "behavioral_changes_after_freeze": false
+  },
+  "recognition_failure_delta_vs_earlier_baseline": -6,
+  "review": "r11_final_review.json"
+}

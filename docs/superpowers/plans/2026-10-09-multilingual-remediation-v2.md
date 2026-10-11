@@ -44,7 +44,7 @@
 - [x] For each: record RED, implement root fix, run GREEN and nearby contrast tests.
 - [x] `slots.py`: bounded specific-mode noun modifiers; Unicode-safe coordination; distinguish availability propositions from avoidance.
 - [x] `app/streamlit_app.py`: persist accepted submission before execution yields and persist outcome before spinner teardown; resume interrupted pre-request turns without duplicate requests.
-- [ ] Fresh read-only review requires critical/high/medium=0.
+- [x] Fresh read-only review requires critical/high/medium=0.
 
 ### R5/R6/R7: independent product/model gates
 
@@ -55,12 +55,16 @@
 ### R8/R9: pre-freeze gate and committed freeze
 
 - [x] Full pytest, English/API/UI tests, Python compile checks, pip check, integrity hashes and finalized model decision.
-- [ ] Fresh whole-system GPT-6.1 Sol xhigh review requires unresolved critical/high/medium=0; fix pre-freeze findings via RED/GREEN.
-- [ ] Commit source, record full SHA and model/DB/development/independent-suite hashes. No behavioral changes thereafter.
+- [x] Fresh whole-system GPT-6.1 Sol xhigh review requires unresolved critical/high/medium=0; fix pre-freeze findings via RED/GREEN.
+- [x] Commit source, record full SHA and model/DB/development/independent-suite hashes. No behavioral changes thereafter.
 
 ### R10/R11/R12: one challenge run and final gate
 
-- [ ] Exactly one 200 Hindi + 200 Hinglish real API run labeled post-remediation regression on previously observed challenge set. Independent semantic/source assessment into the six authorized categories.
-- [ ] Compare aggregate v1 recognition162/wrong1 and baseline175. Wrong/unsafe must be0, with no material English/UI/source defects or leakage.
-- [ ] Fresh final GPT-6.1 Sol xhigh review explicitly confirms no challenge tuning. If any material defect remains, stop and report without tuning or cleanup.
-- [ ] If pass: concise docs, final evidence commit, push main, clean tree; declare authorized completion phrase.
+- [x] Exactly one 200 Hindi + 200 Hinglish real API run labeled post-remediation regression on previously observed challenge set. Independent semantic/source assessment into the six authorized categories.
+- [x] Compare aggregate v1 recognition162/wrong1 and baseline175. Final recognition169/wrong0; material Bus27D regression means STOP.
+- [x] Fresh final GPT-6.1 Sol xhigh review complete: C0/H0/M2, challenge not used for tuning; STOP reported without tuning or cleanup.
+- [ ] R12 STOP: failed final gate; no push, cleanup or completion declaration.
+
+### Subsequent publication authorization
+
+On 2026-10-12 the user explicitly requested pushing the work. Commit and publish the frozen source and failed-gate reports to main. Preserve R11 failure and all evidence; no behavioral tuning, challenge reruns or cleanup.
