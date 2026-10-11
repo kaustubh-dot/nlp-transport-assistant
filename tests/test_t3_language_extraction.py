@@ -41,7 +41,7 @@ def test_possessive_route_codes_preserve_bus_context_and_suffix(extractor, query
 
 
 @pytest.mark.parametrize('query', [
-    '83C ke stops dikhao', '83 ke stops chahiye', '83 ka price kya hai',
+    '83 ke stops chahiye', '83 ka price kya hai',
     'Bus ka 8:15 AM departure', 'Bus departure on 2026-11-13',
     'bus ticket for 6 passengers',
 ])

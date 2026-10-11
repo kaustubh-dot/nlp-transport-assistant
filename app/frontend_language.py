@@ -16,6 +16,7 @@ LANGUAGE_NAMES = {"en": "English", "hi": "हिंदी", "hinglish": "Hinglis
 # English templates are stable lookup keys. Dynamic values are never translated
 # by tr(), so identifiers, canonical names, amounts, dates and times survive.
 CATALOG = {
+    "Confirm the precise stop or qualified location name in your revised full question.": ("अपने पूरे संशोधित प्रश्न में सही स्टॉप या पूरा स्थान नाम देकर पुष्टि करें।", "Revised poore sawaal mein exact stop ya poora location name dekar confirm karein."),
     "Chennai Transit Assistant": ("चेन्नई परिवहन सहायक", "Chennai Transit Sahayak"),
     "Chennai Transit": ("चेन्नई परिवहन", "Chennai Transit"),
     "Chennai Multimodal Transit Assistant": ("चेन्नई बहु-माध्यम परिवहन सहायक", "Chennai Multimodal Transit Sahayak"),

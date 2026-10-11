@@ -6,43 +6,16 @@ from dataclasses import dataclass, field
 import re
 from typing import Any
 
-from src.normalization import normalize_text
+from .text import normalize_extraction_text as normalize_text
 
 from .contracts import IntentPrediction, validate_prediction
 from .dispatch import DispatchResult, ServiceResult, OPERATIONS, dispatch
 from .domain import CanonicalTransitService
 from .entities import CanonicalResolver
 from .model import T3IntentClassifier
-from .slots import T3SlotExtractor, _route_number, _word_matches
+from .slots import T3SlotExtractor, _route_number, _route_scope, _word_matches, _word_character, _timetable_reporting_modifier, _new_request_after_negative_predicate, _MEMBERSHIP_PREDICATE, _NATIVE_AVOIDANCE, _native_avoidance_has_operand
 
-
-# This guard only requests clarification for independently expressed conjoined
-# goals. It never chooses an operation or substitutes a rule-based classifier.
-GOAL_CUES = (
-    ("first_and_last_service", r"(?:first|last|पहली|पहला|आखिरी|pehli|pehla|aakhiri)\s+(?:buses|bus|trains?|metro|service|departure|timing|time|बस|ट्रेन|मेट्रो|सेवा)(?!\w)(?!\s+(?:stops?|station|स्टॉप|स्टेशन))"),
-    ("service_frequency", r"frequency|headway|how often|kitni der|कितनी देर"),
-    ("scheduled_departure", r"departures?|schedule|timetable|छूटे|chhut|schedule"),
-    ("fare_calculation", r"fare|cost|price|किराया|kiraya"),
-    ("station_accessibility", r"wheelchair|ramp|lift|escalator|व्हीलचेयर|लिफ्ट|रैंप"),
-    ("station_facilities", r"parking|toilet|restroom|wifi|atm|पार्किंग|शौचालय"),
-    ("ticketing_and_passes", r"pass|ticket rules|smart card|टिकट|पास"),
-    ("route_stop_sequence", r"all stops|(?:list|show)\s+stops|route stops|stops? list|stop sequence|सभी स्टॉप"),
-    ("route_stop_membership", r"stop at|stops at|रुकती|rukti"),
-    ("nearest_transport", r"nearest|closest|nazdik|नजदीक"),
-    ("interchange_transfer", r"transfer|interchange|बदलना|badalna"),
-    ("realtime_status_query", r"live|realtime|delay|अभी(?:\s+(?:बस|ट्रेन|मेट्रो))?\s+कहाँ"),
-    ("point_to_point_route", r"route|how to get|kaise|कैसे"),
-    ("mode_availability", r"available|availability|चलती|chalti"),
-)
-
-
-def _cue_is_negated(text: str, match: re.Match) -> bool:
-    following = text[match.end():]
-    preceding = text[:match.start()]
-    return bool(re.match(r'\s+(?:नहीं|नही|nahi|nahin|nhi|not|मत|mat)(?!\w)', following)
-                or re.search(r'(?<!\w)(?:not|no|nahi|nahin|नहीं)\s+'
-                             r'(?:(?:asking|for|about|the|a|any)\s+){0,3}$', preceding))
-
+from .semantics import GOAL_CUES, _MEMBERSHIP_QUESTION_CUE, _cue_is_negated, _goal_clauses, _NEGATIVE_CONTRACTION
 
 def selected_goal_negated(query: str, intent: str) -> bool:
     """Refuse an explicitly negated predicted goal; never select another one."""
@@ -50,37 +23,49 @@ def selected_goal_negated(query: str, intent: str) -> bool:
     # availability or membership. It does not exclude that question family.
     if intent in {'mode_availability', 'route_stop_membership'}:
         return False
-    text = normalize_text(query)
     pattern = next((pattern for label, pattern in GOAL_CUES if label == intent), None)
     if pattern is None:
         return False
-    matches = tuple(_word_matches(pattern, text))
-    return bool(matches) and all(_cue_is_negated(text, match) for match in matches)
+    polarity = [_cue_is_negated(clause, match) for clause in _goal_clauses(query)
+                for match in _word_matches(pattern, clause)]
+    return bool(polarity) and all(polarity)
 
 
 def explicit_multiple_goals(query: str) -> tuple[str, ...]:
-    text = normalize_text(query)
-    # Coordinated endpoint/time modifiers describe one request, not two clauses.
-    text = re.sub(r"(?<!\w)(first|पहली|पहला|pehli|pehla)\s+(?:and|aur|और)\s+(last|आखिरी|aakhiri)(?!\w)", r"\1 \2", text)
-    clauses = re.split(r"(?<!\w)(?:and|also|aur|और|साथ ही)(?!\w)", text)
+    clauses = _goal_clauses(query)
     if len(clauses) < 2:
         return ()
     goals = []
-    asked_clauses = 0
+    found_clauses = []
     for clause in clauses:
         for intent, pattern in GOAL_CUES:
             matches = tuple(_word_matches(pattern, clause))
             if any(not _cue_is_negated(clause, match) for match in matches):
-                if re.search(r'(?<!\w)(?:list|show|find|tell|give|what|when|how|which|बताइए|बताओ|दिखाओ|batao|dikhao)(?!\w)', clause):
-                    asked_clauses += 1
+                found_clauses.append((intent, clause))
                 if intent not in goals:
                     goals.append(intent)
                 break
-    bare_route_list = (goals == ['route_stop_sequence']
-                       and any(_route_number(clause) for clause in clauses)
-                       and any(re.fullmatch(r'\s*(?:[a-z]{0,3})?\d{1,4}(?:[a-z]{0,3}|आर|जी|बी|सी|डी|ए|ई)?\s*', clause)
-                               for clause in clauses))
-    return tuple(goals) if len(goals) > 1 or asked_clauses > 1 or bare_route_list else ()
+    # Departure-time nouns qualify a first/last-service request. They do not
+    # independently request a second timetable operation without a new verb.
+    if 'first_and_last_service' in goals and all(
+            _timetable_reporting_modifier(clause)
+            for intent, clause in found_clauses if intent == 'scheduled_departure'):
+        goals = [goal for goal in goals if goal != 'scheduled_departure']
+    positive_routes, excluded_routes, _ = _route_scope(query)
+    incompatible_routes = len(positive_routes) > 1 or bool(positive_routes & excluded_routes)
+    return tuple(goals) if len(goals) > 1 or incompatible_routes else ()
+
+
+def explicit_membership_question(query: str) -> bool:
+    """A stop-at question constrains the operation without reclassifying it."""
+    auxiliary = r'does|do|is|are|was|were|can|could|will|would|has|have|kya|क्या|whether|if|' + _NEGATIVE_CONTRACTION
+    for clause in _goal_clauses(query):
+        for cue in _word_matches(_MEMBERSHIP_QUESTION_CUE, clause):
+            if ('?' in query or '？' in query
+                    or next(_word_matches(auxiliary, clause[:cue.start()]), None)
+                    or next(_word_matches(r'kya|क्या', clause[cue.end():]), None)):
+                return True
+    return False
 
 
 @dataclass(frozen=True)
@@ -230,10 +215,23 @@ class T3Assistant:
                 clarification = IntentPrediction(None, goals, prediction.confidence, "multiple_goals")
                 return self._reply(query, normalized, dispatch(clarification, {}, self.service))
             intent = prediction.primary_label
+            if intent != 'route_stop_membership' and explicit_membership_question(query):
+                return AssistantReply('clarification', 'Please clarify which transport question you mean.',
+                                      query, normalized, None, None, prediction.confidence,
+                                      data={'reason': 'predicted_operation_conflict'}, clarification_reason='intent_ambiguity',
+                                      candidate_intents=(intent, 'route_stop_membership'))
             if intent in {"out_of_scope", "realtime_status_query"}:
                 result = dispatch(prediction, {}, self.service)
                 return self._reply(query, normalized, result)
 
+            # Keep legacy/injected extractors' one-question call unchanged when
+            # no UI default was supplied. The raw classifier input is unchanged.
+            extraction = (self.extractor.extract(query, intent) if default_transport_mode is None
+                          else self.extractor.extract(query, intent, default_transport_mode=default_transport_mode))
+            if extraction.multiple_execution_scopes:
+                return AssistantReply('clarification', 'Please ask about one route, stop, fare stage or time at a time.',
+                                      query, extraction.normalized_query, intent, None, prediction.confidence,
+                                      clarification_reason='multiple_goals', candidate_intents=prediction.acceptable_labels)
             preflight = getattr(self.service, "preflight", None)
             capability = _capability_check(preflight, OPERATIONS[intent])
             if capability is not None:
@@ -242,10 +240,18 @@ class T3Assistant:
                                         message=capability.message, data=capability.data)
                 return self._reply(query, normalized, result)
 
-            # Keep legacy/injected extractors' one-question call unchanged when
-            # no UI default was supplied. The raw classifier input is unchanged.
-            extraction = (self.extractor.extract(query, intent) if default_transport_mode is None
-                          else self.extractor.extract(query, intent, default_transport_mode=default_transport_mode))
+            constraints = getattr(extraction, 'request_constraints', {})
+            excluded = getattr(extraction, 'excluded_modes', ())
+            if excluded and (not extraction.requested_modes or set(excluded) & set(extraction.requested_modes)):
+                return AssistantReply('clarification', 'Please choose a transport mode that you want to use.',
+                                      query, extraction.normalized_query, intent, None, prediction.confidence,
+                                      dict(extraction.slots), {'excluded_modes': list(excluded)},
+                                      missing_slots=('transport_mode',), clarification_reason='missing_slot',
+                                      candidate_intents=prediction.acceptable_labels)
+            if constraints.get('distance_metric') == 'walking_network':
+                return AssistantReply('unavailable', 'Verified walking-distance routing is unavailable; straight-line distance cannot satisfy this request.',
+                                      query, extraction.normalized_query, intent, OPERATIONS[intent], prediction.confidence,
+                                      dict(extraction.slots), {'reason':'walking_network_unverified','request_constraints':constraints})
             if len(extraction.requested_modes) > 1 and intent not in {'multimodal_route', 'interchange_transfer'}:
                 return AssistantReply(
                     'clarification', 'Please choose one transport mode for this question.',
@@ -254,10 +260,6 @@ class T3Assistant:
                     missing_slots=('transport_mode',), clarification_reason='missing_slot',
                     candidate_intents=prediction.acceptable_labels,
                 )
-            if extraction.multiple_execution_scopes:
-                return AssistantReply('clarification', 'Please ask about one route, stop, fare stage or time at a time.',
-                                      query, extraction.normalized_query, intent, None, prediction.confidence,
-                                      clarification_reason='multiple_goals', candidate_intents=prediction.acceptable_labels)
             if getattr(extraction, 'unsupported_timetable_waypoint', False):
                 result = DispatchResult(intent, OPERATIONS[intent], 'unavailable', dict(extraction.slots),
                                         prediction.acceptable_labels, prediction.confidence,
@@ -267,8 +269,8 @@ class T3Assistant:
             if extraction.unsupported_temporal_scope:
                 result = DispatchResult(intent, OPERATIONS[intent], 'unavailable', dict(extraction.slots),
                                         prediction.acceptable_labels, prediction.confidence,
-                                        message='Before-time and time-range requests are not supported by this operation.',
-                                        data={'reason': 'unsupported temporal scope'})
+                                        message='Before-time, time-range and period-only requests are not supported by this operation.',
+                                        data={'reason': 'unsupported temporal scope', 'request_constraints': constraints})
                 return self._reply(query, extraction.normalized_query, result)
             capability = _capability_check(getattr(self.service, 'preflight_mode', None),
                                            OPERATIONS[intent], extraction.slots.get('transport_mode'))
@@ -294,9 +296,16 @@ class T3Assistant:
                                            for candidate in unresolved.candidates}))
                 reason = extraction.clarification_reason
                 text = "Please clarify which stop or location you mean." if reason == "entity_ambiguity" else "Please clarify the time or day you mean."
+                details = (self.resolver.describe_candidates(candidates)
+                           if reason == 'entity_ambiguity' and hasattr(self.resolver, 'describe_candidates') else [])
+                if details:
+                    text += ' Candidates: ' + '; '.join(
+                        f"{row['canonical_name']} ({row['mode'] or row['kind']}, {row['entity_id']})"
+                        for row in details) + '.'
                 return AssistantReply(
                     "clarification", text, query, extraction.normalized_query, intent,
                     None, prediction.confidence, dict(extraction.slots),
+                    data={'entity_candidates': details} if details else {},
                     clarification_reason=reason, candidate_entities=candidates,
                     candidate_intents=prediction.acceptable_labels,
                 )

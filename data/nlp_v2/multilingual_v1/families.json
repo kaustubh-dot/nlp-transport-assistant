@@ -1,0 +1,3658 @@
+{
+  "version": 1,
+  "assignment_method": "Purposes/constructions assigned before any cross-language/entity expansion",
+  "seed": 42,
+  "surface_variants": {
+    "HI_LATN": {
+      "Pattaravakkam": "Pattaravakam",
+      "Nehru Park": "Nehrupark"
+    },
+    "HINGLISH_LATN": {
+      "Pattaravakkam": "Pattaravakam",
+      "Nehru Park": "Nehrupark"
+    }
+  },
+  "native_route_digits_languages": [
+    "HI_DEVA"
+  ],
+  "families": [
+    {
+      "family_id": "ml1.point_to_point_route.direct_only",
+      "semantic_family_id": "ml1.semantic.point_to_point_route.paired_journey",
+      "semantic_scope": "direct_only",
+      "split": "train",
+      "intent": "point_to_point_route",
+      "forms": {
+        "HI_DEVA": "{O} से {D} तक सीधी लोकल ट्रेन वाला रास्ता चाहिए।",
+        "HI_LATN": "{O} se {D} tak seedhi local train wala raasta chahiye.",
+        "HINGLISH_LATN": "Local train mein {O} to {D}, direct only route please.",
+        "EN": "Find a direct only suburban rail route from {O} to {D}."
+      },
+      "slot_spec": {
+        "transport_mode": "suburban_rail",
+        "preference": "direct_only"
+      },
+      "entity_roles": {
+        "origin": "O",
+        "destination": "D"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "direct_only"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "direct_only"
+        ],
+        "required_modes": [
+          "suburban_rail"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.point_to_point_route.waypoint",
+      "semantic_family_id": "ml1.semantic.point_to_point_route.waypoint_journey",
+      "semantic_scope": "waypoint",
+      "split": "train",
+      "intent": "point_to_point_route",
+      "forms": {
+        "HI_DEVA": "{O} से {D} तक लोकल ट्रेन का रास्ता {V} होते हुए बताइए।",
+        "HI_LATN": "{O} se {D} tak local train ka raasta {V} hote hue bataiye.",
+        "HINGLISH_LATN": "Local train route from {O} to {D} via {V} chahiye.",
+        "EN": "Plan suburban rail travel from {O} to {D} via {V}."
+      },
+      "slot_spec": {
+        "transport_mode": "suburban_rail"
+      },
+      "entity_roles": {
+        "origin": "O",
+        "destination": "D",
+        "via": "V"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "via"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "via"
+        ],
+        "required_modes": [
+          "suburban_rail"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.point_to_point_route.speed_optimization",
+      "semantic_family_id": "ml1.semantic.point_to_point_route.optimization_journey",
+      "semantic_scope": "speed_optimization",
+      "split": "train",
+      "intent": "point_to_point_route",
+      "forms": {
+        "HI_DEVA": "{D} पहुँचने के लिए {O} से सबसे तेज लोकल ट्रेन का रास्ता कौन सा है?",
+        "HI_LATN": "{D} pahunchne ke liye {O} se sabse tez local train ka raasta kaun sa hai?",
+        "HINGLISH_LATN": "Fastest local train route to {D} from {O} batao.",
+        "EN": "What is the fastest suburban rail route to {D} from {O}?"
+      },
+      "slot_spec": {
+        "transport_mode": "suburban_rail",
+        "preference": "fastest"
+      },
+      "entity_roles": {
+        "origin": "O",
+        "destination": "D"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "optimization"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "optimization"
+        ],
+        "required_modes": [
+          "suburban_rail"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.point_to_point_route.unprovided_origin",
+      "semantic_family_id": "ml1.point_to_point_route.unprovided_origin",
+      "semantic_scope": "unprovided_origin",
+      "split": "validation",
+      "intent": "point_to_point_route",
+      "forms": {
+        "HI_DEVA": "लोकल ट्रेन से {D} पहुँचने का रास्ता बताइए, शुरुआती जगह अभी नहीं दी है।",
+        "HI_LATN": "Local train se {D} pahunchne ka raasta bataiye, shuruati jagah abhi nahi di hai.",
+        "HINGLISH_LATN": "Local train route to {D} chahiye, starting point missing hai.",
+        "EN": "Plan suburban rail travel to {D}; the origin is unspecified."
+      },
+      "slot_spec": {
+        "transport_mode": "suburban_rail"
+      },
+      "entity_roles": {
+        "destination": "D"
+      },
+      "expected_clarification": "missing_slot",
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "suburban_rail"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.point_to_point_route.time_constrained_journey",
+      "semantic_family_id": "ml1.point_to_point_route.time_constrained_journey",
+      "semantic_scope": "time_constrained_journey",
+      "split": "development_test",
+      "intent": "point_to_point_route",
+      "forms": {
+        "HI_DEVA": "{DATE} को सुबह नौ बजे लोकल ट्रेन से {O} से {D} जाना है, रास्ता बताइए।",
+        "HI_LATN": "{DATE} ko subah nau baje local train se {O} se {D} jaana hai, raasta bataiye.",
+        "HINGLISH_LATN": "For {DATE} at 9 AM, local train route from {O} to {D} plan karo.",
+        "EN": "Plan a suburban rail journey from {O} to {D} on {DATE} at 9 AM."
+      },
+      "slot_spec": {
+        "transport_mode": "suburban_rail",
+        "date": "{DATE}",
+        "time": "09:00:00"
+      },
+      "entity_roles": {
+        "origin": "O",
+        "destination": "D"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "date",
+        "clock"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "date",
+          "clock"
+        ],
+        "required_modes": [
+          "suburban_rail"
+        ],
+        "clock": "09:00:00",
+        "date": "{DATE}"
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.multimodal_route.bus_metro_itinerary",
+      "semantic_family_id": "ml1.semantic.multimodal_route.paired_combined_journey",
+      "semantic_scope": "bus_metro_itinerary",
+      "split": "train",
+      "intent": "multimodal_route",
+      "forms": {
+        "HI_DEVA": "{PM} से {QM} जाने के लिए बस और मेट्रो दोनों वाला सफर बनाइए।",
+        "HI_LATN": "{PM} se {QM} jaane ke liye bus aur metro dono wala safar banaiye.",
+        "HINGLISH_LATN": "{PM} to {QM} ka complete trip bus plus metro mila ke plan karo.",
+        "EN": "Build a combined bus and metro trip from {PM} to {QM}."
+      },
+      "slot_spec": {},
+      "entity_roles": {
+        "origin": "PM",
+        "destination": "QM"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "bus",
+        "metro"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "bus",
+          "metro"
+        ],
+        "required_modes": [
+          "bus",
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.multimodal_route.rail_bus_itinerary",
+      "semantic_family_id": "ml1.semantic.multimodal_route.paired_combined_journey",
+      "semantic_scope": "rail_bus_itinerary",
+      "split": "train",
+      "intent": "multimodal_route",
+      "forms": {
+        "HI_DEVA": "लोकल ट्रेन और बस जोड़कर {OA} से {DA} पहुँचने का रास्ता चाहिए।",
+        "HI_LATN": "Local train aur bus jodkar {OA} se {DA} pahunchne ka raasta chahiye.",
+        "HINGLISH_LATN": "Local train aur bus combine karke {OA} to {DA} ka trip banao.",
+        "EN": "Plan a journey from {OA} to {DA} combining suburban rail and bus."
+      },
+      "slot_spec": {},
+      "entity_roles": {
+        "origin": "OA",
+        "destination": "DA"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "suburban_rail",
+        "bus"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "suburban_rail",
+          "bus"
+        ],
+        "required_modes": [
+          "suburban_rail",
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.multimodal_route.metro_mrts_itinerary",
+      "semantic_family_id": "ml1.semantic.multimodal_route.paired_combined_journey",
+      "semantic_scope": "metro_mrts_itinerary",
+      "split": "train",
+      "intent": "multimodal_route",
+      "forms": {
+        "HI_DEVA": "{PM} से {QM} तक मेट्रो के साथ एमआरटीएस मिलाकर यात्रा बताओ।",
+        "HI_LATN": "{PM} se {QM} tak metro ke saath MRTS milakar yatra batao.",
+        "HINGLISH_LATN": "Metro plus MRTS connection use karke {PM} to {QM} ka trip batao.",
+        "EN": "Describe a metro and MRTS journey from {PM} to {QM}."
+      },
+      "slot_spec": {},
+      "entity_roles": {
+        "origin": "PM",
+        "destination": "QM"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "metro",
+        "mrts"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "metro",
+          "mrts"
+        ],
+        "required_modes": [
+          "metro",
+          "mrts"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.multimodal_route.combined_waypoint_itinerary",
+      "semantic_family_id": "ml1.multimodal_route.combined_waypoint_itinerary",
+      "semantic_scope": "combined_waypoint_itinerary",
+      "split": "validation",
+      "intent": "multimodal_route",
+      "forms": {
+        "HI_DEVA": "{VA} होते हुए बस और लोकल ट्रेन मिलाकर {OA} से {DA} का सफर तय करो।",
+        "HI_LATN": "{VA} hote hue bus aur local train milakar {OA} se {DA} ka safar tay karo.",
+        "HINGLISH_LATN": "Bus aur local train combine karo for {OA} to {DA} via {VA}.",
+        "EN": "Combine bus and suburban rail in travel from {OA} to {DA} via {VA}."
+      },
+      "slot_spec": {},
+      "entity_roles": {
+        "origin": "OA",
+        "destination": "DA",
+        "via": "VA"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "bus",
+        "suburban_rail",
+        "via"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "bus",
+          "suburban_rail",
+          "via"
+        ],
+        "required_modes": [
+          "bus",
+          "suburban_rail"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.multimodal_route.missing_combined_origin",
+      "semantic_family_id": "ml1.multimodal_route.missing_combined_origin",
+      "semantic_scope": "missing_combined_origin",
+      "split": "development_test",
+      "intent": "multimodal_route",
+      "forms": {
+        "HI_DEVA": "{PM} तक मेट्रो और बस मिलाकर जाना है, कहाँ से चलूँ यह नहीं बताया है।",
+        "HI_LATN": "{PM} tak metro aur bus milakar jaana hai, kahan se chalun yeh nahi bataya hai.",
+        "HINGLISH_LATN": "Metro and bus combined trip to {PM}; starting point abhi nahi diya.",
+        "EN": "I need a combined metro and bus trip to {PM}, with no starting point specified."
+      },
+      "slot_spec": {},
+      "entity_roles": {
+        "destination": "PM"
+      },
+      "expected_clarification": "missing_slot",
+      "constraints": [
+        "metro",
+        "bus"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "metro",
+          "bus"
+        ],
+        "required_modes": [
+          "metro",
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.first_and_last_service.first_route_service",
+      "semantic_family_id": "ml1.semantic.first_and_last_service.route_station_bounds",
+      "semantic_scope": "first_route_service",
+      "split": "train",
+      "intent": "first_and_last_service",
+      "forms": {
+        "HI_DEVA": "{S} से बस रूट {R} की पहली सेवा कितने बजे निकलती है?",
+        "HI_LATN": "{S} se bus route {R} ki pehli seva kitne baje nikalti hai?",
+        "HINGLISH_LATN": "Bus route {R} ki first departure from {S} ka time?",
+        "EN": "When is the first bus departure on route {R} from {S}?"
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "route_number": "{R}",
+        "timing_type": "first"
+      },
+      "entity_roles": {
+        "station": "S"
+      },
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.first_and_last_service.last_rail_service",
+      "semantic_family_id": "ml1.semantic.first_and_last_service.station_bounds",
+      "semantic_scope": "last_rail_service",
+      "split": "train",
+      "intent": "first_and_last_service",
+      "forms": {
+        "HI_DEVA": "{O} पर आखिरी लोकल ट्रेन का समय चाहिए।",
+        "HI_LATN": "{O} par aakhiri local train ka samay chahiye.",
+        "HINGLISH_LATN": "Last local train service time at {O} bataiye.",
+        "EN": "Give the last suburban rail service time at {O}."
+      },
+      "slot_spec": {
+        "transport_mode": "suburban_rail",
+        "timing_type": "last"
+      },
+      "entity_roles": {
+        "station": "O"
+      },
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "suburban_rail"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.first_and_last_service.full_operating_bounds",
+      "semantic_family_id": "ml1.semantic.first_and_last_service.route_station_bounds",
+      "semantic_scope": "full_operating_bounds",
+      "split": "train",
+      "intent": "first_and_last_service",
+      "forms": {
+        "HI_DEVA": "{S} से रूट {R} की बस सेवा सुबह पहली से रात आखिरी तक किस समय चलती है?",
+        "HI_LATN": "{S} se route {R} ki bus seva subah pehli se raat aakhiri tak kis samay chalti hai?",
+        "HINGLISH_LATN": "Bus route {R} from {S} ke first and last service bounds chahiye.",
+        "EN": "Give first and last service bounds for bus route {R} at {S}."
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "route_number": "{R}"
+      },
+      "entity_roles": {
+        "station": "S"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "both_bounds"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "both_bounds"
+        ],
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.first_and_last_service.od_service_bounds",
+      "semantic_family_id": "ml1.first_and_last_service.od_service_bounds",
+      "semantic_scope": "od_service_bounds",
+      "split": "validation",
+      "intent": "first_and_last_service",
+      "forms": {
+        "HI_DEVA": "{O} से {D} तक लोकल ट्रेन की सेवा पहली बार कब शुरू और आखिरी बार कब खत्म होती है?",
+        "HI_LATN": "{O} se {D} tak local train ki seva pehli baar kab shuru aur aakhiri baar kab khatm hoti hai?",
+        "HINGLISH_LATN": "Local train between {O} and {D}: first aur last service timings batao.",
+        "EN": "Show first and last suburban rail service times between {O} and {D}."
+      },
+      "slot_spec": {
+        "transport_mode": "suburban_rail"
+      },
+      "entity_roles": {
+        "station": "O",
+        "destination": "D"
+      },
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "suburban_rail"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.first_and_last_service.line_without_boarding",
+      "semantic_family_id": "ml1.first_and_last_service.line_without_boarding",
+      "semantic_scope": "line_without_boarding",
+      "split": "development_test",
+      "intent": "first_and_last_service",
+      "forms": {
+        "HI_DEVA": "मेट्रो की हरी लाइन की आखिरी सेवा कब है? बोर्डिंग स्टेशन नहीं दिया है।",
+        "HI_LATN": "Metro ki hari line ki aakhiri seva kab hai? Boarding station nahi diya hai.",
+        "HINGLISH_LATN": "Green Line metro last service ka time chahiye, boarding station unspecified.",
+        "EN": "Give the last metro service time for Green Line without a boarding station."
+      },
+      "slot_spec": {
+        "transport_mode": "metro",
+        "line_name": "Green Line",
+        "timing_type": "last"
+      },
+      "entity_roles": {},
+      "expected_clarification": "missing_slot",
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.service_frequency.scheduled_gap",
+      "semantic_family_id": "ml1.semantic.service_frequency.route_station_headway",
+      "semantic_scope": "scheduled_gap",
+      "split": "train",
+      "intent": "service_frequency",
+      "forms": {
+        "HI_DEVA": "{S} पर बस रूट {R} की दो सेवाओं के बीच कितने मिनट का अंतर रहता है?",
+        "HI_LATN": "{S} par bus route {R} ki do sevaon ke beech kitne minute ka antar rehta hai?",
+        "HINGLISH_LATN": "Bus route {R} at {S} ka scheduled gap between services kitna hai?",
+        "EN": "What is the scheduled interval between bus services on route {R} at {S}?"
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "route_number": "{R}"
+      },
+      "entity_roles": {
+        "station": "S"
+      },
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.service_frequency.headway_not_live",
+      "semantic_family_id": "ml1.semantic.service_frequency.route_station_headway",
+      "semantic_scope": "headway_not_live",
+      "split": "train",
+      "intent": "service_frequency",
+      "forms": {
+        "HI_DEVA": "{S} से बस {R} का प्रकाशित अंतराल चाहिए, अभी की प्रतीक्षा नहीं पूछ रहा हूँ।",
+        "HI_LATN": "{S} se bus {R} ka prakashit antaral chahiye, abhi ki pratiksha nahi pooch raha hun.",
+        "HINGLISH_LATN": "Published headway for bus {R} at {S}; live wait nahi chahiye.",
+        "EN": "Give published headway for bus {R} at {S}, excluding live wait estimates."
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "route_number": "{R}"
+      },
+      "entity_roles": {
+        "station": "S"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "negated_live"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "negated_live"
+        ],
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.service_frequency.rail_periodic_service",
+      "semantic_family_id": "ml1.semantic.service_frequency.route_station_headway",
+      "semantic_scope": "rail_periodic_service",
+      "split": "train",
+      "intent": "service_frequency",
+      "forms": {
+        "HI_DEVA": "{O} पर उपनगरीय रेल की दक्षिण लाइन की दो लगातार सेवाओं में समय का अंतर बताओ।",
+        "HI_LATN": "{O} par suburban rail ki South Line ki do lagatar sevaon mein samay ka antar batao.",
+        "HINGLISH_LATN": "Suburban rail South Line at {O} ka gap between successive services batao.",
+        "EN": "Show the gap between successive suburban rail South Line services at {O}."
+      },
+      "slot_spec": {
+        "transport_mode": "suburban_rail",
+        "line_name": "South Line"
+      },
+      "entity_roles": {
+        "station": "O"
+      },
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "suburban_rail"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.service_frequency.unprovided_headway_stop",
+      "semantic_family_id": "ml1.service_frequency.unprovided_headway_stop",
+      "semantic_scope": "unprovided_headway_stop",
+      "split": "validation",
+      "intent": "service_frequency",
+      "forms": {
+        "HI_DEVA": "बस रूट {R} कितने अंतराल पर चलती है? स्टॉप नहीं चुना है।",
+        "HI_LATN": "Bus route {R} kitne antaral par chalti hai? Stop nahi chuna hai.",
+        "HINGLISH_LATN": "Bus route {R} ka frequency chahiye; boarding stop missing hai.",
+        "EN": "What is the frequency of bus route {R}, with no boarding stop specified?"
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "route_number": "{R}"
+      },
+      "entity_roles": {},
+      "expected_clarification": "missing_slot",
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.service_frequency.unprovided_headway_route",
+      "semantic_family_id": "ml1.service_frequency.unprovided_headway_route",
+      "semantic_scope": "unprovided_headway_route",
+      "split": "development_test",
+      "intent": "service_frequency",
+      "forms": {
+        "HI_DEVA": "{S} पर बसों की आवृत्ति बताओ, किस रूट की यह नहीं दिया है।",
+        "HI_LATN": "{S} par buson ki aavritti batao, kis route ki yeh nahi diya hai.",
+        "HINGLISH_LATN": "Bus frequency at {S} chahiye with no route identifier.",
+        "EN": "Give bus frequency at {S} without a route identifier."
+      },
+      "slot_spec": {
+        "transport_mode": "bus"
+      },
+      "entity_roles": {
+        "station": "S"
+      },
+      "expected_clarification": "missing_slot",
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.scheduled_departure.qualified_word_clock",
+      "semantic_family_id": "ml1.semantic.scheduled_departure.station_route_departures",
+      "semantic_scope": "qualified_word_clock",
+      "split": "train",
+      "intent": "scheduled_departure",
+      "forms": {
+        "HI_DEVA": "{S} पर रूट {R} की बस सुबह दस बजे के बाद कब निकलती है?",
+        "HI_LATN": "{S} par route {R} ki bus subah das baje ke baad kab nikalti hai?",
+        "HINGLISH_LATN": "Bus route {R} from {S} ki departures after subah das baje dikhao.",
+        "EN": "List scheduled bus departures on route {R} at {S} after ten AM."
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "route_number": "{R}",
+        "time": "10:00:00"
+      },
+      "entity_roles": {
+        "station": "S"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "word_clock"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "word_clock"
+        ],
+        "required_modes": [
+          "bus"
+        ],
+        "clock": "10:00:00"
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.scheduled_departure.calendar_departure",
+      "semantic_family_id": "ml1.semantic.scheduled_departure.station_route_departures",
+      "semantic_scope": "calendar_departure",
+      "split": "train",
+      "intent": "scheduled_departure",
+      "forms": {
+        "HI_DEVA": "{DATE} को {S} से बस {R} के निकलने का प्रकाशित समय बताइए।",
+        "HI_LATN": "{DATE} ko {S} se bus {R} ke nikalne ka prakashit samay bataiye.",
+        "HINGLISH_LATN": "Bus {R} from {S} ka published departure schedule {DATE} ke liye dikhao.",
+        "EN": "Show published departures for bus {R} from {S} on {DATE}."
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "route_number": "{R}",
+        "date": "{DATE}"
+      },
+      "entity_roles": {
+        "station": "S"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "date"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "date"
+        ],
+        "required_modes": [
+          "bus"
+        ],
+        "date": "{DATE}"
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.scheduled_departure.unqualified_clock",
+      "semantic_family_id": "ml1.semantic.scheduled_departure.ambiguous_clock_departures",
+      "semantic_scope": "unqualified_clock",
+      "split": "train",
+      "intent": "scheduled_departure",
+      "forms": {
+        "HI_DEVA": "{S} से रूट {R} की बस छह बजे के बाद कब है?",
+        "HI_LATN": "{S} se route {R} ki bus chhe baje ke baad kab hai?",
+        "HINGLISH_LATN": "Bus route {R} from {S} ki departure after chhe baje?",
+        "EN": "What bus departures on route {R} at {S} are after six o'clock?"
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "route_number": "{R}",
+        "time": [
+          "06:00:00",
+          "18:00:00"
+        ]
+      },
+      "entity_roles": {
+        "station": "S"
+      },
+      "expected_clarification": "temporal_ambiguity",
+      "constraints": [
+        "bare_clock"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "bare_clock"
+        ],
+        "required_modes": [
+          "bus"
+        ],
+        "clock": [
+          "06:00:00",
+          "18:00:00"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.scheduled_departure.unprovided_departure_location",
+      "semantic_family_id": "ml1.scheduled_departure.unprovided_departure_location",
+      "semantic_scope": "unprovided_departure_location",
+      "split": "validation",
+      "intent": "scheduled_departure",
+      "forms": {
+        "HI_DEVA": "बस रूट {R} सुबह नौ बजे के बाद कहाँ से निकलती है? बोर्डिंग जगह नहीं बताई है।",
+        "HI_LATN": "Bus route {R} subah nau baje ke baad kahan se nikalti hai? Boarding jagah nahi batayi hai.",
+        "HINGLISH_LATN": "Bus route {R} departures after 9 AM chahiye, stop unspecified.",
+        "EN": "Show departures for bus route {R} after 9 AM, with no boarding stop."
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "route_number": "{R}",
+        "time": "09:00:00"
+      },
+      "entity_roles": {},
+      "expected_clarification": "missing_slot",
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "bus"
+        ],
+        "clock": "09:00:00"
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.scheduled_departure.clock_range",
+      "semantic_family_id": "ml1.scheduled_departure.clock_range",
+      "semantic_scope": "clock_range",
+      "split": "development_test",
+      "intent": "scheduled_departure",
+      "forms": {
+        "HI_DEVA": "{S} से रूट {R} की बस सुबह दस बजे और ग्यारह बजे के बीच कब निकलती है?",
+        "HI_LATN": "{S} se route {R} ki bus subah das baje aur gyarah baje ke beech kab nikalti hai?",
+        "HINGLISH_LATN": "Between ten AM and eleven AM bus route {R} from {S} ki departures chahiye.",
+        "EN": "Find departures on bus route {R} at {S} between ten AM and eleven AM."
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "route_number": "{R}"
+      },
+      "entity_roles": {
+        "station": "S"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "time_range",
+        "unsupported_filter"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "time_range",
+          "unsupported_filter"
+        ],
+        "time_range": [
+          "10:00:00",
+          "11:00:00"
+        ],
+        "temporal_relation": "between",
+        "day_period": "morning",
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.route_stop_sequence.bus_full_sequence",
+      "semantic_family_id": "ml1.semantic.route_stop_sequence.single_identifier_sequence",
+      "semantic_scope": "bus_full_sequence",
+      "split": "train",
+      "intent": "route_stop_sequence",
+      "forms": {
+        "HI_DEVA": "बस संख्या {R} का पूरा स्टॉप क्रम लिखो।",
+        "HI_LATN": "Bus sankhya {R} ka poora stop kram likho.",
+        "HINGLISH_LATN": "Bus number {R} ka full stop sequence please.",
+        "EN": "Write the full stop sequence of bus number {R}."
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "route_number": "{R}"
+      },
+      "entity_roles": {},
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.route_stop_sequence.metro_line_sequence",
+      "semantic_family_id": "ml1.semantic.route_stop_sequence.single_identifier_sequence",
+      "semantic_scope": "metro_line_sequence",
+      "split": "train",
+      "intent": "route_stop_sequence",
+      "forms": {
+        "HI_DEVA": "मेट्रो की नीली लाइन में स्टेशन किस क्रम में पड़ते हैं?",
+        "HI_LATN": "Metro ki neeli line mein station kis kram mein padte hain?",
+        "HINGLISH_LATN": "Metro Blue Line ke stations in order show karo.",
+        "EN": "Show stations in order on the metro Blue Line."
+      },
+      "slot_spec": {
+        "transport_mode": "metro",
+        "line_name": "Blue Line"
+      },
+      "entity_roles": {},
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.route_stop_sequence.rail_line_sequence",
+      "semantic_family_id": "ml1.semantic.route_stop_sequence.single_identifier_sequence",
+      "semantic_scope": "rail_line_sequence",
+      "split": "train",
+      "intent": "route_stop_sequence",
+      "forms": {
+        "HI_DEVA": "उपनगरीय रेल की दक्षिण लाइन के स्टेशन क्रम से बताइए।",
+        "HI_LATN": "Upnagariya rail ki dakshin line ke station kram se bataiye.",
+        "HINGLISH_LATN": "Suburban rail South Line ka station sequence chahiye.",
+        "EN": "List the suburban rail South Line station sequence."
+      },
+      "slot_spec": {
+        "transport_mode": "suburban_rail",
+        "line_name": "South Line"
+      },
+      "entity_roles": {},
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "suburban_rail"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.route_stop_sequence.coordinated_routes",
+      "semantic_family_id": "ml1.route_stop_sequence.coordinated_routes",
+      "semantic_scope": "coordinated_routes",
+      "split": "validation",
+      "intent": "route_stop_sequence",
+      "forms": {
+        "HI_DEVA": "बस रूट {R} और {R2} दोनों के स्टॉप अलग अलग दिखाओ।",
+        "HI_LATN": "Bus route {R} aur {R2} dono ke stop alag alag dikhao.",
+        "HINGLISH_LATN": "Bus routes {R} aur {R2} ke stop lists separately dikhao.",
+        "EN": "Show separate stop lists for bus routes {R} and {R2}."
+      },
+      "slot_spec": {
+        "transport_mode": "bus"
+      },
+      "entity_roles": {},
+      "expected_clarification": "multiple_goals",
+      "constraints": [
+        "multiple_routes"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": false,
+      "constraint_spec": {
+        "tags": [
+          "multiple_routes"
+        ],
+        "route_numbers": [
+          "{R}",
+          "{R2}"
+        ],
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.route_stop_sequence.unknown_sequence_route",
+      "semantic_family_id": "ml1.route_stop_sequence.unknown_sequence_route",
+      "semantic_scope": "unknown_sequence_route",
+      "split": "development_test",
+      "intent": "route_stop_sequence",
+      "forms": {
+        "HI_DEVA": "बस के सारे पड़ाव लिख दो, रूट नंबर अभी नहीं दिया।",
+        "HI_LATN": "Bus ke saare padav likh do, route number abhi nahi diya.",
+        "HINGLISH_LATN": "Full bus stop list chahiye but route identifier missing hai.",
+        "EN": "I need a complete bus stop list without a route identifier."
+      },
+      "slot_spec": {
+        "transport_mode": "bus"
+      },
+      "entity_roles": {},
+      "expected_clarification": "missing_slot",
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.route_stop_membership.bus_stop_membership",
+      "semantic_family_id": "ml1.semantic.route_stop_membership.complete_membership",
+      "semantic_scope": "bus_stop_membership",
+      "split": "train",
+      "intent": "route_stop_membership",
+      "forms": {
+        "HI_DEVA": "बस रूट {R} क्या {S} वाले स्टॉप पर रुकता है?",
+        "HI_LATN": "Bus route {R} kya {S} wale stop par rukta hai?",
+        "HINGLISH_LATN": "Bus route {R} {S} ko serve karta hai kya?",
+        "EN": "Does bus route {R} stop at {S}?"
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "route_number": "{R}"
+      },
+      "entity_roles": {
+        "stop": "S"
+      },
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.route_stop_membership.metro_line_membership",
+      "semantic_family_id": "ml1.semantic.route_stop_membership.complete_membership",
+      "semantic_scope": "metro_line_membership",
+      "split": "train",
+      "intent": "route_stop_membership",
+      "forms": {
+        "HI_DEVA": "{P} स्टेशन मेट्रो की हरी लाइन में है क्या?",
+        "HI_LATN": "{P} station metro ki hari line mein hai kya?",
+        "HINGLISH_LATN": "{P} metro station belongs to Green Line kya?",
+        "EN": "Is {P} a station on the metro Green Line?"
+      },
+      "slot_spec": {
+        "transport_mode": "metro",
+        "line_name": "Green Line"
+      },
+      "entity_roles": {
+        "stop": "P"
+      },
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.route_stop_membership.negative_membership_question",
+      "semantic_family_id": "ml1.semantic.route_stop_membership.complete_membership",
+      "semantic_scope": "negative_membership_question",
+      "split": "train",
+      "intent": "route_stop_membership",
+      "forms": {
+        "HI_DEVA": "क्या बस {R} {S} पर नहीं रुकती?",
+        "HI_LATN": "Kya bus {R} {S} par nahi rukti?",
+        "HINGLISH_LATN": "Bus {R} {S} par nahi rukti, yeh correct hai kya?",
+        "EN": "Is it true that bus {R} does not stop at {S}?"
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "route_number": "{R}"
+      },
+      "entity_roles": {
+        "stop": "S"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "negative_proposition"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "negative_proposition"
+        ],
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.route_stop_membership.missing_membership_stop",
+      "semantic_family_id": "ml1.route_stop_membership.missing_membership_stop",
+      "semantic_scope": "missing_membership_stop",
+      "split": "validation",
+      "intent": "route_stop_membership",
+      "forms": {
+        "HI_DEVA": "बस {R} वहाँ रुकती है क्या? जगह का नाम मैंने नहीं दिया है।",
+        "HI_LATN": "Bus {R} wahan rukti hai kya? Jagah ka naam maine nahi diya hai.",
+        "HINGLISH_LATN": "Will bus {R} serve that stop? Stop name unspecified hai.",
+        "EN": "Does bus {R} serve a stop whose name has not been specified?"
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "route_number": "{R}"
+      },
+      "entity_roles": {},
+      "expected_clarification": "missing_slot",
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.route_stop_membership.missing_membership_route",
+      "semantic_family_id": "ml1.route_stop_membership.missing_membership_route",
+      "semantic_scope": "missing_membership_route",
+      "split": "development_test",
+      "intent": "route_stop_membership",
+      "forms": {
+        "HI_DEVA": "{S} पर बस रुकती है क्या, पर कौन सा रूट यह नहीं बताया है?",
+        "HI_LATN": "{S} par bus rukti hai kya, par kaun sa route yeh nahi bataya hai?",
+        "HINGLISH_LATN": "Bus {S} par rukti hai kya? Route number unspecified hai.",
+        "EN": "Check bus stop membership at {S} without a route number."
+      },
+      "slot_spec": {
+        "transport_mode": "bus"
+      },
+      "entity_roles": {
+        "stop": "S"
+      },
+      "expected_clarification": "missing_slot",
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.mode_availability.metro_connectivity",
+      "semantic_family_id": "ml1.semantic.mode_availability.paired_connectivity",
+      "semantic_scope": "metro_connectivity",
+      "split": "train",
+      "intent": "mode_availability",
+      "forms": {
+        "HI_DEVA": "{P} से {Q} तक मेट्रो का संपर्क मौजूद है क्या?",
+        "HI_LATN": "{P} se {Q} tak metro ka sampark maujood hai kya?",
+        "HINGLISH_LATN": "Metro connectivity between {P} and {Q} exists kya?",
+        "EN": "Does metro connectivity exist between {P} and {Q}?"
+      },
+      "slot_spec": {
+        "transport_mode": "metro"
+      },
+      "entity_roles": {
+        "origin": "P",
+        "destination": "Q"
+      },
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.mode_availability.rail_connectivity",
+      "semantic_family_id": "ml1.semantic.mode_availability.paired_connectivity",
+      "semantic_scope": "rail_connectivity",
+      "split": "train",
+      "intent": "mode_availability",
+      "forms": {
+        "HI_DEVA": "{O} और {D} के बीच लोकल ट्रेन का विकल्प है?",
+        "HI_LATN": "{O} aur {D} ke beech local train ka vikalp hai?",
+        "HINGLISH_LATN": "Suburban rail {O} se {D} ke beech available hai kya?",
+        "EN": "Is suburban rail available between {O} and {D}?"
+      },
+      "slot_spec": {
+        "transport_mode": "suburban_rail"
+      },
+      "entity_roles": {
+        "origin": "O",
+        "destination": "D"
+      },
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "suburban_rail"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.mode_availability.bus_connectivity",
+      "semantic_family_id": "ml1.semantic.mode_availability.paired_connectivity",
+      "semantic_scope": "bus_connectivity",
+      "split": "train",
+      "intent": "mode_availability",
+      "forms": {
+        "HI_DEVA": "{PB} से {QB} के बीच बस की सेवा मिलती है या नहीं?",
+        "HI_LATN": "{PB} se {QB} ke beech bus ki seva milti hai ya nahi?",
+        "HINGLISH_LATN": "Bus service from {PB} to {QB} available hai ya nahi?",
+        "EN": "Is bus service available from {PB} to {QB}?"
+      },
+      "slot_spec": {
+        "transport_mode": "bus"
+      },
+      "entity_roles": {
+        "origin": "PB",
+        "destination": "QB"
+      },
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.mode_availability.single_location_availability",
+      "semantic_family_id": "ml1.mode_availability.single_location_availability",
+      "semantic_scope": "single_location_availability",
+      "split": "validation",
+      "intent": "mode_availability",
+      "forms": {
+        "HI_DEVA": "{P} पर मेट्रो सेवा उपलब्ध है क्या?",
+        "HI_LATN": "{P} par metro seva uplabdh hai kya?",
+        "HINGLISH_LATN": "Metro service at {P} available hai kya?",
+        "EN": "Is metro service available at {P}?"
+      },
+      "slot_spec": {
+        "transport_mode": "metro"
+      },
+      "entity_roles": {
+        "destination": "P"
+      },
+      "expected_clarification": "missing_slot",
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.mode_availability.unprovided_availability_locations",
+      "semantic_family_id": "ml1.mode_availability.unprovided_availability_locations",
+      "semantic_scope": "unprovided_availability_locations",
+      "split": "development_test",
+      "intent": "mode_availability",
+      "forms": {
+        "HI_DEVA": "बस नहीं, लोकल ट्रेन की सेवा उपलब्ध है क्या? जगहें नहीं बताई हैं।",
+        "HI_LATN": "Bus nahi, local train ki seva uplabdh hai kya? Jagahein nahi batayi hain.",
+        "HINGLISH_LATN": "Bus nahi chahiye, local train service available hai kya? Locations unspecified.",
+        "EN": "Excluding bus, is suburban rail service available? Locations are unspecified."
+      },
+      "slot_spec": {
+        "transport_mode": "suburban_rail"
+      },
+      "entity_roles": {},
+      "expected_clarification": "missing_slot",
+      "constraints": [
+        "negated_bus"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "negated_bus"
+        ],
+        "excluded_modes": [
+          "bus"
+        ],
+        "required_modes": [
+          "suburban_rail"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.fare_calculation.ordinary_cardinal",
+      "semantic_family_id": "ml1.semantic.fare_calculation.stage_tariff",
+      "semantic_scope": "ordinary_cardinal",
+      "split": "train",
+      "intent": "fare_calculation",
+      "forms": {
+        "HI_DEVA": "साधारण बस में {NHI} स्टेज का भाड़ा कितना होगा?",
+        "HI_LATN": "Sadharan bus mein {NR} stage ka bhada kitna hoga?",
+        "HINGLISH_LATN": "Ordinary bus mein {NEN} stages ka fare bataiye.",
+        "EN": "What is the Ordinary bus fare for {NEN} stages?"
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "service_type": "Ordinary Services",
+        "stage_number": "{N}"
+      },
+      "entity_roles": {},
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.fare_calculation.express_ordinal",
+      "semantic_family_id": "ml1.semantic.fare_calculation.stage_tariff",
+      "semantic_scope": "express_ordinal",
+      "split": "train",
+      "intent": "fare_calculation",
+      "forms": {
+        "HI_DEVA": "एक्सप्रेस बस के {ORDHI} स्टेज का किराया बताओ।",
+        "HI_LATN": "Express bus ke {ORDR} stage ka kiraya batao.",
+        "HINGLISH_LATN": "Express bus ka stage number {N} fare chahiye.",
+        "EN": "Give the Express bus fare for stage number {N}."
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "service_type": "Express Services",
+        "stage_number": "{N}"
+      },
+      "entity_roles": {},
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.fare_calculation.deluxe_numeric",
+      "semantic_family_id": "ml1.semantic.fare_calculation.stage_tariff",
+      "semantic_scope": "deluxe_numeric",
+      "split": "train",
+      "intent": "fare_calculation",
+      "forms": {
+        "HI_DEVA": "डीलक्स बस में स्टेज संख्या {ND} के कितने पैसे लगते हैं?",
+        "HI_LATN": "Deluxe bus mein stage sankhya {N} ke kitne paise lagte hain?",
+        "HINGLISH_LATN": "Deluxe bus stage {N} ki ticket cost kitni hai?",
+        "EN": "How much is a Deluxe bus ticket for stage {N}?"
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "service_type": "Deluxe Services",
+        "stage_number": "{N}"
+      },
+      "entity_roles": {},
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.fare_calculation.od_distance_fare",
+      "semantic_family_id": "ml1.fare_calculation.od_distance_fare",
+      "semantic_scope": "od_distance_fare",
+      "split": "validation",
+      "intent": "fare_calculation",
+      "forms": {
+        "HI_DEVA": "{P} से {Q} तक मेट्रो से जाने का किराया निकालिए।",
+        "HI_LATN": "{P} se {Q} tak metro se jaane ka kiraya nikaliye.",
+        "HINGLISH_LATN": "Metro fare from {P} to {Q} calculate karo.",
+        "EN": "Calculate the metro fare from {P} to {Q}."
+      },
+      "slot_spec": {
+        "transport_mode": "metro"
+      },
+      "entity_roles": {
+        "origin": "P",
+        "destination": "Q"
+      },
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.fare_calculation.discounted_od_fare",
+      "semantic_family_id": "ml1.fare_calculation.discounted_od_fare",
+      "semantic_scope": "discounted_od_fare",
+      "split": "development_test",
+      "intent": "fare_calculation",
+      "forms": {
+        "HI_DEVA": "{P} से {Q} के मेट्रो किराए में स्मार्ट कार्ड की रियायत लगाने पर कितनी रकम होगी?",
+        "HI_LATN": "{P} se {Q} ke metro kiraye mein smart card ki riyayat lagane par kitni rakam hogi?",
+        "HINGLISH_LATN": "Discounted metro fare from {P} to {Q} using smart card calculate karo.",
+        "EN": "Calculate the discounted metro fare from {P} to {Q} using a smart card."
+      },
+      "slot_spec": {
+        "transport_mode": "metro",
+        "ticket_type": "smart_card",
+        "fare_type": "concession"
+      },
+      "entity_roles": {
+        "origin": "P",
+        "destination": "Q"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "discounted_amount"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "discounted_amount"
+        ],
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.ticketing_and_passes.monthly_rules",
+      "semantic_family_id": "ml1.semantic.ticketing_and_passes.ticket_usage_validity",
+      "semantic_scope": "monthly_rules",
+      "split": "train",
+      "intent": "ticketing_and_passes",
+      "forms": {
+        "HI_DEVA": "मेट्रो के मासिक पास की शर्तें समझाइए।",
+        "HI_LATN": "Metro ke masik pass ki shartein samjhaiye.",
+        "HINGLISH_LATN": "Metro monthly pass ke usage rules samjhao.",
+        "EN": "Explain usage rules for a metro monthly pass."
+      },
+      "slot_spec": {
+        "transport_mode": "metro",
+        "ticket_type": "monthly_pass"
+      },
+      "entity_roles": {},
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.ticketing_and_passes.qr_rules",
+      "semantic_family_id": "ml1.semantic.ticketing_and_passes.ticket_usage_validity",
+      "semantic_scope": "qr_rules",
+      "split": "train",
+      "intent": "ticketing_and_passes",
+      "forms": {
+        "HI_DEVA": "मेट्रो का क्यूआर टिकट इस्तेमाल करने का नियम क्या है?",
+        "HI_LATN": "Metro ka QR ticket istemal karne ka niyam kya hai?",
+        "HINGLISH_LATN": "Metro QR ticket ka validation rule batao.",
+        "EN": "Explain the validation rules for a metro QR ticket."
+      },
+      "slot_spec": {
+        "transport_mode": "metro",
+        "ticket_type": "qr_ticket"
+      },
+      "entity_roles": {},
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.ticketing_and_passes.ncmc_rules",
+      "semantic_family_id": "ml1.semantic.ticketing_and_passes.ticket_usage_validity",
+      "semantic_scope": "ncmc_rules",
+      "split": "train",
+      "intent": "ticketing_and_passes",
+      "forms": {
+        "HI_DEVA": "मेट्रो में एनसीएमसी कार्ड की वैधता के नियम चाहिए।",
+        "HI_LATN": "Metro mein NCMC card ki validity ke niyam chahiye.",
+        "HINGLISH_LATN": "NCMC card validity policy for metro explain karo.",
+        "EN": "Explain the metro validity policy for an NCMC card."
+      },
+      "slot_spec": {
+        "transport_mode": "metro",
+        "ticket_type": "ncmc_card"
+      },
+      "entity_roles": {},
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.ticketing_and_passes.smart_card_rules",
+      "semantic_family_id": "ml1.ticketing_and_passes.smart_card_rules",
+      "semantic_scope": "smart_card_rules",
+      "split": "validation",
+      "intent": "ticketing_and_passes",
+      "forms": {
+        "HI_DEVA": "मेट्रो स्मार्ट कार्ड रिचार्ज की प्रक्रिया क्या है?",
+        "HI_LATN": "Metro smart card recharge ki prakriya kya hai?",
+        "HINGLISH_LATN": "Metro smart card recharge policy ke steps chahiye.",
+        "EN": "Explain the recharge policy for a metro smart card."
+      },
+      "slot_spec": {
+        "transport_mode": "metro",
+        "ticket_type": "smart_card"
+      },
+      "entity_roles": {},
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.ticketing_and_passes.pass_application_documents",
+      "semantic_family_id": "ml1.ticketing_and_passes.pass_application_documents",
+      "semantic_scope": "pass_application_documents",
+      "split": "development_test",
+      "intent": "ticketing_and_passes",
+      "forms": {
+        "HI_DEVA": "लोकल ट्रेन का सीजन पास बनवाने के लिए कौन से कागज चाहिए?",
+        "HI_LATN": "Local train ka season pass banwane ke liye kaun se kagaz chahiye?",
+        "HINGLISH_LATN": "Suburban rail season pass application ke required documents batao.",
+        "EN": "What documents are required to apply for a suburban rail season pass?"
+      },
+      "slot_spec": {
+        "transport_mode": "suburban_rail",
+        "ticket_type": "season_pass"
+      },
+      "entity_roles": {},
+      "expected_clarification": null,
+      "constraints": [
+        "application_policy"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "application_policy"
+        ],
+        "required_modes": [
+          "suburban_rail"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.station_facilities.parking_inventory",
+      "semantic_family_id": "ml1.semantic.station_facilities.specific_facility_inventory",
+      "semantic_scope": "parking_inventory",
+      "split": "train",
+      "intent": "station_facilities",
+      "forms": {
+        "HI_DEVA": "{P} मेट्रो स्टेशन पर पार्किंग की सुविधा दर्ज है?",
+        "HI_LATN": "{P} metro station par parking ki suvidha darj hai?",
+        "HINGLISH_LATN": "Parking facility at {P} metro station available hai?",
+        "EN": "Is parking recorded at {P} metro station?"
+      },
+      "slot_spec": {
+        "transport_mode": "metro",
+        "facility_type": "parking"
+      },
+      "entity_roles": {
+        "station": "P"
+      },
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.station_facilities.restroom_inventory",
+      "semantic_family_id": "ml1.semantic.station_facilities.specific_facility_inventory",
+      "semantic_scope": "restroom_inventory",
+      "split": "train",
+      "intent": "station_facilities",
+      "forms": {
+        "HI_DEVA": "{P} मेट्रो स्टेशन में शौचालय मिलता है क्या?",
+        "HI_LATN": "{P} metro station mein shauchalay milta hai kya?",
+        "HINGLISH_LATN": "{P} metro station mein toilet facility hai kya?",
+        "EN": "Does {P} metro station have a toilet facility?"
+      },
+      "slot_spec": {
+        "transport_mode": "metro",
+        "facility_type": "restroom"
+      },
+      "entity_roles": {
+        "station": "P"
+      },
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.station_facilities.water_inventory",
+      "semantic_family_id": "ml1.semantic.station_facilities.specific_facility_inventory",
+      "semantic_scope": "water_inventory",
+      "split": "train",
+      "intent": "station_facilities",
+      "forms": {
+        "HI_DEVA": "{P} मेट्रो स्टेशन पर पीने का पानी कहाँ उपलब्ध है?",
+        "HI_LATN": "{P} metro station par peene ka pani kahan uplabdh hai?",
+        "HINGLISH_LATN": "Drinking water facility at {P} metro station ke baare mein batao.",
+        "EN": "Tell me about drinking water facilities at {P} metro station."
+      },
+      "slot_spec": {
+        "transport_mode": "metro",
+        "facility_type": "drinking_water"
+      },
+      "entity_roles": {
+        "station": "P"
+      },
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.station_facilities.general_facility_inventory",
+      "semantic_family_id": "ml1.station_facilities.general_facility_inventory",
+      "semantic_scope": "general_facility_inventory",
+      "split": "validation",
+      "intent": "station_facilities",
+      "forms": {
+        "HI_DEVA": "{P} मेट्रो स्टेशन में यात्रियों को कौन कौन सी सुविधाएँ मिलती हैं?",
+        "HI_LATN": "{P} metro station mein yatriyon ko kaun kaun si suvidhayein milti hain?",
+        "HINGLISH_LATN": "Passenger facilities at {P} metro station ka general overview do.",
+        "EN": "Give a general overview of passenger facilities at {P} metro station."
+      },
+      "slot_spec": {
+        "transport_mode": "metro"
+      },
+      "entity_roles": {
+        "station": "P"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "general_inventory"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "general_inventory"
+        ],
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.station_facilities.unprovided_facility_station",
+      "semantic_family_id": "ml1.station_facilities.unprovided_facility_station",
+      "semantic_scope": "unprovided_facility_station",
+      "split": "development_test",
+      "intent": "station_facilities",
+      "forms": {
+        "HI_DEVA": "मेट्रो स्टेशन में एटीएम उपलब्ध है क्या? स्टेशन का नाम नहीं दिया है।",
+        "HI_LATN": "Metro station mein ATM uplabdh hai kya? Station ka naam nahi diya hai.",
+        "HINGLISH_LATN": "ATM facility at a metro station chahiye, station unspecified.",
+        "EN": "Is an ATM available at an unspecified metro station?"
+      },
+      "slot_spec": {
+        "transport_mode": "metro",
+        "facility_type": "atm"
+      },
+      "entity_roles": {},
+      "expected_clarification": "missing_slot",
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.station_accessibility.lift_access",
+      "semantic_family_id": "ml1.semantic.station_accessibility.specific_accessibility_inventory",
+      "semantic_scope": "lift_access",
+      "split": "train",
+      "intent": "station_accessibility",
+      "forms": {
+        "HI_DEVA": "{P} मेट्रो स्टेशन पर लिफ्ट की सुविधा मौजूद है?",
+        "HI_LATN": "{P} metro station par lift ki suvidha maujood hai?",
+        "HINGLISH_LATN": "Lift accessibility at {P} metro station hai kya?",
+        "EN": "Is lift accessibility recorded at {P} metro station?"
+      },
+      "slot_spec": {
+        "transport_mode": "metro",
+        "accessibility_feature": "lift"
+      },
+      "entity_roles": {
+        "station": "P"
+      },
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.station_accessibility.ramp_access",
+      "semantic_family_id": "ml1.semantic.station_accessibility.specific_accessibility_inventory",
+      "semantic_scope": "ramp_access",
+      "split": "train",
+      "intent": "station_accessibility",
+      "forms": {
+        "HI_DEVA": "{P} मेट्रो स्टेशन में रैंप से अंदर जा सकते हैं?",
+        "HI_LATN": "{P} metro station mein ramp se andar ja sakte hain?",
+        "HINGLISH_LATN": "{P} metro station ramp access deta hai kya?",
+        "EN": "Is ramp access available at {P} metro station?"
+      },
+      "slot_spec": {
+        "transport_mode": "metro",
+        "accessibility_feature": "ramp"
+      },
+      "entity_roles": {
+        "station": "P"
+      },
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.station_accessibility.wheelchair_access",
+      "semantic_family_id": "ml1.semantic.station_accessibility.specific_accessibility_inventory",
+      "semantic_scope": "wheelchair_access",
+      "split": "train",
+      "intent": "station_accessibility",
+      "forms": {
+        "HI_DEVA": "व्हीलचेयर लेकर {P} मेट्रो स्टेशन पहुँच सकते हैं क्या?",
+        "HI_LATN": "Wheelchair lekar {P} metro station pahunch sakte hain kya?",
+        "HINGLISH_LATN": "Wheelchair access for {P} metro station confirm karo.",
+        "EN": "Is wheelchair access recorded at {P} metro station?"
+      },
+      "slot_spec": {
+        "transport_mode": "metro",
+        "accessibility_feature": "wheelchair"
+      },
+      "entity_roles": {
+        "station": "P"
+      },
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.station_accessibility.general_disabled_access",
+      "semantic_family_id": "ml1.station_accessibility.general_disabled_access",
+      "semantic_scope": "general_disabled_access",
+      "split": "validation",
+      "intent": "station_accessibility",
+      "forms": {
+        "HI_DEVA": "दिव्यांग यात्रियों के लिए {P} मेट्रो स्टेशन की पहुँच कैसी है?",
+        "HI_LATN": "Divyang yatriyon ke liye {P} metro station ki pahunch kaisi hai?",
+        "HINGLISH_LATN": "Accessibility overview for disabled passengers at {P} metro station do.",
+        "EN": "Give a general accessibility overview for disabled passengers at {P} metro station."
+      },
+      "slot_spec": {
+        "transport_mode": "metro"
+      },
+      "entity_roles": {
+        "station": "P"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "general_accessibility"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "general_accessibility"
+        ],
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.station_accessibility.unprovided_accessibility_station",
+      "semantic_family_id": "ml1.station_accessibility.unprovided_accessibility_station",
+      "semantic_scope": "unprovided_accessibility_station",
+      "split": "development_test",
+      "intent": "station_accessibility",
+      "forms": {
+        "HI_DEVA": "मेट्रो में एस्केलेटर की सुविधा चाहिए, पर कौन सा स्टेशन यह नहीं बताया।",
+        "HI_LATN": "Metro mein escalator ki suvidha chahiye, par kaun sa station yeh nahi bataya.",
+        "HINGLISH_LATN": "Escalator accessibility at a metro station check karo; station unspecified.",
+        "EN": "Check escalator accessibility at an unspecified metro station."
+      },
+      "slot_spec": {
+        "transport_mode": "metro",
+        "accessibility_feature": "escalator"
+      },
+      "entity_roles": {},
+      "expected_clarification": "missing_slot",
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.interchange_transfer.bus_to_metro_transfer",
+      "semantic_family_id": "ml1.semantic.interchange_transfer.station_transfer",
+      "semantic_scope": "bus_to_metro_transfer",
+      "split": "train",
+      "intent": "interchange_transfer",
+      "forms": {
+        "HI_DEVA": "{PM} पर बस से उतरकर मेट्रो में बदलने का तरीका समझाओ।",
+        "HI_LATN": "{PM} par bus se utarkar metro mein badalne ka tareeka samjhao.",
+        "HINGLISH_LATN": "Bus to metro transfer at {PM} ka process batao.",
+        "EN": "Explain the bus to metro transfer at {PM}."
+      },
+      "slot_spec": {
+        "mode_from": "bus",
+        "mode_to": "metro"
+      },
+      "entity_roles": {
+        "station": "PM"
+      },
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "bus",
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.interchange_transfer.metro_to_rail_transfer",
+      "semantic_family_id": "ml1.semantic.interchange_transfer.station_transfer",
+      "semantic_scope": "metro_to_rail_transfer",
+      "split": "train",
+      "intent": "interchange_transfer",
+      "forms": {
+        "HI_DEVA": "{OA} पर मेट्रो से लोकल ट्रेन में कैसे बदलूँ?",
+        "HI_LATN": "{OA} par metro se local train mein kaise badlun?",
+        "HINGLISH_LATN": "Metro to local train interchange at {OA} explain karo.",
+        "EN": "Explain the metro to suburban rail interchange at {OA}."
+      },
+      "slot_spec": {
+        "mode_from": "metro",
+        "mode_to": "suburban_rail"
+      },
+      "entity_roles": {
+        "station": "OA"
+      },
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "metro",
+          "suburban_rail"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.interchange_transfer.metro_line_transfer",
+      "semantic_family_id": "ml1.semantic.interchange_transfer.line_transfer",
+      "semantic_scope": "metro_line_transfer",
+      "split": "train",
+      "intent": "interchange_transfer",
+      "forms": {
+        "HI_DEVA": "{PM} पर मेट्रो की नीली लाइन से हरी लाइन में बदलने की जानकारी चाहिए।",
+        "HI_LATN": "{PM} par metro ki neeli line se hari line mein badalne ki jankari chahiye.",
+        "HINGLISH_LATN": "Blue Line to Green Line metro transfer at {PM} ke baare mein batao.",
+        "EN": "Explain the Blue Line to Green Line metro transfer at {PM}."
+      },
+      "slot_spec": {
+        "transport_mode": "metro"
+      },
+      "entity_roles": {
+        "station": "PM"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "two_lines"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "two_lines"
+        ],
+        "line_from": "Blue Line",
+        "line_to": "Green Line",
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.interchange_transfer.transfer_without_station",
+      "semantic_family_id": "ml1.interchange_transfer.transfer_without_station",
+      "semantic_scope": "transfer_without_station",
+      "split": "validation",
+      "intent": "interchange_transfer",
+      "forms": {
+        "HI_DEVA": "लोकल ट्रेन से एमआरटीएस में बदलने की प्रक्रिया क्या है? स्टेशन नहीं चुना है।",
+        "HI_LATN": "Local train se MRTS mein badalne ki prakriya kya hai? Station nahi chuna hai.",
+        "HINGLISH_LATN": "Local train to MRTS transfer explain karo, station unspecified.",
+        "EN": "Explain a suburban rail to MRTS transfer without specifying a station."
+      },
+      "slot_spec": {
+        "mode_from": "suburban_rail",
+        "mode_to": "mrts"
+      },
+      "entity_roles": {},
+      "expected_clarification": null,
+      "constraints": [
+        "unspecified_transfer_station"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "unspecified_transfer_station"
+        ],
+        "required_modes": [
+          "suburban_rail",
+          "mrts"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.interchange_transfer.walking_transfer",
+      "semantic_family_id": "ml1.interchange_transfer.walking_transfer",
+      "semantic_scope": "walking_transfer",
+      "split": "development_test",
+      "intent": "interchange_transfer",
+      "forms": {
+        "HI_DEVA": "{OA} पर बस से लोकल ट्रेन में बदलने के लिए पैदल कैसे जाऊँ?",
+        "HI_LATN": "{OA} par bus se local train mein badalne ke liye paidal kaise jaun?",
+        "HINGLISH_LATN": "Bus to local train transfer at {OA} ke liye walking directions batao.",
+        "EN": "Give walking directions for the bus to suburban rail transfer at {OA}."
+      },
+      "slot_spec": {
+        "mode_from": "bus",
+        "mode_to": "suburban_rail"
+      },
+      "entity_roles": {
+        "station": "OA"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "walking_network"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "walking_network"
+        ],
+        "required_modes": [
+          "bus",
+          "suburban_rail"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.nearest_transport.nearest_metro",
+      "semantic_family_id": "ml1.semantic.nearest_transport.anchored_nearest",
+      "semantic_scope": "nearest_metro",
+      "split": "train",
+      "intent": "nearest_transport",
+      "forms": {
+        "HI_DEVA": "{OA} के पास सबसे नजदीक मेट्रो स्टेशन बताओ।",
+        "HI_LATN": "{OA} ke paas sabse nazdeek metro station batao.",
+        "HINGLISH_LATN": "Closest metro station near {OA} ka naam chahiye.",
+        "EN": "Find the closest metro station to {OA}."
+      },
+      "slot_spec": {
+        "transport_mode": "metro"
+      },
+      "entity_roles": {
+        "landmark": "OA"
+      },
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.nearest_transport.nearest_bus_station_anchor",
+      "semantic_family_id": "ml1.semantic.nearest_transport.anchored_nearest",
+      "semantic_scope": "nearest_bus_station_anchor",
+      "split": "train",
+      "intent": "nearest_transport",
+      "forms": {
+        "HI_DEVA": "{PM} को आधार मानकर सबसे पास बस स्टॉप कौन सा है?",
+        "HI_LATN": "{PM} ko aadhar maankar sabse paas bus stop kaun sa hai?",
+        "HINGLISH_LATN": "Reference {PM} hai, closest bus stop batao.",
+        "EN": "Find the nearest bus stop using {PM} as the reference point."
+      },
+      "slot_spec": {
+        "transport_mode": "bus"
+      },
+      "entity_roles": {
+        "landmark": "PM"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "anchor_mode_is_not_target"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "anchor_mode_is_not_target"
+        ],
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.nearest_transport.nearest_mrts",
+      "semantic_family_id": "ml1.semantic.nearest_transport.anchored_nearest",
+      "semantic_scope": "nearest_mrts",
+      "split": "train",
+      "intent": "nearest_transport",
+      "forms": {
+        "HI_DEVA": "{OA} से सबसे पास एमआरटीएस स्टेशन ढूँढो।",
+        "HI_LATN": "{OA} se sabse paas MRTS station dhoondho.",
+        "HINGLISH_LATN": "Closest MRTS station relative to {OA} find karo.",
+        "EN": "Locate the closest MRTS station to {OA}."
+      },
+      "slot_spec": {
+        "transport_mode": "mrts"
+      },
+      "entity_roles": {
+        "landmark": "OA"
+      },
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "mrts"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.nearest_transport.unprovided_nearest_anchor",
+      "semantic_family_id": "ml1.nearest_transport.unprovided_nearest_anchor",
+      "semantic_scope": "unprovided_nearest_anchor",
+      "split": "validation",
+      "intent": "nearest_transport",
+      "forms": {
+        "HI_DEVA": "नजदीकी लोकल ट्रेन स्टेशन ढूँढना है, मैंने जगह नहीं बताई है।",
+        "HI_LATN": "Nazdeeki local train station dhoondhna hai, maine jagah nahi batayi hai.",
+        "HINGLISH_LATN": "Find nearest local train station, reference location missing hai.",
+        "EN": "Find the nearest suburban rail station without a reference location."
+      },
+      "slot_spec": {
+        "transport_mode": "suburban_rail"
+      },
+      "entity_roles": {},
+      "expected_clarification": "missing_slot",
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [],
+        "required_modes": [
+          "suburban_rail"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.nearest_transport.walking_nearest_metric",
+      "semantic_family_id": "ml1.nearest_transport.walking_nearest_metric",
+      "semantic_scope": "walking_nearest_metric",
+      "split": "development_test",
+      "intent": "nearest_transport",
+      "forms": {
+        "HI_DEVA": "{OA} से पैदल दूरी के हिसाब से सबसे नजदीक बस स्टॉप कौन सा है?",
+        "HI_LATN": "{OA} se paidal doori ke hisaab se sabse nazdeek bus stop kaun sa hai?",
+        "HINGLISH_LATN": "Nearest bus stop from {OA} by walking distance, straight line nahi.",
+        "EN": "Find the nearest bus stop to {OA} by walking distance, excluding straight-line distance."
+      },
+      "slot_spec": {
+        "transport_mode": "bus"
+      },
+      "entity_roles": {
+        "landmark": "OA"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "walking_network",
+        "not_geometric"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "walking_network",
+          "not_geometric"
+        ],
+        "distance_metric": "walking_network",
+        "excluded_distance_metric": "straight_line",
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.realtime_status_query.vehicle_location",
+      "semantic_family_id": "ml1.realtime_status_query.vehicle_location",
+      "semantic_scope": "vehicle_location",
+      "split": "train",
+      "intent": "realtime_status_query",
+      "forms": {
+        "HI_DEVA": "बस {R} इस समय कहाँ पहुँच गई है?",
+        "HI_LATN": "Bus {R} is samay kahan pahunch gayi hai?",
+        "HINGLISH_LATN": "Bus {R} ki live location abhi kya hai?",
+        "EN": "Where is bus {R} right now?"
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "route_number": "{R}"
+      },
+      "entity_roles": {},
+      "expected_clarification": null,
+      "constraints": [
+        "realtime_location"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "realtime_location"
+        ],
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.realtime_status_query.live_delay",
+      "semantic_family_id": "ml1.realtime_status_query.live_delay",
+      "semantic_scope": "live_delay",
+      "split": "train",
+      "intent": "realtime_status_query",
+      "forms": {
+        "HI_DEVA": "{P} पर मेट्रो अभी कितनी देर से चल रही है?",
+        "HI_LATN": "{P} par metro abhi kitni der se chal rahi hai?",
+        "HINGLISH_LATN": "Metro at {P} ka current delay kitna hai?",
+        "EN": "What is the current metro delay at {P}?"
+      },
+      "slot_spec": {
+        "transport_mode": "metro"
+      },
+      "entity_roles": {
+        "station": "P"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "realtime_delay"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "realtime_delay"
+        ],
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.realtime_status_query.live_crowding",
+      "semantic_family_id": "ml1.realtime_status_query.live_crowding",
+      "semantic_scope": "live_crowding",
+      "split": "train",
+      "intent": "realtime_status_query",
+      "forms": {
+        "HI_DEVA": "अभी {O} की लोकल ट्रेन में भीड़ कितनी है?",
+        "HI_LATN": "Abhi {O} ki local train mein bheed kitni hai?",
+        "HINGLISH_LATN": "Live crowd level in local train at {O} batao.",
+        "EN": "What is the live crowd level on suburban rail at {O}?"
+      },
+      "slot_spec": {
+        "transport_mode": "suburban_rail"
+      },
+      "entity_roles": {
+        "station": "O"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "realtime_crowding"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "realtime_crowding"
+        ],
+        "required_modes": [
+          "suburban_rail"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.realtime_status_query.live_disruption",
+      "semantic_family_id": "ml1.realtime_status_query.live_disruption",
+      "semantic_scope": "live_disruption",
+      "split": "validation",
+      "intent": "realtime_status_query",
+      "forms": {
+        "HI_DEVA": "{P} की मेट्रो सेवा आज फिलहाल बाधित है क्या?",
+        "HI_LATN": "{P} ki metro seva aaj filhaal badhit hai kya?",
+        "HINGLISH_LATN": "Metro at {P} currently disrupted hai kya today?",
+        "EN": "Is metro service at {P} currently disrupted today?"
+      },
+      "slot_spec": {
+        "transport_mode": "metro",
+        "temporal_relative": "today"
+      },
+      "entity_roles": {
+        "station": "P"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "realtime_disruption"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "realtime_disruption"
+        ],
+        "required_modes": [
+          "metro"
+        ]
+      },
+      "slot_overrides_by_language": {
+        "HI_DEVA": {
+          "temporal_relative": "आज"
+        },
+        "HI_LATN": {
+          "temporal_relative": "aaj"
+        },
+        "HINGLISH_LATN": {
+          "temporal_relative": "today"
+        },
+        "EN": {
+          "temporal_relative": "today"
+        }
+      },
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.realtime_status_query.live_arrival",
+      "semantic_family_id": "ml1.realtime_status_query.live_arrival",
+      "semantic_scope": "live_arrival",
+      "split": "development_test",
+      "intent": "realtime_status_query",
+      "forms": {
+        "HI_DEVA": "{S} पर बस {R} अभी कितने मिनट में आने वाली है?",
+        "HI_LATN": "{S} par bus {R} abhi kitne minute mein aane wali hai?",
+        "HINGLISH_LATN": "Bus {R} live arrival countdown at {S} chahiye.",
+        "EN": "Give the live arrival countdown for bus {R} at {S}."
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "route_number": "{R}"
+      },
+      "entity_roles": {
+        "station": "S"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "realtime_eta"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "realtime_eta"
+        ],
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.out_of_scope.personal_transaction",
+      "semantic_family_id": "ml1.out_of_scope.personal_transaction",
+      "semantic_scope": "personal_transaction",
+      "split": "train",
+      "intent": "out_of_scope",
+      "forms": {
+        "HI_DEVA": "मेरे खाते से {N} रुपये दूसरे खाते में भेज दो।",
+        "HI_LATN": "Mere khate se {N} rupaye doosre khate mein bhej do.",
+        "HINGLISH_LATN": "Mere bank account se {N} rupees transfer kar do.",
+        "EN": "Send {N} rupees from my bank account to another account."
+      },
+      "slot_spec": {},
+      "entity_roles": {},
+      "expected_clarification": null,
+      "constraints": [
+        "transaction"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "transaction"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.out_of_scope.household_question",
+      "semantic_family_id": "ml1.out_of_scope.household_question",
+      "semantic_scope": "household_question",
+      "split": "train",
+      "intent": "out_of_scope",
+      "forms": {
+        "HI_DEVA": "{N} लीटर पानी में कपड़े धोने के लिए कितना साबुन डालूँ?",
+        "HI_LATN": "{N} litre pani mein kapde dhone ke liye kitna sabun dalun?",
+        "HINGLISH_LATN": "For {N} litres of laundry water, detergent kitna use karun?",
+        "EN": "How much detergent should I use with {N} litres of laundry water?"
+      },
+      "slot_spec": {},
+      "entity_roles": {},
+      "expected_clarification": null,
+      "constraints": [
+        "nontransport"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "nontransport"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.out_of_scope.transit_landmark_food",
+      "semantic_family_id": "ml1.out_of_scope.transit_landmark_food",
+      "semantic_scope": "transit_landmark_food",
+      "split": "train",
+      "intent": "out_of_scope",
+      "forms": {
+        "HI_DEVA": "{P} स्टेशन के पास {N} लोगों के लिए मेरा रेस्तराँ आरक्षण कर दो।",
+        "HI_LATN": "{P} station ke paas {N} logon ke liye mera restaurant reservation kar do.",
+        "HINGLISH_LATN": "Mere liye {P} station ke paas {N} logon ka restaurant book karo.",
+        "EN": "Book a restaurant near {P} station for {N} people."
+      },
+      "slot_spec": {},
+      "entity_roles": {},
+      "expected_clarification": null,
+      "constraints": [
+        "transaction",
+        "transit_distractor"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "transaction",
+          "transit_distractor"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.out_of_scope.other_city_transport",
+      "semantic_family_id": "ml1.out_of_scope.other_city_transport",
+      "semantic_scope": "other_city_transport",
+      "split": "validation",
+      "intent": "out_of_scope",
+      "forms": {
+        "HI_DEVA": "दिल्ली में {N} यात्रियों के मेट्रो टिकट खरीद दो।",
+        "HI_LATN": "Dilli mein {N} yatriyon ke metro ticket khareed do.",
+        "HINGLISH_LATN": "Delhi metro ke {N} passengers ke tickets buy kar do.",
+        "EN": "Buy metro tickets in Delhi for {N} passengers."
+      },
+      "slot_spec": {},
+      "entity_roles": {},
+      "expected_clarification": null,
+      "constraints": [
+        "other_geography",
+        "transaction"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "other_geography",
+          "transaction"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.out_of_scope.computer_repair",
+      "semantic_family_id": "ml1.out_of_scope.computer_repair",
+      "semantic_scope": "computer_repair",
+      "split": "development_test",
+      "intent": "out_of_scope",
+      "forms": {
+        "HI_DEVA": "मेरे लैपटॉप की स्क्रीन पर {N} काली रेखाएँ हैं, ठीक करने का तरीका बताओ।",
+        "HI_LATN": "Mere laptop ki screen par {N} kali rekhaein hain, theek karne ka tareeka batao.",
+        "HINGLISH_LATN": "Laptop display mein {N} black lines hain, repair advice chahiye.",
+        "EN": "My laptop display has {N} black lines; explain how to repair it."
+      },
+      "slot_spec": {},
+      "entity_roles": {},
+      "expected_clarification": null,
+      "constraints": [
+        "nontransport"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "nontransport"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.ambiguous.independent_compound_goals",
+      "semantic_family_id": "ml1.ambiguous.independent_compound_goals",
+      "semantic_scope": "independent_compound_goals",
+      "split": "train",
+      "intent": null,
+      "forms": {
+        "HI_DEVA": "{P} पर मेट्रो पार्किंग बताओ और बस के {NHI} स्टेज का किराया भी बताओ।",
+        "HI_LATN": "{P} par metro parking batao aur bus ke {NR} stage ka kiraya bhi batao.",
+        "HINGLISH_LATN": "{P} metro station ki parking batao aur bus stage {N} ka fare bhi.",
+        "EN": "Tell me parking at {P} metro station and bus fare for stage {N}."
+      },
+      "slot_spec": {},
+      "entity_roles": {},
+      "expected_clarification": "multiple_goals",
+      "constraints": [
+        "station_facilities",
+        "fare_calculation"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": false,
+      "constraint_spec": {
+        "tags": [
+          "station_facilities",
+          "fare_calculation"
+        ],
+        "goals": [
+          {
+            "intent": "station_facilities",
+            "slots": {
+              "transport_mode": "metro",
+              "facility_type": "parking"
+            },
+            "entities": {
+              "station": "P"
+            }
+          },
+          {
+            "intent": "fare_calculation",
+            "slots": {
+              "transport_mode": "bus",
+              "stage_number": "{N}"
+            }
+          }
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.ambiguous.intent_unspecified",
+      "semantic_family_id": "ml1.ambiguous.intent_unspecified",
+      "semantic_scope": "intent_unspecified",
+      "split": "validation",
+      "intent": null,
+      "forms": {
+        "HI_DEVA": "{O} से {D} के बारे में जानकारी चाहिए।",
+        "HI_LATN": "{O} se {D} ke baare mein jankari chahiye.",
+        "HINGLISH_LATN": "Information about {O} to {D} chahiye.",
+        "EN": "I need information about {O} to {D}."
+      },
+      "slot_spec": {},
+      "entity_roles": {},
+      "expected_clarification": "intent_ambiguity",
+      "constraints": [
+        "underspecified_goal"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": false,
+      "constraint_spec": {
+        "tags": [
+          "underspecified_goal"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.ambiguous.independent_membership_and_timing",
+      "semantic_family_id": "ml1.ambiguous.independent_membership_and_timing",
+      "semantic_scope": "independent_membership_and_timing",
+      "split": "development_test",
+      "intent": null,
+      "forms": {
+        "HI_DEVA": "बस {R} {S} पर रुकती है क्या और वहाँ पहली बस कब है?",
+        "HI_LATN": "Bus {R} {S} par rukti hai kya aur wahan pehli bus kab hai?",
+        "HINGLISH_LATN": "Bus {R} {S} par rukti hai kya, aur first service kab hai?",
+        "EN": "Does bus {R} stop at {S}, and when is its first service there?"
+      },
+      "slot_spec": {},
+      "entity_roles": {},
+      "expected_clarification": "multiple_goals",
+      "constraints": [
+        "route_stop_membership",
+        "first_and_last_service"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": false,
+      "constraint_spec": {
+        "tags": [
+          "route_stop_membership",
+          "first_and_last_service"
+        ],
+        "goals": [
+          {
+            "intent": "route_stop_membership",
+            "slots": {
+              "transport_mode": "bus",
+              "route_number": "{R}"
+            },
+            "entities": {
+              "stop": "S"
+            }
+          },
+          {
+            "intent": "first_and_last_service",
+            "slots": {
+              "transport_mode": "bus",
+              "route_number": "{R}",
+              "timing_type": "first"
+            },
+            "entities": {
+              "station": "S"
+            }
+          }
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.point_to_point_route.unforced_mode_pair",
+      "semantic_family_id": "ml1.point_to_point_route.unforced_mode_pair",
+      "semantic_scope": "unforced_mode_pair",
+      "split": "train",
+      "intent": "point_to_point_route",
+      "forms": {
+        "HI_DEVA": "{O} से {D} जाने का रास्ता चाहिए, कोई साधन नहीं चुना है।",
+        "HI_LATN": "{O} se {D} jaane ka raasta chahiye, koi saadhan nahi chuna hai.",
+        "HINGLISH_LATN": "{O} to {D} ka route chahiye with no mode selected.",
+        "EN": "Plan travel from {O} to {D}, with no transport mode selected."
+      },
+      "slot_spec": {},
+      "entity_roles": {
+        "origin": "O",
+        "destination": "D"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "omitted_mode"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "omitted_mode"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {
+        "1": {
+          "origin": [
+            "BUS_261716087",
+            "RAIL_WALAJABAD"
+          ]
+        }
+      }
+    },
+    {
+      "family_id": "ml1.scheduled_departure.relative_day_ambiguity",
+      "semantic_family_id": "ml1.scheduled_departure.relative_day_ambiguity",
+      "semantic_scope": "relative_day_ambiguity",
+      "split": "train",
+      "intent": "scheduled_departure",
+      "forms": {
+        "HI_DEVA": "{S} पर बस {R} का कल का प्रकाशित समय?",
+        "HI_LATN": "{S} par bus {R} ka kal ka prakashit samay?",
+        "HINGLISH_LATN": "Bus {R} at {S} ka kal ka published schedule?"
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "route_number": "{R}"
+      },
+      "entity_roles": {
+        "station": "S"
+      },
+      "expected_clarification": "temporal_ambiguity",
+      "constraints": [
+        "ambiguous_relative_day"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "ambiguous_relative_day"
+        ],
+        "relative_day": "ambiguous_kal"
+      },
+      "slot_overrides_by_language": {
+        "HI_DEVA": {
+          "temporal_relative": "कल"
+        },
+        "HI_LATN": {
+          "temporal_relative": "kal"
+        },
+        "HINGLISH_LATN": {
+          "temporal_relative": "kal"
+        }
+      },
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.scheduled_departure.relative_day_explicit",
+      "semantic_family_id": "ml1.scheduled_departure.relative_day_explicit",
+      "semantic_scope": "relative_day_explicit",
+      "split": "train",
+      "intent": "scheduled_departure",
+      "forms": {
+        "HI_DEVA": "{S} से बस {R} आने वाले कल का प्रकाशित समय दिखाओ।",
+        "HI_LATN": "{S} se bus {R} aane wale kal ka prakashit samay dikhao.",
+        "HINGLISH_LATN": "Tomorrow ke published departures of bus {R} at {S} dikhao.",
+        "EN": "Show tomorrow published departures of bus {R} at {S}."
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "route_number": "{R}",
+        "temporal_relative": "tomorrow"
+      },
+      "entity_roles": {
+        "station": "S"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "relative_day"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "relative_day"
+        ],
+        "relative_day": "tomorrow"
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.scheduled_departure.previous_day_records",
+      "semantic_family_id": "ml1.scheduled_departure.previous_day_records",
+      "semantic_scope": "previous_day_records",
+      "split": "train",
+      "intent": "scheduled_departure",
+      "forms": {
+        "HI_DEVA": "{S} से बस {R} के बीते कल का प्रकाशित समय चाहिए।",
+        "HI_LATN": "{S} se bus {R} ke beete kal ka prakashit samay chahiye.",
+        "HINGLISH_LATN": "Yesterday ke published departures for bus {R} at {S} chahiye.",
+        "EN": "Show yesterday published departures for bus {R} at {S}."
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "route_number": "{R}",
+        "temporal_relative": "yesterday"
+      },
+      "entity_roles": {
+        "station": "S"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "relative_day"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "relative_day"
+        ],
+        "relative_day": "yesterday"
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.nearest_transport.ambiguous_plain_anchor",
+      "semantic_family_id": "ml1.nearest_transport.ambiguous_plain_anchor",
+      "semantic_scope": "ambiguous_plain_anchor",
+      "split": "train",
+      "intent": "nearest_transport",
+      "forms": {
+        "HI_DEVA": "{A} के पास सबसे नजदीक बस स्टॉप ढूँढिए।",
+        "HI_LATN": "{A} ke paas sabse nazdeek bus stop dhoondhiye.",
+        "HINGLISH_LATN": "Closest bus stop near {A} bataiye.",
+        "EN": "Find the closest bus stop to {A}."
+      },
+      "slot_spec": {
+        "transport_mode": "bus"
+      },
+      "entity_roles": {
+        "landmark": "A"
+      },
+      "expected_clarification": "entity_ambiguity",
+      "constraints": [
+        "ambiguous_anchor"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "ambiguous_anchor"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.fare_calculation.night_stage_tariff",
+      "semantic_family_id": "ml1.semantic.fare_calculation.stage_tariff",
+      "semantic_scope": "night_stage_tariff",
+      "split": "train",
+      "intent": "fare_calculation",
+      "forms": {
+        "HI_DEVA": "रात्रि बस में {NHI} स्टेज के कितने पैसे लगेंगे?",
+        "HI_LATN": "Raat ki bus mein {NR} stage ke kitne paise lagenge?",
+        "HINGLISH_LATN": "Night service bus mein stage {N} ka fare batao.",
+        "EN": "Give the Night service bus fare for stage {N}."
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "service_type": "Night Services",
+        "stage_number": "{N}"
+      },
+      "entity_roles": {},
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": []
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.fare_calculation.ac_stage_tariff",
+      "semantic_family_id": "ml1.semantic.fare_calculation.stage_tariff",
+      "semantic_scope": "ac_stage_tariff",
+      "split": "train",
+      "intent": "fare_calculation",
+      "forms": {
+        "HI_DEVA": "वातानुकूलित बस में {NHI} स्टेज का किराया चाहिए।",
+        "HI_LATN": "Vatanukoolit bus mein {NR} stage ka kiraya chahiye.",
+        "HINGLISH_LATN": "Air conditioned bus fare for {NEN} stages batao.",
+        "EN": "Give the Air Conditioned bus fare for {NEN} stages."
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "service_type": "Air Conditioned Services",
+        "stage_number": "{N}"
+      },
+      "entity_roles": {},
+      "expected_clarification": null,
+      "constraints": [],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": []
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.point_to_point_route.cheap_route_preference",
+      "semantic_family_id": "ml1.semantic.point_to_point_route.optimization_journey",
+      "semantic_scope": "cheap_route_preference",
+      "split": "train",
+      "intent": "point_to_point_route",
+      "forms": {
+        "HI_DEVA": "सबसे सस्ता लोकल ट्रेन रास्ता {O} से {D} तक बताओ।",
+        "HI_LATN": "Sabse sasta local train raasta {O} se {D} tak batao.",
+        "HINGLISH_LATN": "Cheapest local train route from {O} to {D} choose karo.",
+        "EN": "Choose the cheapest suburban rail route from {O} to {D}."
+      },
+      "slot_spec": {
+        "transport_mode": "suburban_rail",
+        "preference": "cheapest"
+      },
+      "entity_roles": {
+        "origin": "O",
+        "destination": "D"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "optimization"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "optimization"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.point_to_point_route.least_change_route_preference",
+      "semantic_family_id": "ml1.semantic.point_to_point_route.optimization_journey",
+      "semantic_scope": "least_change_route_preference",
+      "split": "train",
+      "intent": "point_to_point_route",
+      "forms": {
+        "HI_DEVA": "लोकल ट्रेन में {O} से {D} तक कम से कम बदलाव वाला रास्ता ढूँढो।",
+        "HI_LATN": "Local train mein {O} se {D} tak kam se kam badlav wala raasta dhoondho.",
+        "HINGLISH_LATN": "Local train {O} to {D}: fewest changes wala route batao.",
+        "EN": "Find the suburban rail route from {O} to {D} with the fewest changes."
+      },
+      "slot_spec": {
+        "transport_mode": "suburban_rail",
+        "preference": "least_transfers"
+      },
+      "entity_roles": {
+        "origin": "O",
+        "destination": "D"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "optimization"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "optimization"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.scheduled_departure.afternoon_departures",
+      "semantic_family_id": "ml1.semantic.scheduled_departure.station_route_departures",
+      "semantic_scope": "afternoon_departures",
+      "split": "train",
+      "intent": "scheduled_departure",
+      "forms": {
+        "HI_DEVA": "{S} से बस {R} दोपहर दो बजे के बाद कब निकलती है?",
+        "HI_LATN": "{S} se bus {R} dopahar do baje ke baad kab nikalti hai?",
+        "HINGLISH_LATN": "Bus {R} from {S} ki departures after dopahar do baje dikhao.",
+        "EN": "List bus {R} departures from {S} after two PM."
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "route_number": "{R}",
+        "time": "14:00:00"
+      },
+      "entity_roles": {
+        "station": "S"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "word_clock"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "word_clock"
+        ],
+        "clock": "14:00:00",
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.scheduled_departure.evening_departures",
+      "semantic_family_id": "ml1.semantic.scheduled_departure.station_route_departures",
+      "semantic_scope": "evening_departures",
+      "split": "train",
+      "intent": "scheduled_departure",
+      "forms": {
+        "HI_DEVA": "{S} पर बस {R} शाम पाँच बजे के बाद कब है?",
+        "HI_LATN": "{S} par bus {R} shaam paanch baje ke baad kab hai?",
+        "HINGLISH_LATN": "Bus {R} at {S} ki departures after shaam paanch baje batao.",
+        "EN": "List bus {R} departures at {S} after five PM."
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "route_number": "{R}",
+        "time": "17:00:00"
+      },
+      "entity_roles": {
+        "station": "S"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "word_clock"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "word_clock"
+        ],
+        "clock": "17:00:00",
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    },
+    {
+      "family_id": "ml1.scheduled_departure.night_departures",
+      "semantic_family_id": "ml1.semantic.scheduled_departure.station_route_departures",
+      "semantic_scope": "night_departures",
+      "split": "train",
+      "intent": "scheduled_departure",
+      "forms": {
+        "HI_DEVA": "{S} से बस {R} रात दस बजे के बाद कब निकलती है?",
+        "HI_LATN": "{S} se bus {R} raat das baje ke baad kab nikalti hai?",
+        "HINGLISH_LATN": "Bus {R} from {S} ki departures after raat das baje dikhao.",
+        "EN": "List bus {R} departures from {S} after ten PM."
+      },
+      "slot_spec": {
+        "transport_mode": "bus",
+        "route_number": "{R}",
+        "time": "22:00:00"
+      },
+      "entity_roles": {
+        "station": "S"
+      },
+      "expected_clarification": null,
+      "constraints": [
+        "word_clock"
+      ],
+      "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+      "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples",
+      "classifier_applicable": true,
+      "constraint_spec": {
+        "tags": [
+          "word_clock"
+        ],
+        "clock": "22:00:00",
+        "required_modes": [
+          "bus"
+        ]
+      },
+      "slot_overrides_by_language": {},
+      "entity_candidate_overrides": {}
+    }
+  ],
+  "values": [
+    {
+      "canonical_entities": {
+        "O": {
+          "canonical_name": "Pattaravakkam",
+          "english_surface": "Pattaravakkam",
+          "hindi_transliteration": "पट्टरवाक्कम",
+          "canonical_id": "RAIL_PATTARAVAKKAM",
+          "canonical_ids": [
+            "RAIL_PATTARAVAKKAM"
+          ]
+        },
+        "D": {
+          "canonical_name": "Chennai Beach",
+          "english_surface": "Chennai Beach",
+          "hindi_transliteration": "चेन्नई बीच",
+          "canonical_id": "RAIL_CHENNAI_BEACH",
+          "canonical_ids": [
+            "RAIL_CHENNAI_BEACH"
+          ]
+        },
+        "V": {
+          "canonical_name": "Padi",
+          "english_surface": "Padi",
+          "hindi_transliteration": "पाडी",
+          "canonical_id": "RAIL_PADI",
+          "canonical_ids": [
+            "RAIL_PADI"
+          ]
+        },
+        "P": {
+          "canonical_name": "Nehru Park",
+          "english_surface": "Nehru Park",
+          "hindi_transliteration": "नेहरू पार्क",
+          "canonical_id": "METRO_NEHRU_PARK",
+          "canonical_ids": [
+            "METRO_NEHRU_PARK"
+          ]
+        },
+        "Q": {
+          "canonical_name": "Teynampet",
+          "english_surface": "Teynampet",
+          "hindi_transliteration": "तेयनामपेट",
+          "canonical_id": "METRO_TEYNAMPET",
+          "canonical_ids": [
+            "METRO_TEYNAMPET"
+          ]
+        },
+        "S": {
+          "canonical_name": "Adyar",
+          "english_surface": "Adyar",
+          "hindi_transliteration": "अडयार",
+          "canonical_id": "BUS_5631301421",
+          "canonical_ids": [
+            "BUS_5631301421"
+          ]
+        },
+        "OA": {
+          "canonical_name": "Pattaravakkam",
+          "english_surface": "Pattaravakkam suburban railway station",
+          "hindi_transliteration": "पट्टरवाक्कम उपनगरीय रेल स्टेशन",
+          "canonical_id": "RAIL_PATTARAVAKKAM",
+          "canonical_ids": [
+            "RAIL_PATTARAVAKKAM"
+          ]
+        },
+        "DA": {
+          "canonical_name": "Chennai Beach",
+          "english_surface": "Chennai Beach suburban railway station",
+          "hindi_transliteration": "चेन्नई बीच उपनगरीय रेल स्टेशन",
+          "canonical_id": "RAIL_CHENNAI_BEACH",
+          "canonical_ids": [
+            "RAIL_CHENNAI_BEACH"
+          ]
+        },
+        "VA": {
+          "canonical_name": "Padi",
+          "english_surface": "Padi suburban railway station",
+          "hindi_transliteration": "पाडी उपनगरीय रेल स्टेशन",
+          "canonical_id": "RAIL_PADI",
+          "canonical_ids": [
+            "RAIL_PADI"
+          ]
+        },
+        "PM": {
+          "canonical_name": "Nehru Park",
+          "english_surface": "Nehru Park metro station",
+          "hindi_transliteration": "नेहरू पार्क मेट्रो स्टेशन",
+          "canonical_id": "METRO_NEHRU_PARK",
+          "canonical_ids": [
+            "METRO_NEHRU_PARK"
+          ]
+        },
+        "QM": {
+          "canonical_name": "Teynampet",
+          "english_surface": "Teynampet metro station",
+          "hindi_transliteration": "तेयनामपेट मेट्रो स्टेशन",
+          "canonical_id": "METRO_TEYNAMPET",
+          "canonical_ids": [
+            "METRO_TEYNAMPET"
+          ]
+        },
+        "PB": {
+          "canonical_name": "Nehru Park",
+          "english_surface": "Nehru Park",
+          "hindi_transliteration": "नेहरू पार्क",
+          "canonical_id": "BUS_CMRL_G03",
+          "canonical_ids": [
+            "BUS_5329907490",
+            "BUS_CMRL_G03"
+          ]
+        },
+        "QB": {
+          "canonical_name": "Teynampet",
+          "english_surface": "Teynampet",
+          "hindi_transliteration": "तेयनामपेट",
+          "canonical_id": "BUS_CMRL_18",
+          "canonical_ids": [
+            "BUS_CMRL_18"
+          ]
+        },
+        "A": {
+          "canonical_name": "Walajabad",
+          "english_surface": "Walajabad",
+          "hindi_transliteration": "वालाजाबाद",
+          "canonical_id": "RAIL_WALAJABAD",
+          "canonical_ids": [
+            "BUS_261716087",
+            "RAIL_WALAJABAD"
+          ]
+        }
+      },
+      "parameters": {
+        "R": "27D",
+        "R2": "29C",
+        "DATE": "2026-11-07",
+        "N": 6,
+        "NHI": "छह",
+        "NR": "chhe",
+        "NEN": "six",
+        "ORDHI": "छठे",
+        "ORDR": "chhathe",
+        "AMBIG": {
+          "PB": [
+            "BUS_5329907490",
+            "BUS_CMRL_G03"
+          ],
+          "A": [
+            "BUS_261716087",
+            "RAIL_WALAJABAD"
+          ]
+        }
+      }
+    },
+    {
+      "canonical_entities": {
+        "O": {
+          "canonical_name": "Walajabad",
+          "english_surface": "Walajabad",
+          "hindi_transliteration": "वालाजाबाद",
+          "canonical_id": "RAIL_WALAJABAD",
+          "canonical_ids": [
+            "RAIL_WALAJABAD"
+          ]
+        },
+        "D": {
+          "canonical_name": "Nathapettai",
+          "english_surface": "Nathapettai",
+          "hindi_transliteration": "नाथपेट्टै",
+          "canonical_id": "RAIL_NATHAPETTAI",
+          "canonical_ids": [
+            "RAIL_NATHAPETTAI"
+          ]
+        },
+        "V": {
+          "canonical_name": "Pattaravakkam",
+          "english_surface": "Pattaravakkam",
+          "hindi_transliteration": "पट्टरवाक्कम",
+          "canonical_id": "RAIL_PATTARAVAKKAM",
+          "canonical_ids": [
+            "RAIL_PATTARAVAKKAM"
+          ]
+        },
+        "P": {
+          "canonical_name": "Government Estate",
+          "english_surface": "Government Estate",
+          "hindi_transliteration": "गवर्नमेंट एस्टेट",
+          "canonical_id": "METRO_GOVERNMENT_ESTATE",
+          "canonical_ids": [
+            "METRO_GOVERNMENT_ESTATE"
+          ]
+        },
+        "Q": {
+          "canonical_name": "Highcourt",
+          "english_surface": "Highcourt",
+          "hindi_transliteration": "हाईकोर्ट",
+          "canonical_id": "METRO_HIGHCOURT",
+          "canonical_ids": [
+            "METRO_HIGHCOURT"
+          ]
+        },
+        "S": {
+          "canonical_name": "Adyar",
+          "english_surface": "Adyar",
+          "hindi_transliteration": "अडयार",
+          "canonical_id": "BUS_5631301421",
+          "canonical_ids": [
+            "BUS_5631301421"
+          ]
+        },
+        "OA": {
+          "canonical_name": "Walajabad",
+          "english_surface": "Walajabad suburban railway station",
+          "hindi_transliteration": "वालाजाबाद उपनगरीय रेल स्टेशन",
+          "canonical_id": "RAIL_WALAJABAD",
+          "canonical_ids": [
+            "RAIL_WALAJABAD"
+          ]
+        },
+        "DA": {
+          "canonical_name": "Nathapettai",
+          "english_surface": "Nathapettai suburban railway station",
+          "hindi_transliteration": "नाथपेट्टै उपनगरीय रेल स्टेशन",
+          "canonical_id": "RAIL_NATHAPETTAI",
+          "canonical_ids": [
+            "RAIL_NATHAPETTAI"
+          ]
+        },
+        "VA": {
+          "canonical_name": "Pattaravakkam",
+          "english_surface": "Pattaravakkam suburban railway station",
+          "hindi_transliteration": "पट्टरवाक्कम उपनगरीय रेल स्टेशन",
+          "canonical_id": "RAIL_PATTARAVAKKAM",
+          "canonical_ids": [
+            "RAIL_PATTARAVAKKAM"
+          ]
+        },
+        "PM": {
+          "canonical_name": "Government Estate",
+          "english_surface": "Government Estate metro station",
+          "hindi_transliteration": "गवर्नमेंट एस्टेट मेट्रो स्टेशन",
+          "canonical_id": "METRO_GOVERNMENT_ESTATE",
+          "canonical_ids": [
+            "METRO_GOVERNMENT_ESTATE"
+          ]
+        },
+        "QM": {
+          "canonical_name": "Highcourt",
+          "english_surface": "Highcourt metro station",
+          "hindi_transliteration": "हाईकोर्ट मेट्रो स्टेशन",
+          "canonical_id": "METRO_HIGHCOURT",
+          "canonical_ids": [
+            "METRO_HIGHCOURT"
+          ]
+        },
+        "PB": {
+          "canonical_name": "Government Estate",
+          "english_surface": "Government Estate",
+          "hindi_transliteration": "गवर्नमेंट एस्टेट",
+          "canonical_id": "BUS_CMRL_14",
+          "canonical_ids": [
+            "BUS_CMRL_14"
+          ]
+        },
+        "QB": {
+          "canonical_name": "Highcourt",
+          "english_surface": "Highcourt",
+          "hindi_transliteration": "हाईकोर्ट",
+          "canonical_id": "METRO_HIGHCOURT",
+          "canonical_ids": [
+            "METRO_HIGHCOURT"
+          ]
+        },
+        "A": {
+          "canonical_name": "Nehru Park",
+          "english_surface": "Nehru Park",
+          "hindi_transliteration": "नेहरू पार्क",
+          "canonical_id": "METRO_NEHRU_PARK",
+          "canonical_ids": [
+            "BUS_5329907490",
+            "BUS_CMRL_G03",
+            "METRO_NEHRU_PARK"
+          ]
+        }
+      },
+      "parameters": {
+        "R": "54",
+        "R2": "18D",
+        "DATE": "2026-12-09",
+        "N": 9,
+        "NHI": "नौ",
+        "NR": "nau",
+        "NEN": "nine",
+        "ORDHI": "नौवें",
+        "ORDR": "nauven",
+        "AMBIG": {
+          "PB": [
+            "BUS_CMRL_14"
+          ],
+          "A": [
+            "BUS_5329907490",
+            "BUS_CMRL_G03",
+            "METRO_NEHRU_PARK"
+          ]
+        }
+      }
+    }
+  ]
+}

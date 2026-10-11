@@ -1,0 +1,4234 @@
+[
+  {
+    "id": "ml1.point_to_point_route.unprovided_origin.HI_DEVA.0",
+    "family_id": "ml1.point_to_point_route.unprovided_origin",
+    "semantic_family_id": "ml1.point_to_point_route.unprovided_origin",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "लोकल ट्रेन से चेन्नई बीच पहुँचने का रास्ता बताइए, शुरुआती जगह अभी नहीं दी है।",
+    "intent": "point_to_point_route",
+    "slots": {
+      "transport_mode": "suburban_rail",
+      "destination": "RAIL_CHENNAI_BEACH"
+    },
+    "entity_expectations": {
+      "destination": {
+        "surface": "चेन्नई बीच",
+        "canonical_name": "Chennai Beach",
+        "canonical_ids": [
+          "RAIL_CHENNAI_BEACH"
+        ]
+      }
+    },
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "suburban_rail"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.point_to_point_route.unprovided_origin.HI_DEVA.1",
+    "family_id": "ml1.point_to_point_route.unprovided_origin",
+    "semantic_family_id": "ml1.point_to_point_route.unprovided_origin",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "लोकल ट्रेन से नाथपेट्टै पहुँचने का रास्ता बताइए, शुरुआती जगह अभी नहीं दी है।",
+    "intent": "point_to_point_route",
+    "slots": {
+      "transport_mode": "suburban_rail",
+      "destination": "RAIL_NATHAPETTAI"
+    },
+    "entity_expectations": {
+      "destination": {
+        "surface": "नाथपेट्टै",
+        "canonical_name": "Nathapettai",
+        "canonical_ids": [
+          "RAIL_NATHAPETTAI"
+        ]
+      }
+    },
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "suburban_rail"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.point_to_point_route.unprovided_origin.HI_LATN.0",
+    "family_id": "ml1.point_to_point_route.unprovided_origin",
+    "semantic_family_id": "ml1.point_to_point_route.unprovided_origin",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Local train se Chennai Beach pahunchne ka raasta bataiye, shuruati jagah abhi nahi di hai.",
+    "intent": "point_to_point_route",
+    "slots": {
+      "transport_mode": "suburban_rail",
+      "destination": "RAIL_CHENNAI_BEACH"
+    },
+    "entity_expectations": {
+      "destination": {
+        "surface": "Chennai Beach",
+        "canonical_name": "Chennai Beach",
+        "canonical_ids": [
+          "RAIL_CHENNAI_BEACH"
+        ]
+      }
+    },
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "suburban_rail"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.point_to_point_route.unprovided_origin.HI_LATN.1",
+    "family_id": "ml1.point_to_point_route.unprovided_origin",
+    "semantic_family_id": "ml1.point_to_point_route.unprovided_origin",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Local train se Nathapettai pahunchne ka raasta bataiye, shuruati jagah abhi nahi di hai.",
+    "intent": "point_to_point_route",
+    "slots": {
+      "transport_mode": "suburban_rail",
+      "destination": "RAIL_NATHAPETTAI"
+    },
+    "entity_expectations": {
+      "destination": {
+        "surface": "Nathapettai",
+        "canonical_name": "Nathapettai",
+        "canonical_ids": [
+          "RAIL_NATHAPETTAI"
+        ]
+      }
+    },
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "suburban_rail"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.point_to_point_route.unprovided_origin.HINGLISH_LATN.0",
+    "family_id": "ml1.point_to_point_route.unprovided_origin",
+    "semantic_family_id": "ml1.point_to_point_route.unprovided_origin",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Local train route to Chennai Beach chahiye, starting point missing hai.",
+    "intent": "point_to_point_route",
+    "slots": {
+      "transport_mode": "suburban_rail",
+      "destination": "RAIL_CHENNAI_BEACH"
+    },
+    "entity_expectations": {
+      "destination": {
+        "surface": "Chennai Beach",
+        "canonical_name": "Chennai Beach",
+        "canonical_ids": [
+          "RAIL_CHENNAI_BEACH"
+        ]
+      }
+    },
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "suburban_rail"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.point_to_point_route.unprovided_origin.HINGLISH_LATN.1",
+    "family_id": "ml1.point_to_point_route.unprovided_origin",
+    "semantic_family_id": "ml1.point_to_point_route.unprovided_origin",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Local train route to Nathapettai chahiye, starting point missing hai.",
+    "intent": "point_to_point_route",
+    "slots": {
+      "transport_mode": "suburban_rail",
+      "destination": "RAIL_NATHAPETTAI"
+    },
+    "entity_expectations": {
+      "destination": {
+        "surface": "Nathapettai",
+        "canonical_name": "Nathapettai",
+        "canonical_ids": [
+          "RAIL_NATHAPETTAI"
+        ]
+      }
+    },
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "suburban_rail"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.point_to_point_route.unprovided_origin.EN.0",
+    "family_id": "ml1.point_to_point_route.unprovided_origin",
+    "semantic_family_id": "ml1.point_to_point_route.unprovided_origin",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Plan suburban rail travel to Chennai Beach; the origin is unspecified.",
+    "intent": "point_to_point_route",
+    "slots": {
+      "transport_mode": "suburban_rail",
+      "destination": "RAIL_CHENNAI_BEACH"
+    },
+    "entity_expectations": {
+      "destination": {
+        "surface": "Chennai Beach",
+        "canonical_name": "Chennai Beach",
+        "canonical_ids": [
+          "RAIL_CHENNAI_BEACH"
+        ]
+      }
+    },
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "suburban_rail"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.point_to_point_route.unprovided_origin.EN.1",
+    "family_id": "ml1.point_to_point_route.unprovided_origin",
+    "semantic_family_id": "ml1.point_to_point_route.unprovided_origin",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Plan suburban rail travel to Nathapettai; the origin is unspecified.",
+    "intent": "point_to_point_route",
+    "slots": {
+      "transport_mode": "suburban_rail",
+      "destination": "RAIL_NATHAPETTAI"
+    },
+    "entity_expectations": {
+      "destination": {
+        "surface": "Nathapettai",
+        "canonical_name": "Nathapettai",
+        "canonical_ids": [
+          "RAIL_NATHAPETTAI"
+        ]
+      }
+    },
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "suburban_rail"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.multimodal_route.combined_waypoint_itinerary.HI_DEVA.0",
+    "family_id": "ml1.multimodal_route.combined_waypoint_itinerary",
+    "semantic_family_id": "ml1.multimodal_route.combined_waypoint_itinerary",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "पाडी उपनगरीय रेल स्टेशन होते हुए बस और लोकल ट्रेन मिलाकर पट्टरवाक्कम उपनगरीय रेल स्टेशन से चेन्नई बीच उपनगरीय रेल स्टेशन का सफर तय करो।",
+    "intent": "multimodal_route",
+    "slots": {
+      "origin": "RAIL_PATTARAVAKKAM",
+      "destination": "RAIL_CHENNAI_BEACH",
+      "via": "RAIL_PADI"
+    },
+    "entity_expectations": {
+      "origin": {
+        "surface": "पट्टरवाक्कम उपनगरीय रेल स्टेशन",
+        "canonical_name": "Pattaravakkam",
+        "canonical_ids": [
+          "RAIL_PATTARAVAKKAM"
+        ]
+      },
+      "destination": {
+        "surface": "चेन्नई बीच उपनगरीय रेल स्टेशन",
+        "canonical_name": "Chennai Beach",
+        "canonical_ids": [
+          "RAIL_CHENNAI_BEACH"
+        ]
+      },
+      "via": {
+        "surface": "पाडी उपनगरीय रेल स्टेशन",
+        "canonical_name": "Padi",
+        "canonical_ids": [
+          "RAIL_PADI"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "bus",
+      "suburban_rail",
+      "via"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "bus",
+        "suburban_rail",
+        "via"
+      ],
+      "required_modes": [
+        "bus",
+        "suburban_rail"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.multimodal_route.combined_waypoint_itinerary.HI_DEVA.1",
+    "family_id": "ml1.multimodal_route.combined_waypoint_itinerary",
+    "semantic_family_id": "ml1.multimodal_route.combined_waypoint_itinerary",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "पट्टरवाक्कम उपनगरीय रेल स्टेशन होते हुए बस और लोकल ट्रेन मिलाकर वालाजाबाद उपनगरीय रेल स्टेशन से नाथपेट्टै उपनगरीय रेल स्टेशन का सफर तय करो।",
+    "intent": "multimodal_route",
+    "slots": {
+      "origin": "RAIL_WALAJABAD",
+      "destination": "RAIL_NATHAPETTAI",
+      "via": "RAIL_PATTARAVAKKAM"
+    },
+    "entity_expectations": {
+      "origin": {
+        "surface": "वालाजाबाद उपनगरीय रेल स्टेशन",
+        "canonical_name": "Walajabad",
+        "canonical_ids": [
+          "RAIL_WALAJABAD"
+        ]
+      },
+      "destination": {
+        "surface": "नाथपेट्टै उपनगरीय रेल स्टेशन",
+        "canonical_name": "Nathapettai",
+        "canonical_ids": [
+          "RAIL_NATHAPETTAI"
+        ]
+      },
+      "via": {
+        "surface": "पट्टरवाक्कम उपनगरीय रेल स्टेशन",
+        "canonical_name": "Pattaravakkam",
+        "canonical_ids": [
+          "RAIL_PATTARAVAKKAM"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "bus",
+      "suburban_rail",
+      "via"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "bus",
+        "suburban_rail",
+        "via"
+      ],
+      "required_modes": [
+        "bus",
+        "suburban_rail"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.multimodal_route.combined_waypoint_itinerary.HI_LATN.0",
+    "family_id": "ml1.multimodal_route.combined_waypoint_itinerary",
+    "semantic_family_id": "ml1.multimodal_route.combined_waypoint_itinerary",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Padi suburban railway station hote hue bus aur local train milakar Pattaravakam suburban railway station se Chennai Beach suburban railway station ka safar tay karo.",
+    "intent": "multimodal_route",
+    "slots": {
+      "origin": "RAIL_PATTARAVAKKAM",
+      "destination": "RAIL_CHENNAI_BEACH",
+      "via": "RAIL_PADI"
+    },
+    "entity_expectations": {
+      "origin": {
+        "surface": "Pattaravakam suburban railway station",
+        "canonical_name": "Pattaravakkam",
+        "canonical_ids": [
+          "RAIL_PATTARAVAKKAM"
+        ]
+      },
+      "destination": {
+        "surface": "Chennai Beach suburban railway station",
+        "canonical_name": "Chennai Beach",
+        "canonical_ids": [
+          "RAIL_CHENNAI_BEACH"
+        ]
+      },
+      "via": {
+        "surface": "Padi suburban railway station",
+        "canonical_name": "Padi",
+        "canonical_ids": [
+          "RAIL_PADI"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "bus",
+      "suburban_rail",
+      "via"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "bus",
+        "suburban_rail",
+        "via"
+      ],
+      "required_modes": [
+        "bus",
+        "suburban_rail"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.multimodal_route.combined_waypoint_itinerary.HI_LATN.1",
+    "family_id": "ml1.multimodal_route.combined_waypoint_itinerary",
+    "semantic_family_id": "ml1.multimodal_route.combined_waypoint_itinerary",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Pattaravakkam suburban railway station hote hue bus aur local train milakar Walajabad suburban railway station se Nathapettai suburban railway station ka safar tay karo.",
+    "intent": "multimodal_route",
+    "slots": {
+      "origin": "RAIL_WALAJABAD",
+      "destination": "RAIL_NATHAPETTAI",
+      "via": "RAIL_PATTARAVAKKAM"
+    },
+    "entity_expectations": {
+      "origin": {
+        "surface": "Walajabad suburban railway station",
+        "canonical_name": "Walajabad",
+        "canonical_ids": [
+          "RAIL_WALAJABAD"
+        ]
+      },
+      "destination": {
+        "surface": "Nathapettai suburban railway station",
+        "canonical_name": "Nathapettai",
+        "canonical_ids": [
+          "RAIL_NATHAPETTAI"
+        ]
+      },
+      "via": {
+        "surface": "Pattaravakkam suburban railway station",
+        "canonical_name": "Pattaravakkam",
+        "canonical_ids": [
+          "RAIL_PATTARAVAKKAM"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "bus",
+      "suburban_rail",
+      "via"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "bus",
+        "suburban_rail",
+        "via"
+      ],
+      "required_modes": [
+        "bus",
+        "suburban_rail"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.multimodal_route.combined_waypoint_itinerary.HINGLISH_LATN.0",
+    "family_id": "ml1.multimodal_route.combined_waypoint_itinerary",
+    "semantic_family_id": "ml1.multimodal_route.combined_waypoint_itinerary",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Bus aur local train combine karo for Pattaravakam suburban railway station to Chennai Beach suburban railway station via Padi suburban railway station.",
+    "intent": "multimodal_route",
+    "slots": {
+      "origin": "RAIL_PATTARAVAKKAM",
+      "destination": "RAIL_CHENNAI_BEACH",
+      "via": "RAIL_PADI"
+    },
+    "entity_expectations": {
+      "origin": {
+        "surface": "Pattaravakam suburban railway station",
+        "canonical_name": "Pattaravakkam",
+        "canonical_ids": [
+          "RAIL_PATTARAVAKKAM"
+        ]
+      },
+      "destination": {
+        "surface": "Chennai Beach suburban railway station",
+        "canonical_name": "Chennai Beach",
+        "canonical_ids": [
+          "RAIL_CHENNAI_BEACH"
+        ]
+      },
+      "via": {
+        "surface": "Padi suburban railway station",
+        "canonical_name": "Padi",
+        "canonical_ids": [
+          "RAIL_PADI"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "bus",
+      "suburban_rail",
+      "via"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "bus",
+        "suburban_rail",
+        "via"
+      ],
+      "required_modes": [
+        "bus",
+        "suburban_rail"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.multimodal_route.combined_waypoint_itinerary.HINGLISH_LATN.1",
+    "family_id": "ml1.multimodal_route.combined_waypoint_itinerary",
+    "semantic_family_id": "ml1.multimodal_route.combined_waypoint_itinerary",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Bus aur local train combine karo for Walajabad suburban railway station to Nathapettai suburban railway station via Pattaravakkam suburban railway station.",
+    "intent": "multimodal_route",
+    "slots": {
+      "origin": "RAIL_WALAJABAD",
+      "destination": "RAIL_NATHAPETTAI",
+      "via": "RAIL_PATTARAVAKKAM"
+    },
+    "entity_expectations": {
+      "origin": {
+        "surface": "Walajabad suburban railway station",
+        "canonical_name": "Walajabad",
+        "canonical_ids": [
+          "RAIL_WALAJABAD"
+        ]
+      },
+      "destination": {
+        "surface": "Nathapettai suburban railway station",
+        "canonical_name": "Nathapettai",
+        "canonical_ids": [
+          "RAIL_NATHAPETTAI"
+        ]
+      },
+      "via": {
+        "surface": "Pattaravakkam suburban railway station",
+        "canonical_name": "Pattaravakkam",
+        "canonical_ids": [
+          "RAIL_PATTARAVAKKAM"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "bus",
+      "suburban_rail",
+      "via"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "bus",
+        "suburban_rail",
+        "via"
+      ],
+      "required_modes": [
+        "bus",
+        "suburban_rail"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.multimodal_route.combined_waypoint_itinerary.EN.0",
+    "family_id": "ml1.multimodal_route.combined_waypoint_itinerary",
+    "semantic_family_id": "ml1.multimodal_route.combined_waypoint_itinerary",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Combine bus and suburban rail in travel from Pattaravakkam suburban railway station to Chennai Beach suburban railway station via Padi suburban railway station.",
+    "intent": "multimodal_route",
+    "slots": {
+      "origin": "RAIL_PATTARAVAKKAM",
+      "destination": "RAIL_CHENNAI_BEACH",
+      "via": "RAIL_PADI"
+    },
+    "entity_expectations": {
+      "origin": {
+        "surface": "Pattaravakkam suburban railway station",
+        "canonical_name": "Pattaravakkam",
+        "canonical_ids": [
+          "RAIL_PATTARAVAKKAM"
+        ]
+      },
+      "destination": {
+        "surface": "Chennai Beach suburban railway station",
+        "canonical_name": "Chennai Beach",
+        "canonical_ids": [
+          "RAIL_CHENNAI_BEACH"
+        ]
+      },
+      "via": {
+        "surface": "Padi suburban railway station",
+        "canonical_name": "Padi",
+        "canonical_ids": [
+          "RAIL_PADI"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "bus",
+      "suburban_rail",
+      "via"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "bus",
+        "suburban_rail",
+        "via"
+      ],
+      "required_modes": [
+        "bus",
+        "suburban_rail"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.multimodal_route.combined_waypoint_itinerary.EN.1",
+    "family_id": "ml1.multimodal_route.combined_waypoint_itinerary",
+    "semantic_family_id": "ml1.multimodal_route.combined_waypoint_itinerary",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Combine bus and suburban rail in travel from Walajabad suburban railway station to Nathapettai suburban railway station via Pattaravakkam suburban railway station.",
+    "intent": "multimodal_route",
+    "slots": {
+      "origin": "RAIL_WALAJABAD",
+      "destination": "RAIL_NATHAPETTAI",
+      "via": "RAIL_PATTARAVAKKAM"
+    },
+    "entity_expectations": {
+      "origin": {
+        "surface": "Walajabad suburban railway station",
+        "canonical_name": "Walajabad",
+        "canonical_ids": [
+          "RAIL_WALAJABAD"
+        ]
+      },
+      "destination": {
+        "surface": "Nathapettai suburban railway station",
+        "canonical_name": "Nathapettai",
+        "canonical_ids": [
+          "RAIL_NATHAPETTAI"
+        ]
+      },
+      "via": {
+        "surface": "Pattaravakkam suburban railway station",
+        "canonical_name": "Pattaravakkam",
+        "canonical_ids": [
+          "RAIL_PATTARAVAKKAM"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "bus",
+      "suburban_rail",
+      "via"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "bus",
+        "suburban_rail",
+        "via"
+      ],
+      "required_modes": [
+        "bus",
+        "suburban_rail"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.first_and_last_service.od_service_bounds.HI_DEVA.0",
+    "family_id": "ml1.first_and_last_service.od_service_bounds",
+    "semantic_family_id": "ml1.first_and_last_service.od_service_bounds",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "पट्टरवाक्कम से चेन्नई बीच तक लोकल ट्रेन की सेवा पहली बार कब शुरू और आखिरी बार कब खत्म होती है?",
+    "intent": "first_and_last_service",
+    "slots": {
+      "transport_mode": "suburban_rail",
+      "station": "RAIL_PATTARAVAKKAM",
+      "destination": "RAIL_CHENNAI_BEACH"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "पट्टरवाक्कम",
+        "canonical_name": "Pattaravakkam",
+        "canonical_ids": [
+          "RAIL_PATTARAVAKKAM"
+        ]
+      },
+      "destination": {
+        "surface": "चेन्नई बीच",
+        "canonical_name": "Chennai Beach",
+        "canonical_ids": [
+          "RAIL_CHENNAI_BEACH"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "suburban_rail"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.first_and_last_service.od_service_bounds.HI_DEVA.1",
+    "family_id": "ml1.first_and_last_service.od_service_bounds",
+    "semantic_family_id": "ml1.first_and_last_service.od_service_bounds",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "वालाजाबाद से नाथपेट्टै तक लोकल ट्रेन की सेवा पहली बार कब शुरू और आखिरी बार कब खत्म होती है?",
+    "intent": "first_and_last_service",
+    "slots": {
+      "transport_mode": "suburban_rail",
+      "station": "RAIL_WALAJABAD",
+      "destination": "RAIL_NATHAPETTAI"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "वालाजाबाद",
+        "canonical_name": "Walajabad",
+        "canonical_ids": [
+          "RAIL_WALAJABAD"
+        ]
+      },
+      "destination": {
+        "surface": "नाथपेट्टै",
+        "canonical_name": "Nathapettai",
+        "canonical_ids": [
+          "RAIL_NATHAPETTAI"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "suburban_rail"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.first_and_last_service.od_service_bounds.HI_LATN.0",
+    "family_id": "ml1.first_and_last_service.od_service_bounds",
+    "semantic_family_id": "ml1.first_and_last_service.od_service_bounds",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Pattaravakam se Chennai Beach tak local train ki seva pehli baar kab shuru aur aakhiri baar kab khatm hoti hai?",
+    "intent": "first_and_last_service",
+    "slots": {
+      "transport_mode": "suburban_rail",
+      "station": "RAIL_PATTARAVAKKAM",
+      "destination": "RAIL_CHENNAI_BEACH"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "Pattaravakam",
+        "canonical_name": "Pattaravakkam",
+        "canonical_ids": [
+          "RAIL_PATTARAVAKKAM"
+        ]
+      },
+      "destination": {
+        "surface": "Chennai Beach",
+        "canonical_name": "Chennai Beach",
+        "canonical_ids": [
+          "RAIL_CHENNAI_BEACH"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "suburban_rail"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.first_and_last_service.od_service_bounds.HI_LATN.1",
+    "family_id": "ml1.first_and_last_service.od_service_bounds",
+    "semantic_family_id": "ml1.first_and_last_service.od_service_bounds",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Walajabad se Nathapettai tak local train ki seva pehli baar kab shuru aur aakhiri baar kab khatm hoti hai?",
+    "intent": "first_and_last_service",
+    "slots": {
+      "transport_mode": "suburban_rail",
+      "station": "RAIL_WALAJABAD",
+      "destination": "RAIL_NATHAPETTAI"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "Walajabad",
+        "canonical_name": "Walajabad",
+        "canonical_ids": [
+          "RAIL_WALAJABAD"
+        ]
+      },
+      "destination": {
+        "surface": "Nathapettai",
+        "canonical_name": "Nathapettai",
+        "canonical_ids": [
+          "RAIL_NATHAPETTAI"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "suburban_rail"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.first_and_last_service.od_service_bounds.HINGLISH_LATN.0",
+    "family_id": "ml1.first_and_last_service.od_service_bounds",
+    "semantic_family_id": "ml1.first_and_last_service.od_service_bounds",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Local train between Pattaravakam and Chennai Beach: first aur last service timings batao.",
+    "intent": "first_and_last_service",
+    "slots": {
+      "transport_mode": "suburban_rail",
+      "station": "RAIL_PATTARAVAKKAM",
+      "destination": "RAIL_CHENNAI_BEACH"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "Pattaravakam",
+        "canonical_name": "Pattaravakkam",
+        "canonical_ids": [
+          "RAIL_PATTARAVAKKAM"
+        ]
+      },
+      "destination": {
+        "surface": "Chennai Beach",
+        "canonical_name": "Chennai Beach",
+        "canonical_ids": [
+          "RAIL_CHENNAI_BEACH"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "suburban_rail"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.first_and_last_service.od_service_bounds.HINGLISH_LATN.1",
+    "family_id": "ml1.first_and_last_service.od_service_bounds",
+    "semantic_family_id": "ml1.first_and_last_service.od_service_bounds",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Local train between Walajabad and Nathapettai: first aur last service timings batao.",
+    "intent": "first_and_last_service",
+    "slots": {
+      "transport_mode": "suburban_rail",
+      "station": "RAIL_WALAJABAD",
+      "destination": "RAIL_NATHAPETTAI"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "Walajabad",
+        "canonical_name": "Walajabad",
+        "canonical_ids": [
+          "RAIL_WALAJABAD"
+        ]
+      },
+      "destination": {
+        "surface": "Nathapettai",
+        "canonical_name": "Nathapettai",
+        "canonical_ids": [
+          "RAIL_NATHAPETTAI"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "suburban_rail"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.first_and_last_service.od_service_bounds.EN.0",
+    "family_id": "ml1.first_and_last_service.od_service_bounds",
+    "semantic_family_id": "ml1.first_and_last_service.od_service_bounds",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Show first and last suburban rail service times between Pattaravakkam and Chennai Beach.",
+    "intent": "first_and_last_service",
+    "slots": {
+      "transport_mode": "suburban_rail",
+      "station": "RAIL_PATTARAVAKKAM",
+      "destination": "RAIL_CHENNAI_BEACH"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "Pattaravakkam",
+        "canonical_name": "Pattaravakkam",
+        "canonical_ids": [
+          "RAIL_PATTARAVAKKAM"
+        ]
+      },
+      "destination": {
+        "surface": "Chennai Beach",
+        "canonical_name": "Chennai Beach",
+        "canonical_ids": [
+          "RAIL_CHENNAI_BEACH"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "suburban_rail"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.first_and_last_service.od_service_bounds.EN.1",
+    "family_id": "ml1.first_and_last_service.od_service_bounds",
+    "semantic_family_id": "ml1.first_and_last_service.od_service_bounds",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Show first and last suburban rail service times between Walajabad and Nathapettai.",
+    "intent": "first_and_last_service",
+    "slots": {
+      "transport_mode": "suburban_rail",
+      "station": "RAIL_WALAJABAD",
+      "destination": "RAIL_NATHAPETTAI"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "Walajabad",
+        "canonical_name": "Walajabad",
+        "canonical_ids": [
+          "RAIL_WALAJABAD"
+        ]
+      },
+      "destination": {
+        "surface": "Nathapettai",
+        "canonical_name": "Nathapettai",
+        "canonical_ids": [
+          "RAIL_NATHAPETTAI"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "suburban_rail"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.service_frequency.unprovided_headway_stop.HI_DEVA.0",
+    "family_id": "ml1.service_frequency.unprovided_headway_stop",
+    "semantic_family_id": "ml1.service_frequency.unprovided_headway_stop",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "बस रूट २७D कितने अंतराल पर चलती है? स्टॉप नहीं चुना है।",
+    "intent": "service_frequency",
+    "slots": {
+      "transport_mode": "bus",
+      "route_number": "27D"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "bus"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.service_frequency.unprovided_headway_stop.HI_DEVA.1",
+    "family_id": "ml1.service_frequency.unprovided_headway_stop",
+    "semantic_family_id": "ml1.service_frequency.unprovided_headway_stop",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "बस रूट ५४ कितने अंतराल पर चलती है? स्टॉप नहीं चुना है।",
+    "intent": "service_frequency",
+    "slots": {
+      "transport_mode": "bus",
+      "route_number": "54"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "bus"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.service_frequency.unprovided_headway_stop.HI_LATN.0",
+    "family_id": "ml1.service_frequency.unprovided_headway_stop",
+    "semantic_family_id": "ml1.service_frequency.unprovided_headway_stop",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Bus route 27D kitne antaral par chalti hai? Stop nahi chuna hai.",
+    "intent": "service_frequency",
+    "slots": {
+      "transport_mode": "bus",
+      "route_number": "27D"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "bus"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.service_frequency.unprovided_headway_stop.HI_LATN.1",
+    "family_id": "ml1.service_frequency.unprovided_headway_stop",
+    "semantic_family_id": "ml1.service_frequency.unprovided_headway_stop",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Bus route 54 kitne antaral par chalti hai? Stop nahi chuna hai.",
+    "intent": "service_frequency",
+    "slots": {
+      "transport_mode": "bus",
+      "route_number": "54"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "bus"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.service_frequency.unprovided_headway_stop.HINGLISH_LATN.0",
+    "family_id": "ml1.service_frequency.unprovided_headway_stop",
+    "semantic_family_id": "ml1.service_frequency.unprovided_headway_stop",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Bus route 27D ka frequency chahiye; boarding stop missing hai.",
+    "intent": "service_frequency",
+    "slots": {
+      "transport_mode": "bus",
+      "route_number": "27D"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "bus"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.service_frequency.unprovided_headway_stop.HINGLISH_LATN.1",
+    "family_id": "ml1.service_frequency.unprovided_headway_stop",
+    "semantic_family_id": "ml1.service_frequency.unprovided_headway_stop",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Bus route 54 ka frequency chahiye; boarding stop missing hai.",
+    "intent": "service_frequency",
+    "slots": {
+      "transport_mode": "bus",
+      "route_number": "54"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "bus"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.service_frequency.unprovided_headway_stop.EN.0",
+    "family_id": "ml1.service_frequency.unprovided_headway_stop",
+    "semantic_family_id": "ml1.service_frequency.unprovided_headway_stop",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "What is the frequency of bus route 27D, with no boarding stop specified?",
+    "intent": "service_frequency",
+    "slots": {
+      "transport_mode": "bus",
+      "route_number": "27D"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "bus"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.service_frequency.unprovided_headway_stop.EN.1",
+    "family_id": "ml1.service_frequency.unprovided_headway_stop",
+    "semantic_family_id": "ml1.service_frequency.unprovided_headway_stop",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "What is the frequency of bus route 54, with no boarding stop specified?",
+    "intent": "service_frequency",
+    "slots": {
+      "transport_mode": "bus",
+      "route_number": "54"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "bus"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.scheduled_departure.unprovided_departure_location.HI_DEVA.0",
+    "family_id": "ml1.scheduled_departure.unprovided_departure_location",
+    "semantic_family_id": "ml1.scheduled_departure.unprovided_departure_location",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "बस रूट २७D सुबह नौ बजे के बाद कहाँ से निकलती है? बोर्डिंग जगह नहीं बताई है।",
+    "intent": "scheduled_departure",
+    "slots": {
+      "transport_mode": "bus",
+      "route_number": "27D",
+      "time": "09:00:00"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "bus"
+      ],
+      "clock": "09:00:00"
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.scheduled_departure.unprovided_departure_location.HI_DEVA.1",
+    "family_id": "ml1.scheduled_departure.unprovided_departure_location",
+    "semantic_family_id": "ml1.scheduled_departure.unprovided_departure_location",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "बस रूट ५४ सुबह नौ बजे के बाद कहाँ से निकलती है? बोर्डिंग जगह नहीं बताई है।",
+    "intent": "scheduled_departure",
+    "slots": {
+      "transport_mode": "bus",
+      "route_number": "54",
+      "time": "09:00:00"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "bus"
+      ],
+      "clock": "09:00:00"
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.scheduled_departure.unprovided_departure_location.HI_LATN.0",
+    "family_id": "ml1.scheduled_departure.unprovided_departure_location",
+    "semantic_family_id": "ml1.scheduled_departure.unprovided_departure_location",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Bus route 27D subah nau baje ke baad kahan se nikalti hai? Boarding jagah nahi batayi hai.",
+    "intent": "scheduled_departure",
+    "slots": {
+      "transport_mode": "bus",
+      "route_number": "27D",
+      "time": "09:00:00"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "bus"
+      ],
+      "clock": "09:00:00"
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.scheduled_departure.unprovided_departure_location.HI_LATN.1",
+    "family_id": "ml1.scheduled_departure.unprovided_departure_location",
+    "semantic_family_id": "ml1.scheduled_departure.unprovided_departure_location",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Bus route 54 subah nau baje ke baad kahan se nikalti hai? Boarding jagah nahi batayi hai.",
+    "intent": "scheduled_departure",
+    "slots": {
+      "transport_mode": "bus",
+      "route_number": "54",
+      "time": "09:00:00"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "bus"
+      ],
+      "clock": "09:00:00"
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.scheduled_departure.unprovided_departure_location.HINGLISH_LATN.0",
+    "family_id": "ml1.scheduled_departure.unprovided_departure_location",
+    "semantic_family_id": "ml1.scheduled_departure.unprovided_departure_location",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Bus route 27D departures after 9 AM chahiye, stop unspecified.",
+    "intent": "scheduled_departure",
+    "slots": {
+      "transport_mode": "bus",
+      "route_number": "27D",
+      "time": "09:00:00"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "bus"
+      ],
+      "clock": "09:00:00"
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.scheduled_departure.unprovided_departure_location.HINGLISH_LATN.1",
+    "family_id": "ml1.scheduled_departure.unprovided_departure_location",
+    "semantic_family_id": "ml1.scheduled_departure.unprovided_departure_location",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Bus route 54 departures after 9 AM chahiye, stop unspecified.",
+    "intent": "scheduled_departure",
+    "slots": {
+      "transport_mode": "bus",
+      "route_number": "54",
+      "time": "09:00:00"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "bus"
+      ],
+      "clock": "09:00:00"
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.scheduled_departure.unprovided_departure_location.EN.0",
+    "family_id": "ml1.scheduled_departure.unprovided_departure_location",
+    "semantic_family_id": "ml1.scheduled_departure.unprovided_departure_location",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Show departures for bus route 27D after 9 AM, with no boarding stop.",
+    "intent": "scheduled_departure",
+    "slots": {
+      "transport_mode": "bus",
+      "route_number": "27D",
+      "time": "09:00:00"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "bus"
+      ],
+      "clock": "09:00:00"
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.scheduled_departure.unprovided_departure_location.EN.1",
+    "family_id": "ml1.scheduled_departure.unprovided_departure_location",
+    "semantic_family_id": "ml1.scheduled_departure.unprovided_departure_location",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Show departures for bus route 54 after 9 AM, with no boarding stop.",
+    "intent": "scheduled_departure",
+    "slots": {
+      "transport_mode": "bus",
+      "route_number": "54",
+      "time": "09:00:00"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "bus"
+      ],
+      "clock": "09:00:00"
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.route_stop_sequence.coordinated_routes.HI_DEVA.0",
+    "family_id": "ml1.route_stop_sequence.coordinated_routes",
+    "semantic_family_id": "ml1.route_stop_sequence.coordinated_routes",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "बस रूट २७D और २९C दोनों के स्टॉप अलग अलग दिखाओ।",
+    "intent": "route_stop_sequence",
+    "slots": {
+      "transport_mode": "bus"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "multiple_goals",
+    "constraints": [
+      "multiple_routes"
+    ],
+    "classifier_applicable": false,
+    "request_constraints": {
+      "tags": [
+        "multiple_routes"
+      ],
+      "route_numbers": [
+        "27D",
+        "29C"
+      ],
+      "required_modes": [
+        "bus"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.route_stop_sequence.coordinated_routes.HI_DEVA.1",
+    "family_id": "ml1.route_stop_sequence.coordinated_routes",
+    "semantic_family_id": "ml1.route_stop_sequence.coordinated_routes",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "बस रूट ५४ और १८D दोनों के स्टॉप अलग अलग दिखाओ।",
+    "intent": "route_stop_sequence",
+    "slots": {
+      "transport_mode": "bus"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "multiple_goals",
+    "constraints": [
+      "multiple_routes"
+    ],
+    "classifier_applicable": false,
+    "request_constraints": {
+      "tags": [
+        "multiple_routes"
+      ],
+      "route_numbers": [
+        "54",
+        "18D"
+      ],
+      "required_modes": [
+        "bus"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.route_stop_sequence.coordinated_routes.HI_LATN.0",
+    "family_id": "ml1.route_stop_sequence.coordinated_routes",
+    "semantic_family_id": "ml1.route_stop_sequence.coordinated_routes",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Bus route 27D aur 29C dono ke stop alag alag dikhao.",
+    "intent": "route_stop_sequence",
+    "slots": {
+      "transport_mode": "bus"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "multiple_goals",
+    "constraints": [
+      "multiple_routes"
+    ],
+    "classifier_applicable": false,
+    "request_constraints": {
+      "tags": [
+        "multiple_routes"
+      ],
+      "route_numbers": [
+        "27D",
+        "29C"
+      ],
+      "required_modes": [
+        "bus"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.route_stop_sequence.coordinated_routes.HI_LATN.1",
+    "family_id": "ml1.route_stop_sequence.coordinated_routes",
+    "semantic_family_id": "ml1.route_stop_sequence.coordinated_routes",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Bus route 54 aur 18D dono ke stop alag alag dikhao.",
+    "intent": "route_stop_sequence",
+    "slots": {
+      "transport_mode": "bus"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "multiple_goals",
+    "constraints": [
+      "multiple_routes"
+    ],
+    "classifier_applicable": false,
+    "request_constraints": {
+      "tags": [
+        "multiple_routes"
+      ],
+      "route_numbers": [
+        "54",
+        "18D"
+      ],
+      "required_modes": [
+        "bus"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.route_stop_sequence.coordinated_routes.HINGLISH_LATN.0",
+    "family_id": "ml1.route_stop_sequence.coordinated_routes",
+    "semantic_family_id": "ml1.route_stop_sequence.coordinated_routes",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Bus routes 27D aur 29C ke stop lists separately dikhao.",
+    "intent": "route_stop_sequence",
+    "slots": {
+      "transport_mode": "bus"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "multiple_goals",
+    "constraints": [
+      "multiple_routes"
+    ],
+    "classifier_applicable": false,
+    "request_constraints": {
+      "tags": [
+        "multiple_routes"
+      ],
+      "route_numbers": [
+        "27D",
+        "29C"
+      ],
+      "required_modes": [
+        "bus"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.route_stop_sequence.coordinated_routes.HINGLISH_LATN.1",
+    "family_id": "ml1.route_stop_sequence.coordinated_routes",
+    "semantic_family_id": "ml1.route_stop_sequence.coordinated_routes",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Bus routes 54 aur 18D ke stop lists separately dikhao.",
+    "intent": "route_stop_sequence",
+    "slots": {
+      "transport_mode": "bus"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "multiple_goals",
+    "constraints": [
+      "multiple_routes"
+    ],
+    "classifier_applicable": false,
+    "request_constraints": {
+      "tags": [
+        "multiple_routes"
+      ],
+      "route_numbers": [
+        "54",
+        "18D"
+      ],
+      "required_modes": [
+        "bus"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.route_stop_sequence.coordinated_routes.EN.0",
+    "family_id": "ml1.route_stop_sequence.coordinated_routes",
+    "semantic_family_id": "ml1.route_stop_sequence.coordinated_routes",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Show separate stop lists for bus routes 27D and 29C.",
+    "intent": "route_stop_sequence",
+    "slots": {
+      "transport_mode": "bus"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "multiple_goals",
+    "constraints": [
+      "multiple_routes"
+    ],
+    "classifier_applicable": false,
+    "request_constraints": {
+      "tags": [
+        "multiple_routes"
+      ],
+      "route_numbers": [
+        "27D",
+        "29C"
+      ],
+      "required_modes": [
+        "bus"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.route_stop_sequence.coordinated_routes.EN.1",
+    "family_id": "ml1.route_stop_sequence.coordinated_routes",
+    "semantic_family_id": "ml1.route_stop_sequence.coordinated_routes",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Show separate stop lists for bus routes 54 and 18D.",
+    "intent": "route_stop_sequence",
+    "slots": {
+      "transport_mode": "bus"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "multiple_goals",
+    "constraints": [
+      "multiple_routes"
+    ],
+    "classifier_applicable": false,
+    "request_constraints": {
+      "tags": [
+        "multiple_routes"
+      ],
+      "route_numbers": [
+        "54",
+        "18D"
+      ],
+      "required_modes": [
+        "bus"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.route_stop_membership.missing_membership_stop.HI_DEVA.0",
+    "family_id": "ml1.route_stop_membership.missing_membership_stop",
+    "semantic_family_id": "ml1.route_stop_membership.missing_membership_stop",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "बस २७D वहाँ रुकती है क्या? जगह का नाम मैंने नहीं दिया है।",
+    "intent": "route_stop_membership",
+    "slots": {
+      "transport_mode": "bus",
+      "route_number": "27D"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "bus"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.route_stop_membership.missing_membership_stop.HI_DEVA.1",
+    "family_id": "ml1.route_stop_membership.missing_membership_stop",
+    "semantic_family_id": "ml1.route_stop_membership.missing_membership_stop",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "बस ५४ वहाँ रुकती है क्या? जगह का नाम मैंने नहीं दिया है।",
+    "intent": "route_stop_membership",
+    "slots": {
+      "transport_mode": "bus",
+      "route_number": "54"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "bus"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.route_stop_membership.missing_membership_stop.HI_LATN.0",
+    "family_id": "ml1.route_stop_membership.missing_membership_stop",
+    "semantic_family_id": "ml1.route_stop_membership.missing_membership_stop",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Bus 27D wahan rukti hai kya? Jagah ka naam maine nahi diya hai.",
+    "intent": "route_stop_membership",
+    "slots": {
+      "transport_mode": "bus",
+      "route_number": "27D"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "bus"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.route_stop_membership.missing_membership_stop.HI_LATN.1",
+    "family_id": "ml1.route_stop_membership.missing_membership_stop",
+    "semantic_family_id": "ml1.route_stop_membership.missing_membership_stop",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Bus 54 wahan rukti hai kya? Jagah ka naam maine nahi diya hai.",
+    "intent": "route_stop_membership",
+    "slots": {
+      "transport_mode": "bus",
+      "route_number": "54"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "bus"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.route_stop_membership.missing_membership_stop.HINGLISH_LATN.0",
+    "family_id": "ml1.route_stop_membership.missing_membership_stop",
+    "semantic_family_id": "ml1.route_stop_membership.missing_membership_stop",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Will bus 27D serve that stop? Stop name unspecified hai.",
+    "intent": "route_stop_membership",
+    "slots": {
+      "transport_mode": "bus",
+      "route_number": "27D"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "bus"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.route_stop_membership.missing_membership_stop.HINGLISH_LATN.1",
+    "family_id": "ml1.route_stop_membership.missing_membership_stop",
+    "semantic_family_id": "ml1.route_stop_membership.missing_membership_stop",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Will bus 54 serve that stop? Stop name unspecified hai.",
+    "intent": "route_stop_membership",
+    "slots": {
+      "transport_mode": "bus",
+      "route_number": "54"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "bus"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.route_stop_membership.missing_membership_stop.EN.0",
+    "family_id": "ml1.route_stop_membership.missing_membership_stop",
+    "semantic_family_id": "ml1.route_stop_membership.missing_membership_stop",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Does bus 27D serve a stop whose name has not been specified?",
+    "intent": "route_stop_membership",
+    "slots": {
+      "transport_mode": "bus",
+      "route_number": "27D"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "bus"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.route_stop_membership.missing_membership_stop.EN.1",
+    "family_id": "ml1.route_stop_membership.missing_membership_stop",
+    "semantic_family_id": "ml1.route_stop_membership.missing_membership_stop",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Does bus 54 serve a stop whose name has not been specified?",
+    "intent": "route_stop_membership",
+    "slots": {
+      "transport_mode": "bus",
+      "route_number": "54"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "bus"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.mode_availability.single_location_availability.HI_DEVA.0",
+    "family_id": "ml1.mode_availability.single_location_availability",
+    "semantic_family_id": "ml1.mode_availability.single_location_availability",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "नेहरू पार्क पर मेट्रो सेवा उपलब्ध है क्या?",
+    "intent": "mode_availability",
+    "slots": {
+      "transport_mode": "metro",
+      "destination": "METRO_NEHRU_PARK"
+    },
+    "entity_expectations": {
+      "destination": {
+        "surface": "नेहरू पार्क",
+        "canonical_name": "Nehru Park",
+        "canonical_ids": [
+          "METRO_NEHRU_PARK"
+        ]
+      }
+    },
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.mode_availability.single_location_availability.HI_DEVA.1",
+    "family_id": "ml1.mode_availability.single_location_availability",
+    "semantic_family_id": "ml1.mode_availability.single_location_availability",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "गवर्नमेंट एस्टेट पर मेट्रो सेवा उपलब्ध है क्या?",
+    "intent": "mode_availability",
+    "slots": {
+      "transport_mode": "metro",
+      "destination": "METRO_GOVERNMENT_ESTATE"
+    },
+    "entity_expectations": {
+      "destination": {
+        "surface": "गवर्नमेंट एस्टेट",
+        "canonical_name": "Government Estate",
+        "canonical_ids": [
+          "METRO_GOVERNMENT_ESTATE"
+        ]
+      }
+    },
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.mode_availability.single_location_availability.HI_LATN.0",
+    "family_id": "ml1.mode_availability.single_location_availability",
+    "semantic_family_id": "ml1.mode_availability.single_location_availability",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Nehrupark par metro seva uplabdh hai kya?",
+    "intent": "mode_availability",
+    "slots": {
+      "transport_mode": "metro",
+      "destination": "METRO_NEHRU_PARK"
+    },
+    "entity_expectations": {
+      "destination": {
+        "surface": "Nehrupark",
+        "canonical_name": "Nehru Park",
+        "canonical_ids": [
+          "METRO_NEHRU_PARK"
+        ]
+      }
+    },
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.mode_availability.single_location_availability.HI_LATN.1",
+    "family_id": "ml1.mode_availability.single_location_availability",
+    "semantic_family_id": "ml1.mode_availability.single_location_availability",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Government Estate par metro seva uplabdh hai kya?",
+    "intent": "mode_availability",
+    "slots": {
+      "transport_mode": "metro",
+      "destination": "METRO_GOVERNMENT_ESTATE"
+    },
+    "entity_expectations": {
+      "destination": {
+        "surface": "Government Estate",
+        "canonical_name": "Government Estate",
+        "canonical_ids": [
+          "METRO_GOVERNMENT_ESTATE"
+        ]
+      }
+    },
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.mode_availability.single_location_availability.HINGLISH_LATN.0",
+    "family_id": "ml1.mode_availability.single_location_availability",
+    "semantic_family_id": "ml1.mode_availability.single_location_availability",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Metro service at Nehrupark available hai kya?",
+    "intent": "mode_availability",
+    "slots": {
+      "transport_mode": "metro",
+      "destination": "METRO_NEHRU_PARK"
+    },
+    "entity_expectations": {
+      "destination": {
+        "surface": "Nehrupark",
+        "canonical_name": "Nehru Park",
+        "canonical_ids": [
+          "METRO_NEHRU_PARK"
+        ]
+      }
+    },
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.mode_availability.single_location_availability.HINGLISH_LATN.1",
+    "family_id": "ml1.mode_availability.single_location_availability",
+    "semantic_family_id": "ml1.mode_availability.single_location_availability",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Metro service at Government Estate available hai kya?",
+    "intent": "mode_availability",
+    "slots": {
+      "transport_mode": "metro",
+      "destination": "METRO_GOVERNMENT_ESTATE"
+    },
+    "entity_expectations": {
+      "destination": {
+        "surface": "Government Estate",
+        "canonical_name": "Government Estate",
+        "canonical_ids": [
+          "METRO_GOVERNMENT_ESTATE"
+        ]
+      }
+    },
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.mode_availability.single_location_availability.EN.0",
+    "family_id": "ml1.mode_availability.single_location_availability",
+    "semantic_family_id": "ml1.mode_availability.single_location_availability",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Is metro service available at Nehru Park?",
+    "intent": "mode_availability",
+    "slots": {
+      "transport_mode": "metro",
+      "destination": "METRO_NEHRU_PARK"
+    },
+    "entity_expectations": {
+      "destination": {
+        "surface": "Nehru Park",
+        "canonical_name": "Nehru Park",
+        "canonical_ids": [
+          "METRO_NEHRU_PARK"
+        ]
+      }
+    },
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.mode_availability.single_location_availability.EN.1",
+    "family_id": "ml1.mode_availability.single_location_availability",
+    "semantic_family_id": "ml1.mode_availability.single_location_availability",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Is metro service available at Government Estate?",
+    "intent": "mode_availability",
+    "slots": {
+      "transport_mode": "metro",
+      "destination": "METRO_GOVERNMENT_ESTATE"
+    },
+    "entity_expectations": {
+      "destination": {
+        "surface": "Government Estate",
+        "canonical_name": "Government Estate",
+        "canonical_ids": [
+          "METRO_GOVERNMENT_ESTATE"
+        ]
+      }
+    },
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.fare_calculation.od_distance_fare.HI_DEVA.0",
+    "family_id": "ml1.fare_calculation.od_distance_fare",
+    "semantic_family_id": "ml1.fare_calculation.od_distance_fare",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "नेहरू पार्क से तेयनामपेट तक मेट्रो से जाने का किराया निकालिए।",
+    "intent": "fare_calculation",
+    "slots": {
+      "transport_mode": "metro",
+      "origin": "METRO_NEHRU_PARK",
+      "destination": "METRO_TEYNAMPET"
+    },
+    "entity_expectations": {
+      "origin": {
+        "surface": "नेहरू पार्क",
+        "canonical_name": "Nehru Park",
+        "canonical_ids": [
+          "METRO_NEHRU_PARK"
+        ]
+      },
+      "destination": {
+        "surface": "तेयनामपेट",
+        "canonical_name": "Teynampet",
+        "canonical_ids": [
+          "METRO_TEYNAMPET"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.fare_calculation.od_distance_fare.HI_DEVA.1",
+    "family_id": "ml1.fare_calculation.od_distance_fare",
+    "semantic_family_id": "ml1.fare_calculation.od_distance_fare",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "गवर्नमेंट एस्टेट से हाईकोर्ट तक मेट्रो से जाने का किराया निकालिए।",
+    "intent": "fare_calculation",
+    "slots": {
+      "transport_mode": "metro",
+      "origin": "METRO_GOVERNMENT_ESTATE",
+      "destination": "METRO_HIGHCOURT"
+    },
+    "entity_expectations": {
+      "origin": {
+        "surface": "गवर्नमेंट एस्टेट",
+        "canonical_name": "Government Estate",
+        "canonical_ids": [
+          "METRO_GOVERNMENT_ESTATE"
+        ]
+      },
+      "destination": {
+        "surface": "हाईकोर्ट",
+        "canonical_name": "Highcourt",
+        "canonical_ids": [
+          "METRO_HIGHCOURT"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.fare_calculation.od_distance_fare.HI_LATN.0",
+    "family_id": "ml1.fare_calculation.od_distance_fare",
+    "semantic_family_id": "ml1.fare_calculation.od_distance_fare",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Nehrupark se Teynampet tak metro se jaane ka kiraya nikaliye.",
+    "intent": "fare_calculation",
+    "slots": {
+      "transport_mode": "metro",
+      "origin": "METRO_NEHRU_PARK",
+      "destination": "METRO_TEYNAMPET"
+    },
+    "entity_expectations": {
+      "origin": {
+        "surface": "Nehrupark",
+        "canonical_name": "Nehru Park",
+        "canonical_ids": [
+          "METRO_NEHRU_PARK"
+        ]
+      },
+      "destination": {
+        "surface": "Teynampet",
+        "canonical_name": "Teynampet",
+        "canonical_ids": [
+          "METRO_TEYNAMPET"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.fare_calculation.od_distance_fare.HI_LATN.1",
+    "family_id": "ml1.fare_calculation.od_distance_fare",
+    "semantic_family_id": "ml1.fare_calculation.od_distance_fare",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Government Estate se Highcourt tak metro se jaane ka kiraya nikaliye.",
+    "intent": "fare_calculation",
+    "slots": {
+      "transport_mode": "metro",
+      "origin": "METRO_GOVERNMENT_ESTATE",
+      "destination": "METRO_HIGHCOURT"
+    },
+    "entity_expectations": {
+      "origin": {
+        "surface": "Government Estate",
+        "canonical_name": "Government Estate",
+        "canonical_ids": [
+          "METRO_GOVERNMENT_ESTATE"
+        ]
+      },
+      "destination": {
+        "surface": "Highcourt",
+        "canonical_name": "Highcourt",
+        "canonical_ids": [
+          "METRO_HIGHCOURT"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.fare_calculation.od_distance_fare.HINGLISH_LATN.0",
+    "family_id": "ml1.fare_calculation.od_distance_fare",
+    "semantic_family_id": "ml1.fare_calculation.od_distance_fare",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Metro fare from Nehrupark to Teynampet calculate karo.",
+    "intent": "fare_calculation",
+    "slots": {
+      "transport_mode": "metro",
+      "origin": "METRO_NEHRU_PARK",
+      "destination": "METRO_TEYNAMPET"
+    },
+    "entity_expectations": {
+      "origin": {
+        "surface": "Nehrupark",
+        "canonical_name": "Nehru Park",
+        "canonical_ids": [
+          "METRO_NEHRU_PARK"
+        ]
+      },
+      "destination": {
+        "surface": "Teynampet",
+        "canonical_name": "Teynampet",
+        "canonical_ids": [
+          "METRO_TEYNAMPET"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.fare_calculation.od_distance_fare.HINGLISH_LATN.1",
+    "family_id": "ml1.fare_calculation.od_distance_fare",
+    "semantic_family_id": "ml1.fare_calculation.od_distance_fare",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Metro fare from Government Estate to Highcourt calculate karo.",
+    "intent": "fare_calculation",
+    "slots": {
+      "transport_mode": "metro",
+      "origin": "METRO_GOVERNMENT_ESTATE",
+      "destination": "METRO_HIGHCOURT"
+    },
+    "entity_expectations": {
+      "origin": {
+        "surface": "Government Estate",
+        "canonical_name": "Government Estate",
+        "canonical_ids": [
+          "METRO_GOVERNMENT_ESTATE"
+        ]
+      },
+      "destination": {
+        "surface": "Highcourt",
+        "canonical_name": "Highcourt",
+        "canonical_ids": [
+          "METRO_HIGHCOURT"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.fare_calculation.od_distance_fare.EN.0",
+    "family_id": "ml1.fare_calculation.od_distance_fare",
+    "semantic_family_id": "ml1.fare_calculation.od_distance_fare",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Calculate the metro fare from Nehru Park to Teynampet.",
+    "intent": "fare_calculation",
+    "slots": {
+      "transport_mode": "metro",
+      "origin": "METRO_NEHRU_PARK",
+      "destination": "METRO_TEYNAMPET"
+    },
+    "entity_expectations": {
+      "origin": {
+        "surface": "Nehru Park",
+        "canonical_name": "Nehru Park",
+        "canonical_ids": [
+          "METRO_NEHRU_PARK"
+        ]
+      },
+      "destination": {
+        "surface": "Teynampet",
+        "canonical_name": "Teynampet",
+        "canonical_ids": [
+          "METRO_TEYNAMPET"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.fare_calculation.od_distance_fare.EN.1",
+    "family_id": "ml1.fare_calculation.od_distance_fare",
+    "semantic_family_id": "ml1.fare_calculation.od_distance_fare",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Calculate the metro fare from Government Estate to Highcourt.",
+    "intent": "fare_calculation",
+    "slots": {
+      "transport_mode": "metro",
+      "origin": "METRO_GOVERNMENT_ESTATE",
+      "destination": "METRO_HIGHCOURT"
+    },
+    "entity_expectations": {
+      "origin": {
+        "surface": "Government Estate",
+        "canonical_name": "Government Estate",
+        "canonical_ids": [
+          "METRO_GOVERNMENT_ESTATE"
+        ]
+      },
+      "destination": {
+        "surface": "Highcourt",
+        "canonical_name": "Highcourt",
+        "canonical_ids": [
+          "METRO_HIGHCOURT"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.ticketing_and_passes.smart_card_rules.HI_DEVA.0",
+    "family_id": "ml1.ticketing_and_passes.smart_card_rules",
+    "semantic_family_id": "ml1.ticketing_and_passes.smart_card_rules",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "मेट्रो स्मार्ट कार्ड रिचार्ज की प्रक्रिया क्या है?",
+    "intent": "ticketing_and_passes",
+    "slots": {
+      "transport_mode": "metro",
+      "ticket_type": "smart_card"
+    },
+    "entity_expectations": {},
+    "expected_clarification": null,
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.ticketing_and_passes.smart_card_rules.HI_LATN.0",
+    "family_id": "ml1.ticketing_and_passes.smart_card_rules",
+    "semantic_family_id": "ml1.ticketing_and_passes.smart_card_rules",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Metro smart card recharge ki prakriya kya hai?",
+    "intent": "ticketing_and_passes",
+    "slots": {
+      "transport_mode": "metro",
+      "ticket_type": "smart_card"
+    },
+    "entity_expectations": {},
+    "expected_clarification": null,
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.ticketing_and_passes.smart_card_rules.HINGLISH_LATN.0",
+    "family_id": "ml1.ticketing_and_passes.smart_card_rules",
+    "semantic_family_id": "ml1.ticketing_and_passes.smart_card_rules",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Metro smart card recharge policy ke steps chahiye.",
+    "intent": "ticketing_and_passes",
+    "slots": {
+      "transport_mode": "metro",
+      "ticket_type": "smart_card"
+    },
+    "entity_expectations": {},
+    "expected_clarification": null,
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.ticketing_and_passes.smart_card_rules.EN.0",
+    "family_id": "ml1.ticketing_and_passes.smart_card_rules",
+    "semantic_family_id": "ml1.ticketing_and_passes.smart_card_rules",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Explain the recharge policy for a metro smart card.",
+    "intent": "ticketing_and_passes",
+    "slots": {
+      "transport_mode": "metro",
+      "ticket_type": "smart_card"
+    },
+    "entity_expectations": {},
+    "expected_clarification": null,
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.station_facilities.general_facility_inventory.HI_DEVA.0",
+    "family_id": "ml1.station_facilities.general_facility_inventory",
+    "semantic_family_id": "ml1.station_facilities.general_facility_inventory",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "नेहरू पार्क मेट्रो स्टेशन में यात्रियों को कौन कौन सी सुविधाएँ मिलती हैं?",
+    "intent": "station_facilities",
+    "slots": {
+      "transport_mode": "metro",
+      "station": "METRO_NEHRU_PARK"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "नेहरू पार्क",
+        "canonical_name": "Nehru Park",
+        "canonical_ids": [
+          "METRO_NEHRU_PARK"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "general_inventory"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "general_inventory"
+      ],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.station_facilities.general_facility_inventory.HI_DEVA.1",
+    "family_id": "ml1.station_facilities.general_facility_inventory",
+    "semantic_family_id": "ml1.station_facilities.general_facility_inventory",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "गवर्नमेंट एस्टेट मेट्रो स्टेशन में यात्रियों को कौन कौन सी सुविधाएँ मिलती हैं?",
+    "intent": "station_facilities",
+    "slots": {
+      "transport_mode": "metro",
+      "station": "METRO_GOVERNMENT_ESTATE"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "गवर्नमेंट एस्टेट",
+        "canonical_name": "Government Estate",
+        "canonical_ids": [
+          "METRO_GOVERNMENT_ESTATE"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "general_inventory"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "general_inventory"
+      ],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.station_facilities.general_facility_inventory.HI_LATN.0",
+    "family_id": "ml1.station_facilities.general_facility_inventory",
+    "semantic_family_id": "ml1.station_facilities.general_facility_inventory",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Nehrupark metro station mein yatriyon ko kaun kaun si suvidhayein milti hain?",
+    "intent": "station_facilities",
+    "slots": {
+      "transport_mode": "metro",
+      "station": "METRO_NEHRU_PARK"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "Nehrupark",
+        "canonical_name": "Nehru Park",
+        "canonical_ids": [
+          "METRO_NEHRU_PARK"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "general_inventory"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "general_inventory"
+      ],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.station_facilities.general_facility_inventory.HI_LATN.1",
+    "family_id": "ml1.station_facilities.general_facility_inventory",
+    "semantic_family_id": "ml1.station_facilities.general_facility_inventory",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Government Estate metro station mein yatriyon ko kaun kaun si suvidhayein milti hain?",
+    "intent": "station_facilities",
+    "slots": {
+      "transport_mode": "metro",
+      "station": "METRO_GOVERNMENT_ESTATE"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "Government Estate",
+        "canonical_name": "Government Estate",
+        "canonical_ids": [
+          "METRO_GOVERNMENT_ESTATE"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "general_inventory"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "general_inventory"
+      ],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.station_facilities.general_facility_inventory.HINGLISH_LATN.0",
+    "family_id": "ml1.station_facilities.general_facility_inventory",
+    "semantic_family_id": "ml1.station_facilities.general_facility_inventory",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Passenger facilities at Nehrupark metro station ka general overview do.",
+    "intent": "station_facilities",
+    "slots": {
+      "transport_mode": "metro",
+      "station": "METRO_NEHRU_PARK"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "Nehrupark",
+        "canonical_name": "Nehru Park",
+        "canonical_ids": [
+          "METRO_NEHRU_PARK"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "general_inventory"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "general_inventory"
+      ],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.station_facilities.general_facility_inventory.HINGLISH_LATN.1",
+    "family_id": "ml1.station_facilities.general_facility_inventory",
+    "semantic_family_id": "ml1.station_facilities.general_facility_inventory",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Passenger facilities at Government Estate metro station ka general overview do.",
+    "intent": "station_facilities",
+    "slots": {
+      "transport_mode": "metro",
+      "station": "METRO_GOVERNMENT_ESTATE"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "Government Estate",
+        "canonical_name": "Government Estate",
+        "canonical_ids": [
+          "METRO_GOVERNMENT_ESTATE"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "general_inventory"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "general_inventory"
+      ],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.station_facilities.general_facility_inventory.EN.0",
+    "family_id": "ml1.station_facilities.general_facility_inventory",
+    "semantic_family_id": "ml1.station_facilities.general_facility_inventory",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Give a general overview of passenger facilities at Nehru Park metro station.",
+    "intent": "station_facilities",
+    "slots": {
+      "transport_mode": "metro",
+      "station": "METRO_NEHRU_PARK"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "Nehru Park",
+        "canonical_name": "Nehru Park",
+        "canonical_ids": [
+          "METRO_NEHRU_PARK"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "general_inventory"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "general_inventory"
+      ],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.station_facilities.general_facility_inventory.EN.1",
+    "family_id": "ml1.station_facilities.general_facility_inventory",
+    "semantic_family_id": "ml1.station_facilities.general_facility_inventory",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Give a general overview of passenger facilities at Government Estate metro station.",
+    "intent": "station_facilities",
+    "slots": {
+      "transport_mode": "metro",
+      "station": "METRO_GOVERNMENT_ESTATE"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "Government Estate",
+        "canonical_name": "Government Estate",
+        "canonical_ids": [
+          "METRO_GOVERNMENT_ESTATE"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "general_inventory"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "general_inventory"
+      ],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.station_accessibility.general_disabled_access.HI_DEVA.0",
+    "family_id": "ml1.station_accessibility.general_disabled_access",
+    "semantic_family_id": "ml1.station_accessibility.general_disabled_access",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "दिव्यांग यात्रियों के लिए नेहरू पार्क मेट्रो स्टेशन की पहुँच कैसी है?",
+    "intent": "station_accessibility",
+    "slots": {
+      "transport_mode": "metro",
+      "station": "METRO_NEHRU_PARK"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "नेहरू पार्क",
+        "canonical_name": "Nehru Park",
+        "canonical_ids": [
+          "METRO_NEHRU_PARK"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "general_accessibility"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "general_accessibility"
+      ],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.station_accessibility.general_disabled_access.HI_DEVA.1",
+    "family_id": "ml1.station_accessibility.general_disabled_access",
+    "semantic_family_id": "ml1.station_accessibility.general_disabled_access",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "दिव्यांग यात्रियों के लिए गवर्नमेंट एस्टेट मेट्रो स्टेशन की पहुँच कैसी है?",
+    "intent": "station_accessibility",
+    "slots": {
+      "transport_mode": "metro",
+      "station": "METRO_GOVERNMENT_ESTATE"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "गवर्नमेंट एस्टेट",
+        "canonical_name": "Government Estate",
+        "canonical_ids": [
+          "METRO_GOVERNMENT_ESTATE"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "general_accessibility"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "general_accessibility"
+      ],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.station_accessibility.general_disabled_access.HI_LATN.0",
+    "family_id": "ml1.station_accessibility.general_disabled_access",
+    "semantic_family_id": "ml1.station_accessibility.general_disabled_access",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Divyang yatriyon ke liye Nehrupark metro station ki pahunch kaisi hai?",
+    "intent": "station_accessibility",
+    "slots": {
+      "transport_mode": "metro",
+      "station": "METRO_NEHRU_PARK"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "Nehrupark",
+        "canonical_name": "Nehru Park",
+        "canonical_ids": [
+          "METRO_NEHRU_PARK"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "general_accessibility"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "general_accessibility"
+      ],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.station_accessibility.general_disabled_access.HI_LATN.1",
+    "family_id": "ml1.station_accessibility.general_disabled_access",
+    "semantic_family_id": "ml1.station_accessibility.general_disabled_access",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Divyang yatriyon ke liye Government Estate metro station ki pahunch kaisi hai?",
+    "intent": "station_accessibility",
+    "slots": {
+      "transport_mode": "metro",
+      "station": "METRO_GOVERNMENT_ESTATE"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "Government Estate",
+        "canonical_name": "Government Estate",
+        "canonical_ids": [
+          "METRO_GOVERNMENT_ESTATE"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "general_accessibility"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "general_accessibility"
+      ],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.station_accessibility.general_disabled_access.HINGLISH_LATN.0",
+    "family_id": "ml1.station_accessibility.general_disabled_access",
+    "semantic_family_id": "ml1.station_accessibility.general_disabled_access",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Accessibility overview for disabled passengers at Nehrupark metro station do.",
+    "intent": "station_accessibility",
+    "slots": {
+      "transport_mode": "metro",
+      "station": "METRO_NEHRU_PARK"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "Nehrupark",
+        "canonical_name": "Nehru Park",
+        "canonical_ids": [
+          "METRO_NEHRU_PARK"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "general_accessibility"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "general_accessibility"
+      ],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.station_accessibility.general_disabled_access.HINGLISH_LATN.1",
+    "family_id": "ml1.station_accessibility.general_disabled_access",
+    "semantic_family_id": "ml1.station_accessibility.general_disabled_access",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Accessibility overview for disabled passengers at Government Estate metro station do.",
+    "intent": "station_accessibility",
+    "slots": {
+      "transport_mode": "metro",
+      "station": "METRO_GOVERNMENT_ESTATE"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "Government Estate",
+        "canonical_name": "Government Estate",
+        "canonical_ids": [
+          "METRO_GOVERNMENT_ESTATE"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "general_accessibility"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "general_accessibility"
+      ],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.station_accessibility.general_disabled_access.EN.0",
+    "family_id": "ml1.station_accessibility.general_disabled_access",
+    "semantic_family_id": "ml1.station_accessibility.general_disabled_access",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Give a general accessibility overview for disabled passengers at Nehru Park metro station.",
+    "intent": "station_accessibility",
+    "slots": {
+      "transport_mode": "metro",
+      "station": "METRO_NEHRU_PARK"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "Nehru Park",
+        "canonical_name": "Nehru Park",
+        "canonical_ids": [
+          "METRO_NEHRU_PARK"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "general_accessibility"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "general_accessibility"
+      ],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.station_accessibility.general_disabled_access.EN.1",
+    "family_id": "ml1.station_accessibility.general_disabled_access",
+    "semantic_family_id": "ml1.station_accessibility.general_disabled_access",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Give a general accessibility overview for disabled passengers at Government Estate metro station.",
+    "intent": "station_accessibility",
+    "slots": {
+      "transport_mode": "metro",
+      "station": "METRO_GOVERNMENT_ESTATE"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "Government Estate",
+        "canonical_name": "Government Estate",
+        "canonical_ids": [
+          "METRO_GOVERNMENT_ESTATE"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "general_accessibility"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "general_accessibility"
+      ],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.interchange_transfer.transfer_without_station.HI_DEVA.0",
+    "family_id": "ml1.interchange_transfer.transfer_without_station",
+    "semantic_family_id": "ml1.interchange_transfer.transfer_without_station",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "लोकल ट्रेन से एमआरटीएस में बदलने की प्रक्रिया क्या है? स्टेशन नहीं चुना है।",
+    "intent": "interchange_transfer",
+    "slots": {
+      "mode_from": "suburban_rail",
+      "mode_to": "mrts"
+    },
+    "entity_expectations": {},
+    "expected_clarification": null,
+    "constraints": [
+      "unspecified_transfer_station"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "unspecified_transfer_station"
+      ],
+      "required_modes": [
+        "suburban_rail",
+        "mrts"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.interchange_transfer.transfer_without_station.HI_LATN.0",
+    "family_id": "ml1.interchange_transfer.transfer_without_station",
+    "semantic_family_id": "ml1.interchange_transfer.transfer_without_station",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Local train se MRTS mein badalne ki prakriya kya hai? Station nahi chuna hai.",
+    "intent": "interchange_transfer",
+    "slots": {
+      "mode_from": "suburban_rail",
+      "mode_to": "mrts"
+    },
+    "entity_expectations": {},
+    "expected_clarification": null,
+    "constraints": [
+      "unspecified_transfer_station"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "unspecified_transfer_station"
+      ],
+      "required_modes": [
+        "suburban_rail",
+        "mrts"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.interchange_transfer.transfer_without_station.HINGLISH_LATN.0",
+    "family_id": "ml1.interchange_transfer.transfer_without_station",
+    "semantic_family_id": "ml1.interchange_transfer.transfer_without_station",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Local train to MRTS transfer explain karo, station unspecified.",
+    "intent": "interchange_transfer",
+    "slots": {
+      "mode_from": "suburban_rail",
+      "mode_to": "mrts"
+    },
+    "entity_expectations": {},
+    "expected_clarification": null,
+    "constraints": [
+      "unspecified_transfer_station"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "unspecified_transfer_station"
+      ],
+      "required_modes": [
+        "suburban_rail",
+        "mrts"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.interchange_transfer.transfer_without_station.EN.0",
+    "family_id": "ml1.interchange_transfer.transfer_without_station",
+    "semantic_family_id": "ml1.interchange_transfer.transfer_without_station",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Explain a suburban rail to MRTS transfer without specifying a station.",
+    "intent": "interchange_transfer",
+    "slots": {
+      "mode_from": "suburban_rail",
+      "mode_to": "mrts"
+    },
+    "entity_expectations": {},
+    "expected_clarification": null,
+    "constraints": [
+      "unspecified_transfer_station"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "unspecified_transfer_station"
+      ],
+      "required_modes": [
+        "suburban_rail",
+        "mrts"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.nearest_transport.unprovided_nearest_anchor.HI_DEVA.0",
+    "family_id": "ml1.nearest_transport.unprovided_nearest_anchor",
+    "semantic_family_id": "ml1.nearest_transport.unprovided_nearest_anchor",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "नजदीकी लोकल ट्रेन स्टेशन ढूँढना है, मैंने जगह नहीं बताई है।",
+    "intent": "nearest_transport",
+    "slots": {
+      "transport_mode": "suburban_rail"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "suburban_rail"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.nearest_transport.unprovided_nearest_anchor.HI_LATN.0",
+    "family_id": "ml1.nearest_transport.unprovided_nearest_anchor",
+    "semantic_family_id": "ml1.nearest_transport.unprovided_nearest_anchor",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Nazdeeki local train station dhoondhna hai, maine jagah nahi batayi hai.",
+    "intent": "nearest_transport",
+    "slots": {
+      "transport_mode": "suburban_rail"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "suburban_rail"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.nearest_transport.unprovided_nearest_anchor.HINGLISH_LATN.0",
+    "family_id": "ml1.nearest_transport.unprovided_nearest_anchor",
+    "semantic_family_id": "ml1.nearest_transport.unprovided_nearest_anchor",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Find nearest local train station, reference location missing hai.",
+    "intent": "nearest_transport",
+    "slots": {
+      "transport_mode": "suburban_rail"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "suburban_rail"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.nearest_transport.unprovided_nearest_anchor.EN.0",
+    "family_id": "ml1.nearest_transport.unprovided_nearest_anchor",
+    "semantic_family_id": "ml1.nearest_transport.unprovided_nearest_anchor",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Find the nearest suburban rail station without a reference location.",
+    "intent": "nearest_transport",
+    "slots": {
+      "transport_mode": "suburban_rail"
+    },
+    "entity_expectations": {},
+    "expected_clarification": "missing_slot",
+    "constraints": [],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [],
+      "required_modes": [
+        "suburban_rail"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.realtime_status_query.live_disruption.HI_DEVA.0",
+    "family_id": "ml1.realtime_status_query.live_disruption",
+    "semantic_family_id": "ml1.realtime_status_query.live_disruption",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "नेहरू पार्क की मेट्रो सेवा आज फिलहाल बाधित है क्या?",
+    "intent": "realtime_status_query",
+    "slots": {
+      "transport_mode": "metro",
+      "temporal_relative": "आज",
+      "station": "METRO_NEHRU_PARK"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "नेहरू पार्क",
+        "canonical_name": "Nehru Park",
+        "canonical_ids": [
+          "METRO_NEHRU_PARK"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "realtime_disruption"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "realtime_disruption"
+      ],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.realtime_status_query.live_disruption.HI_DEVA.1",
+    "family_id": "ml1.realtime_status_query.live_disruption",
+    "semantic_family_id": "ml1.realtime_status_query.live_disruption",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "गवर्नमेंट एस्टेट की मेट्रो सेवा आज फिलहाल बाधित है क्या?",
+    "intent": "realtime_status_query",
+    "slots": {
+      "transport_mode": "metro",
+      "temporal_relative": "आज",
+      "station": "METRO_GOVERNMENT_ESTATE"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "गवर्नमेंट एस्टेट",
+        "canonical_name": "Government Estate",
+        "canonical_ids": [
+          "METRO_GOVERNMENT_ESTATE"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "realtime_disruption"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "realtime_disruption"
+      ],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.realtime_status_query.live_disruption.HI_LATN.0",
+    "family_id": "ml1.realtime_status_query.live_disruption",
+    "semantic_family_id": "ml1.realtime_status_query.live_disruption",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Nehrupark ki metro seva aaj filhaal badhit hai kya?",
+    "intent": "realtime_status_query",
+    "slots": {
+      "transport_mode": "metro",
+      "temporal_relative": "aaj",
+      "station": "METRO_NEHRU_PARK"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "Nehrupark",
+        "canonical_name": "Nehru Park",
+        "canonical_ids": [
+          "METRO_NEHRU_PARK"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "realtime_disruption"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "realtime_disruption"
+      ],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.realtime_status_query.live_disruption.HI_LATN.1",
+    "family_id": "ml1.realtime_status_query.live_disruption",
+    "semantic_family_id": "ml1.realtime_status_query.live_disruption",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Government Estate ki metro seva aaj filhaal badhit hai kya?",
+    "intent": "realtime_status_query",
+    "slots": {
+      "transport_mode": "metro",
+      "temporal_relative": "aaj",
+      "station": "METRO_GOVERNMENT_ESTATE"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "Government Estate",
+        "canonical_name": "Government Estate",
+        "canonical_ids": [
+          "METRO_GOVERNMENT_ESTATE"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "realtime_disruption"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "realtime_disruption"
+      ],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.realtime_status_query.live_disruption.HINGLISH_LATN.0",
+    "family_id": "ml1.realtime_status_query.live_disruption",
+    "semantic_family_id": "ml1.realtime_status_query.live_disruption",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Metro at Nehrupark currently disrupted hai kya today?",
+    "intent": "realtime_status_query",
+    "slots": {
+      "transport_mode": "metro",
+      "temporal_relative": "today",
+      "station": "METRO_NEHRU_PARK"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "Nehrupark",
+        "canonical_name": "Nehru Park",
+        "canonical_ids": [
+          "METRO_NEHRU_PARK"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "realtime_disruption"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "realtime_disruption"
+      ],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.realtime_status_query.live_disruption.HINGLISH_LATN.1",
+    "family_id": "ml1.realtime_status_query.live_disruption",
+    "semantic_family_id": "ml1.realtime_status_query.live_disruption",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Metro at Government Estate currently disrupted hai kya today?",
+    "intent": "realtime_status_query",
+    "slots": {
+      "transport_mode": "metro",
+      "temporal_relative": "today",
+      "station": "METRO_GOVERNMENT_ESTATE"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "Government Estate",
+        "canonical_name": "Government Estate",
+        "canonical_ids": [
+          "METRO_GOVERNMENT_ESTATE"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "realtime_disruption"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "realtime_disruption"
+      ],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.realtime_status_query.live_disruption.EN.0",
+    "family_id": "ml1.realtime_status_query.live_disruption",
+    "semantic_family_id": "ml1.realtime_status_query.live_disruption",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Is metro service at Nehru Park currently disrupted today?",
+    "intent": "realtime_status_query",
+    "slots": {
+      "transport_mode": "metro",
+      "temporal_relative": "today",
+      "station": "METRO_NEHRU_PARK"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "Nehru Park",
+        "canonical_name": "Nehru Park",
+        "canonical_ids": [
+          "METRO_NEHRU_PARK"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "realtime_disruption"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "realtime_disruption"
+      ],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.realtime_status_query.live_disruption.EN.1",
+    "family_id": "ml1.realtime_status_query.live_disruption",
+    "semantic_family_id": "ml1.realtime_status_query.live_disruption",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Is metro service at Government Estate currently disrupted today?",
+    "intent": "realtime_status_query",
+    "slots": {
+      "transport_mode": "metro",
+      "temporal_relative": "today",
+      "station": "METRO_GOVERNMENT_ESTATE"
+    },
+    "entity_expectations": {
+      "station": {
+        "surface": "Government Estate",
+        "canonical_name": "Government Estate",
+        "canonical_ids": [
+          "METRO_GOVERNMENT_ESTATE"
+        ]
+      }
+    },
+    "expected_clarification": null,
+    "constraints": [
+      "realtime_disruption"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "realtime_disruption"
+      ],
+      "required_modes": [
+        "metro"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.out_of_scope.other_city_transport.HI_DEVA.0",
+    "family_id": "ml1.out_of_scope.other_city_transport",
+    "semantic_family_id": "ml1.out_of_scope.other_city_transport",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "दिल्ली में 6 यात्रियों के मेट्रो टिकट खरीद दो।",
+    "intent": "out_of_scope",
+    "slots": {},
+    "entity_expectations": {},
+    "expected_clarification": null,
+    "constraints": [
+      "other_geography",
+      "transaction"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "other_geography",
+        "transaction"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.out_of_scope.other_city_transport.HI_DEVA.1",
+    "family_id": "ml1.out_of_scope.other_city_transport",
+    "semantic_family_id": "ml1.out_of_scope.other_city_transport",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "दिल्ली में 9 यात्रियों के मेट्रो टिकट खरीद दो।",
+    "intent": "out_of_scope",
+    "slots": {},
+    "entity_expectations": {},
+    "expected_clarification": null,
+    "constraints": [
+      "other_geography",
+      "transaction"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "other_geography",
+        "transaction"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.out_of_scope.other_city_transport.HI_LATN.0",
+    "family_id": "ml1.out_of_scope.other_city_transport",
+    "semantic_family_id": "ml1.out_of_scope.other_city_transport",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Dilli mein 6 yatriyon ke metro ticket khareed do.",
+    "intent": "out_of_scope",
+    "slots": {},
+    "entity_expectations": {},
+    "expected_clarification": null,
+    "constraints": [
+      "other_geography",
+      "transaction"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "other_geography",
+        "transaction"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.out_of_scope.other_city_transport.HI_LATN.1",
+    "family_id": "ml1.out_of_scope.other_city_transport",
+    "semantic_family_id": "ml1.out_of_scope.other_city_transport",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Dilli mein 9 yatriyon ke metro ticket khareed do.",
+    "intent": "out_of_scope",
+    "slots": {},
+    "entity_expectations": {},
+    "expected_clarification": null,
+    "constraints": [
+      "other_geography",
+      "transaction"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "other_geography",
+        "transaction"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.out_of_scope.other_city_transport.HINGLISH_LATN.0",
+    "family_id": "ml1.out_of_scope.other_city_transport",
+    "semantic_family_id": "ml1.out_of_scope.other_city_transport",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Delhi metro ke 6 passengers ke tickets buy kar do.",
+    "intent": "out_of_scope",
+    "slots": {},
+    "entity_expectations": {},
+    "expected_clarification": null,
+    "constraints": [
+      "other_geography",
+      "transaction"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "other_geography",
+        "transaction"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.out_of_scope.other_city_transport.HINGLISH_LATN.1",
+    "family_id": "ml1.out_of_scope.other_city_transport",
+    "semantic_family_id": "ml1.out_of_scope.other_city_transport",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Delhi metro ke 9 passengers ke tickets buy kar do.",
+    "intent": "out_of_scope",
+    "slots": {},
+    "entity_expectations": {},
+    "expected_clarification": null,
+    "constraints": [
+      "other_geography",
+      "transaction"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "other_geography",
+        "transaction"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.out_of_scope.other_city_transport.EN.0",
+    "family_id": "ml1.out_of_scope.other_city_transport",
+    "semantic_family_id": "ml1.out_of_scope.other_city_transport",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Buy metro tickets in Delhi for 6 passengers.",
+    "intent": "out_of_scope",
+    "slots": {},
+    "entity_expectations": {},
+    "expected_clarification": null,
+    "constraints": [
+      "other_geography",
+      "transaction"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "other_geography",
+        "transaction"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.out_of_scope.other_city_transport.EN.1",
+    "family_id": "ml1.out_of_scope.other_city_transport",
+    "semantic_family_id": "ml1.out_of_scope.other_city_transport",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "Buy metro tickets in Delhi for 9 passengers.",
+    "intent": "out_of_scope",
+    "slots": {},
+    "entity_expectations": {},
+    "expected_clarification": null,
+    "constraints": [
+      "other_geography",
+      "transaction"
+    ],
+    "classifier_applicable": true,
+    "request_constraints": {
+      "tags": [
+        "other_geography",
+        "transaction"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.ambiguous.intent_unspecified.HI_DEVA.0",
+    "family_id": "ml1.ambiguous.intent_unspecified",
+    "semantic_family_id": "ml1.ambiguous.intent_unspecified",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "पट्टरवाक्कम से चेन्नई बीच के बारे में जानकारी चाहिए।",
+    "intent": null,
+    "slots": {},
+    "entity_expectations": {},
+    "expected_clarification": "intent_ambiguity",
+    "constraints": [
+      "underspecified_goal"
+    ],
+    "classifier_applicable": false,
+    "request_constraints": {
+      "tags": [
+        "underspecified_goal"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.ambiguous.intent_unspecified.HI_DEVA.1",
+    "family_id": "ml1.ambiguous.intent_unspecified",
+    "semantic_family_id": "ml1.ambiguous.intent_unspecified",
+    "split": "validation",
+    "language_class": "HI_DEVA",
+    "query": "वालाजाबाद से नाथपेट्टै के बारे में जानकारी चाहिए।",
+    "intent": null,
+    "slots": {},
+    "entity_expectations": {},
+    "expected_clarification": "intent_ambiguity",
+    "constraints": [
+      "underspecified_goal"
+    ],
+    "classifier_applicable": false,
+    "request_constraints": {
+      "tags": [
+        "underspecified_goal"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.ambiguous.intent_unspecified.HI_LATN.0",
+    "family_id": "ml1.ambiguous.intent_unspecified",
+    "semantic_family_id": "ml1.ambiguous.intent_unspecified",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Pattaravakam se Chennai Beach ke baare mein jankari chahiye.",
+    "intent": null,
+    "slots": {},
+    "entity_expectations": {},
+    "expected_clarification": "intent_ambiguity",
+    "constraints": [
+      "underspecified_goal"
+    ],
+    "classifier_applicable": false,
+    "request_constraints": {
+      "tags": [
+        "underspecified_goal"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.ambiguous.intent_unspecified.HI_LATN.1",
+    "family_id": "ml1.ambiguous.intent_unspecified",
+    "semantic_family_id": "ml1.ambiguous.intent_unspecified",
+    "split": "validation",
+    "language_class": "HI_LATN",
+    "query": "Walajabad se Nathapettai ke baare mein jankari chahiye.",
+    "intent": null,
+    "slots": {},
+    "entity_expectations": {},
+    "expected_clarification": "intent_ambiguity",
+    "constraints": [
+      "underspecified_goal"
+    ],
+    "classifier_applicable": false,
+    "request_constraints": {
+      "tags": [
+        "underspecified_goal"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.ambiguous.intent_unspecified.HINGLISH_LATN.0",
+    "family_id": "ml1.ambiguous.intent_unspecified",
+    "semantic_family_id": "ml1.ambiguous.intent_unspecified",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Information about Pattaravakam to Chennai Beach chahiye.",
+    "intent": null,
+    "slots": {},
+    "entity_expectations": {},
+    "expected_clarification": "intent_ambiguity",
+    "constraints": [
+      "underspecified_goal"
+    ],
+    "classifier_applicable": false,
+    "request_constraints": {
+      "tags": [
+        "underspecified_goal"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.ambiguous.intent_unspecified.HINGLISH_LATN.1",
+    "family_id": "ml1.ambiguous.intent_unspecified",
+    "semantic_family_id": "ml1.ambiguous.intent_unspecified",
+    "split": "validation",
+    "language_class": "HINGLISH_LATN",
+    "query": "Information about Walajabad to Nathapettai chahiye.",
+    "intent": null,
+    "slots": {},
+    "entity_expectations": {},
+    "expected_clarification": "intent_ambiguity",
+    "constraints": [
+      "underspecified_goal"
+    ],
+    "classifier_applicable": false,
+    "request_constraints": {
+      "tags": [
+        "underspecified_goal"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.ambiguous.intent_unspecified.EN.0",
+    "family_id": "ml1.ambiguous.intent_unspecified",
+    "semantic_family_id": "ml1.ambiguous.intent_unspecified",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "I need information about Pattaravakkam to Chennai Beach.",
+    "intent": null,
+    "slots": {},
+    "entity_expectations": {},
+    "expected_clarification": "intent_ambiguity",
+    "constraints": [
+      "underspecified_goal"
+    ],
+    "classifier_applicable": false,
+    "request_constraints": {
+      "tags": [
+        "underspecified_goal"
+      ]
+    },
+    "variant": 0,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  },
+  {
+    "id": "ml1.ambiguous.intent_unspecified.EN.1",
+    "family_id": "ml1.ambiguous.intent_unspecified",
+    "semantic_family_id": "ml1.ambiguous.intent_unspecified",
+    "split": "validation",
+    "language_class": "EN",
+    "query": "I need information about Walajabad to Nathapettai.",
+    "intent": null,
+    "slots": {},
+    "entity_expectations": {},
+    "expected_clarification": "intent_ambiguity",
+    "constraints": [
+      "underspecified_goal"
+    ],
+    "classifier_applicable": false,
+    "request_constraints": {
+      "tags": [
+        "underspecified_goal"
+      ]
+    },
+    "variant": 1,
+    "provenance": "Independent authoring from canonical T3 operation contract and canonical DB names; no observed query wording",
+    "review_method": "Primary linguistic/semantic review plus fresh GPT-6.1 Sol xhigh review of registry and expanded samples"
+  }
+]

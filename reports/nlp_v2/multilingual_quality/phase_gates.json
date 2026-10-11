@@ -1,0 +1,142 @@
+{
+  "L0": {
+    "status": "PASS",
+    "reviewer": "GPT-6.1 Sol xhigh",
+    "unresolved": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    }
+  },
+  "L1": {
+    "status": "PASS",
+    "reviewer": "GPT-6.1 Sol xhigh",
+    "unresolved": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    "corpus_manifest": "data/nlp_v2/multilingual_v1/manifest.json",
+    "tests": 1357
+  },
+  "L2": {
+    "status": "PASS",
+    "reviewer": "GPT-6.1 Sol xhigh",
+    "unresolved": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    "all_canonical_name_rows_audited": 18060,
+    "spacing_equivalence_keys": 34245,
+    "tests": 199
+  },
+  "L3": {
+    "status": "PASS",
+    "reviewer": "GPT-6.1 Sol xhigh",
+    "unresolved": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    "targeted_tests": 302,
+    "independent_probes": 36
+  },
+  "L4": {
+    "status": "PASS",
+    "reviewer": "GPT-6.1 Sol xhigh",
+    "unresolved": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    "targeted_tests": 138,
+    "training_justified": true,
+    "promotion_authorized": false
+  },
+  "L5": {
+    "status": "PASS",
+    "reviewer": "GPT-6.1 Sol xhigh",
+    "unresolved": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    "trainer_tests": 4,
+    "fresh_validation_inference": "Stored baseline/candidate metrics independently reproduced exactly on hostGPU",
+    "model_decision": "RETAIN_BASELINE; candidate failed Roman-Hindi and multimodal non-regression gates"
+  },
+  "L6": {
+    "status": "PASS",
+    "reviewer": "GPT-6.1 Sol xhigh",
+    "unresolved": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    "reviewer_targeted_tests": 279,
+    "full_suite_tests": 1457,
+    "full_suite_seconds": 37.04,
+    "source_limitations_audited": 162,
+    "source_anchor_cases_audited": 3,
+    "qualification_equivalence_groups_checked": 52,
+    "protected_files_unchanged": 204
+  },
+  "L7": {
+    "status": "FAIL",
+    "reviewer": "fresh GPT-6.1 Sol xhigh",
+    "unresolved": {
+      "critical": 0,
+      "high": 1,
+      "medium": 3
+    },
+    "development_freeze_files": 326,
+    "full_suite_tests": 1481,
+    "challenge_requests_exactly_once": 400,
+    "all_challenge_queries_manually_reviewed": 400,
+    "english_queries_manually_reviewed": 45,
+    "finding_groups": [
+      "Excluded route variant answered",
+      "False Metro/MRTS plus generic train ambiguity",
+      "False multiple-goal detection for one frequency request",
+      "Availability question polarity treated as mode exclusion"
+    ],
+    "no_post_freeze_behavior_changes": true
+  },
+  "L8": {
+    "status": "FAIL",
+    "reviewer": "fresh GPT-6.1 Sol xhigh",
+    "unresolved": {
+      "critical": 0,
+      "high": 0,
+      "medium": 1
+    },
+    "bounded_real_api_cases": 7,
+    "visual_evidence_reviewed": 5,
+    "finding_groups": [
+      "UI control rerun silently discards in-flight reply and preserves orphan user entry"
+    ],
+    "no_post_freeze_behavior_changes": true
+  },
+  "L9": {
+    "status": "FAIL",
+    "reviewer": "fresh GPT-6.1 Sol xhigh",
+    "unresolved": {
+      "critical": 0,
+      "high": 1,
+      "medium": 4
+    },
+    "focused_tests": 175,
+    "freeze_files_independently_checked": 326,
+    "post_freeze_behavior_changes": 0,
+    "finding_groups": [
+      "Excluded route variant answered",
+      "False Metro/MRTS plus generic train ambiguity",
+      "False multiple-goal detection for one frequency request",
+      "Availability question polarity treated as mode exclusion",
+      "UI control rerun silently discards in-flight reply and preserves orphan user entry"
+    ],
+    "additional_critical_high_medium_findings": 0,
+    "commit_push_cleanup": "DEFERRED"
+  }
+}

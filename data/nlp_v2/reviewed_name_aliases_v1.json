@@ -1,0 +1,450 @@
+{
+  "version": 1,
+  "source": "canonical_transport.db exact names and independently reviewed transliterations",
+  "entries": [
+    {
+      "canonical_name": "Adyar",
+      "aliases": [
+        "अडयार"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Ambattur",
+      "aliases": [
+        "अम्बत्तूर"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Annanur",
+      "aliases": [
+        "अन्नानूर"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Avadi",
+      "aliases": [
+        "आवडी"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Basin Bridge Junction",
+      "aliases": [
+        "बेसिन ब्रिज जंक्शन"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Chennai Beach",
+      "aliases": [
+        "चेन्नई बीच"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Chennai Chetpet",
+      "aliases": [
+        "चेन्नई चेटपेट"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Chennai Fort",
+      "aliases": [
+        "चेन्नई फोर्ट"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Chennai Park",
+      "aliases": [
+        "चेन्नई पार्क"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Chennai Park Town",
+      "aliases": [
+        "चेन्नई पार्क टाउन"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Chintadaripet",
+      "aliases": [
+        "चिंताद्रिपेट"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Chromepet",
+      "aliases": [
+        "क्रोमपेट"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Ennore",
+      "aliases": [
+        "एन्नोर"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Government Estate",
+      "aliases": [
+        "गवर्नमेंट एस्टेट"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Highcourt",
+      "aliases": [
+        "हाईकोर्ट"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "High Court",
+      "aliases": [
+        "हाई कोर्ट"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Indira Nagar",
+      "aliases": [
+        "इंदिरा नगर"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Kanchipuram",
+      "aliases": [
+        "कांचीपुरम"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Kodambakkam",
+      "aliases": [
+        "कोडम्बाक्कम"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Korattur",
+      "aliases": [
+        "कोरट्टूर"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Kotturpuram",
+      "aliases": [
+        "कोट्टूरपुरम"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Mambalam",
+      "aliases": [
+        "माम्बलम"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Mandaveli",
+      "aliases": [
+        "मंदवेली"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Meenambakkam",
+      "aliases": [
+        "मीनम्बाक्कम"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Minjur",
+      "aliases": [
+        "मिंजूर"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Nathapettai",
+      "aliases": [
+        "नाथपेट्टै"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Nehru Park",
+      "aliases": [
+        "नेहरू पार्क",
+        "नेहरूपार्क",
+        "Nehrupark"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Nungambakkam",
+      "aliases": [
+        "नुंगम्बाक्कम"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Padi",
+      "aliases": [
+        "पाडी"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Pallavaram",
+      "aliases": [
+        "पल्लावरम"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Pattabiram",
+      "aliases": [
+        "पट्टाबिराम"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Pattaravakkam",
+      "aliases": [
+        "पट्टरवाक्कम",
+        "Pattaravakam"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Perambur",
+      "aliases": [
+        "पेरम्बूर"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Perungudi",
+      "aliases": [
+        "पेरुंगुडी"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Ponneri",
+      "aliases": [
+        "पोन्नेरी"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Royapuram",
+      "aliases": [
+        "रॉयपुरम"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Saidapet",
+      "aliases": [
+        "सैदापेट"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Tambaram",
+      "aliases": [
+        "ताम्बरम"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Tambaram Sanatorium",
+      "aliases": [
+        "ताम्बरम सैनेटोरियम"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Taramani",
+      "aliases": [
+        "तारामणी"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Teynampet",
+      "aliases": [
+        "तेयनामपेट"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Thirumayilai",
+      "aliases": [
+        "तिरुमयिलै"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Tiruvallur",
+      "aliases": [
+        "तिरुवल्लूर"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Tiruvanmiyur",
+      "aliases": [
+        "तिरुवन्मियूर"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Velachery",
+      "aliases": [
+        "वेलाचेरी"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Villivakkam",
+      "aliases": [
+        "विल्लिवाक्कम"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Walajabad",
+      "aliases": [
+        "वालाजाबाद"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Chepauk",
+      "aliases": [
+        "चेपॉक"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Anna Nagar East",
+      "aliases": [
+        "अन्ना नगर ईस्ट"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Anna Nagar Tower",
+      "aliases": [
+        "अन्ना नगर टावर"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Arumbakkam",
+      "aliases": [
+        "अरुम्बाक्कम"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Ashok Nagar",
+      "aliases": [
+        "अशोक नगर"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Ekkattuthangal",
+      "aliases": [
+        "ईक्काट्टुथांगल"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Kilpauk",
+      "aliases": [
+        "किलपॉक"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Little Mount",
+      "aliases": [
+        "लिटल माउंट"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Mannadi",
+      "aliases": [
+        "मन्नाडी"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Nanganallur Road",
+      "aliases": [
+        "नंगनल्लूर रोड"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Thirumangalam",
+      "aliases": [
+        "तिरुमंगलम"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Thousand Lights",
+      "aliases": [
+        "थाउजेंड लाइट्स"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Tondiarpet",
+      "aliases": [
+        "टोंडियारपेट"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Saint Thomas Mount",
+      "aliases": [
+        "सेंट थॉमस माउंट"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Chennai International Airport",
+      "aliases": [
+        "चेन्नई इंटरनेशनल एयरपोर्ट"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    },
+    {
+      "canonical_name": "Central Metro",
+      "aliases": [
+        "सेंट्रल मेट्रो"
+      ],
+      "provenance": "Primary-reviewed transliteration of exact canonical DB spelling; no physical-identity merge or external naming claim"
+    }
+  ]
+}

@@ -50,11 +50,33 @@ def _submit(query: str) -> None:
         return
     default_mode = st.session_state.get('selected_transport_mode', 'auto')
     default_mode = None if default_mode == 'auto' else default_mode
-    st.session_state.messages.append({"role": "user", "text": query, "default_transport_mode": default_mode})
-    with st.spinner(_t("Checking the transit snapshot…")):
-        reply = ask_api(query, base_url=API_URL, transport_mode=default_mode)
-    st.session_state.messages.append({"role": "assistant", "reply": reply})
+    messages = st.session_state.messages
+    submission = st.session_state.pending_submission
+    # Accept the submission before Streamlit reaches an execution-control
+    # yield. A queued widget rerun can resume this exact query/default snapshot.
+    submission.update(query=query, default_mode=default_mode)
+    messages.append({"role": "user", "text": query, "default_transport_mode": default_mode})
+    _complete_pending_submission()
+
+
+def _complete_pending_submission() -> None:
+    submission = st.session_state.get('pending_submission')
+    if not submission:
+        return
+    query, default_mode = submission['query'], submission['default_mode']
+    messages = st.session_state.messages
+    if 'reply' not in submission:
+        with st.spinner(_t("Checking the transit snapshot…")):
+            reply = ask_api(query, base_url=API_URL, transport_mode=default_mode)
+            # Session-state reads/writes themselves yield in Streamlit. Mutate
+            # this already persisted ordinary dict before any such access.
+            submission['reply'] = reply
+    reply = submission['reply']
+    if not submission.get('reply_committed'):
+        messages.append({"role": "assistant", "reply": reply})
+        submission['reply_committed'] = True
     st.session_state.pending_query = query if reply.get("status") == "clarification" else None
+    submission.clear()
 
 
 def _save_mode_selection() -> None:
@@ -178,8 +200,14 @@ def _render_reply(reply: dict) -> None:
             st.caption(_t("Question types: {intents}", intents=", ".join(field_label(item, UI_LANGUAGE) for item in choices)))
         entities = reply.get("candidate_entities") or []
         if entities:
-            st.caption(_t('More than one stop or location matches. Include the route number, transport mode '
-                          'or precise stop name in your revised full question.'))
+            if len(entities) == 1:
+                st.caption(_t('Confirm the precise stop or qualified location name in your revised full question.'))
+            else:
+                st.caption(_t('More than one stop or location matches. Include the route number, transport mode '
+                              'or precise stop name in your revised full question.'))
+            candidates = reply.get('data', {}).get('entity_candidates', [])
+            if candidates:
+                _table(candidates, ['canonical_name', 'mode', 'entity_id'])
     _render_panel(reply)
 
 
@@ -233,6 +261,9 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 if "pending_query" not in st.session_state:
     st.session_state.pending_query = None
+if "pending_submission" not in st.session_state:
+    st.session_state.pending_submission = {}
+_complete_pending_submission()
 
 if not _api_ready():
     st.warning(_t("The local T3 API is offline. Start it with `python -m app.api` to answer questions."))

@@ -1,0 +1,144 @@
+{
+  "phase": "R7",
+  "status": "PASS",
+  "decision": "RETAIN_ORIGINAL_PRODUCTION_MODEL",
+  "training_performed_in_v2": false,
+  "selected_model_manifest_sha256": "447a120090c33ba1259cad06ce9f216d80832d2540727c3330f14be3ec04dc39",
+  "selected_checkpoint_sha256": "abac66fc9fa29212c7565117ae326e34f02b64e76dbb177c61e9661517803196",
+  "independent": {
+    "count": 452,
+    "intent_injected_contract_matches": 452,
+    "raw_label_agreement": 359,
+    "actual_status_matches": 393,
+    "label_disagreements": {
+      "route_stop_sequence -> route_stop_membership": 14,
+      "route_stop_sequence -> scheduled_departure": 2,
+      "point_to_point_route -> route_stop_membership": 5,
+      "point_to_point_route -> mode_availability": 9,
+      "point_to_point_route -> interchange_transfer": 4,
+      "point_to_point_route -> multimodal_route": 12,
+      "point_to_point_route -> first_and_last_service": 1,
+      "service_frequency -> scheduled_departure": 3,
+      "mode_availability -> route_stop_membership": 2,
+      "mode_availability -> interchange_transfer": 1,
+      "fare_calculation -> first_and_last_service": 1,
+      "realtime_status_query -> first_and_last_service": 1,
+      "out_of_scope -> multimodal_route": 1,
+      "out_of_scope -> ticketing_and_passes": 2,
+      "out_of_scope -> first_and_last_service": 1,
+      "fare_calculation -> realtime_status_query": 4,
+      "first_and_last_service -> multimodal_route": 8,
+      "fare_calculation -> route_stop_sequence": 5,
+      "route_stop_sequence -> fare_calculation": 3,
+      "route_stop_membership -> route_stop_sequence": 2,
+      "fare_calculation -> route_stop_membership": 5,
+      "scheduled_departure -> route_stop_membership": 2,
+      "first_and_last_service -> route_stop_sequence": 1,
+      "nearest_transport -> multimodal_route": 2,
+      "point_to_point_route -> fare_calculation": 1,
+      "route_stop_sequence -> multimodal_route": 1
+    },
+    "actual_response_status": {
+      "unavailable": 105,
+      "clarification": 246,
+      "ok": 101
+    },
+    "ok_with_label_disagreement": 1,
+    "limitations": "Diagnostic agreement, not semantic accuracy; raw actual replies and injected contracts preserved."
+  },
+  "english": {
+    "count": 64,
+    "intent_injected_contract_matches": 64,
+    "raw_label_agreement": 42,
+    "actual_status_matches": 52,
+    "label_disagreements": {
+      "point_to_point_route -> multimodal_route": 5,
+      "mode_availability -> route_stop_membership": 2,
+      "first_and_last_service -> multimodal_route": 5,
+      "service_frequency -> route_stop_membership": 1,
+      "station_accessibility -> station_facilities": 1,
+      "interchange_transfer -> multimodal_route": 1,
+      "out_of_scope -> multimodal_route": 1,
+      "first_and_last_service -> scheduled_departure": 1,
+      "route_stop_membership -> route_stop_sequence": 3,
+      "route_stop_sequence -> fare_calculation": 2
+    },
+    "actual_response_status": {
+      "unavailable": 29,
+      "clarification": 21,
+      "ok": 14
+    },
+    "ok_with_label_disagreement": 0,
+    "limitations": "Diagnostic agreement, not semantic accuracy; raw actual replies and injected contracts preserved."
+  },
+  "legitimate_disjoint_validation": {
+    "count": 332,
+    "accuracy": 0.9066265060240963,
+    "macro_f1": 0.8512157222506684,
+    "english_count": 45,
+    "english_correct": 37
+  },
+  "clean_multilingual_validation": {
+    "count": 108,
+    "accuracy": 0.49074074074074076,
+    "macro_f1": 0.43476627539127544,
+    "partition": {
+      "classifier_and_downstream": 20,
+      "downstream_only": 7,
+      "classifier_only": 35,
+      "both_correct": 46
+    },
+    "downstream_partition_scope": "Historical downstream diagnostic from earlier evaluation; classifier accuracy remains valid because model/raw-input validation unchanged. Current final source is independently evaluated on452/64contracts."
+  },
+  "clean_multilingual_development": {
+    "count": 96,
+    "accuracy": 0.4479166666666667,
+    "selection_use": false
+  },
+  "consideration": "Wrong-intent prediction remains a dominant measured independent/legitimate limitation. Retraining was considered, rather than performed automatically. The previous legitimate-data candidate was reconsidered under its unchanged predeclared preservation guards; it remains ineligible. No evidence supports a new eligible candidate, and no challenge input/output informed this decision.",
+  "prior_candidate": {
+    "checkpoint_sha256": "a1414164b78688104869d73c87395dfc16d1bd9b2c0f917d340b55762da1ce5d",
+    "new_validation_accuracy": 0.7962962962962963,
+    "old_validation_accuracy": 0.9096385542168675,
+    "english_correct": 40,
+    "english_count": 45,
+    "promotion": {
+      "eligible": false,
+      "failures": [
+        "old_languages:HI_LATN accuracy drop exceeds0.02",
+        "old_languages:HI_LATN supported-class Macro-F1 drop exceeds0.02",
+        "old:multimodal_route per-class F1 regression",
+        "Original minority/per-class recall regression:multimodal_route"
+      ],
+      "criteria": "Predeclared in L4 clean_diagnosis; selection/promotion uses validation only; reviewer required before production replacement"
+    },
+    "note": "English classification improved37to40/45, but HindiLatin andmultimodal preservationguardsfailed. ImprovedEnglishalone doesnot justify damagingpreviouslycorrectbehavior."
+  },
+  "safety_decomposition": "All452/64injectedcontracts match. Current actual-model replies recomputed; source diagnostics separately preserved. One nominally different completion answers the positive stop-list goal136, Englishnone. TennewproductionHTTP suffix checks pass;85earlierboundedHTTPchecks passed immediately before the one-line suffixownership extension. No model/aliases/routeparser/frontend change. Counts are not semanticaccuracy.",
+  "limits": [
+    "The retained classifier has recognition limitations; remediation doesnot claim generalaccuracy orzero classificationerrors.",
+    "Development suite primarily exercises intended semanticcontractsvia injectedintent. Actual classifierdiagnosticsareseparate.",
+    "No candidate selection or training against frozen400."
+  ],
+  "evidence": "experiments/nlp_v2/production_runs/multilingual_v2/development/r7-model/",
+  "evaluation_input_hashes": {
+    "data/nlp_v2/remediation_v2/cases.json": "cec4d65ea4fe4b452adb901c8d03fb041f86ce955379cc1b10bb57f284fb4fb5",
+    "data/nlp_v2/remediation_v2/english.json": "d13b7d48ef930beb6e09d078edd03861876bb449e4c645938de2e16d3d826ef9",
+    "/home/kaustubh/projects/NLP/models/nlp_v2_t3_manifest.json": "447a120090c33ba1259cad06ce9f216d80832d2540727c3330f14be3ec04dc39"
+  },
+  "baseline_comparison": {
+    "independent_queries": 452,
+    "english_queries": 64,
+    "same_predicted_labels": true,
+    "english_changed_behavior": 21,
+    "material_new_english_regression_observed": false,
+    "evidence": "development/r7-model/r0-source-comparison-adjudication.json",
+    "scope": "PreservedR0code and unchangedaliases only; no frozen challenge content extracted."
+  },
+  "refresh_method": {
+    "unchanged_model_labels_reused_by_exact_raw_query": 471,
+    "new_raw_queries_inferred": 10,
+    "all_current_source_replies_recomputed": true,
+    "legitimate_classifier_validation_reused": "Model and raw preprocessing unchanged; prior legitimate dataset/predictions retained without rerunning identical inference. No retraining."
+  }
+}

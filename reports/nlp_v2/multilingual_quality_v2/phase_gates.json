@@ -1,0 +1,85 @@
+{
+  "R0": {
+    "status": "PASS",
+    "protected_files": 241
+  },
+  "R1": {
+    "status": "PASS",
+    "invariants": 5,
+    "evidence": "r1_invariants.json"
+  },
+  "R2": {
+    "status": "PASS",
+    "provenance": "Independent authored cases and fresh independent review probes only",
+    "cases": "data/nlp_v2/remediation_v2/cases.json",
+    "tests": [
+      "tests/test_multilingual_remediation_v2.py",
+      "tests/test_remediation_v2_frontend.py"
+    ],
+    "red_logs": [
+      "r1-r2-red.log",
+      "r1-medium-red.log",
+      "r1-ui-red.log"
+    ]
+  },
+  "R3": {
+    "status": "PASS",
+    "focused_passed": 460,
+    "review": "Fresh fifteenth GPT-6.1 Sol xhigh gate C0/H0/M0,32/32 actual safety probes; stable20 source/alias/DB hashes,17 URI mode=ro connections,106SELECTs,0writes.",
+    "previous_reviews": "Blocked findings independently RED/GREEN; all preserved in v2 development evidence",
+    "existing_repository_passed": 1481,
+    "existing_repository_failed": 0,
+    "resume_checkpoint": "experiments/nlp_v2/production_runs/multilingual_v2/development/r3-review-usage-checkpoint.json",
+    "evidence": "experiments/nlp_v2/production_runs/multilingual_v2/development/r3-fifteenth-review/review.md"
+  },
+  "R4": {
+    "status": "PASS",
+    "known_medium_defects": 4,
+    "known_additional_medium_mechanisms": 10,
+    "frontend_interruptions_fixed": 8,
+    "frontend_status": "All8realScriptRunnerinterruption/snapshot/repeat-submissiontestsPASSinfinal2466suite.",
+    "focused_passed": 1308,
+    "review_status": "Fresh finalboundedcombinedR4/R8SolxhighC0/H0/M0; sixsemantic/API+oneScriptRunnerPASS;69heldhashes/14evidencehashesstable,SQLite9URIro/0writes.",
+    "independent_cases": 452,
+    "english_cases": 64,
+    "full_repository_passed": 2466
+  },
+  "R9": {
+    "status": "NOT_STARTED"
+  },
+  "R10": {
+    "status": "NOT_STARTED",
+    "runs": 0,
+    "case_inspection": "No individual frozen challenge inputs/replies inspected in v2 development"
+  },
+  "R5": {
+    "status": "PASS",
+    "semantic_and_public_api_cases": 64,
+    "latest_focused": "64English semantic/publicAPIcases +4conflictingpredictioncontrols pass within2466finalrepositorytests. Same-label64Englishcomparison no newmaterialregression observed.",
+    "additional_conflicting_prediction_api_controls": 4
+  },
+  "R6": {
+    "status": "PASS",
+    "method": "Real Streamlit plus production local HTTP API via CUA desktop/mobile; independent bounded inputs only.",
+    "evidence": "r6_ui_gate.json",
+    "real_api_controls": 85,
+    "frontend_interruption_cases": 8,
+    "latest_api": "Ten suffixcontrols pass actualHTTPonfinalsource.85precedingboundedcontrols/paritychecks pass before one-linesharedowner extension; fullfinalAPI/English/frontend tests pass.",
+    "latest_source_api_controls": 10,
+    "previous_source_api_controls": 85
+  },
+  "R7": {
+    "status": "PASS",
+    "selected": "original production model; no new training",
+    "evaluation": "452/64 injectedcontractsPASS; originalmodel retained;10newrawqueriesinferred,reusedexactunchangedlabels,current-sourceoutputsrecomputed;516same-labelR0comparison. Legitimateclassifier metrics unchanged; historical downstreampartition explicitlymarked.",
+    "model_decision": "r7_model_decision.json"
+  },
+  "R8": {
+    "status": "PASS",
+    "repository_tests": 2466,
+    "compiled_python_files": 142,
+    "dependencies": "No broken requirements found",
+    "protected_files_unchanged": 241,
+    "review": "Fresh Solxhighwhole-system coverage plusfinalboundedacceptance C0/H0/M0. Evidence r8_review.md andr8_review_verdict.json."
+  }
+}

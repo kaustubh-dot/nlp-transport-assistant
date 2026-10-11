@@ -98,6 +98,13 @@ def valid_reply(reply) -> bool:
             return False
     if reply.get("data", {}).get("service_type") is not None and not isinstance(reply["data"]["service_type"], str):
         return False
+    candidates = reply.get('data', {}).get('entity_candidates', [])
+    if not _rows(candidates) or any(
+            not isinstance(row.get('entity_id'), str) or not row['entity_id']
+            or not isinstance(row.get('canonical_name'), str) or not row['canonical_name']
+            or (row.get('mode') is not None and not isinstance(row['mode'], str))
+            for row in candidates):
+        return False
     return reply["status"] != "ok" or _valid_panel_data(reply.get("operation"), reply.get("data", {}))
 
 

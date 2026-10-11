@@ -1,0 +1,20 @@
+{
+  "canonical_database_sha256": "583fd400bb3ee0d5af312e03ec78116de88ce162d6c33c2b87fd93df4da48791",
+  "inventory": {
+    "transport_stops": 7136,
+    "transport_hubs": 62,
+    "places": 1621,
+    "stop_names": 7571,
+    "place_names": 1670
+  },
+  "canonical_and_existing_names_audited": 18060,
+  "missing_or_unknown_ids": 0,
+  "alias_keys": 34175,
+  "ambiguous_keys": 19583,
+  "script_keys": {
+    "other": 21299,
+    "Devanagari": 12876
+  },
+  "alias_catalog_sha256": "8ec48ce791b235155e25bc82a35b8ad101845971e25a685433fd0cb90c565856",
+  "policy": "Exact canonical/existing surfaces, reviewed transliteration, punctuation/NFC/spacing, mode qualification. Collisions accumulate IDs. No fuzzy match or cross-ID physical merge."
+}

@@ -105,8 +105,9 @@ def test_default_chennai_reference_date_advances_across_midnight(monkeypatch):
 
 def test_nearest_mrts_does_not_return_suburban_rail(service):
     result = service.execute("FIND_NEAREST_STATION", {"landmark": "OSM_POI_12137617372", "transport_mode": "mrts"})
-    assert result.status == "ok"
-    assert all(row["mode"] == "mrts" for row in result.data["stops"])
+    assert result.status == "unavailable"
+    assert result.data['reason'] == 'requested_mode_classification_unverified'
+    assert 'stops' not in result.data
 
 
 def test_normalized_route_code_matches_spaced_canonical_code(service):

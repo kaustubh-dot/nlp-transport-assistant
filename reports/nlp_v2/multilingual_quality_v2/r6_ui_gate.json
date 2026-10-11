@@ -1,0 +1,40 @@
+{
+  "phase": "R6",
+  "status": "PASS",
+  "browser": "Codex in-app browser through CUA",
+  "api": "Production T3 local HTTP server with original selected classifier",
+  "cases": "Bounded independent literals; no frozen challenge access. Initial API controls using bare coordinates did not supply a canonical named anchor; initial generic out-of-scope prompts exposed unchanged classifier recognition limitations. These observations are preserved, not claimed passes. Final13 controls use canonical source/contract expectations and allpass.",
+  "api_controls": 13,
+  "checks": {
+    "all_modes": "Any/Bus/Metro/Rail/MRTS selection and payload propagation checked. All finalAPI mode slots retained; Rail/MRTS truthfully unavailable for absent source-verified classifications.",
+    "typed_override": "OrdinaryBus4stagefare over MetroUIdefault ->bus INR8, nearestBus revisedrequest over Metrodefault ->publishedBusnearest.",
+    "negated_default": "NotMetro withMetrodefault ->clarification requiring positive mode, excludedMetroretained; noMetroanswer.",
+    "language_and_state": "English/Hindi/Hinglish switches preserve selectedBus/Metro, browserdraft, history; clarification revisiondraft preserved before submit.",
+    "localization": "Canonical stop names/data unchanged, localized prose/status/field labels shown; unsupported translation uses visible original-explanation fallback.",
+    "clarification": "Revised full-question form shown; draft survives language switch and submittedrevision produces separatecorrect turn.",
+    "source": "LocalizedPublishedrecordspanel toggled, truthful coverage andpartialroute limits visible.",
+    "fare": "Desktop/mobile INR8 readable; datedMTC_OFFICIALsource and serviceclass wrapwithout clipping.",
+    "safe_states": "RealUIpublished,unavailable,clarification,out_of_scope,error displayed. Localserverprocessstopped; cleanrestart plusrerun recovered APIhealth, prior error retained ashistory.",
+    "desktop": "Requested1440x1000 viewport, actual DOMwidth1058 asreported byIAB; source/history/fare verified.",
+    "mobile": "Requested390x844 viewport, actual DOMwidth287 asreported byIAB; sidebarcollapsed, wrap/scrollabletable/input andfare/source/status verified.",
+    "interruptions": "Eight primary realScriptRunnertestsPASS, including2native/Roman firstlast canonicalanswer plus sourcecontrolinterrupt/languagechange checks. Sixthfreshreviewstate-onlychecks4/4PASS independently; sixthUIsemanticfalseclarification repaired separately."
+  },
+  "screenshots": [
+    "desktop-api-offline.jpg",
+    "desktop-hindi-fare.jpg",
+    "mobile-hindi-controls.jpg",
+    "mobile-hindi-fare.jpg",
+    "mobile-hindi-nearest.jpg",
+    "mobile-hindi-out-of-scope.jpg"
+  ],
+  "limitations": [
+    "Bounded representative UI gate; not exhaustive coverage of all user wording.",
+    "Classifier recognition weaknesses are separately measured inR7 and preserved rawAPI observations; UI rendering tests do not claim classifieraccuracy."
+  ],
+  "latest_source_api_controls": 10,
+  "latest_source_api_evidence": [
+    "experiments/nlp_v2/production_runs/multilingual_v2/development/r6-ui/final-suffix-boundaries-real-api.json"
+  ],
+  "previous_source_api_controls": 85,
+  "scope_after_final_suffix": "Final source differs by shared postfix route-operand ownership only. Frontend unchanged; ten affected realHTTPcases pass and finalfull2466tests cover all semantic/publicAPI/frontend checks. Prior85HTTPanddesktop/mobile evidence preserved."
+}

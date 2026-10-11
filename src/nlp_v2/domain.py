@@ -585,6 +585,10 @@ class CanonicalTransitService:
         if mode:
             sql += " AND mode = ?"
             params.append(mode)
+        # OSM rail/MRTS mode buckets and name-derived GTFS metro labels are
+        # not authoritative mode classifications. Never relabel their IDs.
+        if mode in {'metro','suburban_rail','mrts'}:
+            sql += " AND primary_source_id IN ('CMRL_API','SOUTHERN_RAILWAY')"
         stops = []
         for stop in conn.execute(sql, params):
             stops.append({
@@ -593,11 +597,18 @@ class CanonicalTransitService:
                 "source": stop["primary_source_id"],
             })
         if not stops:
+            if mode in {'metro','suburban_rail','mrts'}:
+                return _unavailable('No located stops have a verified source classification for the requested mode.',
+                                    {'reason':'requested_mode_classification_unverified','transport_mode':mode})
             return _unavailable("No located transport stops match the requested mode.")
         stops.sort(key=lambda item: (item["distance_m"], item["stop_id"]))
-        return _ok("Nearest by straight-line distance only; walking access is not verified.", {
+        message="Nearest by straight-line distance only; walking access is not verified."
+        if mode in {'metro','suburban_rail','mrts'}:
+            message += ' Distances cover only records with a source-verified mode classification; snapshot coverage is incomplete.'
+        return _ok(message, {
             "anchor": anchor, "anchor_name": row["canonical_name"],
             "stops": stops[:5], "distance_type": "straight_line", "provisional": True,
+            "mode_classification_scope": 'verified_source_only' if mode in {'metro','suburban_rail','mrts'} else 'source_labels_provisional',
         })
 
     def _realtime(self, conn: sqlite3.Connection, slots: Mapping[str, Any]) -> ServiceResult:

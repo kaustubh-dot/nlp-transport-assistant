@@ -56,6 +56,14 @@ def test_api_client_rejects_reply_shapes_that_would_crash_rendering(body):
 
     assert ask_api("question", session=FakeSession(FakeResponse(200, body)))["status"] == "error"
 
+@pytest.mark.parametrize('candidates', ['bad', [None], [{'canonical_name': []}],
+    [{'entity_id': 'EXAMPLE', 'canonical_name': 'Example', 'mode': {}}]])
+def test_api_client_rejects_malformed_entity_candidate_table(candidates):
+    from app.frontend_contract import ask_api
+    body={'status':'clarification','response_text':'Choose a location.',
+          'data':{'entity_candidates':candidates}}
+    assert ask_api('question',session=FakeSession(FakeResponse(200,body)))['status']=='error'
+
 
 @pytest.mark.parametrize("health_body", [[], None, "unavailable"])
 def test_streamlit_malformed_health_response_degrades_to_offline(monkeypatch, health_body):
@@ -154,6 +162,26 @@ def test_entity_clarification_explains_choice_without_internal_ids(monkeypatch):
     assert 'More than one stop' in captions
     assert 'transport mode' in captions
     assert 'HUB_CENTRAL' not in captions and 'METRO_CENTRAL' not in captions
+
+@pytest.mark.parametrize('language,confirmation', [('en','Confirm the precise stop'),
+    ('hi','पुष्टि करें'), ('hinglish','confirm karein')])
+def test_unique_qualified_candidate_asks_confirmation_without_claiming_many(monkeypatch,language,confirmation):
+    import requests
+    from streamlit.testing.v1 import AppTest
+    monkeypatch.setattr(requests,'get',lambda *a,**k:FakeResponse(200,{'status':'ok','taxonomy':'T3'}))
+    monkeypatch.setattr(requests,'post',lambda *a,**k:FakeResponse(200,{
+        'status':'clarification','response_text':'Please clarify the location.',
+        'candidate_entities':['MAPLE_CAMPUS'], 'clarification_reason':'entity_ambiguity',
+        'data':{'entity_candidates':[{'entity_id':'MAPLE_CAMPUS',
+                'canonical_name':'Maple Institute, Estuary Campus','mode':None}]}}))
+    app=AppTest.from_file('app/streamlit_app.py').run(timeout=10)
+    app.radio(key='ui_language').set_value(language).run(timeout=10)
+    app.button(key='starter_example_0').click().run(timeout=10)
+    assert not app.exception
+    captions=' '.join(c.value for c in app.caption)
+    assert confirmation in captions
+    assert 'More than one' not in captions and 'एक से अधिक' not in captions and 'Ek se zyada' not in captions
+    assert app.dataframe[0].value.shape[0]==1
 
 
 @pytest.mark.parametrize('status,label', [
