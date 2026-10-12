@@ -1,5 +1,8 @@
 """Distribution integrity and atomic model installation without network access."""
 import json
+import os
+import subprocess
+import sys
 
 import pytest
 
@@ -9,12 +12,25 @@ from src.hindi_project.model import ROOT, BaselineIntentClassifier
 
 
 def test_clone_contains_baseline_head_and_complete_tokenizer():
-    manifest = json.loads((ROOT / 'models/hindi_project_manifest.json').read_text())
+    manifest = json.loads((ROOT / 'models/hindi_project_manifest.json').read_text(encoding='utf-8'))
     for key in ('baseline', 'head'):
         verify_file(ROOT / manifest[key + '_path'], manifest[key + '_sha256'])
     for name, checksum in manifest['tokenizer_files'].items():
         verify_file(ROOT / manifest['tokenizer_path'] / name, checksum)
     assert BaselineIntentClassifier().predict('Meri train bahut late hai.')[0] == 'train_status'
+
+
+def test_hindi_baseline_runs_when_default_text_encoding_is_not_utf8():
+    question = ascii('मेरी ट्रेन बहुत लेट है।')
+    code = ('from src.hindi_project.assistant import HindiProjectAssistant; '
+            'from src.hindi_project.model import BaselineIntentClassifier; '
+            f'result=HindiProjectAssistant(BaselineIntentClassifier()).process_query({question}); '
+            'print(result["intent"], result["status"])')
+    environment = dict(os.environ, LC_ALL='C', PYTHONUTF8='0', PYTHONCOERCECLOCALE='0')
+    result = subprocess.run([sys.executable, '-c', code], cwd=ROOT, env=environment,
+                            capture_output=True, text=True, encoding='utf-8', timeout=30)
+    assert result.returncode == 0, result.stderr
+    assert result.stdout.strip() == 'train_status unavailable'
 
 
 def test_verified_asset_does_not_download(tmp_path, monkeypatch):

@@ -14,7 +14,7 @@ from src.hindi_project.encoder import MuRILEncoder
 
 
 def load_rows(path: Path) -> list[dict]:
-    rows = list(csv.DictReader(path.open()))
+    rows = list(csv.DictReader(path.open(encoding='utf-8')))
     if not rows or any(not row['text'].strip() or not row['family_id'].strip()
                        or row['intent'] not in LABELS or row['split'] not in {'train', 'validation', 'test'} for row in rows):
         raise ValueError('Invalid project dataset')
@@ -68,7 +68,7 @@ def main():
                          ('classifier', LogisticRegression(C=4, max_iter=1000, random_state=42))])
     train = partitions['train']
     baseline.fit([row['text'] for row in train], [row['intent'] for row in train])
-    print('TF-IDF trained. Fine-tuning the final two MuRIL layers and nine-class head…', flush=True)
+    print('TF-IDF trained. Fine-tuning the final two MuRIL layers and nine-class head...', flush=True)
     base = MuRILEncoder()
     for parameter in base.model.parameters():
         parameter.requires_grad_(False)
@@ -139,7 +139,7 @@ def main():
     torch.save(best_encoder, encoder_path)
     with (output / 'tfidf.pkl').open('wb') as stream:
         pickle.dump(baseline, stream)
-    original = json.loads((ROOT / 'models/hindi_project_manifest.json').read_text())
+    original = json.loads((ROOT / 'models/hindi_project_manifest.json').read_text(encoding='utf-8'))
     manifest = {**original, 'labels': list(LABELS), 'model': 'MuRIL last two encoder layers + nine-class head',
                 'training_mode': 'last_two_encoder_layers_and_head',
                 'encoder_patch_path': str(encoder_path.relative_to(ROOT)), 'encoder_patch_sha256': sha256_file(encoder_path),
@@ -155,7 +155,7 @@ def main():
     manifest['head_learning_rate'] = 1e-3
     manifest['batch_size'] = 16
     manifest['trainable_encoder_layers'] = [10, 11]
-    (ROOT / 'models/hindi_project_manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
+    (ROOT / 'models/hindi_project_manifest.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
     metrics = {'labels': list(LABELS), 'data_origin': 'synthetic templates and AI-authored development examples; not human reviewed',
                'split_policy': 'template family disjoint', 'training_mode': manifest['training_mode'],
                'limitations': ['Small synthetic academic comparison, not passenger accuracy.',
@@ -183,8 +183,8 @@ def main():
                 metrics['models'][name]['errors'] = [{'text': row['text'], 'expected': row['intent'], 'predicted': pred}
                                                    for row, pred in zip(part, prediction) if row['intent'] != pred][:10]
     from src.hindi_project.assistant import CATALOG, extract_entities
-    catalog = json.loads(CATALOG.read_text())
-    entity_rows = [row for row in csv.DictReader((ROOT / 'data/project/entity_slots.csv').open()) if row['split'] == 'test']
+    catalog = json.loads(CATALOG.read_text(encoding='utf-8'))
+    entity_rows = [row for row in csv.DictReader((ROOT / 'data/project/entity_slots.csv').open(encoding='utf-8')) if row['split'] == 'test']
     tp = fp = fn = exact = 0
     for row in entity_rows:
         expected = {(name, row[name]) for name in ('origin', 'destination', 'transport_mode') if row[name]}
@@ -201,7 +201,7 @@ def main():
                            'exact_match': exact / len(entity_rows) if entity_rows else 0,
                            'tp': tp, 'fp': fp, 'fn': fn, 'fields': ['origin', 'destination', 'transport_mode'],
                            'scope': 'Linked synthetic slot dataset; independent of intent prediction, not end-to-end accuracy'}
-    (ROOT / 'models/hindi_project_metrics.json').write_text(json.dumps(metrics, ensure_ascii=False, indent=2) + '\n')
+    (ROOT / 'models/hindi_project_metrics.json').write_text(json.dumps(metrics, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     write_report(metrics, ROOT / 'docs/NLP_EVALUATION.md')
     print(json.dumps({name: result['test']['macro_f1'] for name, result in metrics['models'].items()}), flush=True)
 
@@ -241,7 +241,7 @@ def write_report(metrics: dict, path: Path):
               'these are related synthetic questions, not independent passenger data or end-to-end accuracy.', '',
               'Per-class precision, recall, F1 and support are saved in `models/hindi_project_metrics.json`. '
               'Human-authored Hindi examples and broader entity evaluation remain academic follow-up work.', '']
-    path.write_text('\n'.join(lines))
+    path.write_text('\n'.join(lines), encoding='utf-8')
 
 
 if __name__ == '__main__':

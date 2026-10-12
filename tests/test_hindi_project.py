@@ -24,7 +24,7 @@ class Classifier:
     'चेन्नई सेन्ट्रल से हवाई अड्डा मेट्रो द्वारा जाना है।',
 ])
 def test_origin_destination_roles_survive_reordered_hindi(query):
-    catalog = json.loads(CATALOG.read_text())
+    catalog = json.loads(CATALOG.read_text(encoding='utf-8'))
     result = extract_entities(query, catalog)
     assert result['origin'] == 'central'
     assert result['destination'] == 'airport'
@@ -32,7 +32,7 @@ def test_origin_destination_roles_survive_reordered_hindi(query):
 
 
 def test_explicit_context_is_used_only_for_deictic_reference():
-    catalog = json.loads(CATALOG.read_text())
+    catalog = json.loads(CATALOG.read_text(encoding='utf-8'))
     assert extract_entities('इस स्टेशन से बस मिलती है?', catalog, 'tambaram')['origin'] == 'tambaram'
     assert 'origin' not in extract_entities('बस मिलती है?', catalog, 'tambaram')
     assert extract_entities('एग्मोर से बस मिलती है?', catalog, 'tambaram')['origin'] == 'egmore'
@@ -90,7 +90,7 @@ def test_delay_and_complaint_are_classification_without_live_actions():
 
 
 def test_catalog_canonical_references_exist_without_database_mutation():
-    catalog = json.loads(CATALOG.read_text())
+    catalog = json.loads(CATALOG.read_text(encoding='utf-8'))
     db = ROOT / catalog['sources']['canonical']
     with sqlite3.connect(db.resolve().as_uri() + '?mode=ro', uri=True) as conn:
         for row in catalog['locations']:
@@ -113,10 +113,10 @@ def test_new_teaching_data_is_small_disjoint_and_explicitly_synthetic():
 
 def test_family_leakage_is_rejected(tmp_path):
     from scripts.nlp_v2.train_project import load_rows
-    rows = list(csv.DictReader((ROOT / 'data/project/hindi_intents.csv').open()))
+    rows = list(csv.DictReader((ROOT / 'data/project/hindi_intents.csv').open(encoding='utf-8')))
     rows[1]['split'] = 'test'
     path = tmp_path / 'bad.csv'
-    with path.open('w', newline='') as stream:
+    with path.open('w', newline='', encoding='utf-8') as stream:
         writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
         writer.writeheader()
         writer.writerows(rows)
@@ -138,11 +138,11 @@ def test_metrics_keep_misses_and_confusion_counts():
 
 def test_report_does_not_mix_entity_and_classifier_metrics(tmp_path):
     from scripts.nlp_v2.train_project import write_report
-    metrics = json.loads((ROOT / 'models/hindi_project_metrics.json').read_text())
+    metrics = json.loads((ROOT / 'models/hindi_project_metrics.json').read_text(encoding='utf-8'))
     metrics['entities'].update(precision=0.25, recall=0.5, f1=1 / 3)
     path = tmp_path / 'report.md'
     write_report(metrics, path)
-    report = path.read_text()
+    report = path.read_text(encoding='utf-8')
     assert 'precision 0.250, recall 0.500, F1 0.333' in report
     summary, _ = report.split('## tfidf: test confusion matrix', 1)
     assert '| tfidf | test |' in summary and '| muril_finetuned | test |' in summary
@@ -175,7 +175,7 @@ def test_hinglish_entity_roles_and_response_keep_same_source(question):
 
 
 def test_hinglish_relative_station_and_complaint_slots():
-    catalog = json.loads(CATALOG.read_text())
+    catalog = json.loads(CATALOG.read_text(encoding='utf-8'))
     assert extract_entities('Is station se bus milti hai?', catalog, 'tambaram')['origin'] == 'tambaram'
     assert extract_entities('Train ka toilet ganda hai.', catalog)['complaint_type'] == 'cleanliness'
 
@@ -192,7 +192,7 @@ def test_railway_origin_qualifier_does_not_turn_metro_request_into_two_modes(que
 
 
 def test_bus_records_match_ordered_stops_in_the_original_snapshot():
-    catalog = json.loads(CATALOG.read_text())
+    catalog = json.loads(CATALOG.read_text(encoding='utf-8'))
     with sqlite3.connect((ROOT / catalog['sources']['canonical']).resolve().as_uri() + '?mode=ro', uri=True) as conn:
         for row in catalog['connections']:
             if row['mode'] != 'bus':
@@ -223,16 +223,16 @@ def test_unknown_station_details_are_not_replaced_with_generic_station_informati
 
 
 def test_metro_train_is_one_mode_but_explicit_alternatives_are_preserved():
-    catalog = json.loads(CATALOG.read_text())
+    catalog = json.loads(CATALOG.read_text(encoding='utf-8'))
     assert extract_entities('Egmore metro ki last train kab hai?', catalog)['transport_mode'] == 'metro'
     assert extract_entities('Central se metro ya train leni hai?', catalog)['transport_mode'] == ['metro', 'rail']
 
 
 def test_diagnostic_evaluation_cannot_hide_incorrect_intent_or_records():
     from scripts.nlp_v2.evaluate_project import evaluate
-    dataset = json.loads((ROOT / 'data/project/academic_checks.json').read_text())
+    dataset = json.loads((ROOT / 'data/project/academic_checks.json').read_text(encoding='utf-8'))
     rows = [dict(dataset['cases'][0], record_ids=['nonexistent_record'])]
-    result = evaluate(Classifier('service_availability'), rows, dataset['fields'], json.loads(CATALOG.read_text()))
+    result = evaluate(Classifier('service_availability'), rows, dataset['fields'], json.loads(CATALOG.read_text(encoding='utf-8')))
     assert result['classification']['accuracy'] == 0
     assert result['pipeline_success'] == 0
     assert not result['cases'][0]['records_ok']
@@ -255,7 +255,7 @@ def test_fine_tuned_layer_patch_loads_strictly_and_rejects_changed_weights(tmp_p
                     encoder_patch_path=str(patch),
                     encoder_patch_sha256=sha256_file(patch), head_path=str(head), head_sha256=sha256_file(head))
     path = tmp_path / 'manifest.json'
-    path.write_text(json.dumps(manifest))
+    path.write_text(json.dumps(manifest), encoding='utf-8')
     before = layers[0].weight.detach().clone()
     project.ProjectIntentClassifier(path)
     assert torch.equal(layers[10].weight, torch.ones_like(layers[10].weight))
@@ -394,10 +394,10 @@ def test_official_nearby_stop_names_can_answer_without_guessing_conflicting_coor
 
 
 def test_coordinate_conflict_without_published_facts_is_a_data_gap(tmp_path):
-    catalog = json.loads(CATALOG.read_text())
+    catalog = json.loads(CATALOG.read_text(encoding='utf-8'))
     catalog['nearby_transport_facts'] = []
     path = tmp_path / 'catalog.json'
-    path.write_text(json.dumps(catalog))
+    path.write_text(json.dumps(catalog), encoding='utf-8')
     result = HindiProjectAssistant(Classifier('station_information'), path).process_query('Guindy metro station ke paas bus stop kaunsa hai?')
     assert result['status'] == 'unavailable' and not result['records']
     assert 'mode clear' in result['response_hinglish']
@@ -437,7 +437,7 @@ def test_real_two_station_ambiguity_and_multiple_targets_still_need_clarificatio
 
 
 def test_added_boarding_and_guidance_references_exist_in_the_original_database():
-    catalog = json.loads(CATALOG.read_text())
+    catalog = json.loads(CATALOG.read_text(encoding='utf-8'))
     with sqlite3.connect((ROOT / catalog['sources']['canonical']).resolve().as_uri() + '?mode=ro', uri=True) as conn:
         for location in catalog['locations']:
             for candidate in location.get('boarding_candidates', []):

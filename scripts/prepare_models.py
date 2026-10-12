@@ -23,7 +23,7 @@ def install_asset(destination, checksum, size, url, local_dir=None):
             with (local_dir / destination.name).open('rb') as source, staging.open('wb') as target:
                 shutil.copyfileobj(source, target)
         else:
-            print(f'Downloading {destination.name} ({size / 1024**2:.1f} MiB)…', flush=True)
+            print(f'Downloading {destination.name} ({size / 1024**2:.1f} MiB)...', flush=True)
             request = Request(url, headers={'User-Agent': 'Chennai-Transport-NLP-Setup'})
             with urlopen(request, timeout=60) as source, staging.open('wb') as target:
                 last_report = 0
@@ -44,7 +44,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--local-dir', type=Path, help='Use an offline directory containing the two release files')
     args = parser.parse_args()
-    manifest = json.loads((ROOT / 'models/hindi_project_manifest.json').read_text())
+    manifest = json.loads((ROOT / 'models/hindi_project_manifest.json').read_text(encoding='utf-8'))
     for path_key, checksum_key in (('encoder_path', 'encoder_sha256'), ('encoder_patch_path', 'encoder_patch_sha256')):
         destination = ROOT / manifest[path_key]
         install_asset(destination, manifest[checksum_key], manifest['asset_bytes'][destination.name],

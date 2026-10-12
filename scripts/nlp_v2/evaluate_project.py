@@ -70,18 +70,18 @@ def main():
     import torch
     torch.set_num_threads(2)
     path = ROOT / 'data/project/academic_checks.json'
-    dataset = json.loads(path.read_text())
+    dataset = json.loads(path.read_text(encoding='utf-8'))
     rows = dataset['cases']
-    training = list(csv.DictReader((ROOT / 'data/project/hindi_intents.csv').open()))
-    user_data = json.loads((ROOT / 'data/project/user_questions.json').read_text())
+    training = list(csv.DictReader((ROOT / 'data/project/hindi_intents.csv').open(encoding='utf-8')))
+    user_data = json.loads((ROOT / 'data/project/user_questions.json').read_text(encoding='utf-8'))
     if {row['text'] for row in rows + user_data['questions']} & {row['text'] for row in training}:
         raise ValueError('Evaluation question overlaps training/development partitions')
-    catalog = json.loads(CATALOG.read_text())
+    catalog = json.loads(CATALOG.read_text(encoding='utf-8'))
     report = {'source': dataset['source'], 'human_reviewed': dataset['human_reviewed'], 'policy': dataset['policy'],
               'dataset_sha256': sha256_file(path), 'catalog_sha256': sha256_file(CATALOG),
               'model_manifest_sha256': sha256_file(ROOT / 'models/hindi_project_manifest.json'),
               'fields': dataset['fields'], 'models': {}, 'user_questions': {}}
-    report['development_history'] = json.loads((ROOT / 'data/project/development_history.json').read_text())
+    report['development_history'] = json.loads((ROOT / 'data/project/development_history.json').read_text(encoding='utf-8'))
     for name, classifier in [('tfidf', BaselineIntentClassifier()), ('muril_finetuned', ProjectIntentClassifier())]:
         report['models'][name] = evaluate(classifier, rows, dataset['fields'], catalog)
         assistant = HindiProjectAssistant(classifier)
@@ -89,7 +89,7 @@ def main():
                                          for row in user_data['questions']]
         print(name, 'check accuracy', round(report['models'][name]['classification']['accuracy'], 3),
               'pipeline', round(report['models'][name]['pipeline_success'], 3), flush=True)
-    (ROOT / 'models/hindi_project_checks.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
+    (ROOT / 'models/hindi_project_checks.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     write_report(report, ROOT / 'docs/PIPELINE_EVALUATION.md')
 
 
@@ -133,7 +133,7 @@ def write_report(report: dict, path: Path):
     lines += ['', '## Reproduce', '', 'Run `python -m scripts.nlp_v2.evaluate_project` after training. '
               'Exact per-question outputs and confusion matrices are saved in `models/hindi_project_checks.json`. '
               'Do not train or tune on these checks; retain errors in the report. Human review remains outstanding.', '']
-    path.write_text('\n'.join(lines))
+    path.write_text('\n'.join(lines), encoding='utf-8')
 
 
 if __name__ == '__main__':

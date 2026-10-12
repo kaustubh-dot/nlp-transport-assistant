@@ -57,7 +57,7 @@ class ProjectIntentClassifier:
         manifest_path = Path(manifest_path)
         if not manifest_path.is_file():
             raise FileNotFoundError('Project head missing. Run python -m scripts.nlp_v2.train_project')
-        self.manifest = json.loads(manifest_path.read_text())
+        self.manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
         if self.manifest['labels'] != list(LABELS):
             raise ValueError('Project intent labels do not match the saved head')
         self.base = MuRILEncoder(manifest_path)
@@ -96,7 +96,7 @@ class BaselineIntentClassifier:
     def __init__(self, manifest_path: Path = MANIFEST):
         import pickle
 
-        manifest = json.loads(Path(manifest_path).read_text())
+        manifest = json.loads(Path(manifest_path).read_text(encoding='utf-8'))
         path = ROOT / manifest['baseline_path']
         if sha256_file(path) != manifest['baseline_sha256']:
             raise ValueError('Baseline SHA-256 mismatch')

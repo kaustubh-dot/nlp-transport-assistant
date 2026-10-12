@@ -7,7 +7,7 @@ import json
 import sqlite3
 
 from .text import normalize_extraction_text as normalize_text
-DEFAULT_GAZETTEER = json.loads((Path(__file__).resolve().parents[2] / 'data/nlp_v2/station_aliases.json').read_text())
+DEFAULT_GAZETTEER = json.loads((Path(__file__).resolve().parents[2] / 'data/nlp_v2/station_aliases.json').read_text(encoding='utf-8'))
 
 
 DEFAULT_DB = Path(__file__).resolve().parents[2] / "data/canonical/transit/canonical_transport.db"
@@ -133,7 +133,7 @@ class CanonicalResolver:
                 for candidate in candidates:
                     self._add(alias, candidate)
 
-        catalog = json.loads((Path(__file__).resolve().parents[2] / "data/nlp_v2/reviewed_name_aliases_v1.json").read_text())
+        catalog = json.loads((Path(__file__).resolve().parents[2] / "data/nlp_v2/reviewed_name_aliases_v1.json").read_text(encoding='utf-8'))
         for entry in catalog['entries']:
             candidates = tuple(self.aliases.get(normalize_text(entry['canonical_name']), {}).values())
             for alias in entry['aliases']:

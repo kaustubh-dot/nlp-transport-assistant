@@ -151,7 +151,7 @@ def extract_entities(query: str, catalog: dict, context_station: str | None = No
 class HindiProjectAssistant:
     def __init__(self, classifier=None, catalog_path: Path = CATALOG):
         self.classifier = classifier if classifier is not None else ProjectIntentClassifier()
-        self.catalog = json.loads(Path(catalog_path).read_text())
+        self.catalog = json.loads(Path(catalog_path).read_text(encoding='utf-8'))
         self.location_index = index_for(self.catalog)
         self.places = self.location_index.places
         self.service = CanonicalTransitService()

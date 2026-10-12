@@ -13,7 +13,7 @@ class MuRILEncoder:
         from safetensors.torch import load_file
         from transformers import AutoTokenizer, BertConfig, BertModel
 
-        manifest = json.loads(Path(manifest_path).read_text())
+        manifest = json.loads(Path(manifest_path).read_text(encoding='utf-8'))
         encoder = ROOT / manifest['encoder_path']
         verify_file(encoder, manifest['encoder_sha256'])
         tokenizer = ROOT / manifest['tokenizer_path']

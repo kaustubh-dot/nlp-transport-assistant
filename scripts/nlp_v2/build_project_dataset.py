@@ -154,7 +154,7 @@ def build_rows() -> list[dict]:
                          'family_id': label + ':short_seed', 'split': 'train',
                          'source': 'synthetic_development_seed', 'human_reviewed': 'false', 'language': 'hinglish'})
     # Replace variants rather than growing the assignment into a data program.
-    authored = json.loads((ROOT / 'data/project/development_examples.json').read_text())
+    authored = json.loads((ROOT / 'data/project/development_examples.json').read_text(encoding='utf-8'))
     for label in LABELS:
         pairs = authored['examples'][label]
         for language in ('hi', 'hinglish'):
@@ -176,12 +176,12 @@ def main():
     path = ROOT / 'data/project/hindi_intents.csv'
     rows = build_rows()
     path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open('w', newline='') as stream:
+    with path.open('w', newline='', encoding='utf-8') as stream:
         writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
         writer.writeheader()
         writer.writerows(rows)
     print(f'{len(rows)} synthetic Hindi/Hinglish rows written to {path}')
-    catalog = json.loads((ROOT / 'data/project/chennai_case_study.json').read_text())
+    catalog = json.loads((ROOT / 'data/project/chennai_case_study.json').read_text(encoding='utf-8'))
     aliases = {alias: place['id'] for place in catalog['locations'] for alias in place['aliases']}
     pairs = list(itertools.product(['चेन्नई सेंट्रल', 'एग्मोर', 'तांबरम', 'अवडी'],
                                    ['एयरपोर्ट', 'कोयंबेडु', 'गिंडी']))
@@ -200,7 +200,7 @@ def main():
                          'transport_mode': ('metro' if index % 2 else 'bus') if row['intent'] == 'service_availability' else '',
                          'family_id': row['family_id'], 'split': row['split'], 'source': 'synthetic_template',
                          'language': row['language']})
-    with (path.parent / 'entity_slots.csv').open('w', newline='') as stream:
+    with (path.parent / 'entity_slots.csv').open('w', newline='', encoding='utf-8') as stream:
         writer = csv.DictWriter(stream, fieldnames=list(entities[0]))
         writer.writeheader()
         writer.writerows(entities)

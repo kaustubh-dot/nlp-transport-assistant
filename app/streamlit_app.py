@@ -16,7 +16,7 @@ from src.hindi_project.model import BaselineIntentClassifier, ProjectIntentClass
 from app.project_ui import e, masthead, sidebar_brand, entity_ledger, record_overview, source_links  # noqa: E402
 
 st.set_page_config(page_title='Chennai Transit · Hindi / Hinglish NLP', page_icon='🚆', layout='wide', initial_sidebar_state='auto')
-st.markdown('<style>' + (ROOT / 'app/project_theme.css').read_text() + '</style>', unsafe_allow_html=True)
+st.markdown('<style>' + (ROOT / 'app/project_theme.css').read_text(encoding='utf-8') + '</style>', unsafe_allow_html=True)
 language = st.session_state.get('project_language', 'hi')
 
 
@@ -92,7 +92,7 @@ def stop_names():
         return dict(connection.execute('SELECT stop_id, canonical_name FROM transport_stops'))
 
 
-catalog = json.loads((ROOT / 'data/project/chennai_case_study.json').read_text())
+catalog = json.loads((ROOT / 'data/project/chennai_case_study.json').read_text(encoding='utf-8'))
 origins = [row for row in catalog['locations'] if row.get('origin')]
 with st.sidebar:
     st.markdown(sidebar_brand(), unsafe_allow_html=True)
@@ -249,7 +249,7 @@ with st.sidebar:
         st.caption(text('भेजे गए प्रश्न यहाँ मिलेंगे।', 'Bheje gaye sawal yahan milenge.'))
 
 with st.expander(text('वैकल्पिक: हिंदी–तमिल संचार वाक्य', 'Optional: Hindi–Tamil communication phrases')):
-    phrases = json.loads((ROOT / 'data/project/communication_phrases.json').read_text())
+    phrases = json.loads((ROOT / 'data/project/communication_phrases.json').read_text(encoding='utf-8'))
     selected = st.selectbox('Communication phrase / संचार वाक्य', range(len(phrases)),
                             format_func=lambda index: phrases[index]['hindi'] if language == 'hi' else phrases[index]['hinglish'],
                             key='communication_phrase')
@@ -260,7 +260,7 @@ with st.expander(text('वैकल्पिक: हिंदी–तमिल 
 with st.expander(text('NLP मूल्यांकन', 'NLP evaluation')):
     metrics_path = ROOT / 'models/hindi_project_metrics.json'
     if metrics_path.is_file():
-        metrics = json.loads(metrics_path.read_text())
+        metrics = json.loads(metrics_path.read_text(encoding='utf-8'))
         st.table([{'Model': name, 'Language': code, 'Test rows': values['count'],
                    'Accuracy': round(values['accuracy'], 3), 'Macro F1': round(values['macro_f1'], 3)}
                   for name, values_by_split in metrics['models'].items()
