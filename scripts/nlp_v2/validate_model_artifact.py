@@ -18,7 +18,7 @@ def validate_artifact(manifest_path: Path = DEFAULT_MANIFEST, *, load_model: boo
     checkpoint = checkpoint.resolve()
     if not checkpoint.is_file():
         raise FileNotFoundError(f'Missing selected checkpoint: {checkpoint}. Supply the selected checkpoint '
-                                'from the project/run owner; see docs/nlp_v2/model_artifact_workflow.md.')
+                                'from the project/run owner; see docs/MODEL_SETUP.md.')
     actual = sha256_file(checkpoint)
     if actual != manifest['checkpoint_sha256']:
         raise ValueError('Checkpoint SHA-256 mismatch: obtain an intact copy matching the trusted T3 manifest.')

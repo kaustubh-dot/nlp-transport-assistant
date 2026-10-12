@@ -1,25 +1,21 @@
-# Data and model source register
+# Data sources
 
-## Current data status
-The active database (`data/processed/transport.db`) is compiled by `scripts/build_transport_db.py` from the curated fixture `data/curated/cmrl_verified_stations.json`.
+The application reads the tracked [canonical SQLite snapshot](data/canonical/transit/canonical_transport.db). It does not fetch live transit data. The snapshot contains published routes, stops, trips, calendars, stop times, stage tariffs, metro fare pairs, places and source links collected in September 2026. Dates describe the stored records, not current validity.
 
-This fixture covers a verified subset of 13 Chennai Metro stations on Corridor 1 (Blue Line) and Corridor 2 (Green Line), their documented physical accessibility features, and direct transit connections.
-
-Timetables, fares, live delays, and bus/suburban rail coverage are explicitly deferred and marked as unsupported/unknown.
-
-## Verified source register
-| Artifact / exact URL | Record IDs supported | Retrieved on | Version / effective date | Terms evidence | Verified by / on |
-| --- | --- | --- | --- | --- | --- |
-| https://chennaimetrorail.org/station-facilities/ | CHENNAI_CENTRAL, CHENNAI_EGMORE, CHENNAI_AIRPORT, ALANDUR, GUINDY, KOYAMBEDU, CMBT, VADAPALANI, SHENOY_NAGAR, NANDANAM, WASHERMANPET, WIMCO_NAGAR, ST_THOMAS_MOUNT (facilities: lift, wheelchair, tactile_paths, accessible_toilet, parking) | 2026-09-17 | Phase 1 & 2 operational network | Public informational disclosure of universal accessibility features on official CMRL portal | Automated review & curation, 2026-09-17 |
-| https://chennaimetrorail.org/ (Corridors & Interchanges) | Blue Line (Wimco Nagar to Airport), Green Line (Central to St. Thomas Mount), Alandur & Central interchanges | 2026-09-17 | Current operational network | Official network map and station directory | Automated review & curation, 2026-09-17 |
-
-## Candidate resources (for future phases)
-| Resource | Candidate location | Status |
+| Stored source | Content used | Published source |
 | --- | --- | --- |
-| CUMTA transit data | https://cumta.tn.gov.in/ | Exact downloadable static GTFS feed, coverage, version and terms to be verified for bus/suburban additions |
-| Community GTFS | https://github.com/ChennaiGTFS | Candidate GTFS representation for MTC bus routes; ODbL license |
-| OpenStreetMap | https://www.openstreetmap.org/copyright | Candidate station entrance coordinates and landmarks; ODbL attribution required |
-| MASSIVE Hindi | https://huggingface.co/datasets/AmazonScience/massive | Candidate seed corpus (CC-BY-4.0); optional intent augmentation |
-| MuRIL | https://huggingface.co/google/muril-base-cased | Apache-2.0 pretrained Indic transformer for Phase 6 research comparison |
+| `CHENNAI_COMMUNITY_GTFS` | Community GTFS route/stop sequences, schedules and service calendars | [ChennaiGTFS feed](https://github.com/ungalsoththu/ChennaiGTFS) |
+| `CMRL_API` | Metro station information and names | [CMRL station API](https://chennaimetrorail.org/wp-json/wp/v2/station-information?per_page=100) |
+| `CMRL_OFFICIAL` | Metro disclosures and dated station-to-station fare matrix | [CMRL portal](https://chennaimetrorail.org/) |
+| `MTC_OFFICIAL` | Official route/stage disclosures and dated bus stage fares | [MTC portal](https://mtcbus.tn.gov.in/) |
+| `OSM_OVERPASS` | Station, stop and landmark geography | [OpenStreetMap](https://www.openstreetmap.org/) |
 
-Public visibility is not itself a reuse license. Keep MIT code licensing separate from data/model terms. Optional speech/translation models are not used in the text MVP and have no verified licensing or runtime claims here.
+`entity_source_links` retains source IDs and original record IDs for canonical entities. Fare tables retain source IDs and effective dates: the stored MTC tariffs are dated 2018-01-29 and CMRL fares 2021-02-22. The API/UI preserve provenance and provisional coverage indicators where supported. The database is shipped as a fixed snapshot; startup does not rebuild it.
+
+Published route candidates and timetable records do not confirm current service operation. Curated hub/interchange records do not constitute a verified transfer network, and stored facility/accessibility entries do not establish supported answers for all requests. See [known limitations](docs/KNOWN_LIMITATIONS.md).
+
+## Model and licensing
+
+The classifier uses `google/muril-base-cased` at the pinned revision in the [model manifest](models/nlp_v2_t3_manifest.json), plus separately supplied selected weights. [Model setup](docs/MODEL_SETUP.md) describes byte validation and offline loading. Original validation contains train-family overlap; the stored metrics are selection provenance and do not establish population-level accuracy.
+
+Code is [MIT licensed](LICENSE). OpenStreetMap and the collected community GTFS records carry ODbL attribution obligations in the source records. Official disclosures have source-specific terms that require review before redistribution. The MuRIL base model and supplied checkpoint also have separate model terms. Public access alone is not permission to redistribute data or weights.

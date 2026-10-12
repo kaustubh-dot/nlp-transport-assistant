@@ -13,7 +13,7 @@ def extractor():return T3SlotExtractor(CanonicalResolver())
     '-six stages', 'stage -six', '−छह स्टेज'])
 def test_non_integer_or_signed_stage_cannot_be_reduced_to_tariff(extractor,count):
     from src.nlp_v2.assistant import T3Assistant
-    from scripts.nlp_v2.evaluate_multilingual import FixedClassifier
+    from tests.helpers import FixedClassifier
     query='Ordinary bus fare for '+count
     result=extractor.extract(query,'fare_calculation')
     assert 'stage_number' not in result.slots

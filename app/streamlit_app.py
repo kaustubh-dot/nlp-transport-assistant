@@ -22,8 +22,7 @@ STATUS_LABELS = {
 }
 
 st.set_page_config(page_title="Chennai Transit Assistant", page_icon="🚆", layout="wide")
-# Restore the original MandiPulse / Quiet Exchange visual language, preserved in
-# legacy_streamlit_app.py. Presentation remains independent of the T3 API.
+# Apply the local transit theme.
 st.markdown((Path(__file__).with_name("transit_theme.html")).read_text(encoding="utf-8"),
             unsafe_allow_html=True)
 UI_LANGUAGE = st.radio(

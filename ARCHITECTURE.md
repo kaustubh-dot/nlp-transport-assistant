@@ -1,118 +1,34 @@
-# Production T3 architecture
+# Architecture
 
-The default application uses T3 Direct Dispatch with the 16 frozen labels. The earlier seven-label pipeline and T2 research code remain historical entry points.
+The application has one NLP entry point: `src.nlp_v2.assistant.T3Assistant`.
 
-```mermaid
-flowchart TD
-    UI[Streamlit chat] --> API[Local JSON API]
-    API --> A[T3 assistant]
-    A --> M[Frozen MuRIL inference on raw query]
-    M --> G[Clarification guard for explicit multiple goals]
-    G --> C[Source capability preflight]
-    C --> S[Canonical slot and entity extraction]
-    S --> V[Contract validation and clarification]
-    V --> D[Direct T3 operation dispatch]
-    D --> KB[Read-only canonical SQLite service]
-    KB --> R[Structured result and response text]
-    R --> API
-    API --> UI
+```text
+Streamlit UI → local HTTP API → T3Assistant
+                                ├─ selected MuRIL intent classifier
+                                ├─ deterministic text/slot extraction
+                                ├─ canonical entity resolver
+                                ├─ semantic validation and dispatch
+                                └─ read-only canonical transit service
 ```
 
-## Modules and boundaries
+The model reads the original multilingual question. Extraction normalizes a separate copy, resolves canonical names and reviewed aliases, and preserves explicit mode, time, route and exclusion constraints. Ambiguous entities, missing execution slots, unsupported constraints and multiple goals produce bounded clarification or unavailable responses.
 
-| Layer | Source | Contract |
-|---|---|---|
-| Model | `src/nlp_v2/model.py`, `models/nlp_v2_t3_manifest.json` | Strict checkpoint SHA, pinned MuRIL revision, fixed index order, raw query, length 64, CPU inference. Missing assets fail startup; no alternate model fallback. |
-| Extraction | `src/nlp_v2/entities.py`, `src/nlp_v2/slots.py` | Exact canonical names/curated multilingual aliases, explicit directional and temporal cues, bounded frozen enums; unknown aliases are unresolved. |
-| Validation | `src/nlp_v2/contracts.py`, `src/nlp_v2/dispatch.py` | Intent-specific slot allowlists/requirements and separate intent, entity, temporal, missing-slot and multiple-goal clarification reasons. |
-| Domain | `src/nlp_v2/domain.py` | Parameterized, read-only queries against `data/canonical/transit/canonical_transport.db`; source/provisional metadata and explicit unavailable states. |
-| Assistant | `src/nlp_v2/assistant.py` | One utterance-to-reply path. Normalized text supports extraction; model inference preserves raw multilingual input. The explicit-conjunction guard requests clarification only and never chooses a successful operation. |
-| API | `app/api.py` | `GET /health`, `POST /api/v2/query`; localhost by default, 8 KiB request bound, finite socket timeout, safe errors, no raw text/confidence/exception internals in replies. |
-| UI | `app/frontend_contract.py`, `app/streamlit_app.py` | HTTP client, reply-shape validation and structured panels; no transport computation. A clarification requires a revised full query. |
+The 16 intent labels cover point-to-point and multimodal routes; first/last service, frequency and scheduled departures; route sequences and stop membership; mode availability; fares and ticketing; facilities, accessibility and interchanges; nearest transport; realtime requests; and out-of-scope questions. A label's existence does not guarantee source coverage. The [manifest](models/nlp_v2_t3_manifest.json) defines the fixed label order and model-loading contract.
 
-The API is a single-threaded local demo server. Authentication, public hosting, conversational slot memory, speech, and translation are outside this implementation. API/model/database startup errors are visible; per-query execution failures return safe error objects.
+`src/nlp_v2/domain.py` queries [canonical_transport.db](data/canonical/transit/canonical_transport.db) through read-only SQLite connections. Responses include source evidence, dates and coverage limits where applicable. Routing uses published directional stop sequences; nearest-stop distances are geometric. The reviewed alias catalog is [reviewed_name_aliases_v1.json](data/nlp_v2/reviewed_name_aliases_v1.json). `src/entity_extractor.py` supplies a shared gazetteer and `src/normalization.py` supplies text normalization.
 
-## Frozen intent-to-operation behavior
+## API contract
 
-| T3 intent | Operation | Current snapshot behavior |
-|---|---|---|
-| `point_to_point_route` | `PLAN_ROUTE` | Directional published stop-sequence candidates, with optional via/route/mode filters; no verified optimal-trip claim. |
-| `multimodal_route` | `PLAN_MULTIMODAL_ROUTE` | Unavailable: confirmed cross-mode transfer graph absent. |
-| `route_stop_sequence` | `LIST_ROUTE_STOPS` | Published, mode-consistent directional stop lists using route number or line name. |
-| `route_stop_membership` | `CHECK_STOP_ON_ROUTE` | Bounded positive membership; negative membership requires complete mode-consistent topology across all candidate variants. Ambiguous physical stops remain candidates. |
-| `first_and_last_service` | `GET_FIRST_LAST_SERVICE` | Published schedule bounds with station, destination, route/mode and calendar constraints. |
-| `service_frequency` | `GET_SERVICE_FREQUENCY` | Median interval for one published route/direction/physical-stop group; requested clock uses a two-hour window. Unresolved direction ambiguity is not merged. |
-| `scheduled_departure` | `GET_SCHEDULED_DEPARTURES` | Up to five published departures at/after the requested clock, preserving destination/calendar constraints. |
-| `mode_availability` | `CHECK_SERVICE_AVAILABILITY` | Positive ordered published connectivity with sources; current or dated/timed operation is unconfirmed and refused. |
-| `fare_calculation` | `CALCULATE_FARE` | Dated metro station-pair token records or bus stage/service-class records. Unsupported concession/ticket rules are unavailable. |
-| `ticketing_and_passes` | `GET_TICKETING_POLICY` | Unavailable: authoritative policy table absent. |
-| `station_facilities` | `GET_STATION_FACILITY` | Unavailable: facility availability is unverified in the current snapshot. |
-| `station_accessibility` | `GET_ACCESSIBILITY_INFO` | Nullable feature records; current snapshot has no affirmative verified coverage. |
-| `interchange_transfer` | `GET_INTERCHANGE_DETAILS` | Only confirmed transfer rows; current interchanges are unconfirmed. |
-| `nearest_transport` | `FIND_NEAREST_STATION` | Mode-specific straight-line distance from exact canonical place/stop/hub coordinates. MRTS and suburban rail remain distinct; walking access/current operation are unverified. |
-| `realtime_status_query` | `REJECT_UNSUPPORTED_REALTIME` | Explicit live-data unavailable response. |
-| `out_of_scope` | `REJECT_OUT_OF_SCOPE` | Explicit rejection without domain lookup. |
+`python -m app.api` starts the single-threaded local server on `127.0.0.1:8765`. It loads the exact selected checkpoint and pinned tokenizer/config before serving; a missing or invalid asset fails startup.
 
-## Temporal and entity semantics
+- `GET /health` reports T3 readiness.
+- `POST /api/v2/query` accepts a nonempty `query` and optional `transport_mode` in a JSON body of at most 8,192 bytes.
+- Assistant statuses are `ok`, `clarification`, `unavailable`, `out_of_scope` and `error`.
+- Public replies carry `outcome_reason`, `response_text`, `intent`, `operation`, `slots`, `data`, `missing_slots`, `clarification_reason`, `candidate_entities` and `candidate_intents`, alongside `status`. Validation/availability errors have a smaller safe envelope.
+- Raw/normalized questions, model confidence and exception details are omitted from the response.
 
-Canonical IDs pass between backend layers. Explicit source prepositions/postpositions determine journey direction; otherwise mention order is used. Mode and route context can disambiguate matching nodes, but cannot remove an explicitly identified incompatible/off-route stop and silently widen the query. The snapshot has duplicate Central hubs and unverified hub memberships, which can cause conservative clarifications or provisional route candidates.
+## Frontend
 
-`08:00`, `08:00:30`, and explicit AM/PM clocks normalize deterministically. Bare `8 baje`/`8:00 baje` retain AM/PM alternatives. Invalid parsed clocks/dates request clarification. Unresolved `kal`/`परसों` also request clarification. Scheduling resolves today/tomorrow/yesterday using Chennai's Asia/Kolkata date per request, or an injected fixed reference date in evaluation. GTFS output can exceed 24:00; this is service-day notation.
+`app/streamlit_app.py` calls the API through `app/frontend_contract.py`. `app/frontend_language.py` provides English, Hindi and Hinglish presentation, and `app/transit_theme.html` supplies the visual theme. History, drafts, the selected mode and accepted request state survive UI reruns and language changes. Questions are sent unchanged; display language does not select a different model. An explicit question mode takes priority over the selected default.
 
-## Evaluation and governance
-
-Model selection used validation only. Existing frozen train/validation data share families; the replacement trainer excludes overlapping validation rows without altering source CSVs. Frozen stress/reference sets also share train families, and the human subset is nested in stress. Reports disclose those integrity limitations.
-
-The selected model was frozen before model-only evaluation. The complete assistant was frozen at `b9b2271b1761d08752786f22b558862f45ed1dac` before the historical aggregate assistant run. Reports distinguish model accuracy, selected operation, actual terminal dispatch, status counts, and clarification behavior. They do not claim slot or factual-answer accuracy. That historical report is the baseline. Phases11–20 improve only against a separately frozen development suite and allowed validation, without individual held-out inspection. Phase17 ran one full GPU candidate selected on disjoint validation; it failed the comparison and the original model remains selected. Phase21 completed post-development descriptive regression evaluation from source freeze `8ee8917`, not an untouched estimate; its results cannot drive metric-based backend tuning. A later independent final review found a timetable scope-loss defect; the user explicitly authorized only its bounded correction and a separate descriptive measurement. Phase21 reports remain unchanged and valid for their original freeze.
-
-Use the [runbook](docs/nlp_v2/production_runbook.md) for asset preparation, startup, tests, safe training, and demo steps. Historical evidence remains in the existing Gate B.2/B.3 directories.
-
-## Operational outcomes and artifacts
-
-Optional capability preflight avoids questions that cannot change source answerability; extended handlers retain authority. Replies expose `outcome_reason` separately from status/intent/operation for actionable missing inputs, ambiguity, unsupported source, external realtime, malformed requests and temporary failures. Exact extraction normalization stays separate from raw inference. The selected weights remain ignored and are supplied through the [validated artifact workflow](docs/nlp_v2/model_artifact_workflow.md); no automatic fallback or upload occurs. The [development matrix](docs/nlp_v2/development_acceptance.md) distinguishes actual coverage from intended-intent downstream reachability.
-
-## Presentation after the backend freeze
-
-The Phase22 Streamlit changes are presentation-only. Status labels distinguish
-answered published information, clarification, unavailable, out-of-scope and
-errors. Persistent snapshot/no-live notice, effective dates, provenance, partial
-coverage and provisional hub caveats remain visible. Non-OK replies render no
-successful metric/table panel. Clarification guidance requests a full revised
-question without displaying canonical candidate IDs; tables omit private/debug
-identifiers. Optional presentation metadata is type-checked before captioning,
-so malformed nullable coverage fields cannot expose a Streamlit stacktrace.
-Phase22 froze backend/API/model/evaluators and canonical data at `8ee8917` while
-changing presentation. The subsequent user-requested restoration of the original
-MandiPulse parchment/oxblood theme is committed as `7cac770`, retaining all API
-and renderer behavior; [restored UI QA](reports/nlp_v2/restored_ui_qa/qa.md) records
-desktop/mobile layouts, keyboard focus and the five public statuses.
-
-## Authorized Phase23 correctness exception
-
-The independent final review found that a third timetable stop could be dropped
-and a waypoint could replace the destination. The user explicitly authorized a
-narrow correction based on synthetic regressions, preserving Phase21 unchanged.
-The shared branch for departures, first/last and frequency now retains explicit
-endpoint roles independently of waypoint order and preserves ordered recognized
-spans. Extra/conflicting endpoint scopes clarify. Timetable operations do not
-have a waypoint filter; those requests return explicit unavailable before domain
-execution instead of answering a reduced journey. Route/time/date extraction and
-ordinary one/two-point behavior remain unchanged. No aliases, canonical schema,
-domain handlers, classifier, preprocessing or weights changed.
-
-Post-review backend freeze: `e008c0474c1301a3b442b31761f31c79e7dec446`. After that
-commit, one [Phase23 post-fix descriptive regression](reports/nlp_v2/phase23_post_fix_descriptive/comparison.md)
-uses the unchanged complete-assistant evaluator and fixed date2026-10-06. It is
-an observed-set measurement, not an independent test or a replacement Phase21.
-No model-only rerun or metric-driven tuning occurs. [The acceptance audit](docs/nlp_v2/final_acceptance_audit.md)
-and [scope limits](docs/nlp_v2/known_limitations.md) record evidence and limitations.
-
-The subsequent final review found an unknown coordinated third-stop defect.
-The user's “Fix it” authorized its narrow correction, now frozen at `1bf748c9e4cc35e75b1db004f5b74c9dad1eeb1b`.
-Unknown extra timetable locations clarify before partial execution; supported
-modifier clauses and ordinary requests retain their behavior. [Follow-up review](reports/nlp_v2/final_review/unknown_stop_scope_review.md)
-records 201 additional synthetic cases and zero unresolved scoped findings.
-Both earlier descriptive runs and contexts remain unchanged for their recorded
-sources. No additional evaluator ran; final corrected-source aggregate performance
-has not been measured. [Final source provenance](reports/nlp_v2/final_review/final_source_context.json)
-records the separate freeze and preserved historical hashes.
+See [model setup](docs/MODEL_SETUP.md), [data sources](DATA_SOURCES.md) and [known limitations](docs/KNOWN_LIMITATIONS.md).

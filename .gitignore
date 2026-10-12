@@ -1,78 +1,30 @@
-# Byte-compiled / optimized / DLL files
+# Python and test/build outputs
 __pycache__/
 *.py[cod]
-*$py.class
-
-# C extensions
-*.so
-
-# Distribution / packaging
-.Python
+.pytest_cache/
+.coverage
+htmlcov/
 build/
-develop-eggs/
 dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
 *.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+.ipynb_checkpoints/
 
-# Virtual environments
-.env
-.venv
-env/
+# Local environments, credentials and caches
+.venv*/
 venv/
-ENV/
-env.bak/
-venv.bak/
+.env
+.cache/
+logs/
+.streamlit/*
+!.streamlit/config.toml
 
-# PyTorch and Hugging Face checkpoints
+# Separately supplied model weights
+experiments/
 models/*/
-!models/training_summary.json
 *.safetensors
 *.pt
 *.pth
 *.bin
 
-# Hallmark scratch
-.hallmark/
-
-# SQLite database (can be regenerated using scripts/build_transport_db.py)
-# data/processed/transport.db
-
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints
-
-# pytest / coverage
-.pytest_cache/
-.cache/
-.coverage
-htmlcov/
-
-# Streamlit config / cache
-.streamlit/
-!.streamlit/config.toml
-
-# OS-generated files
 .DS_Store
 Thumbs.db
-
-# Reproducible generated training artifacts
-data/processed/intents.csv
-models/baseline/*.pkl
-
-# Staging & Runtime Logs
-data/staging/
-logs/
-
-# Local replacement-training artifacts; reviewed metadata is copied to reports.
-experiments/nlp_v2/production_runs/
