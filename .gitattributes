@@ -1,0 +1,5 @@
+# Keep checksum-verified files byte-identical on Windows and Unix checkouts.
+models/tokenizer/* -text
+models/project/* -text
+data/project/*.csv -text whitespace=cr-at-eol
+data/canonical/**/*.db -text
