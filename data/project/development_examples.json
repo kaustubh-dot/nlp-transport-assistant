@@ -1,0 +1,115 @@
+{
+  "source": "ai_authored_development",
+  "human_reviewed": false,
+  "purpose": "Replace repetitive training variants; these are development inputs, never an independent passenger benchmark.",
+  "examples": {
+    "route_query": [
+      ["एग्मोर पहुँच गया हूँ। अब कोयंबेडु कैसे पहुँचूँ?", "Egmore pahunch gaya hu. Ab Koyambedu kaise pahunchu?"],
+      ["सेंट्रल से हवाई अड्डे जाने का तरीका समझा दीजिए।", "Central se airport jaane ka tareeka samjha do."],
+      ["तांबरम से गिंडी जाना है, सफर का रास्ता बताओ।", "Tambaram se Guindy jana h, safar ka rasta batao."],
+      ["अवडी से कोयंबेडु तक कौन सा रास्ता लेना होगा?", "Avadi se Koyambedu tak konsa rasta lena hoga?"],
+      ["मैं सेंट्रल पर उतरूँगा। एयरपोर्ट तक आगे कैसे जाना है?", "Main Central par utarunga. Airport tak aage kaise jana hai?"],
+      ["एयरपोर्ट जाना है, अभी चेन्नई सेंट्रल पर खड़ा हूँ। रास्ता बता दें।", "Airport jana hai, abhi Chennai Central par khada hu. Route bata dena."],
+      ["कोयंबेडु जाने के लिए एग्मोर से आगे की यात्रा समझाइए।", "Koyambedu jaane ke liye Egmore se aage ka travel samjhao."],
+      ["रेलवे स्टेशन से होटल कैसे जाऊँ?", "Railway station se hotel kaise jau?"],
+      ["पेरंबूर स्टेशन से नुंगमबक्कम स्टेशन कैसे जाएँ?", "Perambur station se Nungambakkam station kaise jayen?"],
+      ["थिरुवनमियूर से अड्यार तक जाना है, रास्ता क्या होगा?", "Thiruvanmiyur se Adyar tak jana hai, route kya hoga?"]
+    ],
+    "service_availability": [
+      ["सेंट्रल से एयरपोर्ट वाली मेट्रो चलती है?", "Central se Airport wali metro chalti h?"],
+      ["तांबरम से गिंडी जाने के लिए बस मिल जाएगी क्या?", "Tambaram se Guindy jaane ke liye bus mil jayegi kya?"],
+      ["एग्मोर से कोयंबेडु के बीच मेट्रो का कनेक्शन है या नहीं?", "Egmore se Koyambedu ke beech metro connection hai ya nahi?"],
+      ["अवडी से एयरपोर्ट के लिए बस सेवा उपलब्ध है?", "Avadi se Airport ke liye bus service available h?"],
+      ["सेंट्रल से गिंडी तक मेट्रो मिलती है न?", "Central se Guindy tak metro milti hai na?"],
+      ["एयरपोर्ट की बस तांबरम से मिल सकती है?", "Airport ki bus Tambaram se mil sakti hai?"],
+      ["कोयंबेडु के लिए सेंट्रल से कोई बस जाती है?", "Koyambedu ke liye Central se koi bus jati h?"],
+      ["गिंडी जाने वाली बस एग्मोर से उपलब्ध है क्या?", "Guindy jaane wali bus Egmore se available hai kya?"],
+      ["सेंट्रल से कोयंबेडु के लिए मेट्रो सेवा है?", "Central se Koyambedu ke liye metro service hai?"],
+      ["क्या तांबरम और एयरपोर्ट के बीच बस का संपर्क है?", "Kya Tambaram aur Airport ke beech bus connectivity hai?"]
+    ],
+    "service_timing": [
+      ["सेंट्रल मेट्रो की पहली गाड़ी सुबह कब निकलती है?", "Central metro ki pehli gaadi subah kab nikalti hai?"],
+      ["सेंट्रल से रात की आखिरी मेट्रो का समय बताओ।", "Central se raat ki last metro ka time batao."],
+      ["तांबरम से सुबह सबसे पहली ट्रेन कितने बजे छूटती है?", "Tambaram se subah sabse pehli train kitne baje chhootti hai?"],
+      ["एग्मोर रेलवे स्टेशन की ट्रेन का प्रकाशित समय-सारणी रिकॉर्ड देखना है।", "Egmore railway station ki train ka published timetable record dekhna hai."],
+      ["अवडी से बसें कितनी देर के अंतराल पर निकलती हैं?", "Avadi se buses kitni der ke gap par nikalti hain?"],
+      ["अवडी से अगली निर्धारित ट्रेन कब है?", "Avadi se next scheduled train kab h?"],
+      ["कोयंबेडु जाने की पहली मेट्रो सेंट्रल से कितने बजे छूटती है?", "Koyambedu jaane ki first metro Central se kitne baje chhootti hai?"],
+      ["सेंट्रल मेट्रो रात में कितने बजे बंद होती है?", "Central metro raat mein kitne baje band hoti h?"],
+      ["तांबरम की ट्रेन का आखिरी निर्धारित प्रस्थान जानना है।", "Tambaram ki train ka last scheduled departure janna hai."],
+      ["रेलवे की पहली सुबह वाली ट्रेन का समय चाहिए।", "Railway ki sabse pehle subah wali train ka time chahiye."]
+    ],
+    "station_information": [
+      ["चेन्नई सेंट्रल स्टेशन का परिचय बताइए।", "Chennai Central station ka introduction batao."],
+      ["एग्मोर रेलवे स्टेशन के पास बस स्टॉप कौन सा है?", "Egmore railway station ke paas bus stop kaunsa h?"],
+      ["तांबरम स्टेशन के पास बस अड्डे का नाम बताओ।", "Tambaram station ke paas bus stand ka naam batao."],
+      ["अवडी रेलवे स्टेशन की सामान्य जानकारी चाहिए।", "Avadi railway station ki general information chahiye."],
+      ["सेंट्रल स्टेशन का पता बता सकते हैं?", "Central station ka address bata sakte ho?"],
+      ["एग्मोर में पानी पीने की जगह कहाँ है?", "Egmore mein peene ka paani kahan milega?"],
+      ["तांबरम के स्टेशन कार्यालय की जानकारी है?", "Tambaram ke station office ki details hai?"],
+      ["सेंट्रल स्टेशन में प्रवेश कहाँ से होता है?", "Central station mein entry kahan se hoti h?"],
+      ["अवडी स्टेशन पर यात्रियों के लिए क्या सुविधाएँ हैं?", "Avadi station par passengers ke liye kya facilities hain?"],
+      ["एग्मोर के प्लेटफॉर्म की जानकारी बता दीजिए।", "Egmore ke platforms ki information bata dijiye."]
+    ],
+    "accessibility": [
+      ["सेंट्रल मेट्रो में सीढ़ियों की जगह लिफ्ट मिल सकती है?", "Central metro mein stairs ki jagah lift mil sakti hai?"],
+      ["मेरे पिता व्हीलचेयर पर हैं। सेंट्रल मेट्रो में व्हीलचेयर सहायता है?", "Mere papa wheelchair par hain. Central metro mein wheelchair help hai?"],
+      ["एग्मोर मेट्रो पर लिफ्ट की सुविधा बताइए।", "Egmore metro par lift ki facility batao."],
+      ["तांबरम में दिव्यांग यात्रियों के लिए रैंप है?", "Tambaram mein divyang passengers ke liye ramp h?"],
+      ["अवडी स्टेशन की सुगम पहुँच के बारे में पूछना है।", "Avadi station ki accessible entry ke baare mein poochna h."],
+      ["सेंट्रल रेलवे स्टेशन में व्हीलचेयर कहाँ मिलेगी?", "Central railway station mein wheelchair kahan milegi?"],
+      ["सेंट्रल मेट्रो के प्लेटफॉर्म तक लिफ्ट जाती है क्या?", "Central metro ke platform tak lift jati hai kya?"],
+      ["चलने में दिक्कत है, एग्मोर मेट्रो में एस्केलेटर है?", "Chalne mein dikkat hai, Egmore metro mein escalator hai?"],
+      ["तांबरम स्टेशन पर बाधारहित प्रवेश की सुविधा है?", "Tambaram station par barrier free entry ki facility h?"],
+      ["सेंट्रल मेट्रो में व्हीलचेयर उपलब्ध होने की जानकारी चाहिए।", "Central metro mein wheelchair availability ki information chahiye."]
+    ],
+    "ticketing": [
+      ["सेंट्रल से एयरपोर्ट का मेट्रो टिकट कहाँ खरीदूँ?", "Central se Airport ka metro ticket kahan kharidu?"],
+      ["तांबरम से गिंडी का बस किराया क्या है?", "Tambaram se Guindy ka bus fare kya h?"],
+      ["एग्मोर में रेल टिकट बुक करने का तरीका बताओ।", "Egmore mein rail ticket book karne ka tarika batao."],
+      ["बस का मासिक पास कैसे बनवाना है?", "Bus ka monthly pass kaise banwana hai?"],
+      ["मेट्रो टिकट के पैसे कट गए लेकिन टिकट नहीं मिला।", "Metro ticket ke paise kat gaye lekin ticket nahi mila."],
+      ["ऑनलाइन ट्रेन आरक्षण की जानकारी चाहिए।", "Online train reservation ki information chahiye."],
+      ["कोयंबेडु तक मेट्रो टिकट की कीमत कितनी होगी?", "Koyambedu tak metro ticket ki price kitni hogi?"],
+      ["सेंट्रल पर टिकट खरीदने का काउंटर कहाँ है?", "Central par ticket kharidne ka counter kahan h?"],
+      ["मेरे रेल टिकट का भुगतान असफल हो गया।", "Mere rail ticket ka payment fail ho gaya."],
+      ["मेट्रो पास बनवाने के लिए क्या करना पड़ेगा?", "Metro pass banwane ke liye kya karna padega?"]
+    ],
+    "train_status": [
+      ["मेरी ट्रेन दो घंटे देर से चल रही है। स्थिति पता करनी है।", "Meri train do ghante late chal rahi h. Status pata karna hai."],
+      ["सेंट्रल आने वाली गाड़ी अभी कहाँ पहुँची?", "Central aane wali gaadi abhi kahan pahunchi?"],
+      ["आज एग्मोर की ट्रेन रद्द तो नहीं हुई?", "Aaj Egmore ki train cancel toh nahi hui?"],
+      ["ट्रेन समय पर आएगी या देरी होगी?", "Train time par aayegi ya delay hoga?"],
+      ["तांबरम आने वाली रेलगाड़ी का लाइव स्टेटस चाहिए।", "Tambaram aane wali railgadi ka live status chahiye."],
+      ["अवडी की ट्रेन पहुँचने में कितनी देर है?", "Avadi ki train pahunchne mein kitni der h?"],
+      ["मेरी ट्रेन अब तक नहीं आई, उसकी वर्तमान स्थिति बताओ।", "Meri train ab tak nahi aayi, uski current position batao."],
+      ["रेलगाड़ी विलंब से चल रही है क्या?", "Railgadi delay se chal rahi hai kya?"],
+      ["ट्रेन का समय बदल गया है क्या, अभी की स्थिति चाहिए।", "Train ka time badal gaya hai kya, abhi ka status chahiye."],
+      ["सेंट्रल पहुँचने वाली ट्रेन अपने समय से पीछे है क्या?", "Central pahunchne wali train apne time se peeche hai kya?"]
+    ],
+    "railway_complaint": [
+      ["ट्रेन के डिब्बे में सफाई नहीं हुई, शिकायत करनी है।", "Train ke coach mein safai nahi hui, complaint karni h."],
+      ["रेल के शौचालय में बहुत गंदगी है।", "Rail ke toilet mein bahut gandagi hai."],
+      ["ट्रेन में पीने का पानी नहीं आ रहा है।", "Train mein peene ka paani nahi aa raha h."],
+      ["रेलवे कर्मचारी ने बदतमीजी की, शिकायत कहाँ बताऊँ?", "Railway staff ne badtameezi ki, complaint kahan bataun?"],
+      ["रेलगाड़ी में दिया गया खाना खराब था।", "Railgadi mein diya gaya khana kharab tha."],
+      ["एग्मोर स्टेशन की सफाई के बारे में शिकायत है।", "Egmore station ki safai ke baare mein complaint h."],
+      ["तांबरम की ट्रेन के कोच में खिड़की टूटी है।", "Tambaram ki train ke coach mein khidki tooti h."],
+      ["रेलवे की सेवा से परेशानी हुई, शिकायत का तरीका समझाओ।", "Railway service se pareshani hui, complaint ka tarika samjhao."],
+      ["सेंट्रल स्टेशन पर कर्मचारियों का व्यवहार ठीक नहीं था।", "Central station par staff ka behaviour theek nahi tha."],
+      ["ट्रेन के डिब्बे में पानी की आपूर्ति बंद है।", "Train ke compartment mein paani ki supply band hai."]
+    ],
+    "out_of_scope": [
+      ["आज क्रिकेट का स्कोर क्या है?", "Aaj cricket ka score kya h?"],
+      ["मेरे लिए एक कविता लिखो।", "Mere liye ek kavita likho."],
+      ["चेन्नई में आज बारिश होगी क्या?", "Chennai mein aaj baarish hogi kya?"],
+      ["खाना पकाने का आसान तरीका बताओ।", "Khana pakane ka easy tarika batao."],
+      ["मेरी गणित की समस्या हल कर सकते हो?", "Meri maths problem solve kar sakte ho?"],
+      ["कौन सी फिल्म देखने जाऊँ?", "Kaunsi film dekhne jaun?"],
+      ["कंप्यूटर गेम डाउनलोड करने का तरीका चाहिए।", "Computer game download karne ka tarika chahiye."],
+      ["अगले चुनाव के बारे में समाचार बताइए।", "Agale election ki news bataiye."],
+      ["फोन खरीदने में मदद चाहिए।", "Phone kharidne mein help chahiye."],
+      ["बागवानी सीखने की शुरुआत कैसे करूँ?", "Gardening seekhna kaise shuru karun?"]
+    ]
+  }
+}

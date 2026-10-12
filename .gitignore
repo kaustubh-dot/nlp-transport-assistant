@@ -18,13 +18,15 @@ logs/
 .streamlit/*
 !.streamlit/config.toml
 
-# Separately supplied model weights
+# Downloaded neural assets; baseline, small head and tokenizer ship with Git
 experiments/
-models/*/
+models/assets/
 *.safetensors
 *.pt
 *.pth
 *.bin
+*.part
+!models/project/intent_head.pt
 
 .DS_Store
 Thumbs.db

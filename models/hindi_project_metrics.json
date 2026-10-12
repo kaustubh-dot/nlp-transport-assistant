@@ -1,0 +1,2104 @@
+{
+  "labels": [
+    "route_query",
+    "service_availability",
+    "service_timing",
+    "station_information",
+    "accessibility",
+    "ticketing",
+    "train_status",
+    "railway_complaint",
+    "out_of_scope"
+  ],
+  "data_origin": "synthetic templates and AI-authored development examples; not human reviewed",
+  "split_policy": "template family disjoint",
+  "training_mode": "last_two_encoder_layers_and_head",
+  "limitations": [
+    "Small synthetic academic comparison, not passenger accuracy.",
+    "The reused encoder was previously fine-tuned on transport data; this is not a new base-model benchmark.",
+    "Only the final two encoder layers and nine-class head are trained; this is partial fine-tuning.",
+    "Classification scores do not measure factual retrieval or entity accuracy."
+  ],
+  "counts": {
+    "train": 1112,
+    "validation": 216,
+    "test": 324
+  },
+  "dataset_sha256": "19ee98fac3bc9fde208a3712835eda601e6ff7b397d144a7210ba8fb955727a2",
+  "selected_epoch": 1,
+  "epochs": 5,
+  "pooling": "mean",
+  "models": {
+    "tfidf": {
+      "validation": {
+        "count": 216,
+        "accuracy": 0.9814814814814815,
+        "macro_f1": 0.9814250049901757,
+        "per_class": {
+          "route_query": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 24.0
+          },
+          "service_availability": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 24.0
+          },
+          "service_timing": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 24.0
+          },
+          "station_information": {
+            "precision": 1.0,
+            "recall": 0.875,
+            "f1-score": 0.9333333333333333,
+            "support": 24.0
+          },
+          "accessibility": {
+            "precision": 0.8888888888888888,
+            "recall": 1.0,
+            "f1-score": 0.9411764705882353,
+            "support": 24.0
+          },
+          "ticketing": {
+            "precision": 0.96,
+            "recall": 1.0,
+            "f1-score": 0.9795918367346939,
+            "support": 24.0
+          },
+          "train_status": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 24.0
+          },
+          "railway_complaint": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 24.0
+          },
+          "out_of_scope": {
+            "precision": 1.0,
+            "recall": 0.9583333333333334,
+            "f1-score": 0.9787234042553191,
+            "support": 24.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            24,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            24,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            24,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            21,
+            3,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            24,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            24,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            24,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            24,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            23
+          ]
+        ]
+      },
+      "by_language": {
+        "validation": {
+          "hi": {
+            "count": 108,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_class": {
+              "route_query": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "service_availability": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "service_timing": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "station_information": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "accessibility": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "ticketing": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "train_status": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "railway_complaint": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "out_of_scope": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                12,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                12,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                12,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                12,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                12,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                12,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                12,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                12,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                12
+              ]
+            ]
+          },
+          "hinglish": {
+            "count": 108,
+            "accuracy": 0.9629629629629629,
+            "macro_f1": 0.9625059427957979,
+            "per_class": {
+              "route_query": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "service_availability": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "service_timing": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "station_information": {
+                "precision": 1.0,
+                "recall": 0.75,
+                "f1-score": 0.8571428571428571,
+                "support": 12.0
+              },
+              "accessibility": {
+                "precision": 0.8,
+                "recall": 1.0,
+                "f1-score": 0.8888888888888888,
+                "support": 12.0
+              },
+              "ticketing": {
+                "precision": 0.9230769230769231,
+                "recall": 1.0,
+                "f1-score": 0.96,
+                "support": 12.0
+              },
+              "train_status": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "railway_complaint": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "out_of_scope": {
+                "precision": 1.0,
+                "recall": 0.9166666666666666,
+                "f1-score": 0.9565217391304348,
+                "support": 12.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                12,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                12,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                12,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                9,
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                12,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                12,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                12,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                12,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                11
+              ]
+            ]
+          }
+        },
+        "test": {
+          "hi": {
+            "count": 216,
+            "accuracy": 0.9629629629629629,
+            "macro_f1": 0.961904761904762,
+            "per_class": {
+              "route_query": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 24.0
+              },
+              "service_availability": {
+                "precision": 0.75,
+                "recall": 1.0,
+                "f1-score": 0.8571428571428571,
+                "support": 24.0
+              },
+              "service_timing": {
+                "precision": 1.0,
+                "recall": 0.6666666666666666,
+                "f1-score": 0.8,
+                "support": 24.0
+              },
+              "station_information": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 24.0
+              },
+              "accessibility": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 24.0
+              },
+              "ticketing": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 24.0
+              },
+              "train_status": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 24.0
+              },
+              "railway_complaint": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 24.0
+              },
+              "out_of_scope": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 24.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                24,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                24,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                8,
+                16,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                24,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                24,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                24,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                24,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                24,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                24
+              ]
+            ]
+          },
+          "hinglish": {
+            "count": 108,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_class": {
+              "route_query": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "service_availability": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "service_timing": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "station_information": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "accessibility": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "ticketing": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "train_status": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "railway_complaint": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "out_of_scope": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                12,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                12,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                12,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                12,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                12,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                12,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                12,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                12,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                12
+              ]
+            ]
+          }
+        }
+      },
+      "test": {
+        "count": 324,
+        "accuracy": 0.9753086419753086,
+        "macro_f1": 0.9750000000000001,
+        "per_class": {
+          "route_query": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 36.0
+          },
+          "service_availability": {
+            "precision": 0.8181818181818182,
+            "recall": 1.0,
+            "f1-score": 0.9,
+            "support": 36.0
+          },
+          "service_timing": {
+            "precision": 1.0,
+            "recall": 0.7777777777777778,
+            "f1-score": 0.875,
+            "support": 36.0
+          },
+          "station_information": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 36.0
+          },
+          "accessibility": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 36.0
+          },
+          "ticketing": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 36.0
+          },
+          "train_status": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 36.0
+          },
+          "railway_complaint": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 36.0
+          },
+          "out_of_scope": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 36.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            36,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            36,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            8,
+            28,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            36,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            36,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            36,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            36,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            36,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            36
+          ]
+        ]
+      },
+      "errors": [
+        {
+          "text": "सेवा शुरू और समाप्त होने का वक्त चेन्नई सेंट्रल की बस के लिए बताओ।",
+          "expected": "service_timing",
+          "predicted": "service_availability"
+        },
+        {
+          "text": "सेवा शुरू और समाप्त होने का वक्त चेन्नई सेंट्रल की मेट्रो के लिए बताओ।",
+          "expected": "service_timing",
+          "predicted": "service_availability"
+        },
+        {
+          "text": "सेवा शुरू और समाप्त होने का वक्त एग्मोर की मेट्रो के लिए बताओ।",
+          "expected": "service_timing",
+          "predicted": "service_availability"
+        },
+        {
+          "text": "सेवा शुरू और समाप्त होने का वक्त एग्मोर की बस के लिए बताओ।",
+          "expected": "service_timing",
+          "predicted": "service_availability"
+        },
+        {
+          "text": "सेवा शुरू और समाप्त होने का वक्त तांबरम की बस के लिए बताओ।",
+          "expected": "service_timing",
+          "predicted": "service_availability"
+        },
+        {
+          "text": "सेवा शुरू और समाप्त होने का वक्त तांबरम की मेट्रो के लिए बताओ।",
+          "expected": "service_timing",
+          "predicted": "service_availability"
+        },
+        {
+          "text": "सेवा शुरू और समाप्त होने का वक्त अवडी की मेट्रो के लिए बताओ।",
+          "expected": "service_timing",
+          "predicted": "service_availability"
+        },
+        {
+          "text": "सेवा शुरू और समाप्त होने का वक्त अवडी की बस के लिए बताओ।",
+          "expected": "service_timing",
+          "predicted": "service_availability"
+        }
+      ]
+    },
+    "muril_finetuned": {
+      "validation": {
+        "count": 216,
+        "accuracy": 0.8842592592592593,
+        "macro_f1": 0.88211130149302,
+        "per_class": {
+          "route_query": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 24.0
+          },
+          "service_availability": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 24.0
+          },
+          "service_timing": {
+            "precision": 0.6470588235294118,
+            "recall": 0.4583333333333333,
+            "f1-score": 0.5365853658536586,
+            "support": 24.0
+          },
+          "station_information": {
+            "precision": 0.92,
+            "recall": 0.9583333333333334,
+            "f1-score": 0.9387755102040817,
+            "support": 24.0
+          },
+          "accessibility": {
+            "precision": 0.9230769230769231,
+            "recall": 1.0,
+            "f1-score": 0.96,
+            "support": 24.0
+          },
+          "ticketing": {
+            "precision": 0.96,
+            "recall": 1.0,
+            "f1-score": 0.9795918367346939,
+            "support": 24.0
+          },
+          "train_status": {
+            "precision": 0.5806451612903226,
+            "recall": 0.75,
+            "f1-score": 0.6545454545454545,
+            "support": 24.0
+          },
+          "railway_complaint": {
+            "precision": 1.0,
+            "recall": 0.875,
+            "f1-score": 0.9333333333333333,
+            "support": 24.0
+          },
+          "out_of_scope": {
+            "precision": 0.9565217391304348,
+            "recall": 0.9166666666666666,
+            "f1-score": 0.9361702127659575,
+            "support": 24.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            24,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            24,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            11,
+            0,
+            0,
+            0,
+            13,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            23,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            24,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            24,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            6,
+            0,
+            0,
+            0,
+            18,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            2,
+            1,
+            0,
+            21,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            22
+          ]
+        ]
+      },
+      "by_language": {
+        "validation": {
+          "hi": {
+            "count": 108,
+            "accuracy": 0.8703703703703703,
+            "macro_f1": 0.8431372549019608,
+            "per_class": {
+              "route_query": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "service_availability": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "service_timing": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1-score": 0.0,
+                "support": 12.0
+              },
+              "station_information": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "accessibility": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "ticketing": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "train_status": {
+                "precision": 0.45454545454545453,
+                "recall": 0.8333333333333334,
+                "f1-score": 0.5882352941176471,
+                "support": 12.0
+              },
+              "railway_complaint": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "out_of_scope": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                12,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                12,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                12,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                12,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                12,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                12,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                2,
+                0,
+                0,
+                0,
+                10,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                12,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                12
+              ]
+            ]
+          },
+          "hinglish": {
+            "count": 108,
+            "accuracy": 0.8981481481481481,
+            "macro_f1": 0.8962782860367402,
+            "per_class": {
+              "route_query": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "service_availability": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "service_timing": {
+                "precision": 0.7333333333333333,
+                "recall": 0.9166666666666666,
+                "f1-score": 0.8148148148148148,
+                "support": 12.0
+              },
+              "station_information": {
+                "precision": 0.8461538461538461,
+                "recall": 0.9166666666666666,
+                "f1-score": 0.88,
+                "support": 12.0
+              },
+              "accessibility": {
+                "precision": 0.8571428571428571,
+                "recall": 1.0,
+                "f1-score": 0.9230769230769231,
+                "support": 12.0
+              },
+              "ticketing": {
+                "precision": 0.9230769230769231,
+                "recall": 1.0,
+                "f1-score": 0.96,
+                "support": 12.0
+              },
+              "train_status": {
+                "precision": 0.8888888888888888,
+                "recall": 0.6666666666666666,
+                "f1-score": 0.7619047619047619,
+                "support": 12.0
+              },
+              "railway_complaint": {
+                "precision": 1.0,
+                "recall": 0.75,
+                "f1-score": 0.8571428571428571,
+                "support": 12.0
+              },
+              "out_of_scope": {
+                "precision": 0.9090909090909091,
+                "recall": 0.8333333333333334,
+                "f1-score": 0.8695652173913043,
+                "support": 12.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                12,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                12,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                11,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                11,
+                0,
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                12,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                12,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                4,
+                0,
+                0,
+                0,
+                8,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                2,
+                1,
+                0,
+                9,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                2,
+                0,
+                0,
+                0,
+                0,
+                10
+              ]
+            ]
+          }
+        },
+        "test": {
+          "hi": {
+            "count": 216,
+            "accuracy": 0.8333333333333334,
+            "macro_f1": 0.8318850594648306,
+            "per_class": {
+              "route_query": {
+                "precision": 1.0,
+                "recall": 0.6666666666666666,
+                "f1-score": 0.8,
+                "support": 24.0
+              },
+              "service_availability": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 24.0
+              },
+              "service_timing": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 24.0
+              },
+              "station_information": {
+                "precision": 0.85,
+                "recall": 0.7083333333333334,
+                "f1-score": 0.7727272727272727,
+                "support": 24.0
+              },
+              "accessibility": {
+                "precision": 0.8571428571428571,
+                "recall": 0.5,
+                "f1-score": 0.631578947368421,
+                "support": 24.0
+              },
+              "ticketing": {
+                "precision": 0.8,
+                "recall": 1.0,
+                "f1-score": 0.8888888888888888,
+                "support": 24.0
+              },
+              "train_status": {
+                "precision": 1.0,
+                "recall": 0.9583333333333334,
+                "f1-score": 0.9787234042553191,
+                "support": 24.0
+              },
+              "railway_complaint": {
+                "precision": 0.6129032258064516,
+                "recall": 0.7916666666666666,
+                "f1-score": 0.6909090909090909,
+                "support": 24.0
+              },
+              "out_of_scope": {
+                "precision": 0.6176470588235294,
+                "recall": 0.875,
+                "f1-score": 0.7241379310344828,
+                "support": 24.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                16,
+                0,
+                0,
+                3,
+                0,
+                0,
+                0,
+                0,
+                5
+              ],
+              [
+                0,
+                24,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                24,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                17,
+                0,
+                0,
+                0,
+                0,
+                7
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                12,
+                0,
+                0,
+                12,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                24,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                23,
+                0,
+                1
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                2,
+                3,
+                0,
+                19,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                3,
+                0,
+                0,
+                21
+              ]
+            ]
+          },
+          "hinglish": {
+            "count": 108,
+            "accuracy": 0.6944444444444444,
+            "macro_f1": 0.65992927185377,
+            "per_class": {
+              "route_query": {
+                "precision": 0.8,
+                "recall": 0.3333333333333333,
+                "f1-score": 0.47058823529411764,
+                "support": 12.0
+              },
+              "service_availability": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "service_timing": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 12.0
+              },
+              "station_information": {
+                "precision": 0.48,
+                "recall": 1.0,
+                "f1-score": 0.6486486486486487,
+                "support": 12.0
+              },
+              "accessibility": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1-score": 0.0,
+                "support": 12.0
+              },
+              "ticketing": {
+                "precision": 0.631578947368421,
+                "recall": 1.0,
+                "f1-score": 0.7741935483870968,
+                "support": 12.0
+              },
+              "train_status": {
+                "precision": 1.0,
+                "recall": 0.5833333333333334,
+                "f1-score": 0.7368421052631579,
+                "support": 12.0
+              },
+              "railway_complaint": {
+                "precision": 0.3333333333333333,
+                "recall": 0.5,
+                "f1-score": 0.4,
+                "support": 12.0
+              },
+              "out_of_scope": {
+                "precision": 1.0,
+                "recall": 0.8333333333333334,
+                "f1-score": 0.9090909090909091,
+                "support": 12.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                4,
+                0,
+                0,
+                8,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                12,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                12,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                12,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                12,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                12,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                5,
+                0,
+                0,
+                7,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                6,
+                0,
+                6,
+                0
+              ],
+              [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                10
+              ]
+            ]
+          }
+        }
+      },
+      "test": {
+        "count": 324,
+        "accuracy": 0.7870370370370371,
+        "macro_f1": 0.7796876439354367,
+        "per_class": {
+          "route_query": {
+            "precision": 0.9523809523809523,
+            "recall": 0.5555555555555556,
+            "f1-score": 0.7017543859649122,
+            "support": 36.0
+          },
+          "service_availability": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 36.0
+          },
+          "service_timing": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 36.0
+          },
+          "station_information": {
+            "precision": 0.6444444444444445,
+            "recall": 0.8055555555555556,
+            "f1-score": 0.7160493827160493,
+            "support": 36.0
+          },
+          "accessibility": {
+            "precision": 0.8571428571428571,
+            "recall": 0.3333333333333333,
+            "f1-score": 0.48,
+            "support": 36.0
+          },
+          "ticketing": {
+            "precision": 0.7346938775510204,
+            "recall": 1.0,
+            "f1-score": 0.8470588235294118,
+            "support": 36.0
+          },
+          "train_status": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1-score": 0.9090909090909091,
+            "support": 36.0
+          },
+          "railway_complaint": {
+            "precision": 0.5102040816326531,
+            "recall": 0.6944444444444444,
+            "f1-score": 0.5882352941176471,
+            "support": 36.0
+          },
+          "out_of_scope": {
+            "precision": 0.7045454545454546,
+            "recall": 0.8611111111111112,
+            "f1-score": 0.775,
+            "support": 36.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            20,
+            0,
+            0,
+            11,
+            0,
+            0,
+            0,
+            0,
+            5
+          ],
+          [
+            0,
+            36,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            36,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            29,
+            0,
+            0,
+            0,
+            0,
+            7
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            12,
+            0,
+            0,
+            24,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            36,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            5,
+            0,
+            0,
+            30,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            2,
+            9,
+            0,
+            25,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0,
+            0,
+            31
+          ]
+        ]
+      },
+      "errors": [
+        {
+          "text": "मैं एग्मोर पर हूँ, एयरपोर्ट तक सफर कैसे करूँ?",
+          "expected": "route_query",
+          "predicted": "station_information"
+        },
+        {
+          "text": "मैं एग्मोर पर हूँ, गिंडी तक सफर कैसे करूँ?",
+          "expected": "route_query",
+          "predicted": "station_information"
+        },
+        {
+          "text": "मैं अवडी पर हूँ, गिंडी तक सफर कैसे करूँ?",
+          "expected": "route_query",
+          "predicted": "station_information"
+        },
+        {
+          "text": "एयरपोर्ट तक आने-जाने के रास्ते की जानकारी एग्मोर से चाहिए।",
+          "expected": "route_query",
+          "predicted": "out_of_scope"
+        },
+        {
+          "text": "गिंडी तक आने-जाने के रास्ते की जानकारी एग्मोर से चाहिए।",
+          "expected": "route_query",
+          "predicted": "out_of_scope"
+        },
+        {
+          "text": "एयरपोर्ट तक आने-जाने के रास्ते की जानकारी अवडी से चाहिए।",
+          "expected": "route_query",
+          "predicted": "out_of_scope"
+        },
+        {
+          "text": "कोयंबेडु तक आने-जाने के रास्ते की जानकारी अवडी से चाहिए।",
+          "expected": "route_query",
+          "predicted": "out_of_scope"
+        },
+        {
+          "text": "गिंडी तक आने-जाने के रास्ते की जानकारी अवडी से चाहिए।",
+          "expected": "route_query",
+          "predicted": "out_of_scope"
+        },
+        {
+          "text": "एग्मोर स्टेशन की बुनियादी जानकारी समझाइए।",
+          "expected": "station_information",
+          "predicted": "out_of_scope"
+        },
+        {
+          "text": "तांबरम स्टेशन की बुनियादी जानकारी समझाइए।",
+          "expected": "station_information",
+          "predicted": "out_of_scope"
+        }
+      ]
+    }
+  },
+  "entities": {
+    "method": "canonical gazetteer + Hindi/Hinglish role rules; no learned NER model",
+    "test_rows": 72,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "exact_match": 1.0,
+    "tp": 180,
+    "fp": 0,
+    "fn": 0,
+    "fields": [
+      "origin",
+      "destination",
+      "transport_mode"
+    ],
+    "scope": "Linked synthetic slot dataset; independent of intent prediction, not end-to-end accuracy"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "first_pass_model_manifest_sha256": "f4a6789489e74e68ff38b40db6f64189560225e628abbe3ebf18420a1de0ee39",
+  "reason_for_correction": "Qualitative failures exposed absent scheduled-rail examples and narrow route wording. Added five rail-timing and three varied route scenario pairs without increasing the corpus or changing model hyperparameters.",
+  "first_pass_user_intents": {
+    "tfidf": [
+      {
+        "text": "Guindy se Central kaise jayein?",
+        "expected": "route_query",
+        "predicted": "route_query",
+        "status": "information"
+      },
+      {
+        "text": "Velachery se Park station kaise jayein?",
+        "expected": "route_query",
+        "predicted": "station_information",
+        "status": "clarification"
+      },
+      {
+        "text": "Chennai Central se Mambalam station kaise jau?",
+        "expected": "route_query",
+        "predicted": "station_information",
+        "status": "information"
+      },
+      {
+        "text": "Subah sabse pehle train guindy se chennai central kab hai?",
+        "expected": "service_timing",
+        "predicted": "train_status",
+        "status": "unavailable"
+      }
+    ],
+    "muril_finetuned": [
+      {
+        "text": "Guindy se Central kaise jayein?",
+        "expected": "route_query",
+        "predicted": "route_query",
+        "status": "information"
+      },
+      {
+        "text": "Velachery se Park station kaise jayein?",
+        "expected": "route_query",
+        "predicted": "route_query",
+        "status": "clarification"
+      },
+      {
+        "text": "Chennai Central se Mambalam station kaise jau?",
+        "expected": "route_query",
+        "predicted": "route_query",
+        "status": "clarification"
+      },
+      {
+        "text": "Subah sabse pehle train guindy se chennai central kab hai?",
+        "expected": "service_timing",
+        "predicted": "service_timing",
+        "status": "unavailable"
+      }
+    ]
+  }
+}

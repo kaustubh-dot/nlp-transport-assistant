@@ -1,0 +1,61 @@
+{
+  "labels": [
+    "route_query",
+    "service_availability",
+    "service_timing",
+    "station_information",
+    "accessibility",
+    "ticketing",
+    "train_status",
+    "railway_complaint",
+    "out_of_scope"
+  ],
+  "model": "MuRIL last two encoder layers + nine-class head",
+  "training_mode": "last_two_encoder_layers_and_head",
+  "encoder_checkpoint_sha256": "abac66fc9fa29212c7565117ae326e34f02b64e76dbb177c61e9661517803196",
+  "encoder_patch_path": "models/assets/encoder_last_two.pt",
+  "encoder_patch_sha256": "fca676198ab4cb307b2fb61402dd5c3afe42f8365537e323d87bdd37fcbec49f",
+  "head_path": "models/project/intent_head.pt",
+  "head_sha256": "5751842486e2cd46413d542dfc23b18eba1f4dcca6e17830a3231f7b260a43fd",
+  "dataset_path": "data/project/hindi_intents.csv",
+  "dataset_sha256": "19ee98fac3bc9fde208a3712835eda601e6ff7b397d144a7210ba8fb955727a2",
+  "preprocessing": "raw_query",
+  "max_length": 64,
+  "seed": 42,
+  "pooling": "mean",
+  "epochs": 5,
+  "selected_epoch": 1,
+  "selection": "validation_macro_f1_only",
+  "baseline_path": "models/project/tfidf.pkl",
+  "baseline_sha256": "519f2f629ed81fae6cf3e1b0ae8e434e53f50ee9f032179541ca366ac668421d",
+  "languages": [
+    "hi",
+    "hinglish"
+  ],
+  "encoder_learning_rate": 5e-05,
+  "head_learning_rate": 0.001,
+  "batch_size": 16,
+  "trainable_encoder_layers": [
+    10,
+    11
+  ],
+  "encoder_path": "models/assets/muril_seed_encoder.safetensors",
+  "encoder_sha256": "26de44c0b386130dfbcd088d5f97a9815303ae838f66dd4b36aa78adbd6a4f32",
+  "tokenizer_path": "models/tokenizer",
+  "tokenizer_files": {
+    "config.json": "be7bd5c3ffdc23ce6151d589b6844a9fe488beab2324ac854060ae6ba61fd1af",
+    "vocab.txt": "b96cc938b4009d063a605930cb82aef2c91ee52a94e94e6fcb78510d4ee5310b",
+    "tokenizer_config.json": "0f2c28bab3018be1dff3f9989db82107a21c802250864f4c63e8defaad39025f",
+    "special_tokens_map.json": "88bbdf754dd64c44fff9e61b2c7d4380ded1bdf5c6d386be827ee28d79596cb9"
+  },
+  "asset_release": "https://github.com/kaustubh-dot/nlp-transport-assistant/releases/download/submission-models-v1",
+  "asset_bytes": {
+    "muril_seed_encoder.safetensors": 950247248,
+    "encoder_last_two.pt": 56713146
+  },
+  "encoder_origin": {
+    "model_name": "google/muril-base-cased",
+    "model_revision": "afd9f36c7923d54e97903922ff1b260d091d202f",
+    "prior_training": "Transport fine-tuning, seed 42, selected epoch 22. Original validation had train-family overlap; this is a reused encoder."
+  }
+}

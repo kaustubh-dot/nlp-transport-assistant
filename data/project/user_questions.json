@@ -1,0 +1,47 @@
+{
+  "source": "user_authored_2026_10_12",
+  "purpose": "Four user-supplied qualitative checks. Exact questions are excluded from training. Their failures informed a general training-data coverage correction. Too small and development-exposed to estimate real-user accuracy.",
+  "questions": [
+    {
+      "id": "user_01",
+      "text": "Guindy se Central kaise jayein?",
+      "language": "hinglish",
+      "intent": "route_query",
+      "entities": {
+        "origin": "guindy",
+        "destination": "central"
+      }
+    },
+    {
+      "id": "user_02",
+      "text": "Velachery se Park station kaise jayein?",
+      "language": "hinglish",
+      "intent": "route_query",
+      "entities": {},
+      "coverage": "Both locations are outside the selected gazetteer."
+    },
+    {
+      "id": "user_03",
+      "text": "Chennai Central se Mambalam station kaise jau?",
+      "language": "hinglish",
+      "intent": "route_query",
+      "entities": {
+        "station": "central",
+        "origin": "central"
+      },
+      "coverage": "Mambalam is outside the selected gazetteer."
+    },
+    {
+      "id": "user_04",
+      "text": "Subah sabse pehle train guindy se chennai central kab hai?",
+      "language": "hinglish",
+      "intent": "service_timing",
+      "entities": {
+        "origin": "guindy",
+        "destination": "central",
+        "transport_mode": "rail"
+      },
+      "coverage": "No railway timetable for this pair in the case-study catalog."
+    }
+  ]
+}

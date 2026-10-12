@@ -1,0 +1,1172 @@
+{
+  "source": "ai_authored_evaluation",
+  "human_reviewed": false,
+  "policy": "Exact check questions are excluded from training. The first diagnostic run exposed shortcomings; a later training-data coverage correction added varied route wording and scheduled rail examples. Thus these are development diagnostics, not an independent final holdout. Epoch selection uses only the declared validation partition. Bilingual paired scenarios, not independent people. Labels/slots are AI-authored and need human review.",
+  "fields": [
+    "origin",
+    "destination",
+    "transport_mode",
+    "accessibility_feature",
+    "complaint_type"
+  ],
+  "cases": [
+    {
+      "id": "route_query_0_hi",
+      "scenario_id": "route_query_0",
+      "text": "सेंट्रल उतरने के बाद एयरपोर्ट पहुँचने का रास्ता समझाएँ।",
+      "language": "hi",
+      "intent": "route_query",
+      "entities": {
+        "origin": "central",
+        "destination": "airport"
+      },
+      "status": "information",
+      "record_ids": [
+        "central_airport_metro"
+      ]
+    },
+    {
+      "id": "route_query_0_hinglish",
+      "scenario_id": "route_query_0",
+      "text": "Central utarne ke baad Airport pahunchne ka route samjha dein.",
+      "language": "hinglish",
+      "intent": "route_query",
+      "entities": {
+        "origin": "central",
+        "destination": "airport"
+      },
+      "status": "information",
+      "record_ids": [
+        "central_airport_metro"
+      ]
+    },
+    {
+      "id": "route_query_1_hi",
+      "scenario_id": "route_query_1",
+      "text": "कोयंबेडु तक जाना है। शुरुआत एग्मोर से करूँगा, कैसे पहुँचूँ?",
+      "language": "hi",
+      "intent": "route_query",
+      "entities": {
+        "origin": "egmore",
+        "destination": "koyambedu"
+      },
+      "status": "information",
+      "record_ids": [
+        "egmore_koyambedu_metro"
+      ]
+    },
+    {
+      "id": "route_query_1_hinglish",
+      "scenario_id": "route_query_1",
+      "text": "Koyambedu tak jana h. Shuruaat Egmore se karunga, kaise pahunchu?",
+      "language": "hinglish",
+      "intent": "route_query",
+      "entities": {
+        "origin": "egmore",
+        "destination": "koyambedu"
+      },
+      "status": "information",
+      "record_ids": [
+        "egmore_koyambedu_metro"
+      ]
+    },
+    {
+      "id": "route_query_2_hi",
+      "scenario_id": "route_query_2",
+      "text": "गिंडी से सेंट्रल तक पहुँचने का परिवहन विकल्प समझाइए।",
+      "language": "hi",
+      "intent": "route_query",
+      "entities": {
+        "origin": "guindy",
+        "destination": "central"
+      },
+      "status": "information",
+      "record_ids": [
+        "guindy_central_metro"
+      ]
+    },
+    {
+      "id": "route_query_2_hinglish",
+      "scenario_id": "route_query_2",
+      "text": "Guindy se Central tak pahunchne ka transport option samjhao.",
+      "language": "hinglish",
+      "intent": "route_query",
+      "entities": {
+        "origin": "guindy",
+        "destination": "central"
+      },
+      "status": "information",
+      "record_ids": [
+        "guindy_central_metro"
+      ]
+    },
+    {
+      "id": "route_query_3_hi",
+      "scenario_id": "route_query_3",
+      "text": "अवडी से एयरपोर्ट का पैदल रास्ता बताइए।",
+      "language": "hi",
+      "intent": "route_query",
+      "entities": {
+        "origin": "avadi",
+        "destination": "airport",
+        "transport_mode": "walking"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "route_query_3_hinglish",
+      "scenario_id": "route_query_3",
+      "text": "Avadi se Airport ka walking route bataiye.",
+      "language": "hinglish",
+      "intent": "route_query",
+      "entities": {
+        "origin": "avadi",
+        "destination": "airport",
+        "transport_mode": "walking"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "route_query_4_hi",
+      "scenario_id": "route_query_4",
+      "text": "कोयंबेडु जाना है, आगे की यात्रा समझाइए।",
+      "language": "hi",
+      "intent": "route_query",
+      "entities": {},
+      "status": "clarification",
+      "record_ids": []
+    },
+    {
+      "id": "route_query_4_hinglish",
+      "scenario_id": "route_query_4",
+      "text": "Koyambedu jana hai, aage ka travel samjhaiye.",
+      "language": "hinglish",
+      "intent": "route_query",
+      "entities": {},
+      "status": "clarification",
+      "record_ids": []
+    },
+    {
+      "id": "service_availability_0_hi",
+      "scenario_id": "service_availability_0",
+      "text": "सेंट्रल से कोयंबेडु वाली मेट्रो सेवा मिल जाएगी?",
+      "language": "hi",
+      "intent": "service_availability",
+      "entities": {
+        "origin": "central",
+        "destination": "koyambedu",
+        "transport_mode": "metro"
+      },
+      "status": "information",
+      "record_ids": [
+        "central_koyambedu_metro"
+      ]
+    },
+    {
+      "id": "service_availability_0_hinglish",
+      "scenario_id": "service_availability_0",
+      "text": "Central se Koyambedu wali metro service mil jayegi?",
+      "language": "hinglish",
+      "intent": "service_availability",
+      "entities": {
+        "origin": "central",
+        "destination": "koyambedu",
+        "transport_mode": "metro"
+      },
+      "status": "information",
+      "record_ids": [
+        "central_koyambedu_metro"
+      ]
+    },
+    {
+      "id": "service_availability_1_hi",
+      "scenario_id": "service_availability_1",
+      "text": "तांबरम से गिंडी के लिए बस कनेक्शन मिलता है?",
+      "language": "hi",
+      "intent": "service_availability",
+      "entities": {
+        "origin": "tambaram",
+        "destination": "guindy",
+        "transport_mode": "bus"
+      },
+      "status": "information",
+      "record_ids": [
+        "tambaram_guindy_bus"
+      ]
+    },
+    {
+      "id": "service_availability_1_hinglish",
+      "scenario_id": "service_availability_1",
+      "text": "Tambaram se Guindy ke liye bus connection milta hai?",
+      "language": "hinglish",
+      "intent": "service_availability",
+      "entities": {
+        "origin": "tambaram",
+        "destination": "guindy",
+        "transport_mode": "bus"
+      },
+      "status": "information",
+      "record_ids": [
+        "tambaram_guindy_bus"
+      ]
+    },
+    {
+      "id": "service_availability_2_hi",
+      "scenario_id": "service_availability_2",
+      "text": "एयरपोर्ट तक बस सेवा तांबरम से उपलब्ध होगी?",
+      "language": "hi",
+      "intent": "service_availability",
+      "entities": {
+        "origin": "tambaram",
+        "destination": "airport",
+        "transport_mode": "bus"
+      },
+      "status": "information",
+      "record_ids": [
+        "tambaram_airport_bus"
+      ]
+    },
+    {
+      "id": "service_availability_2_hinglish",
+      "scenario_id": "service_availability_2",
+      "text": "Airport tak bus service Tambaram se available hogi?",
+      "language": "hinglish",
+      "intent": "service_availability",
+      "entities": {
+        "origin": "tambaram",
+        "destination": "airport",
+        "transport_mode": "bus"
+      },
+      "status": "information",
+      "record_ids": [
+        "tambaram_airport_bus"
+      ]
+    },
+    {
+      "id": "service_availability_3_hi",
+      "scenario_id": "service_availability_3",
+      "text": "अवडी और कोयंबेडु के बीच बस उपलब्ध है?",
+      "language": "hi",
+      "intent": "service_availability",
+      "entities": {
+        "origin": "avadi",
+        "destination": "koyambedu",
+        "transport_mode": "bus"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "service_availability_3_hinglish",
+      "scenario_id": "service_availability_3",
+      "text": "Avadi aur Koyambedu ke beech bus available hai?",
+      "language": "hinglish",
+      "intent": "service_availability",
+      "entities": {
+        "origin": "avadi",
+        "destination": "koyambedu",
+        "transport_mode": "bus"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "service_availability_4_hi",
+      "scenario_id": "service_availability_4",
+      "text": "एयरपोर्ट से सेंट्रल के लिए मेट्रो कनेक्शन है?",
+      "language": "hi",
+      "intent": "service_availability",
+      "entities": {
+        "origin": "airport",
+        "destination": "central",
+        "transport_mode": "metro"
+      },
+      "status": "information",
+      "record_ids": [
+        "airport_central_metro"
+      ]
+    },
+    {
+      "id": "service_availability_4_hinglish",
+      "scenario_id": "service_availability_4",
+      "text": "Airport se Central ke liye metro connection hai?",
+      "language": "hinglish",
+      "intent": "service_availability",
+      "entities": {
+        "origin": "airport",
+        "destination": "central",
+        "transport_mode": "metro"
+      },
+      "status": "information",
+      "record_ids": [
+        "airport_central_metro"
+      ]
+    },
+    {
+      "id": "service_timing_0_hi",
+      "scenario_id": "service_timing_0",
+      "text": "सेंट्रल मेट्रो की आखिरी सेवा का प्रकाशित समय क्या था?",
+      "language": "hi",
+      "intent": "service_timing",
+      "entities": {
+        "transport_mode": "metro"
+      },
+      "status": "information",
+      "record_ids": [
+        "central_metro_terminal_window_2024"
+      ]
+    },
+    {
+      "id": "service_timing_0_hinglish",
+      "scenario_id": "service_timing_0",
+      "text": "Central metro ki last service ka published time kya tha?",
+      "language": "hinglish",
+      "intent": "service_timing",
+      "entities": {
+        "transport_mode": "metro"
+      },
+      "status": "information",
+      "record_ids": [
+        "central_metro_terminal_window_2024"
+      ]
+    },
+    {
+      "id": "service_timing_1_hi",
+      "scenario_id": "service_timing_1",
+      "text": "सेंट्रल मेट्रो से सुबह पहली सेवा का समय बताइए।",
+      "language": "hi",
+      "intent": "service_timing",
+      "entities": {
+        "origin": "central",
+        "transport_mode": "metro"
+      },
+      "status": "information",
+      "record_ids": [
+        "central_metro_terminal_window_2024"
+      ]
+    },
+    {
+      "id": "service_timing_1_hinglish",
+      "scenario_id": "service_timing_1",
+      "text": "Central metro se subah first service ka time bataiye.",
+      "language": "hinglish",
+      "intent": "service_timing",
+      "entities": {
+        "origin": "central",
+        "transport_mode": "metro"
+      },
+      "status": "information",
+      "record_ids": [
+        "central_metro_terminal_window_2024"
+      ]
+    },
+    {
+      "id": "service_timing_2_hi",
+      "scenario_id": "service_timing_2",
+      "text": "तांबरम की पहली बस कब रवाना होगी?",
+      "language": "hi",
+      "intent": "service_timing",
+      "entities": {
+        "transport_mode": "bus"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "service_timing_2_hinglish",
+      "scenario_id": "service_timing_2",
+      "text": "Tambaram ki first bus kab rawana hogi?",
+      "language": "hinglish",
+      "intent": "service_timing",
+      "entities": {
+        "transport_mode": "bus"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "service_timing_3_hi",
+      "scenario_id": "service_timing_3",
+      "text": "एग्मोर मेट्रो की आखिरी ट्रेन कितने बजे निकलती है?",
+      "language": "hi",
+      "intent": "service_timing",
+      "entities": {
+        "transport_mode": "metro"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "service_timing_3_hinglish",
+      "scenario_id": "service_timing_3",
+      "text": "Egmore metro ki aakhri train kitne baje nikalti hai?",
+      "language": "hinglish",
+      "intent": "service_timing",
+      "entities": {
+        "transport_mode": "metro"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "service_timing_4_hi",
+      "scenario_id": "service_timing_4",
+      "text": "सेंट्रल से अगली मेट्रो का निर्धारित प्रस्थान बताओ।",
+      "language": "hi",
+      "intent": "service_timing",
+      "entities": {
+        "origin": "central",
+        "transport_mode": "metro"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "service_timing_4_hinglish",
+      "scenario_id": "service_timing_4",
+      "text": "Central se next metro ka scheduled departure batao.",
+      "language": "hinglish",
+      "intent": "service_timing",
+      "entities": {
+        "origin": "central",
+        "transport_mode": "metro"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "station_information_0_hi",
+      "scenario_id": "station_information_0",
+      "text": "सेंट्रल रेलवे स्टेशन के पास बस स्टॉप का नाम जानना है।",
+      "language": "hi",
+      "intent": "station_information",
+      "entities": {
+        "transport_mode": "bus"
+      },
+      "status": "information",
+      "record_ids": [
+        "central"
+      ]
+    },
+    {
+      "id": "station_information_0_hinglish",
+      "scenario_id": "station_information_0",
+      "text": "Central railway station ke paas bus stop ka naam janna hai.",
+      "language": "hinglish",
+      "intent": "station_information",
+      "entities": {
+        "transport_mode": "bus"
+      },
+      "status": "information",
+      "record_ids": [
+        "central"
+      ]
+    },
+    {
+      "id": "station_information_1_hi",
+      "scenario_id": "station_information_1",
+      "text": "तांबरम स्टेशन के नजदीक बस अड्डे का नाम क्या है?",
+      "language": "hi",
+      "intent": "station_information",
+      "entities": {
+        "transport_mode": "bus"
+      },
+      "status": "information",
+      "record_ids": [
+        "tambaram"
+      ]
+    },
+    {
+      "id": "station_information_1_hinglish",
+      "scenario_id": "station_information_1",
+      "text": "Tambaram station ke nazdeek bus stand ka naam kya hai?",
+      "language": "hinglish",
+      "intent": "station_information",
+      "entities": {
+        "transport_mode": "bus"
+      },
+      "status": "information",
+      "record_ids": [
+        "tambaram"
+      ]
+    },
+    {
+      "id": "station_information_2_hi",
+      "scenario_id": "station_information_2",
+      "text": "एग्मोर स्टेशन का सड़क वाला पता बताइए।",
+      "language": "hi",
+      "intent": "station_information",
+      "entities": {},
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "station_information_2_hinglish",
+      "scenario_id": "station_information_2",
+      "text": "Egmore station ka street address bataiye.",
+      "language": "hinglish",
+      "intent": "station_information",
+      "entities": {},
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "station_information_3_hi",
+      "scenario_id": "station_information_3",
+      "text": "अवडी स्टेशन के प्लेटफॉर्म के बारे में जानकारी चाहिए।",
+      "language": "hi",
+      "intent": "station_information",
+      "entities": {},
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "station_information_3_hinglish",
+      "scenario_id": "station_information_3",
+      "text": "Avadi station ke platform ke baare mein information chahiye.",
+      "language": "hinglish",
+      "intent": "station_information",
+      "entities": {},
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "station_information_4_hi",
+      "scenario_id": "station_information_4",
+      "text": "चेन्नई सेंट्रल रेलवे स्टेशन के बारे में परिचय दीजिए।",
+      "language": "hi",
+      "intent": "station_information",
+      "entities": {},
+      "status": "information",
+      "record_ids": [
+        "central"
+      ]
+    },
+    {
+      "id": "station_information_4_hinglish",
+      "scenario_id": "station_information_4",
+      "text": "Chennai Central railway station ke baare mein introduction dijiye.",
+      "language": "hinglish",
+      "intent": "station_information",
+      "entities": {},
+      "status": "information",
+      "record_ids": [
+        "central"
+      ]
+    },
+    {
+      "id": "accessibility_0_hi",
+      "scenario_id": "accessibility_0",
+      "text": "सेंट्रल मेट्रो पर लिफ्ट की सुविधा के बारे में बताइए।",
+      "language": "hi",
+      "intent": "accessibility",
+      "entities": {
+        "transport_mode": "metro",
+        "accessibility_feature": "lift"
+      },
+      "status": "information",
+      "record_ids": [
+        "central_metro_lift"
+      ]
+    },
+    {
+      "id": "accessibility_0_hinglish",
+      "scenario_id": "accessibility_0",
+      "text": "Central metro par lift ki facility ke baare mein bataiye.",
+      "language": "hinglish",
+      "intent": "accessibility",
+      "entities": {
+        "transport_mode": "metro",
+        "accessibility_feature": "lift"
+      },
+      "status": "information",
+      "record_ids": [
+        "central_metro_lift"
+      ]
+    },
+    {
+      "id": "accessibility_1_hi",
+      "scenario_id": "accessibility_1",
+      "text": "सेंट्रल मेट्रो में व्हीलचेयर मिल सकती है?",
+      "language": "hi",
+      "intent": "accessibility",
+      "entities": {
+        "transport_mode": "metro",
+        "accessibility_feature": "wheelchair"
+      },
+      "status": "information",
+      "record_ids": [
+        "central_metro_wheelchair"
+      ]
+    },
+    {
+      "id": "accessibility_1_hinglish",
+      "scenario_id": "accessibility_1",
+      "text": "Central metro mein wheelchair mil sakti hai?",
+      "language": "hinglish",
+      "intent": "accessibility",
+      "entities": {
+        "transport_mode": "metro",
+        "accessibility_feature": "wheelchair"
+      },
+      "status": "information",
+      "record_ids": [
+        "central_metro_wheelchair"
+      ]
+    },
+    {
+      "id": "accessibility_2_hi",
+      "scenario_id": "accessibility_2",
+      "text": "अवडी मेट्रो में व्हीलचेयर उपलब्ध है?",
+      "language": "hi",
+      "intent": "accessibility",
+      "entities": {
+        "transport_mode": "metro",
+        "accessibility_feature": "wheelchair"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "accessibility_2_hinglish",
+      "scenario_id": "accessibility_2",
+      "text": "Avadi metro mein wheelchair available hai?",
+      "language": "hinglish",
+      "intent": "accessibility",
+      "entities": {
+        "transport_mode": "metro",
+        "accessibility_feature": "wheelchair"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "accessibility_3_hi",
+      "scenario_id": "accessibility_3",
+      "text": "एग्मोर मेट्रो में लिफ्ट सहायता की जानकारी चाहिए।",
+      "language": "hi",
+      "intent": "accessibility",
+      "entities": {
+        "transport_mode": "metro",
+        "accessibility_feature": "lift"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "accessibility_3_hinglish",
+      "scenario_id": "accessibility_3",
+      "text": "Egmore metro mein lift assistance ki information chahiye.",
+      "language": "hinglish",
+      "intent": "accessibility",
+      "entities": {
+        "transport_mode": "metro",
+        "accessibility_feature": "lift"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "accessibility_4_hi",
+      "scenario_id": "accessibility_4",
+      "text": "सेंट्रल रेलवे स्टेशन पर व्हीलचेयर सुविधा है?",
+      "language": "hi",
+      "intent": "accessibility",
+      "entities": {
+        "accessibility_feature": "wheelchair"
+      },
+      "status": "clarification",
+      "record_ids": []
+    },
+    {
+      "id": "accessibility_4_hinglish",
+      "scenario_id": "accessibility_4",
+      "text": "Central railway station par wheelchair facility hai?",
+      "language": "hinglish",
+      "intent": "accessibility",
+      "entities": {
+        "accessibility_feature": "wheelchair"
+      },
+      "status": "clarification",
+      "record_ids": []
+    },
+    {
+      "id": "ticketing_0_hi",
+      "scenario_id": "ticketing_0",
+      "text": "सेंट्रल से गिंडी का टिकट लेने की प्रक्रिया बताइए।",
+      "language": "hi",
+      "intent": "ticketing",
+      "entities": {
+        "origin": "central",
+        "destination": "guindy"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "ticketing_0_hinglish",
+      "scenario_id": "ticketing_0",
+      "text": "Central se Guindy ka ticket lene ki process bataiye.",
+      "language": "hinglish",
+      "intent": "ticketing",
+      "entities": {
+        "origin": "central",
+        "destination": "guindy"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "ticketing_1_hi",
+      "scenario_id": "ticketing_1",
+      "text": "बस के मासिक पास का आवेदन कैसे करूँ?",
+      "language": "hi",
+      "intent": "ticketing",
+      "entities": {
+        "transport_mode": "bus"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "ticketing_1_hinglish",
+      "scenario_id": "ticketing_1",
+      "text": "Bus ke monthly pass ka application kaise karun?",
+      "language": "hinglish",
+      "intent": "ticketing",
+      "entities": {
+        "transport_mode": "bus"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "ticketing_2_hi",
+      "scenario_id": "ticketing_2",
+      "text": "मेरे मेट्रो टिकट का भुगतान अटक गया है।",
+      "language": "hi",
+      "intent": "ticketing",
+      "entities": {
+        "transport_mode": "metro"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "ticketing_2_hinglish",
+      "scenario_id": "ticketing_2",
+      "text": "Mere metro ticket ka payment atak gaya hai.",
+      "language": "hinglish",
+      "intent": "ticketing",
+      "entities": {
+        "transport_mode": "metro"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "ticketing_3_hi",
+      "scenario_id": "ticketing_3",
+      "text": "रेल टिकट आरक्षित करना है, तरीका बता दीजिए।",
+      "language": "hi",
+      "intent": "ticketing",
+      "entities": {
+        "transport_mode": "rail"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "ticketing_3_hinglish",
+      "scenario_id": "ticketing_3",
+      "text": "Rail ticket reserve karna hai, tareeka bata dijiye.",
+      "language": "hinglish",
+      "intent": "ticketing",
+      "entities": {
+        "transport_mode": "rail"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "ticketing_4_hi",
+      "scenario_id": "ticketing_4",
+      "text": "तांबरम से एयरपोर्ट की बस के टिकट का दाम क्या होगा?",
+      "language": "hi",
+      "intent": "ticketing",
+      "entities": {
+        "origin": "tambaram",
+        "destination": "airport",
+        "transport_mode": "bus"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "ticketing_4_hinglish",
+      "scenario_id": "ticketing_4",
+      "text": "Tambaram se Airport ki bus ke ticket ka daam kya hoga?",
+      "language": "hinglish",
+      "intent": "ticketing",
+      "entities": {
+        "origin": "tambaram",
+        "destination": "airport",
+        "transport_mode": "bus"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "train_status_0_hi",
+      "scenario_id": "train_status_0",
+      "text": "मेरी रेलगाड़ी अभी किस जगह पहुँची है?",
+      "language": "hi",
+      "intent": "train_status",
+      "entities": {
+        "transport_mode": "rail"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "train_status_0_hinglish",
+      "scenario_id": "train_status_0",
+      "text": "Meri railgadi abhi kis jagah pahunchi hai?",
+      "language": "hinglish",
+      "intent": "train_status",
+      "entities": {
+        "transport_mode": "rail"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "train_status_1_hi",
+      "scenario_id": "train_status_1",
+      "text": "सेंट्रल की ट्रेन निर्धारित समय से कितनी देर पीछे है?",
+      "language": "hi",
+      "intent": "train_status",
+      "entities": {
+        "transport_mode": "rail"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "train_status_1_hinglish",
+      "scenario_id": "train_status_1",
+      "text": "Central ki train scheduled time se kitni der peeche hai?",
+      "language": "hinglish",
+      "intent": "train_status",
+      "entities": {
+        "transport_mode": "rail"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "train_status_2_hi",
+      "scenario_id": "train_status_2",
+      "text": "एग्मोर आने वाली ट्रेन की आज की स्थिति चाहिए।",
+      "language": "hi",
+      "intent": "train_status",
+      "entities": {
+        "transport_mode": "rail"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "train_status_2_hinglish",
+      "scenario_id": "train_status_2",
+      "text": "Egmore aane wali train ka aaj ka status chahiye.",
+      "language": "hinglish",
+      "intent": "train_status",
+      "entities": {
+        "transport_mode": "rail"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "train_status_3_hi",
+      "scenario_id": "train_status_3",
+      "text": "मेरी ट्रेन आज निरस्त हुई क्या?",
+      "language": "hi",
+      "intent": "train_status",
+      "entities": {
+        "transport_mode": "rail"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "train_status_3_hinglish",
+      "scenario_id": "train_status_3",
+      "text": "Meri train aaj cancel hui kya?",
+      "language": "hinglish",
+      "intent": "train_status",
+      "entities": {
+        "transport_mode": "rail"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "train_status_4_hi",
+      "scenario_id": "train_status_4",
+      "text": "रेलगाड़ी अब तक नहीं पहुँची, देरी की जानकारी बताओ।",
+      "language": "hi",
+      "intent": "train_status",
+      "entities": {
+        "transport_mode": "rail"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "train_status_4_hinglish",
+      "scenario_id": "train_status_4",
+      "text": "Railgadi ab tak nahi pahunchi, delay ki information batao.",
+      "language": "hinglish",
+      "intent": "train_status",
+      "entities": {
+        "transport_mode": "rail"
+      },
+      "status": "unavailable",
+      "record_ids": []
+    },
+    {
+      "id": "railway_complaint_0_hi",
+      "scenario_id": "railway_complaint_0",
+      "text": "रेलगाड़ी के शौचालय में गंदगी की समस्या है।",
+      "language": "hi",
+      "intent": "railway_complaint",
+      "entities": {
+        "transport_mode": "rail",
+        "complaint_type": "cleanliness"
+      },
+      "status": "information",
+      "record_ids": []
+    },
+    {
+      "id": "railway_complaint_0_hinglish",
+      "scenario_id": "railway_complaint_0",
+      "text": "Railgadi ke toilet mein gandagi ki problem hai.",
+      "language": "hinglish",
+      "intent": "railway_complaint",
+      "entities": {
+        "transport_mode": "rail",
+        "complaint_type": "cleanliness"
+      },
+      "status": "information",
+      "record_ids": []
+    },
+    {
+      "id": "railway_complaint_1_hi",
+      "scenario_id": "railway_complaint_1",
+      "text": "ट्रेन के डिब्बे में पानी की आपूर्ति रुक गई है।",
+      "language": "hi",
+      "intent": "railway_complaint",
+      "entities": {
+        "transport_mode": "rail",
+        "complaint_type": "water"
+      },
+      "status": "information",
+      "record_ids": []
+    },
+    {
+      "id": "railway_complaint_1_hinglish",
+      "scenario_id": "railway_complaint_1",
+      "text": "Train ke compartment mein paani ki supply ruk gayi hai.",
+      "language": "hinglish",
+      "intent": "railway_complaint",
+      "entities": {
+        "transport_mode": "rail",
+        "complaint_type": "water"
+      },
+      "status": "information",
+      "record_ids": []
+    },
+    {
+      "id": "railway_complaint_2_hi",
+      "scenario_id": "railway_complaint_2",
+      "text": "रेलवे कर्मचारी का व्यवहार खराब था, शिकायत करनी है।",
+      "language": "hi",
+      "intent": "railway_complaint",
+      "entities": {
+        "transport_mode": "rail",
+        "complaint_type": "staff"
+      },
+      "status": "information",
+      "record_ids": []
+    },
+    {
+      "id": "railway_complaint_2_hinglish",
+      "scenario_id": "railway_complaint_2",
+      "text": "Railway staff ka behaviour kharab tha, complaint karni hai.",
+      "language": "hinglish",
+      "intent": "railway_complaint",
+      "entities": {
+        "transport_mode": "rail",
+        "complaint_type": "staff"
+      },
+      "status": "information",
+      "record_ids": []
+    },
+    {
+      "id": "railway_complaint_3_hi",
+      "scenario_id": "railway_complaint_3",
+      "text": "ट्रेन में भोजन की गुणवत्ता से शिकायत है।",
+      "language": "hi",
+      "intent": "railway_complaint",
+      "entities": {
+        "transport_mode": "rail",
+        "complaint_type": "food"
+      },
+      "status": "information",
+      "record_ids": []
+    },
+    {
+      "id": "railway_complaint_3_hinglish",
+      "scenario_id": "railway_complaint_3",
+      "text": "Train mein food ki quality se complaint hai.",
+      "language": "hinglish",
+      "intent": "railway_complaint",
+      "entities": {
+        "transport_mode": "rail",
+        "complaint_type": "food"
+      },
+      "status": "information",
+      "record_ids": []
+    },
+    {
+      "id": "railway_complaint_4_hi",
+      "scenario_id": "railway_complaint_4",
+      "text": "रेल के कोच की खिड़की खराब है।",
+      "language": "hi",
+      "intent": "railway_complaint",
+      "entities": {
+        "transport_mode": "rail",
+        "complaint_type": "coach_facility"
+      },
+      "status": "information",
+      "record_ids": []
+    },
+    {
+      "id": "railway_complaint_4_hinglish",
+      "scenario_id": "railway_complaint_4",
+      "text": "Rail ke coach ki khidki kharab hai.",
+      "language": "hinglish",
+      "intent": "railway_complaint",
+      "entities": {
+        "transport_mode": "rail",
+        "complaint_type": "coach_facility"
+      },
+      "status": "information",
+      "record_ids": []
+    },
+    {
+      "id": "out_of_scope_0_hi",
+      "scenario_id": "out_of_scope_0",
+      "text": "आज कौन सा क्रिकेट मैच है?",
+      "language": "hi",
+      "intent": "out_of_scope",
+      "entities": {},
+      "status": "out_of_scope",
+      "record_ids": []
+    },
+    {
+      "id": "out_of_scope_0_hinglish",
+      "scenario_id": "out_of_scope_0",
+      "text": "Aaj kaunsa cricket match hai?",
+      "language": "hinglish",
+      "intent": "out_of_scope",
+      "entities": {},
+      "status": "out_of_scope",
+      "record_ids": []
+    },
+    {
+      "id": "out_of_scope_1_hi",
+      "scenario_id": "out_of_scope_1",
+      "text": "पौधों को पानी देने का तरीका समझाओ।",
+      "language": "hi",
+      "intent": "out_of_scope",
+      "entities": {},
+      "status": "out_of_scope",
+      "record_ids": []
+    },
+    {
+      "id": "out_of_scope_1_hinglish",
+      "scenario_id": "out_of_scope_1",
+      "text": "Paudhon ko paani dene ka tareeka samjhao.",
+      "language": "hinglish",
+      "intent": "out_of_scope",
+      "entities": {},
+      "status": "out_of_scope",
+      "record_ids": []
+    },
+    {
+      "id": "out_of_scope_2_hi",
+      "scenario_id": "out_of_scope_2",
+      "text": "एक छोटी कहानी सुनाइए।",
+      "language": "hi",
+      "intent": "out_of_scope",
+      "entities": {},
+      "status": "out_of_scope",
+      "record_ids": []
+    },
+    {
+      "id": "out_of_scope_2_hinglish",
+      "scenario_id": "out_of_scope_2",
+      "text": "Ek chhoti kahani sunaiye.",
+      "language": "hinglish",
+      "intent": "out_of_scope",
+      "entities": {},
+      "status": "out_of_scope",
+      "record_ids": []
+    },
+    {
+      "id": "out_of_scope_3_hi",
+      "scenario_id": "out_of_scope_3",
+      "text": "चेन्नई का मौसम कैसा रहेगा?",
+      "language": "hi",
+      "intent": "out_of_scope",
+      "entities": {},
+      "status": "out_of_scope",
+      "record_ids": []
+    },
+    {
+      "id": "out_of_scope_3_hinglish",
+      "scenario_id": "out_of_scope_3",
+      "text": "Chennai ka mausam kaisa rahega?",
+      "language": "hinglish",
+      "intent": "out_of_scope",
+      "entities": {},
+      "status": "out_of_scope",
+      "record_ids": []
+    },
+    {
+      "id": "out_of_scope_4_hi",
+      "scenario_id": "out_of_scope_4",
+      "text": "सेंट्रल पर मेरे फोन का इंटरनेट नहीं चल रहा। फोन ठीक करने में मदद करो।",
+      "language": "hi",
+      "intent": "out_of_scope",
+      "entities": {},
+      "status": "out_of_scope",
+      "record_ids": []
+    },
+    {
+      "id": "out_of_scope_4_hinglish",
+      "scenario_id": "out_of_scope_4",
+      "text": "Central par mere phone ka internet nahi chal raha. Phone theek karne mein help karo.",
+      "language": "hinglish",
+      "intent": "out_of_scope",
+      "entities": {},
+      "status": "out_of_scope",
+      "record_ids": []
+    }
+  ]
+}

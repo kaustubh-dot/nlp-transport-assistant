@@ -1,0 +1,296 @@
+{
+  "scope": "Four railway context stations and three selected destinations; static academic case study, including both directions of selected metro links",
+  "checked_on": "2026-10-12",
+  "sources": {
+    "canonical": "data/canonical/transit/canonical_transport.db",
+    "central_metro": "https://chennaimetrorail.org/station-information/puratchi-thalaivar-dr-m-g-ramachandran-central-metro/",
+    "metro_map": "https://chennaimetrorail.org/wp-content/uploads/2023/11/Line-Map.pdf",
+    "community_gtfs": "https://github.com/ungalsoththu/ChennaiGTFS",
+    "cmrl_weekday_2024": "https://chennaimetrorail.org/wp-content/uploads/2024/10/Press-Release-16.10.2024-English.pdf",
+    "metro_timetable_page": "https://wcag.chennaimetrorail.org/time-table/",
+    "southern_railway_mrts": "https://sr.indianrailways.gov.in/uploads/files/1345106736152-MRTS%20WEEK.pdf",
+    "guindy_metro": "https://chennaimetrorail.org/station-information/guindy/"
+  },
+  "locations": [
+    {
+      "id": "central",
+      "name_hi": "चेन्नई सेंट्रल",
+      "name_en": "Chennai Central",
+      "aliases": [
+        "चेन्नई सेंट्रल",
+        "चेन्नई सेन्ट्रल",
+        "सेंट्रल",
+        "chennai central",
+        "central"
+      ],
+      "rail_id": "RAIL_CHENNAI_CENTRAL",
+      "metro_id": "METRO_PURATCHI_THALAIVAR_DR__M_G_RAMACHANDRAN_CENTRAL",
+      "nearby_bus_id": "BUS_2486226649",
+      "nearby_bus_name": "Chennai Central Railway Station",
+      "boarding_candidates": [
+        {"entity_id": "BUS_83", "canonical_name": "Mgr Central Or Rajiv Gandhi Government General Hospital", "kind": "stop", "mode": "bus"}
+      ],
+      "origin": true
+    },
+    {
+      "id": "egmore",
+      "name_hi": "चेन्नई एग्मोर",
+      "name_en": "Chennai Egmore",
+      "aliases": [
+        "चेन्नई एग्मोर",
+        "एग्मोर",
+        "एगमोर",
+        "chennai egmore",
+        "egmore"
+      ],
+      "rail_id": "RAIL_CHENNAI_EGMORE",
+      "metro_id": "METRO_EGMORE",
+      "nearby_bus_id": "BUS_355550113",
+      "nearby_bus_name": "Egmore Station",
+      "origin": true
+    },
+    {
+      "id": "tambaram",
+      "name_hi": "तांबरम",
+      "name_en": "Tambaram",
+      "aliases": [
+        "तांबरम",
+        "ताम्बरम",
+        "तंबारम",
+        "tambaram"
+      ],
+      "rail_id": "RAIL_TAMBARAM",
+      "nearby_bus_id": "BUS_340088810",
+      "nearby_bus_name": "Tambaram MTC Terminus",
+      "origin": true
+    },
+    {
+      "id": "avadi",
+      "name_hi": "अवडी",
+      "name_en": "Avadi",
+      "aliases": [
+        "अवडी",
+        "आवडी",
+        "avadi"
+      ],
+      "rail_id": "RAIL_AVADI",
+      "origin": true
+    },
+    {
+      "id": "airport",
+      "name_hi": "चेन्नई एयरपोर्ट",
+      "name_en": "Chennai Airport",
+      "aliases": [
+        "चेन्नई एयरपोर्ट",
+        "एयरपोर्ट",
+        "हवाई अड्डा",
+        "chennai airport",
+        "airport"
+      ],
+      "metro_id": "METRO_CHENNAI_INTERNATIONAL_AIRPORT"
+    },
+    {
+      "id": "koyambedu",
+      "name_hi": "कोयंबेडु",
+      "name_en": "Koyambedu",
+      "aliases": [
+        "कोयंबेडु",
+        "कोयम्बेडु",
+        "koyambedu",
+        "koyembedu"
+      ],
+      "metro_id": "METRO_KOYAMBEDU"
+    },
+    {
+      "id": "guindy",
+      "name_hi": "गिंडी",
+      "name_en": "Guindy",
+      "aliases": [
+        "गिंडी",
+        "गिन्डी",
+        "guindy",
+        "gindi"
+      ],
+      "metro_id": "METRO_GUINDY"
+    }
+  ],
+  "nearby_transport_facts": [
+    {
+      "id": "guindy_metro_published_bus_stops",
+      "anchor_stop_id": "METRO_GUINDY",
+      "target_mode": "bus",
+      "stop_names": ["Guindy Industrial Estate Bus Stand", "Guindy Race Course Bus Stop"],
+      "source": "guindy_metro",
+      "checked_on": "2026-10-12",
+      "scope": "official_station_entrance_access_list_not_verified_walk_route_or_nearest_distance"
+    }
+  ],
+  "journey_guidance": [
+    {
+      "id": "central_velachery_mrts_guidance",
+      "origin_location": "central",
+      "destination_stop_id": "MRTS_VELACHERY",
+      "mode": "mrts",
+      "accepted_modes": ["mrts", "rail"],
+      "boarding_stop_id": "RAIL_CHENNAI_PARK_TOWN",
+      "source": "southern_railway_mrts",
+      "scope": "published_line_guidance_separate_boarding_station_not_verified_transfer",
+      "checked_on": "2026-10-12",
+      "description_hi": "सेंट्रल से वेलाचेरी के लिए एक रेल विकल्प: चेन्नई पार्क टाउन MRTS स्टेशन से वेलाचेरी की दिशा वाली सेवा। Southern Railway के प्रकाशित MRTS रिकॉर्ड में पार्क टाउन और वेलाचेरी एक ही लाइन पर हैं। सेंट्रल और पार्क टाउन अलग स्टेशन हैं; पार्क टाउन तक पहुँच और आज की सेवा/समय मौके पर जाँचें। यह वर्तमान प्रस्थान या सत्यापित पैदल मार्ग नहीं है।",
+      "description_hinglish": "Central se Velachery ke liye ek rail option: Chennai Park Town MRTS station se Velachery ki direction wali service. Southern Railway ke published MRTS record mein Park Town aur Velachery ek hi line par hain. Central aur Park Town alag stations hain; Park Town tak pahunch aur aaj ki service/time locally check karein. Yeh current departure ya verified walking route nahi hai."
+    },
+    {
+      "id": "velachery_central_mrts_guidance",
+      "origin_stop_id": "MRTS_VELACHERY",
+      "destination_location": "central",
+      "mode": "mrts",
+      "accepted_modes": ["mrts", "rail"],
+      "alighting_stop_id": "RAIL_CHENNAI_PARK_TOWN",
+      "source": "southern_railway_mrts",
+      "scope": "published_line_guidance_separate_alighting_station_not_verified_transfer",
+      "checked_on": "2026-10-12",
+      "description_hi": "वेलाचेरी से सेंट्रल के लिए एक रेल विकल्प: वेलाचेरी से चेन्नई बीच की दिशा वाली MRTS सेवा में पार्क टाउन तक जाएँ। Southern Railway के प्रकाशित रिकॉर्ड में यह लाइन कनेक्शन दर्ज है। पार्क टाउन और सेंट्रल अलग स्टेशन हैं; पार्क टाउन से सेंट्रल तक पहुँच और आज की सेवा/समय मौके पर जाँचें। यह वर्तमान प्रस्थान या सत्यापित पैदल मार्ग नहीं है।",
+      "description_hinglish": "Velachery se Central ke liye ek rail option: Velachery se Chennai Beach ki direction wali MRTS service mein Park Town tak jaayein. Southern Railway ke published record mein yeh line connection recorded hai. Park Town aur Central alag stations hain; Park Town se Central tak pahunch aur aaj ki service/time locally check karein. Yeh current departure ya verified walking route nahi hai."
+    }
+  ],
+  "connections": [
+    {
+      "origin": "central",
+      "destination": "airport",
+      "mode": "metro",
+      "line_hi": "ब्लू लाइन",
+      "source": "central_metro",
+      "note_hi": "यह मेट्रो नेटवर्क की प्रकाशित कनेक्टिविटी है, लाइव ट्रेन या पूरे रेलवे-से-मेट्रो पैदल मार्ग की पुष्टि नहीं।",
+      "id": "central_airport_metro"
+    },
+    {
+      "origin": "central",
+      "destination": "koyambedu",
+      "mode": "metro",
+      "line_hi": "ग्रीन लाइन",
+      "source": "metro_map",
+      "note_hi": "यह प्रकाशित मेट्रो मानचित्र की कनेक्टिविटी है; रेलवे स्टेशन से पहुँच अलग से जाँचें।",
+      "id": "central_koyambedu_metro"
+    },
+    {
+      "origin": "egmore",
+      "destination": "koyambedu",
+      "mode": "metro",
+      "line_hi": "ग्रीन लाइन",
+      "source": "metro_map",
+      "note_hi": "यह एग्मोर मेट्रो से कनेक्टिविटी है; रेलवे-से-मेट्रो पहुँच की सुविधा की पुष्टि नहीं।",
+      "id": "egmore_koyambedu_metro"
+    },
+    {
+      "origin": "central",
+      "destination": "guindy",
+      "mode": "metro",
+      "line_hi": "ब्लू लाइन",
+      "source": "metro_map",
+      "note_hi": "यह प्रकाशित मेट्रो मानचित्र की कनेक्टिविटी है, लाइव सेवा की पुष्टि नहीं।",
+      "id": "central_guindy_metro"
+    },
+    {
+      "origin": "airport",
+      "destination": "central",
+      "mode": "metro",
+      "line_hi": "ब्लू लाइन",
+      "source": "metro_map",
+      "note_hi": "यह प्रकाशित मेट्रो मानचित्र पर दोनों दिशाओं की कनेक्टिविटी का रिकॉर्ड है, लाइव सेवा या रेलवे-से-मेट्रो पैदल पहुँच की पुष्टि नहीं।",
+      "id": "airport_central_metro"
+    },
+    {
+      "origin": "koyambedu",
+      "destination": "central",
+      "mode": "metro",
+      "line_hi": "ग्रीन लाइन",
+      "source": "metro_map",
+      "note_hi": "यह प्रकाशित मेट्रो मानचित्र पर दोनों दिशाओं की कनेक्टिविटी का रिकॉर्ड है, लाइव सेवा या रेलवे-से-मेट्रो पैदल पहुँच की पुष्टि नहीं।",
+      "id": "koyambedu_central_metro"
+    },
+    {
+      "origin": "koyambedu",
+      "destination": "egmore",
+      "mode": "metro",
+      "line_hi": "ग्रीन लाइन",
+      "source": "metro_map",
+      "note_hi": "यह प्रकाशित मेट्रो मानचित्र पर दोनों दिशाओं की कनेक्टिविटी का रिकॉर्ड है, लाइव सेवा या रेलवे-से-मेट्रो पैदल पहुँच की पुष्टि नहीं।",
+      "id": "koyambedu_egmore_metro"
+    },
+    {
+      "origin": "guindy",
+      "destination": "central",
+      "mode": "metro",
+      "line_hi": "ब्लू लाइन",
+      "source": "metro_map",
+      "note_hi": "यह प्रकाशित मेट्रो मानचित्र पर दोनों दिशाओं की कनेक्टिविटी का रिकॉर्ड है, लाइव सेवा या रेलवे-से-मेट्रो पैदल पहुँच की पुष्टि नहीं।",
+      "id": "guindy_central_metro"
+    },
+    {
+      "id": "tambaram_guindy_bus",
+      "origin": "tambaram",
+      "destination": "guindy",
+      "mode": "bus",
+      "route_name": "51A",
+      "route_id": "GTFS_ROUTE_14515",
+      "direction_id": 1,
+      "boarding_stop_id": "BUS_6662",
+      "alighting_stop_id": "BUS_9005",
+      "boarding_stop": "Tambaram East Bus Stop",
+      "alighting_stop": "Guindy Railway Station",
+      "source": "community_gtfs",
+      "snapshot": "data/canonical/transit/canonical_transport.db",
+      "note_hi": "यह समुदाय GTFS के स्थानीय स्नैपशॉट का स्टॉप-क्रम है। वर्तमान सेवा, स्टेशन से पैदल पहुँच और सुगम्यता की पुष्टि नहीं; बस स्टॉप और सेवा मौके पर जाँचें।"
+    },
+    {
+      "id": "tambaram_airport_bus",
+      "origin": "tambaram",
+      "destination": "airport",
+      "mode": "bus",
+      "route_name": "55K CT1",
+      "route_id": "GTFS_ROUTE_19246",
+      "direction_id": 1,
+      "boarding_stop_id": "BUS_6693",
+      "alighting_stop_id": "METRO_AIRPORT",
+      "boarding_stop": "Tambaram West Bus Stand",
+      "alighting_stop": "Airport Metro",
+      "source": "community_gtfs",
+      "snapshot": "data/canonical/transit/canonical_transport.db",
+      "note_hi": "यह समुदाय GTFS के स्थानीय स्नैपशॉट का स्टॉप-क्रम है, वर्तमान बस सेवा की पुष्टि नहीं। Airport Metro स्टॉप को एयरपोर्ट टर्मिनल तक पूरी यात्रा न मानें।"
+    }
+  ],
+  "accessibility": [
+    {
+      "location": "central",
+      "mode": "metro",
+      "feature": "lift",
+      "description_hi": "सेंट्रल मेट्रो के आधिकारिक स्टेशन पृष्ठ पर सड़क, कॉन्कोर्स और प्लेटफॉर्म के बीच लिफ्ट सूचीबद्ध हैं। वर्तमान चालू स्थिति स्टेशन पर जाँचें।",
+      "source": "central_metro",
+      "id": "central_metro_lift"
+    },
+    {
+      "location": "central",
+      "mode": "metro",
+      "feature": "wheelchair",
+      "description_hi": "सेंट्रल मेट्रो के आधिकारिक स्टेशन पृष्ठ पर व्हीलचेयर सुविधा सूचीबद्ध है। उपलब्धता के लिए स्टेशन कर्मचारियों से पुष्टि करें।",
+      "source": "central_metro",
+      "id": "central_metro_wheelchair"
+    }
+  ],
+  "timings": [
+    {
+      "id": "central_metro_terminal_window_2024",
+      "location": "central",
+      "mode": "metro",
+      "line_hi": "ग्रीन लाइन",
+      "type": "terminal_service_window",
+      "first_service": "05:00",
+      "last_service": "23:00",
+      "published_on": "2024-10-16",
+      "day_type": "weekday",
+      "source": "cmrl_weekday_2024",
+      "current_timetable_source": "metro_timetable_page",
+      "note_hi": "यह 16 अक्टूबर 2024 के CMRL प्रकाशन का पुराना उदाहरण है। इसे आज का समय या किसी खास गंतव्य की पहली/आखिरी ट्रेन न मानें; वर्तमान आधिकारिक समय-सारणी जाँचें।"
+    }
+  ]
+}

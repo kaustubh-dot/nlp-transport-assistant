@@ -1,0 +1,7 @@
+# Optional MuRIL comparison and training. Install CPU PyTorch first; see README.
+-r requirements.txt
+torch==2.6.0
+transformers==5.17.0
+tokenizers==0.23.2
+huggingface-hub==1.32.0
+safetensors==0.8.0

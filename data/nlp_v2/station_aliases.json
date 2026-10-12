@@ -1,0 +1,155 @@
+{
+  "CHENNAI_CENTRAL": {
+    "canonical_name_en": "Chennai Central",
+    "canonical_name_hi": "चेन्नई सेंट्रल",
+    "aliases": [
+      "चेन्नई सेंट्रल",
+      "सेंट्रल",
+      "एमजीआर सेंट्रल",
+      "मद्रास सेंट्रल",
+      "puratchi thalaivar dr mgr central",
+      "chennai central",
+      "central",
+      "mgr central"
+    ]
+  },
+  "CHENNAI_EGMORE": {
+    "canonical_name_en": "Chennai Egmore",
+    "canonical_name_hi": "चेन्नई एग्मोर",
+    "aliases": [
+      "चेन्नई एग्मोर",
+      "एग्मोर",
+      "एगमोर",
+      "chennai egmore",
+      "egmore"
+    ]
+  },
+  "CHENNAI_AIRPORT": {
+    "canonical_name_en": "Chennai Airport",
+    "canonical_name_hi": "चेन्नई एयरपोर्ट",
+    "aliases": [
+      "चेन्नई एयरपोर्ट",
+      "एयरपोर्ट",
+      "हवाई अड्डा",
+      "मीनम्बाक्कम एयरपोर्ट",
+      "chennai airport",
+      "airport",
+      "meenambakkam airport"
+    ]
+  },
+  "KOYAMBEDU": {
+    "canonical_name_en": "Koyambedu",
+    "canonical_name_hi": "कोयम्बेडु",
+    "aliases": [
+      "कोयम्बेडु",
+      "कोयम्बेडू",
+      "कोयम्बेडु मेट्रो",
+      "koyambedu",
+      "koyambedu metro",
+      "koyambedu market"
+    ]
+  },
+  "CMBT": {
+    "canonical_name_en": "CMBT",
+    "canonical_name_hi": "सीएमबीटी",
+    "aliases": [
+      "सीएमबीटी",
+      "सीएमबीटी मेट्रो",
+      "cmbt",
+      "cmbt metro",
+      "puratchi thalaivi dr j jayalalithaa cmbt"
+    ]
+  },
+  "GUINDY": {
+    "canonical_name_en": "Guindy",
+    "canonical_name_hi": "गिंडी",
+    "aliases": [
+      "गिंडी",
+      "गुइंडी",
+      "गिंडी स्टेशन",
+      "गिंडी मेट्रो",
+      "guindy",
+      "guindy station",
+      "guindy metro"
+    ]
+  },
+  "ALANDUR": {
+    "canonical_name_en": "Alandur",
+    "canonical_name_hi": "आलंदूर",
+    "aliases": [
+      "आलंदूर",
+      "अलनदूर",
+      "आलंदुर",
+      "आलंदूर मेट्रो",
+      "alandur",
+      "alandur metro"
+    ]
+  },
+  "VADAPALANI": {
+    "canonical_name_en": "Vadapalani",
+    "canonical_name_hi": "वडापलानी",
+    "aliases": [
+      "वडापलानी",
+      "वडापलानी मेट्रो",
+      "vadapalani",
+      "vadapalani metro"
+    ]
+  },
+  "SHENOY_NAGAR": {
+    "canonical_name_en": "Shenoy Nagar",
+    "canonical_name_hi": "शेनॉय नगर",
+    "aliases": [
+      "शेनॉय नगर",
+      "शेनॉय नगर मेट्रो",
+      "shenoy nagar",
+      "shenoy nagar metro"
+    ]
+  },
+  "NANDANAM": {
+    "canonical_name_en": "Nandanam",
+    "canonical_name_hi": "नंदनम",
+    "aliases": [
+      "नंदनम",
+      "नंदनम मेट्रो",
+      "टी नगर मेट्रो",
+      "nandanam",
+      "nandanam metro",
+      "t nagar metro"
+    ]
+  },
+  "WASHERMANPET": {
+    "canonical_name_en": "Washermanpet",
+    "canonical_name_hi": "वाशरमैनपेट",
+    "aliases": [
+      "वाशरमैनपेट",
+      "वाशरमैनपेट मेट्रो",
+      "washermanpet",
+      "washermanpet metro"
+    ]
+  },
+  "WIMCO_NAGAR": {
+    "canonical_name_en": "Wimco Nagar",
+    "canonical_name_hi": "विमको नगर",
+    "aliases": [
+      "विमको नगर",
+      "विमको नगर डिपो",
+      "विमको नगर मेट्रो",
+      "wimco nagar",
+      "wimco nagar depot",
+      "wimco nagar metro"
+    ]
+  },
+  "ST_THOMAS_MOUNT": {
+    "canonical_name_en": "St. Thomas Mount",
+    "canonical_name_hi": "सेंट थॉमस माउंट",
+    "aliases": [
+      "सेंट थॉमस माउंट",
+      "थॉमस माउंट",
+      "सेंट थॉमस माउंट मेट्रो",
+      "st thomas mount",
+      "st. thomas mount",
+      "thomas mount",
+      "st thomas mount metro"
+    ]
+  }
+}

@@ -1,34 +1,23 @@
-# Architecture
+# Project architecture
 
-The application has one NLP entry point: `src.nlp_v2.assistant.T3Assistant`.
+The demo runs in one Streamlit process through `app/streamlit_app.py`.
 
 ```text
-Streamlit UI → local HTTP API → T3Assistant
-                                ├─ selected MuRIL intent classifier
-                                ├─ deterministic text/slot extraction
-                                ├─ canonical entity resolver
-                                ├─ semantic validation and dispatch
-                                └─ read-only canonical transit service
+Hindi or Hinglish question
+    -> nine-intent classifier
+    -> canonical name matching and slot extraction
+    -> curated facts or read-only canonical lookup
+    -> Hindi or Hinglish answer, intent, slots and sources
 ```
 
-The model reads the original multilingual question. Extraction normalizes a separate copy, resolves canonical names and reviewed aliases, and preserves explicit mode, time, route and exclusion constraints. Ambiguous entities, missing execution slots, unsupported constraints and multiple goals produce bounded clarification or unavailable responses.
+`src/hindi_project/model.py` loads the bundled TF-IDF baseline or the local MuRIL encoder, adapted layers and nine-class head. `encoder.py` uses the saved tokenizer and checks model-file hashes. Large assets are prepared by `scripts/prepare_models.py`; the baseline imports no PyTorch or Transformers modules. MuRIL uses attention-masked mean pooling and raw questions truncated to 64 tokens. Display language changes response rendering and leaves model input intact. Scores are uncalibrated model outputs.
 
-The 16 intent labels cover point-to-point and multimodal routes; first/last service, frequency and scheduled departures; route sequences and stop membership; mode availability; fares and ticketing; facilities, accessibility and interchanges; nearest transport; realtime requests; and out-of-scope questions. A label's existence does not guarantee source coverage. The [manifest](models/nlp_v2_t3_manifest.json) defines the fixed label order and model-loading contract.
+`locations.py` builds the name index from the canonical SQLite snapshot and stored aliases. `assistant.py` extracts Hindi `से` and Hinglish `se` roles, station qualifiers, target modes and information types. The seven curated locations are example IDs. Typed queries can use other database names. Station context applies only to explicit references such as `इस स्टेशन` and `is station`.
 
-`src/nlp_v2/domain.py` queries [canonical_transport.db](data/canonical/transit/canonical_transport.db) through read-only SQLite connections. Responses include source evidence, dates and coverage limits where applicable. Routing uses published directional stop sequences; nearest-stop distances are geometric. The reviewed alias catalog is [reviewed_name_aliases_v1.json](data/nlp_v2/reviewed_name_aliases_v1.json). `src/entity_extractor.py` supplies a shared gazetteer and `src/normalization.py` supplies text normalization.
+`lookup.py` returns bounded published route options without selecting an ambiguous physical station silently. The shared modules in `src/nlp_v2/` supply canonical name resolution, slot rules, operation/result types and SQLite transport lookups. They remain because the academic assistant uses them. The retired API, earlier chat renderer and original intent classifier are absent from the submission.
 
-## API contract
+Answers retain source boundaries. Railway/Metro qualifiers identify the anchor independently of a nearby target mode. Cross-source coordinate conflicts prevent unreliable distances. Central/Velachery MRTS guidance identifies Park Town as a separate station and leaves access and current service unverified. Missing schedules, facilities and walking paths remain unavailable. The database is read without mutation.
 
-`python -m app.api` starts the single-threaded local server on `127.0.0.1:8765`. It loads the exact selected checkpoint and pinned tokenizer/config before serving; a missing or invalid asset fails startup.
+The interface keeps editable drafts, quick examples, five recent submitted questions, source-linked answers and a compact NLP panel. Comparison uses the last submitted question and its saved station context. A changed draft or setting leaves the old result labeled until submission. The fixed Hindi-Tamil phrasebook does not alter model input.
 
-- `GET /health` reports T3 readiness.
-- `POST /api/v2/query` accepts a nonempty `query` and optional `transport_mode` in a JSON body of at most 8,192 bytes.
-- Assistant statuses are `ok`, `clarification`, `unavailable`, `out_of_scope` and `error`.
-- Public replies carry `outcome_reason`, `response_text`, `intent`, `operation`, `slots`, `data`, `missing_slots`, `clarification_reason`, `candidate_entities` and `candidate_intents`, alongside `status`. Validation/availability errors have a smaller safe envelope.
-- Raw/normalized questions, model confidence and exception details are omitted from the response.
-
-## Frontend
-
-`app/streamlit_app.py` calls the API through `app/frontend_contract.py`. `app/frontend_language.py` provides English, Hindi and Hinglish presentation, and `app/transit_theme.html` supplies the visual theme. History, drafts, the selected mode and accepted request state survive UI reruns and language changes. Questions are sent unchanged; display language does not select a different model. An explicit question mode takes priority over the selected default.
-
-See [model setup](docs/MODEL_SETUP.md), [data sources](DATA_SOURCES.md) and [known limitations](docs/KNOWN_LIMITATIONS.md).
+Training adapts only encoder layers 10 and 11 and the head, selecting an epoch by validation macro F1. Dataset generation, training and diagnostic evaluation are in `scripts/nlp_v2/`. The manifest records file hashes and settings. Classification, slot and pipeline metrics remain separate; synthetic data and development-exposed diagnostics do not establish passenger accuracy.

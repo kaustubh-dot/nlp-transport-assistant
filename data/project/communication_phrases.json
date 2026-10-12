@@ -1,0 +1,32 @@
+[
+  {
+    "hindi": "क्या यह बस एयरपोर्ट जाएगी?",
+    "tamil": "இந்த பேருந்து விமான நிலையத்திற்குச் செல்லுமா?",
+    "use_case": "बस का गंतव्य पूछना",
+    "hinglish": "Kya yeh bus Airport jayegi?"
+  },
+  {
+    "hindi": "रेलवे स्टेशन कहाँ है?",
+    "tamil": "ரயில் நிலையம் எங்கே உள்ளது?",
+    "use_case": "रेलवे स्टेशन पूछना",
+    "hinglish": "Railway station kahan hai?"
+  },
+  {
+    "hindi": "मेट्रो स्टेशन कहाँ है?",
+    "tamil": "மெட்ரோ நிலையம் எங்கே உள்ளது?",
+    "use_case": "मेट्रो स्टेशन पूछना",
+    "hinglish": "Metro station kahan hai?"
+  },
+  {
+    "hindi": "मुझे मदद चाहिए।",
+    "tamil": "எனக்கு உதவி வேண்டும்.",
+    "use_case": "सहायता माँगना",
+    "hinglish": "Mujhe madad chahiye."
+  },
+  {
+    "hindi": "क्या यहाँ लिफ्ट है?",
+    "tamil": "இங்கே மின்தூக்கி உள்ளதா?",
+    "use_case": "लिफ्ट पूछना",
+    "hinglish": "Kya yahan lift hai?"
+  }
+]
